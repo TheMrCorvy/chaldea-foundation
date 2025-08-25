@@ -1,8 +1,8 @@
 {
-    "name": "strapi",
+    "name": "chaldea-foundation-center",
     "private": true,
     "version": "0.1.0",
-    "description": "A Strapi application",
+    "description": "Chaldea Foundation Center - Strapi CMS Application",
     "scripts": {
         "develop": "strapi develop",
         "start": "strapi start",
@@ -31,7 +31,7 @@
         "name": "A Strapi developer"
     },
     "strapi": {
-        "uuid": "strapi-app"
+        "uuid": "chaldea-foundation-center"
     },
     "engines": {
         "node": ">=18.0.0 <=22.x.x",

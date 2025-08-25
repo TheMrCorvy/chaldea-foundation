@@ -7,11 +7,11 @@ A Turborepo monorepo project with TypeScript, Prettier, ESLint, and Strapi CMS.
 ```
 .
 ├── apps/
-│   └── strapi/          # Strapi CMS application
+│   └── chaldea-foundation-center/  # Strapi CMS application
 ├── packages/
-│   ├── eslint-config/   # Shared ESLint configurations
-│   └── typescript-config/ # Shared TypeScript configurations
-└── turbo.json           # Turborepo configuration
+│   ├── eslint-config/              # Shared ESLint configurations
+│   └── typescript-config/           # Shared TypeScript configurations
+└── turbo.json                       # Turborepo configuration
 ```
 
 ## Prerequisites
@@ -96,18 +96,18 @@ ESLint is configured with:
 
 ## Apps
 
-### Strapi CMS
+### Chaldea Foundation Center (Strapi CMS)
 
-The Strapi application is configured with:
+The Chaldea Foundation Center application is configured with:
 
 - TypeScript support
 - MySQL database
 - Default port: 1337
 
-To run Strapi individually:
+To run the Chaldea Foundation Center individually:
 
 ```bash
-cd apps/strapi
+cd apps/chaldea-foundation-center
 npm run develop
 ```
 
