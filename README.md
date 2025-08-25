@@ -1,91 +1,114 @@
-# Turborepo starter
+# Chaldea Foundation
 
-This Turborepo starter is maintained by the Turborepo core team.
+A Turborepo monorepo project with TypeScript, Prettier, ESLint, and Strapi CMS.
 
-## Using this example
+## Project Structure
 
-Run the following command:
-
-```sh
-npx create-turbo@latest
+```
+.
+├── apps/
+│   └── strapi/          # Strapi CMS application
+├── packages/
+│   ├── eslint-config/   # Shared ESLint configurations
+│   └── typescript-config/ # Shared TypeScript configurations
+└── turbo.json           # Turborepo configuration
 ```
 
-## What's inside?
+## Prerequisites
 
-This Turborepo includes the following packages/apps:
+- Node.js (>= 18.0.0, <= 22.x.x)
+- npm (>= 6.0.0)
+- MySQL server running on localhost:3306
 
-### Apps and Packages
+## Database Setup
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+Make sure you have MySQL running locally with:
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- Host: localhost
+- Port: 3306
+- Database: chaldea_foundation
+- Username: root
+- Password: (empty)
 
-### Utilities
+You can create the database with:
 
-This Turborepo has some additional tools already setup for you:
+```sql
+CREATE DATABASE IF NOT EXISTS chaldea_foundation;
+```
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## Installation
+
+```bash
+npm install
+```
+
+## Development
+
+To run all apps in development mode:
+
+```bash
+npm run dev
+```
 
 ### Build
 
 To build all apps and packages, run the following command:
 
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+```bash
+npm run build
 ```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## Linting & Formatting
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+```bash
+# Run ESLint
+npm run lint
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+# Run Prettier
+npm run format
 ```
 
-### Develop
+## Git Hooks
 
-To develop all apps and packages, run the following command:
+This project uses Husky for git hooks:
 
-```
-cd my-turborepo
+- **pre-commit**: Runs ESLint and Prettier on staged files
+- **pre-push**: Runs build check and tests (if available)
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+## Configuration
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+### Prettier
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+The project uses Prettier with the following configuration:
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+- Tab width: 4 spaces
+- Semicolons: true
+- Single quotes: false
+- Trailing comma: ES5
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
+### ESLint
+
+ESLint is configured with:
+
+- TypeScript support
+- Prettier integration
+- Turbo plugin for monorepo support
+
+## Apps
+
+### Strapi CMS
+
+The Strapi application is configured with:
+
+- TypeScript support
+- MySQL database
+- Default port: 1337
+
+To run Strapi individually:
+
+```bash
+cd apps/strapi
+npm run develop
 ```
 
 ### Remote Caching
@@ -123,6 +146,20 @@ yarn exec turbo link
 pnpm exec turbo link
 ```
 
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Ensure linting and formatting pass
+4. Commit your changes (hooks will run automatically)
+5. Push your branch (build check will run)
+6. Create a pull request
+
+## Remote Repository
+
+This project is configured to push to:
+https://github.com/TheMrCorvy/chaldea-foundation.git
+
 ## Useful Links
 
 Learn more about the power of Turborepo:
@@ -133,3 +170,7 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
 - [Configuration Options](https://turborepo.com/docs/reference/configuration)
 - [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+
+## License
+
+MIT
