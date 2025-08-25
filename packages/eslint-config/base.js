@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
+import prettierPlugin from "eslint-plugin-prettier";
 import turboPlugin from "eslint-plugin-turbo";
 import tseslint from "typescript-eslint";
 import onlyWarn from "eslint-plugin-only-warn";
@@ -10,23 +11,31 @@ import onlyWarn from "eslint-plugin-only-warn";
  * @type {import("eslint").Linter.Config[]}
  * */
 export const config = [
-  js.configs.recommended,
-  eslintConfigPrettier,
-  ...tseslint.configs.recommended,
-  {
-    plugins: {
-      turbo: turboPlugin,
+    js.configs.recommended,
+    eslintConfigPrettier,
+    ...tseslint.configs.recommended,
+    {
+        plugins: {
+            turbo: turboPlugin,
+            prettier: prettierPlugin,
+        },
+        rules: {
+            "turbo/no-undeclared-env-vars": "warn",
+            "prettier/prettier": "error",
+        },
     },
-    rules: {
-      "turbo/no-undeclared-env-vars": "warn",
+    {
+        plugins: {
+            onlyWarn,
+        },
     },
-  },
-  {
-    plugins: {
-      onlyWarn,
+    {
+        ignores: [
+            "dist/**",
+            "node_modules/**",
+            ".turbo/**",
+            ".strapi/**",
+            ".tmp/**",
+        ],
     },
-  },
-  {
-    ignores: ["dist/**"],
-  },
 ];

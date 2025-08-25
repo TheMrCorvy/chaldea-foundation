@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running build check..."
+npm run build
+
+# Run tests if they exist
+if npm run | grep -q "test"; then
+  echo "Running tests..."
+  npm test
+fi

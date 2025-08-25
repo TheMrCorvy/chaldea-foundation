@@ -36,3 +36,15 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# TypeScript
+*.tsbuildinfo
+
+# Strapi specific
+.strapi
+.tmp
+.cache
+exports
+*.cache
+.strapi-updater.json
+.strapi-cloud.json
