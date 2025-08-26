@@ -9,7 +9,7 @@
         "check-types": "turbo run check-types",
         "prepare": "husky",
         "test": "turbo run test --filter='!chaldea-foundation-center'",
-        "test:coverage": "turbo test:coverage",
+        "test:coverage": "turbo test:coverage --filter='!chaldea-foundation-center'",
         "clean": "turbo clean"
     },
     "devDependencies": {
