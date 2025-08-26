@@ -1,0 +1,16 @@
+{
+    "name": "@repo/type-definitions",
+    "exports": {
+        "./rooms": {
+            "types": "./src/rooms/index.ts",
+            "default": "./src/rooms/index.ts"
+        },
+        ".": {
+            "types": "./src/index.ts",
+            "default": "./src/index.ts"
+        }
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "*"
+    }
+}
