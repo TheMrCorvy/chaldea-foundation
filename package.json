@@ -27,5 +27,8 @@
     "workspaces": [
         "apps/*",
         "packages/*"
-    ]
+    ],
+    "dependencies": {
+        "@strapi/strapi": "^5.23.0"
+    }
 }
