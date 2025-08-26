@@ -16,6 +16,17 @@
         "dev": {
             "cache": false,
             "persistent": true
+        },
+        "test": {
+            "dependsOn": ["^build"],
+            "inputs": ["$TURBO_DEFAULT$", ".env*"]
+        },
+        "test:coverage": {
+            "dependsOn": ["^build"],
+            "inputs": ["$TURBO_DEFAULT$", ".env*"]
+        },
+        "clean": {
+            "cache": false
         }
     }
 }

@@ -7,7 +7,10 @@
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
         "check-types": "turbo run check-types",
-        "prepare": "husky"
+        "prepare": "husky",
+        "test": "turbo run test --filter='!chaldea-foundation-center'",
+        "test:coverage": "turbo test:coverage",
+        "clean": "turbo clean"
     },
     "devDependencies": {
         "esbuild": "^0.25.9",
