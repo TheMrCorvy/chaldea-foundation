@@ -1,0 +1,45 @@
+{
+    "kind": "collectionType",
+    "collectionName": "directories",
+    "info": {
+        "singularName": "directory",
+        "pluralName": "directories",
+        "displayName": "B - Directory",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "display_name": {
+            "type": "text",
+            "required": true
+        },
+        "directory_path": {
+            "type": "text",
+            "private": true,
+            "required": true,
+            "unique": true
+        },
+        "anime_episodes": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::anime-episode.anime-episode"
+        },
+        "adult": {
+            "type": "boolean",
+            "default": false
+        },
+        "parent_directory": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::directory.directory"
+        },
+        "sub_directories": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::directory.directory"
+        }
+    }
+}

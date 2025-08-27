@@ -2,7 +2,7 @@
     "name": "chaldea-foundation-center",
     "version": "0.1.0",
     "private": true,
-    "description": "A Strapi application",
+    "description": "The core and engine that powers all my personal apps.",
     "scripts": {
         "build": "strapi build",
         "console": "strapi console",
@@ -17,6 +17,7 @@
         "test:coverage": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
+        "@strapi/email": "^5.23.1",
         "@strapi/plugin-cloud": "5.23.0",
         "@strapi/plugin-users-permissions": "5.23.0",
         "@strapi/strapi": "5.23.0",
@@ -36,9 +37,5 @@
     "engines": {
         "node": ">=18.0.0 <=22.x.x",
         "npm": ">=6.0.0"
-    },
-    "strapi": {
-        "uuid": "c09f6bbd-bfee-4d70-98f1-531007eb0424",
-        "installId": "82f2cde87e287d82fd60c798ad39840374946e2a32dab5c7f069ff77d8c22055"
     }
 }

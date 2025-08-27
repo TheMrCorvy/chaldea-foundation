@@ -1,0 +1,29 @@
+{
+    "kind": "collectionType",
+    "collectionName": "register_tokens",
+    "info": {
+        "singularName": "register-token",
+        "pluralName": "register-tokens",
+        "displayName": "B - Register Token",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "token": {
+            "type": "string",
+            "required": true
+        },
+        "user": {
+            "type": "string",
+            "required": true
+        },
+        "used": {
+            "type": "boolean",
+            "default": false,
+            "required": true
+        }
+    }
+}

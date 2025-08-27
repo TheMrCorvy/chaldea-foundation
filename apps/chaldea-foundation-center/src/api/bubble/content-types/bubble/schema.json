@@ -1,0 +1,31 @@
+{
+    "kind": "collectionType",
+    "collectionName": "bubbles",
+    "info": {
+        "singularName": "bubble",
+        "pluralName": "bubbles",
+        "displayName": "P - Bubble"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "display_name": {
+            "type": "string",
+            "required": true,
+            "private": true
+        },
+        "universe": {
+            "type": "integer"
+        },
+        "franchises": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::franchise.franchise"
+        },
+        "description": {
+            "type": "richtext"
+        }
+    }
+}
