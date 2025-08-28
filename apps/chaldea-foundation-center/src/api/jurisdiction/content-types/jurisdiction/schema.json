@@ -1,0 +1,32 @@
+{
+    "kind": "collectionType",
+    "collectionName": "jurisdictions",
+    "info": {
+        "singularName": "jurisdiction",
+        "pluralName": "jurisdictions",
+        "displayName": "P - Universe",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "god_in_charge": {
+            "type": "string",
+            "required": true
+        },
+        "status": {
+            "type": "boolean",
+            "required": true
+        },
+        "description": {
+            "type": "richtext"
+        },
+        "jurisdiction": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::bubble.bubble"
+        }
+    }
+}

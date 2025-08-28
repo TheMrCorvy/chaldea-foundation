@@ -1,0 +1,32 @@
+{
+    "kind": "collectionType",
+    "collectionName": "franchises",
+    "info": {
+        "singularName": "franchise",
+        "pluralName": "franchises",
+        "displayName": "P - Franchise"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "display_name": {
+            "type": "string",
+            "required": true,
+            "unique": true,
+            "private": true
+        },
+        "position_in_timeline": {
+            "type": "float"
+        },
+        "original": {
+            "type": "boolean"
+        },
+        "anime": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::anime.anime"
+        }
+    }
+}
