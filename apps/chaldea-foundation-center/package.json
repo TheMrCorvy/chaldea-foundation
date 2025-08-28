@@ -12,15 +12,12 @@
         "start": "strapi start",
         "strapi": "strapi",
         "upgrade": "npx @strapi/upgrade latest",
-        "upgrade:dry": "npx @strapi/upgrade latest --dry",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "test:coverage": "echo \"Error: no test specified\" && exit 1"
+        "upgrade:dry": "npx @strapi/upgrade latest --dry"
     },
     "dependencies": {
-        "@strapi/email": "^5.23.1",
-        "@strapi/plugin-cloud": "5.23.0",
-        "@strapi/plugin-users-permissions": "5.23.0",
-        "@strapi/strapi": "5.23.0",
+        "@strapi/plugin-cloud": "5.23.1",
+        "@strapi/plugin-users-permissions": "5.23.1",
+        "@strapi/strapi": "5.23.1",
         "mysql2": "3.9.8",
         "react": "^18.0.0",
         "react-dom": "^18.0.0",
@@ -31,12 +28,14 @@
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
-        "esbuild": "^0.25.9",
-        "husky": "^9.1.7",
         "typescript": "^5"
     },
     "engines": {
         "node": ">=18.0.0 <=22.x.x",
         "npm": ">=6.0.0"
+    },
+    "strapi": {
+        "uuid": "ce4033b7-bfb0-4b71-8503-3b6501766e76",
+        "installId": "0ca58b64e427624d06b9155a7b1356317b7dd57ebd308472c4d69d5067802c4f"
     }
 }

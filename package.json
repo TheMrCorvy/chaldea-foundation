@@ -31,5 +31,8 @@
     "dependencies": {
         "@strapi/strapi": "^5.23.0",
         "uuid": "^11.1.0"
+    },
+    "overrides": {
+        "@types/react": "^19.1.2"
     }
 }
