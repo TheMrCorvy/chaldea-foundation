@@ -126,7 +126,7 @@ const validateRegisterToken: ValidateRegisterToken = async (req) => {
     if (mockedResponse !== undefined) {
         response = mockedResponse;
     } else {
-        response = registerTokens["404"];
+        response = registerTokens["404"] as ValidateRegisterTokenResponse;
     }
 
     return (await Promise.resolve(response)) as ValidateRegisterTokenResponse;
@@ -159,7 +159,7 @@ const invalidateRegisterToken: InvalidateRegisterToken = async (req) => {
     if (mockedResponse !== undefined) {
         response = mockedResponse;
     } else {
-        response = registerTokens["404"];
+        response = registerTokens["404"] as ValidateRegisterTokenResponse;
     }
 
     return (await Promise.resolve(response)) as InvalidateRegisterTokenResponse;

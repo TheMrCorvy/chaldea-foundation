@@ -12,7 +12,7 @@ interface DirectoryLink {
     url: string;
 }
 
-interface Props {
+export interface Props {
     directories: DirectoryLink[];
 }
 

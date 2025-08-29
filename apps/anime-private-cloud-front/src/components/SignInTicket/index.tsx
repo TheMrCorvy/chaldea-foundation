@@ -5,7 +5,7 @@ import Invitation from "./Invitation";
 import QrCode from "./QrCode";
 import { RegisterToken } from "@/types/StrapiSDK";
 
-interface Props {
+export interface Props {
     isRegisterForm?: boolean;
     registerToken?: RegisterToken;
     error?: string;

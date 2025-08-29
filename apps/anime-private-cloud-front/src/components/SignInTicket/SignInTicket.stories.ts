@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import SignInTicket from ".";
 import { registerTokens } from "@/mocks/mockedResponses";
-import { RegisterToken } from "@/types/StrapiSDK";
+import {
+    RegisterToken,
+    ValidateRegisterTokenResponse,
+} from "@/types/StrapiSDK";
 
 const meta = {
     title: "Components/SignInTicket",
@@ -24,11 +27,12 @@ export const LoginVersion: Story = {
     args: {},
 };
 
-const token = registerTokens["1"].data as RegisterToken[];
+const token = registerTokens["1"] as ValidateRegisterTokenResponse;
+const data = token.data as RegisterToken[];
 
 export const RegisterVersion: Story = {
     args: {
         isRegisterForm: true,
-        registerToken: token[0] as RegisterToken,
+        registerToken: data[0] as RegisterToken,
     },
 };

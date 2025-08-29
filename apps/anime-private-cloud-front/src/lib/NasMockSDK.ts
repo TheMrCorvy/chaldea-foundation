@@ -46,7 +46,7 @@ export default class NasMockSDK {
         }
 
         const [startStr, endStr] = range.replace(/bytes=/, "").split("-");
-        const start = parseInt(startStr, 10);
+        const start = parseInt(startStr || "0", 10);
         const end = endStr ? parseInt(endStr, 10) : fileMetadata.size - 1;
 
         if (start >= fileMetadata.size || end >= fileMetadata.size) {

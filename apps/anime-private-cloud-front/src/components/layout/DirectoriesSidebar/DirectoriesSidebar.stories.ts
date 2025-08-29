@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DirectoriesSidebar from ".";
+import DirectoriesSidebar, { Props } from ".";
 import { mockedDirectories } from "@/mocks/sidebarMocks";
 
 const meta = {

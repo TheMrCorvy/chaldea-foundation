@@ -5,7 +5,7 @@ import { FC, useState, useEffect } from "react";
 import { Link } from "@nextui-org/link";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
 
-interface Props {
+export interface Props {
     url: string;
     label: string;
     maxLength?: number;

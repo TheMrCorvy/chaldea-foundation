@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import MainContainer from ".";
+import MainContainer, { Props } from ".";
 import MockedContent from "@/mocks/contentForContainer";
 
 const meta = {

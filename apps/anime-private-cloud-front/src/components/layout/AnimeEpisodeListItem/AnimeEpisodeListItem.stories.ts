@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import AnimeEpisodeListItem from ".";
+import AnimeEpisodeListItem, { Props } from ".";
 
 const meta = {
     title: "Layout/AnimeEpisodeListItem",
@@ -7,10 +7,10 @@ const meta = {
     parameters: {
         layout: "centered",
     },
-} satisfies Meta<typeof AnimeEpisodeListItem>;
+} satisfies Meta<Props>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Default: Story = {
     args: {

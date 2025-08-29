@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 
-interface Props {
+export interface Props {
     children: ReactElement;
 }
 

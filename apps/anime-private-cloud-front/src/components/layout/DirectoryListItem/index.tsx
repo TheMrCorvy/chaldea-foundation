@@ -6,7 +6,7 @@ import { Divider, Tooltip, Link } from "@nextui-org/react";
 import WarningLine from "@/components/icons/WarningLine";
 import Folder from "@/components/icons/Folder";
 
-interface Props {
+export interface Props {
     displayName: string;
     directoryId: string;
     isAdult?: boolean;

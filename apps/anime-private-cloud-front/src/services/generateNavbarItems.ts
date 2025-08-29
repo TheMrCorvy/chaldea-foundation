@@ -20,7 +20,7 @@ const generateNavbarItems = () => {
     if (
         userObject?.role.type === RoleTypes.ANIME_PAGE_ADMIN &&
         navbarItems.findIndex(
-            (item) => item.items[0].href === WebRoutes.animesWatched
+            (item) => item.items?.[0]?.href === WebRoutes.animesWatched
         ) === -1
     ) {
         navbarItems.splice(1, 0, newLink);

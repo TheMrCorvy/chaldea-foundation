@@ -1,4 +1,4 @@
-import {
+import React, {
     AnchorHTMLAttributes,
     ClassAttributes,
     ImgHTMLAttributes,
@@ -28,7 +28,7 @@ export const mockUseRouter = {
 export const mockNextImage = {
     __esModule: true,
     default: (
-        props: JSX.IntrinsicAttributes &
+        props: React.JSX.IntrinsicAttributes &
             ClassAttributes<HTMLImageElement> &
             ImgHTMLAttributes<HTMLImageElement>
     ) => <img {...props} />,
@@ -37,7 +37,7 @@ export const mockNextImage = {
 export const mockNextLink = {
     __esModule: true,
     default: (
-        props: JSX.IntrinsicAttributes &
+        props: React.JSX.IntrinsicAttributes &
             ClassAttributes<HTMLAnchorElement> &
             AnchorHTMLAttributes<HTMLAnchorElement>
     ) => <a {...props} role="link" />,

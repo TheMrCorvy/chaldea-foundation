@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DirectoryListItem from ".";
+import DirectoryListItem, { Props } from ".";
 
 const meta = {
     title: "Layout/DirectoryListItem",

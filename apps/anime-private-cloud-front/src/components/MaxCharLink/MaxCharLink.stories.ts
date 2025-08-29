@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import MaxCharLink from ".";
+import MaxCharLink, { Props } from ".";
 
 const meta = {
     title: "Components/MaxCharLink",

@@ -7,7 +7,7 @@ import { WebRoutes } from "@/utils/routes";
 import { Card, CardHeader } from "@nextui-org/react";
 import Video from "@/components/icons/Video";
 
-interface Props {
+export interface Props {
     episodeId: string;
     displayName: string;
 }
