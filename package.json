@@ -18,7 +18,13 @@
         "lint-staged": "^15.3.0",
         "prettier": "^3.6.2",
         "turbo": "^2.5.6",
-        "typescript": "5.9.2"
+        "typescript": "5.9.2",
+        "@eslint/js": "^9.31.0",
+        "@typescript-eslint/eslint-plugin": "^8.38.0",
+        "@typescript-eslint/parser": "^8.38.0",
+        "eslint": "^9.31.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.3"
     },
     "engines": {
         "node": ">=18"
@@ -34,5 +40,14 @@
     },
     "overrides": {
         "@types/react": "^19.1.2"
+    },
+    "lint-staged": {
+        "src/**/*.{ts,js}": [
+            "eslint --fix",
+            "prettier --check"
+        ],
+        "*.{json,md}": [
+            "prettier --check"
+        ]
     }
 }
