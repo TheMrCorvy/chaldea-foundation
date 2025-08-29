@@ -5,6 +5,12 @@
     "description": "The core and engine that powers all my personal apps.",
     "scripts": {
         "build": "strapi build",
+        "clean": "rm -rf dist",
+        "prebuild": "npm run clean",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "lint": "eslint src/**/*.ts",
+        "lint:fix": "eslint src/**/*.ts --fix",
         "console": "strapi console",
         "deploy": "strapi deploy",
         "dev": "strapi develop",
