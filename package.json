@@ -11,7 +11,8 @@
         "prepare": "husky",
         "test": "turbo run test --filter='!chaldea-foundation-center'",
         "test:coverage": "turbo test:coverage --filter='!chaldea-foundation-center'",
-        "clean": "turbo clean"
+        "clean": "turbo clean",
+        "start": "turbo run start"
     },
     "devDependencies": {
         "esbuild": "^0.25.9",
