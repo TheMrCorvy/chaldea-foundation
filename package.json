@@ -12,21 +12,24 @@
         "test": "turbo run test --filter='!chaldea-foundation-center'",
         "test:coverage": "turbo test:coverage --filter='!chaldea-foundation-center'",
         "clean": "turbo clean",
-        "start": "turbo run start"
+        "start": "turbo run start",
+        "generate:sdk": "cd apps/chaldea-foundation-center && npm run strapi openapi generate -- --output ../../temp/spec.json && cd ../.. && npx openapi-typescript-codegen -i ./temp/spec.json -o ./packages/platform-service-sdk/generated-sdk --client fetch && rm -rf ./temp",
+        "patch:sdk-types": "node ./scripts/patch-sdk.config.js",
+        "generate:mock-sdk": "node scripts/generate-mock-sdk.js"
     },
     "devDependencies": {
+        "@eslint/js": "^9.31.0",
+        "@typescript-eslint/eslint-plugin": "^8.38.0",
+        "@typescript-eslint/parser": "^8.38.0",
         "esbuild": "^0.25.9",
+        "eslint": "^9.31.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.3",
         "husky": "^9.1.7",
         "lint-staged": "^15.3.0",
         "prettier": "^3.6.2",
         "turbo": "^2.5.6",
-        "typescript": "5.9.2",
-        "@eslint/js": "^9.31.0",
-        "@typescript-eslint/eslint-plugin": "^8.38.0",
-        "@typescript-eslint/parser": "^8.38.0",
-        "eslint": "^9.31.0",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-prettier": "^5.5.3"
+        "typescript": "5.9.2"
     },
     "engines": {
         "node": ">=18"
@@ -38,6 +41,7 @@
     ],
     "dependencies": {
         "@strapi/strapi": "^5.23.0",
+        "openapi-typescript-codegen": "^0.29.0",
         "uuid": "^11.1.0"
     },
     "overrides": {
