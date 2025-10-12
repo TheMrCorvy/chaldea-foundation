@@ -5,13 +5,31 @@
         "build": {
             "dependsOn": ["^build"],
             "inputs": ["$TURBO_DEFAULT$", ".env*"],
-            "outputs": [".next/**", "!.next/cache/**", "dist/**", "build/**"]
+            "outputs": [".next/**", "!.next/cache/**", "dist/**", "build/**"],
+            "env": [
+                "PORT",
+                "FEATURE_FLAGS",
+                "LAYERS_AVAILABLE",
+                "CONSUME_STRAPI_DATA"
+            ]
         },
         "lint": {
-            "dependsOn": ["^lint"]
+            "dependsOn": ["^lint"],
+            "env": [
+                "PORT",
+                "FEATURE_FLAGS",
+                "LAYERS_AVAILABLE",
+                "CONSUME_STRAPI_DATA"
+            ]
         },
         "check-types": {
-            "dependsOn": ["^check-types"]
+            "dependsOn": ["^check-types"],
+            "env": [
+                "PORT",
+                "FEATURE_FLAGS",
+                "LAYERS_AVAILABLE",
+                "CONSUME_STRAPI_DATA"
+            ]
         },
         "dev": {
             "cache": false,
@@ -19,18 +37,42 @@
         },
         "test": {
             "dependsOn": ["^build"],
-            "inputs": ["$TURBO_DEFAULT$", ".env*"]
+            "inputs": ["$TURBO_DEFAULT$", ".env*"],
+            "env": [
+                "PORT",
+                "FEATURE_FLAGS",
+                "LAYERS_AVAILABLE",
+                "CONSUME_STRAPI_DATA"
+            ]
         },
         "test:coverage": {
             "dependsOn": ["^build"],
-            "inputs": ["$TURBO_DEFAULT$", ".env*"]
+            "inputs": ["$TURBO_DEFAULT$", ".env*"],
+            "env": [
+                "PORT",
+                "FEATURE_FLAGS",
+                "LAYERS_AVAILABLE",
+                "CONSUME_STRAPI_DATA"
+            ]
         },
         "clean": {
-            "cache": false
+            "cache": false,
+            "env": [
+                "PORT",
+                "FEATURE_FLAGS",
+                "LAYERS_AVAILABLE",
+                "CONSUME_STRAPI_DATA"
+            ]
         },
         "start": {
             "dependsOn": ["build"],
-            "cache": false
+            "cache": false,
+            "env": [
+                "PORT",
+                "FEATURE_FLAGS",
+                "LAYERS_AVAILABLE",
+                "CONSUME_STRAPI_DATA"
+            ]
         }
     }
 }
