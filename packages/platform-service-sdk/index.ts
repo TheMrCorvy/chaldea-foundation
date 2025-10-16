@@ -1,21 +1,10 @@
-// Import all services from the REAL SDK
 import * as Real from "./generated-sdk";
 
-// Import all mock services from the MOCK SDK
 import * as Mock from "./generated-mock-sdk";
-
-// Re-export all the common types and core utilities from the real SDK.
-// These are needed by the application regardless of which implementation is used.
-// export * from "./generated-sdk";
-
-// --- Conditional Service Export ---
 
 let services;
 
-// This check is the key. Bundlers like Vite and Next.js can use this
-// to perform "tree-shaking" and remove the unused SDK from the final bundle.
 if (process.env.CONSUME_STRAPI_DATA === "true") {
-    console.log("🚀 Using REAL Strapi SDK");
     services = {
         AnimeEpisodeService: Real.AnimeEpisodeService,
         AnimeService: Real.AnimeService,
@@ -36,7 +25,6 @@ if (process.env.CONSUME_STRAPI_DATA === "true") {
         WorldService: Real.WorldService,
     };
 } else {
-    console.log(" MOCKING Strapi SDK");
     services = {
         AnimeEpisodeService: Mock.MockAnimeEpisodeService,
         AnimeService: Mock.MockAnimeService,
@@ -58,7 +46,6 @@ if (process.env.CONSUME_STRAPI_DATA === "true") {
     };
 }
 
-// Export the conditionally chosen services
 export const {
     AnimeEpisodeService,
     AnimeService,
