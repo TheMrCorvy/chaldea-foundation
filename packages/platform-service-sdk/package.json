@@ -1,0 +1,14 @@
+{
+    "name": "@repo/platform-service-sdk",
+    "version": "0.1.0",
+    "private": true,
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "dependencies": {
+        "@repo/type-definitions": "*"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0",
+        "@repo/typescript-config": "*"
+    }
+}
