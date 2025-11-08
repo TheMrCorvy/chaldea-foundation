@@ -27,6 +27,12 @@ export function createApp(): Express {
     app.use(express.urlencoded({ extended: true }));
     app.use(authenticateApiKey(validApiKeys));
 
+    app.use((_, res, next) => {
+        res.setHeader('Connection', 'keep-alive');
+        res.setHeader('Accept-Ranges', 'bytes');
+        next();
+    });
+
     app.use(routes);
 
     return app;

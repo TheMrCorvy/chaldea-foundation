@@ -48,3 +48,5 @@ exports
 *.cache
 .strapi-updater.json
 .strapi-cloud.json
+
+nohup.out
