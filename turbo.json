@@ -8,6 +8,7 @@
             "outputs": [".next/**", "!.next/cache/**", "dist/**", "build/**"],
             "env": [
                 "PORT",
+                "NODE_ENV",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -17,6 +18,7 @@
             "dependsOn": ["^lint"],
             "env": [
                 "PORT",
+                "NODE_ENV",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -26,6 +28,7 @@
             "dependsOn": ["^check-types"],
             "env": [
                 "PORT",
+                "NODE_ENV",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -40,6 +43,7 @@
             "inputs": ["$TURBO_DEFAULT$", ".env*"],
             "env": [
                 "PORT",
+                "NODE_ENV",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -50,6 +54,7 @@
             "inputs": ["$TURBO_DEFAULT$", ".env*"],
             "env": [
                 "PORT",
+                "NODE_ENV",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -59,6 +64,7 @@
             "cache": false,
             "env": [
                 "PORT",
+                "NODE_ENV",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -69,6 +75,7 @@
             "cache": false,
             "env": [
                 "PORT",
+                "NODE_ENV",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
