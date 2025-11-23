@@ -36,7 +36,6 @@ export async function runSeeders(
         return;
     }
 
-    // Check if we should run seeders
     const shouldSeed = process.env.RUN_SEEDERS === "true" || config.force;
 
     if (!shouldSeed && !config.force) {
@@ -48,26 +47,18 @@ export async function runSeeders(
     console.log(`📍 Environment: ${env}`);
 
     try {
-        // Run all seeders in sequence - order matters for relationships!
-
-        // 1. Seed core anime data first
         await seedAnimes(strapi);
-
-        // 2. Seed jurisdictions (universes) - top level of hierarchy
         const jurisdictions = await seedJurisdictions(strapi);
-
-        // 3. Seed bubbles with jurisdiction relationships
         const bubbles = await seedBubbles(strapi, jurisdictions);
-
-        // 4. Seed franchises with anime and bubble relationships
-        // Fetch existing animes to link with franchises
         const animeService = strapi.service("api::anime.anime");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const animes: { [key: string]: any } = {};
         if (animeService) {
             const allAnimes = await animeService.find({
                 pagination: { limit: -1 },
             });
             if (allAnimes.results) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 allAnimes.results.forEach((anime: any) => {
                     animes[anime.name] = anime;
                 });
@@ -78,7 +69,6 @@ export async function runSeeders(
         console.log("✨ Database seeding completed successfully");
     } catch (error) {
         console.error("❌ Database seeding failed:", error);
-        // In development, we might want to throw to stop the app
         if (env === "development") {
             throw error;
         }
@@ -92,30 +82,29 @@ export async function runSeeders(
 export async function clearData(
     strapi: Core.Strapi,
     contentTypes: string[] = [
-        "api::franchise.franchise", // Delete franchises first (has relations to anime and bubbles)
-        "api::bubble.bubble", // Delete bubbles second (has relation to jurisdiction)
-        "api::jurisdiction.jurisdiction", // Delete jurisdictions third
-        "api::anime.anime", // Delete anime last (referenced by franchises)
+        "api::franchise.franchise",
+        "api::bubble.bubble",
+        "api::jurisdiction.jurisdiction",
+        "api::anime.anime",
     ]
 ): Promise<void> {
     console.log("⚠️  Clearing data from content types...");
 
     for (const contentType of contentTypes) {
         try {
-            const service = strapi.service(contentType);
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const service = strapi.service(contentType as any);
             if (!service) {
                 console.warn(`  ⚠️  Service ${contentType} not found`);
                 continue;
             }
 
-            // Get all entries
             const entries = await service.find({
                 pagination: {
-                    limit: -1, // Get all entries
+                    limit: -1,
                 },
             });
 
-            // Delete each entry
             if (entries.results && entries.results.length > 0) {
                 for (const entry of entries.results) {
                     await service.delete(entry.id);
@@ -146,9 +135,6 @@ export async function resetAndSeed(strapi: Core.Strapi): Promise<void> {
 
     console.log("🔄 Resetting and reseeding database...");
 
-    // Clear existing data
     await clearData(strapi);
-
-    // Run seeders with force flag
     await runSeeders(strapi, { force: true });
 }

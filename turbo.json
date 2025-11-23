@@ -9,6 +9,7 @@
             "env": [
                 "PORT",
                 "NODE_ENV",
+                "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -19,6 +20,7 @@
             "env": [
                 "PORT",
                 "NODE_ENV",
+                "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -29,6 +31,7 @@
             "env": [
                 "PORT",
                 "NODE_ENV",
+                "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -44,6 +47,7 @@
             "env": [
                 "PORT",
                 "NODE_ENV",
+                "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -55,6 +59,7 @@
             "env": [
                 "PORT",
                 "NODE_ENV",
+                "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -65,6 +70,7 @@
             "env": [
                 "PORT",
                 "NODE_ENV",
+                "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
@@ -76,6 +82,7 @@
             "env": [
                 "PORT",
                 "NODE_ENV",
+                "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
