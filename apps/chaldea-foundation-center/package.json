@@ -18,7 +18,11 @@
         "start": "strapi start",
         "strapi": "strapi",
         "upgrade": "npx @strapi/upgrade latest",
-        "upgrade:dry": "npx @strapi/upgrade latest --dry"
+        "upgrade:dry": "npx @strapi/upgrade latest --dry",
+        "seed": "ts-node scripts/seed.ts",
+        "seed:force": "ts-node scripts/seed.ts --force",
+        "seed:reset": "ts-node scripts/seed.ts --reset",
+        "seed:clear": "ts-node scripts/seed.ts --clear"
     },
     "dependencies": {
         "@strapi/plugin-cloud": "5.23.1",
@@ -36,6 +40,7 @@
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
+        "ts-node": "^10.9.2",
         "typescript": "^5"
     },
     "engines": {
