@@ -30,7 +30,6 @@ export async function runSeeders(
 ): Promise<void> {
     const env = process.env.NODE_ENV || "development";
 
-    // Safety check: Don't run seeders in production unless explicitly configured
     if (env === "production" && !config.runInProduction) {
         console.log("⚠️  Skipping seeders in production environment");
         return;
