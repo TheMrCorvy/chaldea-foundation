@@ -2,6 +2,6 @@
  * p-anime controller
  */
 
-import { factories } from '@strapi/strapi';
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreController('api::p-anime.p-anime');
+export default factories.createCoreController("api::p-anime.p-anime");
