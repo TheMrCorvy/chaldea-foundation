@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "p_animes",
+  "info": {
+    "singularName": "p-anime",
+    "pluralName": "p-animes",
+    "displayName": "P - Anime"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "position": {
+      "type": "integer",
+      "required": true
+    },
+    "date": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "has_conclusion": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  }
+}

@@ -13,7 +13,7 @@
         "test:coverage": "turbo test:coverage --filter='!chaldea-foundation-center'",
         "clean": "turbo clean",
         "start": "turbo run start",
-        "generate:sdk": "cd apps/chaldea-foundation-center && npm run strapi openapi generate -- --output ../../temp/spec.json && cd ../.. && npx openapi-typescript-codegen -i ./temp/spec.json -o ./packages/platform-service-sdk/generated-sdk --client fetch && rm -rf ./temp",
+        "generate:sdk": "cd apps/chaldea-foundation-center && npm run strapi openapi generate -- --output ../../temp/spec.json && cd ../.. && npx openapi-typescript-codegen -i ./temp/spec.json -o ./packages/platform-service-sdk/generated-sdk --client fetch && rimraf ./temp",
         "patch:sdk-types": "node ./scripts/patch-sdk.config.js",
         "generate:mock-sdk": "node scripts/generate-mock-sdk.js"
     },
@@ -42,6 +42,7 @@
     "dependencies": {
         "@strapi/strapi": "^5.23.0",
         "openapi-typescript-codegen": "^0.29.0",
+        "rimraf": "^6.0.0",
         "uuid": "^11.1.0"
     },
     "overrides": {

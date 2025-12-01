@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "b_episodes",
+  "info": {
+    "singularName": "b-episode",
+    "pluralName": "b-episodes",
+    "displayName": "B - Episode"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "file_type": {
+      "type": "enumeration",
+      "required": true,
+      "default": "mp4",
+      "enum": [
+        "mkv",
+        "mp4",
+        "avi"
+      ]
+    },
+    "display_name": {
+      "type": "string",
+      "required": true
+    },
+    "languages_info": {
+      "type": "json"
+    },
+    "parent_directory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::b-directory.b-directory"
+    }
+  }
+}
