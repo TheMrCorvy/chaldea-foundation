@@ -15,7 +15,8 @@
         "start": "turbo run start",
         "generate:sdk": "cd apps/chaldea-foundation-center && npm run strapi openapi generate -- --output ../../temp/spec.json && cd ../.. && npx openapi-typescript-codegen -i ./temp/spec.json -o ./packages/platform-service-sdk/generated-sdk --client fetch && rimraf ./temp",
         "patch:sdk-types": "node ./scripts/patch-sdk.config.js",
-        "generate:mock-sdk": "node scripts/generate-mock-sdk.js"
+        "generate:mock-sdk": "node scripts/generate-mock-sdk.js",
+        "initialize-project": "npm run generate:sdk && npm run patch:sdk-types && npm run generate:mock-sdk"
     },
     "devDependencies": {
         "@eslint/js": "^9.31.0",
