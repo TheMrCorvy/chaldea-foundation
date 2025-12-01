@@ -2,10 +2,10 @@
     "name": "chaldea-foundation-center",
     "version": "0.1.0",
     "private": true,
-    "description": "The core and engine that powers all my personal apps.",
+    "description": "A Strapi application",
     "scripts": {
         "build": "strapi build",
-        "clean": "rm -rf dist",
+        "clean": "rimraf dist",
         "prebuild": "npm run clean",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
@@ -21,11 +21,10 @@
         "upgrade:dry": "npx @strapi/upgrade latest --dry"
     },
     "dependencies": {
-        "@strapi/plugin-cloud": "5.23.1",
-        "@strapi/plugin-documentation": "5.23.1",
-        "@strapi/plugin-users-permissions": "5.23.1",
-        "@strapi/strapi": "5.23.1",
-        "better-sqlite3": "^12.2.0",
+        "@strapi/plugin-cloud": "5.31.2",
+        "@strapi/plugin-documentation": "^5.31.2",
+        "@strapi/plugin-users-permissions": "5.31.2",
+        "@strapi/strapi": "5.31.2",
         "mysql2": "3.9.8",
         "react": "^18.0.0",
         "react-dom": "^18.0.0",
@@ -36,15 +35,14 @@
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
-        "ts-node": "^10.9.2",
         "typescript": "^5"
     },
     "engines": {
-        "node": ">=18.0.0 <=22.x.x",
+        "node": ">=20.0.0 <=24.x.x",
         "npm": ">=6.0.0"
     },
     "strapi": {
-        "uuid": "ce4033b7-bfb0-4b71-8503-3b6501766e76",
-        "installId": "0ca58b64e427624d06b9155a7b1356317b7dd57ebd308472c4d69d5067802c4f"
+        "uuid": "7f08395f-f43d-4b88-820e-e66454b1c35d",
+        "installId": "8fd7977f424ee9728ea7d6e5d466b1e0849c9addf806f84f12af39f4514e7bd1"
     }
 }

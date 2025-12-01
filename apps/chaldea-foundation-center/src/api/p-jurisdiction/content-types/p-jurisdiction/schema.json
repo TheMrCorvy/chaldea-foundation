@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "p_jurisdictions",
+  "info": {
+    "singularName": "p-jurisdiction",
+    "pluralName": "p-jurisdictions",
+    "displayName": "P - Jurisdiction"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "god_in_charge": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "jurisdiction": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::p-bubble.p-bubble"
+    }
+  }
+}

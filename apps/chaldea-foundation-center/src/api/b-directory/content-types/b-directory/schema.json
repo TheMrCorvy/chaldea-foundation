@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "b_directories",
+  "info": {
+    "singularName": "b-directory",
+    "pluralName": "b-directories",
+    "displayName": "B - Directory"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "display_name": {
+      "type": "string",
+      "required": true
+    },
+    "path": {
+      "type": "string",
+      "required": true
+    },
+    "episodes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::b-episode.b-episode"
+    },
+    "adult": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "parent_directory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::b-directory.b-directory"
+    },
+    "sub_diretories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::b-directory.b-directory"
+    }
+  }
+}
