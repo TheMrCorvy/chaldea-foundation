@@ -16,7 +16,7 @@
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage",
         "api-key:generate": "ts-node scripts/generateApiKey.ts",
-        "initialize-db": "ts-node scripts/initializeDatabase.ts"
+        "initialize:db": "ts-node scripts/initializeDatabase.ts"
     },
     "keywords": [],
     "author": "",
