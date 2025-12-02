@@ -16,7 +16,8 @@
         "generate:sdk": "cd apps/chaldea-foundation-center && npm run strapi openapi generate -- --output ../../temp/spec.json && cd ../.. && npx openapi-typescript-codegen -i ./temp/spec.json -o ./packages/platform-service-sdk/generated-sdk --client fetch && rimraf ./temp",
         "patch:sdk-types": "node ./scripts/patch-sdk.config.js",
         "generate:mock-sdk": "node scripts/generate-mock-sdk.js",
-        "initialize-project": "npm run generate:sdk && npm run patch:sdk-types && npm run generate:mock-sdk"
+        "initialize:platform-sdk": "npm run generate:sdk && npm run patch:sdk-types && npm run generate:mock-sdk",
+        "initialize:private-cloud-db": "cd ./apps/anime-private-cloud-back && npm run initialize:db"
     },
     "devDependencies": {
         "@eslint/js": "^9.31.0",
