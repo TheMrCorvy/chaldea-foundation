@@ -572,8 +572,8 @@ export interface ApiPAnimePAnime extends Struct.CollectionTypeSchema {
         createdAt: Schema.Attribute.DateTime;
         createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
             Schema.Attribute.Private;
-        date: Schema.Attribute.String;
-        description: Schema.Attribute.String;
+        date: Schema.Attribute.Text;
+        description: Schema.Attribute.Text;
         has_conclusion: Schema.Attribute.Boolean &
             Schema.Attribute.Required &
             Schema.Attribute.DefaultTo<false>;
@@ -1206,7 +1206,7 @@ export interface PluginUsersPermissionsUser
 }
 
 declare module "@strapi/strapi" {
-    export module Public {
+    export namespace Public {
         export interface ContentTypeSchemas {
             "admin::api-token": AdminApiToken;
             "admin::api-token-permission": AdminApiTokenPermission;
