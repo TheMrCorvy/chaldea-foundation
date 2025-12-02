@@ -56,7 +56,7 @@ export interface QueryFilters {
 
 type QueryFiltersRecord = Partial<
     Record<
-        keyof Directory | keyof AnimeEpisode | keyof ExtraKeysForQueryParams,
+        keyof Directory | keyof Episode | keyof ExtraKeysForQueryParams,
         QueryFilters
     >
 >;
@@ -122,10 +122,10 @@ export interface Directory {
     parent_directory?: Directory | null;
     sub_directories?: Directory[];
     documentId: string;
-    anime_episodes?: AnimeEpisode[];
+    anime_episodes?: Episode[];
 }
 
-export interface AnimeEpisode {
+export interface Episode {
     id: number;
     display_name: string;
     file_path: string;
