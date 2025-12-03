@@ -91,7 +91,7 @@ The `initialize-db` script (`npm run initialize-db`) is a comprehensive tool for
 
 ```bash
 # Strapi Configuration
-STRAPI_API_HOST="https://your-strapi-instance.com"  # Strapi URL without /api
+STRAPI_BASE_URL="https://your-strapi-instance.com"  # Strapi URL without /api
 STRAPI_API_KEY="your-strapi-api-key"               # Your Strapi API Key
 
 # Directory Scanning
@@ -164,7 +164,7 @@ Copy `.env.example` to `.env` and configure:
 
 ### External Services
 
-- `STRAPI_API_HOST` - Base URL of your Strapi CMS instance (without /api)
+- `STRAPI_BASE_URL` - Base URL of your Strapi CMS instance (without /api)
 
 ### Feature Flags
 
