@@ -463,10 +463,6 @@ export interface ApiBDirectoryBDirectory extends Struct.CollectionTypeSchema {
         createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
             Schema.Attribute.Private;
         display_name: Schema.Attribute.String & Schema.Attribute.Required;
-        episodes: Schema.Attribute.Relation<
-            "oneToMany",
-            "api::b-episode.b-episode"
-        >;
         locale: Schema.Attribute.String & Schema.Attribute.Private;
         localizations: Schema.Attribute.Relation<
             "oneToMany",
@@ -479,10 +475,6 @@ export interface ApiBDirectoryBDirectory extends Struct.CollectionTypeSchema {
         >;
         path: Schema.Attribute.String & Schema.Attribute.Required;
         publishedAt: Schema.Attribute.DateTime;
-        sub_diretories: Schema.Attribute.Relation<
-            "oneToMany",
-            "api::b-directory.b-directory"
-        >;
         updatedAt: Schema.Attribute.DateTime;
         updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
             Schema.Attribute.Private;
