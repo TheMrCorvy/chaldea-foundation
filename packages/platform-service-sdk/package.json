@@ -2,10 +2,11 @@
     "name": "@repo/platform-service-sdk",
     "version": "0.1.0",
     "private": true,
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "main": "./index.ts",
+    "types": "./index.ts",
     "dependencies": {
-        "@repo/type-definitions": "*"
+        "@repo/type-definitions": "*",
+        "@repo/shared-utils": "*"
     },
     "devDependencies": {
         "typescript": "^5.0.0",

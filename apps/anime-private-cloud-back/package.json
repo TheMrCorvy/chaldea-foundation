@@ -31,7 +31,8 @@
         "dotenv": "^17.2.0",
         "helmet": "^8.1.0",
         "morgan": "^1.10.1",
-        "@repo/platform-service-sdk": "*"
+        "@repo/platform-service-sdk": "*",
+        "@repo/shared-utils": "*"
     },
     "devDependencies": {
         "@types/express": "^5.0.2",

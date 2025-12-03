@@ -1,0 +1,20 @@
+{
+    "name": "@repo/shared-utils",
+    "exports": {
+        ".": {
+            "types": "./src/index.ts",
+            "default": "./src/index.ts"
+        },
+        "./feature-flags": {
+            "types": "./src/featureFlags.ts",
+            "default": "./src/featureFlags.ts"
+        },
+        "./log-data": {
+            "types": "./src/logData.ts",
+            "default": "./src/logData.ts"
+        }
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "*"
+    }
+}
