@@ -1,5 +1,5 @@
 {
-    "name": "anime-private-cloud-back",
+    "name": "private-cloud-backend",
     "version": "1.0.0",
     "main": "server.js",
     "scripts": {
