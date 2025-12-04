@@ -49,7 +49,7 @@ export const scanSingleFolder = ({
 };
 
 const getFileType = (extension: string): VideoContainers => {
-    const withoutDot = extension.slice(1);
+    const withoutDot = extension.toLowerCase().slice(1);
     if (withoutDot === 'mp4' || withoutDot === 'mkv' || withoutDot === 'avi') {
         return withoutDot;
     }

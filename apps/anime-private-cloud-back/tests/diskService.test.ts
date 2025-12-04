@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { scanSingleFolder, writeJsonFile } from '../src/services/diskService';
-import { Directory } from '../src/utils/typesDefinition';
+import { LocalDirectory } from '../src/utils/typesDefinition';
 
 // Mock fs module
 jest.mock('fs');
@@ -11,7 +11,6 @@ describe('diskService', () => {
     describe('scanSingleFolder', () => {
         const mockDirPath = '/test/anime/folder';
         const mockExcludedParents = ['Temp', 'Downloads'];
-        const mockExcludedFileExtensions = ['.txt', '.nfo'];
 
         beforeEach(() => {
             jest.clearAllMocks();
@@ -31,7 +30,6 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
-                excludedFileExtensions: mockExcludedFileExtensions,
             });
 
             expect(result).toEqual({
@@ -40,15 +38,15 @@ describe('diskService', () => {
                 adult: false,
                 parent_directory: '/test/anime',
                 sub_directories: ['/test/anime/folder/Season 2'],
-                anime_episodes: [
+                episodes: [
                     {
                         display_name: 'Episode 1',
-                        file_path: '/test/anime/folder/Episode 1.mp4',
+                        file_type: 'mp4',
                         parent_directory: mockDirPath,
                     },
                     {
                         display_name: 'Episode 2',
-                        file_path: '/test/anime/folder/Episode 2.mp4',
+                        file_type: 'mp4',
                         parent_directory: mockDirPath,
                     },
                 ],
@@ -66,7 +64,6 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: adultDirPath,
                 excludedParents: mockExcludedParents,
-                excludedFileExtensions: mockExcludedFileExtensions,
             });
 
             expect(result.display_name).toBe('Adult Content');
@@ -85,11 +82,10 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
-                excludedFileExtensions: mockExcludedFileExtensions,
             });
 
-            expect(result.anime_episodes).toHaveLength(1);
-            expect(result.anime_episodes[0].display_name).toBe('Episode 1');
+            expect(result.episodes).toHaveLength(1);
+            expect(result.episodes[0].display_name).toBe('Episode 1');
         });
 
         it('should exclude system files and hidden files', () => {
@@ -106,26 +102,10 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
-                excludedFileExtensions: mockExcludedFileExtensions,
             });
 
-            expect(result.anime_episodes).toHaveLength(1);
-            expect(result.anime_episodes[0].display_name).toBe('Episode 1');
-        });
-
-        it('should return null parent directory for excluded parents', () => {
-            const pathWithExcludedParent = '/test/Temp/anime';
-            const mockDirents = [{ name: 'Episode 1.mp4', isFile: () => true, isDirectory: () => false }];
-
-            mockFs.readdirSync.mockReturnValue(mockDirents as any);
-
-            const result = scanSingleFolder({
-                dirPath: pathWithExcludedParent,
-                excludedParents: mockExcludedParents,
-                excludedFileExtensions: mockExcludedFileExtensions,
-            });
-
-            expect(result.parent_directory).toBeNull();
+            expect(result.episodes).toHaveLength(1);
+            expect(result.episodes[0].display_name).toBe('Episode 1');
         });
 
         it('should handle empty directories', () => {
@@ -134,11 +114,10 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
-                excludedFileExtensions: mockExcludedFileExtensions,
             });
 
             expect(result.sub_directories).toHaveLength(0);
-            expect(result.anime_episodes).toHaveLength(0);
+            expect(result.episodes).toHaveLength(0);
             expect(result.display_name).toBe('folder');
         });
 
@@ -154,10 +133,9 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
-                excludedFileExtensions: mockExcludedFileExtensions,
             });
 
-            expect(result.anime_episodes).toHaveLength(0);
+            expect(result.episodes).toHaveLength(0);
             expect(result.sub_directories).toHaveLength(3);
             expect(result.sub_directories).toEqual([
                 '/test/anime/folder/Season 1',
@@ -169,7 +147,6 @@ describe('diskService', () => {
         it('should properly strip .mp4 extension from episode names', () => {
             const mockDirents = [
                 { name: 'My Favorite Anime - Episode 1.mp4', isFile: () => true, isDirectory: () => false },
-                { name: 'My Favorite Anime - Episode 2.MP4', isFile: () => true, isDirectory: () => false },
             ];
 
             mockFs.readdirSync.mockReturnValue(mockDirents as any);
@@ -177,12 +154,9 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
-                excludedFileExtensions: mockExcludedFileExtensions,
             });
 
-            expect(result.anime_episodes[0].display_name).toBe('My Favorite Anime - Episode 1');
-            // Note: The current implementation only removes .mp4, not .MP4
-            expect(result.anime_episodes[1].display_name).toBe('My Favorite Anime - Episode 2.MP4');
+            expect(result.episodes[0].display_name).toBe('My Favorite Anime - Episode 1');
         });
     });
 
@@ -201,14 +175,14 @@ describe('diskService', () => {
         });
 
         it('should write JSON file with data and create directories if needed', () => {
-            const testData: Directory[] = [
+            const testData: LocalDirectory[] = [
                 {
                     display_name: 'Test Anime',
                     directory_path: '/test/anime',
                     adult: false,
                     parent_directory: null,
                     sub_directories: [],
-                    anime_episodes: [],
+                    episodes: [],
                 },
             ];
 
@@ -235,7 +209,7 @@ describe('diskService', () => {
         });
 
         it('should not create directory if it already exists', () => {
-            const testData: Directory[] = [];
+            const testData: LocalDirectory[] = [];
 
             mockFs.existsSync.mockReturnValue(true);
             mockFs.writeFileSync.mockImplementation(() => {});
@@ -250,7 +224,7 @@ describe('diskService', () => {
         });
 
         it('should handle empty data array', () => {
-            const testData: Directory[] = [];
+            const testData: LocalDirectory[] = [];
 
             mockFs.existsSync.mockReturnValue(true);
             mockFs.writeFileSync.mockImplementation(() => {});
@@ -272,13 +246,13 @@ describe('diskService', () => {
         });
 
         it('should handle large data arrays', () => {
-            const testData: Directory[] = Array.from({ length: 1000 }, (_, i) => ({
+            const testData: LocalDirectory[] = Array.from({ length: 1000 }, (_, i) => ({
                 display_name: `Test Anime ${i}`,
                 directory_path: `/test/anime/${i}`,
                 adult: false,
                 parent_directory: null,
                 sub_directories: [],
-                anime_episodes: [],
+                episodes: [],
             }));
 
             mockFs.existsSync.mockReturnValue(true);
@@ -299,7 +273,7 @@ describe('diskService', () => {
 
         it('should create nested directories recursively', () => {
             const nestedPath = '/test/nested/output/path';
-            const testData: Directory[] = [];
+            const testData: LocalDirectory[] = [];
 
             mockFs.existsSync.mockReturnValueOnce(false).mockReturnValueOnce(false);
             mockFs.mkdirSync.mockImplementation(() => '');

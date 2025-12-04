@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import { serveVideoFileService } from '../src/services/serveVideoFileService';
-import { isFeatureFlagEnabled, FeatureNames } from '../src/services/featureFlagService';
+import { isFeatureFlagEnabled, FeatureNames } from '@repo/shared-utils/feature-flags';
 
 // Mock dependencies
 jest.mock('fs');
-jest.mock('../src/services/featureFlagService');
+jest.mock('@repo/shared-utils/feature-flags');
 
 const mockFs = fs as jest.Mocked<typeof fs>;
 const mockIsFeatureFlagEnabled = isFeatureFlagEnabled as jest.MockedFunction<typeof isFeatureFlagEnabled>;

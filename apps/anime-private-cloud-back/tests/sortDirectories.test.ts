@@ -1,22 +1,22 @@
 import sortDirectories from '../src/utils/sortDirectories';
-import { Directory } from '../src/utils/typesDefinition';
+import { LocalDirectory } from '../src/utils/typesDefinition';
 
 describe('sortDirectories', () => {
     const createDirectory = (
         name: string,
         directoryPath: string,
         parentDirectory: string | null = null
-    ): Directory => ({
+    ): LocalDirectory => ({
         display_name: name,
         directory_path: directoryPath,
         adult: false,
         parent_directory: parentDirectory,
         sub_directories: [],
-        anime_episodes: [],
+        episodes: [],
     });
 
     it('should sort directories by parent directory depth (ascending)', () => {
-        const directories: Directory[] = [
+        const directories: LocalDirectory[] = [
             createDirectory('Deep Nested', '/root/level1/level2/level3', '/root/level1/level2'),
             createDirectory('Root Level', '/root', null),
             createDirectory('Mid Level', '/root/level1/mid', '/root/level1'),
@@ -34,7 +34,7 @@ describe('sortDirectories', () => {
     });
 
     it('should handle Windows-style paths by normalizing them', () => {
-        const directories: Directory[] = [
+        const directories: LocalDirectory[] = [
             createDirectory('Windows Deep', 'C:\\root\\level1\\level2', 'C:\\root\\level1'),
             createDirectory('Windows Root', 'C:\\root', null),
             createDirectory('Mixed Path', '/unix/path', '/unix'),
@@ -50,7 +50,7 @@ describe('sortDirectories', () => {
     });
 
     it('should sort alphabetically by parent_directory when directories have same depth', () => {
-        const directories: Directory[] = [
+        const directories: LocalDirectory[] = [
             createDirectory('Z Anime', '/root/z-anime', '/root/z'),
             createDirectory('A Anime', '/root/a-anime', '/root/a'),
             createDirectory('M Anime', '/root/m-anime', '/root/m'),
@@ -69,13 +69,13 @@ describe('sortDirectories', () => {
     });
 
     it('should handle empty array', () => {
-        const directories: Directory[] = [];
+        const directories: LocalDirectory[] = [];
         const sorted = sortDirectories(directories);
         expect(sorted).toEqual([]);
     });
 
     it('should handle single directory', () => {
-        const directories: Directory[] = [createDirectory('Single', '/root/single', '/root')];
+        const directories: LocalDirectory[] = [createDirectory('Single', '/root/single', '/root')];
 
         const sorted = sortDirectories(directories);
         expect(sorted).toHaveLength(1);
@@ -83,7 +83,7 @@ describe('sortDirectories', () => {
     });
 
     it('should handle null parent directories', () => {
-        const directories: Directory[] = [
+        const directories: LocalDirectory[] = [
             createDirectory('Child', '/root/child', '/root'),
             createDirectory('Root1', '/root1', null),
             createDirectory('Root2', '/root2', null),
@@ -97,7 +97,7 @@ describe('sortDirectories', () => {
     });
 
     it('should handle complex nested hierarchy', () => {
-        const directories: Directory[] = [
+        const directories: LocalDirectory[] = [
             // Level 3
             createDirectory('Anime A S1', '/anime/a/season1', '/anime/a'),
             createDirectory('Anime A S2', '/anime/a/season2', '/anime/a'),
@@ -128,16 +128,16 @@ describe('sortDirectories', () => {
     });
 
     it('should preserve original directory properties', () => {
-        const originalDirectory: Directory = {
+        const originalDirectory: LocalDirectory = {
             display_name: 'Test Anime',
             directory_path: '/test/anime',
             adult: true,
             parent_directory: '/test',
             sub_directories: ['/test/anime/season1'],
-            anime_episodes: [
+            episodes: [
                 {
                     display_name: 'Episode 1',
-                    file_path: '/test/anime/episode1.mp4',
+                    file_type: 'mp4',
                     parent_directory: '/test/anime',
                 },
             ],
@@ -148,11 +148,11 @@ describe('sortDirectories', () => {
         expect(sorted[0]).toEqual(originalDirectory);
         expect(sorted[0].adult).toBe(true);
         expect(sorted[0].sub_directories).toEqual(['/test/anime/season1']);
-        expect(sorted[0].anime_episodes).toHaveLength(1);
+        expect(sorted[0].episodes).toHaveLength(1);
     });
 
     it('should handle directories with empty string parent directories', () => {
-        const directories: Directory[] = [
+        const directories: LocalDirectory[] = [
             createDirectory('Empty Parent', '/root/child', ''),
             createDirectory('Null Parent', '/root/null', null),
             createDirectory('Real Parent', '/root/real/child', '/root/real'),
@@ -166,7 +166,7 @@ describe('sortDirectories', () => {
     });
 
     it('should handle special characters in paths', () => {
-        const directories: Directory[] = [
+        const directories: LocalDirectory[] = [
             createDirectory('Special Chars', '/root/spëc!@l/ch@rs', '/root/spëc!@l'),
             createDirectory('Normal', '/root/normal', '/root'),
         ];
