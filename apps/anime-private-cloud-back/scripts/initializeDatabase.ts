@@ -1,258 +1,255 @@
 import { scanSingleFolder, writeJsonFile } from '../src/services/diskService';
 import dotenv from 'dotenv';
-import { Directory, DirectoryResponseStrapi } from '../src/utils/typesDefinition';
-
+import { LocalDirectory } from '../src/utils/typesDefinition';
 import sortDirectories from '../src/utils/sortDirectories';
 
-import {
-    getAllDirectories,
-    uploadBulkAnimeEpisodes,
-    DirectoryUpdate,
-    updateDirectory,
-    uploadDirectoryBulk,
-} from '../src/services/strapiService';
-import separateArrays from '../src/utils/separateArrays';
-import fakeApiCall from '../mock/mockApiCall';
+// Load environment variables BEFORE importing the SDK
+dotenv.config();
+
+import PlatformService from '@repo/platform-service-sdk';
+import { logData } from '@repo/shared-utils/log-data';
 
 const main = async () => {
-    dotenv.config();
-    const initiumIter = process.env.INITIAL_PATH || '';
+    const initiumIter: string[] = process.env.INITIAL_PATH ? JSON.parse(process.env.INITIAL_PATH) : [];
     const outputFolderPath = './db';
-    const excludedParents = process.env.EXCLUDED_PARENTS ? JSON.parse(process.env.EXCLUDED_PARENTS) : [];
-    const excludedExtensions = process.env.EXCLUDED_EXTENSIONS ? JSON.parse(process.env.EXCLUDED_EXTENSIONS) : [];
-    const strapiBaseUrl = process.env.STRAPI_API_HOST;
+    const excludedParents: string[] = process.env.EXCLUDED_PARENTS ? JSON.parse(process.env.EXCLUDED_PARENTS) : [];
     const strapiApiKey = process.env.STRAPI_API_KEY;
 
-    if (!initiumIter || !strapiBaseUrl || !strapiApiKey || !excludedExtensions || !excludedParents) {
+    if (!initiumIter || initiumIter.length < 1 || !strapiApiKey || !excludedParents) {
         throw new Error('Environment variables are not set.');
     }
 
-    console.log(' ');
-    console.log('- - - - - - - - - - - - -');
-    console.log('Environment variables set. Proceeding with database initialization...');
-    console.log('- - - - - - - - - - - - -');
-    console.log(' ');
+    const platformService = new PlatformService(strapiApiKey);
 
-    const data = scanSingleFolder({
-        dirPath: initiumIter,
-        excludedParents,
-        excludedFileExtensions: excludedExtensions,
+    logData({
+        layer: '*',
+        addSeparatorAfter: true,
+        addSeparatorBefore: true,
+        addSpaceAfter: true,
+        addSpaceBefore: true,
+        title: 'Environment variables set. Proceeding with database initialization...',
     });
 
-    const pendingToScan: string[] = data.sub_directories;
-    const finalResult: Directory[] = [];
+    const organizedData: LocalDirectory[][] = [];
 
-    while (pendingToScan.length > 0) {
-        for (let index = pendingToScan.length - 1; index >= 0; index--) {
-            const dirPath = pendingToScan[index];
-            const folderToRemoveFromPending = pendingToScan.indexOf(dirPath);
-            pendingToScan.splice(folderToRemoveFromPending, 1);
-
-            const scannedData = scanSingleFolder({
-                dirPath,
-                excludedParents,
-                excludedFileExtensions: excludedExtensions,
-            });
-
-            if (scannedData.display_name !== 'Pendientes') {
-                finalResult.push(scannedData);
-            }
-            pendingToScan.push(...scannedData.sub_directories);
-        }
-    }
-
-    console.log('- - - - - - - - - - - - -');
-    console.log('Scanned all directories for root folder. Now writting into json db...');
-    console.log('- - - - - - - - - - - - -');
-    console.log(' ');
-
-    writeJsonFile({ outputFolderPath, data: finalResult, fileName: 'full_data' });
-
-    console.log(' ');
-    console.log('- - - - - - - - - - - - -');
-    console.log('Json db written. Calling Strapi to get already existing Drirectories and Anime Episodes...');
-    console.log('- - - - - - - - - - - - -');
-    console.log(' ');
-
-    const directoriesData: DirectoryResponseStrapi[] = await getAllDirectories();
-
-    console.log('- - - - - - - - - - - - -');
-    console.log('Writting Strapi response into json db...');
-    console.log('- - - - - - - - - - - - -');
-    console.log(' ');
-
-    writeJsonFile({ outputFolderPath, data: directoriesData, fileName: 'strapi_directories' });
-
-    console.log(' ');
-    console.log('- - - - - - - - - - - - -');
-    console.log('Contrasting local files and folders against strapi data...');
-    console.log('- - - - - - - - - - - - -');
-    console.log(' ');
-
-    const filteredDirectories = finalResult.filter(
-        dir => !directoriesData.some(existingDir => existingDir.directory_path === dir.directory_path)
-    );
-
-    writeJsonFile({
-        outputFolderPath,
-        data: filteredDirectories,
-        fileName: 'pending_to_upload',
-    });
-
-    console.log(' ');
-    console.log('- - - - - - - - - - - - -');
-    console.log('Uploading directories...');
-    console.log('- - - - - - - - - - - - -');
-    console.log(' ');
-
-    const pendingDirectories = sortDirectories([...filteredDirectories]);
-    const separatedPendingDirectories = separateArrays(pendingDirectories, 50);
-    const failedDirectories: Directory[] = [];
-
-    for (const directoryChunk of separatedPendingDirectories) {
-        console.log(
-            'Uploading chunk of directories to Strapi...',
-            directoryChunk.map(dir => dir.display_name)
-        );
-
-        await fakeApiCall(2);
-
-        const result = await uploadDirectoryBulk(directoryChunk);
-
-        if (result === null) {
-            console.warn(
-                'Failed to upload some directories. Please check the logs for more details.',
-                directoryChunk.map(dir => dir.display_name)
-            );
-            failedDirectories.push(...directoryChunk);
-            continue;
-        }
-    }
-
-    console.log(' ');
-    console.log('- - - - - - - - - - - - -');
-    console.log('Uploaded all directories! Now uploading anime episodes and updating directories...');
-    console.log('- - - - - - - - - - - - -');
-    console.log(' ');
-
-    await fakeApiCall(2);
-
-    const updatedStrapidata = await getAllDirectories();
-
-    for (const directoryPendingToUpdate of pendingDirectories) {
-        const strapiDirectory = updatedStrapidata.find(
-            dir => dir.directory_path === directoryPendingToUpdate.directory_path
-        );
-
-        if (!strapiDirectory) {
-            console.warn(`Directory ${directoryPendingToUpdate.display_name} not found in Strapi. Skipping update.`);
-
-            failedDirectories.push(directoryPendingToUpdate);
-            continue;
-        }
-
-        const separatedAnimeEpisodes = separateArrays(directoryPendingToUpdate.anime_episodes, 50);
-        const uploadedAnimeEpisodesIds: number[] = [];
-        const patch: DirectoryUpdate = {
-            id: strapiDirectory.id,
-            directoryDocumentId: strapiDirectory.documentId,
-            display_name: directoryPendingToUpdate.display_name,
-        };
-
-        for (const animeEpisodesChunk of separatedAnimeEpisodes) {
-            console.log('Uploading chunk of anime episodes', {
-                parent: directoryPendingToUpdate.display_name,
-                animeEpisodesChunk: animeEpisodesChunk.map(ep => ep.display_name),
-            });
-            console.log(' ');
-
-            await fakeApiCall(2);
-            const response = await uploadBulkAnimeEpisodes(animeEpisodesChunk, strapiDirectory.id);
-
-            if (response === null) {
-                console.warn(
-                    `Failed to upload anime episodes for directory ${directoryPendingToUpdate.display_name}. Skipping update.`
-                );
-                failedDirectories.push(directoryPendingToUpdate);
-                continue;
-            }
-
-            uploadedAnimeEpisodesIds.push(...response.map(ep => ep.id));
-
-            console.log(' ');
-        }
-
-        if (directoryPendingToUpdate.anime_episodes.length > 0) {
-            patch.anime_episodes = uploadedAnimeEpisodesIds;
-        }
-
-        if (directoryPendingToUpdate.parent_directory) {
-            const parentDirectory = updatedStrapidata.find(
-                dir => dir.directory_path === directoryPendingToUpdate.parent_directory
-            );
-
-            if (!parentDirectory) {
-                console.warn(
-                    `Parent directory ${directoryPendingToUpdate.parent_directory} not found in Strapi. Skipping update.`
-                );
-
-                failedDirectories.push(directoryPendingToUpdate);
-                continue;
-            }
-
-            patch.parent_directory = parentDirectory.id;
-        }
-
-        if (directoryPendingToUpdate.sub_directories.length > 0) {
-            const subDirectories = updatedStrapidata
-                .filter(dir => directoryPendingToUpdate.sub_directories.includes(dir.directory_path))
-                .map(dir => dir.id);
-
-            if (subDirectories.length !== directoryPendingToUpdate.sub_directories.length) {
-                console.warn(
-                    `Subdirectories for ${directoryPendingToUpdate.display_name} not found in Strapi. Skipping update.`
-                );
-                failedDirectories.push(directoryPendingToUpdate);
-                continue;
-            }
-
-            patch.sub_directories = subDirectories;
-        }
-
-        console.log('Updating directory in Strapi', {
-            directory: directoryPendingToUpdate.display_name,
-            patch,
+    initiumIter.forEach((initialPath, i) => {
+        const data = scanSingleFolder({
+            dirPath: initialPath,
+            excludedParents,
         });
-        console.log(' ');
-        await fakeApiCall(2);
-        const result = await updateDirectory(patch);
 
-        if (result === null) {
-            console.warn(`Failed to update directory ${directoryPendingToUpdate.display_name}. Skipping update.`);
-            failedDirectories.push(directoryPendingToUpdate);
-            continue;
+        const pendingToScan: string[] = data.sub_directories;
+        const finalResult: LocalDirectory[] = data.episodes
+            ? [
+                  {
+                      ...scanSingleFolder({
+                          dirPath: data.directory_path,
+                          excludedParents,
+                          excludeSubDirectories: true,
+                      }),
+                      parent_directory: null,
+                  },
+              ]
+            : [];
+
+        while (pendingToScan.length > 0) {
+            for (let index = pendingToScan.length - 1; index >= 0; index--) {
+                const dirPath = pendingToScan[index];
+                const folderToRemoveFromPending = pendingToScan.indexOf(dirPath);
+                pendingToScan.splice(folderToRemoveFromPending, 1);
+
+                const scannedData = scanSingleFolder({
+                    dirPath,
+                    excludedParents,
+                });
+
+                if (!excludedParents.includes(scannedData.display_name)) {
+                    finalResult.push(scannedData);
+                }
+                pendingToScan.push(...scannedData.sub_directories);
+            }
         }
+
+        logData({
+            layer: '*',
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            addSeparatorBefore: true,
+            title: 'Scanned all directories for root folder. Now writting into json db...',
+        });
+
+        organizedData.push(finalResult);
+
+        logData({
+            layer: '*',
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            addSeparatorBefore: true,
+            title: 'Json db written. Calling Strapi to get already existing Drirectories and Anime Episodes...',
+        });
+
+        return;
+    });
+
+    writeJsonFile({ outputFolderPath, data: organizedData, fileName: 'full data' });
+
+    const skippedDirectories: LocalDirectory[] = [];
+    const failedDirectories: LocalDirectory[] = [];
+
+    for (const mainFolder of organizedData) {
+        const pendingDirectories = sortDirectories([...mainFolder]);
+
+        for (const localDirectory of pendingDirectories) {
+            logData({
+                layer: '*',
+                title: 'Validating existance fo directory: ' + localDirectory.display_name + '...',
+                addSpaceAfter: true,
+            });
+
+            const directoryAlreadyExists = await platformService.call({
+                service: 'BDirectoryService',
+                method: 'bDirectoryGetBDirectories',
+                queryParams: {
+                    filters: {
+                        path: {
+                            $eq: localDirectory.directory_path,
+                        },
+                    },
+                    populate: 'parent_directory',
+                },
+            });
+
+            if (directoryAlreadyExists.data.length > 0) {
+                skippedDirectories.push(localDirectory);
+
+                logData({
+                    layer: '*',
+                    title: 'Directory already exists in strapi, skipping...',
+                    addSpaceAfter: true,
+                });
+
+                continue;
+            }
+
+            let parentDirectoryDocId = '';
+
+            if (localDirectory.parent_directory) {
+                const remoteParent = await platformService.call({
+                    service: 'BDirectoryService',
+                    method: 'bDirectoryGetBDirectories',
+                    queryParams: {
+                        filters: {
+                            path: {
+                                $eq: localDirectory.parent_directory,
+                            },
+                        },
+                        populate: 'parent_directory',
+                    },
+                });
+
+                if (!remoteParent.data) {
+                    failedDirectories.push(localDirectory);
+                    logData({
+                        layer: '*',
+                        title: `Remote parent directory was not found in strapi`,
+                        data: localDirectory,
+                        addSpaceAfter: true,
+                    });
+
+                    continue;
+                }
+
+                logData({
+                    layer: '*',
+                    title: 'Found the parent directory, storing it in the parent_directory prop',
+                    addSpaceAfter: true,
+                    data: remoteParent,
+                });
+
+                parentDirectoryDocId = remoteParent.data[0].documentId;
+            }
+
+            const reqData = {
+                display_name: localDirectory.display_name,
+                path: localDirectory.directory_path,
+                adult: localDirectory.adult ? '1' : '0',
+            } as Record<string, string>;
+
+            if (parentDirectoryDocId) {
+                reqData.parent_directory = parentDirectoryDocId;
+            }
+
+            logData({
+                layer: '*',
+                title: 'Storing directory in Strapi',
+                addSpaceAfter: true,
+                data: reqData,
+            });
+
+            const storedDirectory = await platformService.call({
+                service: 'BDirectoryService',
+                method: 'bDirectoryPostBDirectories',
+                requestBody: {
+                    data: reqData,
+                },
+            });
+
+            logData({
+                layer: '*',
+                title: 'Created directory in strapi: ' + storedDirectory.data.display_name,
+                addSpaceAfter: true,
+            });
+
+            for (const episode of localDirectory.episodes) {
+                await platformService.call({
+                    service: 'BEpisodeService',
+                    method: 'bEpisodePostBEpisodes',
+                    requestBody: {
+                        data: {
+                            display_name: episode.display_name,
+                            parent_directory: storedDirectory.data.documentId,
+                            file_type: episode.file_type,
+                        },
+                    },
+                });
+
+                logData({
+                    layer: '*',
+                    title: 'Stored episode: ' + episode.display_name,
+                    addSpaceAfter: true,
+                });
+            }
+
+            logData({
+                layer: '*',
+                title: `Finished storing ${localDirectory.display_name}.`,
+                addSpaceAfter: true,
+                addSeparatorAfter: true,
+            });
+        }
+    }
+
+    if (skippedDirectories.length > 0) {
+        logData({
+            layer: '*',
+            title: 'There were some directories that were skipped during the upload process...',
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+        });
+
+        writeJsonFile({ outputFolderPath, data: skippedDirectories, fileName: 'skipped directories' });
     }
 
     if (failedDirectories.length > 0) {
-        console.warn(
-            'Some directories failed to update:',
-            failedDirectories.map(dir => dir.display_name)
-        );
-        console.warn('You may need to check these directories manually.');
-
-        writeJsonFile({
-            outputFolderPath,
-            data: failedDirectories,
-            fileName: 'failed_directories',
+        logData({
+            layer: '*',
+            title: 'There were some directories that failed to store in Strapi during the upload process...',
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
         });
-    }
 
-    console.log(' ');
-    console.log('- - - - - - - - - - - - -');
-    console.log('Database is fully operative!');
-    console.log('- - - - - - - - - - - - -');
-    console.log(' ');
+        writeJsonFile({ outputFolderPath, data: failedDirectories, fileName: 'failed directories' });
+    }
 };
 
 if (require.main === module) {
