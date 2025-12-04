@@ -1,16 +1,18 @@
-export interface Directory {
+import { VideoContainers } from '@repo/type-definitions';
+
+export interface LocalDirectory {
     display_name: string;
     directory_path: string;
     adult: boolean;
     parent_directory: string | null;
     sub_directories: string[];
-    anime_episodes: AnimeEpisode[];
+    episodes: LocalEpisode[];
     reasonOfFailure?: string;
 }
 
-export interface AnimeEpisode {
+export interface LocalEpisode {
     display_name: string;
-    file_path: string;
+    file_type: VideoContainers;
     parent_directory: string;
 }
 
