@@ -1,4 +1,4 @@
-import { isFeatureFlagEnabled, FeatureNames } from './featureFlagService';
+import { isFeatureFlagEnabled, FeatureNames } from '@repo/shared-utils/feature-flags';
 
 import { createReadStream, statSync } from 'fs';
 import { join } from 'path';

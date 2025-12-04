@@ -1,40 +1,46 @@
 import fs from 'fs';
 import path from 'path';
-import { AnimeEpisode, AnimeEpisodeResponseStrapi, Directory, DirectoryResponseStrapi } from '../utils/typesDefinition';
+import { LocalDirectory } from '../utils/typesDefinition';
+import { VideoContainers } from '@repo/type-definitions';
 
 interface ScanSingleFolderParams {
     dirPath: string;
     excludedParents: string[];
-    excludedFileExtensions: string[];
+    excludeSubDirectories?: boolean;
 }
 
 export const scanSingleFolder = ({
     dirPath,
     excludedParents,
-    excludedFileExtensions,
-}: ScanSingleFolderParams): Directory => {
+    excludeSubDirectories = false,
+}: ScanSingleFolderParams): LocalDirectory => {
     const items = fs.readdirSync(dirPath, { withFileTypes: true });
 
     const folderIsAdult = determineIfFolderIsAdult(path.basename(dirPath));
     const displayName = !folderIsAdult ? path.basename(dirPath) : removeAsteriskFromFolderName(path.basename(dirPath));
+    const parentPath = getParentDirectoryPath(dirPath, excludedParents);
 
-    const result: Directory = {
+    if (parentPath === null) {
+        throw new Error('Something went wrong when analyzing the parent of the directory ' + displayName);
+    }
+
+    const result: LocalDirectory = {
         display_name: displayName,
         directory_path: dirPath,
         adult: folderIsAdult,
-        parent_directory: getParentDirectoryPath(dirPath, excludedParents),
+        parent_directory: parentPath,
         sub_directories: [],
-        anime_episodes: [],
+        episodes: [],
     };
 
     for (const item of items) {
-        if (item.isDirectory()) {
+        if (item.isDirectory() && !excludeSubDirectories) {
             result.sub_directories.push(path.join(dirPath, item.name));
-        } else if (item.isFile() && !episodeShouldBeIgnored(item.name, excludedFileExtensions)) {
-            result.anime_episodes.push({
-                display_name: item.name.replace(/\.mp4$/, ''),
-                file_path: path.join(dirPath, item.name),
+        } else if (item.isFile() && !episodeShouldBeIgnored(item.name)) {
+            result.episodes.push({
+                display_name: path.basename(item.name, path.extname(item.name)),
                 parent_directory: dirPath,
+                file_type: getFileType(path.extname(item.name)),
             });
         }
     }
@@ -42,15 +48,25 @@ export const scanSingleFolder = ({
     return result;
 };
 
+const getFileType = (extension: string): VideoContainers => {
+    const withoutDot = extension.slice(1);
+    if (withoutDot === 'mp4' || withoutDot === 'mkv' || withoutDot === 'avi') {
+        return withoutDot;
+    }
+
+    return '*';
+};
+
 const removeAsteriskFromFolderName = (folderName: string): string => {
     return folderName.startsWith('* ') ? folderName.slice(2) : folderName;
 };
 
-const episodeShouldBeIgnored = (fileName: string, excludedExtensions: string[]): boolean => {
+const episodeShouldBeIgnored = (fileName: string): boolean => {
     const ignoredPrefixes = ['.', '._', 'Thumbs.db', 'desktop.ini'];
+    const extension = path.extname(fileName).slice(1);
     return (
-        excludedExtensions.some(ext => fileName.endsWith(ext)) ||
-        ignoredPrefixes.some(prefix => fileName.startsWith(prefix))
+        ignoredPrefixes.some(prefix => fileName.startsWith(prefix)) ||
+        (extension !== 'mp4' && extension !== 'mkv' && extension !== 'avi')
     );
 };
 
@@ -62,12 +78,17 @@ const getParentDirectoryPath = (directoryPath: string, excludedParents: string[]
     const parts = directoryPath.split('/');
     parts.pop();
 
-    return excludedParents.includes(parts[parts.length - 1]) ? null : parts.join('/');
+    if (excludedParents.includes(parts[parts.length - 1])) {
+        parts.pop();
+        return parts.length > 0 ? parts.join('/') : null;
+    }
+
+    return parts.join('/');
 };
 
 interface JsonFileParams {
     outputFolderPath: string;
-    data: Directory[] | AnimeEpisode[] | DirectoryResponseStrapi[] | AnimeEpisodeResponseStrapi[];
+    data: unknown[];
     fileName: string;
 }
 
@@ -86,4 +107,5 @@ export const writeJsonFile = ({ outputFolderPath, data, fileName }: JsonFilePara
     fs.writeFileSync(jsonPath, JSON.stringify({ amount_of_items: data.length, data: data }), 'utf-8');
 
     console.log(`✔ JSON written to: ${jsonPath}`);
+    console.log(' ');
 };
