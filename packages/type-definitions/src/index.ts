@@ -115,22 +115,50 @@ export interface User {
 export interface Directory {
     id: number;
     display_name: string;
-    directory_path: string;
+    path: string;
     createdAt: Date;
     updatedAt: Date;
-    adult: boolean;
-    parent_directory?: Directory | null;
-    sub_directories?: Directory[];
+    adult: boolean | "0" | "1" | "t" | "true" | "f" | "false";
+    parent_directory?: Directory;
     documentId: string;
-    anime_episodes?: Episode[];
+    publishedAt: string;
 }
 
 export interface Episode {
     id: number;
     display_name: string;
-    file_path: string;
     createdAt: Date;
     updatedAt: Date;
     parent_directory?: Directory;
     documentId: string;
+    file_type: VideoContainers;
+    languages_info?: object;
+    watched_by?: User[];
+    publishedAt: string;
 }
+
+export interface RequestDirectory {
+    id?: number;
+    display_name?: string;
+    path?: string;
+    createdAt?: Date;
+    updatedAt?: Date;
+    adult?: boolean | "0" | "1" | "t" | "true" | "f" | "false";
+    parent_directory?: string;
+    documentId?: string;
+    publishedAt?: string;
+}
+
+export interface RequestEpisode {
+    id?: number;
+    display_name?: string;
+    createdAt?: Date;
+    updatedAt?: Date;
+    parent_directory?: string;
+    documentId?: string;
+    file_type?: VideoContainers;
+    languages_info?: object;
+    watched_by?: User[];
+}
+
+export type VideoContainers = "mp4" | "mkv" | "avi" | "*";
