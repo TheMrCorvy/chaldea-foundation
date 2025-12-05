@@ -3,7 +3,7 @@ import {
     isFeatureFlagEnabled,
 } from "@repo/shared-utils/feature-flags";
 import { CookiesList } from "@/utils/cookies";
-import { ApiRoutes, WebRoutes } from "./src/utils/routes";
+import { ApiRoutes, WebRoutes } from "./utils/routes";
 import { NextResponse, type NextRequest } from "next/server";
 
 const protectedRoutes = [
@@ -41,7 +41,7 @@ export async function proxy(request: NextRequest) {
         return NextResponse.next();
     } catch (error) {
         console.error("Error verifying user authentication:", error);
-        return NextResponse.redirect(new URL("/signin", request.url));
+        return NextResponse.redirect(new URL(WebRoutes.LOGIN, request.url));
     }
 }
 
