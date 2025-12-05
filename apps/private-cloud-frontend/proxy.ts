@@ -46,11 +46,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-    matcher: [
-        "/((?!api|_next/static|_next/image|favicon.ico).*)",
-        WebRoutes.HOME,
-        WebRoutes.SEARCH,
-        WebRoutes.DIRECTORY,
-        WebRoutes.EPISODE,
-    ],
+    matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
