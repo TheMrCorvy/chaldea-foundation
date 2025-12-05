@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Button } from "@mui/joy";
 
 export default function Home() {
     return (
@@ -15,6 +16,9 @@ export default function Home() {
                 />
                 <div className={styles.intro}>
                     <h1>To get started, edit the page.tsx file.</h1>
+                    <Button variant="solid" color="primary">
+                        Hola mundo
+                    </Button>
                     <p>
                         Looking for a starting point or more instructions? Head
                         over to{" "}
