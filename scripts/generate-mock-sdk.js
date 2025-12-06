@@ -7,124 +7,59 @@ const sdkDir = path.join(
     "../packages/platform-service-sdk/generated-sdk"
 );
 
-const servicesDir = path.join(sdkDir, "services");
-const modelsDir = path.join(sdkDir, "models");
-const mockOutputFolder = path.join(sdkDir, "../generated-mock-sdk"); // Define the folder
-const mockOutputFile = path.join(sdkDir, "../generated-mock-sdk/index.ts");
-
-/**
- * Creates a mock CancelablePromise that resolves immediately with the given data.
- * This helper function will be injected into the generated mock file.
- */
-const mockCancelablePromiseHelper = `
-function createMockCancelablePromise<T>(data: any): CancelablePromise<T> {
-    return new CancelablePromise<T>((resolve) => {
-        resolve(data);
-    });
-}
-`;
-
-/**
- * Dynamically discover all model files and generate import statements
- */
-function generateModelImports() {
-    let imports = "";
-
-    // Check if models directory exists
-    if (!fs.existsSync(modelsDir)) {
-        console.log("⚠️  Models directory not found, skipping model imports");
-        return imports;
-    }
-
-    const modelFiles = fs
-        .readdirSync(modelsDir)
-        .filter((f) => f.endsWith(".ts") && f.includes("Document"));
-
-    modelFiles.forEach((fileName) => {
-        const modelName = path.basename(fileName, ".ts");
-        imports += `import { ${modelName} } from "../generated-sdk/models/${modelName}";\n`;
-    });
-
-    return imports;
-}
+const sdkGenFile = path.join(sdkDir, "sdk.gen.ts");
+const mockOutputFolder = path.join(sdkDir, "../generated-mock-sdk");
+const mockOutputFile = path.join(mockOutputFolder, "index.ts");
 
 function generateMockSDK() {
-    let mockImplementations = "";
-
-    // 1. Find all service files
-    const serviceFiles = fs
-        .readdirSync(servicesDir)
-        .filter((f) => f.endsWith(".ts"));
-
-    for (const fileName of serviceFiles) {
-        const filePath = path.join(servicesDir, fileName);
-        const serviceName = path.basename(fileName, ".ts");
-
-        // 2. Read and parse the service file
-        const sourceFile = ts.createSourceFile(
-            fileName,
-            fs.readFileSync(filePath).toString(),
-            ts.ScriptTarget.ES2015,
-            true
-        );
-
-        let mockService = `export const Mock${serviceName} = {\n`;
-
-        // 3. Find the class and its methods
-        ts.forEachChild(sourceFile, (node) => {
-            if (ts.isClassDeclaration(node)) {
-                node.members.forEach((member) => {
-                    if (
-                        ts.isMethodDeclaration(member) &&
-                        member.modifiers?.some(
-                            (m) => m.kind === ts.SyntaxKind.StaticKeyword
-                        )
-                    ) {
-                        const methodName = member.name.getText(sourceFile);
-                        const params = member.parameters
-                            .map((p) => p.getText(sourceFile))
-                            .join(", ");
-                        const returnType = member.type
-                            ? member.type.getText(sourceFile)
-                            : "CancelablePromise<any>";
-
-                        // Get just the names of the parameters for the console.log
-                        const paramNames = member.parameters.map((p) =>
-                            p.name.getText(sourceFile)
-                        );
-                        const logObject =
-                            paramNames.length > 0
-                                ? `{ ${paramNames.join(", ")} }`
-                                : "{}";
-
-                        // 4. Generate the mock function string
-                        mockService += `  ${methodName}(${params}): ${returnType} {\n`;
-                        mockService += `    console.log('Mock SDK Call: ${serviceName}.${methodName}', ${logObject});\n`;
-                        mockService += `    return createMockCancelablePromise({ data: {}, meta: {} });\n`;
-                        mockService += `  },\n`;
-                    }
-                });
-            }
-        });
-
-        mockService += "};\n\n";
-        mockImplementations += mockService;
+    if (!fs.existsSync(sdkGenFile)) {
+        console.log("X - sdk.gen.ts not found, cannot generate mocks");
+        return;
     }
+
+    const sourceCode = fs.readFileSync(sdkGenFile, "utf8");
+    const sourceFile = ts.createSourceFile(
+        "sdk.gen.ts",
+        sourceCode,
+        ts.ScriptTarget.ES2015,
+        true
+    );
+
+    const mockFunctions = [];
+
+    ts.forEachChild(sourceFile, (node) => {
+        if (
+            ts.isVariableStatement(node) &&
+            node.modifiers?.some((m) => m.kind === ts.SyntaxKind.ExportKeyword)
+        ) {
+            node.declarationList.declarations.forEach((declaration) => {
+                if (
+                    ts.isVariableDeclaration(declaration) &&
+                    ts.isIdentifier(declaration.name)
+                ) {
+                    const functionName = declaration.name.getText(sourceFile);
+
+                    mockFunctions.push(`export const ${functionName} = (options?: any) => {
+    console.log('Mock SDK Call: ${functionName}', options);
+    return Promise.resolve({ data: {}, error: undefined });
+};`);
+                }
+            });
+        }
+    });
 
     if (!fs.existsSync(mockOutputFolder)) {
         fs.mkdirSync(mockOutputFolder, { recursive: true });
     }
 
-    // 5. Write the final mock file with dynamic imports
-    let finalMockFileContent = `// This file is auto-generated by scripts/generate-mock-sdk.js\n\n`;
-    finalMockFileContent += `import { CancelablePromise } from '../generated-sdk/core/CancelablePromise';\n`;
-    finalMockFileContent += `import { PaginationQuery, QueryParams } from "@repo/type-definitions";\n`;
-    finalMockFileContent += generateModelImports();
-    finalMockFileContent += mockCancelablePromiseHelper;
-    finalMockFileContent += mockImplementations;
+    const mockContent = `// This file is auto-generated by scripts/generate-mock-sdk.js
 
-    fs.writeFileSync(mockOutputFile, finalMockFileContent);
+${mockFunctions.join("\n\n")}
+`;
+
+    fs.writeFileSync(mockOutputFile, mockContent);
     console.log(`🎉 Mock SDK successfully generated at ${mockOutputFile}`);
+    console.log(`   Generated ${mockFunctions.length} mock functions`);
 }
 
 generateMockSDK();
