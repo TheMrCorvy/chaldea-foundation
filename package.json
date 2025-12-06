@@ -13,7 +13,7 @@
         "test:coverage": "turbo test:coverage",
         "clean": "turbo clean",
         "start": "turbo run start",
-        "generate:sdk": "cd apps/chaldea-foundation-center && npm run strapi openapi generate -- --output ../../temp/spec.json && cd ../.. && npx openapi-typescript-codegen -i ./temp/spec.json -o ./packages/platform-service-sdk/generated-sdk --client fetch && rimraf ./temp",
+        "generate:sdk": "cd apps/chaldea-foundation-center && npm run strapi openapi generate -- --output ../../temp/spec.json && cd ../.. && npx @hey-api/openapi-ts && rimraf ./temp",
         "patch:sdk-types": "node ./scripts/patch-sdk.config.js",
         "generate:mock-sdk": "node scripts/generate-mock-sdk.js",
         "initialize:platform-sdk": "npm run generate:sdk && npm run patch:sdk-types && npm run generate:mock-sdk",
@@ -21,6 +21,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.31.0",
+        "@hey-api/openapi-ts": "0.88.0",
         "@typescript-eslint/eslint-plugin": "^8.38.0",
         "@typescript-eslint/parser": "^8.38.0",
         "esbuild": "^0.25.9",
@@ -43,7 +44,6 @@
     ],
     "dependencies": {
         "@strapi/strapi": "^5.23.0",
-        "openapi-typescript-codegen": "^0.29.0",
         "rimraf": "^6.0.0",
         "uuid": "^11.1.0"
     },
