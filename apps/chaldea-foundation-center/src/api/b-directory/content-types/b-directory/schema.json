@@ -16,8 +16,9 @@
             "required": true
         },
         "path": {
-            "type": "string",
-            "required": true
+            "type": "text",
+            "required": true,
+            "unique": true
         },
         "adult": {
             "type": "boolean",
