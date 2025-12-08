@@ -13,7 +13,8 @@
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
                 "CONSUME_STRAPI_DATA"
-            ]
+            ],
+            "persistent": false
         },
         "lint": {
             "dependsOn": ["^lint"],
