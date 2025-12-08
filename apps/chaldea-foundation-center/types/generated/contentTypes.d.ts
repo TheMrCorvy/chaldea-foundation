@@ -473,7 +473,9 @@ export interface ApiBDirectoryBDirectory extends Struct.CollectionTypeSchema {
             "oneToOne",
             "api::b-directory.b-directory"
         >;
-        path: Schema.Attribute.String & Schema.Attribute.Required;
+        path: Schema.Attribute.Text &
+            Schema.Attribute.Required &
+            Schema.Attribute.Unique;
         publishedAt: Schema.Attribute.DateTime;
         updatedAt: Schema.Attribute.DateTime;
         updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
@@ -514,10 +516,7 @@ export interface ApiBEpisodeBEpisode extends Struct.CollectionTypeSchema {
         updatedAt: Schema.Attribute.DateTime;
         updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
             Schema.Attribute.Private;
-        watched_by: Schema.Attribute.Relation<
-            "oneToMany",
-            "plugin::users-permissions.user"
-        >;
+        watched_by: Schema.Attribute.JSON;
     };
 }
 
@@ -1202,7 +1201,7 @@ export interface PluginUsersPermissionsUser
 }
 
 declare module "@strapi/strapi" {
-    export namespace Public {
+    export module Public {
         export interface ContentTypeSchemas {
             "admin::api-token": AdminApiToken;
             "admin::api-token-permission": AdminApiTokenPermission;
