@@ -11,11 +11,12 @@ import {
     IconButton,
     Option,
     Select,
+    Slider,
     Stack,
     Typography,
 } from "@mui/joy";
 import { VideoContainers } from "@repo/type-definitions";
-import { FC, useMemo } from "react";
+import { FC, useMemo, useRef, useState } from "react";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import PauseRoundedIcon from "@mui/icons-material/PauseRounded";
 import RestartAltRoundedIcon from "@mui/icons-material/RestartAltRounded";
@@ -41,6 +42,8 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
     documentId,
 }) => {
     const filePath = path + "/" + display_name + "." + fileType;
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const videoUrl = useMemo(() => {
         // const url = new URL(
@@ -55,6 +58,35 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
         url.searchParams.append("filePath", filePath);
         return url.toString();
     }, [filePath]);
+
+    const handlePlayPause = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
+
+    const handleRestart = () => {
+        if (videoRef.current) {
+            videoRef.current.currentTime = 0;
+            videoRef.current.play();
+            setIsPlaying(true);
+        }
+    };
+
+    const handleFullscreen = () => {
+        if (videoRef.current) {
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                videoRef.current.requestFullscreen();
+            }
+        }
+    };
 
     return (
         <Card
@@ -90,6 +122,7 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                     }}
                 >
                     <video
+                        ref={videoRef}
                         controls={false}
                         width="800"
                         src={videoUrl}
@@ -98,6 +131,11 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                             width: "100%",
                             display: "block",
                             aspectRatio: "16/9",
+                        }}
+                    />
+                    <Slider
+                        sx={{
+                            paddingBottom: 0,
                         }}
                     />
                 </Box>
@@ -126,6 +164,7 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                             variant="solid"
                             color="primary"
                             size="lg"
+                            onClick={handlePlayPause}
                             sx={{
                                 borderRadius: "50%",
                                 width: 50,
@@ -143,13 +182,18 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                                 },
                             }}
                         >
-                            <PlayArrowRoundedIcon sx={{ fontSize: 28 }} />
+                            {isPlaying ? (
+                                <PauseRoundedIcon sx={{ fontSize: 28 }} />
+                            ) : (
+                                <PlayArrowRoundedIcon sx={{ fontSize: 28 }} />
+                            )}
                         </IconButton>
 
-                        <IconButton
+                        {/* <IconButton
                             variant="solid"
                             color="neutral"
                             size="lg"
+                            onClick={handleRestart}
                             sx={{
                                 borderRadius: "50%",
                                 width: 50,
@@ -168,12 +212,13 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                             }}
                         >
                             <PauseRoundedIcon sx={{ fontSize: 28 }} />
-                        </IconButton>
+                        </IconButton> */}
 
                         <IconButton
                             variant="solid"
                             color="neutral"
                             size="lg"
+                            onClick={handleRestart}
                             sx={{
                                 borderRadius: "50%",
                                 width: 50,
@@ -198,6 +243,7 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                         variant="solid"
                         color="neutral"
                         size="lg"
+                        onClick={handleFullscreen}
                         sx={{
                             borderRadius: "50%",
                             width: 50,
