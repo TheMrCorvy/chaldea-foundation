@@ -44,6 +44,8 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
     const filePath = path + "/" + display_name + "." + fileType;
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [duration, setDuration] = useState(0);
 
     const videoUrl = useMemo(() => {
         // const url = new URL(
@@ -88,6 +90,32 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
         }
     };
 
+    const handleTimeUpdate = () => {
+        if (videoRef.current) {
+            setCurrentTime(videoRef.current.currentTime);
+        }
+    };
+
+    const handleLoadedMetadata = () => {
+        if (videoRef.current) {
+            setDuration(videoRef.current.duration);
+        }
+    };
+
+    const handleSliderChange = (_event: Event, value: number | number[]) => {
+        const newTime = Array.isArray(value) ? value[0] : value;
+        if (videoRef.current) {
+            videoRef.current.currentTime = newTime;
+            setCurrentTime(newTime);
+        }
+    };
+
+    const formatTime = (seconds: number): string => {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, "0")}`;
+    };
+
     return (
         <Card
             variant="soft"
@@ -127,17 +155,75 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                         width="800"
                         src={videoUrl}
                         preload="auto"
+                        onTimeUpdate={handleTimeUpdate}
+                        onLoadedMetadata={handleLoadedMetadata}
                         style={{
                             width: "100%",
                             display: "block",
                             aspectRatio: "16/9",
                         }}
                     />
-                    <Slider
+                    <Box
                         sx={{
-                            paddingBottom: 0,
+                            position: "absolute",
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            px: 2,
+                            pb: 1,
+                            background:
+                                "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%)",
                         }}
-                    />
+                    >
+                        <Stack spacing={0.5}>
+                            <Slider
+                                value={currentTime}
+                                min={0}
+                                max={duration || 100}
+                                onChange={handleSliderChange}
+                                sx={{
+                                    paddingBottom: 0,
+                                    color: "#FF5A1F",
+                                    "& .MuiSlider-thumb": {
+                                        width: 12,
+                                        height: 12,
+                                        transition: "0.2s ease",
+                                        "&:hover, &.Mui-focusVisible": {
+                                            boxShadow:
+                                                "0 0 0 8px rgba(255, 90, 31, 0.16)",
+                                        },
+                                    },
+                                    "& .MuiSlider-track": {
+                                        border: "none",
+                                        height: 4,
+                                    },
+                                    "& .MuiSlider-rail": {
+                                        opacity: 0.5,
+                                        height: 4,
+                                        backgroundColor: "#fff",
+                                    },
+                                }}
+                            />
+                            <Stack
+                                direction="row"
+                                justifyContent="space-between"
+                                sx={{ px: 0.5 }}
+                            >
+                                <Typography
+                                    level="body-xs"
+                                    sx={{ color: "white" }}
+                                >
+                                    {formatTime(currentTime)}
+                                </Typography>
+                                <Typography
+                                    level="body-xs"
+                                    sx={{ color: "white" }}
+                                >
+                                    {formatTime(duration)}
+                                </Typography>
+                            </Stack>
+                        </Stack>
+                    </Box>
                 </Box>
 
                 <Stack
