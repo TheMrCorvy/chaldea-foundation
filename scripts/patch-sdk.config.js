@@ -131,4 +131,95 @@ if (fs.existsSync(typesGenPath)) {
     console.log(" ");
 }
 
+// Patch sdk.gen.ts to remove local querySerializer configurations
+const sdkGenPath = path.join(sdkDir, "sdk.gen.ts");
+
+if (fs.existsSync(sdkGenPath)) {
+    let sdkContent = fs.readFileSync(sdkGenPath, "utf8");
+
+    // Count occurrences before replacement
+    const querySerializerMatches = sdkContent.match(/querySerializer:\s*\{/g);
+    const initialCount = querySerializerMatches
+        ? querySerializerMatches.length
+        : 0;
+
+    // Remove querySerializer configuration - improved pattern to match multiline
+    let updatedSdkContent = sdkContent.replace(
+        /querySerializer:\s*\{[\s\S]*?parameters:[\s\S]*?\},\s*\n/g,
+        ""
+    );
+
+    // Clean up any orphaned closing braces and commas
+    updatedSdkContent = updatedSdkContent.replace(
+        /\(\{\s+\},\n\s+url:/g,
+        "({\n        url:"
+    );
+
+    const finalMatches = updatedSdkContent.match(/querySerializer:\s*\{/g);
+    const finalCount = finalMatches ? finalMatches.length : 0;
+    const removedCount = initialCount - finalCount;
+
+    if (removedCount > 0) {
+        fs.writeFileSync(sdkGenPath, updatedSdkContent);
+        console.log(
+            `✓ Removed ${removedCount} local querySerializer configuration(s) from sdk.gen.ts`
+        );
+        console.log(" ");
+    } else {
+        console.log("- No querySerializer patches needed in sdk.gen.ts");
+        console.log(" ");
+    }
+} else {
+    console.log("X - sdk.gen.ts not found, skipping sdk patch");
+    console.log(" ");
+}
+
+// Patch client/utils.gen.ts to use qs for query serialization
+const clientUtilsPath = path.join(sdkDir, "client/utils.gen.ts");
+
+if (fs.existsSync(clientUtilsPath)) {
+    let utilsContent = fs.readFileSync(clientUtilsPath, "utf8");
+
+    // Add qs import at the top of the file
+    if (!utilsContent.includes('import qs from "qs"')) {
+        utilsContent = utilsContent.replace(
+            /^(\/\/ This file is auto-generated.*\n)/,
+            '$1\nimport qs from "qs";\n'
+        );
+        console.log("✓ Added qs import to client/utils.gen.ts");
+    }
+
+    // Replace the createQuerySerializer function with a simple qs wrapper
+    const createQuerySerializerPattern =
+        /export const createQuerySerializer = <T = unknown>\([^)]*\) => \{[\s\S]*?return querySerializer;\s*\};/;
+
+    if (createQuerySerializerPattern.test(utilsContent)) {
+        utilsContent = utilsContent.replace(
+            createQuerySerializerPattern,
+            `export const createQuerySerializer = <T = unknown>(
+    _options?: QuerySerializerOptions
+) => {
+    const querySerializer = (queryParams: T) => {
+        return qs.stringify(queryParams);
+    };
+    return querySerializer;
+};`
+        );
+        console.log(
+            "✓ Replaced createQuerySerializer to use qs in client/utils.gen.ts"
+        );
+        console.log(" ");
+    } else {
+        console.log(
+            "X createQuerySerializer pattern not found in client/utils.gen.ts"
+        );
+        console.log(" ");
+    }
+
+    fs.writeFileSync(clientUtilsPath, utilsContent, "utf8");
+} else {
+    console.log("X - client/utils.gen.ts not found, skipping utils patch");
+    console.log(" ");
+}
+
 console.log("🎉 SDK patching complete!");
