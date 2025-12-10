@@ -6,10 +6,12 @@
     "types": "./index.ts",
     "dependencies": {
         "@repo/type-definitions": "*",
-        "@repo/shared-utils": "*"
+        "@repo/shared-utils": "*",
+        "qs": "^6.13.1"
     },
     "devDependencies": {
         "typescript": "^5.0.0",
-        "@repo/typescript-config": "*"
+        "@repo/typescript-config": "*",
+        "@types/qs": "^6.9.17"
     }
 }
