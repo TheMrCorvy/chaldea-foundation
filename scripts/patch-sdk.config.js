@@ -180,13 +180,49 @@ const clientUtilsPath = path.join(sdkDir, "client/utils.gen.ts");
 if (fs.existsSync(clientUtilsPath)) {
     let utilsContent = fs.readFileSync(clientUtilsPath, "utf8");
 
-    // Add qs import at the top of the file
+    // Add qs import at the top of the file (right after the auto-generated comment)
     if (!utilsContent.includes('import qs from "qs"')) {
         utilsContent = utilsContent.replace(
             /^(\/\/ This file is auto-generated.*\n)/,
             '$1\nimport qs from "qs";\n'
         );
         console.log("✓ Added qs import to client/utils.gen.ts");
+    }
+
+    // Remove ONLY the pathSerializer imports (the ones we don't need)
+    utilsContent = utilsContent.replace(
+        /import \{[\s\S]*?\} from ["']\.\.\/core\/pathSerializer\.gen["'];?\n/,
+        ""
+    );
+    console.log(
+        "✓ Removed unused pathSerializer imports from client/utils.gen.ts"
+    );
+
+    // Ensure getAuthToken import exists (it might have been removed accidentally)
+    if (
+        !utilsContent.includes('from "../core/auth.gen"') &&
+        utilsContent.includes("getAuthToken")
+    ) {
+        utilsContent = utilsContent.replace(
+            /(import qs from "qs";\n)/,
+            '$1\nimport { getAuthToken } from "../core/auth.gen";\n'
+        );
+        console.log("✓ Re-added getAuthToken import from auth.gen.ts");
+    }
+
+    // Ensure QuerySerializerOptions and jsonBodySerializer imports exist
+    if (
+        !utilsContent.includes('from "../core/bodySerializer.gen"') &&
+        (utilsContent.includes("QuerySerializerOptions") ||
+            utilsContent.includes("jsonBodySerializer"))
+    ) {
+        utilsContent = utilsContent.replace(
+            /(import qs from "qs";\n)/,
+            '$1import type { QuerySerializerOptions } from "../core/bodySerializer.gen";\nimport { jsonBodySerializer } from "../core/bodySerializer.gen";\n'
+        );
+        console.log(
+            "✓ Re-added QuerySerializerOptions and jsonBodySerializer imports from bodySerializer.gen.ts"
+        );
     }
 
     // Replace the createQuerySerializer function with a simple qs wrapper
