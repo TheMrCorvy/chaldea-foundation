@@ -17,7 +17,7 @@
         "patch:sdk-types": "node ./scripts/patch-sdk.config.js",
         "generate:mock-sdk": "node scripts/generate-mock-sdk.js",
         "initialize:platform-sdk": "npm run generate:sdk && npm run patch:sdk-types && npm run generate:mock-sdk",
-        "initialize:private-cloud-db": "cd ./apps/anime-private-cloud-back && npm run initialize:db"
+        "initialize:private-cloud-db": "cd ./apps/private-cloud-backend && npm run initialize:db"
     },
     "devDependencies": {
         "@eslint/js": "^9.31.0",
