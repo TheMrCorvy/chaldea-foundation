@@ -19,7 +19,8 @@ const main = async () => {
         throw new Error('Environment variables are not set.');
     }
 
-    const platformService = new PlatformService(strapiApiKey);
+    const platformService = new PlatformService();
+    platformService.setApiToken(strapiApiKey);
 
     logData({
         layer: '*',
@@ -94,7 +95,7 @@ const main = async () => {
     writeJsonFile({ outputFolderPath, data: organizedData, fileName: 'full data' });
 
     const skippedDirectories: LocalDirectory[] = [];
-    const failedDirectories: LocalDirectory[] = [];
+    const failedDirectories: any[] = [];
 
     for (const mainFolder of organizedData) {
         const pendingDirectories = sortDirectories([...mainFolder]);
@@ -106,20 +107,29 @@ const main = async () => {
                 addSpaceAfter: true,
             });
 
-            const directoryAlreadyExists = await platformService.call({
-                service: 'BDirectoryService',
-                method: 'bDirectoryGetBDirectories',
-                queryParams: {
+            const directoryAlreadyExists = await platformService.call('bDirectoryGetBDirectories', {
+                query: {
                     filters: {
                         path: {
                             $eq: localDirectory.directory_path,
                         },
                     },
-                    populate: 'parent_directory',
                 },
             });
 
-            if (directoryAlreadyExists.data.length > 0) {
+            if (directoryAlreadyExists.error || !directoryAlreadyExists.data.data) {
+                failedDirectories.push({ ...localDirectory, error: directoryAlreadyExists });
+                logData({
+                    layer: '*',
+                    title: `Error checking if directory exists in strapi`,
+                    data: directoryAlreadyExists.error,
+                    addSpaceAfter: true,
+                });
+
+                continue;
+            }
+
+            if (directoryAlreadyExists.data.data.length > 0) {
                 skippedDirectories.push(localDirectory);
 
                 logData({
@@ -134,24 +144,21 @@ const main = async () => {
             let parentDirectoryDocId = '';
 
             if (localDirectory.parent_directory) {
-                const remoteParent = await platformService.call({
-                    service: 'BDirectoryService',
-                    method: 'bDirectoryGetBDirectories',
-                    queryParams: {
+                const remoteParent = await platformService.call('bDirectoryGetBDirectories', {
+                    query: {
                         filters: {
                             path: {
                                 $eq: localDirectory.parent_directory,
                             },
                         },
-                        populate: 'parent_directory',
                     },
                 });
 
-                if (!remoteParent.data) {
+                if (!remoteParent.data.data || remoteParent.error || remoteParent.data.data.length !== 1) {
                     failedDirectories.push(localDirectory);
                     logData({
                         layer: '*',
-                        title: `Remote parent directory was not found in strapi`,
+                        title: `Remote parent directory was not found in strapi, or there were multiple matches. Skipping directory`,
                         data: localDirectory,
                         addSpaceAfter: true,
                     });
@@ -166,7 +173,7 @@ const main = async () => {
                     data: remoteParent,
                 });
 
-                parentDirectoryDocId = remoteParent.data[0].documentId;
+                parentDirectoryDocId = remoteParent.data.data[0].documentId;
             }
 
             const reqData = {
@@ -186,32 +193,52 @@ const main = async () => {
                 data: reqData,
             });
 
-            const storedDirectory = await platformService.call({
-                service: 'BDirectoryService',
-                method: 'bDirectoryPostBDirectories',
-                requestBody: {
+            const storedDirectory = await platformService.call('bDirectoryPostBDirectories', {
+                body: {
                     data: reqData,
                 },
             });
 
+            if (storedDirectory.error || !storedDirectory.data.data) {
+                failedDirectories.push(localDirectory);
+                logData({
+                    layer: '*',
+                    title: `Error storing directory in strapi`,
+                    data: storedDirectory,
+                    addSpaceAfter: true,
+                });
+
+                continue;
+            }
+
             logData({
                 layer: '*',
-                title: 'Created directory in strapi: ' + storedDirectory.data.display_name,
+                title: 'Created directory in strapi: ' + storedDirectory.data.data.display_name,
                 addSpaceAfter: true,
             });
 
             for (const episode of localDirectory.episodes) {
-                await platformService.call({
-                    service: 'BEpisodeService',
-                    method: 'bEpisodePostBEpisodes',
-                    requestBody: {
+                const storedEpisode = await platformService.call('bEpisodePostBEpisodes', {
+                    body: {
                         data: {
                             display_name: episode.display_name,
-                            parent_directory: storedDirectory.data.documentId,
+                            parent_directory: storedDirectory.data.data.documentId,
                             file_type: episode.file_type,
                         },
                     },
                 });
+
+                if (storedEpisode.error || !storedEpisode.data.data) {
+                    failedDirectories.push(localDirectory);
+                    logData({
+                        layer: '*',
+                        title: `Error storing episode in strapi`,
+                        data: storedEpisode,
+                        addSpaceAfter: true,
+                    });
+
+                    continue;
+                }
 
                 logData({
                     layer: '*',
