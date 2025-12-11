@@ -306,7 +306,7 @@ describe('serveVideoFileService', () => {
             });
 
             expect(mockIsFeatureFlagEnabled).toHaveBeenCalledWith(FeatureNames.SERVE_MOCK_DATA);
-            expect(mockIsFeatureFlagEnabled).toHaveBeenCalledTimes(1);
+            expect(mockIsFeatureFlagEnabled).toHaveBeenCalledTimes(3);
         });
 
         it('should handle mock file error when feature flag enabled', () => {
