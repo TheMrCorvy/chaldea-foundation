@@ -1,4 +1,5 @@
 import { isFeatureFlagEnabled, FeatureNames } from '@repo/shared-utils/feature-flags';
+import { logData } from '@repo/shared-utils/log-data';
 
 import { createReadStream, statSync } from 'fs';
 import { join } from 'path';
@@ -35,6 +36,15 @@ export const serveVideoFileService = ({ videoSrc, range }: NASServiceParams): Vi
             };
             const stream = createReadStream(fileSrc);
 
+            logData({
+                title: 'Serving video file from 0,0',
+                layer: 'nas_disk_service',
+                data: { fileSrc, fileMetadata },
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                type: 'info',
+            });
+
             return { stream, headers, status: 200, message: 'Streaming video...' };
         }
 
@@ -43,6 +53,21 @@ export const serveVideoFileService = ({ videoSrc, range }: NASServiceParams): Vi
         const end = endStr ? parseInt(endStr, 10) : fileMetadata.size - 1;
 
         if (start >= fileMetadata.size || end >= fileMetadata.size) {
+            logData({
+                title: 'Requested range not satisfiable',
+                layer: '*',
+                data: {
+                    condition: {
+                        start: start >= fileMetadata.size,
+                        end: end >= fileMetadata.size,
+                    },
+                    fileSize: fileMetadata.size,
+                    requestedRange: { start, end },
+                },
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                type: 'error',
+            });
             return { status: 416, message: 'Requested range not satisfiable' };
         }
 
@@ -55,6 +80,15 @@ export const serveVideoFileService = ({ videoSrc, range }: NASServiceParams): Vi
             'Content-Length': chunkSize.toString(),
             'Content-Type': 'video/mp4',
         };
+
+        logData({
+            title: 'Serving chunk of video file from requested range',
+            layer: 'nas_disk_service',
+            data: { chunkSize, start, end, fileSrc, fileMetadata, headers },
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            type: 'info',
+        });
 
         return { stream, headers, status: 206, message: 'Streaming video chunk...' };
     } catch (error) {
