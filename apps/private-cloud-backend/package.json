@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
         "build": "tsc",
-        "start": "node dist/server.js",
+        "start": "ts-node-dev --respawn --transpile-only src/server.ts",
         "clean": "rimraf dist",
         "prebuild": "npm run clean",
         "format": "prettier --write .",
@@ -16,7 +16,8 @@
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage",
         "api-key:generate": "ts-node scripts/generateApiKey.ts",
-        "initialize:db": "ts-node scripts/initializeDatabase.ts"
+        "initialize:db": "ts-node scripts/initializeDatabase.ts",
+        "convert:video": "ts-node scripts/convertVideo.ts"
     },
     "keywords": [],
     "author": "",
