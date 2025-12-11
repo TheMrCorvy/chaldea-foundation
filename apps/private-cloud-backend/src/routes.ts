@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { serveVideoFileService } from './services/serveVideoFileService';
 import path from 'path';
+import { logData } from '@repo/shared-utils/log-data';
 
 const router = Router();
 
@@ -12,11 +13,28 @@ router.get('/health', (_req: Request, res: Response) => {
     });
 });
 
-router.get('/api/serve-anime-episode', (req: Request, res: Response) => {
+router.get('/api/serve-episode', (req: Request, res: Response) => {
     const { filePath } = req.query as { filePath?: string; apiKey?: string };
     const range = req.headers.range || null;
 
+    logData({
+        title: 'Request received to serve an episode',
+        layer: 'nas_service',
+        data: { filePath, range },
+        addSeparatorAfter: true,
+        addSpaceAfter: true,
+        type: 'info',
+    });
+
     if (!filePath) {
+        logData({
+            title: 'Missing file path in query parameters',
+            layer: '*',
+            data: { filePath, range },
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            type: 'error',
+        });
         return res.status(400).json({ message: 'Missing file path in query parameters.' });
     }
 
@@ -24,10 +42,26 @@ router.get('/api/serve-anime-episode', (req: Request, res: Response) => {
     const { stream, headers, status, message, error } = serveVideoFileService({ videoSrc: resolvedPath, range });
 
     if (error) {
+        logData({
+            title: 'Error getting the file from the disk',
+            layer: '*',
+            data: { stream, headers, status, message, error, resolvedPath },
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            type: 'error',
+        });
         return res.status(status).json({ message, error });
     }
 
     if (!stream || !headers) {
+        logData({
+            title: 'Stream or headers missing unexpectedly',
+            layer: '*',
+            data: { stream, headers, status, message, error, resolvedPath },
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            type: 'error',
+        });
         return res.status(500).json({ message: 'Stream or headers missing unexpectedly.' });
     }
 
