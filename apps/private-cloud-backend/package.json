@@ -17,7 +17,8 @@
         "test:coverage": "jest --coverage",
         "api-key:generate": "ts-node scripts/generateApiKey.ts",
         "initialize:db": "ts-node scripts/initializeDatabase.ts",
-        "convert:video": "ts-node scripts/convertVideo.ts"
+        "convert:video": "ts-node scripts/convertVideo.ts",
+        "process-video": "ts-node scripts/processVideo.ts"
     },
     "keywords": [],
     "author": "",
@@ -25,7 +26,6 @@
     "description": "",
     "dependencies": {
         "express": "^5.1.0",
-        "socket.io": "^4.8.1",
         "@repo/type-definitions": "*",
         "bcrypt": "^6.0.0",
         "cors": "^2.8.5",
