@@ -35,19 +35,36 @@ function main(): void {
 
     if (result.success) {
         console.log('✅ SUCCESS!');
-        console.log(`\nProcessed Video: ${result.video}`);
+        console.log(`\nOriginal Video: ${result.originalVideo}`);
 
-        if (result.subtitles && result.subtitles.length > 0) {
+        if (result.audioTracks && result.audioTracks.length > 0) {
+            console.log(`\nAudio Directory: ${result.audioPath}`);
+            console.log(`Extracted ${result.audioTracks.length} audio track(s):`);
+            result.audioTracks.forEach(track => {
+                console.log(`  [${track.index}] ${track.language} - ${track.channels}ch @ ${track.sampleRate}Hz`);
+                console.log(`      ${path.basename(track.path)}`);
+                if (track.title) {
+                    console.log(`      Title: ${track.title}`);
+                }
+            });
+        } else {
+            console.log('\nNo audio tracks found in the video.');
+        }
+
+        if (result.subtitleTracks && result.subtitleTracks.length > 0) {
             console.log(`\nSubtitles Directory: ${result.subtitlesPath}`);
-            console.log(`Extracted ${result.subtitles.length} subtitle(s):`);
-            result.subtitles.forEach((sub, idx) => {
-                console.log(`  ${idx + 1}. [${sub.language}] ${path.basename(sub.path)}`);
+            console.log(`Extracted ${result.subtitleTracks.length} subtitle(s):`);
+            result.subtitleTracks.forEach(sub => {
+                console.log(`  [${sub.index}] ${sub.language} - ${path.basename(sub.path)}`);
+                if (sub.title) {
+                    console.log(`      Title: ${sub.title}`);
+                }
             });
         } else {
             console.log('\nNo subtitles found in the video.');
         }
 
-        console.log('\n✨ Your video is now ready for browser streaming!');
+        console.log('\n✨ Your files are now ready for MSE streaming!');
         process.exit(0);
     } else {
         console.error('❌ FAILED!');
