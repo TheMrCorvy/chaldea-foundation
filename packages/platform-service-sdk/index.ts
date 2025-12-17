@@ -1,143 +1,114 @@
 import * as Real from "./generated-sdk";
 import * as Mock from "./generated-mock-sdk";
+import { client } from "./generated-sdk/client.gen";
 import {
     FeatureNames,
     isFeatureFlagEnabled,
 } from "@repo/shared-utils/feature-flags";
-import {
-    RequestDirectory,
-    RequestEpisode,
-    QueryParams,
-} from "@repo/type-definitions";
+import type { QueryParams } from "@repo/type-definitions";
+import { queryBuilder } from "./queryBuilder";
 
-export { OpenAPI } from "./generated-sdk";
+export { client } from "./generated-sdk/client.gen";
+export type * from "./generated-sdk/types.gen";
 
-type RealServices = typeof Real;
-
-// Get all service names that end with "Service"
-type ServiceName = {
-    [K in keyof RealServices]: K extends `${string}Service` ? K : never;
-}[keyof RealServices];
-
-// Dynamically get methods for a specific service
-type ServiceMethods<T extends ServiceName> = T extends keyof RealServices
-    ? keyof RealServices[T]
-    : never;
-
-interface CallServiceParameters<T extends ServiceName = ServiceName> {
-    service: T;
-    method: ServiceMethods<T>;
-    queryParams?: QueryParams;
-    q?: string;
-    requestBody?: {
-        data: RequestDirectory | RequestEpisode;
-    };
-    id?: string;
+type SDKFunctions = typeof Real;
+type MockFunctions = typeof Mock;
+type FunctionNames = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [K in keyof SDKFunctions]: SDKFunctions[K] extends (...args: any[]) => any
+        ? K
+        : never;
+}[keyof SDKFunctions];
+interface BaseCallParameters {
+    query?: QueryParams;
+    path?: Record<string, string | number>;
+    body?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 class PlatformService {
+    private sdk: SDKFunctions | MockFunctions;
+    private useMock: boolean;
+
     constructor(jwt?: string) {
-        if (jwt) {
-            Real.OpenAPI.TOKEN = jwt;
+        this.useMock =
+            !isFeatureFlagEnabled(FeatureNames.CONSUME_STRAPI_DATA) ||
+            process.env.NODE_ENV === "test";
+
+        this.sdk = this.useMock ? Mock : Real;
+
+        if (!this.useMock) {
+            if (jwt) {
+                client.setConfig({
+                    headers: {
+                        Authorization: `Bearer ${jwt}`,
+                    },
+                    querySerializer: queryBuilder,
+                });
+            } else {
+                client.setConfig({
+                    headers: {
+                        Authorization: null,
+                    },
+                    querySerializer: queryBuilder,
+                });
+            }
         }
     }
 
-    /**
-     * Call a service method with optional parameters
-     * @param params - The service call parameters
-     * @returns The result from the service method
-     */
-    public call<T extends ServiceName>(params: CallServiceParameters<T>) {
-        const useMock = !isFeatureFlagEnabled(FeatureNames.CONSUME_STRAPI_DATA);
-
-        const serviceMap = useMock ? Mock : Real;
+    public call<T extends FunctionNames>(
+        method: T,
+        options?: BaseCallParameters
+    ) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const service = (serviceMap as any)[params.service];
+        const sdkMethod = (this.sdk as any)[method];
 
-        if (!service || typeof service[params.method] !== "function") {
-            throw new Error(
-                `Method ${String(params.method)} not found in ${params.service}.`
-            );
+        if (typeof sdkMethod !== "function") {
+            throw new Error(`Method ${String(method)} not found in SDK.`);
         }
 
-        const httpMethod = this.inferHttpMethod(params.method);
-
-        if (httpMethod === "GET") {
-            return service[params.method](
-                params.queryParams?.fields,
-                params.queryParams?.filters,
-                params.q,
-                params.queryParams?.pagination,
-                params.queryParams?.sort,
-                params.queryParams?.populate
-            );
-        }
-
-        if (httpMethod === "POST") {
-            return service[params.method](
-                params.queryParams?.fields,
-                params.queryParams?.populate,
-                params.requestBody
-            );
-        }
-
-        if (httpMethod === "PUT") {
-            if (!params.id) {
-                throw new Error(
-                    "The ID of the document is required to perform a PUT request."
-                );
-            }
-            return service[params.method](
-                params.id,
-                params.queryParams?.fields,
-                params.queryParams?.populate,
-                params.requestBody
-            );
-        }
-
-        if (httpMethod === "DELETE") {
-            if (!params.id) {
-                throw new Error(
-                    "The ID of the document is required to perform a DELETE request."
-                );
-            }
-            return service[params.method](
-                params.id,
-                params.queryParams?.fields,
-                params.queryParams?.populate,
-                params.queryParams?.filters
-            );
-        }
-
-        throw new Error("The specified HTTP method is not recognized.");
+        return sdkMethod(options);
     }
 
-    /**
-     * Infer the HTTP method from the method name
-     * @param methodName - The name of the method
-     * @returns The inferred HTTP method
-     */
-    private inferHttpMethod(
-        methodName: string
-    ): "GET" | "POST" | "PUT" | "DELETE" {
-        const lowerCase = methodName.toLocaleLowerCase();
+    public setJWT(jwt: string): void {
+        if (!this.useMock) {
+            client.setConfig({
+                headers: {
+                    Authorization: `Bearer ${jwt}`,
+                },
+                querySerializer: queryBuilder,
+            });
+        }
+    }
 
-        if (lowerCase.includes("get")) {
-            return "GET";
+    public clearJWT(): void {
+        if (!this.useMock) {
+            client.setConfig({
+                headers: {
+                    Authorization: null,
+                },
+                querySerializer: queryBuilder,
+            });
         }
-        if (lowerCase.includes("post")) {
-            return "POST";
-        }
-        if (lowerCase.includes("put")) {
-            return "PUT";
-        }
-        if (lowerCase.includes("delete")) {
-            return "DELETE";
-        }
+    }
 
-        throw new Error(
-            `Unable to infer HTTP method from method name: ${methodName}.`
-        );
+    public setApiToken(apiToken: string): void {
+        if (!this.useMock) {
+            client.setConfig({
+                headers: {
+                    Authorization: `Bearer ${apiToken}`,
+                },
+                querySerializer: queryBuilder,
+            });
+        }
+    }
+
+    public setBaseUrl(baseUrl: string): void {
+        if (!this.useMock) {
+            client.setConfig({
+                baseUrl,
+                querySerializer: queryBuilder,
+            });
+        }
     }
 }
 
