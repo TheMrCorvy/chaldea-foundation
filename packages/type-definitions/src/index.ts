@@ -52,6 +52,7 @@ export interface QueryFilters {
     $endsWith?: EndsWith;
     $null?: Null;
     $notNull?: NotNull;
+    [key: string]: unknown;
 }
 
 type QueryFiltersRecord = Partial<
@@ -133,7 +134,9 @@ export interface Episode {
     documentId: string;
     file_type: VideoContainers;
     languages_info?: object;
-    watched_by?: User[];
+    watched_by: {
+        data: string[];
+    } | null;
     publishedAt: string;
 }
 
