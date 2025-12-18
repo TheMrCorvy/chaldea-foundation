@@ -3,17 +3,22 @@ import { FeatureNames, isFeatureFlagEnabled } from "./featureFlags";
 
 // Copy and paste these layers into LAYERS_AVAILABLE in the .env file to enable/disable the layers
 type LayersAvailable =
-    | "messages"
-    | "room_ws"
-    | "participants_update"
-    | "camera"
-    | "camera_caller"
-    | "camera_receiver"
-    | "screen_sharing"
-    | "screen_sharing_sender"
-    | "screen_sharing_receiver"
-    | "access_user_hardware"
-    | "poll"
+    | "strapi_service"
+    | "nas_service"
+    | "nas_service_v2_video"
+    | "nas_service_v2_audio"
+    | "nas_disk_service"
+    | "auth_login"
+    | "auth_logout"
+    | "auth_register"
+    | "auth_middleware"
+    | "auth_mock_session"
+    | "auth_register_token"
+    | "internal_http_requests"
+    | "external_http_requests"
+    | "internal_http_responses"
+    | "external_http_responses"
+    | "video_streaming"
     | "*"; // This layer will always be logged, use it for heavy errors
 
 export interface LogDataParams {
@@ -24,7 +29,7 @@ export interface LogDataParams {
     timeStamp?: boolean;
     addSpaceBefore?: boolean;
     addSpaceAfter?: boolean;
-    layer?: LayersAvailable; // "layer" as the name implies is the layer where a certain console.log will be printed, so that all the app can have lots of console.logs but not all of them will alwaysshow up
+    layer?: LayersAvailable; // "layer" as the name implies is the layer where a certain console.log will be printed, so that all the app can have lots of console.logs but not all of them will always show up
     addSeparatorBefore?: boolean;
     addSeparatorAfter?: boolean;
 }
@@ -32,14 +37,14 @@ export interface LogDataParams {
 export type LogData = (params: LogDataParams) => void;
 
 export const logData: LogData = ({
-    title,
     data,
-    type = "log",
-    clearConsole = false,
-    timeStamp = false,
     layer,
-    addSpaceBefore = false,
+    title,
+    type = "log",
+    timeStamp = false,
+    clearConsole = false,
     addSpaceAfter = false,
+    addSpaceBefore = false,
     addSeparatorAfter = false,
     addSeparatorBefore = false,
 }) => {
@@ -67,7 +72,7 @@ export const logData: LogData = ({
         allowSpecificLayer
     ) {
         logIsAvailable = true;
-        // If the layer is set and the feature flag is allowing for specific layers, then the logs are available
+        // If the layer is set and the FF is allowing for specific layers, then the logs are available
     }
 
     if (allowAllLogs || layer === "*") {
@@ -79,20 +84,22 @@ export const logData: LogData = ({
         return;
     }
 
-    try {
-        dataString = JSON.stringify({ data });
-    } catch (err) {
-        if (logIsAvailable) {
-            console.warn("The data provided was corrupted or circular.", err);
-        }
-        dataString = data;
-    }
-
     if (clearConsole) {
         console.clear();
     }
 
     logSpace(addSpaceBefore);
+
+    try {
+        dataString = JSON.stringify({ data });
+    } catch (err) {
+        if (logIsAvailable) {
+            console.warn("The data provided was corrupted or circular.", err);
+            logSpace(true);
+        }
+
+        dataString = data;
+    }
 
     if (addSeparatorBefore) {
         console.log(separator);
