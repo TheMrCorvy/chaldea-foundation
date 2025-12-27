@@ -10,7 +10,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import DrawerList from "../DrawerList";
 import { redirect } from "next/navigation";
 import { WebRoutes } from "@/utils/routes";
-import NavAction from "../NavAction/index.tsx";
+import NavAction from "../NavAction/index";
 import useStyles from "./useStyles";
 import { Box } from "@mui/joy";
 import ReplyIcon from "@mui/icons-material/Reply";
