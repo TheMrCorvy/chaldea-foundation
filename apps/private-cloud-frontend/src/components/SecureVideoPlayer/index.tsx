@@ -26,6 +26,7 @@ export interface SecureVideoPlayerProps {
     parent: string;
     fileId: string;
     nasBaseUrl: string;
+    enableProxy?: boolean;
 }
 
 const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
@@ -38,20 +39,27 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
     parent,
     fileId,
     nasBaseUrl,
+    enableProxy = false,
 }) => {
     const filePath = path + "/" + display_name + "." + fileType;
-    const realUrl = NasApiRoutes.STREAM_MEDIA;
+    const realUrl = !enableProxy
+        ? NasApiRoutes.V2_STREAM_MEDIA
+        : ApiRoutes.STREAM_EPISODE + "/" + documentId;
     const mockUrl = ApiRoutes.STREAM_EPISODE;
     let url: URL;
 
     if (useMockVideo) {
         url = new URL(mockUrl, window.location.origin);
     } else {
-        url = new URL(realUrl, nasBaseUrl);
+        if (!enableProxy) {
+            url = new URL(realUrl, nasBaseUrl);
+        } else {
+            url = new URL(realUrl, window.location.origin);
+        }
         url.searchParams.append("filePath", filePath);
-        url.searchParams.append("apiKey", fileId);
-
-        console.log(fileId);
+        if (!enableProxy) {
+            url.searchParams.append("apiKey", fileId);
+        }
     }
 
     const videoUrl = useMemo(() => {
@@ -78,6 +86,7 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                 sx={{
                     gap: 1,
                     pb: 1,
+                    zIndex: 0,
                 }}
             >
                 <Box
