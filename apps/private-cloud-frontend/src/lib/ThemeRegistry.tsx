@@ -14,9 +14,7 @@ export default function ThemeRegistry({
             defaultMode="dark"
             modeStorageKey="joy-mode"
             disableTransitionOnChange
-            // Prevent system preference from overriding
             colorSchemeStorageKey="joy-color-scheme"
-            // Force attribute on HTML element
             attribute="data-joy-color-scheme"
         >
             <CssBaseline />
