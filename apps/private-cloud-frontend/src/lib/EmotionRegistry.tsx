@@ -12,7 +12,7 @@ export default function EmotionRegistry({
     children: React.ReactNode;
 }) {
     const [cache] = React.useState<EmotionCache>(() => {
-        const cache = createCache({ key: "css", prepend: true });
+        const cache = createCache({ key: "joy", prepend: false });
         cache.compat = true;
         return cache;
     });
