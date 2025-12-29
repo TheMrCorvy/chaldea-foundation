@@ -1,0 +1,6 @@
+mock-episodes
+.mock-episodes
+./mock-episodes
+./mock-episodes/*
+mock-episodes/*
+.mockEpisodes/*
