@@ -45,7 +45,6 @@ export function NasService() {
                 headers["Range"] = range;
             }
 
-            // Hacer la petición al NAS
             const response = await fetch(url.toString(), {
                 method: "GET",
                 headers,
