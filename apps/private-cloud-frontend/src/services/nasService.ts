@@ -79,7 +79,6 @@ export function NasService() {
                 }
             });
 
-            // Obtener el stream del body
             const stream = response.body;
 
             if (!stream) {
