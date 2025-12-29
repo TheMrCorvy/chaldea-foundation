@@ -41,7 +41,6 @@ export function NasService() {
                 Accept: "video/*",
             };
 
-            // Incluir Range header si existe
             if (range) {
                 headers["Range"] = range;
             }
