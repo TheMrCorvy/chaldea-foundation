@@ -64,7 +64,6 @@ export function NasService() {
 
             const responseHeaders: Record<string, string> = {};
 
-            // Copiar headers importantes del NAS
             const headersToProxy = [
                 "content-type",
                 "content-length",
