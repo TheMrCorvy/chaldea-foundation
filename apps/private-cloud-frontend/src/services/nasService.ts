@@ -33,7 +33,6 @@ export function NasService() {
         apiKey,
     }: ServeEpisodeParams): Promise<ServeEpisodeResponse> {
         try {
-            // Construir URL con el filePath como query parameter
             const url = new URL("/api/serve-episode", nasBaseUrl);
             url.searchParams.append("filePath", filePath);
             url.searchParams.append("apiKey", apiKey);
