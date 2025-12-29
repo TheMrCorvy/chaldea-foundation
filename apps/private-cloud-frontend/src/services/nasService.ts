@@ -50,7 +50,6 @@ export function NasService() {
                 headers,
             });
 
-            // Si la respuesta no es exitosa, parsear el error
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({
                     message: "Unknown error from NAS",
