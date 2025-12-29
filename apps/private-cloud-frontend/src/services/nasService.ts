@@ -37,7 +37,6 @@ export function NasService() {
             url.searchParams.append("filePath", filePath);
             url.searchParams.append("apiKey", apiKey);
 
-            // Preparar headers
             const headers: HeadersInit = {
                 Accept: "video/*",
             };
