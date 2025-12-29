@@ -62,7 +62,6 @@ export function NasService() {
                 };
             }
 
-            // Construir headers de respuesta
             const responseHeaders: Record<string, string> = {};
 
             // Copiar headers importantes del NAS
