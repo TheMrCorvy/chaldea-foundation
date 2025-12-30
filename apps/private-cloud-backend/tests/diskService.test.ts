@@ -7,6 +7,8 @@ import { LocalDirectory } from '../src/utils/typesDefinition';
 jest.mock('fs');
 const mockFs = fs as jest.Mocked<typeof fs>;
 
+const mockBasePath = '';
+
 describe('diskService', () => {
     describe('scanSingleFolder', () => {
         const mockDirPath = '/test/anime/folder';
@@ -30,6 +32,7 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
+                secureBasePath: mockBasePath,
             });
 
             expect(result).toEqual({
@@ -64,6 +67,7 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: adultDirPath,
                 excludedParents: mockExcludedParents,
+                secureBasePath: mockBasePath,
             });
 
             expect(result.display_name).toBe('Adult Content');
@@ -82,6 +86,7 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
+                secureBasePath: mockBasePath,
             });
 
             expect(result.episodes).toHaveLength(1);
@@ -102,6 +107,7 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
+                secureBasePath: mockBasePath,
             });
 
             expect(result.episodes).toHaveLength(1);
@@ -114,6 +120,7 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
+                secureBasePath: mockBasePath,
             });
 
             expect(result.sub_directories).toHaveLength(0);
@@ -133,6 +140,7 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
+                secureBasePath: mockBasePath,
             });
 
             expect(result.episodes).toHaveLength(0);
@@ -154,6 +162,7 @@ describe('diskService', () => {
             const result = scanSingleFolder({
                 dirPath: mockDirPath,
                 excludedParents: mockExcludedParents,
+                secureBasePath: mockBasePath,
             });
 
             expect(result.episodes[0].display_name).toBe('My Favorite Anime - Episode 1');
