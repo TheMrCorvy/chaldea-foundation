@@ -7,14 +7,16 @@ interface ScanSingleFolderParams {
     dirPath: string;
     excludedParents: string[];
     excludeSubDirectories?: boolean;
+    secureBasePath: string;
 }
 
 export const scanSingleFolder = ({
     dirPath,
     excludedParents,
     excludeSubDirectories = false,
+    secureBasePath,
 }: ScanSingleFolderParams): LocalDirectory => {
-    const items = fs.readdirSync(dirPath, { withFileTypes: true });
+    const items = fs.readdirSync(secureBasePath + dirPath, { withFileTypes: true });
 
     const folderIsAdult = determineIfFolderIsAdult(path.basename(dirPath));
     const displayName = !folderIsAdult ? path.basename(dirPath) : removeAsteriskFromFolderName(path.basename(dirPath));
@@ -26,7 +28,7 @@ export const scanSingleFolder = ({
 
     const result: LocalDirectory = {
         display_name: displayName,
-        directory_path: dirPath,
+        directory_path: removeBasePath(secureBasePath, dirPath),
         adult: folderIsAdult,
         parent_directory: parentPath,
         sub_directories: [],
@@ -36,16 +38,24 @@ export const scanSingleFolder = ({
     for (const item of items) {
         if (item.isDirectory() && !excludeSubDirectories) {
             result.sub_directories.push(path.join(dirPath, item.name));
-        } else if (item.isFile() && !episodeShouldBeIgnored(item.name)) {
+        } else if (item.isFile() && !fileShouldBeIgnored(item.name)) {
             result.episodes.push({
                 display_name: path.basename(item.name, path.extname(item.name)),
-                parent_directory: dirPath,
+                parent_directory: removeBasePath(secureBasePath, dirPath),
                 file_type: getFileType(path.extname(item.name)),
             });
         }
     }
 
     return result;
+};
+
+const removeBasePath = (secureBasePath: string, completePath: string): string => {
+    if (completePath.startsWith(secureBasePath)) {
+        return completePath.slice(secureBasePath.length);
+    }
+
+    return completePath;
 };
 
 const getFileType = (extension: string): VideoContainers => {
@@ -61,7 +71,7 @@ const removeAsteriskFromFolderName = (folderName: string): string => {
     return folderName.startsWith('* ') ? folderName.slice(2) : folderName;
 };
 
-const episodeShouldBeIgnored = (fileName: string): boolean => {
+const fileShouldBeIgnored = (fileName: string): boolean => {
     const ignoredPrefixes = ['.', '._', 'Thumbs.db', 'desktop.ini'];
     const extension = path.extname(fileName).slice(1);
     return (
