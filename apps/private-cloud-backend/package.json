@@ -18,7 +18,7 @@
         "api-key:generate": "ts-node scripts/generateApiKey.ts",
         "initialize:db": "ts-node scripts/initializeDatabase.ts",
         "convert:video": "ts-node scripts/convertVideo.ts",
-        "process-video": "ts-node scripts/processVideo.ts"
+        "test-ffmpeg": "ts-node scripts/testFfmpeg.ts"
     },
     "keywords": [],
     "author": "",
