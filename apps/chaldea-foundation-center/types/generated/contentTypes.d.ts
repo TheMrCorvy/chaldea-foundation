@@ -498,9 +498,6 @@ export interface ApiBEpisodeBEpisode extends Struct.CollectionTypeSchema {
         createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
             Schema.Attribute.Private;
         display_name: Schema.Attribute.String & Schema.Attribute.Required;
-        file_type: Schema.Attribute.Enumeration<["mkv", "mp4", "avi"]> &
-            Schema.Attribute.Required &
-            Schema.Attribute.DefaultTo<"mp4">;
         languages_info: Schema.Attribute.JSON;
         locale: Schema.Attribute.String & Schema.Attribute.Private;
         localizations: Schema.Attribute.Relation<
@@ -516,6 +513,9 @@ export interface ApiBEpisodeBEpisode extends Struct.CollectionTypeSchema {
         updatedAt: Schema.Attribute.DateTime;
         updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
             Schema.Attribute.Private;
+        version: Schema.Attribute.Enumeration<["V1", "V2"]> &
+            Schema.Attribute.Required &
+            Schema.Attribute.DefaultTo<"V1">;
         watched_by: Schema.Attribute.JSON;
     };
 }
@@ -1201,7 +1201,7 @@ export interface PluginUsersPermissionsUser
 }
 
 declare module "@strapi/strapi" {
-    export module Public {
+    export namespace Public {
         export interface ContentTypeSchemas {
             "admin::api-token": AdminApiToken;
             "admin::api-token-permission": AdminApiTokenPermission;
