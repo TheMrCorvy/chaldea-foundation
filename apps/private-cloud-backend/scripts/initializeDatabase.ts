@@ -10,12 +10,13 @@ import PlatformService from '@repo/platform-service-sdk';
 import { logData } from '@repo/shared-utils/log-data';
 
 const main = async () => {
+    const secureBasePath = process.env.SECURE_BASE_PATH || '';
     const initiumIter: string[] = process.env.INITIAL_PATH ? JSON.parse(process.env.INITIAL_PATH) : [];
     const outputFolderPath = './db';
     const excludedParents: string[] = process.env.EXCLUDED_PARENTS ? JSON.parse(process.env.EXCLUDED_PARENTS) : [];
     const strapiApiKey = process.env.STRAPI_API_KEY;
 
-    if (!initiumIter || initiumIter.length < 1 || !strapiApiKey || !excludedParents) {
+    if (!initiumIter || initiumIter.length < 1 || !strapiApiKey || !excludedParents || !secureBasePath) {
         throw new Error('Environment variables are not set.');
     }
 
@@ -37,6 +38,7 @@ const main = async () => {
         const data = scanSingleFolder({
             dirPath: initialPath,
             excludedParents,
+            secureBasePath,
         });
 
         const pendingToScan: string[] = data.sub_directories;
@@ -47,6 +49,7 @@ const main = async () => {
                           dirPath: data.directory_path,
                           excludedParents,
                           excludeSubDirectories: true,
+                          secureBasePath,
                       }),
                       parent_directory: null,
                   },
@@ -62,6 +65,7 @@ const main = async () => {
                 const scannedData = scanSingleFolder({
                     dirPath,
                     excludedParents,
+                    secureBasePath,
                 });
 
                 if (!excludedParents.includes(scannedData.display_name)) {
