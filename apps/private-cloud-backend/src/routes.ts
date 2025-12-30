@@ -71,8 +71,25 @@ router.get('/api/v1/serve-episode', (req: Request, res: Response) => {
     stream.pipe(res);
 });
 
-router.get('/api/v2/serve-episode/:audioSrc', (req, res) => {
+router.get('/api/v2/serve-episode/:audioIndex', (req, res) => {
     const start = Number(req.query.start ?? 0);
+    const parentDirectory = String(req.query.parentirectory ?? '');
+    const fileName = String(req.query.fileName ?? '');
+
+    if (!parentDirectory || !fileName) {
+        return res.status(400).json({ message: 'Missing parentDirectory or fileName in query parameters.' });
+    }
+
+    const audioIndex = Number(req.params.audioIndex);
+
+    logData({
+        title: 'Streaming episode ' + fileName,
+        type: 'info',
+        layer: 'video_streaming',
+        addSpaceAfter: true,
+        addSeparatorAfter: true,
+        data: { start, parentDirectory, fileName, audioIndex },
+    });
 
     res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || '*');
     res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
