@@ -498,6 +498,11 @@ export interface ApiBEpisodeBEpisode extends Struct.CollectionTypeSchema {
         createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
             Schema.Attribute.Private;
         display_name: Schema.Attribute.String & Schema.Attribute.Required;
+        file_type: Schema.Attribute.String &
+            Schema.Attribute.SetMinMaxLength<{
+                maxLength: 5;
+                minLength: 3;
+            }>;
         languages_info: Schema.Attribute.JSON;
         locale: Schema.Attribute.String & Schema.Attribute.Private;
         localizations: Schema.Attribute.Relation<
