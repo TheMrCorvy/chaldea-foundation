@@ -1,5 +1,3 @@
-import { VideoContainers } from '@repo/type-definitions';
-
 export interface LocalDirectory {
     display_name: string;
     directory_path: string;
@@ -12,7 +10,7 @@ export interface LocalDirectory {
 
 export interface LocalEpisode {
     display_name: string;
-    file_type: VideoContainers;
+    file_type: string;
     parent_directory: string;
 }
 
