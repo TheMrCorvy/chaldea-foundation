@@ -132,7 +132,7 @@ export interface Episode {
     updatedAt: Date;
     parent_directory?: Directory;
     documentId: string;
-    file_type: VideoContainers;
+    version: "V1" | "V2";
     languages_info?: object;
     watched_by: {
         data: string[];
@@ -159,9 +159,7 @@ export interface RequestEpisode {
     updatedAt?: Date;
     parent_directory?: string;
     documentId?: string;
-    file_type?: VideoContainers;
+    version: "V1" | "V2";
     languages_info?: object;
     watched_by?: User[];
 }
-
-export type VideoContainers = "mp4" | "mkv" | "avi" | "*";
