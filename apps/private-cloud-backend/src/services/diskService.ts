@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import { LocalDirectory } from '../utils/typesDefinition';
-import { VideoContainers } from '@repo/type-definitions';
 
 interface ScanSingleFolderParams {
     dirPath: string;
@@ -42,7 +41,7 @@ export const scanSingleFolder = ({
             result.episodes.push({
                 display_name: path.basename(item.name, path.extname(item.name)),
                 parent_directory: removeBasePath(secureBasePath, dirPath),
-                file_type: getFileType(path.extname(item.name)),
+                file_type: path.extname(item.name),
             });
         }
     }
@@ -58,26 +57,19 @@ const removeBasePath = (secureBasePath: string, completePath: string): string =>
     return completePath;
 };
 
-const getFileType = (extension: string): VideoContainers => {
-    const withoutDot = extension.toLowerCase().slice(1);
-    if (withoutDot === 'mp4' || withoutDot === 'mkv' || withoutDot === 'avi') {
-        return withoutDot;
-    }
-
-    return '*';
-};
-
 const removeAsteriskFromFolderName = (folderName: string): string => {
     return folderName.startsWith('* ') ? folderName.slice(2) : folderName;
 };
 
 const fileShouldBeIgnored = (fileName: string): boolean => {
     const ignoredPrefixes = ['.', '._', 'Thumbs.db', 'desktop.ini'];
-    const extension = path.extname(fileName).slice(1);
-    return (
-        ignoredPrefixes.some(prefix => fileName.startsWith(prefix)) ||
-        (extension !== 'mp4' && extension !== 'mkv' && extension !== 'avi')
-    );
+    const ignoredSuffixes = ['.nfo', '.txt', '.db'];
+
+    if (ignoredSuffixes.some(suffix => fileName.endsWith(suffix))) {
+        return true;
+    }
+
+    return ignoredPrefixes.some(prefix => fileName.startsWith(prefix));
 };
 
 const determineIfFolderIsAdult = (folderName: string): boolean => {
