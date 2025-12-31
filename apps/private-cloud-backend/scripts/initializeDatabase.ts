@@ -8,8 +8,11 @@ dotenv.config();
 
 import PlatformService from '@repo/platform-service-sdk';
 import { logData } from '@repo/shared-utils/log-data';
+import { processVideoFile } from '../src/services/ffmpegService';
 
 const main = async () => {
+    console.clear();
+
     const secureBasePath = process.env.SECURE_BASE_PATH || '';
     const initiumIter: string[] = process.env.INITIAL_PATH ? JSON.parse(process.env.INITIAL_PATH) : [];
     const outputFolderPath = './db';
@@ -222,12 +225,33 @@ const main = async () => {
             });
 
             for (const episode of localDirectory.episodes) {
+                const isVOne = episode.file_type === '.mp4' || episode.file_type === '.MP4';
+                let metadata: any = null;
+
+                if (!isVOne) {
+                    logData({
+                        title: `Processing episode: ${episode.display_name} (Type: ${isVOne ? 'V1' : 'V2'})`,
+                        layer: '*',
+                        addSpaceAfter: true,
+                        data: {
+                            localDirectory,
+                            episode,
+                        },
+                    });
+
+                    metadata = await processVideoFile(
+                        secureBasePath + localDirectory.directory_path + '/' + episode.display_name + episode.file_type
+                    );
+                }
+
                 const storedEpisode = await platformService.call('bEpisodePostBEpisodes', {
                     body: {
                         data: {
                             display_name: episode.display_name,
                             parent_directory: storedDirectory.data.data.documentId,
+                            version: isVOne ? 'V1' : 'V2',
                             file_type: episode.file_type,
+                            languages_info: isVOne ? undefined : metadata,
                         },
                     },
                 });
