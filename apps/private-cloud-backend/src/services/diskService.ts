@@ -63,7 +63,22 @@ const removeAsteriskFromFolderName = (folderName: string): string => {
 
 const fileShouldBeIgnored = (fileName: string): boolean => {
     const ignoredPrefixes = ['.', '._', 'Thumbs.db', 'desktop.ini'];
-    const ignoredSuffixes = ['.nfo', '.txt', '.db'];
+    const ignoredSuffixes = [
+        '.nfo',
+        '.txt',
+        '.db',
+        '.rar',
+        '.zip',
+        '.ini',
+        '.ds_store',
+        '.lnk',
+        '.url',
+        '.json',
+        '.xml',
+        '.exe',
+        '.bat',
+        '.cmd',
+    ];
 
     if (ignoredSuffixes.some(suffix => fileName.endsWith(suffix))) {
         return true;
