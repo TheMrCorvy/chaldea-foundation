@@ -20,6 +20,7 @@ import { Radio } from "@mui/joy";
 import DrawerListContent from "../DrawerListContent";
 import { logData } from "@repo/shared-utils/log-data";
 import { GroupedDirectories } from "@/utils/directories";
+import useStyles from "./useStyles";
 
 export interface DrawerListProps {
     open: boolean;
@@ -94,6 +95,15 @@ const DrawerList: FC<DrawerListProps> = ({
         fetchDirectories();
     }, [selectedDocId, fetchDirectories]);
 
+    const {
+        root,
+        mainContainer,
+        formControl,
+        formLabel,
+        buttonContainer,
+        card,
+    } = useStyles();
+
     return (
         <Drawer
             size="md"
@@ -102,25 +112,11 @@ const DrawerList: FC<DrawerListProps> = ({
             onClose={closeDrawer}
             slotProps={{
                 content: {
-                    sx: {
-                        bgcolor: "transparent",
-                        p: { md: 3, sm: 0 },
-                        boxShadow: "none",
-                    },
+                    sx: root,
                 },
             }}
         >
-            <Sheet
-                sx={{
-                    borderRadius: "md",
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 2,
-                    height: "100%",
-                    overflow: "auto",
-                }}
-            >
+            <Sheet sx={mainContainer}>
                 <DialogTitle
                     sx={{
                         color: textPrimary,
@@ -131,44 +127,21 @@ const DrawerList: FC<DrawerListProps> = ({
                 <ModalClose />
                 <Divider sx={{ mt: "auto", bgcolor: neutralBg }} />
                 <DialogContent sx={{ gap: 0 }}>
-                    <FormControl
-                        sx={{
-                            paddingLeft: 2,
-                        }}
-                    >
-                        <FormLabel
-                            sx={{
-                                typography: "title-md",
-                                fontWeight: "bold",
-                            }}
-                        >
-                            Categorias:
-                        </FormLabel>
+                    <FormControl sx={formControl}>
+                        <FormLabel sx={formLabel}>Categorias:</FormLabel>
                         <RadioGroup
                             value={selectedDocId || ""}
                             onChange={(event) => {
                                 handleClick(event.target.value);
                             }}
                         >
-                            <Box
-                                sx={{
-                                    display: "grid",
-                                    gridTemplateColumns:
-                                        "repeat(auto-fill, minmax(140px, 1fr))",
-                                    gap: 1.5,
-                                }}
-                            >
+                            <Box sx={buttonContainer}>
                                 {mainDirectories.map((dir) => (
                                     <Card
                                         key={
                                             "drawer-main-dir-" + dir.documentId
                                         }
-                                        sx={{
-                                            boxShadow: "none",
-                                            "&:hover": {
-                                                bgcolor: "background.level1",
-                                            },
-                                        }}
+                                        sx={card}
                                         onClick={() =>
                                             handleClick(dir.documentId)
                                         }
