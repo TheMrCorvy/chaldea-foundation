@@ -3,6 +3,7 @@ import { serveVideoFileService } from './services/serveVideoFileService';
 import path from 'path';
 import { logData } from '@repo/shared-utils/log-data';
 import { spawn } from 'child_process';
+import verifyPaths from './utils/verifyPaths';
 
 const router = Router();
 
@@ -72,67 +73,101 @@ router.get('/api/v1/serve-episode', (req: Request, res: Response) => {
 });
 
 router.get('/api/v2/serve-episode/:audioIndex', (req, res) => {
-    const start = Number(req.query.start ?? 0);
+    const startRaw = Number(req.query.start ?? 0);
+    const start = (Number.isFinite(startRaw) && startRaw >= 0 ? startRaw : 0).toString();
     const parentDirectory = String(req.query.parentirectory ?? '');
     const fileName = String(req.query.fileName ?? '');
+    const fileType = String(req.query.fileType ?? 'mkv');
+    const audioIndex = Number(req.params.audioIndex || 0);
+    const fullFileName = fileName + fileType;
+    const ROOT = process.env.SECURE_BASE_PATH || '';
 
-    if (!parentDirectory || !fileName) {
-        return res.status(400).json({ message: 'Missing parentDirectory or fileName in query parameters.' });
+    if (!ROOT) {
+        logData({
+            layer: '*',
+            title: 'Server misconfiguration: ROOT path is not set',
+            data: {
+                ROOT,
+            },
+            addSpaceAfter: true,
+            addSeparatorAfter: true,
+            timeStamp: true,
+            type: 'error',
+        });
+
+        return res.status(500).json({ message: 'Server misconfiguration: ROOT path is not set.' });
     }
 
-    const audioIndex = Number(req.params.audioIndex);
+    if (!parentDirectory || !fileName || !fileType) {
+        logData({
+            title: 'Some data was absent in the request to stream the video',
+            layer: 'video_streaming',
+            data: { parentDirectory, fileName, fileType },
+            type: 'error',
+            addSpaceAfter: true,
+            addSeparatorAfter: true,
+        });
+
+        return res.status(400).json({ message: 'Missing data in query parameters.' });
+    }
+
+    const videoPath = verifyPaths(ROOT, parentDirectory + '/', fullFileName);
+    const audioPath = verifyPaths(ROOT, '.v2', parentDirectory + '/', fileName, '/audio/', audioIndex + '.m4a');
+
+    if (!videoPath || !videoPath.startsWith(ROOT) || !audioPath || !audioPath.startsWith(ROOT)) {
+        return res.status(403).end();
+    }
 
     logData({
-        title: 'Streaming episode ' + fileName,
+        title: 'Streaming episode ' + fullFileName,
         type: 'info',
         layer: 'video_streaming',
         addSpaceAfter: true,
         addSeparatorAfter: true,
-        data: { start, parentDirectory, fileName, audioIndex },
+        data: { start, parentDirectory, fullFileName, audioIndex, videoPath, audioPath, fileType },
     });
 
     res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || '*');
     res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
-
-    res.writeHead(200, {
-        'Content-Type': 'video/mp4',
-        'Transfer-Encoding': 'chunked',
-        'Accept-Ranges': 'none',
-    });
+    res.writeHead(200, { 'Content-Type': 'video/mp4', 'Transfer-Encoding': 'chunked', 'Accept-Ranges': 'none' });
+    res.setHeader('Cache-Control', 'no-store');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
 
     const ffmpeg = spawn(
         'ffmpeg',
         [
-            '-ss',
-            String(start),
             '-i',
-            '/Volumes/Disco 22TB/Peliculas de Anime/5cm Por Segundo.mkv',
+            videoPath,
+            '-i',
+            audioPath,
+            '-ss',
+            start,
             '-map',
             '0:v:0',
             '-map',
-            '0:a:3',
+            '1:a:0',
             '-c',
             'copy',
+            '-shortest',
+            '-avoid_negative_ts',
+            'make_zero',
             '-movflags',
             '+frag_keyframe+empty_moov+default_base_moof',
             '-f',
             'mp4',
             'pipe:1',
         ],
-        {
-            stdio: ['ignore', 'pipe', 'pipe'],
-        }
+        { stdio: ['ignore', 'pipe', 'pipe'] }
     );
 
     ffmpeg.stdout.pipe(res);
 
-    ffmpeg.stderr.on('data', data => {
-        console.log(data);
-    });
-
-    req.on('close', () => {
+    const killFfmpeg = (): void => {
         ffmpeg.kill('SIGKILL');
-    });
+    };
+
+    req.on('close', killFfmpeg);
+    res.on('error', killFfmpeg);
 });
 
 // 404 handler
