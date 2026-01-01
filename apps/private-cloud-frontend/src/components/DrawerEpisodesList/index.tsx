@@ -13,6 +13,7 @@ import { Episode } from "@repo/type-definitions";
 import { FC, useCallback, useEffect, useState } from "react";
 import NotStartedIcon from "@mui/icons-material/NotStarted";
 import { LoadingState } from "../DrawerList";
+import useStyles from "./useStyles";
 
 export interface DrawerEpisodesListProps {
     parentId: string;
@@ -46,6 +47,9 @@ const DrawerEpisodesList: FC<DrawerEpisodesListProps> = ({ parentId }) => {
         }
     }, [parentId, fetchEpisodes]);
 
+    const { listItemButton, colorWhite, loader, errorLoading, emptyPage } =
+        useStyles();
+
     return (
         <List
             sx={{
@@ -62,60 +66,29 @@ const DrawerEpisodesList: FC<DrawerEpisodesListProps> = ({ parentId }) => {
                             href={WebRoutes.EPISODE + "/" + episode.documentId}
                             component="a"
                             variant="plain"
-                            sx={{
-                                borderRadius: "sm",
-                                "&:hover": {
-                                    backgroundColor: "#0B6BCB !important",
-                                    color: "white !important",
-                                },
-                            }}
+                            sx={listItemButton}
                         >
                             <ListItemDecorator>
                                 <NotStartedIcon />
                             </ListItemDecorator>
-                            <ListItemContent
-                                sx={{
-                                    color: "white",
-                                }}
-                            >
+                            <ListItemContent sx={colorWhite}>
                                 {episode.display_name}
                             </ListItemContent>
                         </ListItemButton>
                     </ListItem>
                 ))}
             {loadingState === "loading" && (
-                <Box
-                    sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        height: "100%",
-                    }}
-                >
+                <Box sx={loader}>
                     <CircularProgress variant="plain" />
                 </Box>
             )}
             {loadingState === "failed" && (
-                <Typography
-                    level="body-md"
-                    color="danger"
-                    sx={{
-                        paddingLeft: 2,
-                        marginTop: 3,
-                    }}
-                >
+                <Typography level="body-md" color="danger" sx={errorLoading}>
                     Error loading episodes. Please try again later.
                 </Typography>
             )}
             {loadingState === "succeeded" && episodes.length === 0 && (
-                <Typography
-                    level="body-md"
-                    color="neutral"
-                    sx={{
-                        paddingLeft: 2,
-                        marginTop: 3,
-                    }}
-                >
+                <Typography level="body-md" color="neutral" sx={emptyPage}>
                     Esta categoria aún no tiene nada disponible.
                 </Typography>
             )}
