@@ -20,6 +20,10 @@ export const authenticateApiKey = (validApiKeys: string[]): RequestHandler => {
             (req.headers['authorization']?.replace('Bearer ', '') as string) ||
             (req.query.apiKey as string);
 
+        // Set CORS headers on all responses for media endpoints
+        res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || '*');
+        res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+
         if (!apiKey) {
             return res.status(401).json({
                 error: 'API key required',
