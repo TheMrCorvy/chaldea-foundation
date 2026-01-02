@@ -10,6 +10,7 @@ type MockRequest = Partial<Request> & {
 type MockResponse = Partial<Response> & {
     status: jest.Mock;
     json: jest.Mock;
+    setHeader: jest.Mock;
 };
 
 describe('apiKeyAuth middleware', () => {
@@ -25,6 +26,7 @@ describe('apiKeyAuth middleware', () => {
         mockResponse = {
             status: jest.fn().mockReturnThis(),
             json: jest.fn().mockReturnThis(),
+            setHeader: jest.fn().mockReturnThis(),
         };
         mockNext = jest.fn();
     });
