@@ -72,14 +72,14 @@ router.get('/api/v1/serve-episode', (req: Request, res: Response) => {
     stream.pipe(res);
 });
 
-router.get('/api/v2/serve-episode/:audioIndex', (req, res) => {
+router.get('/api/v2/serve-episode/:fileType', (req, res) => {
     const startRaw = Number(req.query.start ?? 0);
     const start = (Number.isFinite(startRaw) && startRaw >= 0 ? startRaw : 0).toString();
-    const parentDirectory = String(req.query.parentirectory ?? '');
+    const parentDirectory = String(req.query.parentDirectory ?? '');
     const fileName = String(req.query.fileName ?? '');
-    const fileType = String(req.query.fileType ?? 'mkv');
-    const audioIndex = Number(req.params.audioIndex || 0);
-    const fullFileName = fileName + fileType;
+    const fileType = String(req.params.fileType ?? 'mkv');
+    const audioIndex = Number(req.query.audioIndex || 0);
+    const fullFileName = `${fileName}.${fileType}`;
     const ROOT = process.env.SECURE_BASE_PATH || '';
 
     if (!ROOT) {
@@ -127,11 +127,13 @@ router.get('/api/v2/serve-episode/:audioIndex', (req, res) => {
         data: { start, parentDirectory, fullFileName, audioIndex, videoPath, audioPath, fileType },
     });
 
-    res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || '*');
-    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
-    res.writeHead(200, { 'Content-Type': 'video/mp4', 'Transfer-Encoding': 'chunked', 'Accept-Ranges': 'none' });
-    res.setHeader('Cache-Control', 'no-store');
-    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.writeHead(200, {
+        'Content-Type': 'video/mp4',
+        'Transfer-Encoding': 'chunked',
+        'Accept-Ranges': 'none',
+        'Cache-Control': 'no-store',
+        'X-Content-Type-Options': 'nosniff',
+    });
 
     const ffmpeg = spawn(
         'ffmpeg',
