@@ -225,7 +225,7 @@ const main = async () => {
             });
 
             for (const episode of localDirectory.episodes) {
-                const isVOne = episode.file_type === '.mp4' || episode.file_type === '.MP4';
+                const isVOne = episode.file_type === 'mp4' || episode.file_type === 'MP4';
                 let metadata: any = null;
 
                 if (!isVOne) {
