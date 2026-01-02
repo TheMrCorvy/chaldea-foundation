@@ -138,6 +138,7 @@ export interface Episode {
         data: string[];
     } | null;
     publishedAt: string;
+    file_type: string;
 }
 
 export interface RequestDirectory {
