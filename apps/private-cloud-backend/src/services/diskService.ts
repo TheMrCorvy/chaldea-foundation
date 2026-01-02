@@ -41,7 +41,7 @@ export const scanSingleFolder = ({
             result.episodes.push({
                 display_name: path.basename(item.name, path.extname(item.name)),
                 parent_directory: removeBasePath(secureBasePath, dirPath),
-                file_type: path.extname(item.name),
+                file_type: path.extname(item.name).substring(1), // remove the dot at the beginning
             });
         }
     }
