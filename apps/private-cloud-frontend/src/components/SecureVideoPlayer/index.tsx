@@ -1,16 +1,7 @@
 "use client";
 
 import { ApiRoutes, NasApiRoutes } from "@/utils/routes";
-import {
-    Box,
-    Card,
-    CardContent,
-    CardOverflow,
-    Option,
-    Select,
-    Stack,
-    Typography,
-} from "@mui/joy";
+import { Box, Card, CardContent, CardOverflow } from "@mui/joy";
 import { FC, useMemo } from "react";
 import { getScreenSize } from "@/utils/screenSize";
 import PrevNextEpisode from "../PrevNextEpisode";
@@ -19,7 +10,6 @@ export interface SecureVideoPlayerProps {
     fileType: string;
     display_name: string;
     path: string;
-    languages_info?: object | null;
     documentId: string;
     useMockVideo?: boolean;
     parent: string;
@@ -32,7 +22,6 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
     fileType,
     display_name,
     path,
-    languages_info,
     documentId,
     useMockVideo = true,
     parent,
@@ -42,7 +31,7 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
 }) => {
     const filePath = path + "/" + display_name + "." + fileType;
     const realUrl = !enableProxy
-        ? NasApiRoutes.V2_STREAM_MEDIA
+        ? NasApiRoutes.STREAM_MEDIA
         : ApiRoutes.STREAM_EPISODE + "/" + documentId;
     const mockUrl = ApiRoutes.STREAM_EPISODE;
     let url: URL;
@@ -61,15 +50,9 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
         }
     }
 
-    // const videoUrl = useMemo(() => {
-    //     return url.toString();
-    // }, [url]);
-    console.log(path + "/" + display_name);
-    console.log(
-        JSON.stringify({
-            url: `http://localhost:3030/api/v2/serve-episode/${fileType}?start=0&parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}&audioIndex=1`,
-        })
-    );
+    const videoUrl = useMemo(() => {
+        return url.toString();
+    }, [url]);
 
     return (
         <Card
@@ -116,8 +99,7 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                             display: "block",
                             aspectRatio: "16/9",
                         }}
-                        // src={videoUrl}
-                        src={`http://localhost:3030/api/v2/serve-episode/${fileType}?start=0&parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}&audioIndex=1`}
+                        src={videoUrl}
                         preload="auto"
                     >
                         Tu navegador no soporta la reproducción de videos.
@@ -145,79 +127,6 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                         },
                     }}
                 >
-                    {languages_info && (
-                        <Stack
-                            direction="row"
-                            spacing={1.5}
-                            sx={{
-                                [`@media (max-width: ${getScreenSize("xl")}px)`]:
-                                    {
-                                        width: "100%",
-                                        justifyContent: "center",
-                                    },
-                            }}
-                        >
-                            <Box sx={{ minWidth: 100 }}>
-                                <Typography
-                                    level="body-xs"
-                                    fontWeight="bold"
-                                    sx={{
-                                        textAlign: "left",
-                                        mb: 0.5,
-                                        color: "white",
-                                        paddingLeft: 0.5,
-                                    }}
-                                >
-                                    Idioma
-                                </Typography>
-                                <Select
-                                    defaultValue="SPA"
-                                    slotProps={{
-                                        listbox: {
-                                            placement: "bottom-start",
-                                            sx: { minWidth: 160 },
-                                        },
-                                    }}
-                                    variant="soft"
-                                    size="sm"
-                                >
-                                    <Option value="ENG">ENG</Option>
-                                    <Option value="JAP">JAP</Option>
-                                    <Option value="SPA">SPA</Option>
-                                </Select>
-                            </Box>
-                            <Box sx={{ minWidth: 100 }}>
-                                <Typography
-                                    level="body-xs"
-                                    fontWeight="bold"
-                                    sx={{
-                                        textAlign: "left",
-                                        mb: 0.5,
-                                        color: "white",
-                                        paddingLeft: 0.5,
-                                    }}
-                                >
-                                    Subtítulos
-                                </Typography>
-                                <Select
-                                    defaultValue="SPA"
-                                    slotProps={{
-                                        listbox: {
-                                            placement: "bottom-start",
-                                            sx: { minWidth: 160 },
-                                        },
-                                    }}
-                                    variant="soft"
-                                    size="sm"
-                                >
-                                    <Option value="ENG">ENG</Option>
-                                    <Option value="JAP">JAP</Option>
-                                    <Option value="SPA">SPA</Option>
-                                </Select>
-                            </Box>
-                        </Stack>
-                    )}
-
                     <PrevNextEpisode parentId={parent} episodeId={documentId} />
                 </CardContent>
             </CardOverflow>
