@@ -1,6 +1,5 @@
 import { Router, Request, Response } from 'express';
 import { serveVideoFileService } from './services/serveVideoFileService';
-import path from 'path';
 import { logData } from '@repo/shared-utils/log-data';
 import { spawn } from 'child_process';
 import verifyPaths from './utils/verifyPaths';
@@ -40,7 +39,30 @@ router.get('/api/v1/serve-episode', (req: Request, res: Response) => {
         return res.status(400).json({ message: 'Missing file path in query parameters.' });
     }
 
-    const resolvedPath = path.resolve(decodeURIComponent(filePath));
+    const ROOT = process.env.SECURE_BASE_PATH || '';
+
+    if (!ROOT) {
+        logData({
+            layer: '*',
+            title: 'Server misconfiguration: ROOT path is not set',
+            data: {
+                ROOT,
+            },
+            addSpaceAfter: true,
+            addSeparatorAfter: true,
+            timeStamp: true,
+            type: 'error',
+        });
+
+        return res.status(500).json({ message: 'Server misconfiguration: ROOT path is not set.' });
+    }
+
+    const resolvedPath = verifyPaths(ROOT, filePath);
+
+    if (!resolvedPath || !resolvedPath.startsWith(ROOT)) {
+        return res.status(403).end();
+    }
+
     const { stream, headers, status, message, error } = serveVideoFileService({ videoSrc: resolvedPath, range });
 
     if (error) {
