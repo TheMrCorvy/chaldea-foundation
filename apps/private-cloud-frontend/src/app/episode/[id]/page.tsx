@@ -1,5 +1,6 @@
 import BottomNav from "@/components/BottomNavbar";
 import SecureVideoPlayer from "@/components/SecureVideoPlayer";
+import V2SecureVideoPlayer from "@/components/V2SecureVideoPlayer";
 import { CookiesList, getCookie, JwtCookie, MeResponse } from "@/utils/cookies";
 import { Page } from "@/utils/pageTypes";
 import { WebRoutes } from "@/utils/routes";
@@ -200,20 +201,36 @@ const EpisodePage = async ({ params }: Page) => {
                 >
                     {episode.display_name}
                 </Typography>
-                <SecureVideoPlayer
-                    display_name={episode.display_name}
-                    path={episode.parent_directory?.path || ""}
-                    fileType={episode.file_type}
-                    documentId={episode.documentId}
-                    languages_info={episode.languages_info}
-                    parent={episode.parent_directory?.documentId || ""}
-                    useMockVideo={!enableNas}
-                    apiKey={enableNas ? process.env.NAS_API_KEY || "" : ""}
-                    nasBaseUrl={process.env.NAS_BASE_URL || ""}
-                    enableProxy={isFeatureFlagEnabled(
-                        FeatureNames.ENABLE_STREAMING_PROXY
-                    )}
-                />
+                {episode.version === "V1" ? (
+                    <SecureVideoPlayer
+                        display_name={episode.display_name}
+                        path={episode.parent_directory?.path || ""}
+                        fileType={episode.file_type}
+                        documentId={episode.documentId}
+                        parent={episode.parent_directory?.documentId || ""}
+                        useMockVideo={!enableNas}
+                        apiKey={enableNas ? process.env.NAS_API_KEY || "" : ""}
+                        nasBaseUrl={process.env.NAS_BASE_URL || ""}
+                        enableProxy={isFeatureFlagEnabled(
+                            FeatureNames.ENABLE_STREAMING_PROXY
+                        )}
+                    />
+                ) : (
+                    <V2SecureVideoPlayer
+                        display_name={episode.display_name}
+                        path={episode.parent_directory?.path || ""}
+                        fileType={episode.file_type}
+                        documentId={episode.documentId}
+                        languages_info={episode.languages_info}
+                        parent={episode.parent_directory?.documentId || ""}
+                        apiKey={enableNas ? process.env.NAS_API_KEY || "" : ""}
+                        nasBaseUrl={process.env.NAS_BASE_URL || ""}
+                        languageInfo={episode.languages_info}
+                        // enableProxy={isFeatureFlagEnabled(
+                        //     FeatureNames.ENABLE_STREAMING_PROXY
+                        // )}
+                    />
+                )}
             </Card>
             <BottomNav
                 mainDirectories={mainDirectories}
