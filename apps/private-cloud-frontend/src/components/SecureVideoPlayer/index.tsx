@@ -11,20 +11,19 @@ import {
     Stack,
     Typography,
 } from "@mui/joy";
-import { VideoContainers } from "@repo/type-definitions";
 import { FC, useMemo } from "react";
 import { getScreenSize } from "@/utils/screenSize";
 import PrevNextEpisode from "../PrevNextEpisode";
 
 export interface SecureVideoPlayerProps {
-    fileType: VideoContainers;
+    fileType: string;
     display_name: string;
     path: string;
     languages_info?: object | null;
     documentId: string;
     useMockVideo?: boolean;
     parent: string;
-    fileId: string;
+    apiKey: string;
     nasBaseUrl: string;
     enableProxy?: boolean;
 }
@@ -37,7 +36,7 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
     documentId,
     useMockVideo = true,
     parent,
-    fileId,
+    apiKey,
     nasBaseUrl,
     enableProxy = false,
 }) => {
@@ -58,13 +57,19 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
         }
         url.searchParams.append("filePath", filePath);
         if (!enableProxy) {
-            url.searchParams.append("apiKey", fileId);
+            url.searchParams.append("apiKey", apiKey);
         }
     }
 
-    const videoUrl = useMemo(() => {
-        return url.toString();
-    }, [url]);
+    // const videoUrl = useMemo(() => {
+    //     return url.toString();
+    // }, [url]);
+    console.log(path + "/" + display_name);
+    console.log(
+        JSON.stringify({
+            url: `http://localhost:3030/api/v2/serve-episode/${fileType}?start=0&parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}&audioIndex=1`,
+        })
+    );
 
     return (
         <Card
@@ -111,7 +116,8 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                             display: "block",
                             aspectRatio: "16/9",
                         }}
-                        src={videoUrl}
+                        // src={videoUrl}
+                        src={`http://localhost:3030/api/v2/serve-episode/${fileType}?start=0&parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}&audioIndex=1`}
                         preload="auto"
                     >
                         Tu navegador no soporta la reproducción de videos.
