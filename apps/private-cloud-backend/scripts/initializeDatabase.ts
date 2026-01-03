@@ -240,7 +240,12 @@ const main = async () => {
                     });
 
                     metadata = await processVideoFile(
-                        secureBasePath + localDirectory.directory_path + '/' + episode.display_name + episode.file_type
+                        secureBasePath +
+                            localDirectory.directory_path +
+                            '/' +
+                            episode.display_name +
+                            '.' +
+                            episode.file_type
                     );
                 }
 
