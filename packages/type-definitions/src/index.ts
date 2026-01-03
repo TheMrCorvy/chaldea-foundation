@@ -133,12 +133,26 @@ export interface Episode {
     parent_directory?: Directory;
     documentId: string;
     version: "V1" | "V2";
-    languages_info?: object;
+    languages_info: LanguagesInfo;
     watched_by: {
         data: string[];
     } | null;
     publishedAt: string;
     file_type: string;
+}
+
+export interface StreamTracks {
+    channels?: number;
+    codec: string;
+    globalIndex: number;
+    language: string;
+}
+
+export interface LanguagesInfo {
+    duration: number;
+    extractedAt: Date;
+    audiotracks: StreamTracks[];
+    subtitleTracks: StreamTracks[];
 }
 
 export interface RequestDirectory {
