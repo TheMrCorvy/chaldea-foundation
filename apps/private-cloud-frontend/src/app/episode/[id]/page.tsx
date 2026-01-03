@@ -225,7 +225,6 @@ const EpisodePage = async ({ params }: Page) => {
                         parent={episode.parent_directory?.documentId || ""}
                         apiKey={enableNas ? process.env.NAS_API_KEY || "" : ""}
                         nasBaseUrl={process.env.NAS_BASE_URL || ""}
-                        languageInfo={episode.languages_info}
                         // enableProxy={isFeatureFlagEnabled(
                         //     FeatureNames.ENABLE_STREAMING_PROXY
                         // )}
