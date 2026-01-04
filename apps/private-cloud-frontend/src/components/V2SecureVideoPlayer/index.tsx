@@ -41,6 +41,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
 }) => {
     const [start, setStart] = useState(0);
     const [audioIndex, setAudioIndex] = useState(0);
+    const [subtitleIndex, setSubtitleIndex] = useState(0);
 
     const videoSrc = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}/${fileType}?start=${start}&parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}&audioIndex=${audioIndex}`;
 
