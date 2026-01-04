@@ -16,7 +16,7 @@ import {
 import { FC, useState, useRef, useEffect } from "react";
 import { getScreenSize } from "@/utils/screenSize";
 import PrevNextEpisode from "../PrevNextEpisode";
-import { LanguagesInfo, StreamTracks } from "@repo/type-definitions";
+import { LanguagesInfo } from "@repo/type-definitions";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
@@ -57,7 +57,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
     const videoRef = useRef<HTMLVideoElement>(null);
     const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-    const videoSrc = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}/${fileType}?parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}&audioIndex=${audioIndex}&start=${currentTime}&subtitleIndex=${subtitleIndex}`;
+    const videoSrc = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}/${fileType}?parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}&audioIndex=${audioIndex}&subtitleIndex=${subtitleIndex}`;
 
     // Update progress every second when playing
     useEffect(() => {
@@ -110,8 +110,9 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
     const handleFullscreenClick = () => {
         if (videoRef.current?.parentElement) {
             if (!document.fullscreenElement) {
-                videoRef.current.parentElement.requestFullscreen();
+                return videoRef.current.parentElement.requestFullscreen();
             }
+            document.exitFullscreen();
         }
         resetControlsTimeout();
     };
@@ -133,13 +134,6 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
     // Handle mouse move to show controls
     const handleMouseMove = () => {
         resetControlsTimeout();
-    };
-
-    // Format time for display
-    const formatTime = (time: number) => {
-        const minutes = Math.floor(time / 60);
-        const seconds = Math.floor(time % 60);
-        return `${minutes}:${seconds.toString().padStart(2, "0")}`;
     };
 
     // Handle progress bar change
@@ -171,6 +165,16 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
             const trackIndex = Array.isArray(newValue) ? newValue[0] : newValue;
             setSubtitleIndex(Number(trackIndex) as number);
         }
+    };
+
+    const formatTime = (time: number) => {
+        const hours = Math.floor(time / 3600);
+        const minutes = Math.floor((time % 3600) / 60);
+        const seconds = Math.floor(time % 60);
+        if (hours > 0) {
+            return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+        }
+        return `${minutes}:${seconds.toString().padStart(2, "0")}`;
     };
 
     return (
@@ -292,6 +296,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                             {/* Progress Bar */}
                             <Box sx={{ mb: 1 }}>
                                 <Slider
+                                    // value={secondsToTime(Number(currentTime))}
                                     value={currentTime}
                                     onChange={(e, value) =>
                                         handleProgressChange(value)
