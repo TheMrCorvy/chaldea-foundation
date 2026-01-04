@@ -236,7 +236,10 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                         <Box
                             sx={{
                                 position: "absolute",
-                                top: "50%",
+                                top: {
+                                    xs: "40%",
+                                    md: "50%",
+                                },
                                 left: "50%",
                                 transform: "translate(-50%, -50%)",
                                 zIndex: 10,
@@ -261,8 +264,14 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                     handlePlayPause();
                                 }}
                                 sx={{
-                                    width: 80,
-                                    height: 80,
+                                    width: {
+                                        xs: 20,
+                                        md: 80,
+                                    },
+                                    height: {
+                                        xs: 20,
+                                        md: 80,
+                                    },
                                     backgroundColor: "rgba(0, 0, 0, 0.5)",
                                     "&:hover": {
                                         backgroundColor: "rgba(0, 0, 0, 0.7)",
@@ -271,7 +280,10 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                             >
                                 <PlayArrowIcon
                                     sx={{
-                                        fontSize: 50,
+                                        fontSize: {
+                                            xs: 25,
+                                            md: 50,
+                                        },
                                         color: "white",
                                     }}
                                 />
