@@ -151,7 +151,7 @@ export interface StreamTracks {
 export interface LanguagesInfo {
     duration: number;
     extractedAt: Date;
-    audiotracks: StreamTracks[];
+    audioTracks: StreamTracks[];
     subtitleTracks: StreamTracks[];
 }
 
