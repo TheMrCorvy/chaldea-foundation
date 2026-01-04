@@ -85,11 +85,16 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         }
     };
 
-    // Handle video click to play
+    // Handle video click to play/pause
     const handleVideoClick = () => {
-        if (!isPlaying && videoRef.current) {
-            videoRef.current.play();
-            setIsPlaying(true);
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+                setIsPlaying(false);
+            } else {
+                videoRef.current.play();
+                setIsPlaying(true);
+            }
         }
         setShowControls(true);
         resetControlsTimeout();
