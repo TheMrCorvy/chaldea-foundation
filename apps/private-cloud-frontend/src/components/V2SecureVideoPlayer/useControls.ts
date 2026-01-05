@@ -20,10 +20,10 @@ const useControls = ({
     display_name,
 }: UseControlsProps) => {
     const [audioIndex, setAudioIndex] = useState(
-        languagesInfo?.audioTracks?.[0]?.globalIndex ?? 0
+        languagesInfo?.audioTracks?.[0]?.trackIndex ?? 0
     );
     const [subtitleIndex, setSubtitleIndex] = useState(
-        languagesInfo?.subtitleTracks?.[0]?.globalIndex ?? 0
+        languagesInfo?.subtitleTracks?.[0]?.trackIndex ?? 0
     );
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
@@ -56,33 +56,8 @@ const useControls = ({
                 videoRef.current.play();
             }
             setIsPlaying(!isPlaying);
+            setShowControls(true);
             resetControlsTimeout();
-        }
-    };
-
-    // Handle video click to play/pause
-    const handleVideoClick = () => {
-        if (videoRef.current) {
-            if (isPlaying) {
-                videoRef.current.pause();
-                setIsPlaying(false);
-            } else {
-                videoRef.current.play();
-                setIsPlaying(true);
-            }
-        }
-        setShowControls(true);
-        resetControlsTimeout();
-    };
-
-    // Handle double click for fullscreen
-    const handleDoubleClick = () => {
-        if (videoRef.current?.parentElement) {
-            if (!document.fullscreenElement) {
-                videoRef.current.parentElement.requestFullscreen();
-            } else {
-                document.exitFullscreen();
-            }
         }
     };
 
@@ -131,8 +106,7 @@ const useControls = ({
         newValue: string | number | null
     ) => {
         if (newValue !== null) {
-            const trackIndex = Array.isArray(newValue) ? newValue[0] : newValue;
-            setAudioIndex(Number(trackIndex) as number);
+            setAudioIndex(Number(newValue) as number);
         }
     };
 
@@ -142,23 +116,11 @@ const useControls = ({
         newValue: string | number | null
     ) => {
         if (newValue !== null) {
-            const trackIndex = Array.isArray(newValue) ? newValue[0] : newValue;
-            setSubtitleIndex(Number(trackIndex) as number);
+            setSubtitleIndex(Number(newValue) as number);
         }
-    };
-
-    const formatTime = (time: number) => {
-        const hours = Math.floor(time / 3600);
-        const minutes = Math.floor((time % 3600) / 60);
-        const seconds = Math.floor(time % 60);
-        if (hours > 0) {
-            return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-        }
-        return `${minutes}:${seconds.toString().padStart(2, "0")}`;
     };
 
     return {
-        formatTime,
         videoRef,
         videoSrc,
         isPlaying,
@@ -168,8 +130,6 @@ const useControls = ({
         audioIndex,
         subtitleIndex,
         handlePlayPause,
-        handleVideoClick,
-        handleDoubleClick,
         handleFullscreenClick,
         handleMouseMove,
         handleProgressChange,
