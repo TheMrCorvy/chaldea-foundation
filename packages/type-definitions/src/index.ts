@@ -145,6 +145,7 @@ export interface StreamTracks {
     channels?: number;
     codec: string;
     globalIndex: number;
+    trackIndex: number;
     language: string;
 }
 
