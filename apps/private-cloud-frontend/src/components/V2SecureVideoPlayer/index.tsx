@@ -1,6 +1,5 @@
 "use client";
 
-import { NasApiRoutes } from "@/utils/routes";
 import {
     Box,
     Card,
@@ -13,13 +12,15 @@ import {
     IconButton,
     Slider,
 } from "@mui/joy";
-import { FC, useState, useRef, useEffect } from "react";
+import { FC } from "react";
 import { getScreenSize } from "@/utils/screenSize";
 import PrevNextEpisode from "../PrevNextEpisode";
 import { LanguagesInfo } from "@repo/type-definitions";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
+
+import useControls from "./useControls";
 
 export interface V2SecureVideoPlayerProps {
     fileType: string;
@@ -30,7 +31,6 @@ export interface V2SecureVideoPlayerProps {
     parent: string;
     apiKey: string;
     nasBaseUrl: string;
-    // enableProxy?: boolean;
 }
 
 const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
@@ -42,145 +42,33 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
     parent,
     apiKey,
     nasBaseUrl,
-    // enableProxy = false,
 }) => {
-    const [audioIndex, setAudioIndex] = useState(
-        languages_info?.audioTracks?.[0]?.globalIndex ?? 0
-    );
-    const [subtitleIndex, setSubtitleIndex] = useState(
-        languages_info?.subtitleTracks?.[0]?.globalIndex ?? 0
-    );
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [currentTime, setCurrentTime] = useState(0);
-    const [showControls, setShowControls] = useState(true);
-    const duration = languages_info?.duration || 0;
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-    const videoSrc = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}/${fileType}?parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}&audioIndex=${audioIndex}&subtitleIndex=${subtitleIndex}`;
-
-    // Update progress every second when playing
-    useEffect(() => {
-        if (!isPlaying || !videoRef.current) return;
-
-        const interval = setInterval(() => {
-            if (videoRef.current) {
-                setCurrentTime(videoRef.current.currentTime);
-            }
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, [isPlaying]);
-
-    // Handle play/pause click
-    const handlePlayPause = () => {
-        if (videoRef.current) {
-            if (isPlaying) {
-                videoRef.current.pause();
-            } else {
-                videoRef.current.play();
-            }
-            setIsPlaying(!isPlaying);
-            resetControlsTimeout();
-        }
-    };
-
-    // Handle video click to play/pause
-    const handleVideoClick = () => {
-        if (videoRef.current) {
-            if (isPlaying) {
-                videoRef.current.pause();
-                setIsPlaying(false);
-            } else {
-                videoRef.current.play();
-                setIsPlaying(true);
-            }
-        }
-        setShowControls(true);
-        resetControlsTimeout();
-    };
-
-    // Handle double click for fullscreen
-    const handleDoubleClick = () => {
-        if (videoRef.current?.parentElement) {
-            if (!document.fullscreenElement) {
-                videoRef.current.parentElement.requestFullscreen();
-            } else {
-                document.exitFullscreen();
-            }
-        }
-    };
-
-    // Handle fullscreen button click
-    const handleFullscreenClick = () => {
-        if (videoRef.current?.parentElement) {
-            if (!document.fullscreenElement) {
-                return videoRef.current.parentElement.requestFullscreen();
-            }
-            document.exitFullscreen();
-        }
-        resetControlsTimeout();
-    };
-
-    // Reset controls visibility timeout
-    const resetControlsTimeout = () => {
-        if (controlsTimeoutRef.current) {
-            clearTimeout(controlsTimeoutRef.current);
-        }
-        setShowControls(true);
-
-        if (isPlaying) {
-            controlsTimeoutRef.current = setTimeout(() => {
-                setShowControls(false);
-            }, 3000);
-        }
-    };
-
-    // Handle mouse move to show controls
-    const handleMouseMove = () => {
-        resetControlsTimeout();
-    };
-
-    // Handle progress bar change
-    const handleProgressChange = (value: number | number[]) => {
-        const newTime = Array.isArray(value) ? value[0] : value;
-        if (videoRef.current) {
-            videoRef.current.currentTime = newTime;
-            setCurrentTime(newTime);
-        }
-    };
-
-    // Handle audio selection change
-    const handleAudioChange = (
-        _event: React.SyntheticEvent | null,
-        newValue: string | number | null
-    ) => {
-        if (newValue !== null) {
-            const trackIndex = Array.isArray(newValue) ? newValue[0] : newValue;
-            setAudioIndex(Number(trackIndex) as number);
-        }
-    };
-
-    // Handle subtitle selection change
-    const handleSubtitleChange = (
-        _event: React.SyntheticEvent | null,
-        newValue: string | number | null
-    ) => {
-        if (newValue !== null) {
-            const trackIndex = Array.isArray(newValue) ? newValue[0] : newValue;
-            setSubtitleIndex(Number(trackIndex) as number);
-        }
-    };
-
-    const formatTime = (time: number) => {
-        const hours = Math.floor(time / 3600);
-        const minutes = Math.floor((time % 3600) / 60);
-        const seconds = Math.floor(time % 60);
-        if (hours > 0) {
-            return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-        }
-        return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-    };
+    const {
+        handleAudioChange,
+        videoRef,
+        handleDoubleClick,
+        handleFullscreenClick,
+        handleMouseMove,
+        videoSrc,
+        handlePlayPause,
+        handleVideoClick,
+        isPlaying,
+        showControls,
+        currentTime,
+        duration,
+        handleProgressChange,
+        subtitleIndex,
+        audioIndex,
+        formatTime,
+        handleSubtitleChange,
+    } = useControls({
+        fileType,
+        display_name,
+        path,
+        languagesInfo: languages_info,
+        apiKey,
+        nasBaseUrl,
+    });
 
     return (
         <Card
