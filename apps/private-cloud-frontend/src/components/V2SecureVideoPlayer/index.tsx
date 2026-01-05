@@ -19,6 +19,7 @@ import { LanguagesInfo } from "@repo/type-definitions";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import { formatTime } from "@repo/shared-utils/format-time";
 
 import useControls from "./useControls";
 
@@ -46,12 +47,10 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
     const {
         handleAudioChange,
         videoRef,
-        handleDoubleClick,
         handleFullscreenClick,
         handleMouseMove,
         videoSrc,
         handlePlayPause,
-        handleVideoClick,
         isPlaying,
         showControls,
         currentTime,
@@ -59,7 +58,6 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         handleProgressChange,
         subtitleIndex,
         audioIndex,
-        formatTime,
         handleSubtitleChange,
     } = useControls({
         fileType,
@@ -107,7 +105,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                         },
                     }}
                     onMouseMove={handleMouseMove}
-                    onDoubleClick={handleDoubleClick}
+                    onDoubleClick={handleFullscreenClick}
                 >
                     <video
                         ref={videoRef}
@@ -119,7 +117,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                         }}
                         src={videoSrc}
                         preload="auto"
-                        onClick={handleVideoClick}
+                        onClick={handlePlayPause}
                     >
                         Tu navegador no soporta la reproducción de videos.
                     </video>
@@ -201,7 +199,6 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                             {/* Progress Bar */}
                             <Box sx={{ mb: 1 }}>
                                 <Slider
-                                    // value={secondsToTime(Number(currentTime))}
                                     value={currentTime}
                                     onChange={(e, value) =>
                                         handleProgressChange(value)
@@ -355,7 +352,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                     (track, index) => (
                                         <Option
                                             key={index}
-                                            value={track.globalIndex}
+                                            value={track.trackIndex}
                                         >
                                             {track.language}
                                         </Option>
@@ -392,7 +389,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                     (track, index) => (
                                         <Option
                                             key={index}
-                                            value={track.globalIndex}
+                                            value={track.trackIndex}
                                         >
                                             {track.language}
                                         </Option>
