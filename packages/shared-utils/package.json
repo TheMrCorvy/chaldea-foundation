@@ -12,6 +12,10 @@
         "./log-data": {
             "types": "./src/logData.ts",
             "default": "./src/logData.ts"
+        },
+        "./format-time": {
+            "types": "./src/formatTime.ts",
+            "default": "./src/formatTime.ts"
         }
     },
     "devDependencies": {
