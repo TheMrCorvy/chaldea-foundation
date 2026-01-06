@@ -11,6 +11,7 @@ import {
     Typography,
     IconButton,
     Slider,
+    CircularProgress,
 } from "@mui/joy";
 import { FC } from "react";
 import { getScreenSize } from "@/utils/screenSize";
@@ -54,6 +55,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         videoSrc,
         handlePlayPause,
         isPlaying,
+        isLoading,
         showControls,
         currentTime,
         duration,
@@ -129,8 +131,8 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                         Tu navegador no soporta la reproducción de videos.
                     </video>
 
-                    {/* Center Play Button */}
-                    {!isPlaying && showControls && (
+                    {/* Center Play Button / Loader */}
+                    {!isPlaying && showControls && !isLoading && (
                         <Box
                             sx={{
                                 position: "absolute",
@@ -186,6 +188,26 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                     }}
                                 />
                             </IconButton>
+                        </Box>
+                    )}
+
+                    {isLoading && showControls && (
+                        <Box
+                            sx={{
+                                position: "absolute",
+                                top: {
+                                    xs: "40%",
+                                    md: "50%",
+                                },
+                                left: "50%",
+                                transform: "translate(-50%, -50%)",
+                                zIndex: 10,
+                            }}
+                        >
+                            <CircularProgress
+                                size="md"
+                                sx={{ color: "white" }}
+                            />
                         </Box>
                     )}
 
