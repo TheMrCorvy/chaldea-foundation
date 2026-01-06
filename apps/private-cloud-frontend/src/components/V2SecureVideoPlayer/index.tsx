@@ -19,6 +19,8 @@ import { LanguagesInfo } from "@repo/type-definitions";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import { formatTime } from "@repo/shared-utils/format-time";
 
 import useControls from "./useControls";
@@ -59,6 +61,11 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         subtitleIndex,
         audioIndex,
         handleSubtitleChange,
+        volume,
+        showVolumeSlider,
+        handleVolumeChange,
+        handleVolumeMouseEnter,
+        handleVolumeMouseLeave,
     } = useControls({
         fileType,
         display_name,
@@ -257,6 +264,93 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                             />
                                         )}
                                     </IconButton>
+
+                                    {/* Volume Control */}
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: 0.5,
+                                        }}
+                                        onMouseEnter={handleVolumeMouseEnter}
+                                        onMouseLeave={handleVolumeMouseLeave}
+                                    >
+                                        <IconButton
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleVolumeChange(
+                                                    volume === 0 ? 1 : 0
+                                                );
+                                            }}
+                                            sx={{
+                                                width: 36,
+                                                height: 36,
+                                            }}
+                                            variant="plain"
+                                        >
+                                            {volume === 0 ? (
+                                                <VolumeOffIcon
+                                                    sx={{
+                                                        fontSize: 20,
+                                                        color: "white",
+                                                    }}
+                                                />
+                                            ) : (
+                                                <VolumeUpIcon
+                                                    sx={{
+                                                        fontSize: 20,
+                                                        color: "white",
+                                                    }}
+                                                />
+                                            )}
+                                        </IconButton>
+
+                                        {/* Volume Slider */}
+                                        {showVolumeSlider && (
+                                            <Box
+                                                sx={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    animation:
+                                                        "slideInVolume 0.2s ease-in-out",
+                                                    "@keyframes slideInVolume":
+                                                        {
+                                                            "0%": {
+                                                                opacity: 0,
+                                                                width: "0px",
+                                                            },
+                                                            "100%": {
+                                                                opacity: 1,
+                                                                width: "80px",
+                                                            },
+                                                        },
+                                                    width: "80px",
+                                                    overflow: "hidden",
+                                                }}
+                                            >
+                                                <Slider
+                                                    value={volume}
+                                                    onChange={(e, value) =>
+                                                        handleVolumeChange(
+                                                            value
+                                                        )
+                                                    }
+                                                    min={0}
+                                                    max={1}
+                                                    step={0.1}
+                                                    sx={{
+                                                        "--Slider-trackSize":
+                                                            "3px",
+                                                        "--Slider-thumbSize":
+                                                            "12px",
+                                                        "--Slider-thumb-shadow":
+                                                            "0 0 0 6px",
+                                                    }}
+                                                />
+                                            </Box>
+                                        )}
+                                    </Box>
+
                                     <Typography
                                         sx={{
                                             color: "white",
