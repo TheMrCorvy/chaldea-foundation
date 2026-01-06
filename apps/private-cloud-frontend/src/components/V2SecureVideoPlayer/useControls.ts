@@ -30,6 +30,7 @@ const useControls = ({
     const [showControls, setShowControls] = useState(true);
     const [volume, setVolume] = useState(1);
     const [showVolumeSlider, setShowVolumeSlider] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const duration = languagesInfo?.duration || 0;
     const videoRef = useRef<HTMLVideoElement>(null);
     const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -97,18 +98,50 @@ const useControls = ({
         };
     }, []);
 
+    // Manage loading state (waiting/canplay/playing/error) and set loading when source changes
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const onWaiting = () => setIsLoading(true);
+        const onPlaying = () => setIsLoading(false);
+        const onCanPlay = () => setIsLoading(false);
+        const onError = () => setIsLoading(false);
+
+        video.addEventListener("waiting", onWaiting);
+        video.addEventListener("playing", onPlaying);
+        video.addEventListener("canplay", onCanPlay);
+        video.addEventListener("error", onError);
+
+        return () => {
+            video.removeEventListener("waiting", onWaiting);
+            video.removeEventListener("playing", onPlaying);
+            video.removeEventListener("canplay", onCanPlay);
+            video.removeEventListener("error", onError);
+        };
+    }, [videoSrc]);
+
     // Handle play/pause click
     const handlePlayPause = () => {
-        if (videoRef.current) {
-            if (isPlaying) {
-                videoRef.current.pause();
-            } else {
-                videoRef.current.play();
+        if (!videoRef.current) return;
+
+        if (isPlaying) {
+            videoRef.current.pause();
+            setIsLoading(false);
+            setIsPlaying(false);
+        } else {
+            // play() returns a promise; mark loading until playing/canplay fires
+            const promise = videoRef.current.play();
+            setIsLoading(true);
+            // if play fails, stop loading
+            if (promise && typeof promise.then === "function") {
+                promise.catch(() => setIsLoading(false));
             }
-            setIsPlaying(!isPlaying);
-            setShowControls(true);
-            resetControlsTimeout();
+            setIsPlaying(true);
         }
+
+        setShowControls(true);
+        resetControlsTimeout();
     };
 
     // Handle fullscreen button click
@@ -148,6 +181,7 @@ const useControls = ({
             videoRef.current.currentTime = newTime;
             setCurrentTime(newTime);
             setStart(newTime);
+            setIsLoading(true);
         }
     };
 
@@ -159,6 +193,7 @@ const useControls = ({
         if (newValue !== null) {
             setAudioIndex(Number(newValue) as number);
             setStart(currentTime);
+            setIsLoading(true);
         }
     };
 
@@ -170,6 +205,7 @@ const useControls = ({
         if (newValue !== null) {
             setSubtitleIndex(Number(newValue) as number);
             setStart(currentTime);
+            setIsLoading(true);
         }
     };
 
@@ -204,6 +240,7 @@ const useControls = ({
         videoRef,
         videoSrc,
         isPlaying,
+        isLoading,
         currentTime,
         duration,
         showControls,
