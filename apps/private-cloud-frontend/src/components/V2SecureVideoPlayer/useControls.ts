@@ -28,9 +28,12 @@ const useControls = ({
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [showControls, setShowControls] = useState(true);
+    const [volume, setVolume] = useState(1);
+    const [showVolumeSlider, setShowVolumeSlider] = useState(false);
     const duration = languagesInfo?.duration || 0;
     const videoRef = useRef<HTMLVideoElement>(null);
     const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const volumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     const videoSrc = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}/${fileType}?parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}&audioIndex=${audioIndex}&subtitleIndex=${subtitleIndex}`;
 
@@ -120,6 +123,33 @@ const useControls = ({
         }
     };
 
+    // Handle volume change
+    const handleVolumeChange = (value: number | number[]) => {
+        const newVolume = Array.isArray(value) ? value[0] : value;
+        setVolume(newVolume);
+        if (videoRef.current) {
+            videoRef.current.volume = newVolume;
+        }
+    };
+
+    // Handle volume slider mouse enter
+    const handleVolumeMouseEnter = () => {
+        setShowVolumeSlider(true);
+        if (volumeTimeoutRef.current) {
+            clearTimeout(volumeTimeoutRef.current);
+        }
+    };
+
+    // Handle volume slider mouse leave
+    const handleVolumeMouseLeave = () => {
+        if (volumeTimeoutRef.current) {
+            clearTimeout(volumeTimeoutRef.current);
+        }
+        volumeTimeoutRef.current = setTimeout(() => {
+            setShowVolumeSlider(false);
+        }, 300);
+    };
+
     return {
         videoRef,
         videoSrc,
@@ -129,12 +159,17 @@ const useControls = ({
         showControls,
         audioIndex,
         subtitleIndex,
+        volume,
+        showVolumeSlider,
         handlePlayPause,
         handleFullscreenClick,
         handleMouseMove,
         handleProgressChange,
         handleAudioChange,
         handleSubtitleChange,
+        handleVolumeChange,
+        handleVolumeMouseEnter,
+        handleVolumeMouseLeave,
     };
 };
 
