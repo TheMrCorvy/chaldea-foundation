@@ -38,10 +38,14 @@ export const scanSingleFolder = ({
         if (item.isDirectory() && !excludeSubDirectories) {
             result.sub_directories.push(path.join(dirPath, item.name));
         } else if (item.isFile() && !fileShouldBeIgnored(item.name)) {
+            const fileType = path.extname(item.name).substring(1); // remove the dot at the beginning
+            const version = fileType.toLowerCase() === 'mp4' ? 'V1' : 'V2';
+
             result.episodes.push({
                 display_name: path.basename(item.name, path.extname(item.name)),
                 parent_directory: removeBasePath(secureBasePath, dirPath),
-                file_type: path.extname(item.name).substring(1), // remove the dot at the beginning
+                file_type: fileType,
+                version,
             });
         }
     }

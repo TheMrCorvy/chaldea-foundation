@@ -201,7 +201,10 @@ const EpisodePage = async ({ params }: Page) => {
                 >
                     {episode.display_name}
                 </Typography>
-                {episode.version === "V1" ? (
+                {episode.version === "V1" ||
+                episode.file_type === "mp4" ||
+                episode.file_type === "MP4" ||
+                !episode.version ? (
                     <SecureVideoPlayer
                         display_name={episode.display_name}
                         path={episode.parent_directory?.path || ""}

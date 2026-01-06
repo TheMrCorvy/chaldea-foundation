@@ -12,6 +12,7 @@ export interface LocalEpisode {
     display_name: string;
     file_type: string;
     parent_directory: string;
+    version: 'V1' | 'V2';
 }
 
 export interface DirectoryResponseStrapi {

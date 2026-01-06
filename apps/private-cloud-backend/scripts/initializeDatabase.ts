@@ -254,7 +254,7 @@ const main = async () => {
                         data: {
                             display_name: episode.display_name,
                             parent_directory: storedDirectory.data.data.documentId,
-                            version: isVOne ? 'V1' : 'V2',
+                            version: episode.version || (isVOne ? 'V1' : 'V2'),
                             file_type: episode.file_type,
                             languages_info: isVOne ? undefined : metadata,
                         },
