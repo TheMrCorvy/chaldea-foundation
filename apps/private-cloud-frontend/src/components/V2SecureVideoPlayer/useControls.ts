@@ -1,6 +1,6 @@
 import { NasApiRoutes } from "@/utils/routes";
 import { LanguagesInfo } from "@repo/type-definitions";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 interface UseControlsProps {
     languagesInfo: LanguagesInfo;
@@ -35,20 +35,67 @@ const useControls = ({
     const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const volumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-    const videoSrc = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}/${fileType}?parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}&audioIndex=${audioIndex}&subtitleIndex=${subtitleIndex}`;
+    const [start, setStart] = useState(0);
 
-    // Update progress every second when playing
+    const videoSrc = useMemo(() => {
+        let url = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}/${fileType}?parentDirectory=${encodeURIComponent(
+            path
+        )}&fileName=${encodeURIComponent(
+            display_name
+        )}&apiKey=${encodeURIComponent(
+            apiKey
+        )}&audioIndex=${audioIndex}&subtitleIndex=${subtitleIndex}`;
+
+        if (start > 0) {
+            url += `&start=${start}`;
+        }
+
+        return url;
+    }, [
+        apiKey,
+        display_name,
+        fileType,
+        nasBaseUrl,
+        path,
+        audioIndex,
+        subtitleIndex,
+        start,
+    ]);
+
+    // Update current time using 'timeupdate' event instead of polling.
+    // This avoids a race where the periodic interval can read a transient
+    // currentTime of 0 immediately after the <video> src is changed.
     useEffect(() => {
-        if (!isPlaying || !videoRef.current) return;
+        const video = videoRef.current;
+        if (!video) return;
 
-        const interval = setInterval(() => {
-            if (videoRef.current) {
-                setCurrentTime(videoRef.current.currentTime);
-            }
-        }, 1000);
+        const handleTimeUpdate = () => {
+            setCurrentTime(start + video.currentTime);
+        };
 
-        return () => clearInterval(interval);
-    }, [isPlaying]);
+        video.addEventListener("timeupdate", handleTimeUpdate);
+
+        return () => {
+            video.removeEventListener("timeupdate", handleTimeUpdate);
+        };
+    }, [start]);
+
+    // Keep `isPlaying` in sync with the video element's play/pause events
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const onPlay = () => setIsPlaying(true);
+        const onPause = () => setIsPlaying(false);
+
+        video.addEventListener("play", onPlay);
+        video.addEventListener("pause", onPause);
+
+        return () => {
+            video.removeEventListener("play", onPlay);
+            video.removeEventListener("pause", onPause);
+        };
+    }, []);
 
     // Handle play/pause click
     const handlePlayPause = () => {
@@ -100,6 +147,7 @@ const useControls = ({
         if (videoRef.current) {
             videoRef.current.currentTime = newTime;
             setCurrentTime(newTime);
+            setStart(newTime);
         }
     };
 
@@ -110,6 +158,7 @@ const useControls = ({
     ) => {
         if (newValue !== null) {
             setAudioIndex(Number(newValue) as number);
+            setStart(currentTime);
         }
     };
 
@@ -120,6 +169,7 @@ const useControls = ({
     ) => {
         if (newValue !== null) {
             setSubtitleIndex(Number(newValue) as number);
+            setStart(currentTime);
         }
     };
 
