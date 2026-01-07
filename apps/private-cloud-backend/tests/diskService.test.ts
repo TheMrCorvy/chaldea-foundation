@@ -46,11 +46,13 @@ describe('diskService', () => {
                         display_name: 'Episode 1',
                         file_type: 'mp4',
                         parent_directory: mockDirPath,
+                        version: 'V1',
                     },
                     {
                         display_name: 'Episode 2',
                         file_type: 'mp4',
                         parent_directory: mockDirPath,
+                        version: 'V1',
                     },
                 ],
             });
