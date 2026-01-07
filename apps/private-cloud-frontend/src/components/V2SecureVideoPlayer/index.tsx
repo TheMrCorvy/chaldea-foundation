@@ -12,8 +12,9 @@ import {
     IconButton,
     Slider,
     CircularProgress,
+    Theme,
 } from "@mui/joy";
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 import { getScreenSize } from "@/utils/screenSize";
 import PrevNextEpisode from "../PrevNextEpisode";
 import { LanguagesInfo } from "@repo/type-definitions";
@@ -78,41 +79,43 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         nasBaseUrl,
     });
 
-    const { root } = useStyles();
+    const {
+        root,
+        cardContent,
+        mainBox,
+        videoTag,
+        playPauseContainer,
+        playIconBtn,
+        loaderContainer,
+        controlsContainer,
+        progressBar,
+        bottomControlsContainer,
+        leftPlayPauseContainer,
+        playPauseIconButton,
+        volumeControlContainer,
+        volumeIconBtn,
+        volumeSliderContainer,
+        volumeSlider,
+        currentTimeStyles,
+        fullscreenIconBtn,
+        languageControlsContainer,
+        languageControlsStack,
+        langTitle,
+        langSubs,
+    } = useStyles();
 
     return (
         <Card variant="soft" sx={root}>
-            <CardContent
-                sx={{
-                    gap: 1,
-                    pb: 1,
-                    zIndex: 0,
-                }}
-            >
+            <CardContent sx={cardContent}>
                 <Box
-                    sx={{
-                        position: "relative",
-                        borderRadius: "12px",
-                        overflow: "hidden",
-                        backgroundColor: "#000",
-                        border: "1px solid",
-                        borderColor: "neutral.200",
-                        transition: "transform 0.2s ease",
-                        "&:hover": {
-                            cursor: "pointer",
-                        },
-                    }}
+                    sx={mainBox}
                     onMouseMove={handleMouseMove}
                     onDoubleClick={handleFullscreenClick}
                 >
                     <video
                         ref={videoRef}
                         width="800"
-                        style={{
-                            width: "100%",
-                            display: "block",
-                            aspectRatio: "16/9",
-                        }}
+                        style={videoTag as CSSProperties}
                         src={videoSrc}
                         preload="auto"
                         onClick={handlePlayPause}
@@ -122,50 +125,13 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
 
                     {/* Center Play Button / Loader */}
                     {!isPlaying && showControls && !isLoading && (
-                        <Box
-                            sx={{
-                                position: "absolute",
-                                top: {
-                                    xs: "40%",
-                                    md: "50%",
-                                },
-                                left: "50%",
-                                transform: "translate(-50%, -50%)",
-                                zIndex: 10,
-                                animation: "fadeInScale 0.2s ease-in",
-                                "@keyframes fadeInScale": {
-                                    "0%": {
-                                        opacity: 0,
-                                        transform:
-                                            "translate(-50%, -50%) scale(0.8)",
-                                    },
-                                    "100%": {
-                                        opacity: 1,
-                                        transform:
-                                            "translate(-50%, -50%) scale(1)",
-                                    },
-                                },
-                            }}
-                        >
+                        <Box sx={playPauseContainer}>
                             <IconButton
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     handlePlayPause();
                                 }}
-                                sx={{
-                                    width: {
-                                        xs: 20,
-                                        md: 80,
-                                    },
-                                    height: {
-                                        xs: 20,
-                                        md: 80,
-                                    },
-                                    backgroundColor: "rgba(0, 0, 0, 0.5)",
-                                    "&:hover": {
-                                        backgroundColor: "rgba(0, 0, 0, 0.7)",
-                                    },
-                                }}
+                                sx={playIconBtn}
                             >
                                 <PlayArrowIcon
                                     sx={{
@@ -181,18 +147,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                     )}
 
                     {isLoading && showControls && (
-                        <Box
-                            sx={{
-                                position: "absolute",
-                                top: {
-                                    xs: "40%",
-                                    md: "50%",
-                                },
-                                left: "50%",
-                                transform: "translate(-50%, -50%)",
-                                zIndex: 10,
-                            }}
-                        >
+                        <Box sx={loaderContainer}>
                             <CircularProgress
                                 size="md"
                                 sx={{ color: "white" }}
@@ -202,18 +157,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
 
                     {/* Progress Bar and Bottom Controls Container */}
                     {showControls && (
-                        <Box
-                            sx={{
-                                position: "absolute",
-                                bottom: 0,
-                                left: 0,
-                                right: 0,
-                                background:
-                                    "linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent)",
-                                padding: "20px 16px 12px 16px",
-                                zIndex: 10,
-                            }}
-                        >
+                        <Box sx={controlsContainer}>
                             {/* Progress Bar */}
                             <Box sx={{ mb: 1 }}>
                                 <Slider
@@ -224,40 +168,20 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                     min={0}
                                     max={duration || 0}
                                     step={0.1}
-                                    sx={{
-                                        "--Slider-trackSize": "4px",
-                                        "--Slider-thumbSize": "14px",
-                                        "--Slider-thumb-shadow": "0 0 0 8px",
-                                    }}
+                                    sx={progressBar}
                                 />
                             </Box>
 
                             {/* Bottom Controls */}
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                    alignItems: "center",
-                                    gap: 1,
-                                }}
-                            >
+                            <Box sx={bottomControlsContainer}>
                                 {/* Left Side: Play/Pause and Time */}
-                                <Box
-                                    sx={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: 1,
-                                    }}
-                                >
+                                <Box sx={leftPlayPauseContainer}>
                                     <IconButton
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             handlePlayPause();
                                         }}
-                                        sx={{
-                                            width: 36,
-                                            height: 36,
-                                        }}
+                                        sx={playPauseIconButton}
                                     >
                                         {isPlaying ? (
                                             <PauseIcon
@@ -278,11 +202,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
 
                                     {/* Volume Control */}
                                     <Box
-                                        sx={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            gap: 0.5,
-                                        }}
+                                        sx={volumeControlContainer}
                                         onMouseEnter={handleVolumeMouseEnter}
                                         onMouseLeave={handleVolumeMouseLeave}
                                     >
@@ -293,10 +213,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                                     volume === 0 ? 1 : 0
                                                 );
                                             }}
-                                            sx={{
-                                                width: 36,
-                                                height: 36,
-                                            }}
+                                            sx={volumeIconBtn}
                                             variant="plain"
                                         >
                                             {volume === 0 ? (
@@ -318,27 +235,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
 
                                         {/* Volume Slider */}
                                         {showVolumeSlider && (
-                                            <Box
-                                                sx={{
-                                                    display: "flex",
-                                                    alignItems: "center",
-                                                    animation:
-                                                        "slideInVolume 0.2s ease-in-out",
-                                                    "@keyframes slideInVolume":
-                                                        {
-                                                            "0%": {
-                                                                opacity: 0,
-                                                                width: "0px",
-                                                            },
-                                                            "100%": {
-                                                                opacity: 1,
-                                                                width: "80px",
-                                                            },
-                                                        },
-                                                    width: "80px",
-                                                    overflow: "hidden",
-                                                }}
-                                            >
+                                            <Box sx={volumeSliderContainer}>
                                                 <Slider
                                                     value={volume}
                                                     onChange={(e, value) =>
@@ -349,26 +246,13 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                                     min={0}
                                                     max={1}
                                                     step={0.1}
-                                                    sx={{
-                                                        "--Slider-trackSize":
-                                                            "3px",
-                                                        "--Slider-thumbSize":
-                                                            "12px",
-                                                        "--Slider-thumb-shadow":
-                                                            "0 0 0 6px",
-                                                    }}
+                                                    sx={volumeSlider}
                                                 />
                                             </Box>
                                         )}
                                     </Box>
 
-                                    <Typography
-                                        sx={{
-                                            color: "white",
-                                            fontSize: "12px",
-                                            fontWeight: 500,
-                                        }}
-                                    >
+                                    <Typography sx={currentTimeStyles}>
                                         {formatTime(currentTime)} /{" "}
                                         {formatTime(duration || 0)}
                                     </Typography>
@@ -380,10 +264,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                         e.stopPropagation();
                                         handleFullscreenClick();
                                     }}
-                                    sx={{
-                                        width: 36,
-                                        height: 36,
-                                    }}
+                                    sx={fullscreenIconBtn}
                                 >
                                     <FullscreenIcon
                                         sx={{
@@ -403,41 +284,17 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                     backgroundColor: "#0B6BCB",
                 }}
             >
-                <CardContent
-                    sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        flexDirection: "row",
-                        py: 2,
-                        gap: 2,
-                        zIndex: 0,
-                        [`@media (max-width: ${getScreenSize("xl")}px)`]: {
-                            flexDirection: "column",
-                            gap: 3,
-                        },
-                    }}
-                >
+                <CardContent sx={languageControlsContainer}>
                     <Stack
                         direction="row"
                         spacing={1.5}
-                        sx={{
-                            [`@media (max-width: ${getScreenSize("xl")}px)`]: {
-                                width: "100%",
-                                justifyContent: "center",
-                            },
-                        }}
+                        sx={languageControlsStack}
                     >
                         <Box sx={{ minWidth: 100 }}>
                             <Typography
                                 level="body-xs"
                                 fontWeight="bold"
-                                sx={{
-                                    textAlign: "left",
-                                    mb: 0.5,
-                                    color: "white",
-                                    paddingLeft: 0.5,
-                                }}
+                                sx={langTitle}
                             >
                                 Idioma
                             </Typography>
@@ -469,12 +326,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                             <Typography
                                 level="body-xs"
                                 fontWeight="bold"
-                                sx={{
-                                    textAlign: "left",
-                                    mb: 0.5,
-                                    color: "white",
-                                    paddingLeft: 0.5,
-                                }}
+                                sx={langSubs}
                             >
                                 Subtítulos
                             </Typography>
