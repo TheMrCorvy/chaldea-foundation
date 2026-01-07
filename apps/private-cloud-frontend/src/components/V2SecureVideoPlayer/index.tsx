@@ -338,6 +338,9 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                 variant="soft"
                                 size="sm"
                             >
+                                {/* Allow turning subtitles off */}
+                                <Option value={-1}>Sin subtítulos</Option>
+
                                 {languages_info.subtitleTracks?.map(
                                     (track, index) => (
                                         <Option
