@@ -35,6 +35,9 @@ const useControls = ({
     const videoRef = useRef<HTMLVideoElement>(null);
     const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const volumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    // When the user seeks or changes tracks, remember whether the player was
+    // playing so we can resume playback automatically once the new source is ready.
+    const seekShouldPlayRef = useRef(false);
 
     const [start, setStart] = useState(0);
 
@@ -105,8 +108,24 @@ const useControls = ({
 
         const onWaiting = () => setIsLoading(true);
         const onPlaying = () => setIsLoading(false);
-        const onCanPlay = () => setIsLoading(false);
-        const onError = () => setIsLoading(false);
+        const onCanPlay = () => {
+            setIsLoading(false);
+            // If a seek or track change requested an automatic resume, try to play.
+            if (seekShouldPlayRef.current && video) {
+                // Attempt to play and keep loading indicator until playback starts.
+                const playPromise = video.play();
+                setIsLoading(true);
+                if (playPromise && typeof playPromise.then === "function") {
+                    playPromise.catch(() => setIsLoading(false));
+                }
+                setIsPlaying(true);
+                seekShouldPlayRef.current = false;
+            }
+        };
+        const onError = () => {
+            setIsLoading(false);
+            seekShouldPlayRef.current = false;
+        };
 
         video.addEventListener("waiting", onWaiting);
         video.addEventListener("playing", onPlaying);
@@ -177,11 +196,14 @@ const useControls = ({
     // Handle progress bar change
     const handleProgressChange = (value: number | number[]) => {
         const newTime = Array.isArray(value) ? value[0] : value;
+        const wasPlaying = isPlaying;
         if (videoRef.current) {
             videoRef.current.currentTime = newTime;
             setCurrentTime(newTime);
             setStart(newTime);
             setIsLoading(true);
+            // If the user was watching when they sought, resume automatically when ready.
+            seekShouldPlayRef.current = wasPlaying;
         }
     };
 
@@ -191,9 +213,11 @@ const useControls = ({
         newValue: string | number | null
     ) => {
         if (newValue !== null) {
+            const wasPlaying = isPlaying;
             setAudioIndex(Number(newValue) as number);
             setStart(currentTime);
             setIsLoading(true);
+            seekShouldPlayRef.current = wasPlaying;
         }
     };
 
@@ -203,9 +227,11 @@ const useControls = ({
         newValue: string | number | null
     ) => {
         if (newValue !== null) {
+            const wasPlaying = isPlaying;
             setSubtitleIndex(Number(newValue) as number);
             setStart(currentTime);
             setIsLoading(true);
+            seekShouldPlayRef.current = wasPlaying;
         }
     };
 
