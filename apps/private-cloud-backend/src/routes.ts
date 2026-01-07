@@ -194,10 +194,10 @@ router.get('/api/v2/serve-episode/:fileType', (req, res) => {
     res.on('error', killFfmpeg);
 });
 
-router.get('/api/v2/serve-episode/subtitles/:subtitleIndex', (req, res) => {
+router.get('/api/v2/serve-episode/subtitles', (req, res) => {
     const parentDirectory = String(req.query.parentDirectory ?? '');
     const fileName = String(req.query.fileName ?? '');
-    const subtitleIndex = Number(req.params.subtitleIndex ?? 0);
+    const subtitleIndex = Number(req.query.subtitleIndex ?? 0);
     const ROOT = process.env.SECURE_BASE_PATH || '';
 
     if (!ROOT) {
