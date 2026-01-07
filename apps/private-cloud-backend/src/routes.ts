@@ -194,6 +194,60 @@ router.get('/api/v2/serve-episode/:fileType', (req, res) => {
     res.on('error', killFfmpeg);
 });
 
+router.get('/api/v2/serve-episode/subtitles/:subtitleIndex', (req, res) => {
+    const parentDirectory = String(req.query.parentDirectory ?? '');
+    const fileName = String(req.query.fileName ?? '');
+    const subtitleIndex = Number(req.params.subtitleIndex ?? 0);
+    const ROOT = process.env.SECURE_BASE_PATH || '';
+
+    if (!ROOT) {
+        logData({
+            layer: '*',
+            title: 'Server misconfiguration: ROOT path is not set',
+            data: {
+                ROOT,
+            },
+            addSpaceAfter: true,
+            addSeparatorAfter: true,
+            timeStamp: true,
+            type: 'error',
+        });
+
+        return res.status(500).json({ message: 'Server misconfiguration: ROOT path is not set.' });
+    }
+
+    if (!parentDirectory || !fileName) {
+        logData({
+            title: 'Some data was absent in the request to stream the video',
+            layer: 'video_streaming',
+            data: { parentDirectory, fileName, subtitleIndex },
+            type: 'error',
+            addSpaceAfter: true,
+            addSeparatorAfter: true,
+        });
+
+        return res.status(400).json({ message: 'Missing data in query parameters.' });
+    }
+
+    const subtitlePath = verifyPaths(
+        ROOT,
+        '.v2',
+        parentDirectory + '/',
+        fileName,
+        '/subtitles/',
+        subtitleIndex + '.vtt'
+    );
+
+    if (!subtitlePath || !subtitlePath.startsWith(ROOT)) {
+        return res.status(403).end();
+    }
+
+    res.setHeader('Content-Type', 'text/vtt; charset=utf-8');
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+
+    res.sendFile(subtitlePath);
+});
+
 // 404 handler
 router.use((req: Request, res: Response) => {
     console.log(`404 Not Found: ${req.originalUrl}`);
