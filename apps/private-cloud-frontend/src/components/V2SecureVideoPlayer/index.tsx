@@ -142,7 +142,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                         </Box>
                     )}
 
-                    {isLoading && showControls && (
+                    {isLoading && (
                         <Box sx={loaderContainer}>
                             <CircularProgress
                                 size="md"
