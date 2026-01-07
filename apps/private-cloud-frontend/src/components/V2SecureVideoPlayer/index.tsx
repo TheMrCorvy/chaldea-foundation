@@ -91,17 +91,13 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         progressBar,
         bottomControlsContainer,
         leftPlayPauseContainer,
-        playPauseIconButton,
-        volumeControlContainer,
-        volumeIconBtn,
+        iconBtn,
         volumeSliderContainer,
         volumeSlider,
         currentTimeStyles,
-        fullscreenIconBtn,
         languageControlsContainer,
         languageControlsStack,
         langTitle,
-        langSubs,
     } = useStyles();
 
     return (
@@ -181,7 +177,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                             e.stopPropagation();
                                             handlePlayPause();
                                         }}
-                                        sx={playPauseIconButton}
+                                        sx={iconBtn}
                                     >
                                         {isPlaying ? (
                                             <PauseIcon
@@ -202,7 +198,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
 
                                     {/* Volume Control */}
                                     <Box
-                                        sx={volumeControlContainer}
+                                        sx={leftPlayPauseContainer}
                                         onMouseEnter={handleVolumeMouseEnter}
                                         onMouseLeave={handleVolumeMouseLeave}
                                     >
@@ -213,7 +209,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                                     volume === 0 ? 1 : 0
                                                 );
                                             }}
-                                            sx={volumeIconBtn}
+                                            sx={iconBtn}
                                             variant="plain"
                                         >
                                             {volume === 0 ? (
@@ -264,7 +260,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                         e.stopPropagation();
                                         handleFullscreenClick();
                                     }}
-                                    sx={fullscreenIconBtn}
+                                    sx={iconBtn}
                                 >
                                     <FullscreenIcon
                                         sx={{
@@ -326,7 +322,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                             <Typography
                                 level="body-xs"
                                 fontWeight="bold"
-                                sx={langSubs}
+                                sx={langTitle}
                             >
                                 Subtítulos
                             </Typography>
