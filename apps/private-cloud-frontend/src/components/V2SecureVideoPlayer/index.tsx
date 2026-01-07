@@ -25,6 +25,7 @@ import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import { formatTime } from "@repo/shared-utils/format-time";
 
 import useControls from "./useControls";
+import useStyles from "./useStyles";
 
 export interface V2SecureVideoPlayerProps {
     fileType: string;
@@ -77,22 +78,10 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         nasBaseUrl,
     });
 
+    const { root } = useStyles();
+
     return (
-        <Card
-            variant="soft"
-            sx={{
-                background: "neutral.900",
-                borderRadius: 20,
-                "--Card-padding": {
-                    xs: "8px",
-                    md: "16px",
-                },
-                "--Card-radius": "20px",
-                position: "relative",
-                overflow: "hidden",
-                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12)",
-            }}
-        >
+        <Card variant="soft" sx={root}>
             <CardContent
                 sx={{
                     gap: 1,
