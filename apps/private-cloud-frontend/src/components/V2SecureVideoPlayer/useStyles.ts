@@ -108,19 +108,7 @@ const useStyles: StylesService = () => {
             alignItems: "center",
             gap: 1,
         },
-        playPauseIconButton: {
-            width: 36,
-            height: 36,
-        },
-        volumeControlContainer: {
-            display: "flex",
-            alignItems: "center",
-            gap: 0.5,
-        },
-        volumeIconBtn: {
-            width: 36,
-            height: 36,
-        },
+        iconBtn: { width: 36, height: 36 },
         volumeSliderContainer: {
             display: "flex",
             alignItems: "center",
@@ -148,10 +136,6 @@ const useStyles: StylesService = () => {
             fontSize: "12px",
             fontWeight: 500,
         },
-        fullscreenIconBtn: {
-            width: 36,
-            height: 36,
-        },
         languageControlsContainer: {
             display: "flex",
             justifyContent: "space-between",
@@ -172,12 +156,6 @@ const useStyles: StylesService = () => {
             },
         },
         langTitle: {
-            textAlign: "left",
-            mb: 0.5,
-            color: "white",
-            paddingLeft: 0.5,
-        },
-        langSubs: {
             textAlign: "left",
             mb: 0.5,
             color: "white",
