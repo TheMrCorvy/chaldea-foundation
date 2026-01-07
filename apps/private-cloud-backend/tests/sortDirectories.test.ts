@@ -139,6 +139,7 @@ describe('sortDirectories', () => {
                     display_name: 'Episode 1',
                     file_type: 'mp4',
                     parent_directory: '/test/anime',
+                    version: 'V1',
                 },
             ],
         };
