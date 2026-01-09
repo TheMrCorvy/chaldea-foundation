@@ -23,10 +23,7 @@ const useControls = ({
     const [audioIndex, setAudioIndex] = useState(
         languagesInfo?.audioTracks?.[0]?.trackIndex ?? 0
     );
-    const [subtitleIndex, setSubtitleIndex] = useState(
-        // -1 means subtitles OFF
-        languagesInfo?.subtitleTracks?.[0]?.trackIndex ?? -1
-    );
+    const [subtitleIndex, setSubtitleIndex] = useState(-1);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [showControls, setShowControls] = useState(true);
@@ -272,188 +269,188 @@ const useControls = ({
     // Load and attach subtitles when subtitleIndex is changed. If subtitleIndex
     // is -1, disable/hide subtitles. We fetch the VTT file and add a <track>
     // element, revoking the blob URL and removing the element when switching.
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
+    // useEffect(() => {
+    //     const video = videoRef.current;
+    //     if (!video) return;
 
-        // Clean previous track if any
-        if (subtitleTrackElRef.current) {
-            subtitleTrackElRef.current.remove();
-            subtitleTrackElRef.current = null;
-        }
-        if (subtitleBlobUrlRef.current) {
-            try {
-                URL.revokeObjectURL(subtitleBlobUrlRef.current);
-            } catch {
-                // ignore
-            }
-            subtitleBlobUrlRef.current = null;
-        }
+    //     // Clean previous track if any
+    //     if (subtitleTrackElRef.current) {
+    //         subtitleTrackElRef.current.remove();
+    //         subtitleTrackElRef.current = null;
+    //     }
+    //     if (subtitleBlobUrlRef.current) {
+    //         try {
+    //             URL.revokeObjectURL(subtitleBlobUrlRef.current);
+    //         } catch {
+    //             // ignore
+    //         }
+    //         subtitleBlobUrlRef.current = null;
+    //     }
 
-        // If user selected 'Off', disable text tracks and stop here
-        if (subtitleIndex === -1) {
-            for (let i = 0; i < video.textTracks.length; i++) {
-                video.textTracks[i].mode = "disabled";
-            }
-            return;
-        }
+    //     // If user selected 'Off', disable text tracks and stop here
+    //     if (subtitleIndex === -1) {
+    //         for (let i = 0; i < video.textTracks.length; i++) {
+    //             video.textTracks[i].mode = "disabled";
+    //         }
+    //         return;
+    //     }
 
-        let cancelled = false;
+    //     let cancelled = false;
 
-        const subtitleUrl = `${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?subtitleIndex=${subtitleIndex}&parentDirectory=${encodeURIComponent(
-            path
-        )}&fileName=${encodeURIComponent(display_name)}&apiKey=${apiKey}`;
+    //     const subtitleUrl = `${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?subtitleIndex=${subtitleIndex}&parentDirectory=${encodeURIComponent(
+    //         path
+    //     )}&fileName=${encodeURIComponent(display_name)}&apiKey=${apiKey}`;
 
-        const selectedSubs = languagesInfo?.subtitleTracks?.find(
-            (t) => t.trackIndex === subtitleIndex
-        ) as StreamTracks;
+    //     const selectedSubs = languagesInfo?.subtitleTracks?.find(
+    //         (t) => t.trackIndex === subtitleIndex
+    //     ) as StreamTracks;
 
-        if (selectedSubs === undefined && subtitleIndex !== -1) {
-            logData({
-                title: "Subtitles were not found",
-                type: "error",
-                layer: "*",
-                data: {
-                    selectedSubs,
-                    subsInfo: languagesInfo.subtitleTracks,
-                    subtitleIndex,
-                },
-                addSpaceAfter: true,
-                addSeparatorAfter: true,
-            });
+    //     if (selectedSubs === undefined && subtitleIndex !== -1) {
+    //         logData({
+    //             title: "Subtitles were not found",
+    //             type: "error",
+    //             layer: "*",
+    //             data: {
+    //                 selectedSubs,
+    //                 subsInfo: languagesInfo.subtitleTracks,
+    //                 subtitleIndex,
+    //             },
+    //             addSpaceAfter: true,
+    //             addSeparatorAfter: true,
+    //         });
 
-            throw new Error("Subtitle not found.");
-        }
+    //         throw new Error("Subtitle not found.");
+    //     }
 
-        // Fetch the VTT and attach as a blob URL to a <track> element so it's
-        // same-origin for the page and we can control cleanup.
-        fetch(subtitleUrl)
-            .then((res) => {
-                if (!res.ok) throw new Error("Failed to fetch subtitles");
-                return res.blob();
-            })
-            .then((blob) => {
-                if (cancelled) return;
-                const blobUrl = URL.createObjectURL(blob);
-                const track = document.createElement("track");
-                track.kind = "subtitles";
-                track.label = selectedSubs.language;
-                track.srclang = selectedSubs.language;
-                track.src = blobUrl;
-                // Try to make this track the displayed one by default. Some
-                // browsers may not immediately expose the TextTrack; prefer to
-                // match by label, otherwise pick the most recently added.
-                track.default = true;
+    //     // Fetch the VTT and attach as a blob URL to a <track> element so it's
+    //     // same-origin for the page and we can control cleanup.
+    //     fetch(subtitleUrl)
+    //         .then((res) => {
+    //             if (!res.ok) throw new Error("Failed to fetch subtitles");
+    //             return res.blob();
+    //         })
+    //         .then((blob) => {
+    //             if (cancelled) return;
+    //             const blobUrl = URL.createObjectURL(blob);
+    //             const track = document.createElement("track");
+    //             track.kind = "subtitles";
+    //             track.label = selectedSubs.language;
+    //             track.srclang = selectedSubs.language;
+    //             track.src = blobUrl;
+    //             // Try to make this track the displayed one by default. Some
+    //             // browsers may not immediately expose the TextTrack; prefer to
+    //             // match by label, otherwise pick the most recently added.
+    //             track.default = true;
 
-                const enableMostRecentTextTrack = () => {
-                    const tracks = video.textTracks;
-                    let chosen: TextTrack | null = null;
+    //             const enableMostRecentTextTrack = () => {
+    //                 const tracks = video.textTracks;
+    //                 let chosen: TextTrack | null = null;
 
-                    for (let i = 0; i < tracks.length; i++) {
-                        if (tracks[i].label === track.label) {
-                            chosen = tracks[i];
-                            break;
-                        }
-                    }
+    //                 for (let i = 0; i < tracks.length; i++) {
+    //                     if (tracks[i].label === track.label) {
+    //                         chosen = tracks[i];
+    //                         break;
+    //                     }
+    //                 }
 
-                    if (!chosen && tracks.length > 0) {
-                        chosen = tracks[tracks.length - 1];
-                    }
+    //                 if (!chosen && tracks.length > 0) {
+    //                     chosen = tracks[tracks.length - 1];
+    //                 }
 
-                    for (let i = 0; i < tracks.length; i++) {
-                        tracks[i].mode =
-                            tracks[i] === chosen ? "showing" : "disabled";
-                    }
+    //                 for (let i = 0; i < tracks.length; i++) {
+    //                     tracks[i].mode =
+    //                         tracks[i] === chosen ? "showing" : "disabled";
+    //                 }
 
-                    // If cues appear to be using absolute timestamps (e.g., large
-                    // start times) and the stream itself was started at a later
-                    // offset (via ?start=), shift cues backwards by the stream
-                    // start so they align with the player's currentTime.
-                    try {
-                        if (chosen) {
-                            const cues = (chosen as TextTrack)
-                                .cues as TextTrackCueList | null;
-                            if (cues && cues.length > 0) {
-                                const firstStart = cues[0].startTime;
-                                const videoNow = video.currentTime;
+    //                 // If cues appear to be using absolute timestamps (e.g., large
+    //                 // start times) and the stream itself was started at a later
+    //                 // offset (via ?start=), shift cues backwards by the stream
+    //                 // start so they align with the player's currentTime.
+    //                 try {
+    //                     if (chosen) {
+    //                         const cues = (chosen as TextTrack)
+    //                             .cues as TextTrackCueList | null;
+    //                         if (cues && cues.length > 0) {
+    //                             const firstStart = cues[0].startTime;
+    //                             const videoNow = video.currentTime;
 
-                                // Extract start param from the video's source URL if present
-                                let streamStart = 0;
-                                try {
-                                    const src =
-                                        video.currentSrc ||
-                                        (video.getAttribute("src") as string) ||
-                                        "";
-                                    const u = new URL(
-                                        src,
-                                        window.location.href
-                                    );
-                                    streamStart =
-                                        parseFloat(
-                                            u.searchParams.get("start") || "0"
-                                        ) || 0;
-                                } catch {
-                                    streamStart = 0;
-                                }
+    //                             // Extract start param from the video's source URL if present
+    //                             let streamStart = 0;
+    //                             try {
+    //                                 const src =
+    //                                     video.currentSrc ||
+    //                                     (video.getAttribute("src") as string) ||
+    //                                     "";
+    //                                 const u = new URL(
+    //                                     src,
+    //                                     window.location.href
+    //                                 );
+    //                                 streamStart =
+    //                                     parseFloat(
+    //                                         u.searchParams.get("start") || "0"
+    //                                     ) || 0;
+    //                             } catch {
+    //                                 streamStart = 0;
+    //                             }
 
-                                // If the first cue is far ahead of the current playhead
-                                // but the stream was started at a later offset, shift cues.
-                                if (
-                                    firstStart > videoNow + 1 &&
-                                    streamStart > 0
-                                ) {
-                                    for (let i = 0; i < cues.length; i++) {
-                                        const c = cues[i] as VTTCue;
-                                        // adjust safely (startTime/endTime are mutable on modern browsers)
-                                        c.startTime = Math.max(
-                                            0,
-                                            c.startTime - streamStart
-                                        );
-                                        c.endTime = Math.max(
-                                            c.startTime,
-                                            c.endTime - streamStart
-                                        );
-                                    }
-                                }
-                            }
-                        }
-                    } catch (err) {
-                        // Ignore; this is best-effort debugging/adjustment.
-                        console.debug("Adjusting cues failed", err);
-                    }
-                };
+    //                             // If the first cue is far ahead of the current playhead
+    //                             // but the stream was started at a later offset, shift cues.
+    //                             if (
+    //                                 firstStart > videoNow + 1 &&
+    //                                 streamStart > 0
+    //                             ) {
+    //                                 for (let i = 0; i < cues.length; i++) {
+    //                                     const c = cues[i] as VTTCue;
+    //                                     // adjust safely (startTime/endTime are mutable on modern browsers)
+    //                                     c.startTime = Math.max(
+    //                                         0,
+    //                                         c.startTime - streamStart
+    //                                     );
+    //                                     c.endTime = Math.max(
+    //                                         c.startTime,
+    //                                         c.endTime - streamStart
+    //                                     );
+    //                                 }
+    //                             }
+    //                         }
+    //                     }
+    //                 } catch (err) {
+    //                     // Ignore; this is best-effort debugging/adjustment.
+    //                     console.debug("Adjusting cues failed", err);
+    //                 }
+    //             };
 
-                track.addEventListener("load", enableMostRecentTextTrack);
-                video.appendChild(track);
+    //             track.addEventListener("load", enableMostRecentTextTrack);
+    //             video.appendChild(track);
 
-                // In some cases the load event may fire synchronously; ensure we
-                // still attempt to enable and adjust the track after appending.
-                setTimeout(enableMostRecentTextTrack, 0);
+    //             // In some cases the load event may fire synchronously; ensure we
+    //             // still attempt to enable and adjust the track after appending.
+    //             setTimeout(enableMostRecentTextTrack, 0);
 
-                subtitleTrackElRef.current = track;
-                subtitleBlobUrlRef.current = blobUrl;
-            })
-            .catch((err) => {
-                // For now just log. We don't want to crash the player.
-                console.error("Failed to load subtitles", err);
-            });
+    //             subtitleTrackElRef.current = track;
+    //             subtitleBlobUrlRef.current = blobUrl;
+    //         })
+    //         .catch((err) => {
+    //             // For now just log. We don't want to crash the player.
+    //             console.error("Failed to load subtitles", err);
+    //         });
 
-        return () => {
-            cancelled = true;
-            if (subtitleTrackElRef.current) {
-                subtitleTrackElRef.current.remove();
-                subtitleTrackElRef.current = null;
-            }
-            if (subtitleBlobUrlRef.current) {
-                try {
-                    URL.revokeObjectURL(subtitleBlobUrlRef.current);
-                } catch {
-                    // ignore
-                }
-                subtitleBlobUrlRef.current = null;
-            }
-        };
-    }, [subtitleIndex, path, display_name, nasBaseUrl, languagesInfo, apiKey]);
+    //     return () => {
+    //         cancelled = true;
+    //         if (subtitleTrackElRef.current) {
+    //             subtitleTrackElRef.current.remove();
+    //             subtitleTrackElRef.current = null;
+    //         }
+    //         if (subtitleBlobUrlRef.current) {
+    //             try {
+    //                 URL.revokeObjectURL(subtitleBlobUrlRef.current);
+    //             } catch {
+    //                 // ignore
+    //             }
+    //             subtitleBlobUrlRef.current = null;
+    //         }
+    //     };
+    // }, [subtitleIndex, path, display_name, nasBaseUrl, languagesInfo, apiKey]);
 
     return {
         videoRef,
