@@ -3,6 +3,8 @@ import { serveVideoFileService } from './services/serveVideoFileService';
 import { logData } from '@repo/shared-utils/log-data';
 import { spawn } from 'child_process';
 import verifyPaths from './utils/verifyPaths';
+import fs from 'fs';
+import { validateVtt } from './services/sanitizeSubtitlesService';
 
 const router = Router();
 
@@ -242,10 +244,22 @@ router.get('/api/v2/serve-episode/subtitles', (req, res) => {
         return res.status(403).end();
     }
 
-    res.setHeader('Content-Type', 'text/vtt; charset=utf-8');
-    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    const vtt = fs.readFileSync(subtitlePath, 'utf8');
 
-    res.sendFile(subtitlePath);
+    try {
+        validateVtt(vtt);
+    } catch {
+        return res.status(500).send('Invalid subtitle file.');
+    }
+
+    res.status(200)
+        .set({
+            'Content-Type': 'text/vtt; charset=utf-8',
+            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Access-Control-Allow-Credentials': 'true',
+            'Cache-Control': 'public, max-age=31536000, immutable',
+        })
+        .send(vtt);
 });
 
 // 404 handler
