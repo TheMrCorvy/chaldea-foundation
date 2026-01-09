@@ -27,6 +27,7 @@ import { formatTime } from "@repo/shared-utils/format-time";
 
 import useControls from "./useControls";
 import useStyles from "./useStyles";
+import { NasApiRoutes } from "@/utils/routes";
 
 export interface V2SecureVideoPlayerProps {
     fileType: string;
@@ -115,8 +116,17 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                         src={videoSrc}
                         preload="auto"
                         onClick={handlePlayPause}
+                        crossOrigin="anonymous"
                     >
-                        Tu navegador no soporta la reproducción de videos.
+                        {subtitleIndex >= 0 && (
+                            <track
+                                kind="captions"
+                                src={`${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?subtitleIndex=${subtitleIndex}&parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}`}
+                                srcLang="es"
+                                label="Español"
+                                default
+                            />
+                        )}
                     </video>
 
                     {/* Center Play Button / Loader */}
