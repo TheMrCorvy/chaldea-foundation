@@ -28,6 +28,7 @@ import { formatTime } from "@repo/shared-utils/format-time";
 import useControls from "./useControls";
 import useStyles from "./useStyles";
 import { NasApiRoutes } from "@/utils/routes";
+import parseVtt from "@/utils/parseVtt";
 
 export interface V2SecureVideoPlayerProps {
     fileType: string;
@@ -100,6 +101,2849 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         languageControlsStack,
         langTitle,
     } = useStyles();
+
+    const vtt = `WEBVTT
+
+00:38.627 --> 00:40.254
+OBRA ORIGINAL: TATSUKI FUJIMOTO
+
+00:40.337 --> 00:42.422
+(PUBLICADA EN
+SHONEN JUMP+ DE SHUEISHA)
+
+01:08.365 --> 01:10.242
+<i>Es el sueño de siempre.</i>
+
+01:10.909 --> 01:14.246
+<i>El que siempre tengo...
+y el que siempre olvido.</i>
+
+01:22.212 --> 01:23.213
+Denji.
+
+01:25.716 --> 01:26.884
+¡Pochita!
+
+01:27.593 --> 01:29.344
+Sal de ahí, Pochita.
+
+01:29.845 --> 01:32.222
+Al menos déjame acariciarte en mis sueños.
+
+01:32.306 --> 01:33.473
+Denji...
+
+01:39.563 --> 01:41.231
+No abras por nada del mundo.
+
+02:02.085 --> 02:04.755
+¿Por qué tanto alboroto?
+
+02:06.965 --> 02:08.508
+Tuve una pesadilla.
+
+02:18.185 --> 02:19.269
+¿O sigo soñando?
+
+02:19.770 --> 02:21.271
+Déjate de balbucear.
+
+02:28.612 --> 02:30.072
+¿Qué pasa?
+
+02:30.155 --> 02:33.325
+¿De dónde saqué tanta fuerza?
+
+02:34.743 --> 02:37.037
+No es un sueño...
+
+02:58.559 --> 02:59.560
+CHAINSAW MAN
+
+05:06.728 --> 05:09.731
+CHAINSAW MAN - LA PELÍCULA:
+ARCO DE REZE
+
+05:12.568 --> 05:14.987
+CUARTEL DE LOS DEVIL HUNTERS TOKIO
+
+05:19.366 --> 05:20.993
+A juzgar por tus cuernos,
+
+05:21.076 --> 05:24.246
+bebiste demasiada sangre, ¿verdad?
+
+05:24.913 --> 05:28.000
+¿Tal vez durante
+la pelea contra los zombis?
+
+05:28.750 --> 05:31.628
+- Habrá que drenarte sangre.
+- ¡Sí!
+
+05:32.254 --> 05:33.422
+¿Drenársela?
+
+05:33.505 --> 05:36.008
+Le drenamos la sangre periódicamente.
+
+05:36.800 --> 05:41.138
+Si no, se vuelve un demonio
+aún más orgulloso de lo que ya es.
+
+05:41.847 --> 05:43.765
+Por lo cual, Denji...
+
+05:43.849 --> 05:46.143
+¿Me la puedo llevar un tiempo?
+
+05:52.608 --> 05:54.151
+Todo el tiempo que quiera.
+
+05:56.236 --> 05:58.906
+En cuanto a tu compañero en su ausencia,
+
+05:59.573 --> 06:01.909
+él dice que quiere trabajar contigo.
+
+06:07.080 --> 06:09.458
+¡Lord Chainsaw! ¡Lord Chainsaw!
+
+06:14.129 --> 06:18.050
+- ¿Y quién es este?
+- El Poseído de los Tiburones.
+
+06:18.634 --> 06:21.512
+Suele ser tan violento
+que no se le puede ni hablar,
+
+06:21.595 --> 06:23.847
+pero dice que hará
+
+06:23.931 --> 06:26.850
+- todo lo que le digas.
+- ¿Todo lo que le diga?
+
+06:27.392 --> 06:31.396
+- ¿Por qué?
+- No lo sé. ¿Porque sus caras se parecen?
+
+06:31.480 --> 06:34.399
+¡Lord Chainsaw! ¡Haré lo que usted diga!
+
+06:34.483 --> 06:37.402
+¡Lord Chainsaw es lo máximo! ¡El mejor!
+
+06:37.486 --> 06:40.030
+¡No me toques!
+No me gustan los hombres.
+
+06:46.119 --> 06:48.497
+Te noto algo desanimado.
+
+06:50.749 --> 06:52.668
+No podría estar mejor.
+
+06:56.797 --> 06:58.507
+Si estás tan animado,
+
+06:58.590 --> 07:01.426
+¿no te gustaría tener
+una cita conmigo mañana?
+
+07:02.386 --> 07:03.428
+¿Una cita?
+
+07:07.432 --> 07:10.936
+¡Qué bien! ¡Qué bien!
+
+07:12.437 --> 07:14.690
+¿Eh? ¿Ya estabas aquí, Denji?
+
+07:15.274 --> 07:17.317
+Todavía falta una hora.
+
+07:20.654 --> 07:23.073
+<i>¡Qué linda!</i>
+
+07:23.156 --> 07:24.825
+¡Ay, qué linda!
+
+07:25.409 --> 07:27.494
+Denji, ¿a qué hora llegaste?
+
+07:27.578 --> 07:30.038
+Como no podía dormir,
+llegué a las 5:00 a.m.
+
+07:30.622 --> 07:33.041
+¿Cuál es el plan para la cita de hoy?
+
+07:33.959 --> 07:37.212
+Es que nunca había salido con nadie.
+
+07:38.046 --> 07:43.468
+Vamos a ver películas hasta la medianoche.
+
+07:44.720 --> 07:45.721
+¿Eh?
+
+07:54.980 --> 07:55.981
+<i>Esto...</i>
+
+07:56.064 --> 07:58.400
+<i>no es lo que me esperaba.</i>
+
+08:02.154 --> 08:03.864
+<i>Todos se ríen.</i>
+
+08:03.947 --> 08:06.366
+<i>Pero yo no le veo el chiste.</i>
+
+08:11.455 --> 08:13.749
+<i>La señorita Makima tampoco se ríe.</i>
+
+08:14.499 --> 08:16.126
+<i>Es tan linda.</i>
+
+08:18.295 --> 08:19.922
+No me gustó mucho.
+
+08:20.422 --> 08:22.090
+No estuvo tan buena.
+
+08:22.174 --> 08:25.135
+Y eso que tenían mucho presupuesto.
+
+08:26.637 --> 08:29.014
+Bueno, vayamos a la siguiente.
+
+08:39.857 --> 08:40.984
+<i>Todos están llorando.</i>
+
+08:43.862 --> 08:45.697
+<i>Pero ella no.</i>
+
+08:45.781 --> 08:46.782
+<i>Qué linda es.</i>
+
+08:48.116 --> 08:50.118
+Tampoco me gustó.
+
+08:50.202 --> 08:53.914
+Me molestó que intentaran
+hacer llorar a la audiencia.
+
+08:58.001 --> 09:00.170
+La música era buena.
+
+09:02.506 --> 09:04.800
+Qué trama tan forzada.
+
+09:09.721 --> 09:11.807
+Estuvo bastante regular.
+
+09:12.432 --> 09:14.184
+La siguiente será la última.
+
+09:14.268 --> 09:15.269
+CINE
+
+09:15.352 --> 09:18.647
+Todos dicen que es difícil de entender.
+
+09:19.773 --> 09:21.400
+¿También quieres verla?
+
+09:23.902 --> 09:27.197
+La verdad es que no me gustó ninguna.
+
+09:27.281 --> 09:30.075
+¿Será que no las entiendo?
+
+09:30.868 --> 09:35.497
+A mí solo me gusta una
+de cada diez películas que veo.
+
+09:36.874 --> 09:41.211
+Pero son justamente esas
+las que te pueden cambiar la vida.
+
+10:30.427 --> 10:33.013
+<i>Pero si es una escena de lo más normal.</i>
+
+10:33.639 --> 10:36.058
+<i>¡No quiero que me vea llorar!</i>
+
+10:54.243 --> 10:58.038
+Recordaré esa última escena de por vida.
+
+10:58.121 --> 10:59.289
+Yo también.
+
+10:59.373 --> 11:02.125
+Compensó todo lo que nos gastamos hoy.
+
+11:06.129 --> 11:09.883
+Señorita Makima,
+¿usted cree que yo tenga corazón?
+
+11:11.134 --> 11:13.136
+¿Por qué lo preguntas?
+
+11:14.555 --> 11:15.597
+Curiosidad.
+
+11:39.288 --> 11:40.289
+Sí tienes.
+
+11:41.707 --> 11:42.708
+Sí...
+
+11:43.709 --> 11:45.127
+Sí tengo.
+
+12:13.322 --> 12:14.656
+<i>Ya veo.</i>
+
+12:14.740 --> 12:18.911
+<i>No me podría emocionar
+si no tuviera corazón, ¿o sí?</i>
+
+12:18.994 --> 12:20.162
+¡Donen, por favor!
+
+12:20.245 --> 12:21.997
+- ¡Por favor!
+- ¡Cooperen!
+
+12:22.080 --> 12:25.959
+Juntamos dinero para los niños
+afectados por los demonios.
+
+12:26.585 --> 12:28.086
+¡Ayúdenos!
+
+12:28.170 --> 12:31.006
+Como tengo corazón, puedo donar.
+
+12:32.508 --> 12:33.759
+¡Muchísimas gracias!
+
+12:34.384 --> 12:37.513
+Les damos flores a todos los que cooperan.
+
+12:40.474 --> 12:41.475
+Qué bonita.
+
+12:48.357 --> 12:52.778
+<i>Aprecio la belleza de la flor
+porque tengo corazón.</i>
+
+12:55.781 --> 12:57.783
+<i>Todo gracias a la señorita Makima.</i>
+
+12:58.909 --> 13:01.620
+<i>Me siento mejor después
+de haber hablado con ella.</i>
+
+13:03.539 --> 13:09.086
+<i>Me cumplirá un deseo si reúno los trozos
+del Demonio de las Armas de Fuego.</i>
+
+13:09.169 --> 13:13.048
+<i>Y creo que le pediré que sea mi novia.</i>
+
+13:22.224 --> 13:25.519
+<i>Siempre que tengo un rato libre,
+pienso en ella.</i>
+
+13:25.602 --> 13:29.356
+<i>He besado a otras chicas
+y hasta tocado sus pechos,</i>
+
+13:29.439 --> 13:32.150
+<i>pero mi corazón
+solo le pertenece a ella.</i>
+
+13:32.776 --> 13:35.821
+<i>¡Nunca me enamoraré de nadie más!</i>
+
+13:40.409 --> 13:42.077
+¡Corran!
+
+13:43.245 --> 13:44.329
+¡Yuju!
+
+13:44.413 --> 13:45.622
+¡Agua! ¡Agua!
+
+13:45.706 --> 13:48.458
+¡Cae agua!
+
+13:51.044 --> 13:53.547
+¡Beam, te dije que te escondieras!
+
+13:53.630 --> 13:56.633
+Si alguien te ve, no podré caminar en paz.
+
+13:56.717 --> 13:57.718
+¡Bien!
+
+13:59.845 --> 14:03.140
+¿Por qué todos los poseídos
+tienen nombres tan raros?
+
+14:15.527 --> 14:18.113
+Debí haber traído un paraguas.
+
+14:32.211 --> 14:33.670
+Hola, disculpa.
+
+14:34.254 --> 14:36.381
+Sí que llueve, ¿eh?
+
+14:39.968 --> 14:41.929
+En el pronóstico del tiempo...
+
+14:49.186 --> 14:50.604
+¿Eh? ¿Qué pasa?
+
+14:51.104 --> 14:52.940
+Ay, perdón...
+
+14:54.358 --> 14:55.859
+¿Qué te pasa?
+
+15:00.656 --> 15:03.325
+¿Por qué estás llorando?
+
+15:03.408 --> 15:05.035
+Lo siento.
+
+15:05.786 --> 15:06.995
+Es que tu cara...
+
+15:07.579 --> 15:10.040
+me recuerda a mi perrito que murió.
+
+15:11.083 --> 15:13.293
+¿Tengo cara de perro?
+
+15:13.377 --> 15:15.921
+¡Perdón! ¡Perdón!
+
+15:21.218 --> 15:22.302
+¿Estás bien?
+
+15:28.976 --> 15:31.436
+¡Espera, tengo un pañuelo!
+
+15:34.022 --> 15:35.774
+¡Tarán!
+
+15:36.441 --> 15:39.027
+¿Qué?
+¿Un truco de magia?
+
+15:39.695 --> 15:40.988
+¡Qué locura!
+
+15:41.822 --> 15:44.324
+Y sin trucos de por medio.
+
+15:48.120 --> 15:49.329
+Gracias.
+
+16:03.594 --> 16:05.429
+¡Ya dejó de llover!
+
+16:06.847 --> 16:10.184
+Trabajo en el café Encrucijada
+que está por aquí cerca.
+
+16:10.267 --> 16:12.436
+Si vas, te invito algo.
+
+16:13.562 --> 16:15.022
+Te estaré esperando.
+
+16:56.980 --> 16:57.981
+Bien.
+
+16:58.607 --> 17:01.610
+Llegas tarde.
+Te lo descontaré del sueldo.
+
+17:01.693 --> 17:02.736
+¡Tacaño!
+
+17:03.362 --> 17:05.113
+Lleva agua a la mesa cuatro.
+
+17:05.197 --> 17:07.866
+¡Tacaño! ¡Tacaño! ¡Tacaño!
+
+17:12.579 --> 17:14.247
+¡Qué rápido!
+
+17:14.331 --> 17:17.793
+¿Qué? ¡Llegaste antes que yo!
+
+17:17.876 --> 17:19.878
+Ahora que lo pienso, sí.
+
+17:21.380 --> 17:23.507
+Solo vine por lo que me dijiste.
+
+17:29.680 --> 17:31.765
+Pues sentémonos juntos.
+
+17:31.849 --> 17:35.394
+Oiga, jefe, ¿nos sirve café?
+
+17:36.186 --> 17:38.021
+Pero si tú trabajas aquí.
+
+17:38.105 --> 17:40.023
+¿Qué importa?
+
+17:40.107 --> 17:42.860
+Solo tenemos clientes por la mañana.
+
+17:45.070 --> 17:46.321
+Está bien...
+
+17:47.781 --> 17:49.783
+Un café de agradecimiento.
+
+17:50.701 --> 17:51.785
+¿Bebes café?
+
+17:52.452 --> 17:53.579
+Sí.
+
+17:59.084 --> 18:02.129
+¿Y esa cara?
+Te lo bebiste obligado.
+
+18:02.212 --> 18:04.298
+Porque sabe horrible.
+
+18:04.381 --> 18:06.300
+Como agua de alcantarilla.
+
+18:09.469 --> 18:11.221
+Suenas como un niño.
+
+18:13.140 --> 18:16.935
+<i>Me está tocando mucho
+y se ríe de lo que digo.</i>
+
+18:17.436 --> 18:18.729
+<i>¿No será que...</i>
+
+18:19.521 --> 18:21.106
+<i>le gusto o algo así?</i>
+
+18:22.774 --> 18:24.318
+Me llamo Reze.
+
+18:24.818 --> 18:25.861
+¿Y tú?
+
+18:26.862 --> 18:27.946
+Denji.
+
+18:28.864 --> 18:29.865
+¿Denji?
+
+18:30.699 --> 18:32.075
+Denji...
+
+18:36.246 --> 18:39.541
+Denji, nunca había conocido
+a alguien tan interesante.
+
+18:43.420 --> 18:45.714
+<i>Estoy seguro. Le gusto.</i>
+
+18:47.174 --> 18:48.634
+<i>¿Qué hago?</i>
+
+18:49.259 --> 18:51.845
+<i>Me gusta la gente
+a la que le gusto.</i>
+
+18:53.055 --> 18:55.140
+<i>Auxilio, señorita Makima...</i>
+
+18:56.225 --> 18:59.228
+<i>Puede que me enamore de esta chica.</i>
+
+19:15.369 --> 19:17.913
+Ya te comiste tres. Son suficientes.
+
+19:17.996 --> 19:19.414
+Vámonos a patrullar.
+
+19:21.291 --> 19:23.752
+Comer helado me cansó.
+
+19:23.835 --> 19:26.296
+Dicen que comer consume energía.
+
+19:31.718 --> 19:34.179
+Ya no quiero trabajar hoy.
+
+19:35.055 --> 19:38.183
+Habrá una campaña para acabar
+con el Demonio de las Armas de Fuego.
+
+19:38.267 --> 19:43.063
+Para que me dejen participar,
+debo vencer a más demonios poderosos.
+
+19:43.772 --> 19:47.192
+Y para eso debo encontrar más demonios.
+
+19:47.276 --> 19:50.320
+Como tu compañero, te pido que me ayudes.
+
+20:00.289 --> 20:03.041
+¿Y si lo pienso
+después de comerme otro helado?
+
+20:04.585 --> 20:05.586
+Levántate.
+
+20:06.086 --> 20:08.672
+Si reporto a los jefes que no sirves,
+
+20:08.755 --> 20:11.884
+te pondrán a dormir como demonio.
+¿Prefieres eso?
+
+20:19.641 --> 20:22.561
+Tal vez prefiera morir
+a tener que trabajar.
+
+20:25.898 --> 20:29.693
+<i>Después del capitán Kishibe,
+es el más fuerte en la 4.ª Sección.</i>
+
+20:31.069 --> 20:33.739
+O lo sería si no fuera tan holgazán.
+
+20:34.573 --> 20:37.784
+Si quieres participar en la campaña,
+
+20:37.868 --> 20:40.621
+te recomiendo aprender a manipularlo.
+
+20:41.955 --> 20:44.499
+No sé si me lleve bien con un demonio.
+
+20:45.125 --> 20:48.003
+Pero te llevas bien con Power, ¿no?
+
+20:48.503 --> 20:51.548
+Nos peleamos a puños esta mañana.
+
+20:53.509 --> 20:56.261
+Tampoco es que tengan que ser amigos.
+
+20:57.012 --> 20:59.932
+Basta con que lo uses
+para nuestro beneficio.
+
+21:00.516 --> 21:05.145
+Él mató a todos los aldeanos
+del lugar donde nació.
+
+21:05.229 --> 21:06.688
+O, para ser más precisos,
+
+21:07.397 --> 21:10.442
+absorbió su fuerza vital
+y la transformó en un arma.
+
+21:11.193 --> 21:12.194
+¿En un arma?
+
+21:12.778 --> 21:16.532
+Convierte la vida de los que toca
+en armas.
+
+21:16.615 --> 21:20.452
+La katana que llevas es una de ellas.
+
+21:20.536 --> 21:24.039
+Sus armas poseen cualidades muy variadas,
+
+21:24.122 --> 21:26.458
+como cortar fantasmas intangibles.
+
+21:28.252 --> 21:31.380
+Solo tienes que fingir
+llevarte bien con él.
+
+21:31.463 --> 21:33.966
+Te aseguro que te será de utilidad.
+
+21:55.279 --> 21:56.864
+¡Ya vencimos al demonio!
+
+21:57.364 --> 22:00.909
+¡Procuren no tocar
+su carne o su sangre!
+
+22:07.666 --> 22:09.877
+Qué apetitoso se ve.
+
+22:12.004 --> 22:13.630
+Oye, humanito.
+
+22:13.714 --> 22:15.215
+Ven a ver.
+
+22:16.383 --> 22:19.344
+Este parece un Devil Hunter civil.
+
+22:19.428 --> 22:21.889
+Me imagino que se lo tragó.
+
+22:21.972 --> 22:25.142
+Pero le falta medio cuerpo
+y está moribundo.
+
+22:30.814 --> 22:33.901
+Maten... Mátenme…
+
+22:34.526 --> 22:37.279
+Tu poder podría darle una muerte indolora.
+
+22:37.362 --> 22:38.780
+Mátalo de una vez.
+
+22:39.281 --> 22:40.657
+¿Qué? No quiero.
+
+22:41.325 --> 22:43.660
+Soy tanto ángel como demonio.
+
+22:44.369 --> 22:47.122
+Y creo que los humanos
+han de morir sufriendo.
+
+23:06.266 --> 23:08.810
+No me llevaré bien contigo ni fingiendo.
+
+23:10.062 --> 23:11.063
+Supongo.
+
+23:14.691 --> 23:17.945
+<i>La señorita Makima encontró mi corazón.</i>
+
+23:18.529 --> 23:22.324
+<i>Y, por eso, mi corazón
+le pertenece solo a ella.</i>
+
+23:23.825 --> 23:26.328
+<i>Pero... mi cuerpo…</i>
+
+23:26.411 --> 23:27.913
+<i>se mueve solo.</i>
+
+23:30.082 --> 23:32.209
+¡Ah, un cliente!
+
+23:32.292 --> 23:33.835
+Vine a almorzar.
+
+23:34.920 --> 23:38.924
+La comida no es tan buena como para
+venir a diario una semana entera.
+
+23:39.550 --> 23:40.843
+Sí lo es.
+
+23:40.926 --> 23:42.469
+Sí es buena.
+
+23:42.553 --> 23:44.429
+Tienen mal gusto.
+
+23:45.556 --> 23:46.932
+Veamos...
+
+23:47.474 --> 23:50.394
+Quiero curry y helado.
+
+23:50.477 --> 23:51.728
+¡Y arroz frito!
+
+23:51.812 --> 23:55.649
+¿No quieres comer en esta mesa?
+
+23:55.732 --> 23:56.733
+Aquí estoy bien.
+
+23:56.817 --> 23:59.987
+Además, estás estudiando.
+Aunque estás trabajando.
+
+24:00.070 --> 24:02.781
+Tú no vas a la escuela, ¿o sí?
+
+24:02.865 --> 24:04.741
+Aunque tienes 16 años.
+
+24:07.578 --> 24:11.206
+Tu caso es mucho peor que el mío.
+
+24:11.290 --> 24:13.166
+¿Sí? ¿Tú crees?
+
+24:13.250 --> 24:14.501
+Ya veo.
+
+24:14.585 --> 24:19.882
+Es raro que trabajes de Devil Hunter
+sin siquiera haber ido a la escuela.
+
+24:25.429 --> 24:28.348
+Voy a estudiar acá.
+
+24:28.432 --> 24:29.892
+Hazte para allá.
+
+24:34.104 --> 24:36.440
+Me gustaría aprender a leer kanji.
+
+24:36.523 --> 24:38.150
+¿No sabes leer kanji?
+
+24:38.734 --> 24:40.360
+¡Pues yo te enseño!
+
+24:41.445 --> 24:42.654
+Responde.
+
+24:43.238 --> 24:44.281
+¡Tarán!
+
+24:44.364 --> 24:46.241
+¿Cómo se lee esto?
+
+24:46.325 --> 24:48.785
+¡Ahí dice "testículos", cochina!
+
+24:48.869 --> 24:51.163
+Pues sí sabes leerlos.
+
+24:51.747 --> 24:54.416
+Eso es lo único que sé leer.
+
+24:58.378 --> 24:59.838
+Qué raro eres.
+
+25:05.385 --> 25:08.514
+Me habría gustado ir a la escuela contigo.
+
+25:08.597 --> 25:10.140
+Habría sido divertido.
+
+25:15.896 --> 25:17.731
+<i>¿Qué estoy diciendo?</i>
+
+25:22.027 --> 25:23.737
+¿Quieres ir conmigo?
+
+25:23.820 --> 25:25.697
+- De noche.
+- ¿De noche?
+
+25:26.323 --> 25:29.826
+¿Vamos a explorar la escuela de noche?
+
+25:33.914 --> 25:34.915
+Voy.
+
+25:35.958 --> 25:38.085
+<i>¡Mi corazón es de la señorita Makima,</i>
+
+25:39.127 --> 25:42.047
+<i>pero mi cuerpo no me hace caso!</i>
+
+25:53.058 --> 25:54.351
+Tifón.
+
+25:55.060 --> 25:56.061
+¿Qué quieres?
+
+25:56.687 --> 26:01.275
+¿Por qué los demonios van
+tras el corazón de Chainsaw?
+
+26:02.943 --> 26:04.528
+No necesitas saberlo.
+
+26:04.611 --> 26:08.282
+Tú preocúpate de cumplir
+tu parte de nuestro contrato.
+
+26:09.283 --> 26:12.077
+Creo que trabajaremos juntos
+por mucho tiempo.
+
+26:12.160 --> 26:14.371
+Deberíamos llevarnos mejor,
+
+26:15.789 --> 26:18.333
+Demonio de los Tifones.
+
+26:21.545 --> 26:26.508
+Según el contrato, si te consigo
+el corazón de Chainsaw,
+
+26:26.592 --> 26:28.719
+podré usar tu poder para siempre.
+
+26:29.219 --> 26:30.387
+Ten cuidado.
+
+26:30.470 --> 26:35.350
+Quien porta el corazón de Chainsaw
+ha matado a muchos demonios.
+
+26:35.934 --> 26:39.354
+Porque los demonios no son muy listos.
+
+26:42.691 --> 26:47.362
+Una vez maté a un Devil Hunter
+en China por un encargo.
+
+26:47.446 --> 26:52.618
+Decían que era cruel y despiadado.
+Un Devil Hunter desprovisto de emociones.
+
+26:53.493 --> 26:55.329
+¿Y cómo lo mataste?
+
+27:02.753 --> 27:05.756
+Buscando algo que le importara.
+
+27:06.256 --> 27:09.092
+Secuestré a su esposa e hija.
+
+27:09.176 --> 27:12.137
+Y, al mostrarle la piel
+que les arranqué,
+
+27:12.221 --> 27:14.223
+se dejó matar como si nada.
+
+27:29.029 --> 27:30.405
+¿No te da miedo, Denji?
+
+27:31.490 --> 27:35.202
+No, más que darme miedo,
+
+27:35.285 --> 27:36.787
+se siente extraño.
+
+27:38.372 --> 27:39.915
+¿A qué te refieres?
+
+27:45.921 --> 27:48.173
+Yo sí tengo algo de miedo.
+
+27:48.966 --> 27:50.509
+¿Puedo tomarte la mano?
+
+27:53.011 --> 27:55.305
+SALIDA
+
+28:00.561 --> 28:02.104
+<i>Señorita Makima,</i>
+
+28:02.187 --> 28:04.898
+<i>le juro que no quiero tomarla de la mano.</i>
+
+28:06.692 --> 28:09.319
+<i>Pero es que mi cuerpo...</i>
+
+28:14.157 --> 28:16.702
+¿Hay alguien que sepa la respuesta?
+
+28:16.785 --> 28:18.287
+¡Yo! ¡Yo! ¡Yo!
+
+28:18.370 --> 28:19.663
+¡Dos! ¡Es Dos!
+
+28:19.746 --> 28:21.290
+¡Correcto! ¡Eres un genio!
+
+28:22.583 --> 28:26.336
+- ¿Qué significa esto en español?
+- ¡No sé!
+
+28:26.420 --> 28:28.881
+Significa "trasero enorme".
+
+28:28.964 --> 28:30.340
+¡Cochina!
+
+28:31.425 --> 28:34.553
+Conque así es la escuela, ¿eh?
+
+28:34.636 --> 28:36.221
+Creo que ya entendí.
+
+28:37.848 --> 28:41.226
+Oye, ¿es cierto que ni siquiera
+fuiste a la primaria?
+
+28:41.310 --> 28:42.769
+¿Eh? Sí.
+
+28:43.395 --> 28:47.858
+Pues no creo que eso esté bien.
+
+28:47.941 --> 28:49.359
+¿Es malo?
+
+28:50.235 --> 28:51.653
+Más que malo...
+
+28:52.321 --> 28:53.488
+no es normal.
+
+28:55.574 --> 28:58.368
+A los 16 sigues siendo un niño.
+
+28:58.869 --> 29:01.121
+Deberías estudiar para tus exámenes,
+
+29:01.205 --> 29:04.750
+asistir a algún club
+y salir con tus amigos.
+
+29:05.375 --> 29:09.671
+Pero tú matas demonios
+poniendo tu vida en peligro.
+
+29:10.214 --> 29:14.176
+¿Crees que Seguridad Pública
+sea el lugar más indicado para ti?
+
+29:15.886 --> 29:18.639
+A mí me parece un buen lugar.
+
+29:19.348 --> 29:21.141
+Puedo comer tres veces al día.
+
+29:21.225 --> 29:22.851
+Y duermo en un futón.
+
+29:24.686 --> 29:28.023
+Pero eso es lo básico
+para cualquiera en Japón.
+
+29:28.524 --> 29:30.484
+Es de lo más normal.
+
+29:34.446 --> 29:37.241
+Se me calentó el cerebro de tanto pensar.
+
+29:39.868 --> 29:40.869
+Entonces...
+
+29:42.412 --> 29:44.289
+¿Vamos a refrescarnos?
+
+29:56.134 --> 29:57.719
+¡Qué fría está!
+
+30:05.644 --> 30:08.146
+Yo casi no sé nadar.
+
+30:17.698 --> 30:20.158
+Pues yo te enseñaré a nadar.
+
+30:31.295 --> 30:34.715
+Quítate la ropa.
+Si te metes vestido, te hundes más.
+
+30:34.798 --> 30:36.717
+Esto es demasiado sexy.
+
+30:36.800 --> 30:39.344
+¿No quieres aprender a nadar?
+
+30:41.138 --> 30:42.890
+Me dieron ganas de aprender.
+
+30:48.312 --> 30:50.480
+Desnúdate tú también.
+
+30:51.815 --> 30:54.318
+Está oscuro. No se ve nada.
+
+30:55.569 --> 30:57.487
+<i>- ¡Cálmate!
+- ¡Se le ve todo!</i>
+
+30:57.571 --> 31:01.533
+<i>¡Nunca había visto pezones!
+Si me desnudo, estaré siendo infiel.</i>
+
+31:06.955 --> 31:08.081
+<i>¡Maldición!</i>
+
+31:14.087 --> 31:17.341
+¡Vamos! ¡Métete tú también!
+
+31:18.342 --> 31:22.513
+<i>¡No lo hagas!
+¡Si vas, tu corazón será suyo!</i>
+
+31:23.514 --> 31:24.765
+Ya entiendo.
+
+31:24.848 --> 31:27.893
+Te da miedo meterte porque no sabes nadar.
+
+31:30.979 --> 31:32.397
+¡Vamos!
+
+31:32.481 --> 31:33.690
+¡Se siente genial!
+
+31:35.025 --> 31:36.443
+¡Date prisa!
+
+32:56.315 --> 32:57.482
+Déjame enseñarte.
+
+32:58.942 --> 33:02.863
+Lo que no sepas
+o lo que no puedas hacer.
+
+33:03.947 --> 33:07.075
+Yo te lo enseñaré todo.
+
+33:13.373 --> 33:15.626
+¡Denji! ¡Respira! ¡Respira!
+
+33:29.848 --> 33:31.225
+¡Está lloviendo!
+
+33:31.308 --> 33:32.351
+Sí.
+
+33:55.749 --> 33:57.626
+No para de llover, ¿eh?
+
+34:05.676 --> 34:07.219
+Denji...
+
+34:07.845 --> 34:13.058
+¿Preferirías ser el ratón del campo
+o el ratón de la ciudad?
+
+34:13.976 --> 34:15.269
+¿De qué hablas?
+
+34:16.478 --> 34:18.438
+Es una fábula de Esopo.
+
+34:21.358 --> 34:24.236
+El ratón del campo vive seguro,
+
+34:24.318 --> 34:26.655
+pero sin la rica comida de la ciudad.
+
+34:27.573 --> 34:30.826
+Y aunque el ratón de la ciudad
+come muy bien,
+
+34:30.909 --> 34:33.579
+siempre podría matarlo
+un gato o un humano.
+
+34:38.000 --> 34:40.460
+Yo preferiría ser el ratón del campo.
+
+34:41.670 --> 34:46.465
+Pero Makima me atrapó
+y me trajo a la ciudad.
+
+34:51.137 --> 34:53.390
+Mi corazón se quedó en el campo.
+
+34:53.974 --> 34:57.311
+No me gusta correr peligro
+andando con un citadino como tú.
+
+34:59.188 --> 35:00.230
+Escucha...
+
+35:04.484 --> 35:07.112
+Prefiero ser el ratón de la ciudad.
+
+35:07.196 --> 35:08.238
+¿Qué?
+
+35:08.322 --> 35:10.908
+Pero si es mejor ser el del campo.
+
+35:10.991 --> 35:13.118
+No hay nada como la paz.
+
+35:13.202 --> 35:15.245
+Pero la ciudad tiene comida rica.
+
+35:15.329 --> 35:16.538
+Y es más divertida.
+
+35:17.706 --> 35:20.792
+¿Te conformas comiendo y divirtiéndote?
+
+35:20.876 --> 35:22.169
+Sí.
+
+35:25.547 --> 35:29.092
+En ese caso, mañana habrá
+un festival por aquí cerca.
+
+35:29.176 --> 35:32.679
+¿Quieres ir?
+Habrá comida y diversión.
+
+35:34.932 --> 35:37.309
+Solo puedo ir después del trabajo.
+
+35:37.392 --> 35:40.812
+¡Viva! ¡Qué bien!
+Es una promesa, ¿eh?
+
+35:43.398 --> 35:46.026
+Iré al baño y vuelvo.
+
+35:52.324 --> 35:53.992
+Es superlinda.
+
+37:02.561 --> 37:03.770
+¿Denji?
+
+37:08.692 --> 37:12.112
+Sí, sí. Soy Denji.
+
+37:13.322 --> 37:17.618
+Yo también quería ir al baño.
+
+37:22.039 --> 37:24.374
+¿Por qué no vamos juntos?
+
+37:25.167 --> 37:26.501
+¿Sí?
+
+37:36.553 --> 37:37.554
+Pochita.
+
+37:38.138 --> 37:40.307
+Me gustan dos chicas.
+
+37:41.934 --> 37:43.393
+¿Quiénes crees que son?
+
+37:44.770 --> 37:46.480
+<i>No hablo del ángel ese.</i>
+
+37:47.147 --> 37:48.815
+<i>Dicen que es hombre.</i>
+
+37:55.280 --> 37:58.158
+<i>La pequeñita no es fea de cara,</i>
+
+37:58.242 --> 38:00.494
+<i>pero intentó matarme.</i>
+
+38:02.913 --> 38:04.581
+¡Vamos!
+
+38:05.207 --> 38:08.585
+<i>Power también intenta matarme
+de vez en cuando.</i>
+
+38:08.669 --> 38:13.090
+<i>Es narcisista, egoísta,
+mentirosa compulsiva y discriminadora.</i>
+
+38:14.800 --> 38:16.844
+¿Por qué huyes?
+
+38:16.927 --> 38:19.721
+¡Prometiste que irías al baño conmigo!
+
+38:24.768 --> 38:26.270
+<i>¿Qué hago?</i>
+
+38:27.896 --> 38:30.774
+<i>¡Al cerrar los ojos, las veo a las dos!</i>
+
+38:33.151 --> 38:34.945
+<i>Pochita, ¿a cuál escogerías tú?</i>
+
+38:58.719 --> 39:00.137
+¡Hola, hola!
+
+39:01.263 --> 39:03.891
+¿Quieres mear en la azotea?
+
+39:04.391 --> 39:06.810
+¿Quién eres tú?
+
+39:10.022 --> 39:11.648
+Bien que me preguntas eso,
+
+39:11.732 --> 39:14.401
+pero ¿acaso sabes quién eres tú?
+
+39:15.235 --> 39:17.654
+Yo lo sé bien.
+
+39:17.738 --> 39:19.698
+Eres el queso.
+
+39:20.282 --> 39:23.410
+El trozo de queso que hará salir al ratón.
+
+39:23.911 --> 39:26.622
+¿De qué hablas? ¡Ya déjame en paz!
+
+39:28.081 --> 39:33.378
+¡Te arrancaré la cara, te sacaré los ojos
+y se los mostraré a Chainsaw!
+
+39:33.462 --> 39:35.339
+Entonces, le diré:
+
+39:36.381 --> 39:40.552
+"La chica que amas sigue viva".
+
+39:43.847 --> 39:45.432
+Cuando hago eso,
+
+39:45.516 --> 39:48.852
+todos se vuelven muy obedientes.
+
+39:48.936 --> 39:50.938
+Y solo restará matarlo.
+
+39:51.021 --> 39:55.025
+Lo único que quiero de tu cuerpo
+son tus ojos y tu piel.
+
+39:56.151 --> 39:59.196
+¡No necesito quitarte la vida!
+
+40:38.443 --> 40:41.989
+<i>Hoy tengo una cita con Jane</i>
+
+40:42.072 --> 40:43.949
+<i>Todo está listo</i>
+
+40:44.032 --> 40:49.079
+<i>Iremos juntos a la iglesia por la mañana</i>
+
+40:49.788 --> 40:53.584
+<i>Beberemos café</i>
+
+40:55.127 --> 40:59.131
+<i>Y comeremos omelets en una cafetería</i>
+
+41:00.591 --> 41:04.303
+<i>Luego de dar un paseo</i>
+
+41:04.386 --> 41:09.016
+<i>por el parque</i>
+
+41:10.017 --> 41:13.812
+<i>Iremos a un acuario</i>
+
+41:15.564 --> 41:19.318
+<i>Veremos a los delfines y pingüinos</i>
+
+41:20.861 --> 41:25.657
+<i>Que tanto le encantan a Jane</i>
+
+41:26.200 --> 41:29.620
+<i>Descansaremos tras almorzar</i>
+
+41:29.703 --> 41:35.042
+<i>Pero ¿qué fue lo que hicimos
+por la mañana?</i>
+
+41:35.751 --> 41:39.713
+<i>Hablaremos sobre ello</i>
+
+41:41.131 --> 41:44.968
+<i>Hasta recordarlo</i>
+
+41:46.428 --> 41:50.432
+<i>No nos acordaremos</i>
+
+41:51.475 --> 41:56.522
+<i>Y nos iremos a dormir
+a la iglesia por la noche</i>
+
+42:25.843 --> 42:30.138
+Tú nos encerraste en la escuela
+con la tormenta, ¿no es así, Tifón?
+
+42:31.014 --> 42:33.684
+No sabía que estaba aquí, señorita Reze.
+
+42:34.476 --> 42:36.770
+Haré la vista gorda por hoy.
+
+42:36.854 --> 42:39.398
+Pero tendrás que obedecerme por un tiempo.
+
+42:39.481 --> 42:42.192
+Deshazte del cadáver de ese hombre.
+
+43:15.726 --> 43:16.935
+¡Bu!
+
+44:49.069 --> 44:53.031
+El jefe de la cafetería
+me habló de este lugar.
+
+44:53.115 --> 44:57.995
+Es ideal para ver los fuegos artificiales.
+Nadie más vendrá. Es un lugar secreto.
+
+45:15.012 --> 45:16.305
+Oye, Denji.
+
+45:16.972 --> 45:19.016
+Llevo un tiempo pensándolo...
+
+45:20.017 --> 45:23.312
+Y de verdad creo
+que tu situación no es normal.
+
+45:23.395 --> 45:26.273
+Que no te envíen
+a la escuela teniendo 16 años
+
+45:26.356 --> 45:30.944
+y que te hagan matar demonios
+no es algo que el Gobierno deba permitir.
+
+45:37.534 --> 45:40.412
+¿Por qué no renuncias
+y te escapas conmigo?
+
+45:40.996 --> 45:43.916
+Te haré feliz.
+
+45:44.708 --> 45:46.501
+Y te protegeré de por vida.
+
+45:47.878 --> 45:49.046
+Por favor.
+
+45:54.635 --> 45:57.304
+¿Escapar? ¿Adónde?
+
+45:58.138 --> 45:59.932
+Si le pregunto a un conocido,
+
+46:00.015 --> 46:03.393
+me dirá dónde encontrar un sitio
+donde Seguridad Pública no te encuentre.
+
+46:03.477 --> 46:07.481
+Y, aunque no será enseguida,
+algún día podremos estudiar juntos.
+
+46:08.690 --> 46:10.484
+¿Por qué harías tanto por mí?
+
+46:11.902 --> 46:13.570
+Porque...
+
+46:14.363 --> 46:16.240
+me gustas, Denji.
+
+46:26.291 --> 46:28.544
+¿Por qué te cuesta tanto decidir?
+
+46:29.503 --> 46:31.213
+¿Acaso me odias?
+
+46:31.755 --> 46:33.048
+¡Sí me gustas!
+
+46:34.466 --> 46:35.467
+Pero...
+
+46:36.009 --> 46:39.012
+Por fin empezaban
+a apreciarme en mi trabajo.
+
+46:39.680 --> 46:42.432
+Y puedo ir más lejos sin que me vigilen.
+
+46:43.433 --> 46:47.312
+Y aprendí a lidiar con mi compañera
+que tiene un carácter de porquería.
+
+46:48.772 --> 46:52.526
+También me llevo mejor
+con el superior que me caía mal.
+
+46:53.652 --> 46:56.113
+Y encontré algo así como un objetivo.
+
+46:56.905 --> 46:59.324
+Estaba empezando a disfrutarlo.
+
+47:00.701 --> 47:04.705
+¿No podemos seguir viéndonos
+mientras sigo trabajando?
+
+47:07.958 --> 47:10.502
+¡El espectáculo pirotécnico va a comenzar!
+
+47:13.338 --> 47:14.464
+Ya veo.
+
+47:15.132 --> 47:16.175
+Entiendo.
+
+47:18.760 --> 47:19.761
+Denji.
+
+47:20.554 --> 47:24.308
+Te gusta otra aparte de mí, ¿verdad?
+
+48:47.224 --> 48:48.392
+Te dolió, ¿verdad?
+
+48:48.892 --> 48:50.435
+Perdóname.
+
+48:58.360 --> 49:01.822
+Me llevaré tu corazón, ¿sí?
+
+49:08.287 --> 49:10.330
+¡A volar!
+
+49:19.298 --> 49:21.925
+¡Corre, corre, corre!
+¡Qué miedo, qué miedo!
+
+49:22.009 --> 49:25.095
+¿Cómo no me di cuenta por el olor?
+
+49:25.179 --> 49:27.598
+¡Esa tipa es peligrosa, Lord Chainsaw!
+
+49:27.681 --> 49:30.475
+Ese olor... ¡Esa chica…!
+
+49:31.143 --> 49:34.855
+¡Es Bomb!
+
+49:38.942 --> 49:40.277
+¡Bum!
+
+50:06.136 --> 50:07.137
+Ladrón.
+
+50:35.165 --> 50:36.458
+¡Lord Chainsaw!
+
+50:50.597 --> 50:53.267
+¿Tú también eres de la 4.ª Sección?
+
+50:53.350 --> 50:56.186
+Te dejaré ir si me entregas a Denji.
+
+51:04.027 --> 51:05.779
+Oh, ya veo.
+
+51:35.517 --> 51:38.937
+Maldita sea. Quería ir al festival.
+
+51:39.438 --> 51:41.607
+Parece que mató algo.
+
+51:41.690 --> 51:44.193
+Hallamos a un demonio cerca del festival.
+
+51:45.110 --> 51:47.196
+A las 20:34.
+
+51:47.821 --> 51:49.573
+Iniciando combate.
+
+51:50.282 --> 51:52.701
+¿Son Devil Hunters civiles?
+
+51:52.784 --> 51:54.745
+Oigan, puede hablar.
+
+51:54.828 --> 51:56.830
+Va a ser bastante fuerte.
+
+52:17.851 --> 52:19.353
+¡Qué rápido corren!
+
+52:20.562 --> 52:22.481
+CENTRO DE ENTRENAMIENTO
+2.ª SECCIÓN
+
+52:34.493 --> 52:35.619
+¡Fin del combate!
+
+52:36.245 --> 52:37.996
+Muchas gracias.
+
+52:40.249 --> 52:43.001
+Gracias por la lección.
+
+52:44.336 --> 52:45.671
+Aki.
+
+52:46.547 --> 52:49.299
+Gracias por venir.
+
+52:49.383 --> 52:51.385
+No puedo decirle que no.
+
+52:51.468 --> 52:55.722
+Vaya, ¿en serio?
+Pues vuelve a la 2.ª Sección.
+
+52:55.806 --> 52:59.351
+Solo oímos historias grotescas
+de la Sección Especial.
+
+52:59.434 --> 53:03.480
+Si me sigue yendo bien,
+seré teniente en cinco años.
+
+53:03.564 --> 53:06.108
+Cuando pase, te mandaré llamar.
+
+53:07.860 --> 53:09.361
+Se lo agradezco.
+
+53:12.531 --> 53:13.615
+<i>Oye.</i>
+
+53:14.199 --> 53:16.660
+¿No le has dicho
+que no vivirás cinco años?
+
+53:17.828 --> 53:20.372
+¿Quién te lo contó?
+
+53:20.455 --> 53:21.874
+Power.
+
+53:22.457 --> 53:23.917
+Demonio de mierda...
+
+53:25.419 --> 53:26.962
+No se lo digas a nadie.
+
+53:28.672 --> 53:30.465
+Cómo te envidio.
+
+53:30.549 --> 53:32.634
+Yo también quiero morirme pronto.
+
+53:33.802 --> 53:36.513
+Vivir implica tener que esforzarse.
+
+53:36.597 --> 53:38.682
+Si me muero, se acabó.
+
+53:40.225 --> 53:44.646
+Casi lo olvido. Tienes un contrato
+con el Demonio del Futuro, ¿verdad?
+
+53:45.147 --> 53:46.899
+¿Y si le preguntas?
+
+53:46.982 --> 53:48.650
+Que cuándo moriré.
+
+53:49.902 --> 53:51.111
+Olvídalo.
+
+53:52.696 --> 53:55.532
+¡Aki! ¡Baja ahora mismo!
+
+53:57.326 --> 54:00.204
+Apareció diciendo
+que es de la Sección Especial.
+
+54:01.205 --> 54:03.916
+¿De verdad es compañero tuyo?
+
+54:03.999 --> 54:05.375
+Sí.
+
+54:05.876 --> 54:09.171
+¿Un demonio le hizo esto a Denji?
+
+54:10.214 --> 54:13.008
+Viene Bomb... Bomb…
+
+54:13.675 --> 54:16.303
+¡Es una aliada del Demonio
+de las Armas de Fuego!
+
+54:18.347 --> 54:20.682
+¿Y cómo sabes eso?
+
+54:23.060 --> 54:24.186
+Responde.
+
+54:24.770 --> 54:27.439
+Podría matarte aquí mismo si quisiera.
+
+54:28.482 --> 54:30.526
+Si digo algo, me matarán.
+
+54:30.609 --> 54:32.444
+Se lo prometí a Makima.
+
+54:32.528 --> 54:33.946
+¿A Makima?
+
+54:35.489 --> 54:37.658
+¡Allí está! ¡Ya llegó Bomb!
+
+54:45.457 --> 54:46.875
+Oye, lindura.
+
+54:47.459 --> 54:49.461
+No te acerques más.
+
+54:49.962 --> 54:52.673
+Estas son instalaciones de la 2.ª Sección.
+
+54:52.756 --> 54:55.509
+Los civiles tienen prohibida la entrada.
+
+54:57.302 --> 54:59.680
+¡Discúlpenme!
+
+55:01.223 --> 55:02.307
+Reze...
+
+55:02.391 --> 55:03.684
+¿Reze?
+
+55:03.767 --> 55:06.186
+¡Ayúdenme, por favor!
+
+55:06.270 --> 55:08.939
+¡Un demonio me está atacando!
+
+55:10.524 --> 55:13.235
+Vaya víctima tan risueña, ¿eh?
+
+55:13.318 --> 55:15.195
+- Nomo.
+- Sí.
+
+55:15.279 --> 55:17.406
+Llévate a tus amigos atrás.
+
+55:17.489 --> 55:18.657
+Bien.
+
+55:18.740 --> 55:22.578
+Llama al cuartel y al teniente.
+Que venga toda la 2.ª Sección.
+
+55:22.661 --> 55:24.121
+¡Bien!
+
+55:24.204 --> 55:25.330
+Y también...
+
+55:25.956 --> 55:28.709
+¿No has visto a esa preciosura antes?
+
+55:29.251 --> 55:31.712
+No es el momento para ligar.
+
+55:31.795 --> 55:34.214
+No, hablo en serio.
+
+55:37.467 --> 55:40.596
+No, lo dudo. No puede ser.
+
+55:40.679 --> 55:43.348
+Gracias. Dejo el resto en sus manos.
+
+55:43.432 --> 55:44.683
+Me debes una.
+
+55:46.602 --> 55:48.228
+¡Kato! ¡Tanabe!
+
+55:49.062 --> 55:51.648
+Si la matan, los invito a cenar.
+
+55:51.732 --> 55:54.735
+Ignoren su apariencia.
+Se trata de un demonio.
+
+55:55.319 --> 55:58.030
+Parece que no funcionó.
+
+55:58.113 --> 55:59.615
+No, no funcionó.
+
+56:00.866 --> 56:02.576
+Pues no me dejan opción.
+
+56:04.703 --> 56:06.997
+Los mataré a todos.
+
+56:13.295 --> 56:14.463
+¿Sangre?
+
+56:14.546 --> 56:17.132
+Hicimos crecer moho
+en su corazón e intestinos.
+
+56:17.633 --> 56:20.260
+Vomita sangre. Está funcionando.
+
+56:20.344 --> 56:23.263
+Aunque se regenere bebiendo sangre,
+el moho no se irá.
+
+56:24.139 --> 56:26.266
+Solo queda ganar tiempo.
+
+56:33.607 --> 56:34.858
+¿Se mató?
+
+56:37.861 --> 56:41.782
+- ¿Pueden atacar su cerebro?
+- Solo si el objetivo está vivo.
+
+56:51.500 --> 56:52.543
+¡Bu!
+
+57:00.425 --> 57:02.845
+¡Un demonio! ¡Nos atacan!
+
+57:02.928 --> 57:05.681
+¡Fue a la derecha!
+¡Que no alcance a Aki!
+
+57:05.764 --> 57:07.349
+¡Nomo! ¡A su espalda!
+
+57:28.704 --> 57:31.456
+¡Allí está! ¡Es el demonio!
+
+57:34.918 --> 57:37.504
+¡Solicito permiso para disparar!
+
+57:37.588 --> 57:38.755
+¡Concedido!
+
+57:50.309 --> 57:52.603
+¿En Japón se necesita
+permiso para disparar?
+
+57:53.896 --> 57:54.897
+¡Zorro!
+
+58:00.903 --> 58:02.905
+Tú no te rindes, ¿eh?
+
+58:03.989 --> 58:06.867
+Eres todo un deleite para la vista.
+
+58:12.414 --> 58:13.665
+Zorro.
+
+58:20.547 --> 58:22.508
+Con permiso.
+
+58:22.591 --> 58:24.259
+¡Teniente!
+
+58:24.343 --> 58:27.304
+Qué cerca estuvo, ¿eh?
+
+58:29.097 --> 58:31.141
+¿Qué es este sabor?
+
+58:32.100 --> 58:35.646
+Es asqueroso. Me largo.
+
+58:40.317 --> 58:42.778
+Hoy debía ir a una cita grupal.
+
+58:43.237 --> 58:46.031
+Invíteme para la próxima.
+
+58:47.991 --> 58:51.328
+Yo conduzco. Dales de tu sangre.
+
+58:52.996 --> 58:54.623
+Si tú lo dices...
+
+58:58.210 --> 59:00.629
+¿Por qué no echas a andar el auto?
+
+59:01.421 --> 59:02.881
+Maldición.
+
+59:03.423 --> 59:06.385
+Me mostró un futuro que prefiero evitar.
+
+59:18.689 --> 59:20.399
+Monstruo asqueroso.
+
+59:20.482 --> 59:24.111
+Los maté para demostrarles mi fuerza.
+
+59:24.194 --> 59:26.488
+De ser posible, no quiero matar más.
+
+59:27.865 --> 59:30.826
+Bajen a Denji del auto y váyanse.
+
+59:45.924 --> 59:49.678
+Si ataco el auto, la gasolina
+dejará todo hecho cenizas.
+
+59:53.807 --> 59:56.185
+Pero qué fastidio.
+
+59:57.728 --> 59:59.271
+¡Toma!
+
+01:00:03.859 --> 01:00:07.112
+Qué suerte que llamamos
+a la Sección Especial.
+
+01:00:13.702 --> 01:00:15.078
+¿En serio?
+
+01:00:16.622 --> 01:00:19.625
+¡Pateé con todas mis fuerzas!
+
+01:00:20.542 --> 01:00:22.127
+Buena patada.
+
+01:00:25.714 --> 01:00:27.007
+¿Peleamos?
+
+01:00:28.509 --> 01:00:31.637
+¡Kobeni! ¡Cambio de estrategia!
+
+01:00:32.971 --> 01:00:36.058
+¡Esta es mucho más fuerte que nosotros!
+
+01:00:36.141 --> 01:00:38.352
+¡Retirada estratégica!
+
+01:00:38.936 --> 01:00:40.395
+Ya me voy, ¿sí?
+
+01:00:45.651 --> 01:00:48.237
+Mis piernas... Ay, mis piernas…
+
+01:00:48.320 --> 01:00:50.113
+No me responden...
+
+01:00:51.281 --> 01:00:54.117
+Mis piernas...
+
+01:00:59.164 --> 01:01:02.084
+¡Perdóname!
+
+01:01:02.167 --> 01:01:04.920
+¡Renunciaré! ¡Perdóname la vida!
+
+01:01:25.524 --> 01:01:26.525
+¡Ya viene!
+
+01:01:34.241 --> 01:01:37.911
+Oye, el chico Motosierra ya despertó,
+
+01:01:37.995 --> 01:01:40.414
+pero la chica bomba ya nos alcanzó.
+
+01:01:41.999 --> 01:01:44.042
+¡Maldita sea!
+
+01:01:44.126 --> 01:01:46.378
+¡Y el transmisor se averió!
+
+01:01:48.422 --> 01:01:50.090
+¿Qué le pasa a este auto?
+
+01:01:51.216 --> 01:01:54.052
+¡Cuando lo amerite,
+le echaré el auto encima!
+
+01:01:54.136 --> 01:01:56.805
+¡No puede llevarse a Denji!
+
+01:01:59.516 --> 01:02:02.227
+- ¿Qué pasa?
+- ¡Está cortando el techo del auto!
+
+01:02:06.565 --> 01:02:07.858
+¡Para, Denji!
+
+01:02:07.941 --> 01:02:09.860
+¡No has bebido sangre suficiente!
+
+01:02:11.069 --> 01:02:14.198
+Me dolió tanto que pensé que moriría.
+
+01:02:14.281 --> 01:02:19.912
+Y me di cuenta de algo mientras mi cerebro
+me hacía recordar todo mi pasado:
+
+01:02:21.246 --> 01:02:27.794
+¡Todas las mujeres que conozco
+intentan matarme tarde o temprano!
+
+01:02:28.337 --> 01:02:32.090
+Todo el mundo quiere
+el corazón de Chainsaw,
+
+01:02:32.174 --> 01:02:35.427
+pero ¿qué hay del corazón de Denji?
+
+01:02:36.345 --> 01:02:40.057
+Yo sí estoy enamorada de ti, Denji.
+
+01:02:41.475 --> 01:02:42.559
+¿De veras?
+
+01:02:44.645 --> 01:02:47.940
+¡No escuches al enemigo!
+¡Te pasas de ingenuo!
+
+01:02:50.317 --> 01:02:53.820
+¡Eso estuvo cerca!
+¡Por poco me engañas!
+
+01:02:54.363 --> 01:02:59.826
+No sé por qué quieres matarme,
+pero no podría importarme menos.
+
+01:03:00.494 --> 01:03:02.579
+¡Tengo a la señorita Makima!
+
+01:03:03.372 --> 01:03:04.831
+¿Makima?
+
+01:03:04.915 --> 01:03:09.419
+Denji, no sabía que esa bruja
+te tuviera en la palma de su mano.
+
+01:03:09.503 --> 01:03:12.589
+Lo de escapar juntos
+jamás habría funcionado.
+
+01:03:14.299 --> 01:03:16.218
+¡Desearía no haberte besado!
+
+01:03:20.764 --> 01:03:25.018
+Si alguien más muere por mi culpa,
+me costará dormir por las noches.
+
+01:03:26.186 --> 01:03:28.856
+¡Así que te voy a arrestar!
+
+01:03:28.939 --> 01:03:30.816
+Ven aquí, Denji.
+
+01:03:30.899 --> 01:03:34.611
+Te voy a enseñar
+cómo peleamos los demonios.
+
+01:03:34.695 --> 01:03:37.281
+¡Enséñame, pues!
+
+01:04:00.179 --> 01:04:03.265
+Denji, no sabes usar lo que tienes.
+
+01:04:03.348 --> 01:04:06.101
+No basta con mover
+las motosierras a lo loco.
+
+01:04:06.185 --> 01:04:08.896
+Tienes que comprender tu propio poder.
+
+01:04:13.650 --> 01:04:14.693
+Bum.
+
+01:05:08.664 --> 01:05:10.082
+¿Te regeneras?
+
+01:05:10.999 --> 01:05:13.794
+¿Echaste a andar el motor
+antes de recibir la patada?
+
+01:05:49.204 --> 01:05:50.581
+Maldito demonio...
+
+01:06:10.684 --> 01:06:12.978
+<i>Si cometo el más mínimo error, moriré.</i>
+
+01:06:13.604 --> 01:06:17.107
+<i>Aunque veo el futuro,
+solo son pocos segundos.</i>
+
+01:06:17.649 --> 01:06:20.068
+<i>Mi cuerpo podría tardar en reaccionar.</i>
+
+01:06:25.991 --> 01:06:27.659
+<i>Toma la mejor decisión.</i>
+
+01:06:32.915 --> 01:06:34.208
+<i>La mejor decisión.</i>
+
+01:06:36.168 --> 01:06:37.961
+<i>La mejor decisión.</i>
+
+01:06:43.759 --> 01:06:45.177
+<i>La mejor...</i>
+
+01:06:52.643 --> 01:06:53.894
+¡Qué cerca estuvo!
+
+01:06:54.770 --> 01:06:56.897
+Disculpa la demora.
+
+01:06:57.439 --> 01:07:00.067
+Nunca antes había querido
+tener un amigo demonio.
+
+01:07:00.150 --> 01:07:01.401
+Bajemos.
+
+01:07:04.863 --> 01:07:07.032
+¡Esperen! ¡Tiempo! ¡Tiempo!
+
+01:07:07.115 --> 01:07:09.868
+Me falta sangre y estoy semidesnuda.
+
+01:07:09.952 --> 01:07:12.162
+Y es injusto que sean dos.
+
+01:07:12.246 --> 01:07:15.666
+Tiene razón. ¿Le damos un respiro?
+
+01:07:15.749 --> 01:07:17.000
+Olvídalo.
+
+01:07:17.084 --> 01:07:19.169
+¡Ya oíste! ¡Perdón!
+
+01:07:19.253 --> 01:07:20.337
+¡Continuemos!
+
+01:07:26.552 --> 01:07:30.764
+¡Señorita Reze!
+¡Tifón ya está aquí!
+
+01:07:31.974 --> 01:07:33.892
+¡Qué tramposa!
+
+01:07:52.870 --> 01:07:53.954
+Descuida.
+
+01:07:54.788 --> 01:07:56.707
+Vas a irte al cielo.
+
+01:08:01.962 --> 01:08:03.797
+Voy a usar tu sangre.
+
+01:08:03.881 --> 01:08:05.007
+Discúlpame.
+
+01:08:26.194 --> 01:08:29.031
+Un demonio normal ya habría muerto.
+
+01:08:29.114 --> 01:08:32.159
+¡Ese es mi Lord Chainsaw! ¡Es el mejor!
+
+01:08:33.076 --> 01:08:36.078
+Tu novia ya mató a demasiada gente.
+
+01:08:36.163 --> 01:08:39.416
+Si no hacemos nada, matará a muchos más.
+
+01:08:40.375 --> 01:08:43.086
+Chico motosierra, tienes que elegir.
+
+01:08:43.170 --> 01:08:47.090
+<i>O dejas que te mate
+para que no cause más daños</i>
+
+01:08:47.174 --> 01:08:48.884
+<i>o la matas.</i>
+
+01:08:51.011 --> 01:08:54.264
+Es una decisión bastante sencilla.
+
+01:08:55.390 --> 01:08:57.850
+Eso sí, Reze es muy fuerte.
+
+01:08:59.937 --> 01:09:03.357
+Tú sabes del Demonio
+de las Motosierras, ¿no?
+
+01:09:03.940 --> 01:09:07.444
+Si no quieres morir hoy,
+cuéntanos todo lo que sepas.
+
+01:09:09.446 --> 01:09:12.616
+¡Lord Chainsaw corre superrápido!
+
+01:09:12.699 --> 01:09:17.453
+Pero... ¡no se desplaza solo con los pies!
+
+01:09:17.538 --> 01:09:20.165
+¡También usa sus cadenas!
+
+01:09:20.248 --> 01:09:24.127
+¡Las lanza para engancharse
+y viajar de edificio en edificio!
+
+01:09:24.211 --> 01:09:28.382
+¡Claro! ¡Samurai Sword
+se desplazaba usando sus katanas!
+
+01:09:28.465 --> 01:09:31.176
+Y Reze usa sus explosiones.
+
+01:09:31.260 --> 01:09:33.554
+¡Yo también usaré mis poderes!
+
+01:09:33.636 --> 01:09:36.849
+¡Lord Chainsaw es un genio!
+¡Lord Chainsaw es un genio!
+
+01:09:36.931 --> 01:09:41.520
+Así que debo usar mis cadenas, ¿no?
+¡Muy bien!
+
+01:09:43.272 --> 01:09:46.065
+¡Eso mismo! ¡Así mismo!
+
+01:09:46.149 --> 01:09:47.943
+¡Lo voy a intentar!
+
+01:09:48.025 --> 01:09:50.904
+- ¡Beam! ¡Conviértete en tiburón!
+- ¡Sí, señor!
+
+01:09:55.409 --> 01:09:57.870
+Así era, ¿no?
+
+01:09:59.204 --> 01:10:04.501
+¡Yo te domo con mis cadenas
+y tú corres como mi leal corcel!
+
+01:10:06.128 --> 01:10:08.255
+No, así no era...
+
+01:10:08.338 --> 01:10:11.383
+¿Estás seguro?
+No creo que fuera así.
+
+01:10:11.466 --> 01:10:16.013
+¿No debías lanzar tus cadenas
+y engancharlas en los edificios?
+
+01:10:17.014 --> 01:10:19.766
+¡Esta es la manera correcta!
+¿No, Beam?
+
+01:10:19.850 --> 01:10:21.977
+¡Sí, señor! ¡Sí, señor!
+
+01:10:22.060 --> 01:10:24.396
+¡Muy bien!
+¡Arre, Beam!
+
+01:10:24.479 --> 01:10:26.023
+¡Sí, señor!
+
+01:10:37.910 --> 01:10:39.411
+Pero, ¿que hacen?
+
+01:10:40.245 --> 01:10:41.496
+¡Denji!
+
+01:10:42.122 --> 01:10:44.583
+¡Allí estás, Chainsaw!
+
+01:10:44.666 --> 01:10:48.212
+¡Denji, haré que te arrepientas
+de haber vuelto a la vida!
+
+01:10:49.546 --> 01:10:53.759
+¡Beam, no hagas que me arrepienta!
+
+01:10:53.842 --> 01:10:55.093
+¡No, señor!
+
+01:10:57.262 --> 01:10:59.223
+¡Maldición! ¿Qué hacen?
+
+01:10:59.765 --> 01:11:04.102
+¡Una batalla de monstruos gigantes!
+¡Será mejor mirar desde lejos!
+
+01:11:17.032 --> 01:11:20.077
+¡No dejas de fallar!
+
+01:11:20.160 --> 01:11:21.828
+Pareces una cucaracha.
+
+01:11:22.955 --> 01:11:25.082
+¡No más explosiones!
+
+01:11:25.165 --> 01:11:27.334
+¡Chainsaw!
+
+01:11:38.136 --> 01:11:40.138
+- ¡Toma!
+- ¡Ay!
+
+01:11:42.224 --> 01:11:44.476
+Qué desperdicio.
+
+01:11:44.560 --> 01:11:47.187
+Dejé a una belleza sin una pierna.
+
+01:11:47.271 --> 01:11:50.440
+¡Señorita Reze, tome de mi sangre!
+
+01:11:56.446 --> 01:11:57.865
+¡Menos mal!
+
+01:11:57.948 --> 01:11:59.324
+¡No, muy mal!
+
+01:11:59.867 --> 01:12:02.911
+Esto es una locura.
+
+01:12:13.463 --> 01:12:15.048
+¡Sujétate a algo!
+
+01:12:15.757 --> 01:12:18.177
+¡No puedo!
+
+01:12:27.394 --> 01:12:28.395
+Déjame.
+
+01:12:29.980 --> 01:12:32.900
+¡Hazlo! ¡Puedes soltarme!
+
+01:12:32.983 --> 01:12:36.862
+¡Todos morimos algún día!
+¡Y parece que me toca hoy!
+
+01:12:37.487 --> 01:12:38.864
+No te preocupes.
+
+01:12:39.573 --> 01:12:42.159
+Siempre estuve preparado para morir.
+
+01:13:09.394 --> 01:13:10.521
+¿Por qué?
+
+01:13:11.522 --> 01:13:13.357
+¿Por qué tocaste mi mano?
+
+01:13:13.440 --> 01:13:16.193
+- ¿Quieres morir?
+- ¡Por supuesto que no!
+
+01:13:20.739 --> 01:13:23.659
+¿Cuánto tiempo de vida perdí con eso?
+
+01:13:27.246 --> 01:13:28.372
+Unos dos meses.
+
+01:13:35.671 --> 01:13:38.966
+Si quieres morir, hazlo lejos de mí.
+
+01:13:39.967 --> 01:13:42.010
+No quiero ver a más compañeros...
+
+01:13:42.719 --> 01:13:44.346
+muriendo delante de mí.
+
+01:14:05.409 --> 01:14:07.911
+¡Lord Chainsaw, estamos en problemas!
+
+01:14:08.579 --> 01:14:10.497
+¡Lord Chain...!
+
+01:14:16.128 --> 01:14:17.129
+¿Eh?
+
+01:14:40.611 --> 01:14:42.738
+¡Lord Chainsaw!
+
+01:15:56.061 --> 01:15:57.896
+Aguantaste bastante tiempo.
+
+01:15:59.565 --> 01:16:00.774
+Pero creo...
+
+01:16:03.402 --> 01:16:04.945
+que esto se acabó.
+
+01:16:16.206 --> 01:16:18.166
+¡Eso estuvo cerca!
+
+01:16:19.334 --> 01:16:20.460
+¡Beam!
+
+01:16:20.544 --> 01:16:23.964
+¡Lord Chainsaw!
+¡Juro que no se arrepentirá!
+
+01:16:34.516 --> 01:16:36.226
+¡Oye, esto es malo!
+
+01:16:36.310 --> 01:16:38.687
+¡Triturará la ciudad entera!
+
+01:16:38.770 --> 01:16:42.524
+¡Beam, primero tenemos
+que acabar con el grandulón!
+
+01:16:42.608 --> 01:16:43.692
+¡Sí, señor!
+
+01:16:54.995 --> 01:16:57.039
+¡Te encontré!
+
+01:17:02.920 --> 01:17:06.507
+¡Muere, Chainsaw!
+
+01:17:35.577 --> 01:17:36.787
+¡Muy bien!
+
+01:17:37.454 --> 01:17:40.123
+¡Beam, mándame a volar!
+
+01:17:40.874 --> 01:17:42.000
+¡Sí, señor!
+
+01:17:49.591 --> 01:17:52.511
+¡Qué fácil me lo pones!
+
+01:17:52.594 --> 01:17:55.639
+Basta con que mueva las motosierras...
+
+01:17:56.223 --> 01:17:59.351
+¡a lo loco!
+
+01:18:05.983 --> 01:18:08.277
+¡Beam!
+
+01:18:08.360 --> 01:18:11.113
+¡Lord Chainsaw!
+
+01:18:29.506 --> 01:18:31.884
+¡No te me acerques!
+
+01:18:35.596 --> 01:18:36.680
+¡Vamos!
+
+01:19:12.633 --> 01:19:14.593
+¡Lo hicimos, Beam!
+
+01:19:14.676 --> 01:19:16.178
+¿Dónde está Reze?
+
+01:19:18.347 --> 01:19:19.348
+¡Lord Chainsaw!
+
+01:21:06.079 --> 01:21:07.456
+¡Me dolió!
+
+01:21:07.539 --> 01:21:09.082
+Me salvaste, Beam.
+
+01:21:12.252 --> 01:21:15.923
+Denji, ¿no va siendo hora
+de que te rindas?
+
+01:21:18.675 --> 01:21:19.676
+No.
+
+01:21:40.239 --> 01:21:44.159
+Ya me estás hartando.
+¿Y si te mueres de una vez?
+
+01:21:44.785 --> 01:21:50.040
+¡Pues debiste haberme matado
+cuando me conociste!
+
+01:21:52.167 --> 01:21:53.710
+Ya no tienes escapatoria.
+
+01:21:54.419 --> 01:21:55.712
+Ya lo veremos.
+
+01:21:56.296 --> 01:21:59.883
+No debiste enseñarme a nadar.
+
+01:22:00.801 --> 01:22:02.636
+¿Vas a nadar?
+
+01:22:31.999 --> 01:22:33.458
+¿Cadenas?
+
+01:22:52.769 --> 01:22:56.940
+¿Puedes explotar cubierta de agua?
+
+01:24:44.923 --> 01:24:46.383
+No lo puedo creer.
+
+01:24:47.426 --> 01:24:49.845
+¿Por qué me reviviste?
+
+01:24:52.222 --> 01:24:54.975
+Tengo una vida maravillosa.
+
+01:24:55.642 --> 01:24:59.646
+Por mucho que me peguen,
+maltraten o me maten,
+
+01:24:59.730 --> 01:25:03.734
+si como algo rico al otro día,
+puedo olvidarme de todo.
+
+01:25:04.735 --> 01:25:05.736
+Pero...
+
+01:25:07.154 --> 01:25:10.115
+Si te entregara a Seguridad Pública,
+
+01:25:10.699 --> 01:25:14.620
+me sentiría como con una espina
+de pescado atorada en la garganta.
+
+01:25:18.790 --> 01:25:21.418
+Aunque tuviera una buena vida,
+
+01:25:21.501 --> 01:25:24.796
+esa espina en la garganta
+no me dejaría en paz.
+
+01:25:30.219 --> 01:25:33.764
+¿Podrías decir lo mismo
+si te matara ahora mismo?
+
+01:25:35.557 --> 01:25:39.269
+"Si han de matarme, que sea una belleza".
+Es mi frase favorita.
+
+01:25:53.116 --> 01:25:58.205
+Dime, ¿de verdad crees
+que estoy enamorada de ti?
+
+01:25:59.331 --> 01:26:03.710
+Todas mis expresiones y veces
+que me ruboricé fueron una farsa.
+
+01:26:04.628 --> 01:26:06.630
+Eso se aprende entrenando.
+
+01:26:08.131 --> 01:26:10.175
+Fracasé.
+
+01:26:10.717 --> 01:26:13.470
+Me demoré demasiado en pelear contra ti.
+
+01:26:15.138 --> 01:26:17.432
+Me daré a la fuga.
+
+01:26:24.189 --> 01:26:25.566
+¿Y si huimos juntos?
+
+01:26:29.111 --> 01:26:32.155
+Yo también puedo pelear.
+Te será más fácil escapar.
+
+01:26:34.199 --> 01:26:36.952
+Maté a un montón de gente.
+
+01:26:37.035 --> 01:26:41.915
+Si me ayudas a escapar,
+serás el cómplice de una asesina.
+
+01:26:42.416 --> 01:26:43.959
+¿Lo entiendes?
+
+01:26:46.753 --> 01:26:49.089
+Sé que no debería, pero quiero hacerlo.
+
+01:26:49.590 --> 01:26:51.133
+Me sigues gustando.
+
+01:26:52.259 --> 01:26:57.222
+Dijiste que todo fue mentira,
+pero sí me enseñaste a nadar, ¿verdad?
+
+01:27:39.389 --> 01:27:40.599
+¡Oye!
+
+01:27:40.682 --> 01:27:43.602
+Mejor aprende a ser menos ingenuo.
+
+01:27:43.685 --> 01:27:46.230
+¡Reze! ¡Oye, Reze!
+
+01:27:51.944 --> 01:27:56.365
+¡Te estaré esperando en el café
+a la hora del almuerzo!
+
+01:27:56.448 --> 01:27:58.033
+¡Así que...!
+
+01:28:02.162 --> 01:28:05.082
+¡Despierta, Beam!
+¡No puedo mover las manos!
+
+01:28:06.250 --> 01:28:07.960
+¡Echa a andar mi motor!
+
+01:28:52.546 --> 01:28:57.050
+<i>Las madres de la Unión Soviética asustan
+a sus hijos con cierto cuento de hadas.</i>
+
+01:28:58.135 --> 01:29:04.558
+<i>En una armería del ejército
+se encuentra un cuarto secreto</i>
+
+01:29:04.641 --> 01:29:06.518
+que está lleno de huérfanos.
+
+01:29:09.730 --> 01:29:13.859
+Los niños están encerrados
+y privados de toda libertad.
+
+01:29:14.860 --> 01:29:16.403
+Los tratan como objetos
+
+01:29:16.486 --> 01:29:19.406
+y experimentan con sus cuerpos
+hasta que mueren.
+
+01:29:19.990 --> 01:29:22.534
+Se suponía que eran puros cuentos,
+
+01:29:23.035 --> 01:29:27.247
+pero, un día, un periódico confirmó
+que el cuarto existía de verdad.
+
+01:29:28.165 --> 01:29:32.127
+<i>Un periodista estadounidense lo descubrió
+y ocasionó mucho revuelo.</i>
+
+01:29:32.628 --> 01:29:36.089
+<i>Y aunque se publicaron fotos
+de los niños involucrados,</i>
+
+01:29:36.590 --> 01:29:38.383
+<i>el interés público duró poco.</i>
+
+01:29:38.967 --> 01:29:42.179
+<i>La chica que atrajo a Denji
+era una de ellos.</i>
+
+01:29:42.262 --> 01:29:44.848
+COLECTA POR DAÑOS CAUSADOS
+POR EL DEMONIO DE LOS TIFONES
+
+01:29:45.891 --> 01:29:49.603
+Soldados creados para servir
+a la Unión Soviética.
+
+01:29:53.440 --> 01:29:56.902
+<i>O también llamados
+"conejillos de Indias".</i>
+
+01:29:59.863 --> 01:30:04.284
+<i>El tren con destino a Sendai
+saldrá pronto desde el andén 12.</i>
+
+01:30:05.077 --> 01:30:07.079
+<i>Próxima parada: Ueno.</i>
+
+01:30:07.162 --> 01:30:08.247
+<i>Partiendo.</i>
+
+01:30:08.330 --> 01:30:10.249
+<i>Tren con destino a Sendai.</i>
+
+01:30:10.791 --> 01:30:13.335
+<i>Partiendo. Cerrando puertas.</i>
+
+01:30:13.418 --> 01:30:15.420
+<i>Aléjense de las puertas.</i>
+
+01:31:28.118 --> 01:31:29.119
+Yo también.
+
+01:31:31.830 --> 01:31:34.333
+Yo también prefiero al ratón del campo.
+
+01:31:36.919 --> 01:31:40.255
+Un buen amigo mío
+tiene un huerto en el campo.
+
+01:31:41.131 --> 01:31:44.968
+Cada año, en otoño,
+voy a ayudar con la cosecha.
+
+01:31:46.261 --> 01:31:50.974
+Bajo la tierra se esconden los ratones
+que se comen y arruinan los cultivos.
+
+01:31:51.892 --> 01:31:56.021
+Hay que exterminarlos antes
+de que el suelo se cubra de nieve.
+
+01:31:56.605 --> 01:32:02.110
+Así que escarbamos la tierra para
+que los perros puedan entrar y matarlos.
+
+01:32:03.278 --> 01:32:04.488
+¿Por qué será
+
+01:32:05.322 --> 01:32:06.907
+que ver aquello
+
+01:32:08.325 --> 01:32:09.868
+me reconforta tanto?
+
+01:32:15.290 --> 01:32:17.543
+Por eso prefiero al ratón del campo.
+
+01:32:53.203 --> 01:32:54.329
+<i>¿Por qué</i>
+
+01:32:55.330 --> 01:32:58.792
+<i>no lo maté cuando lo conocí?</i>
+
+01:33:00.168 --> 01:33:03.171
+<i>Denji, a decir verdad...</i>
+
+01:33:04.923 --> 01:33:08.010
+<i>yo tampoco pude asistir a la escuela.</i>
+
+01:33:21.148 --> 01:33:24.234
+Te dije que vinieras con Hayakawa.
+
+01:33:24.735 --> 01:33:28.363
+Pero no querías que él
+matara a la chica, ¿verdad?
+
+01:33:29.281 --> 01:33:30.741
+Qué bueno eres.
+
+01:33:31.491 --> 01:33:33.869
+Es que soy un ángel.
+
+01:33:45.130 --> 01:33:46.131
+Dime,
+
+01:33:47.007 --> 01:33:49.176
+¿es un buen lugar la ciudad?
+
+01:37:56.381 --> 01:37:59.384
+Denji, ya voy a cerrar.
+
+01:38:00.969 --> 01:38:02.804
+Era demasiado linda para ti.
+
+01:38:03.472 --> 01:38:05.349
+Eran de mundos diferentes.
+
+01:38:07.142 --> 01:38:10.938
+Algún día encontrarás
+a la chica perfecta para ti.
+
+01:38:22.032 --> 01:38:23.700
+RECOMENDACIONES
+
+01:38:37.506 --> 01:38:40.217
+¡Po-Po-Po-Power!
+
+01:38:41.802 --> 01:38:46.306
+¡Ya estoy de vuelta!
+Te rastreé siguiendo tu olor.
+
+01:38:47.224 --> 01:38:49.685
+¡Qué local tan pequeño!
+
+01:38:59.194 --> 01:39:01.071
+¿Y esas flores?
+
+01:39:01.154 --> 01:39:04.658
+¡Son perfectas para mí!
+¡Dámelas!
+
+01:39:19.173 --> 01:39:23.510
+¡No te las comas!
+¡Son mías, canalla!
+
+01:39:23.594 --> 01:39:25.554
+¡Ya vas a ver!
+
+01:39:25.637 --> 01:39:27.347
+¡Escúpelas de una vez!
+
+01:39:27.848 --> 01:39:31.685
+¡Escupe! ¡Escúpelas!
+¡Que las escupas!
+
+01:39:40.527 --> 01:39:42.529
+TRADUCCIÓN: NICOLÁS SEPÚLVEDA
+`;
+
+    const cues = parseVtt(vtt);
+    console.log(cues);
 
     return (
         <Card variant="soft" sx={root}>
