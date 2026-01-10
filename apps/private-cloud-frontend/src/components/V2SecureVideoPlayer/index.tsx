@@ -2943,7 +2943,13 @@ TRADUCCIÓN: NICOLÁS SEPÚLVEDA
 `;
 
     const cues = parseVtt(vtt);
-    console.log(cues);
+    const currentCue = cues.find(
+        (cue) => currentTime >= cue.start && currentTime <= cue.end
+    );
+    const subtitleText = currentCue ? currentCue.text : "";
+
+    console.clear();
+    console.log({ currentCue, currentTime, subtitleText, cues });
 
     return (
         <Card variant="soft" sx={root}>
@@ -2961,18 +2967,54 @@ TRADUCCIÓN: NICOLÁS SEPÚLVEDA
                         preload="auto"
                         onClick={handlePlayPause}
                         crossOrigin="anonymous"
-                    >
-                        {/* {subtitleIndex >= 0 && ( */}
-                        <track
-                            kind="captions"
-                            // src={`${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?subtitleIndex=${subtitleIndex}&parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}`}
-                            srcLang="es"
-                            src="/subtitles/10.vtt"
-                            label="Español"
-                            default
-                        />
-                        {/* )} */}
-                    </video>
+                    ></video>
+                    {/**
+                     * This Box has position: relative
+                     * To do: implement anothe Box element that is semi-transparent with a dark bg, and small rounded corners. The box is going to contain the cue for the subtitle playing. The text should be visible with white color. For now implement a simple floating box on the lower side of the video that can fix the width and heigh according to the text's length and implement it with a shor lorm ipsum.
+                     */}
+
+                    {subtitleText && (
+                        <Box
+                            sx={{
+                                position: "absolute",
+                                bottom: showControls
+                                    ? 120
+                                    : {
+                                          xs: 20,
+                                          md: 40,
+                                          lg: 80,
+                                      },
+                                width: {
+                                    xs: "90%",
+                                    md: "60%",
+                                    lg: "100%",
+                                },
+                                bgcolor: "rgba(0, 0, 0, 0.6)",
+                                borderRadius: 2,
+                                padding: 1,
+                                left: "50%",
+                                transform: "translateX(-50%)",
+                                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                pointerEvents: "none",
+                            }}
+                        >
+                            <Typography>
+                                <span
+                                    style={{
+                                        color: "white",
+                                        fontSize: "24px",
+                                        textAlign: "center",
+                                    }}
+                                    dangerouslySetInnerHTML={{
+                                        __html: subtitleText,
+                                    }}
+                                ></span>
+                            </Typography>
+                        </Box>
+                    )}
 
                     {/* Center Play Button / Loader */}
                     {!isPlaying && showControls && !isLoading && (
