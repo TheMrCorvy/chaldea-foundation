@@ -1,7 +1,7 @@
 import { spawn } from 'child_process';
 import { promises as fs } from 'fs';
 import path from 'path';
-import { sanitizeWebVtt, validateVtt } from './sanitizeSubtitlesService';
+// import { sanitizeWebVtt, validateVtt } from './sanitizeSubtitlesService';
 
 interface AudioTrack {
     globalIndex: number;
@@ -199,38 +199,38 @@ async function extractSubtitleTracks(
         const outputPath = path.join(subtitleDir, `${track.trackIndex}.vtt`);
 
         const ffmpegArgs = [
-            '-nostdin',
-            '-loglevel',
-            'error',
+            // '-nostdin',
+            // '-loglevel',
+            // 'error',
 
-            // INPUT subtitle normalization
-            '-fix_sub_duration',
+            // // INPUT subtitle normalization
+            // '-fix_sub_duration',
 
-            // Input file
-            '-i',
-            filePath,
-
-            // Select subtitle stream
-            '-map',
-            `0:${track.globalIndex}`,
-
-            // Force WebVTT output
-            '-c:s',
-            'webvtt',
-
-            // Overwrite
-            '-y',
-
-            outputPath,
-            //  args viejos
+            // // Input file
             // '-i',
             // filePath,
+
+            // // Select subtitle stream
             // '-map',
             // `0:${track.globalIndex}`,
+
+            // // Force WebVTT output
             // '-c:s',
             // 'webvtt',
-            // '-y', // Overwrite output file
+
+            // // Overwrite
+            // '-y',
+
             // outputPath,
+            //  args viejos
+            '-i',
+            filePath,
+            '-map',
+            `0:${track.globalIndex}`,
+            '-c:s',
+            'webvtt',
+            '-y', // Overwrite output file
+            outputPath,
         ];
 
         console.log(
@@ -239,15 +239,15 @@ async function extractSubtitleTracks(
         try {
             await spawnProcess('ffmpeg', ffmpegArgs);
 
-            const rawVtt = await fs.readFile(outputPath, 'utf8');
-            const sanitizedVtt = sanitizeWebVtt(rawVtt);
+            // const rawVtt = await fs.readFile(outputPath, 'utf8');
+            // const sanitizedVtt = sanitizeWebVtt(rawVtt);
 
-            validateVtt(sanitizedVtt);
+            // validateVtt(sanitizedVtt);
 
-            await fs.writeFile(outputPath, sanitizedVtt, 'utf8');
+            // await fs.writeFile(outputPath, sanitizedVtt, 'utf8');
 
-            console.log(`Subtitle track ${track.trackIndex} sanitized and validated`);
-            console.log(' ');
+            // console.log(`Subtitle track ${track.trackIndex} sanitized and validated`);
+            // console.log(' ');
         } catch (err) {
             console.warn(`Failed to extract subtitle track ${track.trackIndex}: ${err}`);
             // Continue processing other subtitles even if one fails
