@@ -1,6 +1,5 @@
 import { NasApiRoutes } from "@/utils/routes";
-import { logData } from "@repo/shared-utils/log-data";
-import { LanguagesInfo, StreamTracks } from "@repo/type-definitions";
+import { LanguagesInfo } from "@repo/type-definitions";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 interface UseControlsProps {
@@ -34,19 +33,15 @@ const useControls = ({
     const videoRef = useRef<HTMLVideoElement>(null);
     const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const volumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const [vtt, setVtt] = useState<string | null>(null);
     // When the user seeks or changes tracks, remember whether the player was
     // playing so we can resume playback automatically once the new source is ready.
     const seekShouldPlayRef = useRef(false);
 
     const [start, setStart] = useState(0);
 
-    // Keep references to dynamically added subtitle track and its blob URL so we
-    // can remove and revoke them when switching or unmounting.
-    const subtitleTrackElRef = useRef<HTMLTrackElement | null>(null);
-    const subtitleBlobUrlRef = useRef<string | null>(null);
-
     const videoSrc = useMemo(() => {
-        let url = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}/${fileType}?parentDirectory=${encodeURIComponent(
+        let url = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}?fileType=${fileType}&parentDirectory=${encodeURIComponent(
             path
         )}&fileName=${encodeURIComponent(
             display_name
@@ -58,6 +53,22 @@ const useControls = ({
 
         return url;
     }, [apiKey, display_name, fileType, nasBaseUrl, path, audioIndex, start]);
+
+    const subtitleSrcUrl = useMemo(() => {
+        if (
+            subtitleIndex < 0 ||
+            !languagesInfo?.subtitleTracks ||
+            subtitleIndex >= languagesInfo.subtitleTracks.length
+        ) {
+            return null;
+        }
+
+        return `${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?parentDirectory=${encodeURIComponent(
+            path
+        )}&fileName=${encodeURIComponent(
+            display_name
+        )}&apiKey=${encodeURIComponent(apiKey)}&subtitleIndex=${subtitleIndex}`;
+    }, [apiKey, display_name, nasBaseUrl, path, subtitleIndex, languagesInfo]);
 
     // Update current time using 'timeupdate' event instead of polling.
     // This avoids a race where the periodic interval can read a transient
@@ -225,6 +236,15 @@ const useControls = ({
             setStart(currentTime);
             setIsLoading(true);
             seekShouldPlayRef.current = wasPlaying;
+
+            if (subtitleSrcUrl) {
+                fetch(subtitleSrcUrl)
+                    .then((res) => res.json())
+                    .then((result) => {
+                        setIsLoading(false);
+                        setVtt(result.vtt);
+                    });
+            }
         }
     };
 
@@ -276,6 +296,7 @@ const useControls = ({
         handleVolumeChange,
         handleVolumeMouseEnter,
         handleVolumeMouseLeave,
+        vtt,
     };
 };
 

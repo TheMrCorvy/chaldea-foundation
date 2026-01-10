@@ -96,12 +96,12 @@ router.get('/api/v1/serve-episode', (req: Request, res: Response) => {
     stream.pipe(res);
 });
 
-router.get('/api/v2/serve-episode/:fileType', (req, res) => {
+router.get('/api/v2/serve-episode', (req, res) => {
     const startRaw = Number(req.query.start ?? 0);
     const start = (Number.isFinite(startRaw) && startRaw >= 0 ? startRaw : 0).toString();
     const parentDirectory = String(req.query.parentDirectory ?? '');
     const fileName = String(req.query.fileName ?? '');
-    const fileType = String(req.params.fileType ?? 'mkv');
+    const fileType = String(req.query.fileType ?? 'mkv');
     const audioIndex = Number(req.query.audioIndex || 0);
     const fullFileName = `${fileName}.${fileType}`;
     const ROOT = process.env.SECURE_BASE_PATH || '';
@@ -246,20 +246,25 @@ router.get('/api/v2/serve-episode/subtitles', (req, res) => {
 
     const vtt = fs.readFileSync(subtitlePath, 'utf8');
 
-    try {
-        validateVtt(vtt);
-    } catch {
-        return res.status(500).send('Invalid subtitle file.');
-    }
+    logData({
+        layer: '*',
+        type: 'info',
+        data: { vtt },
+        timeStamp: true,
+        addSeparatorAfter: true,
+        addSpaceAfter: true,
+    });
 
     res.status(200)
         .set({
-            'Content-Type': 'text/vtt; charset=utf-8',
+            'Content-Type': 'application/json; charset=utf-8',
             'Access-Control-Allow-Origin': 'http://localhost:3000',
             'Access-Control-Allow-Credentials': 'true',
             'Cache-Control': 'public, max-age=31536000, immutable',
         })
-        .send(vtt);
+        .json({
+            vtt,
+        });
 });
 
 // 404 handler

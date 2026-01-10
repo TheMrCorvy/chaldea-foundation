@@ -19,6 +19,7 @@ type LayersAvailable =
     | "internal_http_responses"
     | "external_http_responses"
     | "video_streaming"
+    | "video_streaming_subtitles"
     | "*"; // This layer will always be logged, use it for heavy errors
 
 export interface LogDataParams {
