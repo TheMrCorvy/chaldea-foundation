@@ -118,15 +118,16 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                         onClick={handlePlayPause}
                         crossOrigin="anonymous"
                     >
-                        {subtitleIndex >= 0 && (
-                            <track
-                                kind="captions"
-                                src={`${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?subtitleIndex=${subtitleIndex}&parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}`}
-                                srcLang="es"
-                                label="Español"
-                                default
-                            />
-                        )}
+                        {/* {subtitleIndex >= 0 && ( */}
+                        <track
+                            kind="captions"
+                            // src={`${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?subtitleIndex=${subtitleIndex}&parentDirectory=${path}&fileName=${display_name}&apiKey=${apiKey}`}
+                            srcLang="es"
+                            src="/subtitles/10.vtt"
+                            label="Español"
+                            default
+                        />
+                        {/* )} */}
                     </video>
 
                     {/* Center Play Button / Loader */}
