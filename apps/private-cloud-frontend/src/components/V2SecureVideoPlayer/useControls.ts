@@ -239,10 +239,10 @@ const useControls = ({
 
             if (subtitleSrcUrl) {
                 fetch(subtitleSrcUrl)
-                    .then((res) => res.json())
+                    .then((res) => res.text())
                     .then((result) => {
                         setIsLoading(false);
-                        setVtt(result.vtt);
+                        setVtt(result);
                     });
             }
         }
