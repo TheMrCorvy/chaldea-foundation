@@ -4,7 +4,6 @@ import { logData } from '@repo/shared-utils/log-data';
 import { spawn } from 'child_process';
 import verifyPaths from './utils/verifyPaths';
 import fs from 'fs';
-import { validateVtt } from './services/sanitizeSubtitlesService';
 
 const router = Router();
 
