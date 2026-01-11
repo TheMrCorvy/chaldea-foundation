@@ -256,8 +256,8 @@ router.get('/api/v2/serve-episode/subtitles', (req, res) => {
 
     res.status(200)
         .set({
-            'Content-Type': 'application/json; charset=utf-8',
-            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Content-Type': 'text/vtt; charset=utf-8',
+            'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Credentials': 'true',
             'Cache-Control': 'public, max-age=31536000, immutable',
         })
