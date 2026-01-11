@@ -249,6 +249,14 @@ const main = async () => {
                     );
                 }
 
+                if (
+                    metadata.everythingWorkedFine &&
+                    (!metadata.everythingWorkedFine.audio || !metadata.everythingWorkedFine.subtitles)
+                ) {
+                    failedDirectories.push({ localDirectory, metadata });
+                    continue;
+                }
+
                 const storedEpisode = await platformService.call('bEpisodePostBEpisodes', {
                     body: {
                         data: {
