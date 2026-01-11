@@ -1,7 +1,6 @@
 import { spawn } from 'child_process';
 import { promises as fs } from 'fs';
 import path from 'path';
-// import { sanitizeWebVtt, validateVtt } from './sanitizeSubtitlesService';
 
 interface AudioTrack {
     globalIndex: number;
@@ -23,6 +22,10 @@ interface VideoMetadata {
     audioTracks: AudioTrack[];
     subtitleTracks: SubtitleTrack[];
     extractedAt: string;
+    everythingWorkedFine?: {
+        subtitles: boolean;
+        audio: boolean;
+    };
 }
 
 /**
@@ -145,7 +148,11 @@ async function extractMetadata(filePath: string): Promise<VideoMetadata> {
 /**
  * Extracts and re-encodes audio tracks from a video file
  */
-async function extractAudioTracks(filePath: string, audioTracks: AudioTrack[], outputBaseDir: string): Promise<void> {
+async function extractAudioTracks(
+    filePath: string,
+    audioTracks: AudioTrack[],
+    outputBaseDir: string
+): Promise<boolean> {
     const audioDir = path.join(outputBaseDir, 'audio');
 
     // Create audio directory
@@ -177,9 +184,11 @@ async function extractAudioTracks(filePath: string, audioTracks: AudioTrack[], o
             await spawnProcess('ffmpeg', ffmpegArgs);
         } catch (err) {
             console.error(`Failed to extract audio track ${track.trackIndex}: ${err}`);
-            throw err;
+            // Continue processing other audio tracks even if one fails
+            return false;
         }
     }
+    return true;
 }
 
 /**
@@ -189,7 +198,7 @@ async function extractSubtitleTracks(
     filePath: string,
     subtitleTracks: SubtitleTrack[],
     outputBaseDir: string
-): Promise<void> {
+): Promise<boolean> {
     const subtitleDir = path.join(outputBaseDir, 'subtitles');
 
     // Create subtitles directory
@@ -199,30 +208,6 @@ async function extractSubtitleTracks(
         const outputPath = path.join(subtitleDir, `${track.trackIndex}.vtt`);
 
         const ffmpegArgs = [
-            // '-nostdin',
-            // '-loglevel',
-            // 'error',
-
-            // // INPUT subtitle normalization
-            // '-fix_sub_duration',
-
-            // // Input file
-            // '-i',
-            // filePath,
-
-            // // Select subtitle stream
-            // '-map',
-            // `0:${track.globalIndex}`,
-
-            // // Force WebVTT output
-            // '-c:s',
-            // 'webvtt',
-
-            // // Overwrite
-            // '-y',
-
-            // outputPath,
-            //  args viejos
             '-i',
             filePath,
             '-map',
@@ -238,21 +223,13 @@ async function extractSubtitleTracks(
         );
         try {
             await spawnProcess('ffmpeg', ffmpegArgs);
-
-            // const rawVtt = await fs.readFile(outputPath, 'utf8');
-            // const sanitizedVtt = sanitizeWebVtt(rawVtt);
-
-            // validateVtt(sanitizedVtt);
-
-            // await fs.writeFile(outputPath, sanitizedVtt, 'utf8');
-
-            // console.log(`Subtitle track ${track.trackIndex} sanitized and validated`);
-            // console.log(' ');
         } catch (err) {
             console.warn(`Failed to extract subtitle track ${track.trackIndex}: ${err}`);
             // Continue processing other subtitles even if one fails
+            return false;
         }
     }
+    return true;
 }
 
 /**
@@ -324,17 +301,22 @@ export async function processVideoFile(filePath: string): Promise<VideoMetadata>
     );
     console.log(`Metadata saved to ${metadataPath}`);
 
+    const everythingWorkedFine = {
+        subtitles: false,
+        audio: false,
+    };
+
     // Extract subtitle tracks
     if (metadata.subtitleTracks.length > 0) {
         console.log(`Found ${metadata.subtitleTracks.length} subtitle track(s)`);
-        await extractSubtitleTracks(filePath, metadata.subtitleTracks, outputBaseDir);
+        everythingWorkedFine.subtitles = await extractSubtitleTracks(filePath, metadata.subtitleTracks, outputBaseDir);
     }
 
     // Extract audio tracks
     if (metadata.audioTracks.length > 0) {
         console.log(`Found ${metadata.audioTracks.length} audio track(s)`);
-        await extractAudioTracks(filePath, metadata.audioTracks, outputBaseDir);
+        everythingWorkedFine.audio = await extractAudioTracks(filePath, metadata.audioTracks, outputBaseDir);
     }
 
-    return metadata;
+    return { ...metadata, everythingWorkedFine };
 }
