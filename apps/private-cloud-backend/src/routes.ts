@@ -246,7 +246,7 @@ router.get('/api/v2/serve-episode/subtitles', (req, res) => {
     const vtt = fs.readFileSync(subtitlePath, 'utf8');
 
     logData({
-        layer: '*',
+        layer: 'video_streaming_subtitles',
         type: 'info',
         data: { vtt },
         timeStamp: true,
@@ -261,9 +261,7 @@ router.get('/api/v2/serve-episode/subtitles', (req, res) => {
             'Access-Control-Allow-Credentials': 'true',
             'Cache-Control': 'public, max-age=31536000, immutable',
         })
-        .json({
-            vtt,
-        });
+        .send(vtt);
 });
 
 // 404 handler
