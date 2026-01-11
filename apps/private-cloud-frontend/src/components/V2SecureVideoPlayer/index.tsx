@@ -12,10 +12,8 @@ import {
     IconButton,
     Slider,
     CircularProgress,
-    Theme,
 } from "@mui/joy";
-import { CSSProperties, FC, useEffect } from "react";
-import { getScreenSize } from "@/utils/screenSize";
+import { CSSProperties, FC } from "react";
 import PrevNextEpisode from "../PrevNextEpisode";
 import { LanguagesInfo } from "@repo/type-definitions";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
@@ -27,7 +25,6 @@ import { formatTime } from "@repo/shared-utils/format-time";
 
 import useControls from "./useControls";
 import useStyles from "./useStyles";
-import { NasApiRoutes } from "@/utils/routes";
 import parseVtt from "@/utils/parseVtt";
 
 export interface V2SecureVideoPlayerProps {
@@ -108,8 +105,6 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         (cue) => currentTime >= cue.start && currentTime <= cue.end
     );
     const subtitleText = currentCue ? currentCue.text : "";
-
-    useEffect(() => console.log(vtt), [vtt]);
 
     return (
         <Card variant="soft" sx={root}>
