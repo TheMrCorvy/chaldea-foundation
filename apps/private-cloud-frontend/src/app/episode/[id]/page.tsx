@@ -1,4 +1,5 @@
 import BottomNav from "@/components/BottomNavbar";
+import Script from "next/script";
 import SecureVideoPlayer from "@/components/SecureVideoPlayer";
 import V2SecureVideoPlayer from "@/components/V2SecureVideoPlayer";
 import { CookiesList, getCookie, JwtCookie, MeResponse } from "@/utils/cookies";
@@ -128,115 +129,125 @@ const EpisodePage = async ({ params }: Page) => {
     const enableNas = isFeatureFlagEnabled(FeatureNames.CONSUME_NAS_FILES);
 
     return (
-        <Container
-            maxWidth="xl"
-            sx={{
-                textAlign: "left",
-                alignItems: "start",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "start",
-                paddingTop: {
-                    xs: 2,
-                    md: 6,
-                },
-                paddingBottom: {
-                    xs: 10,
-                    md: 12,
-                },
-            }}
-        >
-            <Breadcrumbs
-                aria-label="breadcrumbs"
+        <>
+            <Script
+                src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"
+                strategy="beforeInteractive"
+            />
+            <Container
+                maxWidth="xl"
                 sx={{
-                    color: "white",
-                    paddingLeft: 0,
-                }}
-            >
-                <Link color="neutral" href={WebRoutes.HOME}>
-                    Inicio
-                </Link>
-                {episode.parent_directory && (
-                    <Link
-                        color="neutral"
-                        href={
-                            WebRoutes.DIRECTORY +
-                            "/" +
-                            episode.parent_directory.documentId
-                        }
-                    >
-                        {episode.parent_directory.display_name}
-                    </Link>
-                )}
-                <Typography>{episode.display_name}</Typography>
-            </Breadcrumbs>
-
-            <Card
-                variant="outlined"
-                sx={{
-                    minHeight: "81vh",
-                    width: "100%",
-                    marginBottom: 4,
-                    [`@media (max-width: ${getScreenSize("xl")}px)`]: {
-                        minHeight: "80vh",
+                    textAlign: "left",
+                    alignItems: "start",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "start",
+                    paddingTop: {
+                        xs: 2,
+                        md: 6,
+                    },
+                    paddingBottom: {
+                        xs: 10,
+                        md: 12,
                     },
                 }}
-                component={"article"}
             >
-                <Typography
-                    level="h1"
-                    component="h1"
-                    fontSize={{
-                        xs: "md",
-                        sm: "lg",
-                        md: "xl",
-                        lg: "xl4",
-                    }}
-                    fontWeight="bold"
-                    mt={0}
-                    mb={1}
+                <Breadcrumbs
+                    aria-label="breadcrumbs"
                     sx={{
-                        textTransform: "capitalize",
+                        color: "white",
+                        paddingLeft: 0,
                     }}
                 >
-                    {episode.display_name}
-                </Typography>
-                {episode.version === "V1" ||
-                episode.file_type === "mp4" ||
-                episode.file_type === "MP4" ? (
-                    <SecureVideoPlayer
-                        display_name={episode.display_name}
-                        path={episode.parent_directory?.path || ""}
-                        fileType={episode.file_type}
-                        documentId={episode.documentId}
-                        parent={episode.parent_directory?.documentId || ""}
-                        useMockVideo={!enableNas}
-                        apiKey={enableNas ? process.env.NAS_API_KEY || "" : ""}
-                        nasBaseUrl={process.env.NAS_BASE_URL || ""}
-                        enableProxy={isFeatureFlagEnabled(
-                            FeatureNames.ENABLE_STREAMING_PROXY
-                        )}
-                    />
-                ) : (
-                    <V2SecureVideoPlayer
-                        display_name={episode.display_name}
-                        path={episode.parent_directory?.path || ""}
-                        fileType={episode.file_type}
-                        documentId={episode.documentId}
-                        languages_info={episode.languages_info}
-                        parent={episode.parent_directory?.documentId || ""}
-                        apiKey={enableNas ? process.env.NAS_API_KEY || "" : ""}
-                        nasBaseUrl={process.env.NAS_BASE_URL || ""}
-                    />
-                )}
-            </Card>
-            <BottomNav
-                mainDirectories={mainDirectories}
-                allowAdultContent={
-                    userCookie?.role.type === RoleTypes.ADULT_ANIME_WATCHER
-                }
-            />
-        </Container>
+                    <Link color="neutral" href={WebRoutes.HOME}>
+                        Inicio
+                    </Link>
+                    {episode.parent_directory && (
+                        <Link
+                            color="neutral"
+                            href={
+                                WebRoutes.DIRECTORY +
+                                "/" +
+                                episode.parent_directory.documentId
+                            }
+                        >
+                            {episode.parent_directory.display_name}
+                        </Link>
+                    )}
+                    <Typography>{episode.display_name}</Typography>
+                </Breadcrumbs>
+
+                <Card
+                    variant="outlined"
+                    sx={{
+                        minHeight: "81vh",
+                        width: "100%",
+                        marginBottom: 4,
+                        [`@media (max-width: ${getScreenSize("xl")}px)`]: {
+                            minHeight: "80vh",
+                        },
+                    }}
+                    component={"article"}
+                >
+                    <Typography
+                        level="h1"
+                        component="h1"
+                        fontSize={{
+                            xs: "md",
+                            sm: "lg",
+                            md: "xl",
+                            lg: "xl4",
+                        }}
+                        fontWeight="bold"
+                        mt={0}
+                        mb={1}
+                        sx={{
+                            textTransform: "capitalize",
+                        }}
+                    >
+                        {episode.display_name}
+                    </Typography>
+                    {episode.version === "V1" ||
+                    episode.file_type === "mp4" ||
+                    episode.file_type === "MP4" ? (
+                        <SecureVideoPlayer
+                            display_name={episode.display_name}
+                            path={episode.parent_directory?.path || ""}
+                            fileType={episode.file_type}
+                            documentId={episode.documentId}
+                            parent={episode.parent_directory?.documentId || ""}
+                            useMockVideo={!enableNas}
+                            apiKey={
+                                enableNas ? process.env.NAS_API_KEY || "" : ""
+                            }
+                            nasBaseUrl={process.env.NAS_BASE_URL || ""}
+                            enableProxy={isFeatureFlagEnabled(
+                                FeatureNames.ENABLE_STREAMING_PROXY
+                            )}
+                        />
+                    ) : (
+                        <V2SecureVideoPlayer
+                            display_name={episode.display_name}
+                            path={episode.parent_directory?.path || ""}
+                            fileType={episode.file_type}
+                            documentId={episode.documentId}
+                            languages_info={episode.languages_info}
+                            parent={episode.parent_directory?.documentId || ""}
+                            apiKey={
+                                enableNas ? process.env.NAS_API_KEY || "" : ""
+                            }
+                            nasBaseUrl={process.env.NAS_BASE_URL || ""}
+                        />
+                    )}
+                </Card>
+                <BottomNav
+                    mainDirectories={mainDirectories}
+                    allowAdultContent={
+                        userCookie?.role.type === RoleTypes.ADULT_ANIME_WATCHER
+                    }
+                />
+            </Container>
+        </>
     );
 };
 
