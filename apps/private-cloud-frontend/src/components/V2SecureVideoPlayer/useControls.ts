@@ -297,6 +297,7 @@ const useControls = ({
         handleVolumeMouseEnter,
         handleVolumeMouseLeave,
         vtt,
+        subtitleSrcUrl,
     };
 };
 
