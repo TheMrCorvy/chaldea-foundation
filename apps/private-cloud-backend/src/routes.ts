@@ -156,6 +156,8 @@ router.get('/api/v2/serve-episode', (req, res) => {
         'Accept-Ranges': 'none',
         'Cache-Control': 'no-store',
         'X-Content-Type-Options': 'nosniff',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': 'true',
     });
 
     const ffmpeg = spawn(
