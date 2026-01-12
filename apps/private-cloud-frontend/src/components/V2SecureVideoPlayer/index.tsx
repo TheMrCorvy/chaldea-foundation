@@ -26,6 +26,7 @@ import { formatTime } from "@repo/shared-utils/format-time";
 import useControls from "./useControls";
 import useStyles from "./useStyles";
 import parseVtt from "@/utils/parseVtt";
+import CastToTv from "../CastToTv";
 
 export interface V2SecureVideoPlayerProps {
     fileType: string;
@@ -70,6 +71,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         handleVolumeMouseEnter,
         handleVolumeMouseLeave,
         vtt,
+        subtitleSrcUrl,
     } = useControls({
         fileType,
         display_name,
@@ -401,6 +403,14 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                 )}
                             </Select>
                         </Box>
+                        <CastToTv
+                            videoSrc={videoSrc}
+                            subtitleSrc={subtitleSrcUrl || undefined}
+                            metadata={{
+                                subsLabel: "Español",
+                                subsLanguage: "es",
+                            }}
+                        />
                     </Stack>
 
                     <PrevNextEpisode parentId={parent} episodeId={documentId} />
