@@ -54,22 +54,6 @@ const useControls = ({
         return url;
     }, [apiKey, display_name, fileType, nasBaseUrl, path, audioIndex, start]);
 
-    const subtitleSrcUrl = useMemo(() => {
-        if (
-            subtitleIndex < 0 ||
-            !languagesInfo?.subtitleTracks ||
-            subtitleIndex >= languagesInfo.subtitleTracks.length
-        ) {
-            return null;
-        }
-
-        return `${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?parentDirectory=${encodeURIComponent(
-            path
-        )}&fileName=${encodeURIComponent(
-            display_name
-        )}&apiKey=${encodeURIComponent(apiKey)}&subtitleIndex=${subtitleIndex}`;
-    }, [apiKey, display_name, nasBaseUrl, path, subtitleIndex, languagesInfo]);
-
     // Update current time using 'timeupdate' event instead of polling.
     // This avoids a race where the periodic interval can read a transient
     // currentTime of 0 immediately after the <video> src is changed.
@@ -225,22 +209,46 @@ const useControls = ({
         }
     };
 
+    const subtitleSrcUrl = (subsIndex: number) => {
+        if (
+            subsIndex < 0 ||
+            !languagesInfo?.subtitleTracks ||
+            subsIndex >= languagesInfo.subtitleTracks.length
+        ) {
+            return null;
+        }
+
+        return `${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?parentDirectory=${encodeURIComponent(
+            path
+        )}&fileName=${encodeURIComponent(
+            display_name
+        )}&apiKey=${encodeURIComponent(apiKey)}&subtitleIndex=${subsIndex}`;
+    };
+
     // Handle subtitle selection change
     const handleSubtitleChange = (
         _event: React.SyntheticEvent | null,
         newValue: string | number | null
     ) => {
+        console.log("Subtitle change to", newValue);
+
         if (newValue !== null) {
+            const subtitleSrc = subtitleSrcUrl(Number(newValue));
+            console.log("Fetching subtitles from", subtitleSrc);
             const wasPlaying = isPlaying;
+
             setSubtitleIndex(Number(newValue) as number);
             setStart(currentTime);
             setIsLoading(true);
+
             seekShouldPlayRef.current = wasPlaying;
 
-            if (subtitleSrcUrl) {
-                fetch(subtitleSrcUrl)
+            if (subtitleSrc) {
+                console.log("Src was found", subtitleSrc);
+                fetch(subtitleSrc)
                     .then((res) => res.text())
                     .then((result) => {
+                        console.log("Fetched subtitles", result);
                         setIsLoading(false);
                         setVtt(result);
                     });
