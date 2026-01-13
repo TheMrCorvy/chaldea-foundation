@@ -405,7 +405,9 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                         </Box>
                         <CastToTv
                             videoSrc={videoSrc}
-                            subtitleSrc={subtitleSrcUrl || undefined}
+                            subtitleSrc={
+                                subtitleSrcUrl(subtitleIndex) || undefined
+                            }
                             metadata={{
                                 subsLabel: "Español",
                                 subsLanguage: "es",
