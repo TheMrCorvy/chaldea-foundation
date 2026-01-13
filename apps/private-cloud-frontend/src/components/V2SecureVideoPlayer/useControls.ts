@@ -230,11 +230,8 @@ const useControls = ({
         _event: React.SyntheticEvent | null,
         newValue: string | number | null
     ) => {
-        console.log("Subtitle change to", newValue);
-
         if (newValue !== null) {
             const subtitleSrc = subtitleSrcUrl(Number(newValue));
-            console.log("Fetching subtitles from", subtitleSrc);
             const wasPlaying = isPlaying;
 
             setSubtitleIndex(Number(newValue) as number);
@@ -244,11 +241,9 @@ const useControls = ({
             seekShouldPlayRef.current = wasPlaying;
 
             if (subtitleSrc) {
-                console.log("Src was found", subtitleSrc);
                 fetch(subtitleSrc)
                     .then((res) => res.text())
                     .then((result) => {
-                        console.log("Fetched subtitles", result);
                         setIsLoading(false);
                         setVtt(result);
                     });
