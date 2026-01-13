@@ -22,6 +22,7 @@ import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import { formatTime } from "@repo/shared-utils/format-time";
+import { getLanguageInfo } from "@repo/shared-utils/language-utils";
 
 import useControls from "./useControls";
 import useStyles from "./useStyles";
@@ -357,14 +358,23 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                 size="sm"
                             >
                                 {languages_info.audioTracks?.map(
-                                    (track, index) => (
-                                        <Option
-                                            key={index}
-                                            value={track.trackIndex}
-                                        >
-                                            {track.language}
-                                        </Option>
-                                    )
+                                    (track, index) => {
+                                        const langInfo = getLanguageInfo(
+                                            track.language,
+                                            { nameSpanish: true }
+                                        );
+                                        const displayName =
+                                            langInfo?.nameSpanish ||
+                                            track.language;
+                                        return (
+                                            <Option
+                                                key={index}
+                                                value={track.trackIndex}
+                                            >
+                                                {displayName}
+                                            </Option>
+                                        );
+                                    }
                                 )}
                             </Select>
                         </Box>
@@ -392,14 +402,23 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                 <Option value={-1}>Sin subtítulos</Option>
 
                                 {languages_info.subtitleTracks?.map(
-                                    (track, index) => (
-                                        <Option
-                                            key={index}
-                                            value={track.trackIndex}
-                                        >
-                                            {track.language}
-                                        </Option>
-                                    )
+                                    (track, index) => {
+                                        const langInfo = getLanguageInfo(
+                                            track.language,
+                                            { nameSpanish: true }
+                                        );
+                                        const displayName =
+                                            langInfo?.nameSpanish ||
+                                            track.language;
+                                        return (
+                                            <Option
+                                                key={index}
+                                                value={track.trackIndex}
+                                            >
+                                                {displayName}
+                                            </Option>
+                                        );
+                                    }
                                 )}
                             </Select>
                         </Box>
@@ -408,10 +427,33 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                             subtitleSrc={
                                 subtitleSrcUrl(subtitleIndex) || undefined
                             }
-                            metadata={{
-                                subsLabel: "Español",
-                                subsLanguage: "es",
-                            }}
+                            metadata={
+                                subtitleIndex !== -1 &&
+                                languages_info.subtitleTracks?.[subtitleIndex]
+                                    ? (() => {
+                                          const track =
+                                              languages_info.subtitleTracks![
+                                                  subtitleIndex
+                                              ];
+                                          const languageInfo = getLanguageInfo(
+                                              track.language,
+                                              {
+                                                  code2: true,
+                                                  nameSpanish: true,
+                                              }
+                                          );
+
+                                          return {
+                                              subsLabel:
+                                                  languageInfo?.nameSpanish ||
+                                                  track.language,
+                                              subsLanguage:
+                                                  languageInfo?.code2 ||
+                                                  track.language,
+                                          };
+                                      })()
+                                    : undefined
+                            }
                         />
                     </Stack>
 
