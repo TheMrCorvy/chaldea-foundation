@@ -16,6 +16,10 @@
         "./format-time": {
             "types": "./src/formatTime.ts",
             "default": "./src/formatTime.ts"
+        },
+        "./language-utils": {
+            "types": "./src/languageUtils.ts",
+            "default": "./src/languageUtils.ts"
         }
     },
     "devDependencies": {
