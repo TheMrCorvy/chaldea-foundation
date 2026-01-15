@@ -1,5 +1,6 @@
 import { FC, useEffect, useRef, useState } from "react";
-import Button from "@mui/joy/Button";
+import IconButton from "@mui/joy/IconButton";
+import CastIcon from "@mui/icons-material/Cast";
 
 export interface CastToTvProps {
     videoSrc: string;
@@ -193,38 +194,31 @@ const CastToTv: FC<CastToTvProps> = ({ videoSrc, subtitleSrc, metadata }) => {
         }
     };
 
-    // Si el SDK no está listo, mostrar un botón deshabilitado
     return (
-        <Button
-            ref={buttonRef}
-            variant="solid"
-            color="primary"
-            disabled={!castReady || !canCast || casting}
-            loading={casting}
-            onClick={handleCast}
-            startDecorator={
-                // Icono simple de cast
-                <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+        <>
+            {castReady && canCast && (
+                <IconButton
+                    ref={buttonRef}
+                    disabled={!castReady || !canCast || casting}
+                    loading={casting}
+                    onClick={handleCast}
+                    sx={{
+                        width: 36,
+                        height: 36,
+                    }}
                 >
-                    <path d="M2 16.1V19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v.9" />
-                    <line x1="2" y1="20" x2="2" y2="20" />
-                    <path d="M7 20a5 5 0 0 0-5-5" />
-                </svg>
-            }
-        >
-            Cast to TV
+                    <CastIcon
+                        sx={{
+                            fontSize: 20,
+                            color: "white",
+                        }}
+                    />
+                </IconButton>
+            )}
             {error && (
                 <span style={{ color: "red", marginLeft: 8 }}>{error}</span>
             )}
-        </Button>
+        </>
     );
 };
 
