@@ -234,6 +234,12 @@ const useControls = ({
         _event: React.SyntheticEvent | null,
         newValue: string | number | null
     ) => {
+        if (newValue === -1) {
+            setSubtitleIndex(-1);
+            setVtt(null);
+            return;
+        }
+
         if (newValue !== null) {
             const subtitleSrc = subtitleSrcUrl(Number(newValue));
             const wasPlaying = isPlaying;
