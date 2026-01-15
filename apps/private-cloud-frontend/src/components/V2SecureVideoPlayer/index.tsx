@@ -305,21 +305,62 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                     </Typography>
                                 </Box>
 
-                                {/* Right Side: Fullscreen */}
-                                <IconButton
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        handleFullscreenClick();
-                                    }}
-                                    sx={iconBtn}
-                                >
-                                    <FullscreenIcon
-                                        sx={{
-                                            fontSize: 20,
-                                            color: "white",
-                                        }}
+                                <div>
+                                    <CastToTv
+                                        videoSrc={videoSrc}
+                                        subtitleSrc={
+                                            subtitleSrcUrl(subtitleIndex) ||
+                                            undefined
+                                        }
+                                        metadata={
+                                            subtitleIndex !== -1 &&
+                                            languages_info.subtitleTracks?.[
+                                                subtitleIndex
+                                            ]
+                                                ? (() => {
+                                                      const track =
+                                                          languages_info
+                                                              .subtitleTracks![
+                                                              subtitleIndex
+                                                          ];
+                                                      const languageInfo =
+                                                          getLanguageInfo(
+                                                              track.language,
+                                                              {
+                                                                  code2: true,
+                                                                  nameSpanish: true,
+                                                              }
+                                                          );
+
+                                                      return {
+                                                          subsLabel:
+                                                              languageInfo?.nameSpanish ||
+                                                              track.language,
+                                                          subsLanguage:
+                                                              languageInfo?.code2 ||
+                                                              track.language,
+                                                      };
+                                                  })()
+                                                : undefined
+                                        }
                                     />
-                                </IconButton>
+
+                                    {/* Right Side: Fullscreen */}
+                                    <IconButton
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleFullscreenClick();
+                                        }}
+                                        sx={iconBtn}
+                                    >
+                                        <FullscreenIcon
+                                            sx={{
+                                                fontSize: 20,
+                                                color: "white",
+                                            }}
+                                        />
+                                    </IconButton>
+                                </div>
                             </Box>
                         </Box>
                     )}
@@ -422,39 +463,6 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                 )}
                             </Select>
                         </Box>
-                        <CastToTv
-                            videoSrc={videoSrc}
-                            subtitleSrc={
-                                subtitleSrcUrl(subtitleIndex) || undefined
-                            }
-                            metadata={
-                                subtitleIndex !== -1 &&
-                                languages_info.subtitleTracks?.[subtitleIndex]
-                                    ? (() => {
-                                          const track =
-                                              languages_info.subtitleTracks![
-                                                  subtitleIndex
-                                              ];
-                                          const languageInfo = getLanguageInfo(
-                                              track.language,
-                                              {
-                                                  code2: true,
-                                                  nameSpanish: true,
-                                              }
-                                          );
-
-                                          return {
-                                              subsLabel:
-                                                  languageInfo?.nameSpanish ||
-                                                  track.language,
-                                              subsLanguage:
-                                                  languageInfo?.code2 ||
-                                                  track.language,
-                                          };
-                                      })()
-                                    : undefined
-                            }
-                        />
                     </Stack>
 
                     <PrevNextEpisode parentId={parent} episodeId={documentId} />
