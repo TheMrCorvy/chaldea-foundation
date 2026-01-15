@@ -247,14 +247,14 @@ const main = async () => {
                             '.' +
                             episode.file_type
                     );
-                }
 
-                if (
-                    metadata.everythingWorkedFine &&
-                    (!metadata.everythingWorkedFine.audio || !metadata.everythingWorkedFine.subtitles)
-                ) {
-                    failedDirectories.push({ localDirectory, metadata });
-                    continue;
+                    if (
+                        metadata.everythingWorkedFine &&
+                        (!metadata.everythingWorkedFine.audio || !metadata.everythingWorkedFine.subtitles)
+                    ) {
+                        failedDirectories.push({ localDirectory, metadata });
+                        continue;
+                    }
                 }
 
                 const storedEpisode = await platformService.call('bEpisodePostBEpisodes', {
