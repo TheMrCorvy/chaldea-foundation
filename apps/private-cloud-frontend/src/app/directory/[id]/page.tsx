@@ -251,12 +251,9 @@ const DirectoryPage = async ({ params }: Page) => {
                     {episodes.length > 0 && (
                         <Grid
                             container
-                            justifyContent={
-                                episodes.length === 1
-                                    ? "flex-start"
-                                    : "space-around"
-                            }
+                            justifyContent={"flex-start"}
                             component="section"
+                            gap={2}
                         >
                             {episodes.map((episode, i) => (
                                 <Grid
