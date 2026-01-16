@@ -15,6 +15,7 @@ interface SubtitleTrack {
     trackIndex: number;
     language?: string;
     codec?: string;
+    isTextBased?: boolean;
 }
 
 interface VideoMetadata {
@@ -57,6 +58,36 @@ function spawnProcess(command: string, args: string[]): Promise<string> {
             reject(err);
         });
     });
+}
+
+/**
+ * Checks if a subtitle codec is text-based (can be converted to WebVTT)
+ */
+function isTextBasedSubtitle(codecName: string): boolean {
+    const textBasedCodecs = [
+        'subrip',
+        'ass',
+        'ssa',
+        'webvtt',
+        'srt',
+        'vtt',
+        'mov_text',
+        'text',
+        'microdvd',
+        'jacosub',
+        'realtext',
+        'mpl2',
+        'vplayer',
+        'subviewer',
+        'subviewer1',
+        'sami',
+        'pjs',
+        'dks',
+        'lrc',
+        'stl',
+    ];
+
+    return textBasedCodecs.includes(codecName.toLowerCase());
 }
 
 /**
@@ -105,11 +136,13 @@ async function extractMetadata(filePath: string): Promise<VideoMetadata> {
                 });
                 audioTrackCount++;
             } else if (stream.codec_type === 'subtitle') {
+                const isTextBased = isTextBasedSubtitle(stream.codec_name || '');
                 subtitleTracks.push({
                     trackIndex: subtitleTrackCount,
                     language: extractLanguage(stream),
                     codec: stream.codec_name,
                     globalIndex: stream.index,
+                    isTextBased,
                 });
                 subtitleTrackCount++;
             }
@@ -204,7 +237,20 @@ async function extractSubtitleTracks(
     // Create subtitles directory
     await fs.mkdir(subtitleDir, { recursive: true });
 
+    let allSucceeded = true;
+    let skippedBitmapSubtitles = 0;
+
     for (const track of subtitleTracks) {
+        // Skip bitmap-based subtitles that cannot be converted to WebVTT
+        if (track.isTextBased === false) {
+            console.warn(
+                `Skipping bitmap subtitle track ${track.trackIndex} (${track.language}, ${track.codec}): ` +
+                    `Cannot convert bitmap subtitles to WebVTT. These are image-based and require OCR for text conversion.`
+            );
+            skippedBitmapSubtitles++;
+            continue;
+        }
+
         const outputPath = path.join(subtitleDir, `${track.trackIndex}.vtt`);
 
         const ffmpegArgs = [
@@ -226,10 +272,17 @@ async function extractSubtitleTracks(
         } catch (err) {
             console.warn(`Failed to extract subtitle track ${track.trackIndex}: ${err}`);
             // Continue processing other subtitles even if one fails
-            return false;
+            allSucceeded = false;
         }
     }
-    return true;
+
+    if (skippedBitmapSubtitles > 0) {
+        console.warn(
+            `Skipped ${skippedBitmapSubtitles} bitmap subtitle track(s) that cannot be converted to WebVTT format.`
+        );
+    }
+
+    return allSucceeded;
 }
 
 /**
