@@ -22,11 +22,7 @@ const useControls = ({
     const [audioIndex, setAudioIndex] = useState(
         languagesInfo?.audioTracks?.[0]?.trackIndex ?? 0
     );
-    const [subtitleIndex, setSubtitleIndex] = useState(
-        languagesInfo?.subtitleTracks?.findIndex(
-            (track) => track.language === "spa" || track.language === "esp"
-        ) ?? -1
-    );
+    const [subtitleIndex, setSubtitleIndex] = useState(-1); // default to 'off'
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [showControls, setShowControls] = useState(true);
