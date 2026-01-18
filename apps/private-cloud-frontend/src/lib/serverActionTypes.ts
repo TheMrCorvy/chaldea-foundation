@@ -17,4 +17,8 @@ export type ReportFormState = {
         description?: string[];
         media?: string[];
     };
+    data?: {
+        title?: string;
+        description?: string;
+    };
 };
