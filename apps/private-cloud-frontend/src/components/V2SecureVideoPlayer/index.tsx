@@ -159,7 +159,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                 <span
                                     style={{
                                         color: "white",
-                                        fontSize: "24px",
+                                        fontSize: "32px",
                                         textAlign: "center",
                                     }}
                                     dangerouslySetInnerHTML={{
