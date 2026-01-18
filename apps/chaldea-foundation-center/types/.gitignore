@@ -1,0 +1,8 @@
+generated
+./generated
+/generated
+./generated/*
+
+# ignore the generated folder
+apps/chaldea-foundation-center/types/generated
+apps/chaldea-foundation-center/types/.DS_Store
