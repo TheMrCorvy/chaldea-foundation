@@ -74,95 +74,187 @@ export async function submitReport(
     // If there are validation errors, return them
     if (Object.keys(fieldErrors).length > 0) {
         return {
+            ...prevState,
             submitState: "error",
             message: "Por favor, corrija los errores en el formulario",
             fieldErrors,
+            data: {
+                title: typeof title === "string" ? title : "",
+                description: typeof description === "string" ? description : "",
+            },
         };
     }
 
     const platformService = new PlatformService();
 
-    // try {
-    const reportData: {
-        title: string;
-        description: string;
-        publishedAt: string;
-        media?: Array<{ id: string }>;
-    } = {
-        title: String(title),
-        description: String(description),
-        publishedAt: new Date().toISOString(),
-    };
+    try {
+        const reportData: {
+            title: string;
+            description: string;
+            publishedAt: string;
+            media?: Array<{ id: string }>;
+        } = {
+            title: String(title),
+            description: String(description),
+            publishedAt: new Date().toISOString(),
+        };
 
-    // Handle media upload if provided
-    if (mediaFile && mediaFile.size > 0) {
+        // Handle media upload if provided
+        if (mediaFile && mediaFile.size > 0) {
+            const jwtCookie = (await getCookie(
+                CookiesList.JWT
+            )) as JwtCookie | null;
+
+            if (!jwtCookie) {
+                fieldErrors.media = [
+                    "Se requiere iniciar sesión para subir archivos",
+                ];
+                return {
+                    ...prevState,
+                    submitState: "error",
+                    message:
+                        "Error de autenticación. Por favor, intente nuevamente",
+                    fieldErrors,
+                    data: {
+                        title: typeof title === "string" ? title : "",
+                        description:
+                            typeof description === "string" ? description : "",
+                    },
+                };
+            }
+
+            const mediaIds = await uploadToPS(mediaFile, jwtCookie.jwt);
+
+            if (!mediaIds) {
+                return {
+                    ...prevState,
+                    submitState: "error",
+                    message:
+                        "Error al subir el archivo. Por favor, intente nuevamente",
+                    fieldErrors: {
+                        media: ["Error al subir el archivo"],
+                    },
+                    data: {
+                        title: typeof title === "string" ? title : "",
+                        description:
+                            typeof description === "string" ? description : "",
+                    },
+                };
+            }
+
+            reportData.media = mediaIds.map((id) => ({ id }));
+        }
+
         const jwtCookie = (await getCookie(
             CookiesList.JWT
         )) as JwtCookie | null;
 
         if (!jwtCookie) {
-            fieldErrors.media = [
-                "Se requiere iniciar sesión para subir archivos",
-            ];
-            return {
-                submitState: "error",
-                message:
-                    "Error de autenticación. Por favor, intente nuevamente",
-                fieldErrors,
-            };
-        }
+            logData({
+                title: "Unauthorized upload attempt",
+                layer: "bug_report",
+                data: { reason: "No JWT token" },
+                type: "error",
+                timeStamp: true,
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+            });
 
-        const mediaIds = await uploadToPS(mediaFile, jwtCookie.jwt);
-
-        if (!mediaIds) {
             return {
+                ...prevState,
                 submitState: "error",
-                message:
-                    "Error al subir el archivo. Por favor, intente nuevamente",
+                message: "No puedes enviar reportes sin haber iniciado sesión.",
                 fieldErrors: {
-                    media: ["Error al subir el archivo"],
+                    description: [
+                        "No puedes enviar reportes sin haber iniciado sesión.",
+                    ],
+                },
+                data: {
+                    title: typeof title === "string" ? title : "",
+                    description:
+                        typeof description === "string" ? description : "",
                 },
             };
         }
 
-        reportData.media = mediaIds.map((id) => ({ id }));
-    }
+        platformService.setJWT(jwtCookie.jwt);
 
-    const jwtCookie = (await getCookie(CookiesList.JWT)) as JwtCookie | null;
+        const { data, error } = await platformService.call(
+            "bReportPostBReports",
+            {
+                body: {
+                    data: reportData,
+                },
+            }
+        );
 
-    if (!jwtCookie) {
+        if (error) {
+            logData({
+                title: "Error creating report",
+                layer: "bug_report",
+                data: error,
+                type: "error",
+                timeStamp: true,
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+            });
+
+            return {
+                ...prevState,
+                submitState: "error",
+                message:
+                    "Error al crear el reporte. Por favor, intente nuevamente",
+                data: {
+                    title: typeof title === "string" ? title : "",
+                    description:
+                        typeof description === "string" ? description : "",
+                },
+            };
+        }
+
+        if (!data || !data.data) {
+            logData({
+                title: "Error connecting with backend",
+                layer: "bug_report",
+                data,
+                type: "error",
+                timeStamp: true,
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+            });
+
+            return {
+                ...prevState,
+                submitState: "error",
+                message: "No se recibieron datos del servidor",
+                data: {
+                    title: typeof title === "string" ? title : "",
+                    description:
+                        typeof description === "string" ? description : "",
+                },
+            };
+        }
+
         logData({
-            title: "Unauthorized upload attempt",
+            title: "Report created successfully",
             layer: "bug_report",
-            data: { reason: "No JWT token" },
-            type: "error",
+            data: {
+                reportId: data.data.documentId,
+            },
+            type: "info",
             timeStamp: true,
             addSeparatorAfter: true,
             addSpaceAfter: true,
         });
 
         return {
-            submitState: "error",
-            message: "No puedes enviar reportes sin haber iniciado sesión.",
-            fieldErrors: {
-                description: [
-                    "No puedes enviar reportes sin haber iniciado sesión.",
-                ],
-            },
+            submitState: "success",
+            message:
+                "¡Reporte enviado exitosamente! Gracias por tu retroalimentación.",
         };
-    }
-
-    platformService.setJWT(jwtCookie.jwt);
-
-    const { data, error } = await platformService.call("bReportPostBReports", {
-        body: {
-            data: reportData,
-        },
-    });
-
-    if (error) {
+    } catch (error) {
         logData({
-            title: "Error creating report",
+            title: "Unexpected error submitting report",
             layer: "bug_report",
             data: error,
             type: "error",
@@ -172,43 +264,14 @@ export async function submitReport(
         });
 
         return {
+            ...prevState,
             submitState: "error",
-            message: "Error al crear el reporte. Por favor, intente nuevamente",
+            message:
+                "Ocurrió un error inesperado. Por favor, intente nuevamente",
+            data: {
+                title: typeof title === "string" ? title : "",
+                description: typeof description === "string" ? description : "",
+            },
         };
     }
-
-    if (!data || !data.data) {
-        logData({
-            title: "Error connecting with backend",
-            layer: "bug_report",
-            data,
-            type: "error",
-            timeStamp: true,
-            addSeparatorAfter: true,
-            addSpaceAfter: true,
-        });
-
-        return {
-            submitState: "error",
-            message: "No se recibieron datos del servidor",
-        };
-    }
-
-    logData({
-        title: "Report created successfully",
-        layer: "bug_report",
-        data: {
-            reportId: data.data.documentId,
-        },
-        type: "info",
-        timeStamp: true,
-        addSeparatorAfter: true,
-        addSpaceAfter: true,
-    });
-
-    return {
-        submitState: "success",
-        message:
-            "¡Reporte enviado exitosamente! Gracias por tu retroalimentación.",
-    };
 }
