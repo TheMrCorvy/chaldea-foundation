@@ -8,3 +8,13 @@ export type AuthFormState = {
         password: string;
     };
 };
+
+export type ReportFormState = {
+    submitState: "not_sent" | "success" | "error";
+    message?: string;
+    fieldErrors?: {
+        title?: string[];
+        description?: string[];
+        media?: string[];
+    };
+};
