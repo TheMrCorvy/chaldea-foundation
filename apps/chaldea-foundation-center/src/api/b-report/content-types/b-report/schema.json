@@ -1,0 +1,28 @@
+{
+    "kind": "collectionType",
+    "collectionName": "b_reports",
+    "info": {
+        "singularName": "b-report",
+        "pluralName": "b-reports",
+        "displayName": "B - Reports"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text",
+            "required": true
+        },
+        "media": {
+            "type": "media",
+            "multiple": true,
+            "allowedTypes": ["images", "videos"]
+        }
+    }
+}

@@ -558,6 +558,36 @@ export interface ApiBRegisterTokenBRegisterToken
     };
 }
 
+export interface ApiBReportBReport extends Struct.CollectionTypeSchema {
+    collectionName: "b_reports";
+    info: {
+        displayName: "B - Reports";
+        pluralName: "b-reports";
+        singularName: "b-report";
+    };
+    options: {
+        draftAndPublish: false;
+    };
+    attributes: {
+        createdAt: Schema.Attribute.DateTime;
+        createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+            Schema.Attribute.Private;
+        description: Schema.Attribute.Text & Schema.Attribute.Required;
+        locale: Schema.Attribute.String & Schema.Attribute.Private;
+        localizations: Schema.Attribute.Relation<
+            "oneToMany",
+            "api::b-report.b-report"
+        > &
+            Schema.Attribute.Private;
+        media: Schema.Attribute.Media<"images" | "videos", true>;
+        publishedAt: Schema.Attribute.DateTime;
+        title: Schema.Attribute.String & Schema.Attribute.Required;
+        updatedAt: Schema.Attribute.DateTime;
+        updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+            Schema.Attribute.Private;
+    };
+}
+
 export interface ApiPAnimePAnime extends Struct.CollectionTypeSchema {
     collectionName: "p_animes";
     info: {
@@ -1206,7 +1236,7 @@ export interface PluginUsersPermissionsUser
 }
 
 declare module "@strapi/strapi" {
-    export module Public {
+    export namespace Public {
         export interface ContentTypeSchemas {
             "admin::api-token": AdminApiToken;
             "admin::api-token-permission": AdminApiTokenPermission;
@@ -1219,6 +1249,7 @@ declare module "@strapi/strapi" {
             "api::b-directory.b-directory": ApiBDirectoryBDirectory;
             "api::b-episode.b-episode": ApiBEpisodeBEpisode;
             "api::b-register-token.b-register-token": ApiBRegisterTokenBRegisterToken;
+            "api::b-report.b-report": ApiBReportBReport;
             "api::p-anime.p-anime": ApiPAnimePAnime;
             "api::p-bubble.p-bubble": ApiPBubblePBubble;
             "api::p-franchise.p-franchise": ApiPFranchisePFranchise;
