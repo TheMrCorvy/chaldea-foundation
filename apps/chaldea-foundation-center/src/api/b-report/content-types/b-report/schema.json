@@ -21,7 +21,7 @@
         },
         "media": {
             "type": "media",
-            "multiple": true,
+            "multiple": false,
             "allowedTypes": ["images", "videos"]
         }
     }

@@ -579,7 +579,7 @@ export interface ApiBReportBReport extends Struct.CollectionTypeSchema {
             "api::b-report.b-report"
         > &
             Schema.Attribute.Private;
-        media: Schema.Attribute.Media<"images" | "videos", true>;
+        media: Schema.Attribute.Media<"images" | "videos">;
         publishedAt: Schema.Attribute.DateTime;
         title: Schema.Attribute.String & Schema.Attribute.Required;
         updatedAt: Schema.Attribute.DateTime;
