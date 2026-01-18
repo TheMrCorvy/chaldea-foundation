@@ -2,21 +2,15 @@
 
 import Sheet from "@mui/joy/Sheet";
 import Stack from "@mui/joy/Stack";
-import HomeIcon from "@mui/icons-material/Home";
-import SearchIcon from "@mui/icons-material/Search";
-import { CSSProperties, FC, useState } from "react";
-import ListIcon from "@mui/icons-material/List";
-import LogoutIcon from "@mui/icons-material/Logout";
+import { CSSProperties, FC } from "react";
 import DrawerList from "../DrawerList";
-import { redirect } from "next/navigation";
-import { WebRoutes } from "@/utils/routes";
 import NavAction from "../NavAction/index";
 import useStyles from "./useStyles";
 import { Box } from "@mui/joy";
-import ReplyIcon from "@mui/icons-material/Reply";
 import { Directory } from "@repo/type-definitions";
 import SearchModal from "../SearchModal";
 import Search from "../Search";
+import useNavActions from "./useNavActions";
 
 export interface BottomNavbProps {
     disableNavbar?: boolean;
@@ -31,97 +25,15 @@ const BottomNav: FC<BottomNavbProps> = ({
     onlyGoBack = false,
     allowAdultContent = false,
 }) => {
-    const [drawerOpen, setDrawerOpen] = useState(false);
-    const [searchModalOpen, setSearchModalOpen] = useState(false);
-    const { root, sheet } = useStyles();
+    const {
+        actions,
+        drawerOpen,
+        setDrawerOpen,
+        searchModalOpen,
+        setSearchModalOpen,
+    } = useNavActions();
 
-    const actions = [
-        {
-            label: "Volver atrás",
-            icon: (
-                <ReplyIcon
-                    sx={{
-                        fontSize: {
-                            xs: 20,
-                            lg: 24,
-                            xl: 32,
-                        },
-                    }}
-                />
-            ),
-            value: "back",
-            action: () => window.history.back(),
-        },
-        {
-            label: "Lista",
-            icon: (
-                <ListIcon
-                    sx={{
-                        fontSize: {
-                            xs: 20,
-                            lg: 24,
-                            xl: 32,
-                        },
-                    }}
-                />
-            ),
-            value: "list",
-            action: () => setDrawerOpen(true),
-        },
-        {
-            label: "Inicio",
-            icon: (
-                <HomeIcon
-                    sx={{
-                        fontSize: {
-                            xs: 20,
-                            lg: 24,
-                            xl: 32,
-                        },
-                    }}
-                />
-            ),
-            value: "home",
-            action: () => redirect(WebRoutes.HOME),
-        },
-        {
-            label: "Buscar",
-            icon: (
-                <SearchIcon
-                    sx={{
-                        fontSize: {
-                            xs: 20,
-                            lg: 24,
-                            xl: 32,
-                        },
-                    }}
-                />
-            ),
-            value: "search",
-            action: () => setSearchModalOpen(true),
-        },
-        {
-            label: "Cerrar sesión",
-            icon: (
-                <LogoutIcon
-                    sx={{
-                        fontSize: {
-                            xs: 20,
-                            lg: 24,
-                            xl: 32,
-                        },
-                    }}
-                />
-            ),
-            value: "logout",
-            action: async () => {
-                await fetch("/api/logout", {
-                    method: "POST",
-                });
-                redirect(WebRoutes.LOGIN);
-            },
-        },
-    ];
+    const { root, sheet } = useStyles();
 
     return (
         <Box component="nav" style={root as CSSProperties}>
