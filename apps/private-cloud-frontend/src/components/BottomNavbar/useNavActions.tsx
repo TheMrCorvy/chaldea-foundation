@@ -2,11 +2,11 @@ import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import ListIcon from "@mui/icons-material/List";
 import LogoutIcon from "@mui/icons-material/Logout";
-import BugReportIcon from "@mui/icons-material/BugReport";
 import { redirect } from "next/navigation";
 import { WebRoutes } from "@/utils/routes";
 import ReplyIcon from "@mui/icons-material/Reply";
 import { useState } from "react";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 const useNavActions = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -82,9 +82,9 @@ const useNavActions = () => {
     };
 
     const reportAction = {
-        label: "Reportar",
+        label: "Reportar problema",
         icon: (
-            <BugReportIcon
+            <WarningAmberIcon
                 sx={{
                     fontSize: {
                         xs: 20,
