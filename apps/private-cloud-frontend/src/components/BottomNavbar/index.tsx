@@ -31,6 +31,8 @@ const BottomNav: FC<BottomNavbProps> = ({
         setDrawerOpen,
         searchModalOpen,
         setSearchModalOpen,
+        goBackAction,
+        logoutAction,
     } = useNavActions();
 
     const { root, sheet } = useStyles();
@@ -60,19 +62,19 @@ const BottomNav: FC<BottomNavbProps> = ({
 
                     {onlyGoBack && (
                         <NavAction
-                            label={actions[0].label}
-                            icon={actions[0].icon}
-                            value={actions[0].value}
-                            onClick={() => actions[0].action()}
+                            label={goBackAction.label}
+                            icon={goBackAction.icon}
+                            value={goBackAction.value}
+                            onClick={() => goBackAction.action()}
                         />
                     )}
 
                     {disableNavbar && (
                         <NavAction
-                            label={actions[4].label}
-                            icon={actions[4].icon}
-                            value={actions[4].value}
-                            onClick={() => actions[4].action()}
+                            label={logoutAction.label}
+                            icon={logoutAction.icon}
+                            value={logoutAction.value}
+                            onClick={() => logoutAction.action()}
                         />
                     )}
                 </Stack>

@@ -11,92 +11,102 @@ const useNavActions = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [searchModalOpen, setSearchModalOpen] = useState(false);
 
+    const goBackAction = {
+        label: "Volver atrás",
+        icon: (
+            <ReplyIcon
+                sx={{
+                    fontSize: {
+                        xs: 20,
+                        lg: 24,
+                        xl: 32,
+                    },
+                }}
+            />
+        ),
+        value: "back",
+        action: () => window.history.back(),
+    };
+
+    const listAction = {
+        label: "Lista",
+        icon: (
+            <ListIcon
+                sx={{
+                    fontSize: {
+                        xs: 20,
+                        lg: 24,
+                        xl: 32,
+                    },
+                }}
+            />
+        ),
+        value: "list",
+        action: () => setDrawerOpen(true),
+    };
+
+    const goHomeAction = {
+        label: "Inicio",
+        icon: (
+            <HomeIcon
+                sx={{
+                    fontSize: {
+                        xs: 20,
+                        lg: 24,
+                        xl: 32,
+                    },
+                }}
+            />
+        ),
+        value: "home",
+        action: () => redirect(WebRoutes.HOME),
+    };
+
+    const searchAction = {
+        label: "Buscar",
+        icon: (
+            <SearchIcon
+                sx={{
+                    fontSize: {
+                        xs: 20,
+                        lg: 24,
+                        xl: 32,
+                    },
+                }}
+            />
+        ),
+        value: "search",
+        action: () => setSearchModalOpen(true),
+    };
+
+    const logoutAction = {
+        label: "Cerrar sesión",
+        icon: (
+            <LogoutIcon
+                sx={{
+                    fontSize: {
+                        xs: 20,
+                        lg: 24,
+                        xl: 32,
+                    },
+                }}
+            />
+        ),
+        value: "logout",
+        action: async () => {
+            await fetch("/api/logout", {
+                method: "POST",
+            });
+            redirect(WebRoutes.LOGIN);
+        },
+    };
+
     const actions = [
-        {
-            label: "Volver atrás",
-            icon: (
-                <ReplyIcon
-                    sx={{
-                        fontSize: {
-                            xs: 20,
-                            lg: 24,
-                            xl: 32,
-                        },
-                    }}
-                />
-            ),
-            value: "back",
-            action: () => window.history.back(),
-        },
-        {
-            label: "Lista",
-            icon: (
-                <ListIcon
-                    sx={{
-                        fontSize: {
-                            xs: 20,
-                            lg: 24,
-                            xl: 32,
-                        },
-                    }}
-                />
-            ),
-            value: "list",
-            action: () => setDrawerOpen(true),
-        },
-        {
-            label: "Inicio",
-            icon: (
-                <HomeIcon
-                    sx={{
-                        fontSize: {
-                            xs: 20,
-                            lg: 24,
-                            xl: 32,
-                        },
-                    }}
-                />
-            ),
-            value: "home",
-            action: () => redirect(WebRoutes.HOME),
-        },
-        {
-            label: "Buscar",
-            icon: (
-                <SearchIcon
-                    sx={{
-                        fontSize: {
-                            xs: 20,
-                            lg: 24,
-                            xl: 32,
-                        },
-                    }}
-                />
-            ),
-            value: "search",
-            action: () => setSearchModalOpen(true),
-        },
-        {
-            label: "Cerrar sesión",
-            icon: (
-                <LogoutIcon
-                    sx={{
-                        fontSize: {
-                            xs: 20,
-                            lg: 24,
-                            xl: 32,
-                        },
-                    }}
-                />
-            ),
-            value: "logout",
-            action: async () => {
-                await fetch("/api/logout", {
-                    method: "POST",
-                });
-                redirect(WebRoutes.LOGIN);
-            },
-        },
+        goBackAction,
+        listAction,
+        goHomeAction,
+        searchAction,
+        logoutAction,
     ];
 
     return {
@@ -105,6 +115,8 @@ const useNavActions = () => {
         setDrawerOpen,
         searchModalOpen,
         setSearchModalOpen,
+        goBackAction,
+        logoutAction,
     };
 };
 
