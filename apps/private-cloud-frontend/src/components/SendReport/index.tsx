@@ -30,6 +30,10 @@ interface SendReportProps {
 
 const INITIAL_STATE: ReportFormState = {
     submitState: "not_sent",
+    data: {
+        title: "",
+        description: "",
+    },
 };
 
 const SendReport: FC<SendReportProps> = ({ open, onClose }) => {
@@ -108,6 +112,7 @@ const SendReport: FC<SendReportProps> = ({ open, onClose }) => {
                                 type="text"
                                 placeholder="Breve descripción del problema"
                                 disabled={isPending}
+                                defaultValue={formState.data?.title ?? ""}
                                 slotProps={{
                                     input: {
                                         maxLength: 100,
@@ -139,6 +144,7 @@ const SendReport: FC<SendReportProps> = ({ open, onClose }) => {
                                 minRows={4}
                                 maxRows={8}
                                 disabled={isPending}
+                                defaultValue={formState.data?.description ?? ""}
                                 slotProps={{
                                     textarea: {
                                         maxLength: 1000,
