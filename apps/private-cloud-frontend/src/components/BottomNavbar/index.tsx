@@ -10,6 +10,7 @@ import { Box } from "@mui/joy";
 import { Directory } from "@repo/type-definitions";
 import SearchModal from "../SearchModal";
 import Search from "../Search";
+import SendReport from "../SendReport";
 import useNavActions from "./useNavActions";
 
 export interface BottomNavbProps {
@@ -31,6 +32,8 @@ const BottomNav: FC<BottomNavbProps> = ({
         setDrawerOpen,
         searchModalOpen,
         setSearchModalOpen,
+        reportModalOpen,
+        setReportModalOpen,
         goBackAction,
         logoutAction,
     } = useNavActions();
@@ -90,6 +93,10 @@ const BottomNav: FC<BottomNavbProps> = ({
             >
                 <Search allowAdultContent={allowAdultContent} />
             </SearchModal>
+            <SendReport
+                open={reportModalOpen}
+                onClose={() => setReportModalOpen(false)}
+            />
         </Box>
     );
 };
