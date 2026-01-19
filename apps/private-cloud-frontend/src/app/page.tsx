@@ -1,10 +1,11 @@
 import BottomNav from "@/components/BottomNavbar";
 import MainCategories from "@/components/MainCategories";
+import RecentAdditions from "@/components/RecentAdditions";
 import { CookiesList, getCookie, JwtCookie, MeResponse } from "@/utils/cookies";
-import { Container } from "@mui/joy";
+import { Box, Container } from "@mui/joy";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
-import { Directory, RoleTypes } from "@repo/type-definitions";
+import { Directory, Episode, RoleTypes } from "@repo/type-definitions";
 
 const Home = async () => {
     const jwt = (await getCookie(CookiesList.JWT)) as JwtCookie;
@@ -34,20 +35,84 @@ const Home = async () => {
 
     const mainDirectories = response.data.data as Directory[];
 
+    const recentDirectoriesResponse = await platformService.call(
+        "bDirectoryGetBDirectories",
+        {
+            query: {
+                sort: ["createdAt:desc"],
+                pagination: {
+                    pageSize: 10,
+                },
+            },
+        }
+    );
+
+    logData({
+        title: "Fetched Recent Directories",
+        data: recentDirectoriesResponse.data,
+        addSeparatorAfter: true,
+        addSpaceAfter: true,
+        timeStamp: true,
+        layer: "external_http_requests",
+        type: "info",
+    });
+
+    const recentDirectories = (recentDirectoriesResponse.data.data ||
+        []) as Directory[];
+
+    const recentEpisodesResponse = await platformService.call(
+        "bEpisodeGetBEpisodes",
+        {
+            query: {
+                sort: ["createdAt:desc"],
+                pagination: {
+                    pageSize: 10,
+                },
+            },
+        }
+    );
+
+    logData({
+        title: "Fetched Recent Episodes",
+        data: recentEpisodesResponse.data,
+        addSeparatorAfter: true,
+        addSpaceAfter: true,
+        timeStamp: true,
+        layer: "external_http_requests",
+        type: "info",
+    });
+
+    const recentEpisodes = (recentEpisodesResponse.data.data ||
+        []) as Episode[];
+
     return (
         <>
-            <Container
+            <Box
                 sx={{
-                    textAlign: "center",
-                    alignItems: "center",
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center",
-                    height: "100vh",
+                    minHeight: "100vh",
                 }}
             >
-                <MainCategories directories={mainDirectories} />
-            </Container>
+                <Container
+                    maxWidth="lg"
+                    sx={{
+                        textAlign: "center",
+                        alignItems: "center",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        flexGrow: 1,
+                        py: 4,
+                    }}
+                >
+                    <MainCategories directories={mainDirectories} />
+                </Container>
+                <RecentAdditions
+                    recentDirectories={recentDirectories}
+                    recentEpisodes={recentEpisodes}
+                />
+            </Box>
             <BottomNav
                 mainDirectories={mainDirectories}
                 allowAdultContent={
