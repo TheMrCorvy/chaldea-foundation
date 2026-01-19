@@ -51,6 +51,7 @@ const SearchBar: FC<SearchBarProps> = ({
                     switchOnlyAdult,
                     page: pagination.page,
                 });
+                (document.activeElement as HTMLInputElement)?.blur();
             }}
             gap={2}
         >
