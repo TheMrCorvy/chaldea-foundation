@@ -1,0 +1,26 @@
+{
+    "collectionName": "components_layout_call_to_actions",
+    "info": {
+        "displayName": "Call To Action",
+        "icon": "question"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "title": {
+            "type": "string"
+        },
+        "popover": {
+            "type": "string"
+        },
+        "link": {
+            "type": "component",
+            "component": "layout.link",
+            "repeatable": false
+        }
+    },
+    "config": {}
+}

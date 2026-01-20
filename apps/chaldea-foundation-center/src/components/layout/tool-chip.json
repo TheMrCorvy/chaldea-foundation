@@ -1,0 +1,27 @@
+{
+    "collectionName": "components_layout_tool_chips",
+    "info": {
+        "displayName": "List Chip",
+        "icon": "bulletList"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "popover": {
+            "type": "string"
+        },
+        "icon": {
+            "type": "component",
+            "component": "layout.icon",
+            "repeatable": false
+        }
+    },
+    "config": {}
+}

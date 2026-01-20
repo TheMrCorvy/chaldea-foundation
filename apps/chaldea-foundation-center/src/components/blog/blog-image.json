@@ -1,0 +1,38 @@
+{
+    "collectionName": "components_blog_blog_images",
+    "info": {
+        "displayName": "Blog Image",
+        "icon": "picture"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "title": {
+            "type": "string"
+        },
+        "body": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string"
+        },
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": ["images", "files"]
+        },
+        "height": {
+            "type": "decimal",
+            "default": 52
+        },
+        "width": {
+            "type": "decimal",
+            "default": 52
+        }
+    },
+    "config": {}
+}

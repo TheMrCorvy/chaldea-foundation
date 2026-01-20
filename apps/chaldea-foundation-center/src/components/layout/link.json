@@ -1,0 +1,37 @@
+{
+    "collectionName": "components_layout_links",
+    "info": {
+        "displayName": "Link",
+        "icon": "link"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "label": {
+            "type": "string",
+            "required": true
+        },
+        "href": {
+            "type": "string",
+            "required": true
+        },
+        "popover": {
+            "type": "string"
+        },
+        "variant": {
+            "type": "enumeration",
+            "required": true,
+            "default": "link",
+            "enum": ["link", "icon_link", "link_with_icon"]
+        },
+        "icon": {
+            "type": "component",
+            "component": "layout.icon",
+            "repeatable": false
+        }
+    },
+    "config": {}
+}

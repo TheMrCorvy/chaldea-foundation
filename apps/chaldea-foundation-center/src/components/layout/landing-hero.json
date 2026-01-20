@@ -1,0 +1,44 @@
+{
+    "collectionName": "components_layout_landing_heroes",
+    "info": {
+        "displayName": "Landing Hero",
+        "icon": "crown"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "highlighted_subtitle": {
+            "type": "string"
+        },
+        "helper_text": {
+            "type": "string"
+        },
+        "body": {
+            "type": "blocks",
+            "required": true
+        },
+        "link": {
+            "type": "component",
+            "component": "layout.link",
+            "repeatable": true
+        },
+        "pdf_file": {
+            "type": "component",
+            "component": "blog.pdf-file",
+            "repeatable": false
+        },
+        "call_to_action": {
+            "type": "component",
+            "component": "layout.call-to-action",
+            "repeatable": true
+        }
+    },
+    "config": {}
+}

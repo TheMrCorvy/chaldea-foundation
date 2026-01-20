@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_blog_blog_texts",
+    "info": {
+        "displayName": "Blog Text",
+        "icon": "quote"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "body": {
+            "type": "blocks",
+            "required": true
+        }
+    },
+    "config": {}
+}

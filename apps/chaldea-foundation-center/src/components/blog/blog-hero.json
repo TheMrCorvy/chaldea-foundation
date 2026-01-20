@@ -1,0 +1,26 @@
+{
+    "collectionName": "components_blog_blog_heroes",
+    "info": {
+        "displayName": "Blog Hero",
+        "icon": "landscape"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "title": {
+            "type": "string"
+        },
+        "body": {
+            "type": "blocks"
+        },
+        "cover_image": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": ["images", "files"]
+        }
+    },
+    "config": {}
+}

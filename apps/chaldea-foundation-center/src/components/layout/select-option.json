@@ -1,0 +1,23 @@
+{
+    "collectionName": "components_layout_select_options",
+    "info": {
+        "displayName": "Select Option",
+        "icon": "bulletList"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "label": {
+            "type": "string",
+            "required": true
+        },
+        "value": {
+            "type": "string",
+            "required": true
+        }
+    },
+    "config": {}
+}

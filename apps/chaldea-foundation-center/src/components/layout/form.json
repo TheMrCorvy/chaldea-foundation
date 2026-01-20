@@ -1,0 +1,24 @@
+{
+    "collectionName": "components_layout_forms",
+    "info": {
+        "displayName": "Form",
+        "icon": "paperPlane"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "title": {
+            "type": "string"
+        },
+        "input": {
+            "type": "component",
+            "component": "layout.form-input",
+            "repeatable": true,
+            "required": true
+        }
+    },
+    "config": {}
+}

@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_layout_icons",
+    "info": {
+        "displayName": "Icon",
+        "icon": "alien"
+    },
+    "options": {},
+    "attributes": {
+        "name": {
+            "type": "enumeration",
+            "required": true,
+            "default": "icon-1",
+            "enum": ["icon-1"]
+        },
+        "component_id": {
+            "type": "string",
+            "unique": true
+        }
+    },
+    "config": {}
+}

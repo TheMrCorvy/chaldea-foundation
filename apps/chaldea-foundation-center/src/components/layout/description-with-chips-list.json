@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_layout_description_with_chips_lists",
+    "info": {
+        "displayName": "Description With Chips List",
+        "icon": "stack"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "body": {
+            "type": "blocks",
+            "required": true
+        },
+        "chips": {
+            "type": "component",
+            "component": "layout.tool-chip",
+            "repeatable": false,
+            "required": false
+        }
+    },
+    "config": {}
+}

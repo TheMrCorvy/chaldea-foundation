@@ -1,0 +1,50 @@
+{
+    "collectionName": "components_layout_form_inputs",
+    "info": {
+        "displayName": "Form Input",
+        "icon": "pencil"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "default_value": {
+            "type": "string"
+        },
+        "type": {
+            "type": "enumeration",
+            "default": "input",
+            "enum": [
+                "input",
+                "submit",
+                "textarea",
+                "select",
+                "date",
+                "slider",
+                "range"
+            ]
+        },
+        "option": {
+            "type": "component",
+            "component": "layout.select-option",
+            "repeatable": true
+        },
+        "start_icon": {
+            "type": "component",
+            "component": "layout.icon",
+            "repeatable": false
+        },
+        "end_icon": {
+            "type": "component",
+            "component": "layout.icon",
+            "repeatable": false
+        }
+    },
+    "config": {}
+}

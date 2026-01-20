@@ -1,0 +1,46 @@
+{
+    "collectionName": "components_layout_work_experience_list_items",
+    "info": {
+        "displayName": "Work Experience List Item",
+        "icon": "briefcase"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "position": {
+            "type": "string",
+            "required": true
+        },
+        "company": {
+            "type": "string",
+            "required": true
+        },
+        "location": {
+            "type": "string",
+            "required": true
+        },
+        "from": {
+            "type": "date",
+            "required": true
+        },
+        "until": {
+            "type": "date",
+            "required": true
+        },
+        "body": {
+            "type": "blocks",
+            "required": true
+        },
+        "popover": {
+            "type": "string"
+        }
+    },
+    "config": {}
+}

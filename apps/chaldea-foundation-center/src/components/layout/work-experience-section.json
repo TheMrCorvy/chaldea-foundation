@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_layout_work_experience_sections",
+    "info": {
+        "displayName": "Work Experience Section",
+        "icon": "car"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "experience_list_item": {
+            "type": "component",
+            "component": "layout.work-experience-list-item",
+            "repeatable": true,
+            "required": true
+        }
+    },
+    "config": {}
+}

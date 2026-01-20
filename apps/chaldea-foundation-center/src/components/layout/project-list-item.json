@@ -1,0 +1,41 @@
+{
+    "collectionName": "components_layout_project_list_items",
+    "info": {
+        "displayName": "Project List Item",
+        "icon": "music"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "highlighted_subtitle": {
+            "type": "string"
+        },
+        "popover": {
+            "type": "string"
+        },
+        "icon": {
+            "type": "component",
+            "component": "layout.icon",
+            "repeatable": false
+        },
+        "body": {
+            "type": "component",
+            "component": "layout.description-with-chips-list",
+            "repeatable": false,
+            "required": true
+        },
+        "cover_image": {
+            "type": "component",
+            "component": "blog.blog-image",
+            "repeatable": false,
+            "required": true
+        }
+    },
+    "config": {}
+}

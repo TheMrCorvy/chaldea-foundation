@@ -1,0 +1,35 @@
+{
+    "collectionName": "components_blog_pdf_files",
+    "info": {
+        "displayName": "PDF File",
+        "icon": "filePdf"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "unique": true
+        },
+        "title": {
+            "type": "string"
+        },
+        "popover": {
+            "type": "string"
+        },
+        "helper_text": {
+            "type": "string"
+        },
+        "file": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": ["files", "images"]
+        },
+        "icon": {
+            "type": "component",
+            "component": "layout.icon",
+            "repeatable": false
+        }
+    },
+    "config": {}
+}
