@@ -26,7 +26,7 @@ const GlobeComponent = () => {
     const mapContainer = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        // if (!mapContainer.current) return;
+        if (!mapContainer.current) return;
 
         const width = mapContainer.current?.clientWidth || 500;
         const height = 500;
@@ -87,7 +87,7 @@ const GlobeComponent = () => {
         return () => {
             d3.selectAll("svg").remove();
         };
-    }, []);
+    }, [mapContainer]);
 
     return (
         <div
