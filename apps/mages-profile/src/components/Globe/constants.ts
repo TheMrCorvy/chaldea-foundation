@@ -15,11 +15,12 @@ export const height = 500;
 // Animation configuration
 export const ANIMATION_DURATION = 1500; // 1.5 seconds in milliseconds
 export const BASE_SCALE = 250;
-export const ZOOM_FACTOR = 1.2; // Multiplier for zoomed in state (prevents over-zooming)
+export const ZOOM_FACTOR = 1.5; // Multiplier for zoomed in state (prevents over-zooming)
 
 // Zoom level constraints
 export const MIN_SCALE = 15;
-export const MAX_SCALE_MULTIPLIER = 1.2;
+export const MAX_SCALE_MULTIPLIER = 1.5;
+export const MAX_ZOOM_SCALE = 400; // Maximum allowed scale to keep globe visible
 
 // Sensitivity and rotation
 export const sensitivity = 75;

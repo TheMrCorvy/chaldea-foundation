@@ -3,11 +3,11 @@
 import { useChaldeas } from "./useChaldeas";
 import { markedCountries } from "./constants";
 import { Box, Button, Typography } from "@mui/material";
-import { useState } from "react";
+// import { useState } from "react";
 
 const GlobeComponent = () => {
-    const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-    const { mapContainer, onCountryClick } = useChaldeas(setSelectedCountry);
+    // const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+    const { mapContainer, onCountryClick } = useChaldeas();
 
     const handleButtonClick = (country: string) => {
         onCountryClick(country);
@@ -48,7 +48,6 @@ const GlobeComponent = () => {
                     borderRadius: "0.5rem",
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                     maxHeight: "80vh",
-                    overflowY: "auto",
                     maxWidth: "200px",
                     "@media (max-width: 640px)": {
                         maxWidth: "150px",
@@ -83,10 +82,6 @@ const GlobeComponent = () => {
                             variant="contained"
                             size="small"
                             sx={{
-                                backgroundColor:
-                                    selectedCountry === country
-                                        ? "#d62828"
-                                        : "#E63946",
                                 color: "white",
                                 border: "none",
                                 borderRadius: "0.375rem",
@@ -96,12 +91,6 @@ const GlobeComponent = () => {
                                 padding: "0.5rem 0.75rem",
                                 textTransform: "none",
                                 transition: "background-color 0.2s",
-                                "&:hover": {
-                                    backgroundColor: "#d62828",
-                                },
-                                "&:active": {
-                                    backgroundColor: "#c21807",
-                                },
                             }}
                         >
                             {country}
