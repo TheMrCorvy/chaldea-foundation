@@ -3,6 +3,21 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import worldData from "../../lib/world.json";
+import {
+    initialRotationState,
+    width,
+    sensitivity,
+    height,
+    backgrounds,
+    strokeColor,
+    strokeWidth,
+    opacity,
+    thinnerStrokeWidth,
+    scale,
+    center,
+    rotate,
+    translate,
+} from "./constants";
 
 interface GeoFeature extends GeoJSON.Feature {
     properties: {
@@ -15,29 +30,19 @@ const visitedCountries = ["Argentina"];
 const GlobeComponent = () => {
     const mapContainer = useRef<HTMLDivElement>(null);
     const timerRef = useRef<d3.Timer | null>(null);
-    const dragStateRef = useRef({
-        isDragging: false,
-        startX: 0,
-        startY: 0,
-        offsetX: 0,
-        offsetY: 0,
-    });
+    const dragStateRef = useRef(initialRotationState);
 
     useEffect(() => {
         if (!mapContainer.current) return;
 
         const containerElement = mapContainer.current;
 
-        const width = containerElement?.clientWidth || 500;
-        const height = 500;
-        const sensitivity = 75;
-
         const projection = d3
             .geoOrthographic()
-            .scale(250)
-            .center([0, 0])
-            .rotate([0, -30])
-            .translate([width / 2, height / 2]);
+            .scale(scale)
+            .center(center)
+            .rotate(rotate)
+            .translate(translate);
 
         const initialScale = projection.scale();
         const pathGenerator = d3.geoPath().projection(projection);
@@ -50,10 +55,10 @@ const GlobeComponent = () => {
 
         svg.append("circle")
             .attr("fill", "#EEE")
-            .attr("stroke", "#000")
-            .attr("stroke-width", "0.2")
-            .attr("cx", width / 2)
-            .attr("cy", height / 2)
+            .attr("stroke", strokeColor)
+            .attr("stroke-width", thinnerStrokeWidth)
+            .attr("cx", translate[0])
+            .attr("cy", translate[1])
             .attr("r", initialScale);
 
         const map = svg.append("g");
@@ -67,12 +72,12 @@ const GlobeComponent = () => {
             .attr("d", (d: GeoFeature) => pathGenerator(d))
             .attr("fill", (d: GeoFeature) =>
                 visitedCountries.includes(d.properties.name)
-                    ? "#E63946"
-                    : "white"
+                    ? backgrounds[0]
+                    : backgrounds[1]
             )
-            .style("stroke", "black")
-            .style("stroke-width", 0.3)
-            .style("opacity", 0.8);
+            .style("stroke", strokeColor)
+            .style("stroke-width", strokeWidth)
+            .style("opacity", opacity);
 
         const handleMouseDown = (e: MouseEvent): void => {
             dragStateRef.current.isDragging = true;
@@ -92,8 +97,8 @@ const GlobeComponent = () => {
             dragStateRef.current.startY = e.clientY;
 
             const k = sensitivity / projection.scale();
-            const rotate = projection.rotate();
-            projection.rotate([rotate[0] + dx * k, rotate[1] - dy * k]);
+            const bRotate = projection.rotate();
+            projection.rotate([bRotate[0] + dx * k, bRotate[1] - dy * k]);
 
             svg.selectAll<SVGPathElement, GeoFeature>("path").attr(
                 "d",
@@ -103,9 +108,9 @@ const GlobeComponent = () => {
 
         const handleMouseLeave = (): void => {
             timerRef.current = d3.timer(() => {
-                const rotate = projection.rotate();
+                const cRotate = projection.rotate();
                 const k = sensitivity / projection.scale();
-                projection.rotate([rotate[0] - 1 * k, rotate[1]]);
+                projection.rotate([cRotate[0] - 1 * k, cRotate[1]]);
                 svg.selectAll<SVGPathElement, GeoFeature>("path").attr(
                     "d",
                     (d: GeoFeature) => pathGenerator(d)
@@ -127,9 +132,9 @@ const GlobeComponent = () => {
         containerElement.addEventListener("mouseleave", handleMouseUp);
 
         timerRef.current = d3.timer(() => {
-            const rotate = projection.rotate();
+            const dRotate = projection.rotate();
             const k = sensitivity / projection.scale();
-            projection.rotate([rotate[0] - 1 * k, rotate[1]]);
+            projection.rotate([dRotate[0] - 1 * k, dRotate[1]]);
             svg.selectAll<SVGPathElement, GeoFeature>("path").attr(
                 "d",
                 (d: GeoFeature) => pathGenerator(d)
