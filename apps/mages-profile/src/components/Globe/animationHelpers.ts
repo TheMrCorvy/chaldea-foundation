@@ -81,7 +81,11 @@ export const animateFrame = (
     // Resize SVG to accommodate scaled globe
     const scaleFactor = currentScale / params.initialScale;
     const newSize = Math.max(width * scaleFactor, width);
-    params.svg.attr("width", newSize).attr("height", newSize);
+
+    params.svg
+        .attr("width", newSize)
+        .attr("height", newSize)
+        .style("transform-origin", "center");
 
     if (progress === 1) {
         params.onComplete();

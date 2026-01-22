@@ -28,11 +28,12 @@ const GlobeComponent = () => {
             <section
                 ref={mapContainer}
                 style={{
-                    width: "auto",
-                    height: "auto",
+                    width: "fit-content",
+                    height: "fit-content",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    position: "relative",
                 }}
             ></section>
 

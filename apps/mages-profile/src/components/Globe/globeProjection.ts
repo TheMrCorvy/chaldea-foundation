@@ -40,7 +40,9 @@ export const setupGlobeProjection = (
         .append("svg")
         .attr("width", width)
         .attr("height", height)
-        .style("overflow", "visible") as unknown as d3.Selection<
+        .style("overflow", "visible")
+        .style("display", "block")
+        .style("position", "relative") as unknown as d3.Selection<
         SVGSVGElement,
         unknown,
         HTMLElement,
