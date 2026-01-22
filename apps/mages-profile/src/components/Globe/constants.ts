@@ -1,4 +1,4 @@
-export const visitedCountries = ["Argentina"];
+export const markedCountries = ["Argentina", "Australia"];
 
 export const initialRotationState = {
     isDragging: false,

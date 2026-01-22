@@ -1,12 +1,20 @@
 "use client";
 
 import { useChaldeas } from "./useChaldeas";
+import { markedCountries } from "./constants";
+import { Box, Button, Typography } from "@mui/material";
+import { useState } from "react";
 
 const GlobeComponent = () => {
-    const chaldeas = useChaldeas();
+    const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+    const { mapContainer, onCountryClick } = useChaldeas(setSelectedCountry);
+
+    const handleButtonClick = (country: string) => {
+        onCountryClick(country);
+    };
 
     return (
-        <div
+        <main
             style={{
                 width: "100%",
                 height: "100%",
@@ -14,17 +22,92 @@ const GlobeComponent = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: "red",
+                position: "relative",
             }}
         >
-            <div
-                ref={chaldeas}
+            <section
+                ref={mapContainer}
                 style={{
                     width: 500,
                     maxWidth: "100%",
                     overflow: "hidden",
                 }}
-            ></div>
-        </div>
+            ></section>
+
+            {/* Floating Countries Button Section */}
+            <Box
+                component="aside"
+                sx={{
+                    position: "absolute",
+                    top: "1rem",
+                    right: "1rem",
+                    backgroundColor: "rgba(255, 255, 255, 0.95)",
+                    padding: "1rem",
+                    borderRadius: "0.5rem",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    maxHeight: "80vh",
+                    overflowY: "auto",
+                    maxWidth: "200px",
+                    "@media (max-width: 640px)": {
+                        maxWidth: "150px",
+                        padding: "0.75rem",
+                        top: "0.75rem",
+                        right: "0.75rem",
+                    },
+                }}
+            >
+                <Typography
+                    variant="h6"
+                    sx={{
+                        fontSize: "0.875rem",
+                        fontWeight: 600,
+                        marginBottom: "0.75rem",
+                        color: "#1f2937",
+                    }}
+                >
+                    Marked Countries
+                </Typography>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "0.5rem",
+                    }}
+                >
+                    {markedCountries.map((country) => (
+                        <Button
+                            key={country}
+                            onClick={() => handleButtonClick(country)}
+                            variant="contained"
+                            size="small"
+                            sx={{
+                                backgroundColor:
+                                    selectedCountry === country
+                                        ? "#d62828"
+                                        : "#E63946",
+                                color: "white",
+                                border: "none",
+                                borderRadius: "0.375rem",
+                                fontSize: "0.875rem",
+                                cursor: "pointer",
+                                fontWeight: 500,
+                                padding: "0.5rem 0.75rem",
+                                textTransform: "none",
+                                transition: "background-color 0.2s",
+                                "&:hover": {
+                                    backgroundColor: "#d62828",
+                                },
+                                "&:active": {
+                                    backgroundColor: "#c21807",
+                                },
+                            }}
+                        >
+                            {country}
+                        </Button>
+                    ))}
+                </Box>
+            </Box>
+        </main>
     );
 };
 
