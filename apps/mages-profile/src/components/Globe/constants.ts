@@ -1,3 +1,5 @@
+export const visitedCountries = ["Argentina"];
+
 export const initialRotationState = {
     isDragging: false,
     startX: 0,
