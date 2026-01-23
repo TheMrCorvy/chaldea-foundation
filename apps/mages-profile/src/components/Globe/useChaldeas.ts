@@ -27,6 +27,7 @@ export const useChaldeas = (): UseChaldeasResult => {
     const mapContainer = useRef<HTMLDivElement>(null);
     const timerRef = useRef<TimeRef>(null);
     const dragStateRef = useRef<DragState>(initialRotationState as DragState);
+    const isCountrySelectedRef = useRef<boolean>(false);
     const animationStateRef = useRef<GlobeAnimationState>({
         isZoomedIn: false,
         selectedCountry: null,
@@ -68,9 +69,8 @@ export const useChaldeas = (): UseChaldeasResult => {
             dragStateRef,
             projection,
             pathGenerator,
-            timerRef,
             rotationControlsRef,
-            isCountrySelected: false,
+            isCountrySelectedRef,
         });
 
         rotationControlsRef.current.resumeAutoRotation();
@@ -85,6 +85,11 @@ export const useChaldeas = (): UseChaldeasResult => {
             d3.selectAll("svg").remove();
         };
     }, []);
+
+    // Update the ref whenever countrySelected changes
+    useEffect(() => {
+        isCountrySelectedRef.current = countrySelected !== null;
+    }, [countrySelected]);
 
     return {
         mapContainer,

@@ -1,4 +1,3 @@
-import * as d3 from "d3";
 import { sensitivity } from "./constants";
 import { SetupDragListenersParams } from "./types";
 import { updateGlobe } from "./rotation";
@@ -12,15 +11,24 @@ export const setupDragListeners = (
         dragStateRef,
         projection,
         pathGenerator,
-        timerRef,
         rotationControlsRef,
-        isCountrySelected,
+        isCountrySelectedRef,
     } = params;
 
-    containerElement.style.cursor = "grab";
+    const updateCursor = (): void => {
+        if (isCountrySelectedRef.current) {
+            containerElement.style.cursor = "default";
+        } else if (dragStateRef.current.isDragging) {
+            containerElement.style.cursor = "grabbing";
+        } else {
+            containerElement.style.cursor = "grab";
+        }
+    };
 
     const handleMouseDown = (e: MouseEvent): void => {
-        if (isCountrySelected) return;
+        if (isCountrySelectedRef.current) {
+            return;
+        }
 
         dragStateRef.current.isDragging = true;
         dragStateRef.current.startX = e.clientX;
@@ -30,7 +38,7 @@ export const setupDragListeners = (
     };
 
     const handleMouseMove = (e: MouseEvent): void => {
-        if (!dragStateRef.current.isDragging || isCountrySelected) {
+        if (!dragStateRef.current.isDragging || isCountrySelectedRef.current) {
             return;
         }
 
@@ -46,20 +54,32 @@ export const setupDragListeners = (
 
     const handleMouseUp = (): void => {
         dragStateRef.current.isDragging = false;
-        containerElement.style.cursor = "grab";
+        updateCursor();
 
-        if (!isCountrySelected) {
+        if (!isCountrySelectedRef.current) {
             rotationControlsRef.current?.resumeAutoRotation();
         }
+    };
+
+    const handleMouseOver = (): void => {
+        updateCursor();
+    };
+
+    const handleMouseLeave = (): void => {
+        containerElement.style.cursor = "default";
     };
 
     svg.on("mousedown", handleMouseDown);
     containerElement.addEventListener("mousemove", handleMouseMove);
     containerElement.addEventListener("mouseup", handleMouseUp);
+    containerElement.addEventListener("mouseover", handleMouseOver);
+    containerElement.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
         svg.on("mousedown", null);
         containerElement.removeEventListener("mousemove", handleMouseMove);
         containerElement.removeEventListener("mouseup", handleMouseUp);
+        containerElement.removeEventListener("mouseover", handleMouseOver);
+        containerElement.removeEventListener("mouseleave", handleMouseLeave);
     };
 };

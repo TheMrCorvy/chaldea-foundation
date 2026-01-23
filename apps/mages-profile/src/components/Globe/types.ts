@@ -108,12 +108,11 @@ export interface SetupDragListenersParams {
     dragStateRef: React.MutableRefObject<DragState>;
     projection: d3.GeoProjection;
     pathGenerator: d3.GeoPath<unknown, GeoJSON.Feature>;
-    timerRef: React.MutableRefObject<d3.Timer | null>;
     rotationControlsRef: React.MutableRefObject<{
         stopAutoRotation: () => void;
         resumeAutoRotation: () => d3.Timer;
     } | null>;
-    isCountrySelected: boolean;
+    isCountrySelectedRef: React.MutableRefObject<boolean>;
 }
 
 // Hook
