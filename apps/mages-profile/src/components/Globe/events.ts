@@ -36,8 +36,7 @@ export const handleCountryClick = (props: HandleCountryClickProps): void => {
     const isClickingSameCountry =
         animationState.isZoomedIn &&
         animationState.selectedCountry === props.countryName;
-    const shouldZoomOut = isClickingSameCountry;
-    const targetZoomedState = shouldZoomOut ? false : true;
+    const targetZoomedState = isClickingSameCountry ? false : true;
 
     animateToCountry({
         countryName: props.countryName,

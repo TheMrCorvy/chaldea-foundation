@@ -13,9 +13,9 @@ export const width = 500;
 export const height = 500;
 
 // Animation configuration
-export const ANIMATION_DURATION = 1500; // 1.5 seconds in milliseconds
+export const ANIMATION_DURATION = 800; // 1.5 seconds in milliseconds
 export const BASE_SCALE = 250;
-export const ZOOM_FACTOR = 1.5; // Multiplier for zoomed in state (prevents over-zooming)
+export const ZOOM_FACTOR = 1.2; // Multiplier for zoomed in state (prevents over-zooming)
 
 // Zoom level constraints
 export const MIN_SCALE = 15;

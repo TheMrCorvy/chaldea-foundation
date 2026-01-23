@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import { ANIMATION_DURATION, MAX_ZOOM_SCALE, width } from "./constants";
+import { ANIMATION_DURATION, width } from "./constants";
 
 export interface AnimateFrameParams {
     projection: d3.GeoProjection;
@@ -33,19 +33,6 @@ export const calculateRotationToCenter = (
     center: [number, number]
 ): [number, number] => [-center[0], -center[1]];
 
-export const calculateZoomScale = (
-    feature: GeoJSON.Feature,
-    baseScale: number
-): number => {
-    const bounds = d3.geoBounds(feature);
-    const maxDim = Math.max(
-        bounds[1][0] - bounds[0][0],
-        bounds[1][1] - bounds[0][1]
-    );
-    const zoomFactor = Math.max(1.2, Math.min(200 / maxDim, 1.5));
-    return Math.min(baseScale * zoomFactor, MAX_ZOOM_SCALE);
-};
-
 const interpolateValue = (
     start: number,
     end: number,
@@ -76,7 +63,6 @@ export const animateFrame = (
         .selectAll<SVGPathElement, GeoJSON.Feature>("path")
         .attr("d", (d: GeoJSON.Feature) => params.pathGenerator(d) as string);
     params.circle.attr("r", currentScale);
-    params.projection.translate([width / 2, width / 2]);
 
     // Resize SVG to accommodate scaled globe
     const scaleFactor = currentScale / params.initialScale;

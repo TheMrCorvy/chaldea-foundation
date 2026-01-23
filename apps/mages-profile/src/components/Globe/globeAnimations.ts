@@ -1,10 +1,9 @@
 import * as d3 from "d3";
-import { BASE_SCALE } from "./constants";
+import { BASE_SCALE, ZOOM_FACTOR } from "./constants";
 import { GeoFeature } from "./useChaldeas";
 import {
     findCountryCenter,
     calculateRotationToCenter,
-    calculateZoomScale,
     animateFrame,
 } from "./animationHelpers";
 
@@ -89,7 +88,7 @@ export const animateToCountry = (params: AnimateToCountryParams): void => {
     const targetRotate = calculateRotationToCenter(countryCenter);
     const initialScale = projection.scale();
     const targetScale = targetZoomedState
-        ? calculateZoomScale(feature, BASE_SCALE)
+        ? ZOOM_FACTOR * BASE_SCALE
         : BASE_SCALE;
 
     animationState.isAnimating = true;
