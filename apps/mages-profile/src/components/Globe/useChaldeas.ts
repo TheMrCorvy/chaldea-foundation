@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import worldDataImport from "../../lib/world.json";
 import { initialRotationState, BASE_SCALE } from "./constants";
-import { animateToCountry } from "./globeAnimations";
+import { animateToCountry, zoomOut } from "./globeAnimations";
 import { setupGlobeProjection } from "./globeProjection";
 import { setupDragListeners } from "./dragAndDrop";
 import { createRotationControls } from "./rotation";
@@ -88,25 +88,38 @@ export const useChaldeas = (): UseChaldeasResult => {
 
     return {
         mapContainer,
-        isCountrySelected: countrySelected !== null,
-        onCountryClick: (countryName: string) => {
+        countrySelected,
+        onCountryClick: (countryName) => {
             setCountrySelected(countryName);
 
-            animateToCountry({
-                countryName,
-                targetZoomedState:
-                    animationStateRef.current.selectedCountry === countryName
-                        ? !animationStateRef.current.isZoomedIn
-                        : true,
-                projectionRef,
-                svgRef,
-                circleRef,
-                pathGeneratorRef,
-                animationStateRef,
-                animationTimerRef,
-                rotationControlsRef,
-                worldData,
-            });
+            if (countryName === null) {
+                zoomOut({
+                    projectionRef,
+                    svgRef,
+                    circleRef,
+                    pathGeneratorRef,
+                    animationStateRef,
+                    animationTimerRef,
+                    rotationControlsRef,
+                });
+            } else {
+                animateToCountry({
+                    countryName,
+                    targetZoomedState:
+                        animationStateRef.current.selectedCountry ===
+                        countryName
+                            ? !animationStateRef.current.isZoomedIn
+                            : true,
+                    projectionRef,
+                    svgRef,
+                    circleRef,
+                    pathGeneratorRef,
+                    animationStateRef,
+                    animationTimerRef,
+                    rotationControlsRef,
+                    worldData,
+                });
+            }
         },
     };
 };

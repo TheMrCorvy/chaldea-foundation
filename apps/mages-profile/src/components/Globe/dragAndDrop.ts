@@ -53,32 +53,13 @@ export const setupDragListeners = (
         }
     };
 
-    const handleMouseLeave = (): void => {
-        if (dragStateRef.current.isDragging) {
-            handleMouseUp();
-        }
-
-        if (isCountrySelected) return;
-
-        if (timerRef.current) timerRef.current.stop();
-
-        timerRef.current = d3.timer(() => {
-            const [rx] = projection.rotate();
-            const k = sensitivity / projection.scale();
-            projection.rotate([rx - k, projection.rotate()[1]]);
-            updateGlobe({ svg, pathGenerator });
-        }, 200);
-    };
-
     svg.on("mousedown", handleMouseDown);
     containerElement.addEventListener("mousemove", handleMouseMove);
     containerElement.addEventListener("mouseup", handleMouseUp);
-    containerElement.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
         svg.on("mousedown", null);
         containerElement.removeEventListener("mousemove", handleMouseMove);
         containerElement.removeEventListener("mouseup", handleMouseUp);
-        containerElement.removeEventListener("mouseleave", handleMouseLeave);
     };
 };

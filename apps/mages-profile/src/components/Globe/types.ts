@@ -35,7 +35,7 @@ export interface GlobeAnimationState {
 }
 
 export interface AnimateToCountryParams {
-    countryName: string;
+    countryName: string | null;
     targetZoomedState: boolean;
     projectionRef: React.MutableRefObject<d3.GeoProjection | null>;
     svgRef: React.MutableRefObject<d3.Selection<
@@ -61,6 +61,32 @@ export interface AnimateToCountryParams {
         resumeAutoRotation: () => d3.Timer;
     } | null>;
     worldData: GeoJSON.FeatureCollection;
+}
+
+export interface ZoomOutParams {
+    projectionRef: React.MutableRefObject<d3.GeoProjection | null>;
+    svgRef: React.MutableRefObject<d3.Selection<
+        SVGSVGElement,
+        unknown,
+        HTMLElement,
+        unknown
+    > | null>;
+    circleRef: React.MutableRefObject<d3.Selection<
+        SVGCircleElement,
+        unknown,
+        HTMLElement,
+        unknown
+    > | null>;
+    pathGeneratorRef: React.MutableRefObject<d3.GeoPath<
+        unknown,
+        GeoJSON.Feature
+    > | null>;
+    animationStateRef: React.MutableRefObject<GlobeAnimationState>;
+    animationTimerRef: React.MutableRefObject<number | null>;
+    rotationControlsRef: React.MutableRefObject<{
+        stopAutoRotation: () => void;
+        resumeAutoRotation: () => d3.Timer;
+    } | null>;
 }
 
 // Drag and Drop
@@ -93,8 +119,8 @@ export interface SetupDragListenersParams {
 // Hook
 export interface UseChaldeasResult {
     mapContainer: React.RefObject<HTMLDivElement | null>;
-    onCountryClick: (countryName: string) => void;
-    isCountrySelected: boolean;
+    onCountryClick: (countryName: string | null) => void;
+    countrySelected: string | null;
 }
 
 export type SvgRef = d3.Selection<

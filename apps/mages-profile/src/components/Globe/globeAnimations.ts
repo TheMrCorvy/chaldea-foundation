@@ -6,6 +6,7 @@ import {
     Coordinates,
     FindCountryCenter,
     GeoFeature,
+    ZoomOutParams,
 } from "./types";
 
 const findCountryCenter: FindCountryCenter = (params) => {
@@ -85,7 +86,7 @@ export const animateToCountry = (params: AnimateToCountryParams): void => {
     );
     const countryCenter = findCountryCenter({
         features: worldData.features,
-        countryName,
+        countryName: countryName as string,
     });
 
     if (!feature || !countryCenter) return;
@@ -99,9 +100,10 @@ export const animateToCountry = (params: AnimateToCountryParams): void => {
     const initialRotate = projection.rotate() as unknown as Coordinates;
     const targetRotate: Coordinates = [-countryCenter[0], -countryCenter[1]];
     const initialScale = projection.scale();
-    const targetScale = targetZoomedState
-        ? ZOOM_FACTOR * BASE_SCALE
-        : BASE_SCALE;
+    const targetScale =
+        targetZoomedState || countryName !== null
+            ? ZOOM_FACTOR * BASE_SCALE
+            : BASE_SCALE;
 
     animationState.isAnimating = true;
     const startTime = performance.now();
@@ -130,6 +132,74 @@ export const animateToCountry = (params: AnimateToCountryParams): void => {
                     } else {
                         rotationControlsRef.current.resumeAutoRotation();
                     }
+                }
+            },
+            timestamp,
+        });
+
+        if (!isComplete) {
+            animationTimerRef.current = requestAnimationFrame(animate);
+        } else {
+            animationTimerRef.current = null;
+        }
+    };
+
+    animationTimerRef.current = requestAnimationFrame(animate);
+};
+
+export const zoomOut = (params: ZoomOutParams): void => {
+    const {
+        projectionRef,
+        svgRef,
+        circleRef,
+        pathGeneratorRef,
+        animationStateRef,
+        animationTimerRef,
+        rotationControlsRef,
+    } = params;
+
+    if (
+        !projectionRef.current ||
+        !svgRef.current ||
+        !circleRef.current ||
+        !pathGeneratorRef.current
+    )
+        return;
+
+    const animationState = animationStateRef.current;
+    if (animationState.isAnimating) return;
+
+    rotationControlsRef.current?.stopAutoRotation();
+
+    if (animationTimerRef.current)
+        cancelAnimationFrame(animationTimerRef.current);
+
+    const projection = projectionRef.current;
+    const initialRotate = projection.rotate() as unknown as Coordinates;
+    const initialScale = projection.scale();
+    const targetScale = BASE_SCALE;
+
+    animationState.isAnimating = true;
+    const startTime = performance.now();
+
+    const animate = (timestamp: number): void => {
+        const isComplete = animateFrame({
+            projection,
+            svg: svgRef.current!,
+            pathGenerator: pathGeneratorRef.current!,
+            circle: circleRef.current!,
+            initialRotate,
+            targetRotate: initialRotate,
+            initialScale,
+            targetScale,
+            startTime,
+            onComplete: () => {
+                animationState.isAnimating = false;
+                animationState.isZoomedIn = false;
+                animationState.selectedCountry = null;
+                animationState.currentScale = targetScale;
+                if (rotationControlsRef.current) {
+                    rotationControlsRef.current.resumeAutoRotation();
                 }
             },
             timestamp,

@@ -3,13 +3,13 @@
 import { useChaldeas } from "./useChaldeas";
 import { markedCountries } from "./constants";
 import { Box, Button, Typography } from "@mui/material";
-// import { useState } from "react";
 
 const GlobeComponent = () => {
-    // const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-    const { mapContainer, onCountryClick } = useChaldeas();
+    const { mapContainer, onCountryClick, countrySelected } = useChaldeas();
 
-    const handleButtonClick = (country: string) => {
+    const handleButtonClick = (country: string | null) => {
+        if (country && country === countrySelected) return;
+
         onCountryClick(country);
     };
 
@@ -77,6 +77,24 @@ const GlobeComponent = () => {
                             {country}
                         </Button>
                     ))}
+                    <Button
+                        onClick={() => handleButtonClick(null)}
+                        variant="contained"
+                        size="small"
+                        sx={{
+                            color: "white",
+                            border: "none",
+                            borderRadius: "0.375rem",
+                            fontSize: "0.875rem",
+                            cursor: "pointer",
+                            fontWeight: 500,
+                            padding: "0.5rem 0.75rem",
+                            textTransform: "none",
+                            transition: "background-color 0.2s",
+                        }}
+                    >
+                        Clear selection
+                    </Button>
                 </Box>
             </Box>
         </>
