@@ -10,23 +10,14 @@ export const initialRotationState = {
     offsetY: 0,
 };
 
-// Canvas and viewport sizes
-export const width = 500;
-export const height = 500;
-
 // Animation configuration
-export const ANIMATION_DURATION = 800; // 1.5 seconds in milliseconds
+export const ANIMATION_DURATION = 800;
 export const BASE_SCALE = 250;
+export const MOBILE_BASE_SCALE = 150;
 export const ZOOM_FACTOR = 1.2; // Multiplier for zoomed in state (prevents over-zooming)
-
-// Zoom level constraints
-export const MIN_SCALE = 15;
-export const MAX_SCALE_MULTIPLIER = 1.5;
-export const MAX_ZOOM_SCALE = 400; // Maximum allowed scale to keep globe visible
 
 // Sensitivity and rotation
 export const sensitivity = 75;
-export const rotationSpeed = 1;
 
 // Colors and styling
 export const backgrounds = [
@@ -43,7 +34,6 @@ export const thinnerStrokeWidth = "0.2";
 export const strokeColor = "black";
 export const opacity = 0.8;
 
-export const scale = 250;
 export const center: Coordinates = [0, 0];
 export const rotate: Coordinates = [0, -30];
-export const translate: Coordinates = [width / 2, height / 2];
+export const translate: Coordinates = [BASE_SCALE / 2, BASE_SCALE / 2];

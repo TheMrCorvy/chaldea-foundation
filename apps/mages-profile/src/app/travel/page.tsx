@@ -1,9 +1,10 @@
 import { Box } from "@mui/material";
-import Globe from "@/components/Globe";
+import { GlobeWrapper } from "@/components/Globe/GlobeWrapper";
 
 export default function TravelPage() {
     return (
         <Box
+            component="main"
             sx={{
                 minHeight: "100vh",
                 position: "relative",
@@ -11,9 +12,8 @@ export default function TravelPage() {
                 justifyContent: "center",
                 alignItems: "center",
             }}
-            component="main"
         >
-            <Globe />
+            <GlobeWrapper />
         </Box>
     );
 }

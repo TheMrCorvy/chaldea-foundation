@@ -1,8 +1,6 @@
 import * as d3 from "d3";
 import worldData from "../../lib/world.json";
 import {
-    width,
-    height,
     BASE_SCALE,
     center,
     rotate,
@@ -35,9 +33,9 @@ export const setupGlobeProjection = ({
     const svg = d3
         .select(containerElement)
         .append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("width", BASE_SCALE)
+        .attr("height", BASE_SCALE)
+        .attr("viewBox", `0 0 ${BASE_SCALE} ${BASE_SCALE}`)
         .style("overflow", "visible")
         .style("display", "block")
         .style("position", "relative") as unknown as D3Selection;

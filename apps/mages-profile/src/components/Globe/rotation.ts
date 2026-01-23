@@ -34,7 +34,7 @@ export const createRotationControls = (
             projection.rotate([rx - k, projection.rotate()[1]]);
 
             updateGlobe({ svg, pathGenerator });
-        }, 200);
+        }, 0);
         return timerRef.current;
     };
 

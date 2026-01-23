@@ -1,10 +1,8 @@
-"use client";
-
 import { useChaldeas } from "./useChaldeas";
 import { markedCountries } from "./constants";
 import { Box, Button, Typography } from "@mui/material";
 
-const GlobeComponent = () => {
+const Globe = () => {
     const { mapContainer, onCountryClick, countrySelected } = useChaldeas();
 
     const handleButtonClick = (country: string | null) => {
@@ -101,4 +99,4 @@ const GlobeComponent = () => {
     );
 };
 
-export default GlobeComponent;
+export default Globe;

@@ -44,10 +44,13 @@ export const setupDragListeners = (
 
         const dx = e.clientX - dragStateRef.current.startX;
         const dy = e.clientY - dragStateRef.current.startY;
+
         dragStateRef.current.startX = e.clientX;
         dragStateRef.current.startY = e.clientY;
+
         const k = sensitivity / projection.scale();
         const [rx, ry] = projection.rotate();
+
         projection.rotate([rx + dx * k, ry - dy * k]);
         updateGlobe({ svg, pathGenerator });
     };
