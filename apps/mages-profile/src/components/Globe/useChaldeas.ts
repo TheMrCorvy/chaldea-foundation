@@ -86,32 +86,6 @@ export const useChaldeas = (): UseChaldeasResult => {
         };
     }, []);
 
-    useEffect(() => {
-        if (
-            !mapContainer.current ||
-            !projectionRef.current ||
-            !svgRef.current ||
-            !pathGeneratorRef.current
-        ) {
-            return;
-        }
-
-        // Detach old listeners
-        detachDragListenersRef.current?.();
-
-        // Reattach listeners with updated isCountrySelected state
-        detachDragListenersRef.current = setupDragListeners({
-            containerElement: mapContainer.current,
-            svg: svgRef.current,
-            dragStateRef,
-            projection: projectionRef.current,
-            pathGenerator: pathGeneratorRef.current,
-            timerRef,
-            rotationControlsRef,
-            isCountrySelected: countrySelected !== null,
-        });
-    }, [countrySelected]);
-
     return {
         mapContainer,
         isCountrySelected: countrySelected !== null,
