@@ -1,15 +1,13 @@
 import * as d3 from "d3";
 import { sensitivity } from "./constants";
+import {
+    CreateRotationControlsParams,
+    GeoFeature,
+    UpdateGlobeParams,
+} from "./types";
 
-interface GeoFeature extends GeoJSON.Feature {
-    properties: { name: string };
-}
-
-const updateGlobe = (
-    projection: d3.GeoProjection,
-    svg: d3.Selection<SVGSVGElement, unknown, HTMLElement, unknown>,
-    pathGenerator: d3.GeoPath<unknown, GeoJSON.Feature>
-): void => {
+export const updateGlobe = (params: UpdateGlobeParams): void => {
+    const { svg, pathGenerator } = params;
     svg.selectAll<SVGPathElement, GeoFeature>("path").attr(
         "d",
         (d: GeoFeature) => pathGenerator(d) as string
@@ -17,11 +15,10 @@ const updateGlobe = (
 };
 
 export const createRotationControls = (
-    timerRef: React.MutableRefObject<d3.Timer | null>,
-    projection: d3.GeoProjection,
-    svg: d3.Selection<SVGSVGElement, unknown, HTMLElement, unknown>,
-    pathGenerator: d3.GeoPath<unknown, GeoJSON.Feature>
+    params: CreateRotationControlsParams
 ) => {
+    const { timerRef, projection, svg, pathGenerator } = params;
+
     const stopAutoRotation = (): void => {
         if (timerRef.current) {
             timerRef.current.stop();
@@ -35,7 +32,8 @@ export const createRotationControls = (
             const [rx] = projection.rotate();
             const k = sensitivity / projection.scale();
             projection.rotate([rx - k, projection.rotate()[1]]);
-            updateGlobe(projection, svg, pathGenerator);
+
+            updateGlobe({ svg, pathGenerator });
         }, 200);
         return timerRef.current;
     };

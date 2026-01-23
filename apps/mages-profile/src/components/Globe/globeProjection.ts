@@ -14,17 +14,7 @@ import {
     opacity,
     markedCountries,
 } from "./constants";
-
-interface GeoFeature extends GeoJSON.Feature {
-    properties: { name: string };
-}
-
-export interface GlobeProjectionSetup {
-    projection: d3.GeoProjection;
-    svg: d3.Selection<SVGSVGElement, unknown, HTMLElement, unknown>;
-    circle: d3.Selection<SVGCircleElement, unknown, HTMLElement, unknown>;
-    pathGenerator: d3.GeoPath<unknown, GeoJSON.Feature>;
-}
+import { D3Selection, GeoFeature, GlobeProjectionSetup } from "./types";
 
 export const setupGlobeProjection = (
     containerElement: HTMLElement
@@ -35,6 +25,7 @@ export const setupGlobeProjection = (
         .center(center)
         .rotate(rotate)
         .translate(translate);
+
     const svg = d3
         .select(containerElement)
         .append("svg")
@@ -42,12 +33,8 @@ export const setupGlobeProjection = (
         .attr("height", height)
         .style("overflow", "visible")
         .style("display", "block")
-        .style("position", "relative") as unknown as d3.Selection<
-        SVGSVGElement,
-        unknown,
-        HTMLElement,
-        unknown
-    >;
+        .style("position", "relative") as unknown as D3Selection;
+
     const circle = svg
         .append("circle")
         .attr("fill", "#EEE")

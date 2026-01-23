@@ -1,3 +1,5 @@
+import { Coordinates } from "./types";
+
 export const markedCountries = ["Argentina", "Australia"];
 
 export const initialRotationState = {
@@ -40,9 +42,6 @@ export const strokeWidth = 0.3;
 export const thinnerStrokeWidth = "0.2";
 export const strokeColor = "black";
 export const opacity = 0.8;
-
-// Coordinate types and initial values
-export type Coordinates = [number, number];
 
 export const scale = 250;
 export const center: Coordinates = [0, 0];

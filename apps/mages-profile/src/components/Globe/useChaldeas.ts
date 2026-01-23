@@ -1,31 +1,32 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import worldDataImport from "../../lib/world.json";
 import { initialRotationState, BASE_SCALE } from "./constants";
-import { GlobeAnimationState } from "./globeAnimations";
+import { animateToCountry } from "./globeAnimations";
 import { setupGlobeProjection } from "./globeProjection";
 import { setupDragListeners } from "./dragAndDrop";
 import { createRotationControls } from "./rotation";
-import { handleCountryClick } from "./events";
+import {
+    CircleRef,
+    DragState,
+    GlobeAnimationState,
+    PathGeneratorRef,
+    ProjectionRef,
+    RotationControlsRef,
+    SvgRef,
+    TimeRef,
+    UseChaldeasResult,
+} from "./types";
 
 const worldData = worldDataImport as GeoJSON.FeatureCollection<
     GeoJSON.Geometry,
     GeoJSON.GeoJsonProperties
 >;
 
-export interface GeoFeature extends GeoJSON.Feature {
-    properties: { name: string };
-}
-
-export interface UseChaldeasResult {
-    mapContainer: React.RefObject<HTMLDivElement | null>;
-    onCountryClick: (countryName: string) => void;
-}
-
 export const useChaldeas = (): UseChaldeasResult => {
     const mapContainer = useRef<HTMLDivElement>(null);
-    const timerRef = useRef<d3.Timer | null>(null);
-    const dragStateRef = useRef(initialRotationState);
+    const timerRef = useRef<TimeRef>(null);
+    const dragStateRef = useRef<DragState>(initialRotationState as DragState);
     const animationStateRef = useRef<GlobeAnimationState>({
         isZoomedIn: false,
         selectedCountry: null,
@@ -33,28 +34,14 @@ export const useChaldeas = (): UseChaldeasResult => {
         currentScale: BASE_SCALE,
         isAnimating: false,
     });
-    const projectionRef = useRef<d3.GeoProjection | null>(null);
-    const svgRef = useRef<d3.Selection<
-        SVGSVGElement,
-        unknown,
-        HTMLElement,
-        unknown
-    > | null>(null);
+    const projectionRef = useRef<ProjectionRef>(null);
+    const svgRef = useRef<SvgRef>(null);
     const animationTimerRef = useRef<number | null>(null);
-    const circleRef = useRef<d3.Selection<
-        SVGCircleElement,
-        unknown,
-        HTMLElement,
-        unknown
-    > | null>(null);
-    const pathGeneratorRef = useRef<d3.GeoPath<
-        unknown,
-        GeoJSON.Feature
-    > | null>(null);
-    const rotationControlsRef = useRef<{
-        stopAutoRotation: () => void;
-        resumeAutoRotation: () => d3.Timer;
-    } | null>(null);
+    const circleRef = useRef<CircleRef>(null);
+    const pathGeneratorRef = useRef<PathGeneratorRef>(null);
+    const rotationControlsRef = useRef<RotationControlsRef>(null);
+    const [countrySelected, setCountrySelected] = useState<string | null>(null);
+    const detachDragListenersRef = useRef<(() => void) | null>(null);
 
     useEffect(() => {
         if (!mapContainer.current) return;
@@ -68,28 +55,23 @@ export const useChaldeas = (): UseChaldeasResult => {
         circleRef.current = circle;
         pathGeneratorRef.current = pathGenerator;
 
-        rotationControlsRef.current = createRotationControls(
+        rotationControlsRef.current = createRotationControls({
             timerRef,
             projection,
             svg,
-            pathGenerator
-        );
+            pathGenerator,
+        });
 
-        const detachDragListeners = setupDragListeners(
-            mapContainer.current,
+        detachDragListenersRef.current = setupDragListeners({
+            containerElement: mapContainer.current,
             svg,
-            dragStateRef as React.MutableRefObject<{
-                isDragging: boolean;
-                startX: number;
-                startY: number;
-                offsetX: number;
-                offsetY: number;
-            }>,
+            dragStateRef,
             projection,
             pathGenerator,
             timerRef,
-            rotationControlsRef
-        );
+            rotationControlsRef,
+            isCountrySelected: false,
+        });
 
         rotationControlsRef.current.resumeAutoRotation();
 
@@ -99,24 +81,58 @@ export const useChaldeas = (): UseChaldeasResult => {
         return () => {
             if (timer) timer.stop();
             if (animTimer) cancelAnimationFrame(animTimer);
-            detachDragListeners();
+            detachDragListenersRef.current?.();
             d3.selectAll("svg").remove();
         };
     }, []);
 
+    useEffect(() => {
+        if (
+            !mapContainer.current ||
+            !projectionRef.current ||
+            !svgRef.current ||
+            !pathGeneratorRef.current
+        ) {
+            return;
+        }
+
+        // Detach old listeners
+        detachDragListenersRef.current?.();
+
+        // Reattach listeners with updated isCountrySelected state
+        detachDragListenersRef.current = setupDragListeners({
+            containerElement: mapContainer.current,
+            svg: svgRef.current,
+            dragStateRef,
+            projection: projectionRef.current,
+            pathGenerator: pathGeneratorRef.current,
+            timerRef,
+            rotationControlsRef,
+            isCountrySelected: countrySelected !== null,
+        });
+    }, [countrySelected]);
+
     return {
         mapContainer,
-        onCountryClick: (countryName: string) =>
-            handleCountryClick({
+        isCountrySelected: countrySelected !== null,
+        onCountryClick: (countryName: string) => {
+            setCountrySelected(countryName);
+
+            animateToCountry({
                 countryName,
+                targetZoomedState:
+                    animationStateRef.current.selectedCountry === countryName
+                        ? !animationStateRef.current.isZoomedIn
+                        : true,
                 projectionRef,
                 svgRef,
                 circleRef,
                 pathGeneratorRef,
                 animationStateRef,
+                animationTimerRef,
                 rotationControlsRef,
                 worldData,
-                animationTimerRef,
-            }),
+            });
+        },
     };
 };

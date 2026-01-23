@@ -14,27 +14,19 @@ const GlobeComponent = () => {
     };
 
     return (
-        <main
-            style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "red",
-                position: "relative",
-            }}
-        >
+        <>
             <section
                 ref={mapContainer}
-                style={{
-                    width: "fit-content",
-                    height: "fit-content",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    position: "relative",
-                }}
+                style={
+                    {
+                        // width: "fit-content",
+                        // height: "fit-content",
+                        // display: "flex",
+                        // alignItems: "center",
+                        // justifyContent: "center",
+                        // position: "relative",
+                    }
+                }
             ></section>
 
             {/* Floating Countries Button Section */}
@@ -99,7 +91,7 @@ const GlobeComponent = () => {
                     ))}
                 </Box>
             </Box>
-        </main>
+        </>
     );
 };
 
