@@ -15,19 +15,7 @@ const GlobeComponent = () => {
 
     return (
         <>
-            <section
-                ref={mapContainer}
-                style={
-                    {
-                        // width: "fit-content",
-                        // height: "fit-content",
-                        // display: "flex",
-                        // alignItems: "center",
-                        // justifyContent: "center",
-                        // position: "relative",
-                    }
-                }
-            ></section>
+            <section ref={mapContainer}></section>
 
             {/* Floating Countries Button Section */}
             <Box

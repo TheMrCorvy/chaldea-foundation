@@ -31,6 +31,7 @@ export const setupGlobeProjection = (
         .append("svg")
         .attr("width", width)
         .attr("height", height)
+        .attr("viewBox", `0 0 ${width} ${height}`)
         .style("overflow", "visible")
         .style("display", "block")
         .style("position", "relative") as unknown as D3Selection;

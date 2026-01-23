@@ -1,12 +1,11 @@
-import { BASE_SCALE, ZOOM_FACTOR } from "./constants";
-import { GeoFeature } from "./useChaldeas";
+import { BASE_SCALE, ZOOM_FACTOR, ANIMATION_DURATION } from "./constants";
 import * as d3 from "d3";
-import { ANIMATION_DURATION, width } from "./constants";
 import {
     AnimateFrameParams,
     AnimateToCountryParams,
     Coordinates,
     FindCountryCenter,
+    GeoFeature,
 } from "./types";
 
 const findCountryCenter: FindCountryCenter = (params) => {
@@ -48,14 +47,6 @@ const animateFrame = (params: AnimateFrameParams): boolean => {
         (d: GeoJSON.Feature) => pathGenerator(d) as string
     );
     circle.attr("r", currentScale);
-
-    // Resize SVG to accommodate scaled globe
-    const scaleFactor = currentScale / initialScale;
-    const newSize = Math.max(width * scaleFactor, width);
-
-    svg.attr("width", newSize)
-        .attr("height", newSize)
-        .style("transform-origin", "center");
 
     if (progress === 1) {
         onComplete();
@@ -105,7 +96,7 @@ export const animateToCountry = (params: AnimateToCountryParams): void => {
         cancelAnimationFrame(animationTimerRef.current);
 
     const projection = projectionRef.current;
-    const initialRotate = projection.rotate() as unknown as [number, number];
+    const initialRotate = projection.rotate() as unknown as Coordinates;
     const targetRotate: Coordinates = [-countryCenter[0], -countryCenter[1]];
     const initialScale = projection.scale();
     const targetScale = targetZoomedState
