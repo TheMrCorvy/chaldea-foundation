@@ -148,6 +148,11 @@ export type TimeRef = d3.Timer | null;
 export type ProjectionRef = d3.GeoProjection | null;
 
 // Projection
+export interface SetupGlobeProjectionParams {
+    containerElement: HTMLElement;
+    onCountryClick?: (countryName: string) => void;
+}
+
 export interface GlobeProjectionSetup {
     projection: d3.GeoProjection;
     svg: d3.Selection<SVGSVGElement, unknown, HTMLElement, unknown>;

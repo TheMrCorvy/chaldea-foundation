@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import worldDataImport from "../../lib/world.json";
 import { initialRotationState, BASE_SCALE } from "./constants";
@@ -44,11 +44,46 @@ export const useChaldeas = (): UseChaldeasResult => {
     const [countrySelected, setCountrySelected] = useState<string | null>(null);
     const detachDragListenersRef = useRef<(() => void) | null>(null);
 
+    const handleCountryClick = useCallback((countryName: string | null) => {
+        setCountrySelected(countryName);
+
+        if (countryName === null) {
+            zoomOut({
+                projectionRef,
+                svgRef,
+                circleRef,
+                pathGeneratorRef,
+                animationStateRef,
+                animationTimerRef,
+                rotationControlsRef,
+            });
+        } else {
+            animateToCountry({
+                countryName,
+                targetZoomedState:
+                    animationStateRef.current.selectedCountry === countryName
+                        ? !animationStateRef.current.isZoomedIn
+                        : true,
+                projectionRef,
+                svgRef,
+                circleRef,
+                pathGeneratorRef,
+                animationStateRef,
+                animationTimerRef,
+                rotationControlsRef,
+                worldData,
+            });
+        }
+    }, []);
+
     useEffect(() => {
         if (!mapContainer.current) return;
 
         const { projection, svg, circle, pathGenerator } = setupGlobeProjection(
-            mapContainer.current
+            {
+                containerElement: mapContainer.current,
+                onCountryClick: handleCountryClick,
+            }
         );
 
         projectionRef.current = projection;
@@ -84,7 +119,7 @@ export const useChaldeas = (): UseChaldeasResult => {
             detachDragListenersRef.current?.();
             d3.selectAll("svg").remove();
         };
-    }, []);
+    }, [handleCountryClick]);
 
     // Update the ref whenever countrySelected changes
     useEffect(() => {
@@ -94,37 +129,6 @@ export const useChaldeas = (): UseChaldeasResult => {
     return {
         mapContainer,
         countrySelected,
-        onCountryClick: (countryName) => {
-            setCountrySelected(countryName);
-
-            if (countryName === null) {
-                zoomOut({
-                    projectionRef,
-                    svgRef,
-                    circleRef,
-                    pathGeneratorRef,
-                    animationStateRef,
-                    animationTimerRef,
-                    rotationControlsRef,
-                });
-            } else {
-                animateToCountry({
-                    countryName,
-                    targetZoomedState:
-                        animationStateRef.current.selectedCountry ===
-                        countryName
-                            ? !animationStateRef.current.isZoomedIn
-                            : true,
-                    projectionRef,
-                    svgRef,
-                    circleRef,
-                    pathGeneratorRef,
-                    animationStateRef,
-                    animationTimerRef,
-                    rotationControlsRef,
-                    worldData,
-                });
-            }
-        },
+        onCountryClick: handleCountryClick,
     };
 };

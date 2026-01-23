@@ -14,11 +14,17 @@ import {
     opacity,
     markedCountries,
 } from "./constants";
-import { D3Selection, GeoFeature, GlobeProjectionSetup } from "./types";
+import {
+    D3Selection,
+    GeoFeature,
+    GlobeProjectionSetup,
+    SetupGlobeProjectionParams,
+} from "./types";
 
-export const setupGlobeProjection = (
-    containerElement: HTMLElement
-): GlobeProjectionSetup => {
+export const setupGlobeProjection = ({
+    containerElement,
+    onCountryClick,
+}: SetupGlobeProjectionParams): GlobeProjectionSetup => {
     const projection = d3
         .geoOrthographic()
         .scale(BASE_SCALE)
@@ -60,7 +66,13 @@ export const setupGlobeProjection = (
         )
         .style("stroke", strokeColor)
         .style("stroke-width", strokeWidth)
-        .style("opacity", opacity);
+        .style("opacity", opacity)
+        .on("click", (event: MouseEvent, d: GeoFeature) => {
+            if (markedCountries.includes(d.properties.name) && onCountryClick) {
+                event.stopPropagation();
+                onCountryClick(d.properties.name);
+            }
+        });
 
     return { projection, svg, circle, pathGenerator };
 };
