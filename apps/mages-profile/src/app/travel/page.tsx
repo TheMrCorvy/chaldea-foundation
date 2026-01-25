@@ -19,6 +19,7 @@ import {
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import SharedLightCards from "@/components/SharedLightCards";
+import GlitchBackgroundCard from "@/components/GlitchBacgkroundCard";
 
 interface Project {
     id: number;
@@ -145,6 +146,15 @@ export default function Home(): JSX.Element {
                                 }}
                             >
                                 <SharedLightCards />
+                            </Grid>
+                            <Grid
+                                size={{ xs: 12 }}
+                                sx={{
+                                    background: "#121212",
+                                    padding: 2,
+                                }}
+                            >
+                                <GlitchBackgroundCard />
                             </Grid>
                             <Grid
                                 size={{ xs: 12 }}
