@@ -1,10 +1,8 @@
 import * as d3 from "d3";
 import worldData from "../../lib/world.json";
 import {
-    BASE_SCALE,
     center,
     rotate,
-    translate,
     strokeColor,
     thinnerStrokeWidth,
     backgrounds,
@@ -13,19 +11,22 @@ import {
     markedCountries,
 } from "./constants";
 import {
+    Coordinates,
     D3Selection,
     GeoFeature,
-    GlobeProjectionSetup,
-    SetupGlobeProjectionParams,
+    SetupGlobeProjection,
 } from "./types";
 
-export const setupGlobeProjection = ({
+export const setupGlobeProjection: SetupGlobeProjection = ({
     containerElement,
     onCountryClick,
-}: SetupGlobeProjectionParams): GlobeProjectionSetup => {
+    scale,
+}) => {
+    const translate: Coordinates = [scale / 2, scale / 2];
+
     const projection = d3
         .geoOrthographic()
-        .scale(BASE_SCALE)
+        .scale(scale)
         .center(center)
         .rotate(rotate)
         .translate(translate);
@@ -33,9 +34,9 @@ export const setupGlobeProjection = ({
     const svg = d3
         .select(containerElement)
         .append("svg")
-        .attr("width", BASE_SCALE)
-        .attr("height", BASE_SCALE)
-        .attr("viewBox", `0 0 ${BASE_SCALE} ${BASE_SCALE}`)
+        .attr("width", scale)
+        .attr("height", scale)
+        .attr("viewBox", `0 0 ${scale} ${scale}`)
         .style("overflow", "visible")
         .style("display", "block")
         .style("position", "relative") as unknown as D3Selection;
@@ -47,7 +48,7 @@ export const setupGlobeProjection = ({
         .attr("stroke-width", thinnerStrokeWidth)
         .attr("cx", translate[0])
         .attr("cy", translate[1])
-        .attr("r", BASE_SCALE);
+        .attr("r", scale);
     const pathGenerator = d3.geoPath().projection(projection);
 
     svg.append("g")

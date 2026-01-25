@@ -61,6 +61,7 @@ export interface AnimateToCountryParams {
         resumeAutoRotation: () => d3.Timer;
     } | null>;
     worldData: GeoJSON.FeatureCollection;
+    scale: number;
 }
 
 export interface ZoomOutParams {
@@ -87,6 +88,7 @@ export interface ZoomOutParams {
         stopAutoRotation: () => void;
         resumeAutoRotation: () => d3.Timer;
     } | null>;
+    scale: number;
 }
 
 // Drag and Drop
@@ -151,14 +153,19 @@ export type ProjectionRef = d3.GeoProjection | null;
 export interface SetupGlobeProjectionParams {
     containerElement: HTMLElement;
     onCountryClick?: (countryName: string) => void;
+    scale: number;
 }
 
-export interface GlobeProjectionSetup {
+export interface GlobeProjectionSetupResult {
     projection: d3.GeoProjection;
     svg: d3.Selection<SVGSVGElement, unknown, HTMLElement, unknown>;
     circle: d3.Selection<SVGCircleElement, unknown, HTMLElement, unknown>;
     pathGenerator: d3.GeoPath<unknown, GeoJSON.Feature>;
 }
+
+export type SetupGlobeProjection = (
+    params: SetupGlobeProjectionParams
+) => GlobeProjectionSetupResult;
 
 export type D3Selection = d3.Selection<
     SVGSVGElement,

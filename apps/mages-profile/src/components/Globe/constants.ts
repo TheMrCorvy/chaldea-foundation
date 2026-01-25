@@ -11,7 +11,7 @@ export const initialRotationState = {
 };
 
 // Animation configuration
-export const ANIMATION_DURATION = 800;
+export const ANIMATION_DURATION = 1000;
 export const BASE_SCALE = 250;
 export const MOBILE_BASE_SCALE = 150;
 export const ZOOM_FACTOR = 1.2; // Multiplier for zoomed in state (prevents over-zooming)
@@ -36,4 +36,3 @@ export const opacity = 0.8;
 
 export const center: Coordinates = [0, 0];
 export const rotate: Coordinates = [0, -30];
-export const translate: Coordinates = [BASE_SCALE / 2, BASE_SCALE / 2];

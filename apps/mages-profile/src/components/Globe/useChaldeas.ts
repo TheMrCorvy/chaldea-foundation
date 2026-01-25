@@ -1,7 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import worldDataImport from "../../lib/world.json";
-import { initialRotationState, BASE_SCALE } from "./constants";
+import {
+    initialRotationState,
+    BASE_SCALE,
+    MOBILE_BASE_SCALE,
+} from "./constants";
 import { animateToCountry, zoomOut } from "./globeAnimations";
 import { setupGlobeProjection } from "./globeProjection";
 import { setupDragListeners } from "./dragAndDrop";
@@ -17,6 +21,7 @@ import {
     TimeRef,
     UseChaldeasResult,
 } from "./types";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const worldData = worldDataImport as GeoJSON.FeatureCollection<
     GeoJSON.Geometry,
@@ -28,11 +33,13 @@ export const useChaldeas = (): UseChaldeasResult => {
     const timerRef = useRef<TimeRef>(null);
     const dragStateRef = useRef<DragState>(initialRotationState as DragState);
     const isCountrySelectedRef = useRef<boolean>(false);
+    const matches = useMediaQuery().max.width("sm");
+    const scale = matches ? MOBILE_BASE_SCALE : BASE_SCALE;
     const animationStateRef = useRef<GlobeAnimationState>({
         isZoomedIn: false,
         selectedCountry: null,
-        targetScale: BASE_SCALE,
-        currentScale: BASE_SCALE,
+        targetScale: scale,
+        currentScale: scale,
         isAnimating: false,
     });
     const projectionRef = useRef<ProjectionRef>(null);
@@ -44,37 +51,43 @@ export const useChaldeas = (): UseChaldeasResult => {
     const [countrySelected, setCountrySelected] = useState<string | null>(null);
     const detachDragListenersRef = useRef<(() => void) | null>(null);
 
-    const handleCountryClick = useCallback((countryName: string | null) => {
-        setCountrySelected(countryName);
+    const handleCountryClick = useCallback(
+        (countryName: string | null) => {
+            setCountrySelected(countryName);
 
-        if (countryName === null) {
-            zoomOut({
-                projectionRef,
-                svgRef,
-                circleRef,
-                pathGeneratorRef,
-                animationStateRef,
-                animationTimerRef,
-                rotationControlsRef,
-            });
-        } else {
-            animateToCountry({
-                countryName,
-                targetZoomedState:
-                    animationStateRef.current.selectedCountry === countryName
-                        ? !animationStateRef.current.isZoomedIn
-                        : true,
-                projectionRef,
-                svgRef,
-                circleRef,
-                pathGeneratorRef,
-                animationStateRef,
-                animationTimerRef,
-                rotationControlsRef,
-                worldData,
-            });
-        }
-    }, []);
+            if (countryName === null) {
+                zoomOut({
+                    projectionRef,
+                    svgRef,
+                    circleRef,
+                    pathGeneratorRef,
+                    animationStateRef,
+                    animationTimerRef,
+                    rotationControlsRef,
+                    scale,
+                });
+            } else {
+                animateToCountry({
+                    countryName,
+                    targetZoomedState:
+                        animationStateRef.current.selectedCountry ===
+                        countryName
+                            ? !animationStateRef.current.isZoomedIn
+                            : true,
+                    projectionRef,
+                    svgRef,
+                    circleRef,
+                    pathGeneratorRef,
+                    animationStateRef,
+                    animationTimerRef,
+                    rotationControlsRef,
+                    worldData,
+                    scale,
+                });
+            }
+        },
+        [scale]
+    );
 
     useEffect(() => {
         if (!mapContainer.current) return;
@@ -83,6 +96,7 @@ export const useChaldeas = (): UseChaldeasResult => {
             {
                 containerElement: mapContainer.current,
                 onCountryClick: handleCountryClick,
+                scale,
             }
         );
 

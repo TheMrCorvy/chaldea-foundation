@@ -1,4 +1,4 @@
-import { BASE_SCALE, ZOOM_FACTOR, ANIMATION_DURATION } from "./constants";
+import { ZOOM_FACTOR, ANIMATION_DURATION } from "./constants";
 import * as d3 from "d3";
 import {
     AnimateFrameParams,
@@ -68,6 +68,7 @@ export const animateToCountry = (params: AnimateToCountryParams): void => {
         worldData,
         countryName,
         targetZoomedState,
+        scale,
     } = params;
 
     if (
@@ -101,9 +102,7 @@ export const animateToCountry = (params: AnimateToCountryParams): void => {
     const targetRotate: Coordinates = [-countryCenter[0], -countryCenter[1]];
     const initialScale = projection.scale();
     const targetScale =
-        targetZoomedState || countryName !== null
-            ? ZOOM_FACTOR * BASE_SCALE
-            : BASE_SCALE;
+        targetZoomedState || countryName !== null ? ZOOM_FACTOR * scale : scale;
 
     animationState.isAnimating = true;
     const startTime = performance.now();
@@ -156,6 +155,7 @@ export const zoomOut = (params: ZoomOutParams): void => {
         animationStateRef,
         animationTimerRef,
         rotationControlsRef,
+        scale,
     } = params;
 
     if (
@@ -177,7 +177,6 @@ export const zoomOut = (params: ZoomOutParams): void => {
     const projection = projectionRef.current;
     const initialRotate = projection.rotate() as unknown as Coordinates;
     const initialScale = projection.scale();
-    const targetScale = BASE_SCALE;
 
     animationState.isAnimating = true;
     const startTime = performance.now();
@@ -191,13 +190,13 @@ export const zoomOut = (params: ZoomOutParams): void => {
             initialRotate,
             targetRotate: initialRotate,
             initialScale,
-            targetScale,
+            targetScale: scale,
             startTime,
             onComplete: () => {
                 animationState.isAnimating = false;
                 animationState.isZoomedIn = false;
                 animationState.selectedCountry = null;
-                animationState.currentScale = targetScale;
+                animationState.currentScale = scale;
                 if (rotationControlsRef.current) {
                     rotationControlsRef.current.resumeAutoRotation();
                 }
