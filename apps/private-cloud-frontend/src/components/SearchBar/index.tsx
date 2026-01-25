@@ -2,7 +2,7 @@ import Input from "@mui/joy/Input";
 import IconButton from "@mui/joy/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { FC, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 import { themeConfig } from "@/lib/theme";
 import {
     Box,
@@ -40,21 +40,25 @@ const SearchBar: FC<SearchBarProps> = ({
     const [switchAdult, setSwitchAdult] = useState(false);
     const [switchOnlyAdult, setSwitchOnlyAdult] = useState(false);
 
+    const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const newQuery = query.trim();
+
+        if (newQuery === "") return;
+
+        setQuery(newQuery);
+
+        await handleSubmit({
+            query: newQuery,
+            switchAdult,
+            switchOnlyAdult,
+            page: pagination.page,
+        });
+        (document.activeElement as HTMLInputElement)?.blur();
+    };
+
     return (
-        <Stack
-            component="form"
-            onSubmit={async (e) => {
-                e.preventDefault();
-                await handleSubmit({
-                    query,
-                    switchAdult,
-                    switchOnlyAdult,
-                    page: pagination.page,
-                });
-                (document.activeElement as HTMLInputElement)?.blur();
-            }}
-            gap={2}
-        >
+        <Stack component="form" onSubmit={onSubmit} gap={2}>
             <Input
                 required
                 color="primary"
