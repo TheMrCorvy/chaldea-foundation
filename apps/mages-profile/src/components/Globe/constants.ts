@@ -22,7 +22,7 @@ export const sensitivity = 75;
 // Colors of Chaldeas
 export const countryColor = "#E3E6EF";
 export const oceanColor = "#C3C8DB";
-export const selectedColor = "#D8F6FD";
+export const selectedColor = "#0A7DFC";
 
 export const strokeWidth = 0.3;
 export const thinnerStrokeWidth = "0.2";

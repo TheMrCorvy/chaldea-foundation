@@ -39,10 +39,10 @@ const StarryContainer: FC<StarryContainerProps> = ({ children }) => {
                 justifyContent: "center",
                 alignItems: "center",
                 overflow: "hidden",
-                // background:
-                //     "radial-gradient(ellipse 80% 50% at 60% 100%, #0A2A4D, #082E69, #001f3f)",
                 background:
-                    "radial-gradient(ellipse 80% 50% at 60% 100%, #051e3e, #041a33, #000d1a)",
+                    "radial-gradient(ellipse 80% 50% at 60% 100%, #0A2A4D, #082E69, #001f3f)",
+                // background:
+                //     "radial-gradient(ellipse 80% 50% at 60% 100%, #051e3e, #041a33, #000d1a)",
             }}
             component="main"
         >
