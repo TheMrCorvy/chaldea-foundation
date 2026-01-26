@@ -1,5 +1,3 @@
-import { useCallback } from "react";
-
 export interface UseRandomStringParams {
     useMayus?: boolean;
     useNumbers?: boolean;
@@ -13,7 +11,7 @@ const useRandomString = ({
     useNumbers,
     useSymbols,
 }: UseRandomStringParams) => {
-    const buildLettersString = useCallback(() => {
+    const buildLettersString = () => {
         let result: string = "";
 
         const mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -38,7 +36,7 @@ const useRandomString = ({
         }
 
         return result;
-    }, [useMayus, useMinus, useNumbers, useSymbols]);
+    };
 
     return {
         build: () => buildLettersString(),
