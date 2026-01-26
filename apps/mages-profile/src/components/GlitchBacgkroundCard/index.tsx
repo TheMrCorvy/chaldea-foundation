@@ -1,10 +1,9 @@
 import React, { useState, useCallback } from "react";
 import { Box, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import useRandomString from "@/hooks/useRandomString";
 
-const generateRandomString = (length: number): string => {
-    const chars =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+const generateRandomString = (length: number, chars: string): string => {
     let result = "";
     for (let i = 0; i < length; i++) {
         result += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -23,6 +22,13 @@ const GlitchBackgroundCard: React.FC = () => {
         y: 0,
     });
 
+    const chars = useRandomString({
+        useMayus: true,
+        useMinus: true,
+        useNumbers: true,
+        useSymbols: false,
+    }).build();
+
     const handleMouseMove = useCallback(
         (e: React.MouseEvent<HTMLDivElement>) => {
             const rect = e.currentTarget.getBoundingClientRect();
@@ -30,15 +36,15 @@ const GlitchBackgroundCard: React.FC = () => {
                 x: e.clientX - rect.left,
                 y: e.clientY - rect.top,
             });
-            setText(generateRandomString(2000));
+            setText(generateRandomString(2000, chars));
         },
-        []
+        [chars]
     );
 
     const handleMouseEnter = useCallback(() => {
         setIsHovering(true);
-        setText(generateRandomString(2000));
-    }, []);
+        setText(generateRandomString(2000, chars));
+    }, [chars]);
 
     const handleMouseLeave = useCallback(() => {
         setIsHovering(false);
