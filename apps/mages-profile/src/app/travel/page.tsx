@@ -20,6 +20,7 @@ import {
 import { motion } from "framer-motion";
 import SharedLightCards from "@/components/SharedLightCards";
 import GlitchBackgroundCard from "@/components/GlitchBacgkroundCard";
+import GlitchText from "@/components/GlitchText";
 
 interface Project {
     id: number;
@@ -125,16 +126,17 @@ export default function Home(): JSX.Element {
                         variants={containerVariants}
                     >
                         <motion.div variants={itemVariants}>
-                            <Typography
+                            <GlitchText
+                                text="Skills &amp; Expertise Example Text"
                                 variant="h2"
+                                useMinus={true}
                                 sx={{
                                     mb: 8,
                                     textAlign: "center",
                                     fontWeight: 700,
                                 }}
-                            >
-                                Skills &amp; Expertise
-                            </Typography>
+                                delay={0.2}
+                            />
                         </motion.div>
 
                         <Grid container spacing={4}>
