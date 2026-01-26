@@ -19,15 +19,10 @@ export const ZOOM_FACTOR = 1.2; // Multiplier for zoomed in state (prevents over
 // Sensitivity and rotation
 export const sensitivity = 75;
 
-// Colors and styling
-export const backgrounds = [
-    "#E63946",
-    "#FFFFFF",
-    "#F1FAEE",
-    "#A8DADC",
-    "#457B9D",
-    "#1D3557",
-];
+// Colors of Chaldeas
+export const countryColor = "#E3E6EF";
+export const oceanColor = "#C3C8DB";
+export const selectedColor = "#D8F6FD";
 
 export const strokeWidth = 0.3;
 export const thinnerStrokeWidth = "0.2";

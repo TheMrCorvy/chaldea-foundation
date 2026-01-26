@@ -5,10 +5,12 @@ import {
     rotate,
     strokeColor,
     thinnerStrokeWidth,
-    backgrounds,
     strokeWidth,
     opacity,
     markedCountries,
+    oceanColor,
+    selectedColor,
+    countryColor,
 } from "./constants";
 import {
     Coordinates,
@@ -43,7 +45,7 @@ export const setupGlobeProjection: SetupGlobeProjection = ({
 
     const circle = svg
         .append("circle")
-        .attr("fill", "#EEE")
+        .attr("fill", oceanColor)
         .attr("stroke", strokeColor)
         .attr("stroke-width", thinnerStrokeWidth)
         .attr("cx", translate[0])
@@ -60,8 +62,8 @@ export const setupGlobeProjection: SetupGlobeProjection = ({
         .attr("d", (d: GeoFeature) => pathGenerator(d) as string)
         .attr("fill", (d: GeoFeature) =>
             markedCountries.includes(d.properties.name)
-                ? backgrounds[0]
-                : backgrounds[1]
+                ? selectedColor
+                : countryColor
         )
         .style("stroke", strokeColor)
         .style("stroke-width", strokeWidth)
