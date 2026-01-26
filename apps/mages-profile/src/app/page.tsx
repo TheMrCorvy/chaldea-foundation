@@ -1,21 +1,10 @@
-import { Box } from "@mui/material";
 import { GlobeWrapper } from "@/components/Globe/GlobeWrapper";
+import StarryContainer from "@/components/StarryContainer";
 
 export default function TravelPage() {
     return (
-        <Box
-            component="main"
-            sx={{
-                minHeight: "100vh",
-                position: "relative",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                overflow: "hidden",
-                backgroundColor: "#fefefe",
-            }}
-        >
+        <StarryContainer>
             <GlobeWrapper />
-        </Box>
+        </StarryContainer>
     );
 }
