@@ -143,7 +143,15 @@ const GlitchText: FC<GlitchTextProps> = ({
     }, [isInView, delay]);
 
     return (
-        <Typography {...props} ref={elementRef} onMouseEnter={handleHover}>
+        <Typography
+            {...props}
+            ref={elementRef}
+            onMouseEnter={handleHover}
+            sx={{
+                ...props.sx,
+                wordBreak: "break-word",
+            }}
+        >
             {string}
         </Typography>
     );
