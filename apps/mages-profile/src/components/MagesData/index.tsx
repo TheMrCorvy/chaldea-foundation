@@ -5,6 +5,7 @@ import { Box, Divider, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FC } from "react";
+import GlitchText from "../GlitchText";
 
 const MagesData: FC = () => {
     const isMobile = useMediaQuery().max.width("md");
@@ -107,12 +108,13 @@ const MagesData: FC = () => {
                             animate={{ y: 0 }}
                             transition={{ duration: 0.5, delay: 0.6 }}
                         >
-                            <Typography
+                            <GlitchText
+                                text="Gonzalo Salvador Corvalán"
                                 variant={isMobile ? "h6" : "h4"}
                                 sx={{ color: "white" }}
-                            >
-                                Gonzalo Salvador Corvalan
-                            </Typography>
+                                delay={0.7}
+                                disableHover={false}
+                            />
                         </Box>
                     </Box>
                     <Divider
@@ -125,12 +127,13 @@ const MagesData: FC = () => {
                             animate={{ y: 0 }}
                             transition={{ duration: 0.5, delay: 0.6 }}
                         >
-                            <Typography
+                            <GlitchText
+                                text="Fullstack Developer"
                                 variant={isMobile ? "subtitle1" : "h6"}
                                 sx={{ color: "rgba(255,255,255,0.7)" }}
-                            >
-                                Fullstack Developer
-                            </Typography>
+                                delay={0.7}
+                                disableHover={false}
+                            />
                         </Box>
                     </Box>
                 </Box>
