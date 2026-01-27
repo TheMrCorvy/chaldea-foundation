@@ -33,7 +33,7 @@ const StarryContainer: FC<StarryContainerProps> = ({ children }) => {
     return (
         <Box
             sx={{
-                minHeight: "100vh",
+                height: "100dvh",
                 position: "relative",
                 display: "flex",
                 justifyContent: "center",
