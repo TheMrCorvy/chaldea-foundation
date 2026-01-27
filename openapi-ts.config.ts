@@ -1,7 +1,7 @@
 import { type UserConfig } from "@hey-api/openapi-ts";
 
 const config: UserConfig = {
-    input: "./temp/spec.json",
+    input: "./specs/spec.json",
     output: {
         path: "./packages/platform-service-sdk/generated-sdk",
         format: "prettier",

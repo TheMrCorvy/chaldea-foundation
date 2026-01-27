@@ -6,7 +6,8 @@
         "dev": "next dev -p 3010",
         "build": "next build",
         "start": "next start -p 3010",
-        "lint": "eslint"
+        "lint": "eslint",
+        "deploy": "cd ../../ && npx @hey-api/openapi-ts && npm run patch:sdk-types && npm run generate:mock-sdk && npm run build"
     },
     "dependencies": {
         "@emotion/react": "^11.14.0",
