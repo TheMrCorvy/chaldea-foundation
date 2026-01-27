@@ -100,21 +100,39 @@ const MagesData: FC = () => {
                     </Box>
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column", mt: -1 }}>
-                    <Typography
-                        variant={isMobile ? "h6" : "h4"}
-                        sx={{ color: "white" }}
-                    >
-                        Gonzalo Salvador Corvalan
-                    </Typography>
+                    <Box sx={{ overflow: "hidden" }}>
+                        <Box
+                            component={motion.div}
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                        >
+                            <Typography
+                                variant={isMobile ? "h6" : "h4"}
+                                sx={{ color: "white" }}
+                            >
+                                Gonzalo Salvador Corvalan
+                            </Typography>
+                        </Box>
+                    </Box>
                     <Divider
                         sx={{ my: 0.5, borderColor: "rgba(255,255,255,0.3)" }}
                     />
-                    <Typography
-                        variant={isMobile ? "subtitle1" : "h6"}
-                        sx={{ color: "rgba(255,255,255,0.7)" }}
-                    >
-                        Fullstack Developer
-                    </Typography>
+                    <Box sx={{ overflow: "hidden" }}>
+                        <Box
+                            component={motion.div}
+                            initial={{ y: "-100%" }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                        >
+                            <Typography
+                                variant={isMobile ? "subtitle1" : "h6"}
+                                sx={{ color: "rgba(255,255,255,0.7)" }}
+                            >
+                                Fullstack Developer
+                            </Typography>
+                        </Box>
+                    </Box>
                 </Box>
             </Box>
         </Box>
