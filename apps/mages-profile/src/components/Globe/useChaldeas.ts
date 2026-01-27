@@ -110,6 +110,7 @@ export const useChaldeas = (): UseChaldeasResult => {
             projection,
             svg,
             pathGenerator,
+            isMobile: matches,
         });
 
         detachDragListenersRef.current = setupDragListeners({
@@ -133,7 +134,7 @@ export const useChaldeas = (): UseChaldeasResult => {
             detachDragListenersRef.current?.();
             d3.selectAll("svg").remove();
         };
-    }, [handleCountryClick]);
+    }, [handleCountryClick, scale, matches]);
 
     // Update the ref whenever countrySelected changes
     useEffect(() => {

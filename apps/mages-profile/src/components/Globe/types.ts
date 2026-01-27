@@ -185,4 +185,5 @@ export interface CreateRotationControlsParams {
     projection: d3.GeoProjection;
     svg: d3.Selection<SVGSVGElement, unknown, HTMLElement, unknown>;
     pathGenerator: d3.GeoPath<unknown, GeoJSON.Feature>;
+    isMobile?: boolean;
 }

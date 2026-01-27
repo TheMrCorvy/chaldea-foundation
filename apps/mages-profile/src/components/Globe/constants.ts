@@ -18,6 +18,7 @@ export const ZOOM_FACTOR = 1.2; // Multiplier for zoomed in state (prevents over
 
 // Sensitivity and rotation
 export const sensitivity = 75;
+export const mobileSensitivity = 50;
 
 // Colors of Chaldeas
 export const countryColor = "#E3E6EF";

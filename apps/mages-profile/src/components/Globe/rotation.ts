@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import { sensitivity } from "./constants";
+import { mobileSensitivity, sensitivity } from "./constants";
 import {
     CreateRotationControlsParams,
     GeoFeature,
@@ -17,7 +17,7 @@ export const updateGlobe = (params: UpdateGlobeParams): void => {
 export const createRotationControls = (
     params: CreateRotationControlsParams
 ) => {
-    const { timerRef, projection, svg, pathGenerator } = params;
+    const { timerRef, projection, svg, pathGenerator, isMobile } = params;
 
     const stopAutoRotation = (): void => {
         if (timerRef.current) {
@@ -30,7 +30,9 @@ export const createRotationControls = (
         stopAutoRotation();
         timerRef.current = d3.timer(() => {
             const [rx] = projection.rotate();
-            const k = sensitivity / projection.scale();
+            const k =
+                (isMobile ? mobileSensitivity : sensitivity) /
+                projection.scale();
             projection.rotate([rx - k, projection.rotate()[1]]);
 
             updateGlobe({ svg, pathGenerator });
