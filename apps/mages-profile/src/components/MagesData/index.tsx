@@ -53,7 +53,7 @@ const MagesData: FC = () => {
                         }}
                     >
                         <Image
-                            src="/profile.jpg"
+                            src="/assets/images/profile.jpg"
                             alt="Profile"
                             width={imgSize}
                             height={imgSize}
@@ -86,7 +86,7 @@ const MagesData: FC = () => {
                             }}
                         >
                             <Image
-                                src="/command_spells.svg"
+                                src="/assets/images/command_spells.svg"
                                 alt="Command Spells"
                                 width={imgSize / 1.8}
                                 height={imgSize / 1.8}
