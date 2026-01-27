@@ -1,46 +1,14 @@
 "use client";
 
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { Box, Divider, Typography, TypographyVariant } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FC } from "react";
 
 const MagesData: FC = () => {
-    const isMobile = useMediaQuery().max.width("sm");
-    const isTablet = useMediaQuery().max.width("md");
-
-    const getImageSize = (): number => {
-        if (isMobile) {
-            return 50;
-        }
-        if (isTablet) {
-            return 70;
-        }
-        return 100;
-    };
-
-    const imageSize = getImageSize();
-
-    const buildVariants = () => {
-        if (isMobile) {
-            return {
-                name: "subtitle1",
-                profession: "body2",
-            };
-        }
-        if (isTablet) {
-            return {
-                name: "h6",
-                profession: "subtitle1",
-            };
-        }
-
-        return {
-            name: "h4",
-            profession: "h6",
-        };
-    };
+    const isMobile = useMediaQuery().max.width("md");
+    const imgSize = isMobile ? 70 : 100;
 
     return (
         <Box
@@ -50,8 +18,8 @@ const MagesData: FC = () => {
             transition={{ duration: 0.5 }}
             sx={{
                 position: "absolute",
-                bottom: isMobile ? 16 : 64,
-                left: isMobile ? 16 : 64,
+                bottom: isMobile ? 24 : 64,
+                left: isMobile ? 24 : 64,
                 zIndex: 10,
             }}
         >
@@ -65,8 +33,8 @@ const MagesData: FC = () => {
                 <Box
                     sx={{
                         position: "relative",
-                        width: imageSize * 1.5,
-                        height: imageSize,
+                        width: imgSize * 1.5,
+                        height: imgSize,
                         marginRight: isMobile ? 0 : 2,
                     }}
                 >
@@ -74,24 +42,20 @@ const MagesData: FC = () => {
                         sx={{
                             position: "absolute",
                             top: 0,
-                            left: imageSize / 4,
-                            width: imageSize,
-                            height: imageSize,
+                            left: imgSize / 4,
+                            width: imgSize,
+                            height: imgSize,
                             transform: "rotate(45deg)",
                             overflow: "hidden",
                             borderRadius: "8px",
-                            // boxShadow: "0 0 10px rgba(255,255,255,0.5)",
-                            // Add a golden border 2px solid with golden box-shadow
                             border: "3px solid #DAA520",
-                            // boxShadow:
-                            //     "0 0 10px rgba(255,215,0,0.8), 0 0 20px rgba(255,215,0,0.6)",
                         }}
                     >
                         <Image
                             src="/profile.jpg"
                             alt="Profile"
-                            width={imageSize}
-                            height={imageSize}
+                            width={imgSize}
+                            height={imgSize}
                             style={{
                                 transform: "rotate(-45deg) scale(1.4)",
                             }}
@@ -104,14 +68,14 @@ const MagesData: FC = () => {
                             left: isMobile ? -5 : -15,
                             transform: "translateY(-50%)",
                             zIndex: 1,
-                            width: imageSize / 1.8,
-                            height: imageSize / 1.8,
+                            width: imgSize / 1.8,
+                            height: imgSize / 1.8,
                         }}
                     >
                         <Box
                             sx={{
-                                width: imageSize / 1.8,
-                                height: imageSize / 1.8,
+                                width: imgSize / 1.8,
+                                height: imgSize / 1.8,
                                 transform: "rotate(45deg)",
                                 bgcolor: "rgba(0,0,0,0.8)",
                                 overflow: "hidden",
@@ -123,8 +87,8 @@ const MagesData: FC = () => {
                             <Image
                                 src="/command_spells.svg"
                                 alt="Command Spells"
-                                width={imageSize / 1.8}
-                                height={imageSize / 1.8}
+                                width={imgSize / 1.8}
+                                height={imgSize / 1.8}
                                 style={{
                                     width: "100%",
                                     height: "100%",
@@ -137,7 +101,7 @@ const MagesData: FC = () => {
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column", mt: -1 }}>
                     <Typography
-                        variant={buildVariants().name as TypographyVariant}
+                        variant={isMobile ? "h6" : "h4"}
                         sx={{ color: "white" }}
                     >
                         Gonzalo Salvador Corvalan
@@ -146,9 +110,7 @@ const MagesData: FC = () => {
                         sx={{ my: 0.5, borderColor: "rgba(255,255,255,0.3)" }}
                     />
                     <Typography
-                        variant={
-                            buildVariants().profession as TypographyVariant
-                        }
+                        variant={isMobile ? "subtitle1" : "h6"}
                         sx={{ color: "rgba(255,255,255,0.7)" }}
                     >
                         Fullstack Developer
