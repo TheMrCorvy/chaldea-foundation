@@ -114,6 +114,7 @@ const MagesData: FC = () => {
                                 sx={{ color: "white" }}
                                 delay={0.7}
                                 disableHover={false}
+                                useMinus={false}
                             />
                         </Box>
                     </Box>
@@ -133,6 +134,7 @@ const MagesData: FC = () => {
                                 sx={{ color: "rgba(255,255,255,0.7)" }}
                                 delay={0.7}
                                 disableHover={false}
+                                useMinus={false}
                             />
                         </Box>
                     </Box>

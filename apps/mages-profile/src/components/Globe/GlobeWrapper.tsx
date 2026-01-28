@@ -1,9 +1,10 @@
 "use client";
 
-import { Suspense, useState, useEffect } from "react";
+import { Suspense, useState, useEffect, FC } from "react";
 import dynamic from "next/dynamic";
 import { Box, CircularProgress } from "@mui/material";
 import { motion } from "framer-motion";
+import { GlobeProps } from "./index";
 
 const GlobeComponent = dynamic(() => import("./index"), {
     ssr: false,
@@ -26,7 +27,7 @@ function GlobeLoadingFallback() {
     );
 }
 
-export function GlobeWrapper() {
+const GlobeWrapper: FC<GlobeProps> = ({ countrySelected, handleClick }) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
@@ -55,8 +56,13 @@ export function GlobeWrapper() {
                 }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
             >
-                <GlobeComponent />
+                <GlobeComponent
+                    countrySelected={countrySelected}
+                    handleClick={handleClick}
+                />
             </motion.div>
         </Suspense>
     );
-}
+};
+
+export default GlobeWrapper;
