@@ -28,6 +28,7 @@ const Globe = () => {
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                     maxHeight: "80vh",
                     maxWidth: "200px",
+                    zIndex: 2,
                     "@media (max-width: 640px)": {
                         maxWidth: "150px",
                         padding: "0.75rem",
