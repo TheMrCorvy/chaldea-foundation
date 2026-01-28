@@ -28,7 +28,7 @@ const Globe: FC = () => {
                     width: "100dvw",
                 }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
-            ></motion.section>
+            />
             <AsideHelper
                 markedCountries={markedCountries}
                 handleClick={onCountryClick}
