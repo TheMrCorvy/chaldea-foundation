@@ -10,10 +10,12 @@
         "deploy": "cd ../../ && npx @hey-api/openapi-ts && npm run patch:sdk-types && npm run generate:mock-sdk && npm run build"
     },
     "dependencies": {
+        "@emotion/cache": "^11.14.0",
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.1",
         "@mui/icons-material": "^7.3.6",
         "@mui/material": "^7.2.0",
+        "@mui/material-nextjs": "^7.3.7",
         "d3": "^7.9.0",
         "framer-motion": "^11.11.13",
         "next": "16.1.4",
