@@ -1,60 +1,62 @@
 "use client";
 
-import { Box, Button, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import { FC } from "react";
+import { motion } from "framer-motion";
 
 export interface AsideHelperProps {
     markedCountries: string[];
     handleClick: (country: string | null) => void;
 }
 
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.5,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.5,
+        },
+    },
+};
+
 const AsideHelper: FC<AsideHelperProps> = ({
     markedCountries,
     handleClick,
 }) => {
     return (
-        <Box
-            component="aside"
-            sx={{
+        <motion.aside
+            style={{
                 position: "absolute",
                 top: "1rem",
                 right: "1rem",
-                backgroundColor: "rgba(255, 255, 255, 0.95)",
+                backgroundColor: "transparent",
                 padding: "1rem",
                 borderRadius: "0.5rem",
                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                 maxHeight: "80vh",
                 maxWidth: "200px",
                 zIndex: 2,
-                "@media (max-width: 640px)": {
-                    maxWidth: "150px",
-                    padding: "0.75rem",
-                    top: "0.75rem",
-                    right: "0.75rem",
-                },
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
             }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
         >
-            <Typography
-                variant="h6"
-                sx={{
-                    fontSize: "0.875rem",
-                    fontWeight: 600,
-                    marginBottom: "0.75rem",
-                    color: "#1f2937",
-                }}
-            >
-                Marked Countries
-            </Typography>
-            <Box
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "0.5rem",
-                }}
-            >
-                {markedCountries.map((country) => (
+            {markedCountries.map((country) => (
+                <motion.div key={country} variants={itemVariants}>
                     <Button
-                        key={country}
                         onClick={() => handleClick(country)}
                         variant="contained"
                         size="small"
@@ -68,11 +70,14 @@ const AsideHelper: FC<AsideHelperProps> = ({
                             padding: "0.5rem 0.75rem",
                             textTransform: "none",
                             transition: "background-color 0.2s",
+                            width: "100%",
                         }}
                     >
                         {country}
                     </Button>
-                ))}
+                </motion.div>
+            ))}
+            <motion.div variants={itemVariants}>
                 <Button
                     onClick={() => handleClick(null)}
                     variant="contained"
@@ -87,12 +92,13 @@ const AsideHelper: FC<AsideHelperProps> = ({
                         padding: "0.5rem 0.75rem",
                         textTransform: "none",
                         transition: "background-color 0.2s",
+                        width: "100%",
                     }}
                 >
                     Clear selection
                 </Button>
-            </Box>
-        </Box>
+            </motion.div>
+        </motion.aside>
     );
 };
 
