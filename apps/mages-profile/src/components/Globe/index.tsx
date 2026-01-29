@@ -24,8 +24,8 @@ const Globe: FC = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    height: "100dvh",
-                    width: "100dvw",
+                    height: "40rem",
+                    width: "40rem",
                 }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
             />
