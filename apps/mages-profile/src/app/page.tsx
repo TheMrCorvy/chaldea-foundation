@@ -12,7 +12,7 @@ export default function HomePage() {
     const textPosition = () => {
         if (isMobile) {
             return {
-                bottom: "22%",
+                bottom: "20%",
             };
         }
 
