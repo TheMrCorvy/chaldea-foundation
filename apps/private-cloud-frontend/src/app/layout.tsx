@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     ),
     title: "Unlimited Blades Work",
     description: "El mejor sitio de streaming gratuito",
-    manifest: "/manifest.json",
     appleWebApp: {
         capable: true,
         statusBarStyle: "black-translucent",
