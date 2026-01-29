@@ -7,6 +7,7 @@ import GlitchButton from "../GlitchButton";
 export interface AsideHelperProps {
     markedCountries: string[];
     handleClick: (country: string | null) => void;
+    countrySelected: string | null;
 }
 
 const containerVariants = {
@@ -32,6 +33,7 @@ const itemVariants = {
 const AsideHelper: FC<AsideHelperProps> = ({
     markedCountries,
     handleClick,
+    countrySelected,
 }) => {
     return (
         <motion.aside
@@ -60,6 +62,7 @@ const AsideHelper: FC<AsideHelperProps> = ({
                         onClick={() => handleClick(country)}
                         label={country}
                         cornerVariant="left"
+                        active={countrySelected === country}
                     />
                 </motion.div>
             ))}
@@ -68,7 +71,6 @@ const AsideHelper: FC<AsideHelperProps> = ({
                     onClick={() => handleClick(null)}
                     label="Clear Selection"
                     cornerVariant="left"
-                    active
                 />
             </motion.div>
         </motion.aside>

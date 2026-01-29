@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { useChaldeas } from "./useChaldeas";
 import AsideHelper from "../AsideHelper";
-import { markedCountries } from "./constants";
+import { countryColor, markedCountries } from "./constants";
 
 import { motion } from "framer-motion";
 
 const Globe: FC = () => {
-    const { mapContainer, onCountryClick } = useChaldeas();
+    const { mapContainer, onCountryClick, countrySelected } = useChaldeas();
 
     return (
         <>
@@ -32,6 +32,7 @@ const Globe: FC = () => {
             <AsideHelper
                 markedCountries={markedCountries}
                 handleClick={onCountryClick}
+                countrySelected={countrySelected}
             />
         </>
     );
