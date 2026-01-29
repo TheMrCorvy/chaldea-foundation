@@ -24,7 +24,7 @@ const GlitchBackgroundCard: React.FC = () => {
 
     const chars = useRandomString({
         useMayus: true,
-        useMinus: true,
+        useMinus: false,
         useNumbers: true,
         useSymbols: false,
     }).build();
