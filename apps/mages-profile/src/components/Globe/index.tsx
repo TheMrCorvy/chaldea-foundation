@@ -1,12 +1,18 @@
 import { FC } from "react";
 import { useChaldeas } from "./useChaldeas";
 import AsideHelper from "../AsideHelper";
-import { countryColor, markedCountries } from "./constants";
+import { markedCountries } from "./constants";
 
 import { motion } from "framer-motion";
 
-const Globe: FC = () => {
-    const { mapContainer, onCountryClick, countrySelected } = useChaldeas();
+export interface GlobeProps {
+    isMobile: boolean;
+}
+
+const Globe: FC<GlobeProps> = ({ isMobile }) => {
+    const { mapContainer, onCountryClick, countrySelected } = useChaldeas({
+        isMobile,
+    });
 
     return (
         <>

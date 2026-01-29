@@ -1,14 +1,15 @@
 "use client";
 
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Box, Divider } from "@mui/material";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FC } from "react";
 import GlitchText from "../GlitchText";
 
-const MagesData: FC = () => {
-    const isMobile = useMediaQuery().max.width("md");
+export interface MagesDataProps {
+    isMobile: boolean;
+}
+const MagesData: FC<MagesDataProps> = ({ isMobile }) => {
     const imgSize = isMobile ? 70 : 100;
 
     return (

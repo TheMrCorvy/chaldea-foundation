@@ -19,22 +19,21 @@ import {
     RotationControlsRef,
     SvgRef,
     TimeRef,
-    UseChaldeasResult,
+    UseChaldeas,
 } from "./types";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const worldData = worldDataImport as GeoJSON.FeatureCollection<
     GeoJSON.Geometry,
     GeoJSON.GeoJsonProperties
 >;
 
-export const useChaldeas = (): UseChaldeasResult => {
+export const useChaldeas: UseChaldeas = ({ isMobile }) => {
     const mapContainer = useRef<HTMLDivElement>(null);
     const timerRef = useRef<TimeRef>(null);
     const dragStateRef = useRef<DragState>(initialRotationState as DragState);
     const isCountrySelectedRef = useRef<boolean>(false);
-    const matches = useMediaQuery().max.width("sm");
-    const scale = matches ? MOBILE_BASE_SCALE : BASE_SCALE;
+
+    const scale = isMobile ? MOBILE_BASE_SCALE : BASE_SCALE;
     const animationStateRef = useRef<GlobeAnimationState>({
         isZoomedIn: false,
         selectedCountry: null,
@@ -110,7 +109,7 @@ export const useChaldeas = (): UseChaldeasResult => {
             projection,
             svg,
             pathGenerator,
-            isMobile: matches,
+            isMobile,
         });
 
         detachDragListenersRef.current = setupDragListeners({
@@ -134,7 +133,7 @@ export const useChaldeas = (): UseChaldeasResult => {
             detachDragListenersRef.current?.();
             d3.selectAll("svg").remove();
         };
-    }, [handleCountryClick, scale, matches]);
+    }, [handleCountryClick, scale, isMobile]);
 
     // Update the ref whenever countrySelected changes
     useEffect(() => {

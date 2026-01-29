@@ -3,6 +3,7 @@
 import { Suspense, FC } from "react";
 import dynamic from "next/dynamic";
 import { Box, CircularProgress } from "@mui/material";
+import { GlobeProps } from "./index";
 
 const GlobeComponent = dynamic(() => import("./index"), {
     ssr: false,
@@ -25,10 +26,10 @@ function GlobeLoadingFallback() {
     );
 }
 
-const GlobeWrapper: FC = () => {
+const GlobeWrapper: FC<GlobeProps> = ({ isMobile }) => {
     return (
         <Suspense fallback={<GlobeLoadingFallback />}>
-            <GlobeComponent />
+            <GlobeComponent isMobile={isMobile} />
         </Suspense>
     );
 };

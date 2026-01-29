@@ -118,11 +118,17 @@ export interface SetupDragListenersParams {
 }
 
 // Hook
+export interface UseChaldeasProps {
+    isMobile: boolean;
+}
+
 export interface UseChaldeasResult {
     mapContainer: React.RefObject<HTMLDivElement | null>;
     onCountryClick: (countryName: string | null) => void;
     countrySelected: string | null;
 }
+
+export type UseChaldeas = (props: UseChaldeasProps) => UseChaldeasResult;
 
 export type SvgRef = d3.Selection<
     SVGSVGElement,
