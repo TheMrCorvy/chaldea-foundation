@@ -2,13 +2,22 @@
 
 import { Suspense, FC } from "react";
 import dynamic from "next/dynamic";
-import { Box, CircularProgress } from "@mui/material";
+import { Box } from "@mui/material";
 import { GlobeProps } from "./index";
+import Loader from "../Loader";
 
-const GlobeComponent = dynamic(() => import("./index"), {
-    ssr: false,
-    loading: () => <GlobeLoadingFallback />,
-});
+const GlobeComponent = dynamic(
+    async () => {
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+
+        const mod = await import("./index");
+        return mod.default;
+    },
+    {
+        ssr: false,
+        loading: () => <GlobeLoadingFallback />,
+    }
+);
 
 function GlobeLoadingFallback() {
     return (
@@ -21,7 +30,7 @@ function GlobeLoadingFallback() {
                 width: "100%",
             }}
         >
-            <CircularProgress />
+            <Loader />
         </Box>
     );
 }
