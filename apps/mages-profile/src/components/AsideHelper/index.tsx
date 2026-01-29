@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@mui/material";
 import { FC } from "react";
 import { motion } from "framer-motion";
+import GlitchButton from "../GlitchButton";
 
 export interface AsideHelperProps {
     markedCountries: string[];
@@ -56,47 +56,17 @@ const AsideHelper: FC<AsideHelperProps> = ({
         >
             {markedCountries.map((country) => (
                 <motion.div key={country} variants={itemVariants}>
-                    <Button
+                    <GlitchButton
                         onClick={() => handleClick(country)}
-                        variant="contained"
-                        size="small"
-                        sx={{
-                            color: "white",
-                            border: "none",
-                            borderRadius: "0.375rem",
-                            fontSize: "0.875rem",
-                            cursor: "pointer",
-                            fontWeight: 500,
-                            padding: "0.5rem 0.75rem",
-                            textTransform: "none",
-                            transition: "background-color 0.2s",
-                            width: "100%",
-                        }}
-                    >
-                        {country}
-                    </Button>
+                        label={country}
+                    />
                 </motion.div>
             ))}
             <motion.div variants={itemVariants}>
-                <Button
+                <GlitchButton
                     onClick={() => handleClick(null)}
-                    variant="contained"
-                    size="small"
-                    sx={{
-                        color: "white",
-                        border: "none",
-                        borderRadius: "0.375rem",
-                        fontSize: "0.875rem",
-                        cursor: "pointer",
-                        fontWeight: 500,
-                        padding: "0.5rem 0.75rem",
-                        textTransform: "none",
-                        transition: "background-color 0.2s",
-                        width: "100%",
-                    }}
-                >
-                    Clear selection
-                </Button>
+                    label="Clear Selection"
+                />
             </motion.div>
         </motion.aside>
     );
