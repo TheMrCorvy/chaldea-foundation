@@ -34,6 +34,7 @@ const useControls = ({
     const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const volumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const [vtt, setVtt] = useState<string | null>(null);
+    const [isSliding, setIsSliding] = useState(false);
     // When the user seeks or changes tracks, remember whether the player was
     // playing so we can resume playback automatically once the new source is ready.
     const seekShouldPlayRef = useRef(false);
@@ -59,7 +60,7 @@ const useControls = ({
     // currentTime of 0 immediately after the <video> src is changed.
     useEffect(() => {
         const video = videoRef.current;
-        if (!video) return;
+        if (!video || isSliding) return;
 
         const handleTimeUpdate = () => {
             setCurrentTime(start + video.currentTime);
@@ -70,7 +71,7 @@ const useControls = ({
         return () => {
             video.removeEventListener("timeupdate", handleTimeUpdate);
         };
-    }, [start]);
+    }, [start, isSliding]);
 
     // Keep `isPlaying` in sync with the video element's play/pause events
     useEffect(() => {
@@ -184,13 +185,21 @@ const useControls = ({
     // Handle progress bar change
     const handleProgressChange = (value: number | number[]) => {
         const newTime = Array.isArray(value) ? value[0] : value;
-        const wasPlaying = isPlaying;
+
         if (videoRef.current) {
+            setIsSliding(true);
             videoRef.current.currentTime = newTime;
             setCurrentTime(newTime);
-            setStart(newTime);
+        }
+    };
+
+    const handleCommitProgressChange = () => {
+        // If the user was watching when they sought, resume automatically when ready.
+        const wasPlaying = isPlaying;
+        if (videoRef.current) {
+            setIsSliding(false);
+            setStart(currentTime);
             setIsLoading(true);
-            // If the user was watching when they sought, resume automatically when ready.
             seekShouldPlayRef.current = wasPlaying;
         }
     };
@@ -307,6 +316,7 @@ const useControls = ({
         handleVolumeMouseLeave,
         vtt,
         subtitleSrcUrl,
+        handleCommitProgressChange,
     };
 };
 

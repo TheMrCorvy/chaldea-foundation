@@ -73,6 +73,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         handleVolumeMouseLeave,
         vtt,
         subtitleSrcUrl,
+        handleCommitProgressChange,
     } = useControls({
         fileType,
         display_name,
@@ -209,8 +210,11 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                             <Box sx={{ mb: 1 }}>
                                 <Slider
                                     value={currentTime}
-                                    onChange={(e, value) =>
-                                        handleProgressChange(value)
+                                    onChange={(e, value) => {
+                                        handleProgressChange(value);
+                                    }}
+                                    onChangeCommitted={
+                                        handleCommitProgressChange
                                     }
                                     min={0}
                                     max={duration || 0}
