@@ -98,15 +98,18 @@
     );
 }
 
-.cyberBtn:is(:hover, :focus-visible) {
+.cyberBtn:is(:hover, :focus-visible),
+.cyberBtn.active {
     color: canvas;
 }
 
-.cyberBtn:is(:hover, :focus-visible) .backdrop {
+.cyberBtn:is(:hover, :focus-visible) .backdrop,
+.cyberBtn.active .backdrop {
     background: var(--accent);
 }
 
-.cyberBtn:is(:hover, :focus-visible) .corner::after {
+.cyberBtn:is(:hover, :focus-visible) .corner::after,
+.cyberBtn.active .corner::after {
     background: canvas;
 }
 
@@ -128,7 +131,8 @@
     display: flex;
 }
 
-.cyberBtn:is(:focus-visible, :hover) .glitch .backdrop {
+.cyberBtn:is(:focus-visible, :hover) .glitch .backdrop,
+.cyberBtn.active .glitch .backdrop {
     background: canvas;
 }
 
@@ -261,266 +265,6 @@
         transform: translate(0, 0);
     }
     10% {
-.cyberBtn {
-    --accent: #29b6f6;
-    /* Implement a slightly clearer background */
-    /* --background-color: hsl(230 40% 12%); */
-    --corner: 12px;
-    --border: 1px;
-    --clip: polygon(
-        0 0,
-        100% 0,
-        100% calc(100% - var(--corner)),
-        calc(100% - var(--corner)) 100%,
-        0% 100%
-    );
-    font-family: "Cyber", sans-serif;
-    width: 140px;
-    text-align: left;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.5rem;
-    border: 0;
-    background: var(--background-color);
-    position: relative;
-    color: var(--accent);
-    cursor: pointer;
-    outline: none;
-    --shimmy-distance: 5;
-    --clip-one: polygon(
-        0 2%,
-        100% 2%,
-        100% 95%,
-        95% 95%,
-        95% 90%,
-        85% 90%,
-        85% 95%,
-        8% 95%,
-        0 70%
-    );
-    --clip-two: polygon(
-        0 78%,
-        100% 78%,
-        100% 100%,
-        95% 100%,
-        95% 90%,
-        85% 90%,
-        85% 100%,
-        8% 100%,
-        0 78%
-    );
-    --clip-three: polygon(
-        0 44%,
-        100% 44%,
-        100% 54%,
-        95% 54%,
-        95% 54%,
-        85% 54%,
-        85% 54%,
-        8% 54%,
-        0 54%
-    );
-    --clip-four: polygon(
-        0 0,
-        100% 0,
-        100% 0,
-        95% 0,
-        95% 0,
-        85% 0,
-        85% 0,
-        8% 0,
-        0 0
-    );
-    --clip-five: polygon(
-        0 0,
-        100% 0,
-        100% 0,
-        95% 0,
-        95% 0,
-        85% 0,
-        85% 0,
-        8% 0,
-        0 0
-    );
-    --clip-six: polygon(
-        0 40%,
-        100% 40%,
-        100% 85%,
-        95% 85%,
-        95% 85%,
-        85% 85%,
-        85% 85%,
-        8% 85%,
-        0 70%
-    );
-    --clip-seven: polygon(
-        0 63%,
-        100% 63%,
-        100% 80%,
-        95% 80%,
-        95% 80%,
-        85% 80%,
-        85% 80%,
-        8% 80%,
-        0 70%
-    );
-}
-
-.cyberBtn:is(:hover, :focus-visible) {
-    color: canvas;
-}
-
-.cyberBtn:is(:hover, :focus-visible) .backdrop {
-    background: var(--accent);
-}
-
-.cyberBtn .glitch {
-    display: none;
-    position: absolute;
-    inset: 0;
-    translate: 0% 0;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.5rem;
-    pointer-events: none;
-    color: var(--accent);
-    text-shadow: 0 1px var(--shadow);
-}
-
-.cyberBtn:is(:focus-visible, :hover) .glitch {
-    animation: glitch 2s infinite;
-    display: flex;
-}
-
-.cyberBtn:is(:focus-visible, :hover) .glitch .backdrop {
-    background: canvas;
-}
-
-.letters {
-    display: flex;
-}
-
-.letters span:nth-of-type(2),
-.letters span:nth-of-type(5) {
-    scale: 1 -1;
-}
-.letters span:nth-of-type(3),
-.letters span:nth-of-type(6),
-.letters span:nth-of-type(7) {
-    scale: -1 -1;
-}
-
-.backdrop {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    background: light-dark(hsl(0 0% 100% / 0.4), hsl(0 0% 0% / 0.4));
-    clip-path: var(--clip);
-    pointer-events: none;
-}
-
-.backdrop::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--accent);
-    translate: 0 0;
-    border: var(--border) solid #0000;
-    clip-path: var(--clip);
-    mask: linear-gradient(#0000 0% 100%), linear-gradient(#fff 0% 100%);
-    mask-clip: padding-box, border-box;
-    mask-repeat: no-repeat;
-    mask-composite: intersect;
-    z-index: 2;
-}
-
-.corner {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: var(--corner);
-    width: var(--corner);
-}
-
-.corner::after {
-    content: "";
-    height: calc(var(--border) * 2);
-    width: 200%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    transform: rotate(135deg);
-    background: var(--accent);
-}
-
-@keyframes glitch {
-    0% {
-        clip-path: var(--clip-one);
-    }
-    2%,
-    8% {
-        clip-path: var(--clip-two);
-        transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-    }
-    6% {
-        clip-path: var(--clip-two);
-        transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    9% {
-        clip-path: var(--clip-two);
-        transform: translate(0, 0);
-    }
-    10% {
-        clip-path: var(--clip-three);
-        transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    13% {
-        clip-path: var(--clip-three);
-        transform: translate(0, 0);
-    }
-    14%,
-    21% {
-        clip-path: var(--clip-four);
-        transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    25% {
-        clip-path: var(--clip-five);
-        transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    30% {
-        clip-path: var(--clip-five);
-        transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-    }
-    35%,
-    45% {
-        clip-path: var(--clip-six);
-        transform: translate(calc(var(--shimmy-distance) * -1%));
-    }
-    40% {
-        clip-path: var(--clip-six);
-        transform: translate(calc(var(--shimmy-distance) * 1%));
-    }
-    50% {
-        clip-path: var(--clip-six);
-        transform: translate(0, 0);
-    }
-    55% {
-        clip-path: var(--clip-seven);
-        transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    60% {
-        clip-path: var(--clip-seven);
-        transform: translate(0, 0);
-    }
-    31%,
-    61%,
-    100% {
-        clip-path: var(--clip-four);
-    }
-}
         clip-path: var(--clip-three);
         transform: translate(calc(var(--shimmy-distance) * 1%), 0);
     }

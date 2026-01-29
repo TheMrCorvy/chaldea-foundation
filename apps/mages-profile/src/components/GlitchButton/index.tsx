@@ -9,6 +9,7 @@ export interface GlitchButtonProps {
     id?: string;
     dataAction?: string;
     cornerVariant?: "right" | "left";
+    active?: boolean;
 }
 
 const GlitchButton: FC<GlitchButtonProps> = ({
@@ -16,9 +17,12 @@ const GlitchButton: FC<GlitchButtonProps> = ({
     onClick,
     id,
     dataAction,
-    cornerVariant = "left",
+    cornerVariant = "right",
+    active = false,
 }) => {
-    const buttonClasses = `${styles.cyberBtn} ${styles[cornerVariant]}`;
+    const buttonClasses = `${styles.cyberBtn} ${styles[cornerVariant]} ${
+        active ? styles.active : ""
+    }`;
 
     return (
         <button

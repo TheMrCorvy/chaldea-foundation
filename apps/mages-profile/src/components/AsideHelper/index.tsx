@@ -59,6 +59,7 @@ const AsideHelper: FC<AsideHelperProps> = ({
                     <GlitchButton
                         onClick={() => handleClick(country)}
                         label={country}
+                        cornerVariant="left"
                     />
                 </motion.div>
             ))}
@@ -66,6 +67,8 @@ const AsideHelper: FC<AsideHelperProps> = ({
                 <GlitchButton
                     onClick={() => handleClick(null)}
                     label="Clear Selection"
+                    cornerVariant="left"
+                    active
                 />
             </motion.div>
         </motion.aside>
