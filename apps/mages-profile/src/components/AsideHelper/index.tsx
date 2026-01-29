@@ -8,6 +8,7 @@ export interface AsideHelperProps {
     markedCountries: string[];
     handleClick: (country: string | null) => void;
     countrySelected: string | null;
+    isMobile: boolean;
 }
 
 const containerVariants = {
@@ -34,6 +35,7 @@ const AsideHelper: FC<AsideHelperProps> = ({
     markedCountries,
     handleClick,
     countrySelected,
+    isMobile,
 }) => {
     return (
         <motion.aside
@@ -42,7 +44,7 @@ const AsideHelper: FC<AsideHelperProps> = ({
                 top: "1rem",
                 right: "1rem",
                 backgroundColor: "transparent",
-                padding: "1rem",
+                padding: isMobile ? 0 : "1rem",
                 borderRadius: "0.5rem",
                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                 maxHeight: "80vh",

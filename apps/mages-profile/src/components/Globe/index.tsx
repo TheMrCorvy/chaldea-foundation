@@ -39,6 +39,7 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
                 markedCountries={markedCountries}
                 handleClick={onCountryClick}
                 countrySelected={countrySelected}
+                isMobile={isMobile}
             />
         </>
     );
