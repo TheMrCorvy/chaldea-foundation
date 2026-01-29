@@ -34,7 +34,7 @@ export default function HomePage() {
                     }}
                     variant={isMobile ? "subtitle1" : "h5"}
                 >
-                    Exploratio anima in cosmi somniorum.
+                    Exploratio anima in cosmi somniorum
                 </HologramGlitchText>
                 <GlobeWrapper isMobile={isMobile} />
                 <MagesData isMobile={isMobile} />
