@@ -3,7 +3,7 @@ import { useChaldeas } from "./useChaldeas";
 import AsideHelper from "../AsideHelper";
 import { markedCountries } from "./constants";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../Modal";
 
 import HologramGlitchText from "@/components/HologramGlitchText";
@@ -74,12 +74,16 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
                 }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
             />
-            <AsideHelper
-                markedCountries={markedCountries}
-                handleClick={handleClick}
-                countrySelected={countrySelected}
-                isMobile={isMobile}
-            />
+            <AnimatePresence>
+                {!countrySelected && (
+                    <AsideHelper
+                        markedCountries={markedCountries}
+                        handleClick={handleClick}
+                        countrySelected={countrySelected}
+                        isMobile={isMobile}
+                    />
+                )}
+            </AnimatePresence>
             <Modal open={open} onExit={handleExit}>
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.

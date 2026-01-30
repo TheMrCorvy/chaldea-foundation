@@ -18,6 +18,12 @@ const containerVariants = {
             staggerChildren: 0.5,
         },
     },
+    exit: {
+        transition: {
+            staggerChildren: 0.2,
+            staggerDirection: -1,
+        },
+    },
 };
 
 const itemVariants = {
@@ -25,6 +31,13 @@ const itemVariants = {
     visible: {
         y: 0,
         opacity: 1,
+        transition: {
+            duration: 0.5,
+        },
+    },
+    exit: {
+        y: -20,
+        opacity: 0,
         transition: {
             duration: 0.5,
         },
@@ -57,6 +70,7 @@ const AsideHelper: FC<AsideHelperProps> = ({
             variants={containerVariants}
             initial="hidden"
             animate="visible"
+            exit="exit"
         >
             {markedCountries.map((country) => (
                 <motion.div key={country} variants={itemVariants}>
