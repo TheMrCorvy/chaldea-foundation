@@ -68,13 +68,6 @@ const AsideHelper: FC<AsideHelperProps> = ({
                     />
                 </motion.div>
             ))}
-            <motion.div variants={itemVariants}>
-                <GlitchButton
-                    onClick={() => handleClick(null)}
-                    label="Clear Selection"
-                    cornerVariant="left"
-                />
-            </motion.div>
         </motion.aside>
     );
 };
