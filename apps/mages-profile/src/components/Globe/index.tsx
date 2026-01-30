@@ -1,9 +1,12 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useChaldeas } from "./useChaldeas";
 import AsideHelper from "../AsideHelper";
 import { markedCountries } from "./constants";
 
 import { motion } from "framer-motion";
+import Modal from "../Modal";
+
+import HologramGlitchText from "@/components/HologramGlitchText";
 
 export interface GlobeProps {
     isMobile: boolean;
@@ -14,8 +17,44 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
         isMobile,
     });
 
+    const [open, setOpen] = useState(false);
+
+    const handleClick = (country: string | null) => {
+        onCountryClick(country);
+        setOpen(true);
+    };
+
+    const handleExit = () => {
+        onCountryClick(null);
+        setOpen(false);
+    };
+
+    const textPosition = () => {
+        if (isMobile) {
+            return {
+                bottom: "20%",
+            };
+        }
+
+        return {
+            top: "7%",
+        };
+    };
+
     return (
         <>
+            {/* <HologramGlitchText
+                sx={{
+                    position: "absolute",
+                    ...textPosition(),
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    whiteSpace: "nowrap",
+                }}
+                variant={isMobile ? "subtitle1" : "h5"}
+            >
+                Exploratio anima in cosmi somniorum
+            </HologramGlitchText> */}
             <motion.section
                 ref={mapContainer}
                 initial={{
@@ -37,10 +76,18 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
             />
             <AsideHelper
                 markedCountries={markedCountries}
-                handleClick={onCountryClick}
+                handleClick={handleClick}
                 countrySelected={countrySelected}
                 isMobile={isMobile}
             />
+            <Modal open={open} onExit={handleExit}>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Cumque, sapiente soluta aspernatur sed doloremque qui nobis
+                    dolorum reiciendis quia blanditiis error ipsa fuga
+                    consectetur, corrupti saepe sit, accusamus eius consequatur.
+                </p>
+            </Modal>
         </>
     );
 };
