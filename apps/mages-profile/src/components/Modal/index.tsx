@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
 import { FC, ReactNode } from "react";
-import GlitchBackgroundCard from "./GlitchBacgkroundCard";
+import GlitchBackgroundCard from "../GlitchBacgkroundCard";
 
 export interface ModalProps {
     children: ReactNode;
