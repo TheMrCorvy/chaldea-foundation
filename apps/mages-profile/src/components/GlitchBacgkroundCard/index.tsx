@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from "react";
-import { Box, Typography } from "@mui/material";
+import React, { useState, useCallback, FC, ReactNode } from "react";
+import { Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import useRandomString from "@/hooks/useRandomString";
 
@@ -11,7 +11,11 @@ const generateRandomString = (length: number, chars: string): string => {
     return result;
 };
 
-const GlitchBackgroundCard: React.FC = () => {
+export interface GlitchBackgroundCardProps {
+    children?: ReactNode;
+}
+
+const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({ children }) => {
     const [text, setText] = useState<string>("");
     const [isHovering, setIsHovering] = useState<boolean>(false);
     const [mousePosition, setMousePosition] = useState<{
@@ -50,167 +54,147 @@ const GlitchBackgroundCard: React.FC = () => {
         setIsHovering(false);
     }, []);
 
-    const cardSize = 450;
     const cornerIconSize = 24;
 
     return (
         <Box
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                padding: 3,
-                overflow: "hidden",
-                bgcolor: "rgb(2, 6, 23)",
+                position: "relative",
+                width: 450,
+                height: "100%",
+                border: "1px solid rgba(255, 255, 255, 0.10)",
+                overflow: "visible",
+                cursor: "pointer",
+                "&::before, &::after": {
+                    content: '""',
+                    position: "absolute",
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    zIndex: -1,
+                },
+                // Vertical line
+                "&::before": {
+                    width: "1px",
+                    height: "100vh",
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
+                },
+                // Horizontal line
+                "&::after": {
+                    height: "1px",
+                    width: "100vw",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                },
             }}
         >
-            <Box
-                onMouseMove={handleMouseMove}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+            {/* Corner Icons */}
+            <AddIcon
                 sx={{
-                    position: "relative",
-                    width: cardSize,
-                    height: cardSize,
-                    border: "1px solid rgba(255, 255, 255, 0.10)",
-                    overflow: "visible",
-                    cursor: "pointer",
-                    "&::before, &::after": {
-                        content: '""',
-                        position: "absolute",
-                        backgroundColor: "rgba(255, 255, 255, 0.05)",
-                        zIndex: -1,
-                    },
-                    // Vertical line
-                    "&::before": {
-                        width: "1px",
-                        height: "100vh",
-                        left: "50%",
-                        top: "50%",
-                        transform: "translate(-50%, -50%)",
-                    },
-                    // Horizontal line
-                    "&::after": {
-                        height: "1px",
-                        width: "100vw",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                    },
+                    position: "absolute",
+                    top: -cornerIconSize / 2,
+                    left: -cornerIconSize / 2,
+                    color: "white",
+                    fontSize: cornerIconSize,
                 }}
-            >
-                {/* Corner Icons */}
-                <AddIcon
-                    sx={{
-                        position: "absolute",
-                        top: -cornerIconSize / 2,
-                        left: -cornerIconSize / 2,
-                        color: "white",
-                        fontSize: cornerIconSize,
-                    }}
-                />
-                <AddIcon
-                    sx={{
-                        position: "absolute",
-                        top: -cornerIconSize / 2,
-                        right: -cornerIconSize / 2,
-                        color: "white",
-                        fontSize: cornerIconSize,
-                        transform: "rotate(90deg)",
-                    }}
-                />
-                <AddIcon
-                    sx={{
-                        position: "absolute",
-                        bottom: -cornerIconSize / 2,
-                        right: -cornerIconSize / 2,
-                        color: "white",
-                        fontSize: cornerIconSize,
-                        transform: "rotate(180deg)",
-                    }}
-                />
-                <AddIcon
-                    sx={{
-                        position: "absolute",
-                        bottom: -cornerIconSize / 2,
-                        left: -cornerIconSize / 2,
-                        color: "white",
-                        fontSize: cornerIconSize,
-                        transform: "rotate(270deg)",
-                    }}
-                />
+            />
+            <AddIcon
+                sx={{
+                    position: "absolute",
+                    top: -cornerIconSize / 2,
+                    right: -cornerIconSize / 2,
+                    color: "white",
+                    fontSize: cornerIconSize,
+                    transform: "rotate(90deg)",
+                }}
+            />
+            <AddIcon
+                sx={{
+                    position: "absolute",
+                    bottom: -cornerIconSize / 2,
+                    right: -cornerIconSize / 2,
+                    color: "white",
+                    fontSize: cornerIconSize,
+                    transform: "rotate(180deg)",
+                }}
+            />
+            <AddIcon
+                sx={{
+                    position: "absolute",
+                    bottom: -cornerIconSize / 2,
+                    left: -cornerIconSize / 2,
+                    color: "white",
+                    fontSize: cornerIconSize,
+                    transform: "rotate(270deg)",
+                }}
+            />
 
-                {/* Glitch Text with Gradient Mask */}
-                <Box
-                    sx={{
-                        position: "absolute",
-                        top: "2.5%",
-                        left: "2.5%",
-                        width: "95%",
-                        height: "95%",
-                        color: "transparent",
-                        overflow: "hidden",
-                        wordWrap: "break-word",
-                        lineHeight: 1.2,
-                        fontSize: "14px",
-                        fontWeight: 500,
-                        textAlign: "justify",
-                        opacity: isHovering ? 1 : 0,
-                        transition: "opacity 300ms ease-out",
-                        background: `radial-gradient(
+            {/* Glitch Text with Gradient Mask */}
+            <Box
+                sx={{
+                    position: "absolute",
+                    top: "2.5%",
+                    left: "2.5%",
+                    width: "95%",
+                    height: "95%",
+                    color: "transparent",
+                    overflow: "hidden",
+                    wordWrap: "break-word",
+                    lineHeight: 1.2,
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    textAlign: "justify",
+                    opacity: isHovering ? 1 : 0,
+                    transition: "opacity 300ms ease-out",
+                    background: `radial-gradient(
                             circle at ${mousePosition.x}px ${mousePosition.y}px,
                             rgba(154, 98, 181, 0.5) 20%,
         rgba(41, 121, 255, 0.5) 30%,
         rgba(56, 182, 255, 0.5) 50%,
         rgba(42, 252, 152, 0.5)
                         )`,
-                        WebkitBackgroundClip: "text",
-                        backgroundClip: "text",
-                        borderRadius: 6,
-                    }}
-                >
-                    {text}
-                </Box>
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    borderRadius: 6,
+                }}
+            >
+                {text}
+            </Box>
 
-                {/* Inner element */}
+            {/* Inner element */}
+            <Box
+                sx={{
+                    position: "absolute",
+                    top: "0",
+                    left: "0",
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "16px",
+                }}
+            >
                 <Box
                     sx={{
-                        position: "absolute",
-                        top: "0",
-                        left: "0",
-                        // transform: "translate(-50%, -50%)",
-                        width: "100%",
-                        height: "100%",
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        borderRadius: "16px",
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: 2,
+                        color: "white",
+                        margin: "12px",
+                        backgroundColor: "rgba(0, 0, 0, 0.05)",
+                        wordBreak: "break-word",
+                        flexDirection: "column",
                     }}
                 >
-                    <Box
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            width: "100%",
-                            height: "100%",
-                            borderRadius: 2,
-                            color: "white",
-                            margin: "11px",
-                            backgroundColor: "rgba(0, 0, 0, 0.05)",
-                            // backdropFilter: "blur(0.5px)",
-                            wordBreak: "break-word",
-                        }}
-                    >
-                        {/* <AddIcon sx={{ color: "white", fontSize: 40 }} /> */}
-                        <Typography>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Sapiente ea ullam aperiam, deleniti odit
-                            maiores reiciendis molestias ut rerum quidem eos,
-                            dolorum officiis nisi nesciunt. Expedita accusamus
-                            eos fuga vel.
-                        </Typography>
-                    </Box>
+                    {children}
                 </Box>
             </Box>
         </Box>
