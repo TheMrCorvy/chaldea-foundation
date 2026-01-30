@@ -65,7 +65,8 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({ children }) => {
                 position: "relative",
                 width: 450,
                 height: "100%",
-                border: "1px solid rgba(255, 255, 255, 0.10)",
+                borderLeft: "1px solid rgba(255, 255, 255, 0.10)",
+                borderRight: "1px solid rgba(255, 255, 255, 0.10)",
                 overflow: "visible",
                 cursor: "pointer",
                 "&::before, &::after": {
@@ -188,7 +189,7 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({ children }) => {
                         height: "100%",
                         borderRadius: 2,
                         color: "white",
-                        margin: "12px",
+                        margin: "11px",
                         backgroundColor: "rgba(0, 0, 0, 0.05)",
                         wordBreak: "break-word",
                         flexDirection: "column",

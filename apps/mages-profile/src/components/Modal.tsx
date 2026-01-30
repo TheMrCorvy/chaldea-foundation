@@ -66,7 +66,8 @@ const Modal: FC<ModalProps> = ({ children, open, onExit }) => {
                     sx={{
                         width: 450,
                         height: "100%",
-                        border: "1px solid rgba(255, 255, 255, 0.10)",
+                        borderLeft: "1px solid rgba(255, 255, 255, 0.10)",
+                        borderRight: "1px solid rgba(255, 255, 255, 0.10)",
                     }}
                 ></Box>
             );
@@ -99,7 +100,11 @@ const Modal: FC<ModalProps> = ({ children, open, onExit }) => {
                             display: "flex",
                             flexDirection: "row",
                             height: calcRowHeight(row),
-                            border:
+                            borderBottom:
+                                row === 1
+                                    ? "1px solid rgba(255, 255, 255, 0.10)"
+                                    : "",
+                            borderTop:
                                 row === 1
                                     ? "1px solid rgba(255, 255, 255, 0.10)"
                                     : "",
