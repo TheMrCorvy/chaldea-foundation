@@ -156,7 +156,7 @@ export default function Home(): JSX.Element {
                                     padding: 2,
                                 }}
                             >
-                                <GlitchBackgroundCard />
+                                <GlitchBackgroundCard isMobile />
                             </Grid>
                             <Grid
                                 size={{ xs: 12 }}
