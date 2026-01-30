@@ -6,8 +6,6 @@ import { markedCountries } from "./constants";
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../Modal";
 
-import HologramGlitchText from "@/components/HologramGlitchText";
-
 export interface GlobeProps {
     isMobile: boolean;
 }
@@ -84,7 +82,7 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
                     />
                 )}
             </AnimatePresence>
-            <Modal open={open} onExit={handleExit}>
+            <Modal open={open} onExit={handleExit} isMobile={isMobile}>
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Cumque, sapiente soluta aspernatur sed doloremque qui nobis

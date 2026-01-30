@@ -1,4 +1,11 @@
-import React, { useState, useCallback, FC, ReactNode } from "react";
+import React, {
+    useState,
+    useCallback,
+    FC,
+    ReactNode,
+    useRef,
+    useEffect,
+} from "react";
 import { Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import useRandomString from "@/hooks/useRandomString";
@@ -13,11 +20,24 @@ const generateRandomString = (length: number, chars: string): string => {
 
 export interface GlitchBackgroundCardProps {
     children?: ReactNode;
+    isMobile: boolean;
 }
 
-const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({ children }) => {
-    const [text, setText] = useState<string>("");
-    const [isHovering, setIsHovering] = useState<boolean>(false);
+const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
+    children,
+    isMobile,
+}) => {
+    const chars = useRandomString({
+        useMayus: true,
+        useMinus: false,
+        useNumbers: true,
+        useSymbols: false,
+    }).build();
+
+    const [text, setText] = useState<string>(
+        isMobile ? generateRandomString(2000, chars) : ""
+    );
+    const [isHovering, setIsHovering] = useState<boolean>(isMobile);
     const [mousePosition, setMousePosition] = useState<{
         x: number;
         y: number;
@@ -26,12 +46,38 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({ children }) => {
         y: 0,
     });
 
-    const chars = useRandomString({
-        useMayus: true,
-        useMinus: false,
-        useNumbers: true,
-        useSymbols: false,
-    }).build();
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    const regenerateText = useCallback(
+        (containerWidth: number) => {
+            // monospace → 1ch ≈ font-size
+            const FONT_SIZE = 14;
+            const charsPerLine = Math.floor(containerWidth / FONT_SIZE);
+
+            if (charsPerLine <= 0) return;
+
+            const raw = generateRandomString(4000, chars);
+            const lines = raw.match(new RegExp(`.{1,${charsPerLine}}`, "g"));
+
+            setText(lines?.join("\n") ?? "");
+        },
+        [chars]
+    );
+
+    /**
+     * Observe size changes to keep alignment perfect
+     */
+    useEffect(() => {
+        if (!containerRef.current) return;
+
+        const observer = new ResizeObserver(([entry]) => {
+            regenerateText(entry.contentRect.width * 1.7);
+        });
+
+        observer.observe(containerRef.current);
+
+        return () => observer.disconnect();
+    }, [regenerateText]);
 
     const handleMouseMove = useCallback(
         (e: React.MouseEvent<HTMLDivElement>) => {
@@ -40,15 +86,20 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({ children }) => {
                 x: e.clientX - rect.left,
                 y: e.clientY - rect.top,
             });
-            setText(generateRandomString(2000, chars));
+
+            if (containerRef.current) {
+                regenerateText(containerRef.current.clientWidth * 1.7);
+            }
         },
-        [chars]
+        [regenerateText]
     );
 
     const handleMouseEnter = useCallback(() => {
         setIsHovering(true);
-        setText(generateRandomString(2000, chars));
-    }, [chars]);
+        if (containerRef.current) {
+            regenerateText(containerRef.current.clientWidth * 1.7);
+        }
+    }, [regenerateText]);
 
     const handleMouseLeave = useCallback(() => {
         setIsHovering(false);
@@ -136,31 +187,31 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({ children }) => {
 
             {/* Glitch Text with Gradient Mask */}
             <Box
+                ref={containerRef}
                 sx={{
                     position: "absolute",
                     top: "2.5%",
                     left: "2.5%",
                     width: "95%",
                     height: "95%",
-                    color: "transparent",
                     overflow: "hidden",
-                    wordWrap: "break-word",
-                    lineHeight: 1.2,
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    textAlign: "justify",
                     opacity: isHovering ? 1 : 0,
                     transition: "opacity 300ms ease-out",
+                    fontFamily:
+                        "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+                    fontSize: "14px",
+                    lineHeight: 1.15,
+                    whiteSpace: "pre",
                     background: `radial-gradient(
-                            circle at ${mousePosition.x}px ${mousePosition.y}px,
-                            rgba(154, 98, 181, 0.5) 20%,
-        rgba(41, 121, 255, 0.5) 30%,
-        rgba(56, 182, 255, 0.5) 50%,
-        rgba(42, 252, 152, 0.5)
-                        )`,
+                        circle at ${mousePosition.x}px ${mousePosition.y}px,
+                        rgba(154, 98, 181, 0.5) 20%,
+                        rgba(41, 121, 255, 0.5) 30%,
+                        rgba(56, 182, 255, 0.5) 50%,
+                        rgba(42, 252, 152, 0.5)
+                    )`,
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
-                    borderRadius: 6,
+                    color: "transparent",
                 }}
             >
                 {text}

@@ -6,6 +6,7 @@ export interface ModalProps {
     children: ReactNode;
     open: boolean;
     onExit: (props?: unknown) => void;
+    isMobile: boolean;
 }
 
 interface RenderContentParams {
@@ -15,7 +16,7 @@ interface RenderContentParams {
 
 type RenderContent = (params: RenderContentParams) => ReactNode;
 
-const Modal: FC<ModalProps> = ({ children, open, onExit }) => {
+const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
     if (!open) {
         return null;
     }
@@ -57,7 +58,11 @@ const Modal: FC<ModalProps> = ({ children, open, onExit }) => {
 
     const renderContent: RenderContent = ({ colNumber, rowNumber }) => {
         if (colNumber === 1 && rowNumber === 1) {
-            return <GlitchBackgroundCard>{children}</GlitchBackgroundCard>;
+            return (
+                <GlitchBackgroundCard isMobile={isMobile}>
+                    {children}
+                </GlitchBackgroundCard>
+            );
         }
 
         if (colNumber === 1) {
