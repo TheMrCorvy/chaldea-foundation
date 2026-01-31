@@ -10,6 +10,7 @@ export interface GlitchButtonProps {
     dataAction?: string;
     cornerVariant?: "right" | "left";
     active?: boolean;
+    dataSound?: string;
 }
 
 const GlitchButton: FC<GlitchButtonProps> = ({
@@ -19,6 +20,7 @@ const GlitchButton: FC<GlitchButtonProps> = ({
     dataAction,
     cornerVariant = "right",
     active = false,
+    dataSound,
     ...rest
 }) => {
     const buttonClasses = `${styles.cyberBtn} ${styles[cornerVariant]} ${
@@ -31,12 +33,13 @@ const GlitchButton: FC<GlitchButtonProps> = ({
             id={id}
             data-action={dataAction}
             onClick={onClick}
+            data-sound={dataSound}
             {...rest}
         >
             <span className={styles.backdrop}>
                 <span className={styles.corner}></span>
             </span>
-            <span>{label}</span>
+            <span data-sound={dataSound}>{label}</span>
             <div className={styles.glitch} aria-hidden="true">
                 <span className={styles.backdrop}>
                     <span className={styles.corner}></span>

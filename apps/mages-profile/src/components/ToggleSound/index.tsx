@@ -13,6 +13,7 @@ const ToggleSound: React.FC = () => {
         button: null,
         modal: null,
         page_change: null,
+        bgm: null,
     });
 
     const playSound = useCallback(
@@ -44,21 +45,40 @@ const ToggleSound: React.FC = () => {
                 return;
             }
 
+            if (target.closest('[data-sound="page_change"]')) {
+                playSound("page_change");
+                return;
+            }
+
             playSound("button");
         },
         [playSound]
     );
 
     useEffect(() => {
+        const currentSounds = sounds.current;
+
         // Preload sounds
-        sounds.current.button = new Audio("/assets/sounds/button.wav");
-        sounds.current.button.volume = 0.2;
-        sounds.current.modal = new Audio("/assets/sounds/modal.wav");
-        sounds.current.modal.volume = 0.5;
-        sounds.current.page_change = new Audio(
-            "/assets/sounds/page_change.wav"
-        );
-        sounds.current.page_change.volume = 0.2;
+        currentSounds.button = new Audio("/assets/sounds/button.wav");
+        currentSounds.button.volume = 0.2;
+
+        currentSounds.modal = new Audio("/assets/sounds/modal.wav");
+        currentSounds.modal.volume = 0.5;
+
+        currentSounds.page_change = new Audio("/assets/sounds/page_change.wav");
+        currentSounds.page_change.volume = 0.2;
+
+        currentSounds.bgm = new Audio("/assets/sounds/bgm.mp3");
+        currentSounds.bgm.volume = 0.2;
+        currentSounds.bgm.loop = true;
+
+        return () => {
+            // Cleanup
+            Object.values(currentSounds).forEach((audio) => {
+                audio?.pause();
+                audio?.remove();
+            });
+        };
     }, []);
 
     useEffect(() => {
@@ -86,11 +106,11 @@ const ToggleSound: React.FC = () => {
 
     useEffect(() => {
         if (soundEnabled) {
-            document.addEventListener("click", handleClick, true);
+            document.addEventListener("click", handleClick);
         }
 
         return () => {
-            document.removeEventListener("click", handleClick, true);
+            document.removeEventListener("click", handleClick);
         };
     }, [soundEnabled, playSound, handleClick]);
 
@@ -104,12 +124,27 @@ const ToggleSound: React.FC = () => {
         }
     }, [pathname, playSound, soundEnabled]);
 
+    useEffect(() => {
+        const bgm = sounds.current.bgm;
+        if (bgm) {
+            if (soundEnabled) {
+                bgm.play().catch((error) => {
+                    console.error("Error playing background music", error);
+                });
+            } else {
+                bgm.pause();
+                bgm.currentTime = 0;
+            }
+        }
+    }, [soundEnabled]);
+
     return (
         <GlitchButton
             label="Sound Effects"
             cornerVariant="right"
             active={soundEnabled}
             onClick={() => setSoundEnabled(!soundEnabled)}
+            dataSound="page_change"
         />
     );
 };
