@@ -116,10 +116,10 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                 position: "relative",
                 width: 450,
                 height: "100%",
-                borderLeft: "1px solid rgba(255, 255, 255, 0.10)",
-                borderRight: "1px solid rgba(255, 255, 255, 0.10)",
+                borderLeft: "1px solid rgba(25,118,210, 0.3)",
+                borderRight: "1px solid rgba(25,118,210, 0.3)",
                 overflow: "visible",
-                cursor: "pointer",
+                // cursor: "pointer",
                 "&::before, &::after": {
                     content: '""',
                     position: "absolute",
@@ -146,40 +146,40 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
         >
             {/* Corner Icons */}
             <AddIcon
+                color="primary"
                 sx={{
                     position: "absolute",
                     top: -cornerIconSize / 2,
                     left: -cornerIconSize / 2,
-                    color: "white",
                     fontSize: cornerIconSize,
                 }}
             />
             <AddIcon
+                color="primary"
                 sx={{
                     position: "absolute",
                     top: -cornerIconSize / 2,
                     right: -cornerIconSize / 2,
-                    color: "white",
                     fontSize: cornerIconSize,
                     transform: "rotate(90deg)",
                 }}
             />
             <AddIcon
+                color="primary"
                 sx={{
                     position: "absolute",
                     bottom: -cornerIconSize / 2,
                     right: -cornerIconSize / 2,
-                    color: "white",
                     fontSize: cornerIconSize,
                     transform: "rotate(180deg)",
                 }}
             />
             <AddIcon
+                color="primary"
                 sx={{
                     position: "absolute",
                     bottom: -cornerIconSize / 2,
                     left: -cornerIconSize / 2,
-                    color: "white",
                     fontSize: cornerIconSize,
                     transform: "rotate(270deg)",
                 }}

@@ -49,12 +49,14 @@ export const useChaldeas: UseChaldeas = ({ isMobile }) => {
     const rotationControlsRef = useRef<RotationControlsRef>(null);
     const [countrySelected, setCountrySelected] = useState<string | null>(null);
     const detachDragListenersRef = useRef<(() => void) | null>(null);
+    const [open, setOpen] = useState(false);
 
     const handleCountryClick = useCallback(
         (countryName: string | null) => {
             setCountrySelected(countryName);
 
             if (countryName === null) {
+                setOpen(false);
                 zoomOut({
                     projectionRef,
                     svgRef,
@@ -66,6 +68,7 @@ export const useChaldeas: UseChaldeas = ({ isMobile }) => {
                     scale,
                 });
             } else {
+                setOpen(true);
                 animateToCountry({
                     countryName,
                     targetZoomedState:
@@ -144,5 +147,6 @@ export const useChaldeas: UseChaldeas = ({ isMobile }) => {
         mapContainer,
         countrySelected,
         onCountryClick: handleCountryClick,
+        open,
     };
 };

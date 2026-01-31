@@ -68,10 +68,10 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                     sx={{
                         width: 450,
                         height: "100%",
-                        borderLeft: "1px solid rgba(255, 255, 255, 0.10)",
-                        borderRight: "1px solid rgba(255, 255, 255, 0.10)",
+                        borderLeft: "1px solid rgba(25,118,210, 0.3)",
+                        borderRight: "1px solid rgba(25,118,210, 0.3)",
                     }}
-                ></Box>
+                />
             );
         }
 
@@ -92,26 +92,18 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                     exit="hidden"
                     variants={variants}
                     transition={{ duration: 0.3 }}
-                    style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        height: "100dvh",
-                        width: "100dvw",
-                        zIndex: 9999,
-                    }}
                 >
                     <Box
-                        onClick={onExit}
                         sx={{
                             position: "absolute",
                             top: 0,
                             left: 0,
                             height: "100dvh",
                             width: "100dvw",
-                            backgroundColor: "rgba(0,0,0,0.5)",
+                            backgroundColor: "rgba(8,46,105,0.2)",
                             zIndex: 9999,
                         }}
+                        onClick={onExit}
                     >
                         <Grid container spacing={0}>
                             {rows.map((row) => (
@@ -125,11 +117,11 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                                         height: calcRowHeight(row),
                                         borderBottom:
                                             row === 1
-                                                ? "1px solid rgba(255, 255, 255, 0.10)"
+                                                ? "1px solid rgba(25,118,210, 0.3)"
                                                 : "",
                                         borderTop:
                                             row === 1
-                                                ? "1px solid rgba(255, 255, 255, 0.10)"
+                                                ? "1px solid rgba(25,118,210, 0.3)"
                                                 : "",
                                     }}
                                 >

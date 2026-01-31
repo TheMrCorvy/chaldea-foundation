@@ -126,6 +126,7 @@ export interface UseChaldeasResult {
     mapContainer: React.RefObject<HTMLDivElement | null>;
     onCountryClick: (countryName: string | null) => void;
     countrySelected: string | null;
+    open: boolean;
 }
 
 export type UseChaldeas = (props: UseChaldeasProps) => UseChaldeasResult;

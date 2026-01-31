@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useChaldeas } from "./useChaldeas";
 import AsideHelper from "../AsideHelper";
 import { markedCountries } from "./constants";
@@ -11,33 +11,23 @@ export interface GlobeProps {
 }
 
 const Globe: FC<GlobeProps> = ({ isMobile }) => {
-    const { mapContainer, onCountryClick, countrySelected } = useChaldeas({
-        isMobile,
-    });
-
-    const [open, setOpen] = useState(false);
-
-    const handleClick = (country: string | null) => {
-        onCountryClick(country);
-        setOpen(true);
-    };
-
-    const handleExit = () => {
-        onCountryClick(null);
-        setOpen(false);
-    };
-
-    const textPosition = () => {
-        if (isMobile) {
-            return {
-                bottom: "20%",
-            };
+    const { mapContainer, onCountryClick, countrySelected, open } = useChaldeas(
+        {
+            isMobile,
         }
+    );
 
-        return {
-            top: "7%",
-        };
-    };
+    // const textPosition = () => {
+    //     if (isMobile) {
+    //         return {
+    //             bottom: "20%",
+    //         };
+    //     }
+
+    //     return {
+    //         top: "7%",
+    //     };
+    // };
 
     return (
         <>
@@ -76,13 +66,17 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
                 {!countrySelected && (
                     <AsideHelper
                         markedCountries={markedCountries}
-                        handleClick={handleClick}
+                        handleClick={onCountryClick}
                         countrySelected={countrySelected}
                         isMobile={isMobile}
                     />
                 )}
             </AnimatePresence>
-            <Modal open={open} onExit={handleExit} isMobile={isMobile}>
+            <Modal
+                open={open}
+                onExit={() => onCountryClick(null)}
+                isMobile={isMobile}
+            >
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Cumque, sapiente soluta aspernatur sed doloremque qui nobis
