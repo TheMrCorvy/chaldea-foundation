@@ -54,7 +54,7 @@ const MagesData: FC<MagesDataProps> = ({ isMobile }) => {
                         }}
                     >
                         <Image
-                            src="/assets/images/profile.jpg"
+                            src="/assets/images/profile.jpeg"
                             alt="Profile"
                             width={imgSize}
                             height={imgSize}
