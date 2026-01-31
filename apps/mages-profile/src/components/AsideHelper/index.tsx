@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, CSSProperties } from "react";
 import { motion } from "framer-motion";
 import GlitchButton from "../GlitchButton";
 import ToggleSound from "../ToggleSound";
@@ -10,6 +10,7 @@ export interface AsideHelperProps {
     handleClick: (country: string | null) => void;
     countrySelected: string | null;
     isMobile: boolean;
+    isVisible: boolean;
 }
 
 const containerVariants = {
@@ -50,24 +51,29 @@ const AsideHelper: FC<AsideHelperProps> = ({
     handleClick,
     countrySelected,
     isMobile,
+    isVisible,
 }) => {
+    const asideStyle: CSSProperties = {
+        position: "absolute",
+        backgroundColor: "transparent",
+        zIndex: 2,
+        display: "flex",
+        flexDirection: "column",
+        pointerEvents: isVisible ? "auto" : "none",
+    };
+
     return (
         <>
             <motion.aside
                 style={{
-                    position: "absolute",
-                    top: 16,
-                    left: 16,
-                    backgroundColor: "transparent",
+                    ...asideStyle,
+                    top: isMobile ? 10 : 16,
+                    left: isMobile ? 10 : 16,
                     padding: isMobile ? 0 : "1rem",
-                    zIndex: 2,
-                    display: "flex",
-                    flexDirection: "column",
                 }}
                 variants={containerVariants}
                 initial="hidden"
-                animate="visible"
-                exit="exit"
+                animate={isVisible ? "visible" : "exit"}
             >
                 <motion.div key="toggle-sound" variants={itemVariants}>
                     <ToggleSound />
@@ -75,20 +81,15 @@ const AsideHelper: FC<AsideHelperProps> = ({
             </motion.aside>
             <motion.aside
                 style={{
-                    position: "absolute",
-                    top: "1%",
-                    right: "1%",
-                    backgroundColor: "transparent",
+                    ...asideStyle,
+                    top: isMobile ? 10 : 16,
+                    right: isMobile ? 10 : 16,
                     padding: isMobile ? 0 : "1rem",
-                    zIndex: 2,
-                    display: "flex",
-                    flexDirection: "column",
                     gap: 10,
                 }}
                 variants={containerVariants}
                 initial="hidden"
-                animate="visible"
-                exit="exit"
+                animate={isVisible ? "visible" : "exit"}
             >
                 {markedCountries.map((country) => (
                     <motion.div key={country} variants={itemVariants}>
@@ -97,6 +98,7 @@ const AsideHelper: FC<AsideHelperProps> = ({
                             label={country}
                             cornerVariant="left"
                             active={countrySelected === country}
+                            data-sound="modal"
                         />
                     </motion.div>
                 ))}

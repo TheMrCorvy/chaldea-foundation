@@ -3,7 +3,7 @@ import { useChaldeas } from "./useChaldeas";
 import AsideHelper from "../AsideHelper";
 import { markedCountries } from "./constants";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Modal from "../Modal";
 
 export interface GlobeProps {
@@ -62,16 +62,13 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
                 }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
             />
-            <AnimatePresence>
-                {!countrySelected && (
-                    <AsideHelper
-                        markedCountries={markedCountries}
-                        handleClick={onCountryClick}
-                        countrySelected={countrySelected}
-                        isMobile={isMobile}
-                    />
-                )}
-            </AnimatePresence>
+            <AsideHelper
+                markedCountries={markedCountries}
+                handleClick={onCountryClick}
+                countrySelected={countrySelected}
+                isMobile={isMobile}
+                isVisible={!countrySelected}
+            />
             <Modal
                 open={open}
                 onExit={() => onCountryClick(null)}

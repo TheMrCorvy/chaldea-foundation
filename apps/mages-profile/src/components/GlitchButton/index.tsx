@@ -19,6 +19,7 @@ const GlitchButton: FC<GlitchButtonProps> = ({
     dataAction,
     cornerVariant = "right",
     active = false,
+    ...rest
 }) => {
     const buttonClasses = `${styles.cyberBtn} ${styles[cornerVariant]} ${
         active ? styles.active : ""
@@ -30,6 +31,7 @@ const GlitchButton: FC<GlitchButtonProps> = ({
             id={id}
             data-action={dataAction}
             onClick={onClick}
+            {...rest}
         >
             <span className={styles.backdrop}>
                 <span className={styles.corner}></span>
