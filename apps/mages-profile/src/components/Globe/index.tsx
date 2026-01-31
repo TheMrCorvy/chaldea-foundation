@@ -17,32 +17,8 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
         }
     );
 
-    // const textPosition = () => {
-    //     if (isMobile) {
-    //         return {
-    //             bottom: "20%",
-    //         };
-    //     }
-
-    //     return {
-    //         top: "7%",
-    //     };
-    // };
-
     return (
         <>
-            {/* <HologramGlitchText
-                sx={{
-                    position: "absolute",
-                    ...textPosition(),
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    whiteSpace: "nowrap",
-                }}
-                variant={isMobile ? "subtitle1" : "h5"}
-            >
-                Exploratio anima in cosmi somniorum
-            </HologramGlitchText> */}
             <motion.section
                 ref={mapContainer}
                 initial={{

@@ -4,6 +4,7 @@ import { FC, CSSProperties } from "react";
 import { motion } from "framer-motion";
 import GlitchButton from "../GlitchButton";
 import ToggleSound from "../ToggleSound";
+import HologramGlitchText from "../HologramGlitchText";
 
 export interface AsideHelperProps {
     markedCountries: string[];
@@ -77,6 +78,34 @@ const AsideHelper: FC<AsideHelperProps> = ({
             >
                 <motion.div key="toggle-sound" variants={itemVariants}>
                     <ToggleSound />
+                </motion.div>
+            </motion.aside>
+            <motion.aside
+                style={{
+                    ...asideStyle,
+                    padding: isMobile ? 0 : "1rem",
+                    top: isMobile ? "75%" : "7%",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                }}
+                variants={containerVariants}
+                initial="hidden"
+                animate={isVisible ? "visible" : "exit"}
+            >
+                <motion.div key="toggle-sound" variants={itemVariants}>
+                    <HologramGlitchText
+                        sx={{
+                            whiteSpace: "nowrap",
+                            color: "#e0e0e0",
+                            fontFamily: "'Geist', sans-serif",
+                            textTransform: "uppercase",
+                            letterSpacing: isMobile ? 1.5 : 2,
+                            fontSize: isMobile ? "0.7rem" : "1rem",
+                        }}
+                        variant={isMobile ? "body1" : "subtitle1"}
+                    >
+                        Exploratio anima in cosmi somniorum
+                    </HologramGlitchText>
                 </motion.div>
             </motion.aside>
             <motion.aside
