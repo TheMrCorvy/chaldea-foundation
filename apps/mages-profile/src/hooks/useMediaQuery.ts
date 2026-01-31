@@ -25,7 +25,9 @@ export const useMediaQuery = () => {
     };
 
     const width = (params: MaxMinParams) => {
-        const q = `(${params.maxMin}-width: ${breakpoints[params.breakpoint]}px)`;
+        const q = `(${params.maxMin}-width: ${
+            breakpoints[params.breakpoint]
+        }px)`;
         if (q === query) {
             return matches;
         }
@@ -35,7 +37,9 @@ export const useMediaQuery = () => {
     };
 
     const height = (params: MaxMinParams) => {
-        const q = `(${params.maxMin}-height: ${breakpoints[params.breakpoint]}px)`;
+        const q = `(${params.maxMin}-height: ${
+            breakpoints[params.breakpoint]
+        }px)`;
         if (q === query) {
             return matches;
         }
@@ -52,6 +56,7 @@ export const useMediaQuery = () => {
         const mediaQuery = window.matchMedia(query);
         mediaQuery.addEventListener("change", handler);
 
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMatches(mediaQuery.matches); // Initial state will not be set to true if it matches, only on change, so we have to set it up like this first
 
         return () => mediaQuery.removeEventListener("change", handler);
