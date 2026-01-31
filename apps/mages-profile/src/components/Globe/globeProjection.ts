@@ -41,6 +41,7 @@ export const setupGlobeProjection: SetupGlobeProjection = ({
         .attr("viewBox", `0 0 ${scale} ${scale}`)
         .style("overflow", "visible")
         .style("display", "block")
+        .attr("data-sound", "modal")
         .style("position", "relative") as unknown as D3Selection;
 
     const circle = svg
@@ -50,6 +51,7 @@ export const setupGlobeProjection: SetupGlobeProjection = ({
         .attr("stroke-width", thinnerStrokeWidth)
         .attr("cx", translate[0])
         .attr("cy", translate[1])
+        .attr("data-sound", "modal")
         .attr("r", scale);
     const pathGenerator = d3.geoPath().projection(projection);
 
@@ -65,6 +67,7 @@ export const setupGlobeProjection: SetupGlobeProjection = ({
                 ? selectedColor
                 : countryColor
         )
+        .attr("data-sound", "modal")
         .style("stroke", strokeColor)
         .style("stroke-width", strokeWidth)
         .style("opacity", opacity)

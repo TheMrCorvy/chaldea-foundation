@@ -91,7 +91,7 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                     animate="visible"
                     exit="hidden"
                     variants={variants}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }}
                 >
                     <Box
                         sx={{
@@ -104,6 +104,7 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                             zIndex: 9999,
                         }}
                         onClick={onExit}
+                        data-sound="modal"
                     >
                         <Grid container spacing={0}>
                             {rows.map((row) => (
