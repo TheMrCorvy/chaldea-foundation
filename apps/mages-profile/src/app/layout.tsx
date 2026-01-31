@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Box } from "@mui/material";
 import { ThemeRegistry } from "@/components/ThemeRegistry";
+import "./globals.css";
 
-import ToggleSound from "@/components/ToggleSound";
+import DynamicClientComponents from "@/components/DynamicClientComponents";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,18 +21,8 @@ export default function RootLayout({
         <html lang="en">
             <ThemeRegistry>
                 <body className={inter.className}>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            minHeight: "100vh",
-                        }}
-                    >
-                        <Box component="main" sx={{ flexGrow: 1 }}>
-                            {children}
-                        </Box>
-                    </Box>
-                    <ToggleSound />
+                    {children}
+                    <DynamicClientComponents />
                 </body>
             </ThemeRegistry>
         </html>

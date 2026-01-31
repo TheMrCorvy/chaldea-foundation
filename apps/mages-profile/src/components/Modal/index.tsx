@@ -91,7 +91,7 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                     animate="visible"
                     exit="hidden"
                     variants={variants}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.1 }}
                 >
                     <Box
                         sx={{

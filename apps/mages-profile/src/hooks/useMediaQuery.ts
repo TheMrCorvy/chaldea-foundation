@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import { useState, useEffect } from "react";
 
 export type Breakpoints = "xs" | "sm" | "md" | "lg" | "xl";

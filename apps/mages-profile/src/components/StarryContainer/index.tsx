@@ -45,6 +45,7 @@ const StarryContainer: FC<StarryContainerProps> = ({ children }) => {
                     "radial-gradient(ellipse 80% 50% at 60% 100%, #051e3e, #041a33, #000d1a)",
             }}
             component="main"
+            data-sound="button"
         >
             {stars.map((star, index) => (
                 <motion.div
