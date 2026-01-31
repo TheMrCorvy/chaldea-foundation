@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { Box, Switch } from "@mui/material";
 import { usePathname } from "next/navigation";
+import GlitchButton from "../GlitchButton";
 
 const ToggleSound: React.FC = () => {
     const [soundEnabled, setSoundEnabled] = useState(false);
@@ -30,10 +30,6 @@ const ToggleSound: React.FC = () => {
         },
         [soundEnabled]
     );
-
-    const handleToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSoundEnabled(event.target.checked);
-    };
 
     const handleClick = useCallback(
         (event: MouseEvent) => {
@@ -109,20 +105,12 @@ const ToggleSound: React.FC = () => {
     }, [pathname, playSound, soundEnabled]);
 
     return (
-        <Box
-            sx={{
-                position: "fixed",
-                top: 16,
-                left: 16,
-            }}
-            data-sound-toggle="modal"
-        >
-            <Switch
-                checked={soundEnabled}
-                onChange={handleToggle}
-                color="primary"
-            />
-        </Box>
+        <GlitchButton
+            label="Sound Effects"
+            cornerVariant="right"
+            active={soundEnabled}
+            onClick={() => setSoundEnabled(!soundEnabled)}
+        />
     );
 };
 

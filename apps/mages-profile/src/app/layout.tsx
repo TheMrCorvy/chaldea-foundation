@@ -3,8 +3,6 @@ import { Inter } from "next/font/google";
 import { ThemeRegistry } from "@/components/ThemeRegistry";
 import "./globals.css";
 
-import DynamicClientComponents from "@/components/DynamicClientComponents";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,10 +18,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <ThemeRegistry>
-                <body className={inter.className}>
-                    {children}
-                    <DynamicClientComponents />
-                </body>
+                <body className={inter.className}>{children}</body>
             </ThemeRegistry>
         </html>
     );
