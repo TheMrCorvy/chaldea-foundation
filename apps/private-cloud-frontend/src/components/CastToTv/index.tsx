@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import IconButton from "@mui/joy/IconButton";
 import CastIcon from "@mui/icons-material/Cast";
 
@@ -11,210 +11,171 @@ export interface CastToTvProps {
     };
 }
 
-interface CastSession {
-    loadMedia: (request: LoadRequest) => Promise<void>;
-}
-
-interface MediaInfo {
-    tracks?: Array<{
-        trackId: number;
-        type: string;
-        trackContentId: string;
-        trackContentType: string;
-        subtype: string;
-        name: string;
-        language: string;
-        customData: null;
-    }>;
-    textTrackStyle?: object;
-}
-
-interface LoadRequest {
-    activeTrackIds?: number[];
-}
-
 interface CastWindow extends Window {
-    cast?: {
-        framework?: {
-            CastContext: {
-                getInstance: () => {
-                    setOptions: (opts: unknown) => void;
-                    getCurrentSession: () => CastSession | null;
-                    requestSession: () => void;
-                };
-            };
-        };
-    };
-    chrome?: {
-        cast?: {
-            media?: {
-                DEFAULT_MEDIA_RECEIVER_APP_ID?: string;
-                MediaInfo?: new (
-                    contentId: string,
-                    contentType: string
-                ) => MediaInfo;
-                LoadRequest?: new (mediaInfo: MediaInfo) => LoadRequest;
-            };
-            AutoJoinPolicy?: {
-                ORIGIN_SCOPED?: string;
-            };
-        };
-    };
+    cast?: any;
+    chrome?: any;
     __onGCastApiAvailable?: (isAvailable: boolean) => void;
 }
 
-const getDefaultReceiverAppId = (): string => {
-    const win = window as CastWindow;
-    return win.chrome?.cast?.media?.DEFAULT_MEDIA_RECEIVER_APP_ID || "CC1AD845";
+const DEFAULT_RECEIVER_APP_ID = "CC1AD845";
+
+/**
+ * Detect content type & stream type based on URL
+ * Enables HLS/DASH buffering when infrastructure allows it
+ */
+const getMediaConfig = (src: string) => {
+    if (src.endsWith(".m3u8")) {
+        return {
+            contentType: "application/x-mpegURL",
+            streamType: "BUFFERED",
+        };
+    }
+
+    if (src.endsWith(".mpd")) {
+        return {
+            contentType: "application/dash+xml",
+            streamType: "BUFFERED",
+        };
+    }
+
+    return {
+        contentType: "video/mp4",
+        streamType: "BUFFERED",
+    };
 };
 
 const CastToTv: FC<CastToTvProps> = ({ videoSrc, subtitleSrc, metadata }) => {
     const [castReady, setCastReady] = useState(false);
     const [casting, setCasting] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const buttonRef = useRef<HTMLButtonElement>(null);
 
-    // Determinar si el botón debe estar habilitado
+    const remotePlayerRef = useRef<any>(null);
+    const remoteControllerRef = useRef<any>(null);
+
     const canCast =
         !!videoSrc &&
-        ((!subtitleSrc && !metadata) || // Solo video
-            (!!subtitleSrc && !!metadata)); // Video + subtítulos + metadata
+        ((!subtitleSrc && !metadata) || (!!subtitleSrc && !!metadata));
 
-    // Inicializar el contexto de Cast cuando el SDK esté listo
+    /** Initialize Cast SDK */
     useEffect(() => {
         const win = window as CastWindow;
 
-        // Si el SDK ya está disponible, inicializar inmediatamente
-        if (win.cast && win.cast.framework) {
-            win.cast.framework.CastContext.getInstance().setOptions({
-                receiverApplicationId: getDefaultReceiverAppId(),
-                autoJoinPolicy: win.chrome?.cast?.AutoJoinPolicy?.ORIGIN_SCOPED,
+        const initCast = () => {
+            const context = win.cast.framework.CastContext.getInstance();
+            context.setOptions({
+                receiverApplicationId: DEFAULT_RECEIVER_APP_ID,
+                autoJoinPolicy: win.chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED,
             });
+
+            remotePlayerRef.current = new win.cast.framework.RemotePlayer();
+            remoteControllerRef.current =
+                new win.cast.framework.RemotePlayerController(
+                    remotePlayerRef.current
+                );
+
             setCastReady(true);
+        };
+
+        if (win.cast?.framework) {
+            initCast();
             return;
         }
 
-        // Si no está disponible, esperar a que el SDK se cargue
-        const originalCallback = win.__onGCastApiAvailable;
-        win.__onGCastApiAvailable = function (isAvailable: boolean) {
-            if (isAvailable) {
-                win.cast?.framework?.CastContext.getInstance().setOptions({
-                    receiverApplicationId: getDefaultReceiverAppId(),
-                    autoJoinPolicy:
-                        win.chrome?.cast?.AutoJoinPolicy?.ORIGIN_SCOPED,
-                });
-                setCastReady(true);
-            } else {
-                setCastReady(false);
-            }
-            // Llamar al callback original si existe
-            if (typeof originalCallback === "function") {
-                originalCallback(isAvailable);
-            }
-        };
-
-        return () => {
-            // Restaurar el callback original al desmontar
-            if (originalCallback) {
-                win.__onGCastApiAvailable = originalCallback;
-            } else {
-                delete win.__onGCastApiAvailable;
-            }
+        win.__onGCastApiAvailable = (isAvailable: boolean) => {
+            if (isAvailable) initCast();
         };
     }, []);
 
-    // Función para lanzar el video al Chromecast
-    const handleCast = async () => {
+    /** Load media into Chromecast */
+    const loadMedia = useCallback(async () => {
+        const win = window as CastWindow;
+        const context = win.cast.framework.CastContext.getInstance();
+        const session = context.getCurrentSession();
+
+        if (!session) return;
+
+        const { contentType, streamType } = getMediaConfig(videoSrc);
+
+        const mediaInfo = new win.chrome.cast.media.MediaInfo(
+            videoSrc,
+            contentType
+        );
+
+        mediaInfo.streamType = streamType;
+
+        if (subtitleSrc && metadata) {
+            mediaInfo.tracks = [
+                {
+                    trackId: 1,
+                    type: "TEXT",
+                    trackContentId: subtitleSrc,
+                    trackContentType: "text/vtt",
+                    subtype: "SUBTITLES",
+                    name: metadata.subsLabel,
+                    language: metadata.subsLanguage,
+                    customData: null,
+                },
+            ];
+            mediaInfo.textTrackStyle = {};
+        }
+
+        const request = new win.chrome.cast.media.LoadRequest(mediaInfo);
+
+        if (subtitleSrc && metadata) {
+            request.activeTrackIds = [1];
+        }
+
+        await session.loadMedia(request);
+    }, [videoSrc, subtitleSrc, metadata]);
+
+    /** Main Cast Button Handler */
+    const handleCast = useCallback(async () => {
         setError(null);
         setCasting(true);
 
         try {
             const win = window as CastWindow;
-            const context = win.cast?.framework?.CastContext.getInstance();
+            const context = win.cast.framework.CastContext.getInstance();
+            let session = context.getCurrentSession();
 
-            if (!context) throw new Error("Google Cast no está disponible");
-
-            const session = context.getCurrentSession();
-
+            // No session → request one
             if (!session) {
-                context.requestSession();
+                await context.requestSession();
+                session = context.getCurrentSession();
+            }
+
+            if (!session) return;
+
+            const mediaSession = session.getMediaSession();
+
+            // Already casting → toggle play/pause
+            if (mediaSession && remoteControllerRef.current) {
+                remoteControllerRef.current.playOrPause();
                 return;
             }
 
-            // Crear mediaInfo
-            const MediaInfoCtor = win.chrome?.cast?.media?.MediaInfo;
-
-            if (!MediaInfoCtor)
-                throw new Error("No se encontró MediaInfo en Cast SDK");
-
-            const mediaInfo: MediaInfo = new MediaInfoCtor(
-                videoSrc,
-                "video/mp4"
-            );
-
-            // Si hay subtítulos y metadata, añadirlos
-            if (subtitleSrc && metadata) {
-                mediaInfo.tracks = [
-                    {
-                        trackId: 1,
-                        type: "TEXT",
-                        trackContentId: subtitleSrc,
-                        trackContentType: "text/vtt",
-                        subtype: "SUBTITLES",
-                        name: metadata.subsLabel,
-                        language: metadata.subsLanguage,
-                        customData: null,
-                    },
-                ];
-                mediaInfo.textTrackStyle = {};
-            }
-
-            // Crear la petición de carga
-            const LoadRequestCtor = win.chrome?.cast?.media?.LoadRequest;
-
-            if (!LoadRequestCtor)
-                throw new Error("No se encontró LoadRequest en Cast SDK");
-
-            const request: LoadRequest = new LoadRequestCtor(mediaInfo);
-
-            // Activar el track de subtítulos por defecto si corresponde
-            if (subtitleSrc && metadata) {
-                request.activeTrackIds = [1];
-            }
-
-            await session.loadMedia(request);
+            // Otherwise load media
+            await loadMedia();
         } catch (e) {
-            if (e instanceof Error) {
-                setError(e.message);
-            } else {
-                setError("Error al enviar a Chromecast");
-            }
+            setError(e instanceof Error ? e.message : "Chromecast error");
         } finally {
             setCasting(false);
         }
-    };
+    }, [loadMedia]);
 
     return (
         <>
             {castReady && canCast && (
                 <IconButton
-                    ref={buttonRef}
-                    disabled={!castReady || !canCast || casting}
+                    disabled={!castReady || casting}
                     loading={casting}
                     onClick={handleCast}
-                    sx={{
-                        width: 36,
-                        height: 36,
-                    }}
+                    sx={{ width: 36, height: 36 }}
                 >
-                    <CastIcon
-                        sx={{
-                            fontSize: 20,
-                            color: "white",
-                        }}
-                    />
+                    <CastIcon sx={{ fontSize: 20, color: "white" }} />
                 </IconButton>
             )}
+
             {error && (
                 <span style={{ color: "red", marginLeft: 8 }}>{error}</span>
             )}
