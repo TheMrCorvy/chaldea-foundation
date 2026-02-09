@@ -10,7 +10,7 @@ export interface GlitchTextProps extends TypographyProps {
     useNumbers?: boolean;
     useMinus?: boolean;
     useSymbols?: boolean;
-    delay?: number;
+    delay?: number; // This value is in seconds, not in miliseconds
     disableHover?: boolean;
 }
 
