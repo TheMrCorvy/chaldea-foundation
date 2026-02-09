@@ -82,11 +82,12 @@ To get the project running locally, use the following commands:
 - **Production Build:** `npm run deploy`
 - **Start Production Server:** `npm run start`
 - **Linting:** `npm run lint`
+- **Storybook:** `npm run storybook`
 
 # Development Conventions
 
 - ESLint + TS strict mode
-- Component structure: index.tsx, hooks.ts, styles.module.css, tests
+- Component structure: index.tsx, hooks.ts, styles.module.css, tests, storybook.
 - Naming conventions and alias paths
 
 The project uses ESLint for code linting, and the configuration is in `eslint.config.mjs`. The project is configured to use TypeScript with strict mode enabled. The `tsconfig.json` file defines path aliases, with `@/*` pointing to `src/*`. The components are stored in `/[component name]/index.tsx` with their logic in a custom hook in the same folder, their styles in another custom hook or css module in their same folder and unit test in the same folder with the name `[component name].test.tsx`
