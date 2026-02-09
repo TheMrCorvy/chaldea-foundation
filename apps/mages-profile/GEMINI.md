@@ -90,3 +90,7 @@ To get the project running locally, use the following commands:
 - Naming conventions and alias paths
 
 The project uses ESLint for code linting, and the configuration is in `eslint.config.mjs`. The project is configured to use TypeScript with strict mode enabled. The `tsconfig.json` file defines path aliases, with `@/*` pointing to `src/*`. The components are stored in `/[component name]/index.tsx` with their logic in a custom hook in the same folder, their styles in another custom hook or css module in their same folder and unit test in the same folder with the name `[component name].test.tsx`
+
+# Preferences
+
+Do not use type "any". Make sure ther are no errors or warnings thrown in the code by eslint by running `npm run lint`. Make sure the app builds fine after finishing any change by running `npm run build`. Do not remove any file unless it is completely unused throughout the project. Do not install dependencies unless the users asks to. Do not run `npm install` unless there has been a change in the package.json file's dependencies.
