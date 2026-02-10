@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Pixel } from "./Pixel";
 import { getEffectiveSpeed, VARIANTS } from "./utils";
-import { on } from "events";
 
 interface VariantConfig {
     activeColor: string | null;
@@ -11,6 +10,13 @@ interface VariantConfig {
     noFocus: boolean;
 }
 
+export interface Borders {
+    left?: boolean;
+    right?: boolean;
+    top?: boolean;
+    bottom?: boolean;
+}
+
 export interface UsePixelCardProps {
     variant?: "default" | "blue" | "yellow" | "pink";
     gap?: number;
@@ -18,7 +24,13 @@ export interface UsePixelCardProps {
     colors?: string;
     noFocus?: boolean;
     focusOnMount?: boolean;
+    borders?: boolean | Borders;
 }
+
+const initialBorders = {
+    left: true,
+    right: true,
+};
 
 const usePixelCard = ({
     variant = "default",
@@ -27,6 +39,7 @@ const usePixelCard = ({
     colors,
     noFocus,
     focusOnMount = false,
+    borders = initialBorders,
 }: UsePixelCardProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -136,6 +149,38 @@ const usePixelCard = ({
         handleAnimation("disappear");
     };
 
+    const renderBorders = () => {
+        const border = "1px solid rgba(25, 118, 210, 0.6)";
+
+        if (typeof borders === "boolean") {
+            return {
+                border: borders ? border : "none",
+            };
+        }
+
+        const result = {
+            borderLeft: "none",
+            borderRight: "none",
+            borderTop: "none",
+            borderBottom: "none",
+        };
+
+        if (borders.left) {
+            result.borderLeft = border;
+        }
+        if (borders.right) {
+            result.borderRight = border;
+        }
+        if (borders.top) {
+            result.borderTop = border;
+        }
+        if (borders.bottom) {
+            result.borderBottom = border;
+        }
+
+        return result;
+    };
+
     useEffect(() => {
         initPixels();
         const observer = new ResizeObserver(() => {
@@ -156,6 +201,14 @@ const usePixelCard = ({
     useEffect(() => {
         if (focusOnMount && containerRef.current) {
             handleAnimation("appear");
+
+            // const clearTimeout = setTimeout(() => {
+            //     handleAnimation("disappear");
+            // }, 3000);
+
+            // return () => {
+            //     clearInterval(clearTimeout);
+            // };
         }
     }, [focusOnMount]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -167,6 +220,7 @@ const usePixelCard = ({
         onFocus,
         onBlur,
         canvasRef,
+        renderBorders,
     };
 };
 
