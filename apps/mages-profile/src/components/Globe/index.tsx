@@ -5,6 +5,8 @@ import { markedCountries } from "./constants";
 
 import { motion } from "framer-motion";
 import Modal from "../Modal";
+import ExperienceListItem from "../ExperienceListItem";
+import { Box, Link } from "@mui/material";
 
 export interface GlobeProps {
     isMobile: boolean;
@@ -16,6 +18,17 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
             isMobile,
         }
     );
+
+    const experience = {
+        role: "Fullstack Developer",
+        orientation: "Frontend Oriented",
+        company: "GlobalLogic",
+        client: "YPF",
+        startDate: "Dec 2025",
+        endDate: "Present",
+        description:
+            "Currently working in a demanding frontend-oriented project focused on organizing large amounts of data and presenting it efficiently to minimize backend requests.",
+    };
 
     return (
         <>
@@ -50,12 +63,49 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
                 onExit={() => onCountryClick(null)}
                 isMobile={isMobile}
             >
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Cumque, sapiente soluta aspernatur sed doloremque qui nobis
-                    dolorum reiciendis quia blanditiis error ipsa fuga
-                    consectetur, corrupti saepe sit, accusamus eius consequatur.
-                </p>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-around",
+                        height: "100%",
+                        pr: "11px",
+                    }}
+                >
+                    <ExperienceListItem
+                        isMobile={isMobile}
+                        experience={experience}
+                    />
+                    <ExperienceListItem
+                        isMobile={isMobile}
+                        experience={experience}
+                    />
+                    <ExperienceListItem
+                        isMobile={isMobile}
+                        experience={experience}
+                    />
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            width: "100%",
+                            pl: "11px",
+                        }}
+                    >
+                        <Link variant="body1" color="#ffffff">
+                            Close
+                        </Link>
+                        <Link
+                            variant="body1"
+                            color="#ffffff"
+                            sx={{
+                                mr: isMobile ? "-11px" : "0",
+                            }}
+                        >
+                            See more
+                        </Link>
+                    </Box>
+                </Box>
             </Modal>
         </>
     );
