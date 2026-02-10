@@ -20,12 +20,12 @@ const generateRandomString = (length: number, chars: string): string => {
 
 export interface GlitchBackgroundCardProps {
     children?: ReactNode;
-    isMobile: boolean;
+    isMobile?: boolean;
 }
 
 const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
     children,
-    isMobile,
+    isMobile = false,
 }) => {
     const chars = useRandomString({
         useMayus: true,
@@ -116,7 +116,8 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                 position: "relative",
                 width: 450,
                 height: "100%",
-                border: "1px solid rgba(25,118,210, 0.3)",
+                borderLeft: "1px solid rgba(25,118,210, 0.6)",
+                borderRight: "1px solid rgba(25,118,210, 0.6)",
                 overflow: "visible",
                 // cursor: "pointer",
                 "&::before, &::after": {
@@ -236,13 +237,14 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                         justifyContent: "center",
                         alignItems: "center",
                         width: "100%",
-                        height: "100%",
-                        borderRadius: 2,
+                        height: "95%",
+                        // borderRadius: 2,
                         color: "white",
-                        margin: "11px",
-                        backgroundColor: "rgba(0, 0, 0, 0.05)",
+                        marginX: "11px",
+                        backgroundColor: isHovering ? "rgba(0, 0, 0, 0.1)" : "",
                         wordBreak: "break-word",
                         flexDirection: "column",
+                        padding: 0,
                     }}
                 >
                     {children}
