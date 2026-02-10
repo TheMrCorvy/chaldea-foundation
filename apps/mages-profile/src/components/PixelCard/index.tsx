@@ -1,9 +1,15 @@
+"use client";
+
 import { JSX } from "react";
 import usePixelCard, { UsePixelCardProps } from "./usePixelCard";
 import styles from "./PixelCard.module.css";
+import { Box } from "@mui/material";
 
 export interface PixelCardProps extends UsePixelCardProps {
     children: React.ReactNode;
+    height?: number | string;
+    width?: number | string;
+    roundedBorders?: boolean;
 }
 
 export default function PixelCard({
@@ -14,6 +20,10 @@ export default function PixelCard({
     noFocus,
     children,
     focusOnMount = false,
+    height = "100%",
+    width = "100%",
+    roundedBorders = true,
+    borders,
 }: PixelCardProps): JSX.Element {
     const {
         containerRef,
@@ -23,10 +33,19 @@ export default function PixelCard({
         onMouseLeave,
         finalNoFocus,
         canvasRef,
-    } = usePixelCard({ variant, gap, colors, speed, noFocus, focusOnMount });
+        renderBorders,
+    } = usePixelCard({
+        variant,
+        gap,
+        colors,
+        speed,
+        noFocus,
+        focusOnMount,
+        borders,
+    });
 
     return (
-        <div
+        <Box
             ref={containerRef}
             className={styles.pixel_card}
             onMouseEnter={onMouseEnter}
@@ -34,9 +53,15 @@ export default function PixelCard({
             onFocus={finalNoFocus ? undefined : onFocus}
             onBlur={finalNoFocus ? undefined : onBlur}
             tabIndex={finalNoFocus ? -1 : 0}
+            sx={{
+                width,
+                height,
+                borderRadius: roundedBorders ? "25px" : 0,
+                ...renderBorders(),
+            }}
         >
             <canvas className={styles.pixel_canvas} ref={canvasRef} />
-            <div>{children}</div>
-        </div>
+            {children}
+        </Box>
     );
 }
