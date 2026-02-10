@@ -22,12 +22,16 @@ const meta = {
     argTypes: {
         variant: {
             control: "select",
-            options: ["default", "focus", "hover", "always"],
+            options: ["default", "blue", "yellow", "pink"],
         },
         gap: { control: "number" },
         speed: { control: "number" },
-        colors: { control: "object" },
+        colors: { control: "text" },
         noFocus: { control: "boolean" },
+        focusOnMount: { control: "boolean" },
+        width: { control: "text" },
+        height: { control: "text" },
+        roundedBorders: { control: "boolean" },
     },
 } satisfies Meta<typeof PixelCard>;
 
@@ -65,6 +69,34 @@ export const FocusOnMount: Story = {
     args: {
         variant: "default",
         focusOnMount: true,
+        children: (
+            <Box sx={{ color: "white", padding: 2, bg: "red" }}>
+                Pixel Card (Hover or Focus test)
+            </Box>
+        ),
+    },
+    render: (args) => (
+        <Box
+            sx={{
+                width: "100dvw",
+                height: "100dvh",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#000000",
+            }}
+        >
+            <Box sx={{ width: 300, height: 300, position: "relative" }}>
+                <PixelCard {...args} />
+            </Box>
+        </Box>
+    ),
+};
+
+export const NoRoundedBorders: Story = {
+    args: {
+        variant: "default",
+        roundedBorders: false,
         children: (
             <Box sx={{ color: "white", padding: 2, bg: "red" }}>
                 Pixel Card (Hover or Focus test)
