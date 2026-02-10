@@ -2,6 +2,8 @@ import { Box, Grid } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import { FC, ReactNode } from "react";
 import GlitchBackgroundCard from "../GlitchBacgkroundCard";
+import PixelCard from "../PixelCard";
+import AddIcon from "@mui/icons-material/Add";
 
 export interface ModalProps {
     children: ReactNode;
@@ -27,10 +29,10 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
         }
 
         if (colNumber === 1) {
-            return "50dvh";
+            return isMobile ? "60dvh" : "50dvh";
         }
 
-        return "45dvh";
+        return isMobile ? "35dvh" : "45dvh";
     };
 
     const calcColSize = (colNumber: number) => {
@@ -55,11 +57,83 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
 
     const renderContent: RenderContent = ({ colNumber, rowNumber }) => {
         if (colNumber === 1 && rowNumber === 1) {
-            return (
-                <GlitchBackgroundCard isMobile={isMobile}>
-                    {children}
-                </GlitchBackgroundCard>
-            );
+            if (isMobile) {
+                const cornerIconSize = 24;
+
+                return (
+                    <PixelCard
+                        roundedBorders={false}
+                        height="100%"
+                        width="100%"
+                        focusOnMount
+                        variant="blue"
+                        borders={{
+                            left: true,
+                            right: true,
+                        }}
+                    >
+                        {/* Corner Icons */}
+                        <AddIcon
+                            color="primary"
+                            sx={{
+                                position: "absolute",
+                                top: -cornerIconSize / 2,
+                                left: -cornerIconSize / 2,
+                                fontSize: cornerIconSize,
+                            }}
+                        />
+                        <AddIcon
+                            color="primary"
+                            sx={{
+                                position: "absolute",
+                                top: -cornerIconSize / 2,
+                                right: -cornerIconSize / 2,
+                                fontSize: cornerIconSize,
+                                transform: "rotate(90deg)",
+                            }}
+                        />
+                        <AddIcon
+                            color="primary"
+                            sx={{
+                                position: "absolute",
+                                bottom: -cornerIconSize / 2,
+                                right: -cornerIconSize / 2,
+                                fontSize: cornerIconSize,
+                                transform: "rotate(180deg)",
+                            }}
+                        />
+                        <AddIcon
+                            color="primary"
+                            sx={{
+                                position: "absolute",
+                                bottom: -cornerIconSize / 2,
+                                left: -cornerIconSize / 2,
+                                fontSize: cornerIconSize,
+                                transform: "rotate(270deg)",
+                            }}
+                        />
+                        <Box
+                            sx={{
+                                paddingLeft: 0,
+                                paddingRight: "11px",
+                                height: "100%",
+                                width: "100%",
+                                position: "relative",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                flexDirection: "column",
+                                color: "white",
+                                background: "rgba(0, 0, 0, 0.15)",
+                                py: 2,
+                            }}
+                        >
+                            {children}
+                        </Box>
+                    </PixelCard>
+                );
+            }
+            return <GlitchBackgroundCard>{children}</GlitchBackgroundCard>;
         }
 
         if (colNumber === 1) {
@@ -68,8 +142,8 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                     sx={{
                         width: 450,
                         height: "100%",
-                        borderLeft: "1px solid rgba(25,118,210, 0.3)",
-                        borderRight: "1px solid rgba(25,118,210, 0.3)",
+                        borderLeft: "1px solid rgba(25,118,210, 0.6)",
+                        borderRight: "1px solid rgba(25,118,210, 0.6)",
                     }}
                 />
             );
@@ -91,7 +165,7 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                     animate="visible"
                     exit="hidden"
                     variants={variants}
-                    transition={{ duration: 0.1 }}
+                    transition={{ duration: 0.2 }}
                 >
                     <Box
                         sx={{
@@ -100,7 +174,8 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                             left: 0,
                             height: "100dvh",
                             width: "100dvw",
-                            backgroundColor: "rgba(8,46,105,0.2)",
+                            // backgroundColor: "rgba(8, 46, 105, 0.4)",
+                            backgroundColor: "rgba(0, 0, 0, 0.4)",
                             zIndex: 9999,
                         }}
                         onClick={onExit}
@@ -118,11 +193,11 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                                         height: calcRowHeight(row),
                                         borderBottom:
                                             row === 1
-                                                ? "1px solid rgba(25,118,210, 0.3)"
+                                                ? "1px solid rgba(25,118,210, 0.6)"
                                                 : "",
                                         borderTop:
                                             row === 1
-                                                ? "1px solid rgba(25,118,210, 0.3)"
+                                                ? "1px solid rgba(25,118,210, 0.6)"
                                                 : "",
                                     }}
                                 >
