@@ -4,7 +4,7 @@ import { FC, ReactNode } from "react";
 import { motion } from "framer-motion";
 
 export interface StarryContainerProps {
-    children: ReactNode;
+    children: ReactNode | ReactNode[];
 }
 
 const stars = [

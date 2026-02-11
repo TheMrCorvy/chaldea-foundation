@@ -2,6 +2,7 @@
 
 import { FC } from "react";
 import styles from "./GlitchButton.module.css";
+import { SoundType } from "@/contexts/SoundContext";
 
 export interface GlitchButtonProps {
     label: string;
@@ -10,7 +11,7 @@ export interface GlitchButtonProps {
     dataAction?: string;
     cornerVariant?: "right" | "left";
     active?: boolean;
-    dataSound?: string;
+    dataSound?: SoundType;
 }
 
 const GlitchButton: FC<GlitchButtonProps> = ({

@@ -71,6 +71,7 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                             left: true,
                             right: true,
                         }}
+                        data-sound="modal"
                     >
                         {/* Corner Icons */}
                         <AddIcon
@@ -81,6 +82,7 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                                 left: -cornerIconSize / 2,
                                 fontSize: cornerIconSize,
                             }}
+                            data-sound="modal"
                         />
                         <AddIcon
                             color="primary"
@@ -91,6 +93,7 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                                 fontSize: cornerIconSize,
                                 transform: "rotate(90deg)",
                             }}
+                            data-sound="modal"
                         />
                         <AddIcon
                             color="primary"
@@ -101,6 +104,7 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                                 fontSize: cornerIconSize,
                                 transform: "rotate(180deg)",
                             }}
+                            data-sound="modal"
                         />
                         <AddIcon
                             color="primary"
@@ -111,6 +115,7 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                                 fontSize: cornerIconSize,
                                 transform: "rotate(270deg)",
                             }}
+                            data-sound="modal"
                         />
                         <Box
                             sx={{
@@ -127,18 +132,24 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                                 background: "rgba(0, 0, 0, 0.15)",
                                 py: 2,
                             }}
+                            data-sound="modal"
                         >
                             {children}
                         </Box>
                     </PixelCard>
                 );
             }
-            return <GlitchBackgroundCard>{children}</GlitchBackgroundCard>;
+            return (
+                <GlitchBackgroundCard data-sound="modal">
+                    {children}
+                </GlitchBackgroundCard>
+            );
         }
 
         if (colNumber === 1) {
             return (
                 <Box
+                    data-sound="modal"
                     sx={{
                         width: 450,
                         height: "100%",
@@ -174,14 +185,15 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                             left: 0,
                             height: "100dvh",
                             width: "100dvw",
-                            // backgroundColor: "rgba(8, 46, 105, 0.4)",
-                            backgroundColor: "rgba(0, 0, 0, 0.4)",
+                            backgroundColor: isMobile
+                                ? "rgba(0, 0, 0, 0.4)"
+                                : "rgba(8, 46, 105, 0.4)",
                             zIndex: 9999,
                         }}
                         onClick={onExit}
                         data-sound="modal"
                     >
-                        <Grid container spacing={0}>
+                        <Grid container spacing={0} data-sound="modal">
                             {rows.map((row) => (
                                 <Grid
                                     size={12}
@@ -200,11 +212,13 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                                                 ? "1px solid rgba(25,118,210, 0.6)"
                                                 : "",
                                     }}
+                                    data-sound="modal"
                                 >
                                     {columns.map((col) => (
                                         <Grid
                                             key={`modal-col-${col}`}
                                             spacing={0}
+                                            data-sound="modal"
                                             sx={{
                                                 display: "flex",
                                                 flexDirection: "row",

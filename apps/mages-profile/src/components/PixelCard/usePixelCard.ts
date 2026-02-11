@@ -201,14 +201,6 @@ const usePixelCard = ({
     useEffect(() => {
         if (focusOnMount && containerRef.current) {
             handleAnimation("appear");
-
-            // const clearTimeout = setTimeout(() => {
-            //     handleAnimation("disappear");
-            // }, 3000);
-
-            // return () => {
-            //     clearInterval(clearTimeout);
-            // };
         }
     }, [focusOnMount]); // eslint-disable-line react-hooks/exhaustive-deps
 

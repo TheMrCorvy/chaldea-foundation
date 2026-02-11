@@ -2,13 +2,13 @@ import { Box, Typography } from "@mui/material";
 import { FC } from "react";
 
 export interface ExperienceItem {
-    role: string;
+    position: string;
     orientation?: string; // e.g. "Frontend Oriented"
     company: string;
     client?: string;
     startDate: string; // "Dec 2025"
     endDate: string; // "Present" | "Oct 2023"
-    description: string;
+    body: string;
 }
 
 export interface ExperienceListItemProps {
@@ -20,15 +20,8 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
     experience,
     isMobile,
 }) => {
-    const {
-        role,
-        orientation,
-        company,
-        client,
-        startDate,
-        endDate,
-        description,
-    } = experience;
+    const { position, orientation, company, client, startDate, endDate, body } =
+        experience;
 
     return (
         <Box
@@ -81,7 +74,7 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                             lineHeight: 1.3,
                         }}
                     >
-                        {role}
+                        {position}
                     </Typography>
                     <Typography
                         component="span"
@@ -128,7 +121,7 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                     </Typography>
                 </Box>
 
-                {/* Description */}
+                {/* body */}
                 <Typography
                     variant={isMobile ? "caption" : "body2"}
                     sx={{
@@ -138,7 +131,7 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                         lineHeight: 1.4,
                     }}
                 >
-                    {description}
+                    {body}
                 </Typography>
             </Box>
         </Box>

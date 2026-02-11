@@ -21,6 +21,7 @@ import {
     TimeRef,
     UseChaldeas,
 } from "./types";
+import { useSound } from "@/contexts/SoundContext";
 
 const worldData = worldDataImport as GeoJSON.FeatureCollection<
     GeoJSON.Geometry,
@@ -51,9 +52,12 @@ export const useChaldeas: UseChaldeas = ({ isMobile }) => {
     const detachDragListenersRef = useRef<(() => void) | null>(null);
     const [open, setOpen] = useState(false);
 
+    const { playSound } = useSound();
+
     const handleCountryClick = useCallback(
         (countryName: string | null) => {
             setCountrySelected(countryName);
+            playSound("modal");
 
             if (countryName === null) {
                 setOpen(false);
