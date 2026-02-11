@@ -5,7 +5,7 @@ import { markedCountries } from "./constants";
 
 import { motion } from "framer-motion";
 import Modal from "../Modal";
-import ExperienceListItem from "../ExperienceListItem";
+import ExperienceListItem, { ExperienceItem } from "../ExperienceListItem";
 import { Box, Link } from "@mui/material";
 
 export interface GlobeProps {
@@ -19,15 +19,14 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
         }
     );
 
-    const experience = {
-        role: "Fullstack Developer",
+    const experience: ExperienceItem = {
+        position: "Fullstack Developer",
         orientation: "Frontend Oriented",
         company: "GlobalLogic",
         client: "YPF",
         startDate: "Dec 2025",
         endDate: "Present",
-        description:
-            "Currently working in a demanding frontend-oriented project focused on organizing large amounts of data and presenting it efficiently to minimize backend requests.",
+        body: "Currently working in a demanding frontend-oriented project focused on organizing large amounts of data and presenting it efficiently to minimize backend requests.",
     };
 
     return (
