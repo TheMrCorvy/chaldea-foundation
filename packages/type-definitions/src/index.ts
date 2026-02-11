@@ -57,7 +57,10 @@ export interface QueryFilters {
 
 type QueryFiltersRecord = Partial<
     Record<
-        keyof Directory | keyof Episode | keyof ExtraKeysForQueryParams,
+        | keyof Directory
+        | keyof Episode
+        | keyof DynamicPage
+        | keyof ExtraKeysForQueryParams,
         QueryFilters
     >
 >;
@@ -111,6 +114,18 @@ export interface User {
     blocked: boolean;
     confirmed: boolean;
     role?: Role;
+}
+
+export interface DynamicPage {
+    documentId: string;
+    id: number;
+    slug: string;
+    title: string;
+    description?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    publishedAt: string;
+    section?: Array<unknown>;
 }
 
 export interface Directory {
