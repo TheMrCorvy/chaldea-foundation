@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start -p 3000",
         "lint": "eslint",
-        "deploy": "cd ../../ && npx @hey-api/openapi-ts && npm run patch:sdk-types && npm run generate:mock-sdk && npm run build"
+        "deploy": "cd ../../ && npx @hey-api/openapi-ts && npm run patch:sdk-types && npm run generate:mock-sdk && cd ./apps/private-cloud-frontend && npm run build"
     },
     "dependencies": {
         "@emotion/cache": "^11.14.0",
