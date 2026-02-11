@@ -14,13 +14,16 @@
             "type": "string",
             "required": true
         },
-        "position": {
+        "orientation": {
             "type": "string",
-            "required": true
+            "default": "(Frontend oriented / Backend oriented)"
         },
         "company": {
             "type": "string",
             "required": true
+        },
+        "client": {
+            "type": "string"
         },
         "location": {
             "type": "string",

@@ -10,6 +10,10 @@
             "type": "string",
             "unique": true
         },
+        "title": {
+            "type": "string",
+            "required": true
+        },
         "body": {
             "type": "blocks",
             "required": true

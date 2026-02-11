@@ -1,0 +1,49 @@
+{
+    "kind": "collectionType",
+    "collectionName": "a_dynamic_pages",
+    "info": {
+        "singularName": "a-dynamic-page",
+        "pluralName": "a-dynamic-pages",
+        "displayName": "A - Dynamic Page"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "slug": {
+            "type": "string",
+            "required": true,
+            "unique": true
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "section": {
+            "type": "dynamiczone",
+            "components": [
+                "layout.work-experience-section",
+                "layout.work-experience-list-item",
+                "layout.tool-chip",
+                "layout.select-option",
+                "layout.project-list-item",
+                "layout.link",
+                "layout.landing-hero",
+                "layout.icon",
+                "layout.form",
+                "layout.form-input",
+                "layout.description-with-chips-list",
+                "layout.call-to-action",
+                "blog.pdf-file",
+                "blog.blog-text",
+                "blog.blog-image",
+                "blog.blog-hero"
+            ],
+            "required": false
+        }
+    }
+}

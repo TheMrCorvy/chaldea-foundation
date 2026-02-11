@@ -10,6 +10,11 @@
             "type": "string",
             "unique": true
         },
+        "title": {
+            "type": "string",
+            "default": "(The name of the section)",
+            "required": true
+        },
         "experience_list_item": {
             "type": "component",
             "component": "layout.work-experience-list-item",
