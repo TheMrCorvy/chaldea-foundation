@@ -20,7 +20,7 @@ export default async function HomePage() {
             type: "error",
         });
 
-        return redirect("/404");
+        return redirect("/404/1");
     }
 
     const platformService = new PlatformService();
@@ -50,7 +50,7 @@ export default async function HomePage() {
             data,
             type: "error",
         });
-        return redirect("/404");
+        return redirect("/404/2");
     }
 
     console.log(data);
