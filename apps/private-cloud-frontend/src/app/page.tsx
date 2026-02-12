@@ -1,15 +1,37 @@
 import BottomNav from "@/components/BottomNavbar";
 import MainCategories from "@/components/MainCategories";
 import RecentAdditions from "@/components/RecentAdditions";
-import { CookiesList, getCookie, JwtCookie, MeResponse } from "@/utils/cookies";
+import {
+    CookiesList,
+    deleteCookie,
+    getCookie,
+    JwtCookie,
+    MeResponse,
+} from "@/utils/cookies";
+import { WebRoutes } from "@/utils/routes";
 import { Box, Container } from "@mui/joy";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
 import { Directory, Episode, RoleTypes } from "@repo/type-definitions";
+import { redirect } from "next/navigation";
 
 const Home = async () => {
     const jwt = (await getCookie(CookiesList.JWT)) as JwtCookie;
     const userCookie = (await getCookie(CookiesList.USER)) as MeResponse | null;
+
+    if (
+        !jwt ||
+        !userCookie ||
+        !jwt.jwt ||
+        !userCookie.role ||
+        (userCookie.role.type !== RoleTypes.ADULT_ANIME_WATCHER &&
+            userCookie.role.type !== RoleTypes.ANIME_WATCHER)
+    ) {
+        await deleteCookie(CookiesList.JWT);
+        await deleteCookie(CookiesList.USER);
+        return redirect(WebRoutes.LOGIN);
+    }
+
     const platformService = new PlatformService();
     platformService.setJWT(jwt.jwt);
 

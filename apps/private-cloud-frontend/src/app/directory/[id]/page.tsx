@@ -1,5 +1,11 @@
 import BottomNav from "@/components/BottomNavbar";
-import { CookiesList, getCookie, JwtCookie, MeResponse } from "@/utils/cookies";
+import {
+    CookiesList,
+    deleteCookie,
+    getCookie,
+    JwtCookie,
+    MeResponse,
+} from "@/utils/cookies";
 import { Page } from "@/utils/pageTypes";
 import { WebRoutes } from "@/utils/routes";
 import { Breadcrumbs, Card, Container, Grid, Link, Typography } from "@mui/joy";
@@ -30,7 +36,9 @@ const DirectoryPage = async ({ params }: Page) => {
         (userCookie.role.type !== RoleTypes.ADULT_ANIME_WATCHER &&
             userCookie.role.type !== RoleTypes.ANIME_WATCHER)
     ) {
-        return redirect(WebRoutes.NOT_FOUND + "/1");
+        await deleteCookie(CookiesList.JWT);
+        await deleteCookie(CookiesList.USER);
+        return redirect(WebRoutes.LOGIN);
     }
 
     let mainDirectories: Directory[];
