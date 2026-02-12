@@ -24,6 +24,16 @@
             "type": "blocks",
             "required": true
         },
+        "profile_image": {
+            "type": "media",
+            "multiple": true,
+            "allowedTypes": ["images"]
+        },
+        "commands": {
+            "type": "media",
+            "multiple": true,
+            "allowedTypes": ["images"]
+        },
         "link": {
             "type": "component",
             "component": "layout.link",

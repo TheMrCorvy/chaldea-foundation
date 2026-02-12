@@ -23,7 +23,7 @@
         "description": {
             "type": "text"
         },
-        "section": {
+        "sections": {
             "type": "dynamiczone",
             "components": [
                 "layout.work-experience-section",

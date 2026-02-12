@@ -15,7 +15,7 @@
             "default": "(The name of the section)",
             "required": true
         },
-        "experience_list_item": {
+        "experience_list_items": {
             "type": "component",
             "component": "layout.work-experience-list-item",
             "repeatable": true,
