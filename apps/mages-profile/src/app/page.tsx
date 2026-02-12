@@ -1,7 +1,13 @@
 import MainPage from "@/components/ClientWrapper";
+import { MagesDataProps } from "@/components/MagesData";
 import { SoundProvider } from "@/contexts/SoundContext";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
+import {
+    DynamicPage,
+    LayoutLandingHero,
+    LayoutWorkExperienceSection,
+} from "@repo/type-definitions/dynamic-page";
 import { redirect } from "next/navigation";
 
 export default async function HomePage() {
@@ -35,7 +41,11 @@ export default async function HomePage() {
                         $eq: "cv",
                     },
                 },
-                populate: "*",
+                populate: {
+                    sections: {
+                        populate: "*",
+                    },
+                },
             },
         }
     );
@@ -53,11 +63,35 @@ export default async function HomePage() {
         return redirect("/404/2");
     }
 
-    console.log(data);
+    logData({
+        title: "Result for main page",
+        layer: "external_http_responses",
+        addSeparatorAfter: true,
+        addSpaceAfter: true,
+        data,
+        timeStamp: true,
+        type: "info",
+        addSpaceBefore: true,
+    });
+
+    const dynamicPage: DynamicPage = data.data[0];
+    const landingHero = dynamicPage.sections[0] as LayoutLandingHero;
+    const experienceSection = dynamicPage
+        .sections[1] as LayoutWorkExperienceSection;
+
+    const magesData: MagesDataProps = {
+        name: landingHero.title,
+        position: landingHero.highlighted_subtitle,
+        profile_image: landingHero.profile_image.url,
+        commands: landingHero.commands.url,
+    };
 
     return (
         <SoundProvider>
-            <MainPage />
+            <MainPage
+                magesData={magesData}
+                experienceSection={experienceSection}
+            />
         </SoundProvider>
     );
 }
