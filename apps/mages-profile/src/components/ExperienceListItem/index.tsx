@@ -105,7 +105,9 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                             {orientation && ` (${orientation})`}
                         </Typography>
                     </Box>
-                    <Typography variant="body1">{location}</Typography>
+                    <Typography variant="body2" color="common.white">
+                        {location}
+                    </Typography>
                 </Box>
                 <Box
                     component="span"
