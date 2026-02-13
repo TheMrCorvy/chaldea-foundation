@@ -35,10 +35,13 @@ function GlobeLoadingFallback() {
     );
 }
 
-const GlobeWrapper: FC<GlobeProps> = ({ isMobile }) => {
+const GlobeWrapper: FC<GlobeProps> = ({ isMobile, experienceSection }) => {
     return (
         <Suspense fallback={<GlobeLoadingFallback />}>
-            <GlobeComponent isMobile={isMobile} />
+            <GlobeComponent
+                isMobile={isMobile}
+                experienceSection={experienceSection}
+            />
         </Suspense>
     );
 };
