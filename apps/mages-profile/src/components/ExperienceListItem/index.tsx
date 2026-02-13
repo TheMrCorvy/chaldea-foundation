@@ -1,27 +1,25 @@
 import { Box, Typography } from "@mui/material";
+import { LayoutWorkExperienceListItem } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
-
-export interface ExperienceItem {
-    position: string;
-    orientation?: string; // e.g. "Frontend Oriented"
-    company: string;
-    client?: string;
-    startDate: string; // "Dec 2025"
-    endDate: string; // "Present" | "Oct 2023"
-    body: string;
-}
+import RichTextRenderer from "../RichTextRenderer";
 
 export interface ExperienceListItemProps {
-    experience: ExperienceItem;
-    isMobile?: boolean;
+    experience: LayoutWorkExperienceListItem;
 }
 
-const ExperienceListItem: FC<ExperienceListItemProps> = ({
-    experience,
-    isMobile,
-}) => {
-    const { position, orientation, company, client, startDate, endDate, body } =
+const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
+    const { title, orientation, company, client, from, until, body, location } =
         experience;
+
+    const startDate = new Intl.DateTimeFormat("en-US", {
+        year: "2-digit",
+        month: "2-digit",
+    }).format(new Date(from));
+
+    const endDate = new Intl.DateTimeFormat("en-US", {
+        year: "2-digit",
+        month: "2-digit",
+    }).format(new Date(until));
 
     return (
         <Box
@@ -40,7 +38,7 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                     alignItems: "start",
                     verticalAlign: "start",
                     px: 1,
-                    pt: 0.4,
+                    pt: 1.2,
                 }}
             >
                 <Typography
@@ -48,45 +46,66 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                     sx={{
                         fontWeight: 600,
                         color: "common.white",
-                        // lineHeight: 1.3,
+                        lineHeight: 1.3,
+                        fontSize: "1.25rem",
                     }}
                 >
                     •
                 </Typography>
             </Box>
             {/* Title line */}
-            <Box component="span">
+            <Box
+                sx={{
+                    flex: 1,
+                    minWidth: 0,
+                    flexDirection: "column",
+                    display: "flex",
+                    gap: 0,
+                }}
+            >
                 <Box
                     component="span"
                     sx={{
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",
-                        gap: 1,
+                        // gap: 1,
                         verticalAlign: "center",
+                        justifyContent: "space-between",
                     }}
                 >
-                    <Typography
-                        variant="body2"
+                    <Box
                         sx={{
-                            fontWeight: 600,
-                            color: "common.white",
-                            lineHeight: 1.3,
+                            flex: 1,
+                            minWidth: 0,
+                            display: "flex",
+                            flexDirection: "row",
+                            gap: 1,
                         }}
                     >
-                        {position}
-                    </Typography>
-                    <Typography
-                        component="span"
-                        sx={{
-                            color: "grey.300",
-                            display: "block",
-                            lineHeight: 1.3,
-                            fontSize: "0.8rem",
-                        }}
-                    >
-                        {orientation && ` (${orientation})`}
-                    </Typography>
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                fontWeight: 600,
+                                color: "common.white",
+                                // lineHeight: 1.3,
+                            }}
+                        >
+                            {title}
+                        </Typography>
+                        <Typography
+                            component="span"
+                            sx={{
+                                color: "grey.300",
+                                display: "block",
+                                // lineHeight: 1.3,
+                                fontSize: "0.8rem",
+                            }}
+                        >
+                            {orientation && ` (${orientation})`}
+                        </Typography>
+                    </Box>
+                    <Typography variant="body1">{location}</Typography>
                 </Box>
                 <Box
                     component="span"
@@ -121,18 +140,9 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                     </Typography>
                 </Box>
 
-                {/* body */}
-                <Typography
-                    variant={isMobile ? "caption" : "body2"}
-                    sx={{
-                        color: isMobile ? "grey.100" : "grey.400",
-                        display: "block",
-                        mt: 0.5,
-                        lineHeight: 1.4,
-                    }}
-                >
-                    {body}
-                </Typography>
+                <Box component="span" sx={{ color: "grey.500" }}>
+                    <RichTextRenderer content={body} />
+                </Box>
             </Box>
         </Box>
     );
