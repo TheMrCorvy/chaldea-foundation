@@ -235,7 +235,6 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                     sx={{
                         display: "flex",
                         justifyContent: "center",
-                        alignItems: "center",
                         width: "100%",
                         height: "95%",
                         // borderRadius: 2,
