@@ -35,6 +35,11 @@
             "component": "blog.blog-image",
             "repeatable": false,
             "required": true
+        },
+        "links": {
+            "type": "component",
+            "component": "layout.link",
+            "repeatable": true
         }
     },
     "config": {}
