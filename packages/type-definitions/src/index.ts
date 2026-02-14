@@ -1,3 +1,5 @@
+import { DynamicPage } from "./dynamicPage";
+
 export interface PaginationQuery {
     page?: number;
     pageSize?: number;
@@ -114,18 +116,6 @@ export interface User {
     blocked: boolean;
     confirmed: boolean;
     role?: Role;
-}
-
-export interface DynamicPage {
-    documentId: string;
-    id: number;
-    slug: string;
-    title: string;
-    description?: string;
-    createdAt?: string;
-    updatedAt?: string;
-    publishedAt: string;
-    section?: Array<unknown>;
 }
 
 export interface Directory {
