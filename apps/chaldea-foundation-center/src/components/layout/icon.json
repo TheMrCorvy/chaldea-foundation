@@ -6,15 +6,15 @@
     },
     "options": {},
     "attributes": {
-        "name": {
-            "type": "enumeration",
-            "required": true,
-            "default": "icon-1",
-            "enum": ["icon-1"]
-        },
         "component_id": {
             "type": "string",
             "unique": true
+        },
+        "name": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 20,
+            "required": true
         }
     },
     "config": {}
