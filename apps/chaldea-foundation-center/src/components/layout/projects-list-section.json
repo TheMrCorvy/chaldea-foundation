@@ -1,0 +1,24 @@
+{
+    "collectionName": "components_layout_projects_list_sections",
+    "info": {
+        "displayName": "Projects List Section",
+        "icon": "brush"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string",
+            "required": true
+        },
+        "title": {
+            "type": "string"
+        },
+        "projects": {
+            "type": "component",
+            "component": "layout.project-list-item",
+            "repeatable": true,
+            "required": true
+        }
+    },
+    "config": {}
+}
