@@ -4,30 +4,20 @@ import AsideHelper from "../AsideHelper";
 import { markedCountries } from "./constants";
 
 import { motion } from "framer-motion";
-import Modal from "../Modal";
-import ExperienceListItem, { ExperienceItem } from "../ExperienceListItem";
-import { Box, Link } from "@mui/material";
+import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page";
+import ModalSection from "../MainPageModalSections/ModalSection";
 
 export interface GlobeProps {
     isMobile: boolean;
+    experienceSection: LayoutWorkExperienceSection;
 }
 
-const Globe: FC<GlobeProps> = ({ isMobile }) => {
+const Globe: FC<GlobeProps> = ({ isMobile, experienceSection }) => {
     const { mapContainer, onCountryClick, countrySelected, open } = useChaldeas(
         {
             isMobile,
         }
     );
-
-    const experience: ExperienceItem = {
-        position: "Fullstack Developer",
-        orientation: "Frontend Oriented",
-        company: "GlobalLogic",
-        client: "YPF",
-        startDate: "Dec 2025",
-        endDate: "Present",
-        body: "Currently working in a demanding frontend-oriented project focused on organizing large amounts of data and presenting it efficiently to minimize backend requests.",
-    };
 
     return (
         <>
@@ -57,55 +47,12 @@ const Globe: FC<GlobeProps> = ({ isMobile }) => {
                 isMobile={isMobile}
                 isVisible={!countrySelected}
             />
-            <Modal
-                open={open}
-                onExit={() => onCountryClick(null)}
+            <ModalSection
                 isMobile={isMobile}
-            >
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-around",
-                        height: "100%",
-                        pr: "11px",
-                    }}
-                >
-                    <ExperienceListItem
-                        isMobile={isMobile}
-                        experience={experience}
-                    />
-                    <ExperienceListItem
-                        isMobile={isMobile}
-                        experience={experience}
-                    />
-                    <ExperienceListItem
-                        isMobile={isMobile}
-                        experience={experience}
-                    />
-                    <Box
-                        sx={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            width: "100%",
-                            pl: "11px",
-                        }}
-                    >
-                        <Link variant="body1" color="#ffffff">
-                            Close
-                        </Link>
-                        <Link
-                            variant="body1"
-                            color="#ffffff"
-                            sx={{
-                                mr: isMobile ? "-11px" : "0",
-                            }}
-                        >
-                            See more
-                        </Link>
-                    </Box>
-                </Box>
-            </Modal>
+                open={open}
+                experienceSection={experienceSection}
+                onCountryClick={onCountryClick}
+            />
         </>
     );
 };
