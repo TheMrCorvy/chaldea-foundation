@@ -7,9 +7,19 @@ import { FC } from "react";
 import GlitchText from "../GlitchText";
 
 export interface MagesDataProps {
-    isMobile: boolean;
+    isMobile?: boolean;
+    name: string;
+    position: string;
+    profile_image: string;
+    commands: string;
 }
-const MagesData: FC<MagesDataProps> = ({ isMobile }) => {
+const MagesData: FC<MagesDataProps> = ({
+    isMobile,
+    name,
+    position,
+    profile_image,
+    commands,
+}) => {
     const imgSize = isMobile ? 70 : 100;
 
     return (
@@ -54,7 +64,7 @@ const MagesData: FC<MagesDataProps> = ({ isMobile }) => {
                         }}
                     >
                         <Image
-                            src="/assets/images/profile.jpeg"
+                            src={profile_image || "/assets/images/profile.jpeg"}
                             alt="Profile"
                             width={imgSize}
                             height={imgSize}
@@ -87,7 +97,10 @@ const MagesData: FC<MagesDataProps> = ({ isMobile }) => {
                             }}
                         >
                             <Image
-                                src="/assets/images/command_spells.svg"
+                                src={
+                                    commands ||
+                                    "/assets/images/command_spells.svg"
+                                }
                                 alt="Command Spells"
                                 width={imgSize / 1.8}
                                 height={imgSize / 1.8}
@@ -110,7 +123,7 @@ const MagesData: FC<MagesDataProps> = ({ isMobile }) => {
                             transition={{ duration: 0.5, delay: 0.6 }}
                         >
                             <GlitchText
-                                text="Gonzalo Salvador Corvalán"
+                                text={name}
                                 variant={isMobile ? "h6" : "h4"}
                                 sx={{ color: "white" }}
                                 delay={0.7}
@@ -130,7 +143,7 @@ const MagesData: FC<MagesDataProps> = ({ isMobile }) => {
                             transition={{ duration: 0.5, delay: 0.6 }}
                         >
                             <GlitchText
-                                text="Fullstack Developer"
+                                text={position}
                                 variant={isMobile ? "subtitle1" : "h6"}
                                 sx={{ color: "rgba(255,255,255,0.7)" }}
                                 delay={0.7}
