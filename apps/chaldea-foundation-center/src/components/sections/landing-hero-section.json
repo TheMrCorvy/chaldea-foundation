@@ -34,11 +34,6 @@
             "component": "blog.blog-image",
             "repeatable": false
         },
-        "links": {
-            "type": "component",
-            "component": "layout.link",
-            "repeatable": true
-        },
         "pdf_file": {
             "type": "component",
             "component": "blog.pdf-file",
