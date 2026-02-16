@@ -8,34 +8,6 @@ import {
 } from "@mui/material";
 import { JsonRichText } from "@repo/type-definitions/dynamic-page";
 
-type MuiTextColor = "primary" | "secondary" | "error" | "warning" | "info";
-
-const resolveTextColor = (node: JsonRichText): MuiTextColor | null => {
-    if (node.color) {
-        if (node.color === "danger") {
-            return "error";
-        }
-
-        if (
-            node.color === "primary" ||
-            node.color === "secondary" ||
-            node.color === "error" ||
-            node.color === "warning" ||
-            node.color === "info"
-        ) {
-            return node.color;
-        }
-    }
-
-    if (node.color_primary) return "primary";
-    if (node.color_secondary) return "secondary";
-    if (node.color_danger) return "error";
-    if (node.color_warning) return "warning";
-    if (node.color_info) return "info";
-
-    return null;
-};
-
 interface RichTextRendererProps {
     content: JsonRichText[];
 }
@@ -43,15 +15,6 @@ interface RichTextRendererProps {
 const RichTextRenderer: FC<RichTextRendererProps> = ({ content }) => {
     const renderText = (node: JsonRichText, index: number) => {
         let element: ReactNode = node.text;
-        const color = resolveTextColor(node);
-
-        if (color) {
-            element = (
-                <Box component="span" sx={{ color: `${color}.main` }}>
-                    {element}
-                </Box>
-            );
-        }
 
         if (node.bold) {
             element = <strong>{element}</strong>;
