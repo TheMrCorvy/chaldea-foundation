@@ -194,48 +194,104 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                         data-sound="modal"
                     >
                         <Grid container spacing={0} data-sound="modal">
-                            {rows.map((row) => (
-                                <Grid
-                                    size={12}
-                                    key={`modal-row-${row}`}
-                                    spacing={0}
-                                    sx={{
-                                        display: "flex",
-                                        flexDirection: "row",
-                                        height: calcRowHeight(row),
-                                        borderBottom:
-                                            row === 1
-                                                ? "1px solid rgba(25,118,210, 0.6)"
-                                                : "",
-                                        borderTop:
-                                            row === 1
-                                                ? "1px solid rgba(25,118,210, 0.6)"
-                                                : "",
-                                    }}
-                                    data-sound="modal"
-                                >
-                                    {columns.map((col) => (
-                                        <Grid
-                                            key={`modal-col-${col}`}
-                                            spacing={0}
-                                            data-sound="modal"
-                                            sx={{
-                                                display: "flex",
-                                                flexDirection: "row",
-                                                justifyContent: "end",
-                                                alignItems: "end",
-                                                padding: 0,
+                            {rows.map((row) => {
+                                const isMiddleRow = row === 1;
+
+                                const commonSx = {
+                                    display: "flex",
+                                    // flexDirection: "row" as const,
+                                    height: calcRowHeight(row),
+                                    // alignItems: "center" as const,
+                                    // justifyContent: "center" as const,
+                                    // overflow: "hidden" as const,
+                                    borderBottom:
+                                        row === 1
+                                            ? "1px solid rgba(25,118,210, 0.6)"
+                                            : undefined,
+                                    borderTop:
+                                        row === 1
+                                            ? "1px solid rgba(25,118,210, 0.6)"
+                                            : undefined,
+                                };
+
+                                if (isMiddleRow) {
+                                    return (
+                                        <motion.div
+                                            key={`modal-row-${row}`}
+                                            initial={{
+                                                height: "0dvh",
+                                                opacity: 0,
                                             }}
-                                            size={calcColSize(col)}
+                                            animate={{
+                                                height: calcRowHeight(row),
+                                                opacity: 1,
+                                            }}
+                                            transition={{
+                                                delay: 0.2,
+                                                duration: 0.3,
+                                                ease: [0.43, 0.13, 0.23, 0.96],
+                                            }}
+                                            style={{
+                                                ...commonSx,
+                                                width: "100%",
+                                            }}
+                                            data-sound="modal"
                                         >
-                                            {renderContent({
-                                                colNumber: col,
-                                                rowNumber: row,
-                                            })}
-                                        </Grid>
-                                    ))}
-                                </Grid>
-                            ))}
+                                            {columns.map((col) => (
+                                                <Grid
+                                                    key={`modal-col-${col}`}
+                                                    spacing={0}
+                                                    data-sound="modal"
+                                                    sx={{
+                                                        display: "flex",
+                                                        flexDirection: "row",
+                                                        justifyContent: "end",
+                                                        alignItems: "end",
+                                                        padding: 0,
+                                                    }}
+                                                    size={calcColSize(col)}
+                                                >
+                                                    {renderContent({
+                                                        colNumber: col,
+                                                        rowNumber: row,
+                                                    })}
+                                                </Grid>
+                                            ))}
+                                        </motion.div>
+                                    );
+                                }
+
+                                return (
+                                    <Grid
+                                        size={12}
+                                        key={`modal-row-${row}`}
+                                        spacing={0}
+                                        sx={commonSx}
+                                        data-sound="modal"
+                                    >
+                                        {columns.map((col) => (
+                                            <Grid
+                                                key={`modal-col-${col}`}
+                                                spacing={0}
+                                                data-sound="modal"
+                                                sx={{
+                                                    display: "flex",
+                                                    flexDirection: "row",
+                                                    justifyContent: "end",
+                                                    alignItems: "end",
+                                                    padding: 0,
+                                                }}
+                                                size={calcColSize(col)}
+                                            >
+                                                {renderContent({
+                                                    colNumber: col,
+                                                    rowNumber: row,
+                                                })}
+                                            </Grid>
+                                        ))}
+                                    </Grid>
+                                );
+                            })}
                         </Grid>
                     </Box>
                 </motion.div>
