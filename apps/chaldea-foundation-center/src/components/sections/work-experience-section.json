@@ -1,8 +1,8 @@
 {
-    "collectionName": "components_layout_work_experience_sections",
+    "collectionName": "components_sections_work_experience_sections",
     "info": {
         "displayName": "Work Experience Section",
-        "icon": "car"
+        "icon": "briefcase"
     },
     "options": {},
     "attributes": {
@@ -12,8 +12,12 @@
         },
         "title": {
             "type": "string",
-            "default": "(The name of the section)",
             "required": true
+        },
+        "link_to_page": {
+            "type": "component",
+            "component": "layout.link",
+            "repeatable": false
         },
         "experience_list_items": {
             "type": "component",

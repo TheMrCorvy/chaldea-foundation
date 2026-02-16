@@ -23,27 +23,32 @@
         "description": {
             "type": "text"
         },
+        "metadata": {
+            "type": "json"
+        },
         "sections": {
             "type": "dynamiczone",
             "components": [
-                "layout.work-experience-section",
+                "blog.pdf-file",
+                "blog.blog-text",
+                "blog.blog-image",
+                "blog.blog-hero",
+                "sections.work-experience-section",
+                "sections.projects-section",
+                "sections.landing-hero-section",
+                "sections.contact-section",
                 "layout.work-experience-list-item",
                 "layout.tool-chip",
                 "layout.select-option",
                 "layout.project-list-item",
                 "layout.link",
-                "layout.landing-hero",
                 "layout.icon",
                 "layout.form",
                 "layout.form-input",
-                "layout.description-with-chips-list",
-                "layout.call-to-action",
-                "blog.pdf-file",
-                "blog.blog-text",
-                "blog.blog-image",
-                "blog.blog-hero"
+                "layout.description-with-chips-list"
             ],
-            "required": false
+            "required": true,
+            "min": 1
         }
     }
 }

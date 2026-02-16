@@ -1,23 +1,27 @@
 {
-    "collectionName": "components_layout_projects_list_sections",
+    "collectionName": "components_sections_projects_sections",
     "info": {
-        "displayName": "Projects List Section",
-        "icon": "brush"
+        "displayName": "Projects Section",
+        "icon": "book"
     },
     "options": {},
     "attributes": {
         "component_id": {
             "type": "string",
-            "required": true
+            "unique": true
         },
         "title": {
             "type": "string"
         },
+        "link_to_page": {
+            "type": "component",
+            "component": "layout.link",
+            "repeatable": false
+        },
         "projects": {
             "type": "component",
             "component": "layout.project-list-item",
-            "repeatable": true,
-            "required": true
+            "repeatable": true
         }
     },
     "config": {}

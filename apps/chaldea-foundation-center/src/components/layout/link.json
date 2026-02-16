@@ -10,6 +10,9 @@
             "type": "string",
             "unique": true
         },
+        "title": {
+            "type": "string"
+        },
         "label": {
             "type": "string",
             "required": true

@@ -1,8 +1,8 @@
 {
-    "collectionName": "components_layout_call_to_actions",
+    "collectionName": "components_sections_contact_sections",
     "info": {
-        "displayName": "Call To Action",
-        "icon": "question"
+        "displayName": "Contact Section",
+        "icon": "envelop"
     },
     "options": {},
     "attributes": {
@@ -13,12 +13,14 @@
         "title": {
             "type": "string"
         },
-        "popover": {
-            "type": "string"
-        },
-        "link": {
+        "link_to_page": {
             "type": "component",
             "component": "layout.link",
+            "repeatable": false
+        },
+        "contact_form": {
+            "type": "component",
+            "component": "layout.form",
             "repeatable": false
         }
     },

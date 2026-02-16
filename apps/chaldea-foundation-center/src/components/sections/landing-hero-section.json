@@ -1,8 +1,8 @@
 {
-    "collectionName": "components_layout_landing_heroes",
+    "collectionName": "components_sections_landing_hero_sections",
     "info": {
-        "displayName": "Landing Hero",
-        "icon": "crown"
+        "displayName": "Landing Hero Section",
+        "icon": "house"
     },
     "options": {},
     "attributes": {
@@ -25,16 +25,16 @@
             "required": true
         },
         "profile_image": {
-            "type": "media",
-            "multiple": true,
-            "allowedTypes": ["images"]
+            "type": "component",
+            "component": "blog.blog-image",
+            "repeatable": false
         },
         "commands": {
-            "type": "media",
-            "multiple": true,
-            "allowedTypes": ["images"]
+            "type": "component",
+            "component": "blog.blog-image",
+            "repeatable": false
         },
-        "link": {
+        "links": {
             "type": "component",
             "component": "layout.link",
             "repeatable": true
@@ -44,9 +44,9 @@
             "component": "blog.pdf-file",
             "repeatable": false
         },
-        "call_to_action": {
+        "call_to_actions": {
             "type": "component",
-            "component": "layout.call-to-action",
+            "component": "layout.link",
             "repeatable": true
         }
     },
