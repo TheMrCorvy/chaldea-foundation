@@ -92,7 +92,7 @@ export const useChaldeas: UseChaldeas = ({ isMobile }) => {
                 });
             }
         },
-        [scale]
+        [scale, playSound]
     );
 
     useEffect(() => {
