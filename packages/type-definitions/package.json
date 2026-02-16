@@ -8,6 +8,10 @@
         "./styles": {
             "types": "./src/styles.ts",
             "default": "./src/styles.ts"
+        },
+        "./dynamic-page": {
+            "types": "./src/dynamicPage.ts",
+            "default": "./src/dynamicPage.ts"
         }
     },
     "devDependencies": {
