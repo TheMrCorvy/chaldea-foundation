@@ -27,8 +27,8 @@ export interface LayoutLandingHero extends StrapiComponent {
     body: Array<JsonRichText>;
     helper_text: string;
     pdf_file: StrapiPDFComponent;
-    commands: BlogImageComponent;
-    profile_image: BlogImageComponent;
+    commands: ImageComponent;
+    profile_image: ImageComponent;
     call_to_actions: Array<LayoutCallToAction>;
     link_to_page: LayoutLink | null;
 }

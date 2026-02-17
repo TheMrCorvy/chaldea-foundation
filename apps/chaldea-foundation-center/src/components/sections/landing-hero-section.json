@@ -24,16 +24,6 @@
             "type": "blocks",
             "required": true
         },
-        "profile_image": {
-            "type": "component",
-            "component": "blog.blog-image",
-            "repeatable": false
-        },
-        "commands": {
-            "type": "component",
-            "component": "blog.blog-image",
-            "repeatable": false
-        },
         "pdf_file": {
             "type": "component",
             "component": "blog.pdf-file",
@@ -43,6 +33,16 @@
             "type": "component",
             "component": "layout.link",
             "repeatable": true
+        },
+        "profile_image": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": ["images"]
+        },
+        "commands": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": ["images"]
         }
     },
     "config": {}

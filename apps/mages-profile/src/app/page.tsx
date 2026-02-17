@@ -38,7 +38,7 @@ export default async function HomePage() {
             query: {
                 filters: {
                     slug: {
-                        $eq: "cv",
+                        $eq: "main",
                     },
                 },
                 populate: {
@@ -80,7 +80,7 @@ export default async function HomePage() {
         .sections[1] as LayoutWorkExperienceSection;
 
     const magesData: MagesDataProps = {
-        name: landingHero.title,
+        name: landingHero.title as string,
         position: landingHero.highlighted_subtitle,
         profile_image: landingHero.profile_image.url,
         commands: landingHero.commands.url,
