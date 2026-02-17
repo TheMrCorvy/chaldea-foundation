@@ -12,8 +12,9 @@ import { redirect } from "next/navigation";
 
 export default async function HomePage() {
     const token = process.env.PLATFORM_SERVICE_KEY || "";
+    const imageBaseUrl = process.env.IMAGES_SOURCE_URL;
 
-    if (!token) {
+    if (!token || !imageBaseUrl) {
         logData({
             title: "Critical env variable not found",
             layer: "*",
@@ -22,6 +23,7 @@ export default async function HomePage() {
             addSpaceAfter: true,
             data: {
                 token,
+                imageBaseUrl,
             },
             type: "error",
         });
@@ -82,8 +84,8 @@ export default async function HomePage() {
     const magesData: MagesDataProps = {
         name: landingHero.title as string,
         position: landingHero.highlighted_subtitle,
-        profile_image: landingHero.profile_image.url,
-        commands: landingHero.commands.url,
+        profile_image: `${imageBaseUrl}${landingHero.profile_image.url}`,
+        commands: `${imageBaseUrl}${landingHero.commands.url}`,
     };
 
     return (
