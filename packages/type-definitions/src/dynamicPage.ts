@@ -2,7 +2,6 @@ export interface DynamicPage {
     documentId: string;
     id: number;
     slug: string;
-    title: string;
     description?: string;
     createdAt?: string;
     updatedAt?: string;
@@ -13,21 +12,33 @@ export interface DynamicPage {
 export interface StrapiComponent {
     __component: string;
     component_id: string;
+    title: string | null;
 }
 
-export type StrapiSection = LayoutLandingHero | LayoutWorkExperienceSection;
+export type StrapiSection =
+    | LayoutLandingHero
+    | LayoutWorkExperienceSection
+    | SectionsProjectsSection
+    | SectionsContactSection;
 
 export interface LayoutLandingHero extends StrapiComponent {
     id: number;
-    title: string;
     highlighted_subtitle: string;
     body: Array<JsonRichText>;
     helper_text: string;
-    link: Array<LayoutLink>;
     pdf_file: StrapiPDFComponent;
-    commands: ImageComponent;
-    profile_image: ImageComponent;
-    call_to_action: LayoutCallToAction;
+    commands: BlogImageComponent;
+    profile_image: BlogImageComponent;
+    call_to_actions: Array<LayoutCallToAction>;
+    link_to_page: LayoutLink | null;
+}
+
+export interface BlogImageComponent extends StrapiComponent {
+    body: string;
+    alt: string;
+    height: number;
+    width: number;
+    image: ImageComponent;
 }
 
 export interface ImageComponent {
@@ -68,11 +79,10 @@ export interface ImageFormat {
 
 export interface LayoutWorkExperienceSection extends StrapiComponent {
     experience_list_items: Array<LayoutWorkExperienceListItem>;
-    title: string;
+    link_to_page: LayoutLink | null;
 }
 
 export interface LayoutWorkExperienceListItem extends StrapiComponent {
-    title: string;
     body: Array<JsonRichText>;
     company: string;
     client?: string;
@@ -94,7 +104,6 @@ export interface LayoutLink extends StrapiComponent {
 export interface LayoutCallToAction {
     link: LayoutLink;
     popover?: string;
-    title: string;
 }
 
 export interface LayoutIcon extends StrapiComponent {
@@ -102,7 +111,6 @@ export interface LayoutIcon extends StrapiComponent {
 }
 
 export interface StrapiPDFComponent extends StrapiComponent {
-    title: string;
     popover: string | null;
     helper_text: string | null;
 }
@@ -119,4 +127,62 @@ export interface JsonRichText {
     underline?: boolean;
     code?: boolean;
     color?: "primary" | "secondary" | "warning" | "info" | "error" | "success";
+}
+
+export interface SectionsProjectsSection extends StrapiComponent {
+    link_to_page: LayoutLink | null;
+    projects: Array<LayoutProjectListItem>;
+}
+
+export interface LayoutToolChip extends StrapiComponent {
+    popover: string;
+    icon: LayoutIcon;
+}
+
+export interface LayoutDescriptionWithChipsList extends StrapiComponent {
+    body: Array<JsonRichText>;
+    chips: Array<LayoutToolChip>;
+}
+
+export interface LayoutProjectListItem extends StrapiComponent {
+    highlighted_subtitle: string | null;
+    popover: string | null;
+    icon: LayoutIcon;
+    body: LayoutDescriptionWithChipsList;
+    cover_image: BlogImageComponent;
+    links: Array<LayoutLink>;
+}
+
+export interface SectionsContactSection extends StrapiComponent {
+    link_to_page: LayoutLink | null;
+}
+
+export interface LayoutFormInput extends StrapiComponent {
+    default_value: string | null;
+    end_icon: LayoutIcon | null;
+    name: string;
+    option: Array<LayoutSelectOption> | null;
+    start_icon: LayoutIcon | null;
+    type:
+        | "input"
+        | "submit"
+        | "textarea"
+        | "select"
+        | "date"
+        | "slider"
+        | "range";
+}
+
+export interface LayoutSelectOption extends StrapiComponent {
+    label: string;
+    value: string;
+}
+
+export interface LayoutForm extends StrapiComponent {
+    inputs: Array<LayoutFormInput>;
+}
+
+export interface SectionsContactSection extends StrapiComponent {
+    link_to_page: LayoutLink | null;
+    contact_form: LayoutForm;
 }
