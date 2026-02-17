@@ -63,8 +63,8 @@ const MagesData: FC<MagesDataProps> = ({
                             border: "3px solid #DAA520",
                         }}
                     >
-                        <Image
-                            src={profile_image || "/assets/images/profile.jpeg"}
+                        <img
+                            src={profile_image}
                             alt="Profile"
                             width={imgSize}
                             height={imgSize}
@@ -96,11 +96,8 @@ const MagesData: FC<MagesDataProps> = ({
                                 p: 0.3,
                             }}
                         >
-                            <Image
-                                src={
-                                    commands ||
-                                    "/assets/images/command_spells.svg"
-                                }
+                            <img
+                                src={commands}
                                 alt="Command Spells"
                                 width={imgSize / 1.8}
                                 height={imgSize / 1.8}
