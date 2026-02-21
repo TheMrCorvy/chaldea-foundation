@@ -19,8 +19,10 @@
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.1",
         "@mui/icons-material": "^7.3.6",
-        "@mui/material": "^7.3.7",
+        "@mui/material": "^7.3.8",
         "@mui/material-nextjs": "^7.3.7",
+        "@repo/platform-service-sdk": "*",
+        "@repo/shared-utils": "*",
         "@vercel/analytics": "^1.6.1",
         "d3": "^7.9.0",
         "framer-motion": "^11.11.13",
@@ -28,9 +30,7 @@
         "next": "^16.1.6",
         "react": "19.2.3",
         "react-dom": "19.2.3",
-        "solid-js": "^1.9.10",
-        "@repo/platform-service-sdk": "*",
-        "@repo/shared-utils": "*"
+        "solid-js": "^1.9.10"
     },
     "devDependencies": {
         "@storybook/nextjs-vite": "^10.2.8",
