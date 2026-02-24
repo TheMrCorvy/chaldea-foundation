@@ -14,9 +14,7 @@ jest.mock("motion/react", () => ({
         mockUseInView(ref, options),
 }));
 
-interface HookHarnessProps extends UseGlitchTextProps {}
-
-const HookHarness: FC<HookHarnessProps> = ({
+const HookHarness: FC<UseGlitchTextProps> = ({
     text,
     characters,
     delay,
