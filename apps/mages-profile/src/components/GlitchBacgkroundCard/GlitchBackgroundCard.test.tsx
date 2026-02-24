@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { ElementType, HTMLAttributes, ReactNode } from "react";
+import * as ReactModule from "react";
 import GlitchBackgroundCard from "./index";
 
 type MockBoxProps = HTMLAttributes<HTMLElement> & {
@@ -9,8 +10,6 @@ type MockBoxProps = HTMLAttributes<HTMLElement> & {
 };
 
 jest.mock("@mui/material", () => {
-    const ReactModule = require("react") as typeof import("react");
-
     const stringifySx = (sx: unknown): string => {
         if (sx === null || sx === undefined) {
             return "";
