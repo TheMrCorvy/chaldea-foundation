@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import IconComponent from "./index";
 import { Box, Typography } from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
+import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/IconComponent",
@@ -67,18 +68,9 @@ export const Default: Story = {
         icon: "Home",
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <IconComponent {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -88,18 +80,9 @@ export const WithColor: Story = {
         color: "error",
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <IconComponent {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -110,18 +93,9 @@ export const WithSize: Story = {
         color: "primary",
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <IconComponent {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -134,18 +108,9 @@ export const CustomStyle: Story = {
         },
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <IconComponent {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
 
