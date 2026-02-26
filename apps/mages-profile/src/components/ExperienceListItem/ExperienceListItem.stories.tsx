@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { LayoutWorkExperienceListItem } from "@repo/type-definitions/dynamic-page";
 import ExperienceListItem from "./index";
-import { Box } from "@mui/material";
+import StarryContainer from '../StarryContainer'
 
 const meta = {
     title: "Components/ExperienceListItem",
@@ -65,18 +65,9 @@ export const Default: Story = {
         experience: mockExperience,
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
-            <ExperienceListItem {...args} />
-        </Box>
+            <StarryContainer>
+                <ExperienceListItem {...args} />
+            </StarryContainer>
     ),
 };
 
@@ -89,18 +80,9 @@ export const WithoutOptionalFields: Story = {
         },
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <ExperienceListItem {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -131,17 +113,8 @@ export const DifferentRole: Story = {
         },
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <ExperienceListItem {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
