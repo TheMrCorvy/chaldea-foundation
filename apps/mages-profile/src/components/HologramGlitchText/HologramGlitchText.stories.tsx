@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import HologramGlitchText from "./index";
-import { Box } from "@mui/material";
+import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/HologramGlitchText",
@@ -32,17 +32,8 @@ export const Default: Story = {
         fontWeight: "bold",
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer >
             <HologramGlitchText {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
