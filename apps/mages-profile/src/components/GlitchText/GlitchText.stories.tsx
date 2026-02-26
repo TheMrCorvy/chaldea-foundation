@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import GlitchText from "./index";
-import { Box } from "@mui/material";
+import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/GlitchText",
@@ -42,18 +42,9 @@ export const Default: Story = {
         color: "white",
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+       <StarryContainer>
             <GlitchText {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -64,18 +55,9 @@ export const HoverEffect: Story = {
         disableHover: false,
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+       <StarryContainer>
             <GlitchText {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -86,18 +68,9 @@ export const WithDelay: Story = {
         delay: 2,
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+       <StarryContainer>
             <GlitchText {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -108,17 +81,8 @@ export const WithAllCharacters: Story = {
         useSymbols: true,
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+       <StarryContainer>
             <GlitchText {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
