@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import GlitchBackgroundCard from "./index";
 import { Box } from "@mui/material";
+import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/GlitchBackgroundCard",
@@ -32,20 +33,9 @@ export const Default: Story = {
         children: <Box sx={{ color: "white" }}>Hover over me</Box>,
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
-            <Box sx={{ width: 300, height: 300 }}>
-                <GlitchBackgroundCard {...args} />
-            </Box>
-        </Box>
+        <StarryContainer>
+            <GlitchBackgroundCard {...args} />
+        </StarryContainer>
     ),
 };
 
@@ -55,19 +45,8 @@ export const Mobile: Story = {
         children: <Box sx={{ color: "white" }}>Mobile view</Box>,
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
-            <Box sx={{ width: 300, height: 300 }}>
-                <GlitchBackgroundCard {...args} />
-            </Box>
-        </Box>
+        <StarryContainer>
+            <GlitchBackgroundCard {...args} />
+        </StarryContainer>
     ),
 };
