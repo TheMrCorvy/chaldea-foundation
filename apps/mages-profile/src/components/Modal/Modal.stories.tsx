@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import Modal from "./index";
 import { Box } from "@mui/material";
+import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/Modal",
@@ -37,18 +38,9 @@ export const Default: Story = {
         onExit: () => console.log("exit"),
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <Modal {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -60,17 +52,8 @@ export const Mobile: Story = {
         onExit: () => console.log("exit"),
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <Modal {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
