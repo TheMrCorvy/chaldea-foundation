@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import Loader from "./index";
-import { Box } from "@mui/material";
+import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/Loader",
@@ -16,17 +16,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     render: (args) => (
-        <Box
-            sx={{
-                height: "100dvh",
-                width: "100dvw",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                background: "#000000",
-            }}
-        >
+        <StarryContainer>
             <Loader {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
