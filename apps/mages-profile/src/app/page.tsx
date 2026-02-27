@@ -7,6 +7,7 @@ import {
     DynamicPage,
     LayoutLandingHero,
     LayoutWorkExperienceSection,
+    SectionsProjectsSection,
 } from "@repo/type-definitions/dynamic-page";
 import { redirect } from "next/navigation";
 
@@ -87,6 +88,8 @@ export default async function HomePage() {
         profile_image: `${imageBaseUrl}${landingHero.profile_image.url}`,
         commands: `${imageBaseUrl}${landingHero.commands.url}`,
     };
+
+    const projectsSection = dynamicPage.sections[2] as SectionsProjectsSection;
 
     return (
         <SoundProvider>
