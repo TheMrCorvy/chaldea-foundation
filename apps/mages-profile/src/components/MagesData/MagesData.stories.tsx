@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Box } from "@mui/material";
 import MagesData from "./index";
+import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/MagesData",
@@ -30,16 +30,9 @@ export const Default: Story = {
         isMobile: false,
     },
     render: (args) => (
-        <Box
-            sx={{
-                position: "relative",
-                width: "100dvw",
-                height: "100dvh",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <MagesData {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -52,15 +45,8 @@ export const Mobile: Story = {
         isMobile: true,
     },
     render: (args) => (
-        <Box
-            sx={{
-                position: "relative",
-                width: "100dvw",
-                height: "100dvh",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <MagesData {...args} />
-        </Box>
+        </StarryContainer>
     ),
 };
