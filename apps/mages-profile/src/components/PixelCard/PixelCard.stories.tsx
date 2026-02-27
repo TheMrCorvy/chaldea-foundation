@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import PixelCard from "./index";
 import { Box } from "@mui/material";
+import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/PixelCard",
@@ -48,20 +49,11 @@ export const Default: Story = {
         ),
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <Box sx={{ width: 300, height: 300, position: "relative" }}>
                 <PixelCard {...args} />
             </Box>
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -76,20 +68,11 @@ export const FocusOnMount: Story = {
         ),
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <Box sx={{ width: 300, height: 300, position: "relative" }}>
                 <PixelCard {...args} />
             </Box>
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -104,20 +87,11 @@ export const NoRoundedBorders: Story = {
         ),
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <Box sx={{ width: 300, height: 300, position: "relative" }}>
                 <PixelCard {...args} />
             </Box>
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -127,20 +101,11 @@ export const Blue: Story = {
         children: <Box sx={{ color: "white", padding: 2 }}>Focus me</Box>,
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <Box sx={{ width: 300, height: 300, position: "relative" }}>
                 <PixelCard {...args} />
             </Box>
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -150,20 +115,11 @@ export const Yellow: Story = {
         children: <Box sx={{ color: "white", padding: 2 }}>Hover over me</Box>,
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <Box sx={{ width: 300, height: 300, position: "relative" }}>
                 <PixelCard {...args} />
             </Box>
-        </Box>
+        </StarryContainer>
     ),
 };
 
@@ -173,19 +129,10 @@ export const Pink: Story = {
         children: <Box sx={{ color: "white", padding: 2 }}>Always on</Box>,
     },
     render: (args) => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <Box sx={{ width: 300, height: 300, position: "relative" }}>
                 <PixelCard {...args} />
             </Box>
-        </Box>
+        </StarryContainer>
     ),
 };
