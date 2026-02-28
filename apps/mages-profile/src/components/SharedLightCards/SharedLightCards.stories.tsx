@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import SharedLightCards from "./index";
-import { Box } from "@mui/material";
+import StarryContainer from '../StarryContainer'
 
 const meta = {
     title: "Components/SharedLightCards",
@@ -22,17 +22,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     render: () => (
-        <Box
-            sx={{
-                width: "100dvw",
-                height: "100dvh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#000000",
-            }}
-        >
+        <StarryContainer>
             <SharedLightCards />
-        </Box>
+        </StarryContainer>
     ),
 };
