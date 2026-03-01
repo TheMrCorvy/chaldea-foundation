@@ -30,16 +30,15 @@
             "repeatable": false,
             "required": true
         },
-        "cover_image": {
-            "type": "component",
-            "component": "blog.blog-image",
-            "repeatable": false,
-            "required": true
-        },
         "links": {
             "type": "component",
             "component": "layout.link",
             "repeatable": true
+        },
+        "cover_image": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": ["images"]
         }
     },
     "config": {}
