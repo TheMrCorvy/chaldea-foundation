@@ -14,11 +14,13 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
     const startDate = new Intl.DateTimeFormat("en-US", {
         year: "2-digit",
         month: "2-digit",
+        timeZone: "UTC",
     }).format(new Date(from));
 
     const endDate = new Intl.DateTimeFormat("en-US", {
         year: "2-digit",
         month: "2-digit",
+        timeZone: "UTC",
     }).format(new Date(until));
 
     return (
