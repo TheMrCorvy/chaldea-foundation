@@ -12,6 +12,9 @@ type MockBoxProps = HTMLAttributes<HTMLElement> & {
 type MockTypographyProps = HTMLAttributes<HTMLElement> & {
     variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body1";
     paragraph?: boolean;
+    gutterBottom?: boolean;
+    fontWeight?: number;
+    fontStyle?: string;
     children?: ReactNode;
 };
 
@@ -44,7 +47,18 @@ jest.mock("@mui/material", () => {
     );
 
     const Typography = ReactModule.forwardRef<HTMLElement, MockTypographyProps>(
-        ({ children, variant, paragraph, ...rest }, ref) => {
+        (
+            {
+                children,
+                variant,
+                paragraph,
+                gutterBottom: _gutterBottom,
+                fontWeight: _fontWeight,
+                fontStyle: _fontStyle,
+                ...rest
+            },
+            ref
+        ) => {
             let Component: ElementType = "span";
 
             if (paragraph) {
