@@ -14,7 +14,6 @@ const validApiKeys: string[] = JSON.parse(process.env.API_KEYS as string);
 export function createApp(): Express {
     const app = express();
 
-    // Middlewares
     app.use(helmet());
     app.use(
         cors({
