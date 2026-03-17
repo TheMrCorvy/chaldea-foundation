@@ -1,7 +1,5 @@
 .cyberBtn {
     --accent: #29b6f6;
-    /* Implement a slightly clearer background */
-    /* --background-color: hsl(230 40% 12%); */
     --corner: 12px;
     --border: 1px;
     font-family: "Cyber", sans-serif;
