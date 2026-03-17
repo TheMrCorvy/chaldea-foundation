@@ -71,7 +71,6 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",
-                        // gap: 1,
                         verticalAlign: "center",
                         justifyContent: "space-between",
                     }}
@@ -90,7 +89,6 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                             sx={{
                                 fontWeight: 600,
                                 color: "common.white",
-                                // lineHeight: 1.3,
                             }}
                         >
                             {title}
@@ -100,7 +98,6 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                             sx={{
                                 color: "grey.300",
                                 display: "block",
-                                // lineHeight: 1.3,
                                 fontSize: "0.8rem",
                             }}
                         >
