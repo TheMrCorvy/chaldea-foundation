@@ -50,7 +50,6 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
 
     const regenerateText = useCallback(
         (containerWidth: number) => {
-            // monospace → 1ch ≈ font-size
             const FONT_SIZE = 14;
             const charsPerLine = Math.floor(containerWidth / FONT_SIZE);
 
@@ -144,7 +143,6 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                 },
             }}
         >
-            {/* Corner Icons */}
             <AddIcon
                 color="primary"
                 sx={{
@@ -184,8 +182,6 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                     transform: "rotate(270deg)",
                 }}
             />
-
-            {/* Glitch Text with Gradient Mask */}
             <Box
                 ref={containerRef}
                 sx={{
@@ -216,8 +212,6 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
             >
                 {text}
             </Box>
-
-            {/* Inner element */}
             <Box
                 sx={{
                     position: "absolute",
@@ -237,7 +231,6 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                         justifyContent: "center",
                         width: "100%",
                         height: "95%",
-                        // borderRadius: 2,
                         color: "white",
                         marginX: "11px",
                         backgroundColor: isHovering ? "rgba(0, 0, 0, 0.1)" : "",
