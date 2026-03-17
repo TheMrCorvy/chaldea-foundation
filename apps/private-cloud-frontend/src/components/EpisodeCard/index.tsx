@@ -46,18 +46,7 @@ const EpisodeCard: FC<EpisodeCardProps> = ({ episode, userId }) => {
                         width: 260,
                     },
                 }}
-                // onClick={() => redirect(WebRoutes.EPISODE + documentId)}
             >
-                {/* <CardOverflow>
-                    <AspectRatio ratio="1" sx={{ width: 105 }}>
-                        <img
-                            src="https://images.unsplash.com/photo-1507833423370-a126b89d394b?auto=format&fit=crop&w=90"
-                            srcSet="https://images.unsplash.com/photo-1507833423370-a126b89d394b?auto=format&fit=crop&w=90&dpr=2 2x"
-                            loading="lazy"
-                            alt=""
-                        />
-                    </AspectRatio>
-                </CardOverflow> */}
                 <CardContent
                     sx={{
                         display: "flex",
@@ -92,17 +81,12 @@ const EpisodeCard: FC<EpisodeCardProps> = ({ episode, userId }) => {
                             {display_name}
                         </Typography>
                         <Typography
-                            // href={WebRoutes.EPISODE + "/" + episode.documentId}
                             sx={{
                                 width: "100%",
                                 display: "flex",
                                 color: "#A8B2C3",
                                 justifyContent: "space-between",
                                 textDecoration: "underline",
-                                // "&:hover": {
-                                //     textDecoration: "underline",
-                                //     textDecorationColor: "white",
-                                // },
                             }}
                             level="body-sm"
                         >
