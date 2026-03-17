@@ -101,7 +101,6 @@ const SendReport: FC<SendReportProps> = ({ open, onClose }) => {
                             gap: "1rem",
                         }}
                     >
-                        {/* Title Field */}
                         <FormControl
                             error={Boolean(formState.fieldErrors?.title)}
                             required
@@ -132,7 +131,6 @@ const SendReport: FC<SendReportProps> = ({ open, onClose }) => {
                             )}
                         </FormControl>
 
-                        {/* Description Field */}
                         <FormControl
                             error={Boolean(formState.fieldErrors?.description)}
                             required
@@ -164,7 +162,6 @@ const SendReport: FC<SendReportProps> = ({ open, onClose }) => {
                             )}
                         </FormControl>
 
-                        {/* Media Field */}
                         <FormControl
                             error={Boolean(formState.fieldErrors?.media)}
                         >
@@ -239,7 +236,6 @@ const SendReport: FC<SendReportProps> = ({ open, onClose }) => {
                             )}
                         </FormControl>
 
-                        {/* Error Alert */}
                         {formState.submitState === "error" &&
                             !formState.fieldErrors && (
                                 <Alert
@@ -252,7 +248,6 @@ const SendReport: FC<SendReportProps> = ({ open, onClose }) => {
                                 </Alert>
                             )}
 
-                        {/* Success Alert */}
                         {formState.submitState === "success" && (
                             <Alert
                                 color="success"
@@ -264,7 +259,6 @@ const SendReport: FC<SendReportProps> = ({ open, onClose }) => {
                             </Alert>
                         )}
 
-                        {/* Action Buttons */}
                         <Stack
                             direction="row"
                             spacing={1}
