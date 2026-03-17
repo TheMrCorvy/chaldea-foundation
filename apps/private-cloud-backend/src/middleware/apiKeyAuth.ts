@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express';
 import { verifyApiKey } from '../services/apiKeyService';
 
-// Extends the Express Request interface using module declaration
 declare module 'express-serve-static-core' {
     interface Request {
         apiKey?: string;
@@ -67,10 +66,7 @@ export const authenticateApiKeyWithHashes = (getValidHashes: () => Promise<strin
                 });
             }
 
-            // Get valid hashes (e.g., from database)
             const validHashes = await getValidHashes();
-
-            // Check the API key against all valid hashes
             const results = await Promise.all(validHashes.map(hash => verifyApiKey(apiKey, hash)));
             const isValid = results.some(Boolean);
 
