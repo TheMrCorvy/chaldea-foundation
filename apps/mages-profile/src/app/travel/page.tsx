@@ -110,7 +110,6 @@ export default function Home(): JSX.Element {
 
     return (
         <Box sx={{ overflow: "hidden" }}>
-            {/* Skills Section */}
             <Box
                 component="section"
                 sx={{
@@ -255,7 +254,6 @@ export default function Home(): JSX.Element {
                     </MotionDiv>
                 </Container>
             </Box>
-            {/* Projects Section */}
             <Box component="section" sx={{ py: 10 }}>
                 <Container maxWidth="lg">
                     <MotionDiv
@@ -377,7 +375,6 @@ export default function Home(): JSX.Element {
                     </MotionDiv>
                 </Container>
             </Box>
-            {/* Contact Section */}
             <Box
                 component="section"
                 sx={{
@@ -491,7 +488,6 @@ export default function Home(): JSX.Element {
                     </MotionDiv>
                 </Container>
             </Box>
-            {/* Footer */}
             <Box
                 component="footer"
                 sx={{
