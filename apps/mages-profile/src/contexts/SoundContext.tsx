@@ -44,7 +44,7 @@ export const SoundProvider: React.FC<{ children: React.ReactNode }> = ({
         if (soundEnabled) {
             const audio = sounds.current[sound];
             if (audio) {
-                audio.currentTime = 0; // Rewind to start
+                audio.currentTime = 0;
                 audio.play().catch((error) => {
                     console.error(`Error playing sound: ${sound}`, error);
                 });
@@ -79,7 +79,6 @@ export const SoundProvider: React.FC<{ children: React.ReactNode }> = ({
     useEffect(() => {
         const currentSounds = sounds.current;
 
-        // Preload sounds
         currentSounds.button = new Audio("/assets/sounds/button.wav");
         currentSounds.button.volume = 0.2;
 
@@ -94,7 +93,6 @@ export const SoundProvider: React.FC<{ children: React.ReactNode }> = ({
         currentSounds.bgm.loop = true;
 
         return () => {
-            // Cleanup
             Object.values(currentSounds).forEach((audio) => {
                 audio?.pause();
                 audio?.remove();
