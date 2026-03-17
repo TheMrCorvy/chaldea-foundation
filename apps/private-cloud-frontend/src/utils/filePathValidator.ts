@@ -1,24 +1,17 @@
 import path from "path";
 
-/**
- * Valida que un filePath no contenga secuencias peligrosas que puedan
- * permitir acceso a archivos fuera del directorio permitido
- */
 export function isValidFilePath(filePath: string): boolean {
-    // Verificar que no esté vacío
+
     if (!filePath || filePath.trim() === "") {
         return false;
     }
 
-    // Normalizar el path para resolver .. y .
     const normalized = path.normalize(filePath);
-
-    // Verificar que no contenga secuencias peligrosas
     const dangerousPatterns = [
-        /\.\./, // Path traversal
-        /\/\//, // Doble slash
-        /^[a-z]:/i, // Drive letters (Windows) - podría ser válido dependiendo del sistema
-        /^~/, // Home directory
+        /\.\./,
+        /\/\//,
+        /^[a-z]:/i,
+        /^~/,
     ];
 
     for (const pattern of dangerousPatterns) {
@@ -27,7 +20,7 @@ export function isValidFilePath(filePath: string): boolean {
         }
     }
 
-    // Verificar que tenga una extensión de video válida
+
     const validExtensions = [
         ".mp4",
         ".mkv",
@@ -49,9 +42,6 @@ export function isValidFilePath(filePath: string): boolean {
     return true;
 }
 
-/**
- * Sanitiza un filePath removiendo caracteres peligrosos
- */
 export function sanitizeFilePath(filePath: string): string {
     return path.normalize(filePath);
 }
