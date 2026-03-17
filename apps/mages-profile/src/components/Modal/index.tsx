@@ -75,7 +75,6 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                         }}
                         data-sound="modal"
                     >
-                        {/* Corner Icons */}
                         <AddIcon
                             color="primary"
                             sx={{
