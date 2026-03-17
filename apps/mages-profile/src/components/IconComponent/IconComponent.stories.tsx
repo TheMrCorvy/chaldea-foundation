@@ -55,7 +55,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Get all icon names
 const iconNames = Object.keys(MuiIcons).filter(
     (key) =>
         key !== "default" &&
