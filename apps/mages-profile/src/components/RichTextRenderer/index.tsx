@@ -115,7 +115,7 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({ content }) => {
                     </MuiLink>
                 );
 
-            default: // text node
+            default: 
                 if (node.text !== undefined) {
                     return renderText(node, index);
                 }
