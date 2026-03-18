@@ -93,7 +93,6 @@ const Pagination: FC<PaginationProps> = ({ pagination, onChange }) => {
             </IconButton>
             {pageNumbers.map((item, index) => {
                 if (typeof item === "string") {
-                    // Render ellipsis
                     return (
                         <Box
                             key={`${item}-${index}`}
