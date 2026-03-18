@@ -200,11 +200,7 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
 
                                 const commonSx = {
                                     display: "flex",
-                                    // flexDirection: "row" as const,
                                     height: calcRowHeight(row),
-                                    // alignItems: "center" as const,
-                                    // justifyContent: "center" as const,
-                                    // overflow: "hidden" as const,
                                     borderBottom:
                                         row === 1
                                             ? "1px solid rgba(25,118,210, 0.6)"
