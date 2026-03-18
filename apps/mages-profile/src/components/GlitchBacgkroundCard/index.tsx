@@ -118,7 +118,6 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                 borderLeft: "1px solid rgba(25,118,210, 0.6)",
                 borderRight: "1px solid rgba(25,118,210, 0.6)",
                 overflow: "visible",
-                // cursor: "pointer",
                 "&::before, &::after": {
                     content: '""',
                     position: "absolute",
