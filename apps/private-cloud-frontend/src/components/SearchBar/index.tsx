@@ -79,11 +79,9 @@ const SearchBar: FC<SearchBarProps> = ({
                 }
                 variant="outlined"
                 sx={{
-                    // Geometry and Shape
                     "--Input-radius": "50px",
                     "--Input-gap": "8px",
                     marginBottom: allowAdultContent ? 2 : 0,
-                    // Sizing
                     width: {
                         xs: "100%",
                         sm: "12rem",
@@ -101,22 +99,11 @@ const SearchBar: FC<SearchBarProps> = ({
                                 ?.neutral?.[300] || "white",
                         opacity: 0.5,
                     },
-
-                    // Visuals
-                    // boxShadow: "sm",
-                    // borderColor: "neutral.outlinedBorder",
                     "&:hover": {
                         color:
                             themeConfig.colorSchemes?.dark?.palette?.text
                                 ?.secondary || "white",
                     },
-                    // "&::before": {
-                    //     transition: "box-shadow .15s ease-in-out",
-                    // },
-                    // "&:focus-within": {
-                    //     borderColor: "primary.500",
-                    //     // boxShadow: "0 0 0 2px var(--joy-palette-primary-200)",
-                    // },
                 }}
             />
             {allowAdultContent && (
