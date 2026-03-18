@@ -1,4 +1,3 @@
-// import AspectRatio from "@mui/joy/AspectRatio";
 import { WebRoutes } from "@/utils/routes";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
