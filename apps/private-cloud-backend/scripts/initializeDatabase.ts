@@ -20,6 +20,20 @@ const main = async () => {
     const strapiApiKey = process.env.STRAPI_API_KEY;
 
     if (!initiumIter || initiumIter.length < 1 || !strapiApiKey || !excludedParents || !secureBasePath) {
+        logData({
+            title: 'Some env variables are not set',
+            data: {
+                initiumIter,
+                strapiApiKey,
+                excludedParents,
+                secureBasePath,
+            },
+            type: 'error',
+            layer: '*',
+            addSpaceAfter: true,
+            addSpaceBefore: true,
+            addSeparatorAfter: true,
+        });
         throw new Error('Environment variables are not set.');
     }
 
