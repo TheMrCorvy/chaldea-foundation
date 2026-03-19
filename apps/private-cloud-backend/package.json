@@ -25,27 +25,27 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
-        "express": "^5.1.0",
+        "@repo/platform-service-sdk": "*",
+        "@repo/shared-utils": "*",
         "@repo/type-definitions": "*",
         "bcrypt": "^6.0.0",
         "cors": "^2.8.5",
         "dotenv": "^17.2.0",
+        "express": "^5.1.0",
         "helmet": "^8.1.0",
-        "morgan": "^1.10.1",
-        "@repo/platform-service-sdk": "*",
-        "@repo/shared-utils": "*"
+        "morgan": "^1.10.1"
     },
     "devDependencies": {
+        "@types/bcrypt": "^6.0.0",
+        "@types/cors": "^2.8.19",
         "@types/express": "^5.0.2",
-        "@types/node": "^22.15.30",
-        "ts-node-dev": "^2.0.0",
         "@types/jest": "^30.0.0",
         "@types/morgan": "^1.9.10",
-        "typescript": "^5.8.3",
-        "@types/cors": "^2.8.19",
+        "@types/node": "^22.19.15",
+        "jest": "^30.0.5",
         "ts-jest": "^29.4.0",
         "ts-node": "^10.9.2",
-        "jest": "^30.0.5",
-        "@types/bcrypt": "^6.0.0"
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.8.3"
     }
 }
