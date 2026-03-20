@@ -3,7 +3,6 @@ import path from 'path';
 import { serveVideoFileService } from '../src/services/serveVideoFileService';
 import { isFeatureFlagEnabled, FeatureNames } from '@repo/shared-utils/feature-flags';
 
-// Mock dependencies
 jest.mock('fs');
 jest.mock('@repo/shared-utils/feature-flags');
 
@@ -17,13 +16,9 @@ describe('serveVideoFileService', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
-
-        // Default mocks
         mockIsFeatureFlagEnabled.mockReturnValue(false);
         mockFs.statSync.mockReturnValue({ size: mockFileSize } as any);
         mockFs.createReadStream.mockReturnValue(mockStream);
-
-        // Mock console.error to avoid output during tests
         jest.spyOn(console, 'error').mockImplementation();
     });
 
