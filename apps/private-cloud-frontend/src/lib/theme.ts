@@ -41,7 +41,7 @@ export const themeConfig: CssVarsThemeOptions = {
                     200: "#FF8792",
                     300: "#FF6070",
                     400: "#FF3F54",
-                    500: "#FF1F3D", // main
+                    500: "#FF1F3D",
                     600: "#E01635",
                     700: "#B5122D",
                     800: "#8A0E22",
@@ -55,7 +55,7 @@ export const themeConfig: CssVarsThemeOptions = {
                     200: "#FFC75A",
                     300: "#FFB42E",
                     400: "#FFA30E",
-                    500: "#FF9200", // main
+                    500: "#FF9200",
                     600: "#E27F00",
                     700: "#C06A00",
                     800: "#9A5500",
@@ -69,7 +69,7 @@ export const themeConfig: CssVarsThemeOptions = {
                     200: "#78DEC0",
                     300: "#4DD3AB",
                     400: "#2AC998",
-                    500: "#10C087", // main
+                    500: "#10C087",
                     600: "#0FAF7A",
                     700: "#0E986A",
                     800: "#0C7C57",
@@ -93,7 +93,6 @@ export const themeConfig: CssVarsThemeOptions = {
         },
     },
 
-    // --- REMOVE ALL SHADOWS ---
     shadow: {
         xs: "none",
         sm: "none",
