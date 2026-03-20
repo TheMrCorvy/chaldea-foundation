@@ -16,7 +16,6 @@ export async function GET(request: NextRequest) {
         "src/mocks/mock-episodes/" + process.env.MOCK_FILE_NAME
     );
 
-    // try {
     const fileMetadata = statSync(filePath);
     const range = request.headers.get("range");
 
@@ -53,8 +52,4 @@ export async function GET(request: NextRequest) {
         headers,
         status: 206, // Partial content
     });
-    // } catch (error) {
-    //     console.error("Error streaming video:", error);
-    //     return new NextResponse("Internal Server Error", { status: 500 });
-    // }
 }
