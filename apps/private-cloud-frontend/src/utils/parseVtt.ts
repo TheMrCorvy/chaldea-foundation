@@ -17,14 +17,12 @@ const parseVtt = (vtt: string): Cue[] => {
         if (lines[0].startsWith("WEBVTT") || lines[0].startsWith("NOTE"))
             continue;
 
-        // Support optional cue identifier lines by finding the time-line inside the block
         const timeIndex = lines.findIndex((line) => line.includes("-->"));
         if (timeIndex === -1) continue;
 
         const timeLine = lines[timeIndex];
         const text = lines.slice(timeIndex + 1).join("\n");
 
-        // Accept either "HH:MM:SS.mmm" or "MM:SS.mmm"
         const match = timeLine.match(
             /(\d{1,2}:\d{2}:\d{2}\.\d+|\d{1,2}:\d{2}\.\d+)\s*-->\s*(\d{1,2}:\d{2}:\d{2}\.\d+|\d{1,2}:\d{2}\.\d+)/
         );
