@@ -100,12 +100,12 @@ describe('separateArrays', () => {
 
     it('should not modify the original array', () => {
         const input = [1, 2, 3, 4, 5];
-        const originalInput = [...input]; // Create a copy for comparison
+        const originalInput = [...input];
         const chunkSize = 2;
 
         const result = separateArrays(input, chunkSize);
 
-        expect(input).toEqual(originalInput); // Original should be unchanged
+        expect(input).toEqual(originalInput);
         expect(result).toEqual([[1, 2], [3, 4], [5]]);
     });
 
