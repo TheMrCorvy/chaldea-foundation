@@ -30,7 +30,6 @@ export async function submitReport(
 
     const fieldErrors: ReportFormState["fieldErrors"] = {};
 
-    // Validate title
     if (!title || typeof title !== "string" || title.trim().length === 0) {
         fieldErrors.title = ["El título es requerido"];
     } else if (title.length < TITLE_MIN_LENGTH) {
@@ -43,7 +42,6 @@ export async function submitReport(
         ];
     }
 
-    // Validate description
     if (
         !description ||
         typeof description !== "string" ||
@@ -60,7 +58,6 @@ export async function submitReport(
         ];
     }
 
-    // Validate media (optional)
     if (mediaFile && mediaFile.size > 0) {
         if (mediaFile.size > MAX_FILE_SIZE) {
             fieldErrors.media = ["El archivo no puede exceder 100MB"];
@@ -71,7 +68,6 @@ export async function submitReport(
         }
     }
 
-    // If there are validation errors, return them
     if (Object.keys(fieldErrors).length > 0) {
         return {
             ...prevState,
@@ -99,7 +95,6 @@ export async function submitReport(
             publishedAt: new Date().toISOString(),
         };
 
-        // Handle media upload if provided
         if (mediaFile && mediaFile.size > 0) {
             const jwtCookie = (await getCookie(
                 CookiesList.JWT
