@@ -2,6 +2,8 @@ import { scanSingleFolder, writeJsonFile } from '../src/services/diskService';
 import dotenv from 'dotenv';
 import { LocalDirectory } from '../src/utils/typesDefinition';
 import sortDirectories from '../src/utils/sortDirectories';
+import verifyEpisodeExistance from '../src/utils/db_init/verifyEpisodeExistance';
+import updateEpisodeInStrapi from '../src/utils/db_init/updateEpisodeInStrapi';
 
 // Load environment variables BEFORE importing the SDK
 dotenv.config();
@@ -242,6 +244,92 @@ const main = async () => {
                 const isVOne = episode.file_type === 'mp4' || episode.file_type === 'MP4';
                 let metadata: any = null;
 
+                const episodeExists = await verifyEpisodeExistance({
+                    episode,
+                    parentId: storedDirectory.data.data.documentId,
+                });
+
+                if (episodeExists.error !== undefined) {
+                    failedDirectories.push({ localDirectory, episode, error: episodeExists });
+                    logData({
+                        layer: '*',
+                        title: `Error checking if episode exists in strapi`,
+                        data: episodeExists.error,
+                        addSpaceAfter: true,
+                        type: 'error',
+                    });
+
+                    continue;
+                }
+
+                metadata = await processVideoFile(
+                    secureBasePath +
+                        localDirectory.directory_path +
+                        '/' +
+                        episode.display_name +
+                        '.' +
+                        episode.file_type
+                );
+
+                if (
+                    metadata.everythingWorkedFine &&
+                    (!metadata.everythingWorkedFine.audio || !metadata.everythingWorkedFine.subtitles)
+                ) {
+                    failedDirectories.push({ localDirectory, metadata });
+                    continue;
+                }
+
+                if (episodeExists.exists && episodeExists.differs && episodeExists.existingEpisode) {
+                    logData({
+                        layer: '*',
+                        title: 'Episode already exists but with different version. Updating episode with new version and metadata...',
+                        addSpaceAfter: true,
+                        data: {
+                            existingEpisode: episodeExists.existingEpisode,
+                            newVersion: episode.version || (isVOne ? 'V1' : 'V2'),
+                        },
+                        type: 'info',
+                    });
+
+                    const updatedEpisode = await updateEpisodeInStrapi({
+                        metadata,
+                        episode,
+                        existingEpisodeId: episodeExists.existingEpisode.documentId,
+                    });
+
+                    if (updatedEpisode.error !== undefined) {
+                        logData({
+                            layer: '*',
+                            title: `Error updating episode in strapi`,
+                            data: updatedEpisode,
+                            addSpaceAfter: true,
+                        });
+
+                        failedDirectories.push({ localDirectory, episode, error: updatedEpisode });
+                    }
+
+                    logData({
+                        layer: '*',
+                        title: 'Updated episode in strapi with new version and metadata: ' + episode.display_name,
+                        addSpaceAfter: true,
+                        type: 'info',
+                    });
+
+                    continue;
+                }
+
+                if (episodeExists.exists && !episodeExists.differs && episodeExists.existingEpisode) {
+                    logData({
+                        layer: '*',
+                        title: 'Episode already exists in strapi with the same version, skipping...',
+                        addSpaceAfter: true,
+                        type: 'info',
+                        data: episodeExists.existingEpisode,
+                    });
+
+                    continue;
+                }
+
                 if (!isVOne) {
                     logData({
                         title: `Processing episode: ${episode.display_name} (Type: ${isVOne ? 'V1' : 'V2'})`,
@@ -261,14 +349,6 @@ const main = async () => {
                             '.' +
                             episode.file_type
                     );
-
-                    if (
-                        metadata.everythingWorkedFine &&
-                        (!metadata.everythingWorkedFine.audio || !metadata.everythingWorkedFine.subtitles)
-                    ) {
-                        failedDirectories.push({ localDirectory, metadata });
-                        continue;
-                    }
                 }
 
                 const storedEpisode = await platformService.call('bEpisodePostBEpisodes', {
