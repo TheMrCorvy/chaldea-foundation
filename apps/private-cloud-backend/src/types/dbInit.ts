@@ -1,4 +1,4 @@
-import { Episode } from '@repo/type-definitions';
+import { Directory, Episode } from '@repo/type-definitions';
 import { LocalDirectory, LocalEpisode } from '../utils/typesDefinition';
 
 export interface RequestError {
@@ -21,7 +21,7 @@ export type UpdateEpisodeInStrapi = (params: UpdateEpisodeInStrapiParams) => Pro
 export interface VerifyEpisodeExistanceResult {
     exists?: boolean;
     differs?: boolean;
-    error?: object;
+    error?: RequestError;
     existingEpisode?: Episode;
 }
 
@@ -33,13 +33,26 @@ export interface VerifyEpisodeExistanceParams {
 export type VerifyEpisodeExistance = (params: VerifyEpisodeExistanceParams) => Promise<VerifyEpisodeExistanceResult>;
 
 export interface VerifyDirectoryExistanceResult {
-    error?: object;
+    error?: RequestError;
     exists?: boolean;
-    differs?: boolean;
+    directory?: Directory;
+    skipped: boolean;
+    failed: boolean;
 }
 
 export interface VerifyDirectoryExistanceParams {
     directory: LocalDirectory;
+    failedDirectories: unknown[];
+    skippedDirectories: unknown[];
 }
 
-export type VerifyDirectoryExistance = (params: VerifyDirectoryExistance) => Promise<VerifyDirectoryExistanceResult>;
+export type VerifyDirectoryExistance = (
+    params: VerifyDirectoryExistanceParams
+) => Promise<VerifyDirectoryExistanceResult>;
+
+export interface VerifyEnvResult {
+    secureBasePath: string;
+    initiumIter: string[];
+    excludedParents: string[];
+    strapiApiKey: string;
+}
