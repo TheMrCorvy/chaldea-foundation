@@ -1,9 +1,12 @@
-import { scanSingleFolder, writeJsonFile } from '../src/services/diskService';
+import { writeJsonFile } from '../src/services/diskService';
 import dotenv from 'dotenv';
 import { LocalDirectory } from '../src/utils/typesDefinition';
 import sortDirectories from '../src/utils/sortDirectories';
 import verifyEpisodeExistance from '../src/utils/db_init/verifyEpisodeExistance';
 import updateEpisodeInStrapi from '../src/utils/db_init/updateEpisodeInStrapi';
+import envVerification from '../src/utils/db_init/envVerification';
+import scanAndOrganizeDirectories from '../src/utils/db_init/scanAndOrganizeDirectories';
+import verifyDirectoryExistance from '../src/utils/db_init/verifyDirectoryExistance';
 
 // Load environment variables BEFORE importing the SDK
 dotenv.config();
@@ -15,105 +18,13 @@ import { processVideoFile } from '../src/services/ffmpegService';
 const main = async () => {
     console.clear();
 
-    const secureBasePath = process.env.SECURE_BASE_PATH || '';
-    const initiumIter: string[] = process.env.INITIAL_PATH ? JSON.parse(process.env.INITIAL_PATH) : [];
     const outputFolderPath = './db';
-    const excludedParents: string[] = process.env.EXCLUDED_PARENTS ? JSON.parse(process.env.EXCLUDED_PARENTS) : [];
-    const strapiApiKey = process.env.STRAPI_API_KEY;
-
-    if (!initiumIter || initiumIter.length < 1 || !strapiApiKey || !excludedParents || !secureBasePath) {
-        logData({
-            title: 'Some env variables are not set',
-            data: {
-                initiumIter,
-                strapiApiKey,
-                excludedParents,
-                secureBasePath,
-            },
-            type: 'error',
-            layer: '*',
-            addSpaceAfter: true,
-            addSpaceBefore: true,
-            addSeparatorAfter: true,
-        });
-        throw new Error('Environment variables are not set.');
-    }
+    const env = envVerification();
 
     const platformService = new PlatformService();
-    platformService.setApiToken(strapiApiKey);
+    platformService.setApiToken(env.strapiApiKey);
 
-    logData({
-        layer: '*',
-        addSeparatorAfter: true,
-        addSeparatorBefore: true,
-        addSpaceAfter: true,
-        addSpaceBefore: true,
-        title: 'Environment variables set. Proceeding with database initialization...',
-    });
-
-    const organizedData: LocalDirectory[][] = [];
-
-    initiumIter.forEach((initialPath, i) => {
-        const data = scanSingleFolder({
-            dirPath: initialPath,
-            excludedParents,
-            secureBasePath,
-        });
-
-        const pendingToScan: string[] = data.sub_directories;
-        const finalResult: LocalDirectory[] = data.episodes
-            ? [
-                  {
-                      ...scanSingleFolder({
-                          dirPath: data.directory_path,
-                          excludedParents,
-                          excludeSubDirectories: true,
-                          secureBasePath,
-                      }),
-                      parent_directory: null,
-                  },
-              ]
-            : [];
-
-        while (pendingToScan.length > 0) {
-            for (let index = pendingToScan.length - 1; index >= 0; index--) {
-                const dirPath = pendingToScan[index];
-                const folderToRemoveFromPending = pendingToScan.indexOf(dirPath);
-                pendingToScan.splice(folderToRemoveFromPending, 1);
-
-                const scannedData = scanSingleFolder({
-                    dirPath,
-                    excludedParents,
-                    secureBasePath,
-                });
-
-                if (!excludedParents.includes(scannedData.display_name)) {
-                    finalResult.push(scannedData);
-                }
-                pendingToScan.push(...scannedData.sub_directories);
-            }
-        }
-
-        logData({
-            layer: '*',
-            addSeparatorAfter: true,
-            addSpaceAfter: true,
-            addSeparatorBefore: true,
-            title: 'Scanned all directories for root folder. Now writting into json db...',
-        });
-
-        organizedData.push(finalResult);
-
-        logData({
-            layer: '*',
-            addSeparatorAfter: true,
-            addSpaceAfter: true,
-            addSeparatorBefore: true,
-            title: 'Json db written. Calling Strapi to get already existing Drirectories and Anime Episodes...',
-        });
-
-        return;
-    });
+    const organizedData = scanAndOrganizeDirectories(env);
 
     writeJsonFile({ outputFolderPath, data: organizedData, fileName: 'full data' });
 
@@ -130,38 +41,19 @@ const main = async () => {
                 addSpaceAfter: true,
             });
 
-            const directoryAlreadyExists = await platformService.call('bDirectoryGetBDirectories', {
-                query: {
-                    filters: {
-                        path: {
-                            $eq: localDirectory.directory_path,
-                        },
-                    },
-                },
+            const directoryAlreadyExists = await verifyDirectoryExistance({
+                directory: localDirectory,
+                failedDirectories,
+                skippedDirectories,
             });
 
-            if (directoryAlreadyExists.error || !directoryAlreadyExists.data.data) {
-                failedDirectories.push({ ...localDirectory, error: directoryAlreadyExists });
+            if (directoryAlreadyExists.exists && directoryAlreadyExists.directory) {
                 logData({
+                    title: 'The directory already exists in strapi.',
+                    type: 'info',
                     layer: '*',
-                    title: `Error checking if directory exists in strapi`,
-                    data: directoryAlreadyExists.error,
                     addSpaceAfter: true,
                 });
-
-                continue;
-            }
-
-            if (directoryAlreadyExists.data.data.length > 0) {
-                skippedDirectories.push(localDirectory);
-
-                logData({
-                    layer: '*',
-                    title: 'Directory already exists in strapi, skipping...',
-                    addSpaceAfter: true,
-                });
-
-                continue;
             }
 
             let parentDirectoryDocId = '';
@@ -249,8 +141,15 @@ const main = async () => {
                     parentId: storedDirectory.data.data.documentId,
                 });
 
+                const dirHasFailedBefore = failedDirectories.find(
+                    failedDir => failedDir.directory_path === localDirectory.directory_path
+                );
+
                 if (episodeExists.error !== undefined) {
-                    failedDirectories.push({ localDirectory, episode, error: episodeExists });
+                    if (!dirHasFailedBefore) {
+                        failedDirectories.push({ localDirectory, episode, error: episodeExists });
+                    }
+
                     logData({
                         layer: '*',
                         title: `Error checking if episode exists in strapi`,
@@ -262,20 +161,32 @@ const main = async () => {
                     continue;
                 }
 
-                metadata = await processVideoFile(
-                    secureBasePath +
-                        localDirectory.directory_path +
-                        '/' +
-                        episode.display_name +
-                        '.' +
-                        episode.file_type
-                );
+                if (!isVOne) {
+                    logData({
+                        title: `Processing episode: ${episode.display_name} (Type: ${isVOne ? 'V1' : 'V2'})`,
+                        layer: '*',
+                        addSpaceAfter: true,
+                        data: {
+                            localDirectory,
+                            episode,
+                        },
+                    });
+
+                    metadata = await processVideoFile(
+                        env.secureBasePath +
+                            localDirectory.directory_path +
+                            '/' +
+                            episode.display_name +
+                            '.' +
+                            episode.file_type
+                    );
+                }
 
                 if (
                     metadata.everythingWorkedFine &&
                     (!metadata.everythingWorkedFine.audio || !metadata.everythingWorkedFine.subtitles)
                 ) {
-                    failedDirectories.push({ localDirectory, metadata });
+                    !dirHasFailedBefore && failedDirectories.push({ localDirectory, metadata });
                     continue;
                 }
 
@@ -297,7 +208,7 @@ const main = async () => {
                         existingEpisodeId: episodeExists.existingEpisode.documentId,
                     });
 
-                    if (updatedEpisode.error !== undefined) {
+                    if (updatedEpisode.error !== undefined && !dirHasFailedBefore) {
                         logData({
                             layer: '*',
                             title: `Error updating episode in strapi`,
@@ -330,27 +241,6 @@ const main = async () => {
                     continue;
                 }
 
-                if (!isVOne) {
-                    logData({
-                        title: `Processing episode: ${episode.display_name} (Type: ${isVOne ? 'V1' : 'V2'})`,
-                        layer: '*',
-                        addSpaceAfter: true,
-                        data: {
-                            localDirectory,
-                            episode,
-                        },
-                    });
-
-                    metadata = await processVideoFile(
-                        secureBasePath +
-                            localDirectory.directory_path +
-                            '/' +
-                            episode.display_name +
-                            '.' +
-                            episode.file_type
-                    );
-                }
-
                 const storedEpisode = await platformService.call('bEpisodePostBEpisodes', {
                     body: {
                         data: {
@@ -364,7 +254,8 @@ const main = async () => {
                 });
 
                 if (storedEpisode.error || !storedEpisode.data.data) {
-                    failedDirectories.push(localDirectory);
+                    !dirHasFailedBefore && failedDirectories.push(localDirectory);
+
                     logData({
                         layer: '*',
                         title: `Error storing episode in strapi`,
