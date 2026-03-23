@@ -1,8 +1,11 @@
-import PlatformService from '@repo/platform-service-sdk';
 import { UpdateEpisodeInStrapi } from '../../types/dbInit';
 
-const updateEpisodeInStrapi: UpdateEpisodeInStrapi = async ({ metadata, episode, existingEpisodeId }) => {
-    const platformService = new PlatformService();
+const updateEpisodeInStrapi: UpdateEpisodeInStrapi = async ({
+    metadata,
+    episode,
+    existingEpisodeId,
+    platformService,
+}) => {
     const isVOne = episode.version === 'V1';
     const updatedEpisode = await platformService.call('bEpisodePutBEpisodesById', {
         body: {

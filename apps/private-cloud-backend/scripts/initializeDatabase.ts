@@ -45,6 +45,7 @@ const main = async () => {
                 directory: localDirectory,
                 failedDirectories,
                 skippedDirectories,
+                platformService,
             });
 
             if (directoryAlreadyExists.exists && directoryAlreadyExists.directory) {
@@ -133,12 +134,13 @@ const main = async () => {
             });
 
             for (const episode of localDirectory.episodes) {
-                const isVOne = episode.file_type === 'mp4' || episode.file_type === 'MP4';
+                // const isVOne = episode.file_type === 'mp4' || episode.file_type === 'MP4';
                 let metadata: any = null;
 
                 const episodeExists = await verifyEpisodeExistance({
                     episode,
                     parentId: storedDirectory.data.data.documentId,
+                    platformService,
                 });
 
                 const dirHasFailedBefore = failedDirectories.find(
@@ -161,9 +163,9 @@ const main = async () => {
                     continue;
                 }
 
-                if (!isVOne) {
+                if (episode.version !== 'V1') {
                     logData({
-                        title: `Processing episode: ${episode.display_name} (Type: ${isVOne ? 'V1' : 'V2'})`,
+                        title: `Processing episode: ${episode.display_name} (Type: ${episode.version})`,
                         layer: '*',
                         addSpaceAfter: true,
                         data: {
@@ -180,14 +182,14 @@ const main = async () => {
                             '.' +
                             episode.file_type
                     );
-                }
 
-                if (
-                    metadata.everythingWorkedFine &&
-                    (!metadata.everythingWorkedFine.audio || !metadata.everythingWorkedFine.subtitles)
-                ) {
-                    !dirHasFailedBefore && failedDirectories.push({ localDirectory, metadata });
-                    continue;
+                    if (
+                        metadata.everythingWorkedFine &&
+                        (!metadata.everythingWorkedFine.audio || !metadata.everythingWorkedFine.subtitles)
+                    ) {
+                        !dirHasFailedBefore && failedDirectories.push({ localDirectory, metadata });
+                        continue;
+                    }
                 }
 
                 if (episodeExists.exists && episodeExists.differs && episodeExists.existingEpisode) {
@@ -197,7 +199,7 @@ const main = async () => {
                         addSpaceAfter: true,
                         data: {
                             existingEpisode: episodeExists.existingEpisode,
-                            newVersion: episode.version || (isVOne ? 'V1' : 'V2'),
+                            newVersion: episode.version,
                         },
                         type: 'info',
                     });
@@ -206,6 +208,7 @@ const main = async () => {
                         metadata,
                         episode,
                         existingEpisodeId: episodeExists.existingEpisode.documentId,
+                        platformService,
                     });
 
                     if (updatedEpisode.error !== undefined && !dirHasFailedBefore) {
@@ -246,9 +249,9 @@ const main = async () => {
                         data: {
                             display_name: episode.display_name,
                             parent_directory: storedDirectory.data.data.documentId,
-                            version: episode.version || (isVOne ? 'V1' : 'V2'),
+                            version: episode.version,
                             file_type: episode.file_type,
-                            languages_info: isVOne ? undefined : metadata,
+                            languages_info: episode.version === 'V1' ? undefined : metadata,
                         },
                     },
                 });

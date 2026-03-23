@@ -1,4 +1,3 @@
-import PlatformService from '@repo/platform-service-sdk';
 import { VerifyDirectoryExistance } from '../../types/dbInit';
 import { logData } from '@repo/shared-utils/log-data';
 
@@ -6,9 +5,8 @@ const verifyDirectoryExistance: VerifyDirectoryExistance = async ({
     directory,
     failedDirectories,
     skippedDirectories,
+    platformService,
 }) => {
-    const platformService = new PlatformService();
-
     const directoryAlreadyExists = await platformService.call('bDirectoryGetBDirectories', {
         query: {
             filters: {

@@ -1,8 +1,6 @@
-import PlatformService from '@repo/platform-service-sdk';
 import { VerifyEpisodeExistance } from '../../types/dbInit';
 
-const verifyEpisodeExistance: VerifyEpisodeExistance = async ({ parentId, episode }) => {
-    const platformService = new PlatformService();
+const verifyEpisodeExistance: VerifyEpisodeExistance = async ({ parentId, episode, platformService }) => {
     const episodeAlreadyExists = await platformService.call('bEpisodeGetBEpisodes', {
         query: {
             filters: {
