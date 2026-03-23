@@ -18,6 +18,23 @@ interface SubtitleTrack {
     isTextBased?: boolean;
 }
 
+interface FFprobeTags {
+    language?: string;
+    LANGUAGE?: string;
+}
+
+interface FFprobeStream {
+    index: number;
+    codec_type?: string;
+    codec_name?: string;
+    channels?: number;
+    tags?: FFprobeTags;
+}
+
+interface FFprobeData {
+    streams?: FFprobeStream[];
+}
+
 interface VideoMetadata {
     duration?: number;
     audioTracks: AudioTrack[];
@@ -94,8 +111,7 @@ function isTextBasedSubtitle(codecName: string): boolean {
  * Extracts language from a stream object
  * Tries multiple sources: tags.language, disposition, and defaults to 'unknown'
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function extractLanguage(stream: any): string {
+function extractLanguage(stream: FFprobeStream): string {
     // Check tags.language first
     if (stream.tags?.language) {
         return stream.tags.language;
@@ -111,13 +127,25 @@ function extractLanguage(stream: any): string {
 }
 
 /**
+ * Checks if an output file exists and looks usable.
+ */
+async function hasProcessedOutput(outputPath: string): Promise<boolean> {
+    try {
+        const stat = await fs.stat(outputPath);
+        return stat.isFile() && stat.size > 0;
+    } catch {
+        return false;
+    }
+}
+
+/**
  * Extracts metadata from a video file using ffprobe
  */
 async function extractMetadata(filePath: string): Promise<VideoMetadata> {
     const ffprobeArgs = ['-v', 'error', '-show_streams', '-of', 'json', filePath];
 
     const output = await spawnProcess('ffprobe', ffprobeArgs);
-    const data = JSON.parse(output);
+    const data = JSON.parse(output) as FFprobeData;
 
     const audioTracks: AudioTrack[] = [];
     const subtitleTracks: SubtitleTrack[] = [];
@@ -194,6 +222,11 @@ async function extractAudioTracks(
     for (const track of audioTracks) {
         const outputPath = path.join(audioDir, `${track.trackIndex}.m4a`);
 
+        if (await hasProcessedOutput(outputPath)) {
+            console.log(`Skipping audio track ${track.trackIndex}: output already exists at ${outputPath}`);
+            continue;
+        }
+
         // Determine bitrate based on channels
         const bitrate = (track.channels || 2) > 2 ? '384k' : '320k';
 
@@ -252,6 +285,11 @@ async function extractSubtitleTracks(
         }
 
         const outputPath = path.join(subtitleDir, `${track.trackIndex}.vtt`);
+
+        if (await hasProcessedOutput(outputPath)) {
+            console.log(`Skipping audio track ${track.trackIndex}: output already exists at ${outputPath}`);
+            continue;
+        }
 
         const ffmpegArgs = [
             '-i',
