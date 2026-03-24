@@ -53,15 +53,18 @@ const ModalSection: FC<ModalSectionProps> = ({
                     <Link variant="body1" color="#ffffff">
                         Close
                     </Link>
-                    <Link
-                        variant="body1"
-                        color="#ffffff"
-                        sx={{
-                            mr: isMobile ? "-11px" : "0",
-                        }}
-                    >
-                        See more
-                    </Link>
+                    {experienceSection.link_to_page && (
+                        <Link
+                            variant="body1"
+                            color="#ffffff"
+                            sx={{
+                                mr: isMobile ? "-11px" : "0",
+                            }}
+                            href={experienceSection.link_to_page.href}
+                        >
+                            {experienceSection.link_to_page.label}
+                        </Link>
+                    )}
                 </Box>
             </Box>
         </Modal>
