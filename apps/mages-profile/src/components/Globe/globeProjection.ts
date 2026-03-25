@@ -7,7 +7,6 @@ import {
     thinnerStrokeWidth,
     strokeWidth,
     opacity,
-    markedCountries,
     oceanColor,
     selectedColor,
     countryColor,
@@ -23,6 +22,7 @@ export const setupGlobeProjection: SetupGlobeProjection = ({
     containerElement,
     onCountryClick,
     scale,
+    markedCountries,
 }) => {
     const translate: Coordinates = [scale / 2, scale / 2];
 
