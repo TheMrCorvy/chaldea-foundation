@@ -1,7 +1,5 @@
 import { Coordinates } from "./types";
 
-export const markedCountries = ["Argentina", "Australia"];
-
 export const initialRotationState = {
     isDragging: false,
     startX: 0,
