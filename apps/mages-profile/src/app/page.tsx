@@ -3,33 +3,73 @@ import { SoundProvider } from "@/contexts/SoundContext";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
 import { DynamicPage } from "@repo/type-definitions/dynamic-page";
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { cache } from "react";
 
-export default async function HomePage() {
+type DynamicPageResponse = {
+    data?: Array<DynamicPage>;
+};
+
+const NOT_FOUND_METADATA: Metadata = {
+    title: "404 - Page not found",
+    description: "The requested page does not exist.",
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return typeof value === "object" && value !== null;
+}
+
+function buildSeoMetadata(dynamicPage: DynamicPage): Metadata {
+    const rawMetadata = isRecord(dynamicPage.metadata)
+        ? dynamicPage.metadata
+        : {};
+    const title = dynamicPage.title;
+    const description = dynamicPage.description;
+    const metadata: Metadata = {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            type: "website",
+        },
+        twitter: {
+            title,
+            description,
+            card: "summary_large_image",
+        },
+        ...rawMetadata,
+    };
+
+    return metadata;
+}
+
+const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
     const token = process.env.PLATFORM_SERVICE_KEY || "";
-    const imageBaseUrl = process.env.IMAGES_SOURCE_URL;
 
-    if (!token || !imageBaseUrl) {
+    if (!token) {
         logData({
             title: "Critical env variable not found",
             layer: "*",
             timeStamp: true,
             addSeparatorAfter: true,
             addSpaceAfter: true,
-            data: {
-                token,
-                imageBaseUrl,
-            },
+            data: { token },
             type: "error",
         });
 
-        return redirect("/404/1");
+        return null;
     }
 
     const platformService = new PlatformService();
     platformService.setJWT(token);
 
-    const { data } = await platformService.call(
+    const { data } = (await platformService.call(
         "aDynamicPageGetADynamicPages",
         {
             query: {
@@ -45,9 +85,9 @@ export default async function HomePage() {
                 },
             },
         }
-    );
+    )) as { data?: DynamicPageResponse };
 
-    if (!data || !data.data) {
+    if (!data || !data.data || data.data.length === 0) {
         logData({
             title: "The dynamic page requested doesn't exists",
             layer: "*",
@@ -57,7 +97,8 @@ export default async function HomePage() {
             data,
             type: "error",
         });
-        return redirect("/404/2");
+
+        return null;
     }
 
     logData({
@@ -71,7 +112,43 @@ export default async function HomePage() {
         addSpaceBefore: true,
     });
 
-    const dynamicPage: DynamicPage = data.data[0];
+    return data.data[0];
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+    const dynamicPage = await getMainDynamicPage();
+
+    if (!dynamicPage) {
+        return NOT_FOUND_METADATA;
+    }
+
+    return buildSeoMetadata(dynamicPage);
+}
+
+export default async function HomePage() {
+    const imageBaseUrl = process.env.IMAGES_SOURCE_URL;
+
+    if (!imageBaseUrl) {
+        logData({
+            title: "Critical env variable not found",
+            layer: "*",
+            timeStamp: true,
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            data: {
+                imageBaseUrl,
+            },
+            type: "error",
+        });
+
+        return redirect("/404/1");
+    }
+
+    const dynamicPage = await getMainDynamicPage();
+
+    if (!dynamicPage) {
+        return redirect("/404/2");
+    }
 
     return (
         <SoundProvider>

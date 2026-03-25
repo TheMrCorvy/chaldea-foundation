@@ -7,6 +7,8 @@ export interface DynamicPage {
     updatedAt?: string;
     publishedAt: string;
     sections: Array<StrapiSection>;
+    title: string;
+    metadata: Record<string, unknown>;
 }
 
 export interface StrapiComponent {
