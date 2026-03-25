@@ -1,21 +1,28 @@
 import { FC } from "react";
 import { useChaldeas } from "./useChaldeas";
 import AsideHelper from "../AsideHelper";
-import { markedCountries } from "./constants";
+import { selectableCountries } from "./constants";
 
 import { motion } from "framer-motion";
-import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page";
+import { StrapiSection } from "@repo/type-definitions/dynamic-page";
 import ModalSection from "../MainPageModalSections/ModalSection";
 
 export interface GlobeProps {
     isMobile: boolean;
-    experienceSection: LayoutWorkExperienceSection;
+    sections: StrapiSection[];
 }
 
-const Globe: FC<GlobeProps> = ({ isMobile, experienceSection }) => {
+const Globe: FC<GlobeProps> = ({ isMobile, sections }) => {
+    const sectionsTitles = sections.map((section) => section.title) as string[];
+
+    const markedCountries = sectionsTitles.filter((country) =>
+        selectableCountries.includes(country)
+    ) as string[];
+
     const { mapContainer, onCountryClick, countrySelected, open } = useChaldeas(
         {
             isMobile,
+            markedCountries,
         }
     );
 
@@ -50,8 +57,9 @@ const Globe: FC<GlobeProps> = ({ isMobile, experienceSection }) => {
             <ModalSection
                 isMobile={isMobile}
                 open={open}
-                experienceSection={experienceSection}
+                sections={sections}
                 onCountryClick={onCountryClick}
+                countrySelected={countrySelected}
             />
         </>
     );
