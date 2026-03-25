@@ -28,7 +28,7 @@ const worldData = worldDataImport as GeoJSON.FeatureCollection<
     GeoJSON.GeoJsonProperties
 >;
 
-export const useChaldeas: UseChaldeas = ({ isMobile }) => {
+export const useChaldeas: UseChaldeas = ({ isMobile, markedCountries }) => {
     const mapContainer = useRef<HTMLDivElement>(null);
     const timerRef = useRef<TimeRef>(null);
     const dragStateRef = useRef<DragState>(initialRotationState as DragState);
@@ -103,6 +103,7 @@ export const useChaldeas: UseChaldeas = ({ isMobile }) => {
                 containerElement: mapContainer.current,
                 onCountryClick: handleCountryClick,
                 scale,
+                markedCountries,
             }
         );
 
