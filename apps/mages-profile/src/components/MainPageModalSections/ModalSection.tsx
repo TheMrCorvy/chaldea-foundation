@@ -6,26 +6,47 @@ import {
     StrapiSection,
 } from "@repo/type-definitions/dynamic-page";
 import WorkExperienceSection from "./WorkExperienceSection";
+import ProjectsSection from "./ProjectsSection";
 
 export interface ModalSectionProps {
     isMobile: boolean;
     onCountryClick: (params: string | null) => void;
     open: boolean;
-    experienceSection: LayoutWorkExperienceSection;
-}
-
-export interface MainPageSections {
-    component_id: string; // country name,
-    title: string; // btn's label
-    section: StrapiSection;
+    sections: StrapiSection[];
+    countrySelected: string | null;
 }
 
 const ModalSection: FC<ModalSectionProps> = ({
     isMobile,
     onCountryClick,
     open,
-    experienceSection,
+    sections,
+    countrySelected,
 }) => {
+    const renderModalContent = () => {
+        const section = sections.find(
+            (section) => section.title === countrySelected
+        );
+
+        switch (section?.__component) {
+            case "sections.landing-hero-section":
+                return null;
+
+            case "sections.work-experience-section":
+                return (
+                    <WorkExperienceSection
+                        {...(section as LayoutWorkExperienceSection)}
+                    />
+                );
+
+            case "sections.projects-section":
+                return <ProjectsSection />;
+
+            default:
+                return null;
+        }
+    };
+
     return (
         <Modal
             open={open}
@@ -41,7 +62,8 @@ const ModalSection: FC<ModalSectionProps> = ({
                     pr: "11px",
                 }}
             >
-                <WorkExperienceSection {...experienceSection} />
+                {renderModalContent()}
+
                 <Box
                     sx={{
                         display: "flex",
@@ -53,18 +75,26 @@ const ModalSection: FC<ModalSectionProps> = ({
                     <Link variant="body1" color="#ffffff">
                         Close
                     </Link>
-                    {experienceSection.link_to_page && (
-                        <Link
-                            variant="body1"
-                            color="#ffffff"
-                            sx={{
-                                mr: isMobile ? "-11px" : "0",
-                            }}
-                            href={experienceSection.link_to_page.href}
-                        >
-                            {experienceSection.link_to_page.label}
-                        </Link>
-                    )}
+                    {sections[1] &&
+                        (sections[1] as LayoutWorkExperienceSection)
+                            .link_to_page && (
+                            <Link
+                                variant="body1"
+                                color="#ffffff"
+                                sx={{
+                                    mr: isMobile ? "-11px" : "0",
+                                }}
+                                href={
+                                    (sections[1] as LayoutWorkExperienceSection)
+                                        ?.link_to_page?.href
+                                }
+                            >
+                                {
+                                    (sections[1] as LayoutWorkExperienceSection)
+                                        ?.link_to_page?.label
+                                }
+                            </Link>
+                        )}
                 </Box>
             </Box>
         </Modal>
