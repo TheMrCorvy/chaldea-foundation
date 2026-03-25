@@ -21,6 +21,10 @@ export type StrapiSection =
     | SectionsProjectsSection
     | SectionsContactSection;
 
+export interface DynamicPageSections {
+    [key: string]: StrapiSection;
+}
+
 export interface LayoutLandingHero extends StrapiComponent {
     id: number;
     highlighted_subtitle: string;

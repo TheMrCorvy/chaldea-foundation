@@ -1,14 +1,8 @@
 import MainPage from "@/components/ClientWrapper";
-import { MagesDataProps } from "@/components/MagesData";
 import { SoundProvider } from "@/contexts/SoundContext";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
-import {
-    DynamicPage,
-    LayoutLandingHero,
-    LayoutWorkExperienceSection,
-    SectionsProjectsSection,
-} from "@repo/type-definitions/dynamic-page";
+import { DynamicPage } from "@repo/type-definitions/dynamic-page";
 import { redirect } from "next/navigation";
 
 export default async function HomePage() {
@@ -78,24 +72,12 @@ export default async function HomePage() {
     });
 
     const dynamicPage: DynamicPage = data.data[0];
-    const landingHero = dynamicPage.sections[0] as LayoutLandingHero;
-    const experienceSection = dynamicPage
-        .sections[1] as LayoutWorkExperienceSection;
-
-    const magesData: MagesDataProps = {
-        name: landingHero.title as string,
-        position: landingHero.highlighted_subtitle,
-        profile_image: `${imageBaseUrl}${landingHero.profile_image.url}`,
-        commands: `${imageBaseUrl}${landingHero.commands.url}`,
-    };
-
-    const projectsSection = dynamicPage.sections[2] as SectionsProjectsSection;
 
     return (
         <SoundProvider>
             <MainPage
-                magesData={magesData}
-                experienceSection={experienceSection}
+                sections={dynamicPage.sections}
+                imagesBaseUrl={imageBaseUrl}
             />
         </SoundProvider>
     );

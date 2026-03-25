@@ -5,23 +5,36 @@ import MagesData, { MagesDataProps } from "@/components/MagesData";
 import StarryContainer from "@/components/StarryContainer";
 import useClickAnimationAndSounds from "@/hooks/useClickAnimationAndSounds";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page";
+import {
+    LayoutLandingHero,
+    LayoutWorkExperienceSection,
+    StrapiSection,
+} from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 
 export interface MainPageProps {
-    magesData: MagesDataProps;
-    experienceSection: LayoutWorkExperienceSection;
+    sections: StrapiSection[];
+    imagesBaseUrl: string;
 }
 
-const MainPage: FC<MainPageProps> = ({ magesData, experienceSection }) => {
+const MainPage: FC<MainPageProps> = ({ sections, imagesBaseUrl }) => {
     const isMobile = useMediaQuery().max.width("sm");
     useClickAnimationAndSounds();
+
+    const magesDataSection = sections[0] as LayoutLandingHero;
+
+    const magesData: MagesDataProps = {
+        name: magesDataSection.title as string,
+        position: magesDataSection.highlighted_subtitle,
+        profile_image: `${imagesBaseUrl}${magesDataSection.profile_image.url}`,
+        commands: `${imagesBaseUrl}${magesDataSection.commands.url}`,
+    };
 
     return (
         <StarryContainer>
             <GlobeWrapper
                 isMobile={isMobile}
-                experienceSection={experienceSection}
+                experienceSection={sections[1] as LayoutWorkExperienceSection}
             />
             <MagesData {...magesData} isMobile={isMobile} />
         </StarryContainer>
