@@ -120,6 +120,7 @@ export interface SetupDragListenersParams {
 // Hook
 export interface UseChaldeasProps {
     isMobile: boolean;
+    markedCountries: string[];
 }
 
 export interface UseChaldeasResult {
@@ -161,6 +162,7 @@ export interface SetupGlobeProjectionParams {
     containerElement: HTMLElement;
     onCountryClick?: (countryName: string) => void;
     scale: number;
+    markedCountries: string[];
 }
 
 export interface GlobeProjectionSetupResult {
