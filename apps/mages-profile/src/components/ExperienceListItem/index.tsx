@@ -48,8 +48,8 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                     sx={{
                         fontWeight: 600,
                         color: "common.white",
-                        lineHeight: 1.3,
-                        fontSize: "1.25rem",
+                        lineHeight: 0.7,
+                        fontSize: "1.5rem",
                     }}
                 >
                     •
@@ -60,9 +60,6 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                 sx={{
                     flex: 1,
                     minWidth: 0,
-                    flexDirection: "column",
-                    display: "flex",
-                    gap: 0,
                 }}
             >
                 <Box
@@ -87,24 +84,37 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                         <Typography
                             variant="body2"
                             sx={{
-                                fontWeight: 600,
+                                fontWeight: 700,
                                 color: "common.white",
+                                fontSize: "0.9rem",
+                                lineHeight: 1.3,
                             }}
                         >
                             {title}
                         </Typography>
-                        <Typography
-                            component="span"
-                            sx={{
-                                color: "grey.300",
-                                display: "block",
-                                fontSize: "0.8rem",
-                            }}
-                        >
-                            {orientation && ` (${orientation})`}
-                        </Typography>
+                        {orientation && (
+                            <Typography
+                                component="span"
+                                sx={{
+                                    color: "grey.300",
+                                    display: "block",
+                                    fontSize: "0.8rem",
+                                    lineHeight: 1.3,
+                                    pl: 0.2,
+                                }}
+                            >
+                                {`(${orientation})`}
+                            </Typography>
+                        )}
                     </Box>
-                    <Typography variant="body2" color="common.white">
+                    <Typography
+                        variant="body2"
+                        color="common.white"
+                        sx={{
+                            fontSize: "0.8rem",
+                            lineHeight: 1.3,
+                        }}
+                    >
                         {location}
                     </Typography>
                 </Box>
@@ -125,6 +135,7 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                             fontWeight: 500,
                             color: "common.white",
                             lineHeight: 1.3,
+                            fontSize: "0.875rem",
                         }}
                     >
                         {company} {client && ` / ${client}`}
@@ -135,14 +146,22 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                             fontWeight: 400,
                             color: "common.white",
                             lineHeight: 1.3,
+                            fontSize: "0.8rem",
                         }}
                     >
                         {startDate} → {endDate}
                     </Typography>
                 </Box>
 
-                <Box component="span" sx={{ color: "grey.500" }}>
-                    <RichTextRenderer content={body} />
+                <Box component="span">
+                    <RichTextRenderer
+                        content={body}
+                        sx={{
+                            fontSize: "0.875rem",
+                            lineHeight: 1.4,
+                            color: "grey.500",
+                        }}
+                    />
                 </Box>
             </Box>
         </Box>

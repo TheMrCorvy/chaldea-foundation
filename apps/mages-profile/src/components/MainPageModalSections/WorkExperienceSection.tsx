@@ -7,7 +7,19 @@ const WorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
     component_id,
 }) => {
     return (
-        <section id={"main-page-work-experience-section-" + component_id}>
+        <section
+            id={"main-page-work-experience-section-" + component_id}
+            style={{
+                height: "100%",
+                position: "relative",
+                paddingTop: "5px",
+                paddingBottom: "15px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-around",
+                alignItems: "start",
+            }}
+        >
             {experience_list_items.map((experienceItem, i) => (
                 <ExperienceListItem
                     key={experienceItem.component_id + i}
