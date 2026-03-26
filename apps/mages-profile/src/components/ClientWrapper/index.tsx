@@ -24,7 +24,7 @@ const MainPage: FC<MainPageProps> = ({ sections, imagesBaseUrl }) => {
 
     const magesData: MagesDataProps = {
         name: magesDataSection.title as string,
-        position: magesDataSection.highlighted_subtitle,
+        position: magesDataSection.highlighted_subtitle || "",
         profile_image: imagesBaseUrl + magesDataSection.profile_image.url,
         commands: imagesBaseUrl + magesDataSection.commands.url,
     };
