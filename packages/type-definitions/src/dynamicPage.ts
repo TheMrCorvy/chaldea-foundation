@@ -147,7 +147,7 @@ export interface LayoutToolChip extends StrapiComponent {
 
 export interface LayoutDescriptionWithChipsList extends StrapiComponent {
     body: Array<JsonRichText>;
-    chips: Array<LayoutToolChip>;
+    chips?: Array<LayoutToolChip>;
 }
 
 export interface LayoutProjectListItem extends StrapiComponent {
