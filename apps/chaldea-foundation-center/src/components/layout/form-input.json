@@ -19,6 +19,7 @@
         },
         "type": {
             "type": "enumeration",
+            "required": true,
             "default": "input",
             "enum": [
                 "input",

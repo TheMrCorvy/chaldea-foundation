@@ -37,11 +37,13 @@
         "profile_image": {
             "type": "media",
             "multiple": false,
+            "required": true,
             "allowedTypes": ["images"]
         },
         "commands": {
             "type": "media",
             "multiple": false,
+            "required": true,
             "allowedTypes": ["images"]
         }
     },

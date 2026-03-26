@@ -21,7 +21,8 @@
         "contact_form": {
             "type": "component",
             "component": "layout.form",
-            "repeatable": false
+            "repeatable": false,
+            "required": true
         }
     },
     "config": {}

@@ -33,7 +33,8 @@
         "links": {
             "type": "component",
             "component": "layout.link",
-            "repeatable": true
+            "repeatable": true,
+            "required": true
         },
         "cover_image": {
             "type": "media",

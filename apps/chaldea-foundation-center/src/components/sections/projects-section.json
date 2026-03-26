@@ -21,7 +21,8 @@
         "projects": {
             "type": "component",
             "component": "layout.project-list-item",
-            "repeatable": true
+            "repeatable": true,
+            "required": true
         }
     },
     "config": {}

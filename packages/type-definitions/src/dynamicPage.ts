@@ -29,14 +29,13 @@ export interface DynamicPageSections {
 
 export interface LayoutLandingHero extends StrapiComponent {
     id: number;
-    highlighted_subtitle: string;
+    highlighted_subtitle?: string;
     body: Array<JsonRichText>;
-    helper_text: string;
-    pdf_file: StrapiPDFComponent;
+    helper_text?: string;
+    pdf_file?: StrapiPDFComponent;
     commands: ImageComponent;
     profile_image: ImageComponent;
-    call_to_actions: Array<LayoutCallToAction>;
-    link_to_page: LayoutLink | null;
+    call_to_actions?: Array<LayoutCallToAction>;
 }
 
 export interface BlogImageComponent extends StrapiComponent {
@@ -85,7 +84,7 @@ export interface ImageFormat {
 
 export interface LayoutWorkExperienceSection extends StrapiComponent {
     experience_list_items: Array<LayoutWorkExperienceListItem>;
-    link_to_page: LayoutLink | null;
+    link_to_page?: LayoutLink | null;
 }
 
 export interface LayoutWorkExperienceListItem extends StrapiComponent {
@@ -101,7 +100,7 @@ export interface LayoutWorkExperienceListItem extends StrapiComponent {
 
 export interface LayoutLink extends StrapiComponent {
     href: string;
-    icon: LayoutIcon;
+    icon?: LayoutIcon;
     label: string;
     popover?: string;
     variant: "link" | "icon_link" | "link_with_icon";
@@ -117,8 +116,10 @@ export interface LayoutIcon extends StrapiComponent {
 }
 
 export interface StrapiPDFComponent extends StrapiComponent {
-    popover: string | null;
-    helper_text: string | null;
+    popover?: string | null;
+    helper_text?: string | null;
+    file: unknown;
+    icon?: LayoutIcon | null;
 }
 
 export interface JsonRichText {
@@ -136,7 +137,7 @@ export interface JsonRichText {
 }
 
 export interface SectionsProjectsSection extends StrapiComponent {
-    link_to_page: LayoutLink | null;
+    link_to_page?: LayoutLink | null;
     projects: Array<LayoutProjectListItem>;
 }
 
@@ -151,25 +152,21 @@ export interface LayoutDescriptionWithChipsList extends StrapiComponent {
 }
 
 export interface LayoutProjectListItem extends StrapiComponent {
-    highlighted_subtitle: string | null;
-    popover: string | null;
-    icon: LayoutIcon;
+    highlighted_subtitle?: string | null;
+    popover?: string | null;
+    icon?: LayoutIcon;
     body: LayoutDescriptionWithChipsList;
-    cover_image: BlogImageComponent;
+    cover_image?: ImageComponent | null;
     links: Array<LayoutLink>;
     disable_primary_link?: boolean;
 }
 
-export interface SectionsContactSection extends StrapiComponent {
-    link_to_page: LayoutLink | null;
-}
-
 export interface LayoutFormInput extends StrapiComponent {
-    default_value: string | null;
-    end_icon: LayoutIcon | null;
+    default_value?: string | null;
+    end_icon?: LayoutIcon | null;
     name: string;
-    option: Array<LayoutSelectOption> | null;
-    start_icon: LayoutIcon | null;
+    option?: Array<LayoutSelectOption> | null;
+    start_icon?: LayoutIcon | null;
     type:
         | "input"
         | "submit"
@@ -190,6 +187,6 @@ export interface LayoutForm extends StrapiComponent {
 }
 
 export interface SectionsContactSection extends StrapiComponent {
-    link_to_page: LayoutLink | null;
+    link_to_page?: LayoutLink | null;
     contact_form: LayoutForm;
 }
