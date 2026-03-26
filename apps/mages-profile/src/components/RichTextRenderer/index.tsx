@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, Fragment, ReactNode } from "react";
 import {
     Typography,
     Box,
@@ -42,11 +42,7 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({ content, sx }) => {
                 </Box>
             );
         }
-        return (
-            <Box sx={sx} key={index}>
-                {element}
-            </Box>
-        );
+        return <Fragment key={index}>{element}</Fragment>;
     };
 
     const renderNode = (node: JsonRichText, index: number): ReactNode => {
