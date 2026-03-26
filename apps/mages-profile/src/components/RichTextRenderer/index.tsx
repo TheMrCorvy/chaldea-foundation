@@ -1,18 +1,20 @@
-import { FC, Fragment, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import {
     Typography,
     Box,
     Link as MuiLink,
     List,
     ListItem,
+    SxProps,
 } from "@mui/material";
 import { JsonRichText } from "@repo/type-definitions/dynamic-page";
 
 interface RichTextRendererProps {
     content: JsonRichText[];
+    sx?: SxProps;
 }
 
-const RichTextRenderer: FC<RichTextRendererProps> = ({ content }) => {
+const RichTextRenderer: FC<RichTextRendererProps> = ({ content, sx }) => {
     const renderText = (node: JsonRichText, index: number) => {
         let element: ReactNode = node.text;
 
@@ -40,14 +42,18 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({ content }) => {
                 </Box>
             );
         }
-        return <Fragment key={index}>{element}</Fragment>;
+        return (
+            <Box sx={sx} key={index}>
+                {element}
+            </Box>
+        );
     };
 
     const renderNode = (node: JsonRichText, index: number): ReactNode => {
         switch (node.type) {
             case "paragraph":
                 return (
-                    <Typography key={index} paragraph>
+                    <Typography key={index} sx={sx}>
                         {node.children?.map(renderNode)}
                     </Typography>
                 );
@@ -62,26 +68,27 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({ content }) => {
                     | "h6";
 
                 return (
-                    <Typography
-                        key={index}
-                        variant={variant}
-                        gutterBottom
-                        fontWeight={600}
-                    >
+                    <Typography key={index} variant={variant} sx={sx}>
                         {node.children?.map(renderNode)}
                     </Typography>
                 );
 
             case "list":
                 return (
-                    <List key={index} sx={{ listStyleType: "disc", pl: 4 }}>
+                    <List
+                        key={index}
+                        sx={{ listStyleType: "disc", pl: 4, ...sx }}
+                    >
                         {node.children?.map(renderNode)}
                     </List>
                 );
 
             case "list-item":
                 return (
-                    <ListItem key={index} sx={{ display: "list-item", py: 0 }}>
+                    <ListItem
+                        key={index}
+                        sx={{ display: "list-item", py: 0, ...sx }}
+                    >
                         {node.children?.map(renderNode)}
                     </ListItem>
                 );
@@ -95,9 +102,10 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({ content }) => {
                             borderColor: "grey.400",
                             pl: 2,
                             my: 2,
+                            ...sx,
                         }}
                     >
-                        <Typography variant="body1" fontStyle="italic">
+                        <Typography variant="body1" fontStyle="italic" sx={sx}>
                             {node.children?.map(renderNode)}
                         </Typography>
                     </Box>
@@ -110,19 +118,20 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({ content }) => {
                         href={node.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        sx={sx}
                     >
                         {node.children?.map(renderNode)}
                     </MuiLink>
                 );
 
-            default: 
+            default:
                 if (node.text !== undefined) {
                     return renderText(node, index);
                 }
                 return node.children?.map(renderNode);
         }
     };
-    return <Box>{content.map(renderNode)}</Box>;
+    return <Box sx={sx}>{content.map(renderNode)}</Box>;
 };
 
 export default RichTextRenderer;
