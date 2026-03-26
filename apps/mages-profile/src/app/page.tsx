@@ -112,7 +112,21 @@ const getMainDynamicPage = unstable_cache(
                     },
                     populate: {
                         sections: {
-                            populate: "*",
+                            on: {
+                                "sections.landing-hero-section": {
+                                    populate: "*",
+                                },
+                                "sections.work-experience-section": {
+                                    populate: "*",
+                                },
+                                "sections.projects-section": {
+                                    populate: {
+                                        projects: {
+                                            populate: "*",
+                                        },
+                                    },
+                                },
+                            },
                         },
                     },
                 },
