@@ -3,6 +3,7 @@ import Modal from "../Modal";
 import { Box, Link } from "@mui/material";
 import {
     LayoutWorkExperienceSection,
+    SectionsProjectsSection,
     StrapiSection,
 } from "@repo/type-definitions/dynamic-page";
 import WorkExperienceSection from "./WorkExperienceSection";
@@ -40,7 +41,11 @@ const ModalSection: FC<ModalSectionProps> = ({
                 );
 
             case "sections.projects-section":
-                return <ProjectsSection />;
+                return (
+                    <ProjectsSection
+                        {...(section as SectionsProjectsSection)}
+                    />
+                );
 
             default:
                 return null;
