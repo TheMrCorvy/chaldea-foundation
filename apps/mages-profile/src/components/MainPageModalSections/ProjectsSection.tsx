@@ -3,9 +3,14 @@ import { SectionsProjectsSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import ProjectListItem from "../ProjectListItem";
 
-const ProjectsSection: FC<SectionsProjectsSection> = ({
+export interface ProjectsSectionProps extends SectionsProjectsSection {
+    isMobile?: boolean;
+}
+
+const ProjectsSection: FC<ProjectsSectionProps> = ({
     projects,
     component_id,
+    isMobile,
 }) => {
     return (
         <Box
@@ -14,20 +19,19 @@ const ProjectsSection: FC<SectionsProjectsSection> = ({
             sx={{
                 height: "100%",
                 position: "relative",
-                py: "2%",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 alignItems: "stretch",
                 gap: "2%",
-                overflowY: "auto",
-                pr: "1%",
+                p: 1,
             }}
         >
             {projects.map((project, i) => (
                 <ProjectListItem
                     key={project.component_id + "-" + i}
                     project={project}
+                    isMobile={isMobile}
                 />
             ))}
         </Box>

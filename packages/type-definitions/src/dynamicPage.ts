@@ -157,6 +157,7 @@ export interface LayoutProjectListItem extends StrapiComponent {
     body: LayoutDescriptionWithChipsList;
     cover_image: BlogImageComponent;
     links: Array<LayoutLink>;
+    disable_primary_link?: boolean;
 }
 
 export interface SectionsContactSection extends StrapiComponent {

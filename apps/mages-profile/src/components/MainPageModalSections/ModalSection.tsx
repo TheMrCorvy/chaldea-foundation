@@ -44,6 +44,7 @@ const ModalSection: FC<ModalSectionProps> = ({
                 return (
                     <ProjectsSection
                         {...(section as SectionsProjectsSection)}
+                        isMobile={isMobile}
                     />
                 );
 
@@ -64,7 +65,7 @@ const ModalSection: FC<ModalSectionProps> = ({
                     flexDirection: "column",
                     justifyContent: "space-around",
                     height: "100%",
-                    pr: "11px",
+                    // pr: "11px",
                 }}
             >
                 {renderModalContent()}
@@ -74,16 +75,24 @@ const ModalSection: FC<ModalSectionProps> = ({
                         display: "flex",
                         justifyContent: "space-between",
                         width: "100%",
-                        pl: "11px",
+                        px: "11px",
                     }}
                 >
-                    <Link variant="body1" color="#ffffff">
+                    <Link
+                        variant="body1"
+                        color="#ffffff"
+                        underline="hover"
+                        sx={{
+                            cursor: "pointer",
+                        }}
+                    >
                         Close
                     </Link>
                     {sections[1] &&
                         (sections[1] as LayoutWorkExperienceSection)
                             .link_to_page && (
                             <Link
+                                underline="hover"
                                 variant="body1"
                                 color="#ffffff"
                                 sx={{

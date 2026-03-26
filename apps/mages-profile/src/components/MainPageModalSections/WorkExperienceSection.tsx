@@ -18,6 +18,7 @@ const WorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
                 flexDirection: "column",
                 justifyContent: "space-around",
                 alignItems: "start",
+                paddingRight: "11px",
             }}
         >
             {experience_list_items.map((experienceItem, i) => (

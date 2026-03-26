@@ -5,11 +5,12 @@ import RichTextRenderer from "../RichTextRenderer";
 
 export interface ProjectListItemProps {
     project: LayoutProjectListItem;
+    isMobile?: boolean;
 }
 
-const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
-    const { title, highlighted_subtitle, body, links } = project;
-    const primaryLink = links[0] || null;
+const ProjectListItem: FC<ProjectListItemProps> = ({ project, isMobile }) => {
+    const { title, highlighted_subtitle, body, links, disable_primary_link } =
+        project;
 
     return (
         <Box
@@ -21,7 +22,9 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
                 borderRadius: "10px",
                 border: "1px solid",
                 borderColor: "rgba(255,255,255,0.16)",
-                backgroundColor: "rgba(255,255,255,0.04)",
+                backgroundColor: "rgba(255,255,255,0.06)",
+                backdropFilter: `blur(${isMobile ? 12 : 1}px)`,
+                WebkitBackdropFilter: `blur(${isMobile ? 12 : 1}px)`,
                 px: "3%",
                 py: "2.5%",
                 gap: "4px",
@@ -34,6 +37,7 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
                     justifyContent: "space-between",
                     alignItems: "center",
                     gap: "2%",
+                    mb: 0.5,
                 }}
             >
                 <Typography
@@ -41,7 +45,7 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
                     sx={{
                         color: "common.white",
                         fontWeight: 700,
-                        fontSize: "0.9rem",
+                        fontSize: "1rem",
                         lineHeight: 1.3,
                         minWidth: 0,
                     }}
@@ -49,12 +53,12 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
                     {title}
                 </Typography>
 
-                {primaryLink?.label && (
+                {links[0] && !disable_primary_link && (
                     <Chip
                         component={Link}
                         clickable
-                        href={primaryLink.href}
-                        label={primaryLink.label}
+                        href={links[0].href}
+                        label={links[0].label}
                         size="small"
                         sx={{
                             height: "auto",
@@ -124,6 +128,31 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
                     ))}
                 </Box>
             )}
+
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "12px",
+                }}
+            >
+                {links.map((link) => (
+                    <Link
+                        key={link.component_id}
+                        href={link.href}
+                        underline="hover"
+                        target="_blank"
+                        sx={{
+                            color: "grey.400",
+                            fontSize: "0.7rem",
+                            alignSelf: "flex-start",
+                            mt: 1,
+                        }}
+                    >
+                        {link.label}
+                    </Link>
+                ))}
+            </Box>
         </Box>
     );
 };
