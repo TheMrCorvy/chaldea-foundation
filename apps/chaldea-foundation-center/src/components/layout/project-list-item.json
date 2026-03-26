@@ -39,6 +39,10 @@
             "type": "media",
             "multiple": false,
             "allowedTypes": ["images"]
+        },
+        "disable_primary_link": {
+            "type": "boolean",
+            "default": false
         }
     },
     "config": {}
