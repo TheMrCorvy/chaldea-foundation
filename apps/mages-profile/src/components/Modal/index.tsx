@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
-import { FC, ReactNode, useState } from "react";
+import { FC, ReactNode } from "react";
 import GlitchBackgroundCard from "../GlitchBacgkroundCard";
 import PixelCard from "../PixelCard";
 import AddIcon from "@mui/icons-material/Add";
@@ -22,8 +22,6 @@ type RenderContent = (params: RenderContentParams) => ReactNode;
 const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
     const rows = Array.from({ length: 3 }, (_, i) => i);
     const columns = Array.from({ length: 3 }, (_, i) => i);
-    const [isMiddleRowAnimationComplete, setIsMiddleRowAnimationComplete] =
-        useState(false);
 
     const calcRowHeight = (colNumber: number) => {
         if (colNumber === 0) {
@@ -196,8 +194,6 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                     >
                         <Grid container spacing={0} data-sound="modal">
                             {rows.map((row) => {
-                                const isMiddleRow = row === 1;
-
                                 const commonSx = {
                                     display: "flex",
                                     height: calcRowHeight(row),
@@ -210,65 +206,6 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                                             ? "1px solid rgba(25,118,210, 0.6)"
                                             : undefined,
                                 };
-
-                                if (isMiddleRow) {
-                                    return (
-                                        <motion.div
-                                            key={`modal-row-${row}`}
-                                            initial={{
-                                                height: "0dvh",
-                                                opacity: 0,
-                                            }}
-                                            animate={{
-                                                height: calcRowHeight(row),
-                                                opacity: 1,
-                                            }}
-                                            transition={{
-                                                delay: 0.2,
-                                                duration: 0.3,
-                                                ease: [0.43, 0.13, 0.23, 0.96],
-                                            }}
-                                            style={{
-                                                ...commonSx,
-                                                width: "100%",
-                                            }}
-                                            onAnimationStart={() => {
-                                                setIsMiddleRowAnimationComplete(
-                                                    false
-                                                );
-                                            }}
-                                            onAnimationComplete={() => {
-                                                setIsMiddleRowAnimationComplete(
-                                                    true
-                                                );
-                                            }}
-                                            data-sound="modal"
-                                        >
-                                            {columns.map((col) => (
-                                                <Grid
-                                                    key={`modal-col-${col}`}
-                                                    spacing={0}
-                                                    data-sound="modal"
-                                                    sx={{
-                                                        display: "flex",
-                                                        flexDirection: "row",
-                                                        justifyContent: "end",
-                                                        alignItems: "end",
-                                                        padding: 0,
-                                                    }}
-                                                    size={calcColSize(col)}
-                                                >
-                                                    {isMiddleRowAnimationComplete
-                                                        ? renderContent({
-                                                              colNumber: col,
-                                                              rowNumber: row,
-                                                          })
-                                                        : null}
-                                                </Grid>
-                                            ))}
-                                        </motion.div>
-                                    );
-                                }
 
                                 return (
                                     <Grid
