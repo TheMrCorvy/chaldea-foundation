@@ -156,11 +156,9 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                 <Box component="span">
                     <RichTextRenderer
                         content={body}
-                        sx={{
-                            fontSize: "0.875rem",
-                            lineHeight: 1.4,
-                            color: "grey.500",
-                        }}
+                        fontSize="0.875"
+                        lineHeight={1.4}
+                        color="grey.500"
                     />
                 </Box>
             </Box>
