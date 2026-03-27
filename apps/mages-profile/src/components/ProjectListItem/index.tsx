@@ -95,11 +95,9 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project, isMobile }) => {
 
             <RichTextRenderer
                 content={body.body}
-                sx={{
-                    color: "grey.300",
-                    fontSize: "0.8rem",
-                    lineHeight: 1.35,
-                }}
+                color="grey.300"
+                fontSize="0.8rem"
+                lineHeight={1.35}
             />
 
             {body.chips && body.chips.length > 0 && (
