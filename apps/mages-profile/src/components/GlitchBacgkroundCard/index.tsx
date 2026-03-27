@@ -207,6 +207,7 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",
+                    borderRadius: "10px",
                 }}
             >
                 {text}
