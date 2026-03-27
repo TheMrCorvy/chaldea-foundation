@@ -13,6 +13,7 @@ export const FeatureNames = {
         "LOG_RESPONSE_BODY_EXTERNAL_HTTP_REQUEST",
     EXPERIMENTAL_VIDEO_PLAYER: "EXPERIMENTAL_VIDEO_PLAYER",
     ENABLE_STREAMING_PROXY: "ENABLE_STREAMING_PROXY",
+    CACHE_MEMORY: "CACHE_MEMORY",
 } as const;
 
 export type FeatureNames = (typeof FeatureNames)[keyof typeof FeatureNames];
