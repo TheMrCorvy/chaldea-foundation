@@ -8,6 +8,7 @@
     "attributes": {
         "component_id": {
             "type": "string",
+            "required": false,
             "unique": true
         },
         "title": {

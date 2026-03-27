@@ -10,12 +10,12 @@
             "type": "string",
             "unique": true
         },
-        "body": {
-            "type": "blocks",
-            "required": true
-        },
         "title": {
             "type": "string",
+            "required": true
+        },
+        "body": {
+            "type": "blocks",
             "required": true
         }
     },

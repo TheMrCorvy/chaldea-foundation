@@ -11,14 +11,17 @@
             "unique": true
         },
         "title": {
-            "type": "string"
+            "type": "string",
+            "required": true
         },
         "body": {
-            "type": "blocks"
+            "type": "blocks",
+            "required": true
         },
         "cover_image": {
             "type": "media",
             "multiple": false,
+            "required": true,
             "allowedTypes": ["images", "files"]
         }
     },

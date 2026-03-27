@@ -11,7 +11,8 @@
             "unique": true
         },
         "title": {
-            "type": "string"
+            "type": "string",
+            "required": true
         },
         "popover": {
             "type": "string"

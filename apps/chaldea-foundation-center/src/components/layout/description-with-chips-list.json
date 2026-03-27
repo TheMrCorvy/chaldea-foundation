@@ -22,7 +22,7 @@
             "type": "component",
             "component": "layout.tool-chip",
             "repeatable": false,
-            "required": false
+            "required": true
         }
     },
     "config": {}
