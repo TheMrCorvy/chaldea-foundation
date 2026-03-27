@@ -125,7 +125,26 @@ const getMainDynamicPage = async (): Promise<DynamicPage | null> => {
                             "sections.projects-section": {
                                 populate: {
                                     projects: {
-                                        populate: "*",
+                                        populate: {
+                                            body: {
+                                                populate: {
+                                                    chips: {
+                                                        populate: {
+                                                            icon: {
+                                                                populate: "*",
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                            links: {
+                                                populate: {
+                                                    icon: {
+                                                        populate: "*",
+                                                    },
+                                                },
+                                            },
+                                        },
                                     },
                                 },
                             },
