@@ -126,6 +126,9 @@ const getMainDynamicPage = unstable_cache(
                                         },
                                     },
                                 },
+                                "blog.blog-text": {
+                                    populate: "*",
+                                },
                             },
                         },
                     },

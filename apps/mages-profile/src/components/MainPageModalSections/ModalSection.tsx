@@ -2,12 +2,14 @@ import { FC } from "react";
 import Modal from "../Modal";
 import { Box, Link } from "@mui/material";
 import {
+    BlogText,
     LayoutWorkExperienceSection,
     SectionsProjectsSection,
     StrapiSection,
 } from "@repo/type-definitions/dynamic-page";
 import WorkExperienceSection from "./WorkExperienceSection";
 import ProjectsSection from "./ProjectsSection";
+import AboutMeSection from "./AboutMeSection";
 
 export interface ModalSectionProps {
     isMobile: boolean;
@@ -47,6 +49,9 @@ const ModalSection: FC<ModalSectionProps> = ({
                         isMobile={isMobile}
                     />
                 );
+
+            case "blog.blog-text":
+                return <AboutMeSection {...(section as BlogText)} />;
 
             default:
                 return null;

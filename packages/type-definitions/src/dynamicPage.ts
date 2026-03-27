@@ -21,7 +21,9 @@ export type StrapiSection =
     | LayoutLandingHero
     | LayoutWorkExperienceSection
     | SectionsProjectsSection
-    | SectionsContactSection;
+    | SectionsContactSection
+    | BlogHero
+    | BlogText;
 
 export interface DynamicPageSections {
     [key: string]: StrapiSection;
@@ -189,4 +191,13 @@ export interface LayoutForm extends StrapiComponent {
 export interface SectionsContactSection extends StrapiComponent {
     link_to_page?: LayoutLink | null;
     contact_form: LayoutForm;
+}
+
+export interface BlogHero extends StrapiComponent {
+    body: Array<JsonRichText>;
+    cover_image: ImageComponent;
+}
+
+export interface BlogText extends StrapiComponent {
+    body: Array<JsonRichText>;
 }
