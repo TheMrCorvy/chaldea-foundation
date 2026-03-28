@@ -24,7 +24,9 @@ const ProjectsSection: FC<ProjectsSectionProps> = ({
                 justifyContent: "flex-start",
                 alignItems: "stretch",
                 gap: "2%",
-                p: 1,
+                pl: "11px",
+                pr: isMobile ? 0 : "11px",
+                pt: isMobile ? 0 : "11px",
             }}
         >
             {projects.map((project, i) => (

@@ -61,7 +61,7 @@ export default function PixelCard({
             }}
         >
             <canvas className={styles.pixel_canvas} ref={canvasRef} />
-            {children}
+            <Box className={styles.pixel_content}>{children}</Box>
         </Box>
     );
 }
