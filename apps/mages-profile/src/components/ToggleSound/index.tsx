@@ -1,11 +1,21 @@
 "use client";
 
-import React from "react";
-import { useSound } from "@/contexts/SoundContext";
+import { BGMs, useSound } from "@/contexts/SoundContext";
 import GlitchButton from "../GlitchButton";
+import { FC, useEffect } from "react";
 
-const ToggleSound: React.FC = () => {
+export interface ToggleSoundProps {
+    bgm?: BGMs;
+}
+
+const ToggleSound: FC<ToggleSoundProps> = ({ bgm }) => {
     const { soundEnabled, setSoundEnabled, playSound } = useSound();
+
+    // useEffect(() => {
+    //     if (bgm) {
+    //         setBgm(bgm);
+    //     }
+    // }, [bgm, setBgm]);
 
     const handleClick = () => {
         playSound("page_change");

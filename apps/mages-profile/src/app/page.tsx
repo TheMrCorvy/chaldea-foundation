@@ -1,5 +1,5 @@
 import MainPage from "@/components/ClientWrapper";
-import { SoundProvider } from "@/contexts/SoundContext";
+import { BGMs, SoundProvider } from "@/contexts/SoundContext";
 import PlatformService from "@repo/platform-service-sdk";
 import {
     FeatureNames,
@@ -113,6 +113,13 @@ const getMainDynamicPage = async (): Promise<DynamicPage | null> => {
                         $eq: "main",
                     },
                 },
+                fields: [
+                    "slug",
+                    "title",
+                    "description",
+                    "metadata",
+                    "background_music",
+                ],
                 populate: {
                     sections: {
                         on: {
@@ -234,7 +241,7 @@ export default async function HomePage() {
     }
 
     return (
-        <SoundProvider>
+        <SoundProvider bgm={dynamicPage.background_music as BGMs}>
             <MainPage
                 sections={dynamicPage.sections}
                 imagesBaseUrl={imageBaseUrl}

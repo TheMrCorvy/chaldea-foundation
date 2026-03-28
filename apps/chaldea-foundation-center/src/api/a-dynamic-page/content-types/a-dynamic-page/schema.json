@@ -26,6 +26,11 @@
         "metadata": {
             "type": "json"
         },
+        "background_music": {
+            "type": "enumeration",
+            "default": "ordeal_call",
+            "enum": ["ordeal_call", "class_score"]
+        },
         "sections": {
             "type": "dynamiczone",
             "components": [

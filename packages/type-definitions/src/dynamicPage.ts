@@ -9,6 +9,7 @@ export interface DynamicPage {
     sections: Array<StrapiSection>;
     title: string;
     metadata: Record<string, unknown>;
+    background_music: string;
 }
 
 export interface StrapiComponent {
