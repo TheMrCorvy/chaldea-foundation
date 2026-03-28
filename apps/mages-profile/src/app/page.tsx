@@ -1,50 +1,18 @@
 import MainPage from "@/components/ClientWrapper";
 import { BGMs, SoundProvider } from "@/contexts/SoundContext";
 import PlatformService from "@repo/platform-service-sdk";
-import {
-    FeatureNames,
-    isFeatureFlagEnabled,
-} from "@repo/shared-utils/feature-flags";
 import { logData } from "@repo/shared-utils/log-data";
 import { DynamicPage } from "@repo/type-definitions/dynamic-page";
 import type { Metadata } from "next";
-import { unstable_cache } from "next/cache";
 import { redirect } from "next/navigation";
+import { cache } from "react";
 
 type DynamicPageResponse = {
     data?: Array<DynamicPage>;
 };
 
-const DEFAULT_CACHE_REVALIDATION = 3600;
-
-function getMainPageRevalidateSeconds(): number {
-    const envValue = process.env.CACHE_REVALIDATION;
-
-    if (!envValue) {
-        return DEFAULT_CACHE_REVALIDATION;
-    }
-
-    const parsedValue = Number.parseInt(envValue, 10);
-
-    if (Number.isNaN(parsedValue) || parsedValue < 1) {
-        logData({
-            title: "Invalid MAIN_PAGE_REVALIDATE_SECONDS value",
-            layer: "external_http_requests",
-            timeStamp: true,
-            addSeparatorAfter: true,
-            addSpaceAfter: true,
-            data: {
-                envValue,
-                fallback: DEFAULT_CACHE_REVALIDATION,
-            },
-            type: "error",
-        });
-
-        return DEFAULT_CACHE_REVALIDATION;
-    }
-
-    return parsedValue;
-}
+export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 const NOT_FOUND_METADATA: Metadata = {
     title: "404 - Page not found",
@@ -84,7 +52,7 @@ function buildSeoMetadata(dynamicPage: DynamicPage): Metadata {
     return metadata;
 }
 
-const getMainDynamicPage = async (): Promise<DynamicPage | null> => {
+const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
     const token = process.env.PLATFORM_SERVICE_KEY || "";
 
     if (!token) {
@@ -202,22 +170,10 @@ const getMainDynamicPage = async (): Promise<DynamicPage | null> => {
     });
 
     return data.data[0];
-};
-
-const getMainDynamicPageCached = unstable_cache(
-    getMainDynamicPage,
-    ["main-dynamic-page"],
-    { revalidate: getMainPageRevalidateSeconds() }
-);
-
-const getMainDynamicPageOptional = async (): Promise<DynamicPage | null> => {
-    return isFeatureFlagEnabled(FeatureNames.CACHE_MEMORY)
-        ? getMainDynamicPageCached()
-        : getMainDynamicPage();
-};
+});
 
 export async function generateMetadata(): Promise<Metadata> {
-    const dynamicPage = await getMainDynamicPageOptional();
+    const dynamicPage = await getMainDynamicPage();
 
     if (!dynamicPage) {
         return NOT_FOUND_METADATA;
@@ -245,7 +201,7 @@ export default async function HomePage() {
         return redirect("/404/1");
     }
 
-    const dynamicPage = await getMainDynamicPageOptional();
+    const dynamicPage = await getMainDynamicPage();
 
     if (!dynamicPage) {
         return redirect("/404/2");
