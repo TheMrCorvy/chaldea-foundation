@@ -4,12 +4,14 @@ import { Box, Link } from "@mui/material";
 import {
     BlogText,
     LayoutWorkExperienceSection,
+    SectionsContactSection,
     SectionsProjectsSection,
     StrapiSection,
 } from "@repo/type-definitions/dynamic-page";
 import WorkExperienceSection from "./WorkExperienceSection";
 import ProjectsSection from "./ProjectsSection";
 import AboutMeSection from "./AboutMeSection";
+import ContactSection from "./ContactSection";
 
 export interface ModalSectionProps {
     isMobile: boolean;
@@ -53,6 +55,11 @@ const ModalSection: FC<ModalSectionProps> = ({
             case "blog.blog-text":
                 return <AboutMeSection {...(section as BlogText)} />;
 
+            case "sections.contact-section":
+                return (
+                    <ContactSection {...(section as SectionsContactSection)} />
+                );
+
             default:
                 return null;
         }
@@ -70,6 +77,7 @@ const ModalSection: FC<ModalSectionProps> = ({
                     flexDirection: "column",
                     justifyContent: "space-around",
                     height: "100%",
+                    width: "100%",
                 }}
             >
                 {renderModalContent()}
