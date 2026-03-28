@@ -19,7 +19,6 @@ interface SoundContextType {
     soundEnabled: boolean;
     setSoundEnabled: Dispatch<SetStateAction<boolean>>;
     playSound: (sound: SoundType) => void;
-    // setBgm: (bgm: BGMs) => void;
 }
 
 const SoundContext = createContext<SoundContextType | undefined>(undefined);
@@ -52,21 +51,6 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
         bgm: null,
     });
     const isInitialPageLoad = useRef(true);
-
-    // const setBgm = (bgm: BGMs) => {
-    //     if (sounds.current.bgm) {
-    //         sounds.current.bgm.pause();
-    //         sounds.current.bgm.currentTime = 0;
-    //     }
-    //     sounds.current.bgm = new Audio(`/assets/sounds/${bgm}.mp3`);
-    //     sounds.current.bgm.volume = 0.2;
-    //     sounds.current.bgm.loop = true;
-    //     if (soundEnabled) {
-    //         sounds.current.bgm.play().catch((error) => {
-    //             console.error("Error playing background music", error);
-    //         });
-    //     }
-    // };
 
     const playSound = (sound: SoundType) => {
         if (soundEnabled) {
@@ -136,7 +120,6 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
         soundEnabled,
         setSoundEnabled,
         playSound,
-        // setBgm,
     };
 
     return (

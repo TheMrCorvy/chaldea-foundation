@@ -24,7 +24,7 @@ jest.mock("@mui/material/Button", () => {
 jest.mock("@mui/material/Box", () => {
     return {
         __esModule: true,
-        default: ({ children }: { children?: React.ReactNode }) => (
+        default: ({ children }: { children?: ReactNode }) => (
             <div>{children}</div>
         ),
     };
@@ -33,7 +33,7 @@ jest.mock("@mui/material/Box", () => {
 jest.mock("@mui/material/Container", () => {
     return {
         __esModule: true,
-        default: ({ children }: { children?: React.ReactNode }) => (
+        default: ({ children }: { children?: ReactNode }) => (
             <div>{children}</div>
         ),
     };
@@ -42,7 +42,7 @@ jest.mock("@mui/material/Container", () => {
 jest.mock("@mui/material/Paper", () => {
     return {
         __esModule: true,
-        default: ({ children }: { children?: React.ReactNode }) => (
+        default: ({ children }: { children?: ReactNode }) => (
             <section>{children}</section>
         ),
     };
@@ -51,7 +51,7 @@ jest.mock("@mui/material/Paper", () => {
 jest.mock("@mui/material/Stack", () => {
     return {
         __esModule: true,
-        default: ({ children }: { children?: React.ReactNode }) => (
+        default: ({ children }: { children?: ReactNode }) => (
             <div>{children}</div>
         ),
     };
@@ -60,9 +60,7 @@ jest.mock("@mui/material/Stack", () => {
 jest.mock("@mui/material/Chip", () => {
     return {
         __esModule: true,
-        default: ({ label }: { label: React.ReactNode }) => (
-            <span>{label}</span>
-        ),
+        default: ({ label }: { label: ReactNode }) => <span>{label}</span>,
     };
 });
 
@@ -73,7 +71,7 @@ jest.mock("@mui/material/Typography", () => {
             children,
             variant,
         }: {
-            children?: React.ReactNode;
+            children?: ReactNode;
             variant?: string;
         }) => {
             if (variant === "h2") {

@@ -1,12 +1,12 @@
 "use client";
 
-import { JSX } from "react";
+import { JSX, ReactNode } from "react";
 import usePixelCard, { UsePixelCardProps } from "./usePixelCard";
 import styles from "./PixelCard.module.css";
 import { Box } from "@mui/material";
 
 export interface PixelCardProps extends UsePixelCardProps {
-    children: React.ReactNode;
+    children: ReactNode;
     height?: number | string;
     width?: number | string;
     roundedBorders?: boolean;

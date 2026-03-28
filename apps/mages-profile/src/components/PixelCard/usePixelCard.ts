@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { FocusEventHandler, useEffect, useRef } from "react";
 import { Pixel } from "./Pixel";
 import { getEffectiveSpeed, VARIANTS } from "./utils";
 
@@ -140,11 +140,11 @@ const usePixelCard = ({
 
     const onMouseEnter = () => handleAnimation("appear");
     const onMouseLeave = () => handleAnimation("disappear");
-    const onFocus: React.FocusEventHandler<HTMLDivElement> = (e) => {
+    const onFocus: FocusEventHandler<HTMLDivElement> = (e) => {
         if (e.currentTarget.contains(e.relatedTarget)) return;
         handleAnimation("appear");
     };
-    const onBlur: React.FocusEventHandler<HTMLDivElement> = (e) => {
+    const onBlur: FocusEventHandler<HTMLDivElement> = (e) => {
         if (e.currentTarget.contains(e.relatedTarget)) return;
         handleAnimation("disappear");
     };

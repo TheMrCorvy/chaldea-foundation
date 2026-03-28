@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { ComponentType, FC } from "react";
 import { SvgIconProps } from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
 
@@ -12,7 +12,7 @@ export interface IconComponentProps extends Omit<SvgIconProps, "component"> {
 }
 
 const IconComponent: FC<IconComponentProps> = ({ icon, ...props }) => {
-    const IconElement = MuiIcons[icon] as React.ComponentType<SvgIconProps>;
+    const IconElement = MuiIcons[icon] as ComponentType<SvgIconProps>;
 
     if (!IconElement) {
         return null;

@@ -5,6 +5,7 @@ import React, {
     ReactNode,
     useRef,
     useEffect,
+    MouseEvent,
 } from "react";
 import { Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
@@ -79,7 +80,7 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
     }, [regenerateText]);
 
     const handleMouseMove = useCallback(
-        (e: React.MouseEvent<HTMLDivElement>) => {
+        (e: MouseEvent<HTMLDivElement>) => {
             const rect = e.currentTarget.getBoundingClientRect();
             setMousePosition({
                 x: e.clientX - rect.left,
