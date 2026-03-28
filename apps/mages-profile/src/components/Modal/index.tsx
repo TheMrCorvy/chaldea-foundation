@@ -186,7 +186,15 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                             width: "100dvw",
                             backgroundColor: isMobile
                                 ? "rgba(0, 0, 0, 0.4)"
-                                : "rgba(8, 46, 105, 0.4)",
+                                : "rgba(8, 46, 105, 0.45)",
+                            backgroundImage: isMobile
+                                ? "none"
+                                : 'linear-gradient(rgba(8, 46, 105, 0.5), rgba(8, 46, 105, 0.5)), url("https://www.transparenttextures.com/patterns/checkered-pattern.png")',
+                            backgroundRepeat: isMobile ? undefined : "repeat",
+                            backgroundSize: isMobile ? undefined : "auto",
+                            backgroundBlendMode: isMobile
+                                ? undefined
+                                : "multiply",
                             zIndex: 9999,
                         }}
                         onClick={onExit}
