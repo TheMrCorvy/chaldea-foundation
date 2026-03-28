@@ -45,6 +45,24 @@
             "type": "component",
             "component": "layout.icon",
             "repeatable": false
+        },
+        "disabled": {
+            "type": "boolean",
+            "default": false
+        },
+        "required": {
+            "type": "boolean",
+            "default": false
+        },
+        "label": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 150
+        },
+        "helper_text": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 200
         }
     },
     "config": {}
