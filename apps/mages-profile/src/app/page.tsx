@@ -158,6 +158,17 @@ const getMainDynamicPage = async (): Promise<DynamicPage | null> => {
                             "blog.blog-text": {
                                 populate: "*",
                             },
+                            "sections.contact-section": {
+                                populate: {
+                                    contact_form: {
+                                        populate: {
+                                            inputs: {
+                                                populate: "*",
+                                            },
+                                        },
+                                    },
+                                },
+                            },
                         },
                     },
                 },
