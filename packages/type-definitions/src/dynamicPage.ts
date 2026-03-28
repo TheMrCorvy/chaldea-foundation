@@ -165,11 +165,8 @@ export interface LayoutProjectListItem extends StrapiComponent {
 }
 
 export interface LayoutFormInput extends StrapiComponent {
-    default_value?: string | null;
-    end_icon?: LayoutIcon | null;
     name: string;
-    option?: Array<LayoutSelectOption> | null;
-    start_icon?: LayoutIcon | null;
+    default_value?: string | null;
     type:
         | "input"
         | "submit"
@@ -178,6 +175,13 @@ export interface LayoutFormInput extends StrapiComponent {
         | "date"
         | "slider"
         | "range";
+    option?: Array<LayoutSelectOption> | null;
+    start_icon?: LayoutIcon | null;
+    end_icon?: LayoutIcon | null;
+    disabled?: boolean;
+    required?: boolean;
+    label?: string | null;
+    helper_text?: string | null;
 }
 
 export interface LayoutSelectOption extends StrapiComponent {
