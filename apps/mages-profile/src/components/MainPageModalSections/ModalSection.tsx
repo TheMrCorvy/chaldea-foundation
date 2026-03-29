@@ -3,6 +3,7 @@ import Modal from "../Modal";
 import { Box, Link } from "@mui/material";
 import {
     BlogText,
+    LayoutDescriptionWithChipsList,
     LayoutWorkExperienceSection,
     SectionsContactSection,
     SectionsProjectsSection,
@@ -12,6 +13,7 @@ import WorkExperienceSection from "./WorkExperienceSection";
 import ProjectsSection from "./ProjectsSection";
 import AboutMeSection from "./AboutMeSection";
 import ContactSection from "./ContactSection";
+import MySkills from "./MySkills";
 
 export interface ModalSectionProps {
     isMobile: boolean;
@@ -28,11 +30,11 @@ const ModalSection: FC<ModalSectionProps> = ({
     sections,
     countrySelected,
 }) => {
-    const renderModalContent = () => {
-        const section = sections.find(
-            (section) => section.title === countrySelected
-        );
+    const section = sections.find(
+        (section) => section.title === countrySelected
+    );
 
+    const renderModalContent = () => {
         switch (section?.__component) {
             case "sections.landing-hero-section":
                 return null;
@@ -58,6 +60,13 @@ const ModalSection: FC<ModalSectionProps> = ({
             case "sections.contact-section":
                 return (
                     <ContactSection {...(section as SectionsContactSection)} />
+                );
+
+            case "layout.description-with-chips-list":
+                return (
+                    <MySkills
+                        {...(section as LayoutDescriptionWithChipsList)}
+                    />
                 );
 
             default:
@@ -96,12 +105,18 @@ const ModalSection: FC<ModalSectionProps> = ({
                         underline="hover"
                         sx={{
                             cursor: "pointer",
+                            paddingLeft:
+                                section?.__component ===
+                                "layout.description-with-chips-list"
+                                    ? "11px"
+                                    : undefined,
                         }}
+                        onClick={() => onCountryClick(null)}
                     >
                         Close
                     </Link>
-                    {sections[1] &&
-                        (sections[1] as LayoutWorkExperienceSection)
+                    {section &&
+                        (section as LayoutWorkExperienceSection)
                             .link_to_page && (
                             <Link
                                 underline="hover"
@@ -111,12 +126,12 @@ const ModalSection: FC<ModalSectionProps> = ({
                                     mr: isMobile ? "-11px" : "0",
                                 }}
                                 href={
-                                    (sections[1] as LayoutWorkExperienceSection)
+                                    (section as LayoutWorkExperienceSection)
                                         ?.link_to_page?.href
                                 }
                             >
                                 {
-                                    (sections[1] as LayoutWorkExperienceSection)
+                                    (section as LayoutWorkExperienceSection)
                                         ?.link_to_page?.label
                                 }
                             </Link>
