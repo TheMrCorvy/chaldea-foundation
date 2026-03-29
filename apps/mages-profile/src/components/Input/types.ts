@@ -8,7 +8,7 @@ export type InputField<T extends InputType> = LayoutFormInput & {
 
 type SharedInputFlags = Pick<
     LayoutFormInput,
-    "label" | "disabled" | "required" | "helper_text"
+    "label" | "disabled" | "required" | "helper_text" | "size"
 >;
 
 export interface BaseInputProps<

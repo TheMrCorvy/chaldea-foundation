@@ -21,6 +21,7 @@ const RangeInput: FC<RangeInputProps> = ({
     min = 0,
     max = 100,
     step = 1,
+    size,
 }) => {
     const { hologramSlider } = useStyles();
     return (
@@ -44,6 +45,7 @@ const RangeInput: FC<RangeInputProps> = ({
                 step={step}
                 valueLabelDisplay="auto"
                 sx={hologramSlider}
+                size={size}
             />
         </HologramInputFrame>
     );

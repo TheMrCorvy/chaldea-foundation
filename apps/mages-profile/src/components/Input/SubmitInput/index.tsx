@@ -11,6 +11,7 @@ const SubmitInput: FC<SubmitInputProps> = ({
     value,
     onChange,
     disabled,
+    size = "medium",
 }) => {
     return (
         <HologramInputFrame label={label ?? field.name} disabled={disabled}>
@@ -33,6 +34,7 @@ const SubmitInput: FC<SubmitInputProps> = ({
                         boxShadow: "0 0 14px rgba(56, 182, 255, 0.4)",
                     },
                 }}
+                size={size}
             >
                 {value}
             </Button>

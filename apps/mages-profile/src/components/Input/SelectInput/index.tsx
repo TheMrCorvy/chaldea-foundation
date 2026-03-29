@@ -14,6 +14,7 @@ const SelectInput: FC<SelectInputProps> = ({
     disabled,
     required,
     helper_text,
+    size,
 }) => {
     const { hologramControl } = useStyles();
     return (
@@ -29,6 +30,7 @@ const SelectInput: FC<SelectInputProps> = ({
                 required={required}
                 helperText={helper_text}
                 sx={hologramControl}
+                size={size}
                 SelectProps={{
                     MenuProps: {
                         sx: {

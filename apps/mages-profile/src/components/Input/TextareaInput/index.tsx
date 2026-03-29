@@ -19,6 +19,7 @@ const TextareaInput: FC<TextareaInputProps> = ({
     helper_text,
     rows = 4,
     placeholder,
+    size,
 }) => {
     const { hologramControl } = useStyles();
     return (
@@ -36,6 +37,7 @@ const TextareaInput: FC<TextareaInputProps> = ({
                 required={required}
                 helperText={helper_text}
                 sx={hologramControl}
+                size={size}
             />
         </HologramInputFrame>
     );

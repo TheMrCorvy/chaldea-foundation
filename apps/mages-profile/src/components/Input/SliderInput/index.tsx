@@ -19,6 +19,7 @@ const SliderInput: FC<SliderInputProps> = ({
     min = 0,
     max = 100,
     step = 1,
+    size,
 }) => {
     const { hologramSlider } = useStyles();
     return (
@@ -42,6 +43,7 @@ const SliderInput: FC<SliderInputProps> = ({
                 step={step}
                 valueLabelDisplay="auto"
                 sx={hologramSlider}
+                size={size}
             />
         </HologramInputFrame>
     );
