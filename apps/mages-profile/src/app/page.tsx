@@ -137,6 +137,13 @@ const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
                                     },
                                 },
                             },
+                            "layout.description-with-chips-list": {
+                                populate: {
+                                    chips: {
+                                        populate: "*",
+                                    },
+                                },
+                            },
                         },
                     },
                 },
