@@ -15,6 +15,11 @@
             "minLength": 3,
             "maxLength": 20,
             "required": true
+        },
+        "size": {
+            "type": "enumeration",
+            "default": "medium",
+            "enum": ["inherit", "small", "medium", "large"]
         }
     },
     "config": {}

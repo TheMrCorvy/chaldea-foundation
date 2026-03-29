@@ -116,6 +116,7 @@ export interface LayoutCallToAction {
 
 export interface LayoutIcon extends StrapiComponent {
     name: string;
+    size?: "inherit" | "small" | "medium" | "large" | null;
 }
 
 export interface StrapiPDFComponent extends StrapiComponent {
@@ -182,6 +183,7 @@ export interface LayoutFormInput extends StrapiComponent {
     required?: boolean;
     label?: string | null;
     helper_text?: string | null;
+    size?: "small" | "medium";
 }
 
 export interface LayoutSelectOption extends StrapiComponent {

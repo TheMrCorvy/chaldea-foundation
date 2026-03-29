@@ -63,6 +63,11 @@
             "type": "string",
             "minLength": 10,
             "maxLength": 200
+        },
+        "size": {
+            "type": "enumeration",
+            "default": "medium",
+            "enum": ["small", "medium"]
         }
     },
     "config": {}
