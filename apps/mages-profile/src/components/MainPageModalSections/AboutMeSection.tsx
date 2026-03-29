@@ -7,7 +7,7 @@ const AboutMeSection: FC<BlogText> = ({ body, component_id }) => {
     return (
         <Box
             component="section"
-            id={"main-page-about-me-section-" + component_id}
+            id={component_id}
             sx={{
                 height: "100%",
                 overflowY: "auto",
