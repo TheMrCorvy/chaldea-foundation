@@ -147,7 +147,7 @@ export interface SectionsProjectsSection extends StrapiComponent {
 
 export interface LayoutToolChip extends StrapiComponent {
     popover: string;
-    icon: LayoutIcon;
+    icon?: LayoutIcon | null;
 }
 
 export interface LayoutDescriptionWithChipsList extends StrapiComponent {

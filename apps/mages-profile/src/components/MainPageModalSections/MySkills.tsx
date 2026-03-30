@@ -34,10 +34,10 @@ const MySkills: FC<LayoutDescriptionWithChipsList> = ({
                     chips?.map((chip) => (
                         <SkillListItem
                             key={chip.component_id}
-                            icon={chip.icon.name as IconName}
+                            icon={(chip.icon?.name as IconName) || undefined}
                             title={chip.title || ""}
                             popover={chip.popover}
-                            size={chip.icon.size || "medium"}
+                            size={chip.icon?.size || "medium"}
                         />
                     )) || []
                 }

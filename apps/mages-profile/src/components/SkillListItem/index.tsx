@@ -3,7 +3,7 @@ import IconComponent, { IconName } from "../IconComponent";
 import { Tooltip, Typography } from "@mui/material";
 
 export interface SkillListItemProps {
-    icon: IconName;
+    icon?: IconName;
     title: string;
     popover?: string;
     size?: "inherit" | "small" | "medium" | "large";
@@ -25,7 +25,7 @@ const SkillListItem: FC<SkillListItemProps> = ({
                 textAlign: "center",
             }}
         >
-            <IconComponent size={size} icon={icon} />
+            {icon && <IconComponent size={size} icon={icon} />}
             <Typography variant="caption" fontSize={10} align="center">
                 {title}
             </Typography>
