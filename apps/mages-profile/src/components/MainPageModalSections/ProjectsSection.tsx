@@ -33,7 +33,6 @@ const ProjectsSection: FC<ProjectsSectionProps> = ({
                 <ProjectListItem
                     key={project.component_id + "-" + i}
                     project={project}
-                    isMobile={isMobile}
                 />
             ))}
         </Box>

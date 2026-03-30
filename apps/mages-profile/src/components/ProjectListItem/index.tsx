@@ -5,10 +5,9 @@ import RichTextRenderer from "../RichTextRenderer";
 
 export interface ProjectListItemProps {
     project: LayoutProjectListItem;
-    isMobile?: boolean;
 }
 
-const ProjectListItem: FC<ProjectListItemProps> = ({ project, isMobile }) => {
+const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
     const { title, highlighted_subtitle, body, links, disable_primary_link } =
         project;
 
@@ -23,8 +22,8 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project, isMobile }) => {
                 border: "1px solid",
                 borderColor: "rgba(255,255,255,0.16)",
                 backgroundColor: "rgba(255,255,255,0.06)",
-                backdropFilter: `blur(${isMobile ? 12 : 1}px)`,
-                WebkitBackdropFilter: `blur(${isMobile ? 12 : 1}px)`,
+                backdropFilter: `blur(1px)`,
+                WebkitBackdropFilter: `blur(1px)`,
                 px: "3%",
                 py: "2.5%",
                 gap: "4px",
