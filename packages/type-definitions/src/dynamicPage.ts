@@ -183,7 +183,8 @@ export interface LayoutFormInput extends StrapiComponent {
     required?: boolean;
     label?: string | null;
     helper_text?: string | null;
-    size?: "small" | "medium";
+    size?: "small" | "medium" | null;
+    placeholder?: string | null;
 }
 
 export interface LayoutSelectOption extends StrapiComponent {
