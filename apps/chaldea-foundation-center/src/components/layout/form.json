@@ -18,6 +18,17 @@
             "component": "layout.form-input",
             "repeatable": true,
             "required": true
+        },
+        "action": {
+            "type": "string",
+            "minLength": 1,
+            "required": true
+        },
+        "method": {
+            "type": "enumeration",
+            "required": true,
+            "default": "post",
+            "enum": ["post", "get", "put", "delete"]
         }
     },
     "config": {}

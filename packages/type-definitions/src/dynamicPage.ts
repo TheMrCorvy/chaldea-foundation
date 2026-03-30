@@ -204,6 +204,8 @@ export interface LayoutSelectOption extends StrapiComponent {
 
 export interface LayoutForm extends StrapiComponent {
     inputs: Array<LayoutFormInput>;
+    action: string;
+    method: "post" | "get" | "put" | "delete";
 }
 
 export interface SectionsContactSection extends StrapiComponent {

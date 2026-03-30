@@ -81,9 +81,25 @@ const ContactSection: FC<SectionsContactSection> = ({
         }));
     };
 
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        const response = await fetch(contact_form.action, {
+            method: contact_form.method.toUpperCase(),
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formValues),
+        }).catch((error) => {
+            console.error("Error submitting contact form:", error);
+        });
+
+        const res = await response?.json().catch((error) => {
+            console.error("Error parsing response:", error);
+        });
+
         setSubmitted(true);
+        console.log("Form submission response:", res);
     };
 
     return (
