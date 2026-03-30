@@ -117,6 +117,16 @@ export interface LayoutCallToAction {
 export interface LayoutIcon extends StrapiComponent {
     name: string;
     size?: "inherit" | "small" | "medium" | "large" | null;
+    color:
+        | "primary"
+        | "secondary"
+        | "warning"
+        | "info"
+        | "error"
+        | "success"
+        | "disabled"
+        | "inherit"
+        | "action";
 }
 
 export interface StrapiPDFComponent extends StrapiComponent {

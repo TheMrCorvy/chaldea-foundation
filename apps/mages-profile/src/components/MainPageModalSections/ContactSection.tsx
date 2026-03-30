@@ -142,6 +142,8 @@ const ContactSection: FC<SectionsContactSection> = ({
                             helper_text={input.helper_text}
                             size={input.size || "medium"}
                             placeholder={input.placeholder}
+                            start_icon={input.start_icon}
+                            end_icon={input.end_icon}
                         />
                     </Box>
                 ))}

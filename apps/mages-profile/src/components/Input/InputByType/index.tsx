@@ -7,6 +7,7 @@ import SubmitInput from "../SubmitInput";
 import TextareaInput from "../TextareaInput";
 import TextInput from "../TextInput";
 import { InputField } from "../types";
+import { LayoutIcon } from "@repo/type-definitions/dynamic-page";
 
 type InputByTypeField =
     | InputField<"input">
@@ -27,6 +28,8 @@ export interface InputByTypeProps {
     helper_text?: string | null;
     size?: "small" | "medium";
     placeholder?: string | null;
+    start_icon?: LayoutIcon | null;
+    end_icon?: LayoutIcon | null;
 }
 
 const InputByType: FC<InputByTypeProps> = ({
@@ -39,6 +42,8 @@ const InputByType: FC<InputByTypeProps> = ({
     helper_text,
     size,
     placeholder,
+    start_icon,
+    end_icon,
 }) => {
     const resolvedLabel = label ?? field.label ?? field.name;
     const resolvedDisabled = disabled ?? field.disabled ?? false;
@@ -58,6 +63,8 @@ const InputByType: FC<InputByTypeProps> = ({
                     helper_text={resolvedHelperText}
                     size={size}
                     placeholder={placeholder}
+                    start_icon={start_icon}
+                    end_icon={end_icon}
                 />
             );
 
@@ -88,6 +95,8 @@ const InputByType: FC<InputByTypeProps> = ({
                     helper_text={resolvedHelperText}
                     size={size}
                     placeholder={placeholder}
+                    start_icon={start_icon}
+                    end_icon={end_icon}
                 />
             );
 

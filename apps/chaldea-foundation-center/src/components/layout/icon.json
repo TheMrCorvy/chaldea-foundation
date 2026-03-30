@@ -20,6 +20,22 @@
             "type": "enumeration",
             "default": "medium",
             "enum": ["inherit", "small", "medium", "large"]
+        },
+        "color": {
+            "type": "enumeration",
+            "required": false,
+            "default": "primary",
+            "enum": [
+                "primary",
+                "secondary",
+                "warning",
+                "info",
+                "error",
+                "success",
+                "disabled",
+                "inherit",
+                "action"
+            ]
         }
     },
     "config": {}

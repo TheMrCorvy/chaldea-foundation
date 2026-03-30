@@ -15,6 +15,7 @@ export interface IconComponentProps extends Omit<SvgIconProps, "component"> {
 const IconComponent: FC<IconComponentProps> = ({
     icon,
     size = "medium",
+    color,
     ...props
 }) => {
     const IconElement = MuiIcons[icon] as ComponentType<SvgIconProps>;
@@ -23,7 +24,7 @@ const IconComponent: FC<IconComponentProps> = ({
         return null;
     }
 
-    return <IconElement {...props} fontSize={size} />;
+    return <IconElement {...props} fontSize={size} color={color} />;
 };
 
 export default IconComponent;
