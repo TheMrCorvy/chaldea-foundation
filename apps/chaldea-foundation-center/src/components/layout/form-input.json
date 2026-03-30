@@ -68,6 +68,10 @@
             "type": "enumeration",
             "default": "medium",
             "enum": ["small", "medium"]
+        },
+        "placeholder": {
+            "type": "string",
+            "maxLength": 50
         }
     },
     "config": {}
