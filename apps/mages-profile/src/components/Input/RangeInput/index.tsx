@@ -45,7 +45,7 @@ const RangeInput: FC<RangeInputProps> = ({
                 step={step}
                 valueLabelDisplay="auto"
                 sx={hologramSlider}
-                size={size}
+                size={size || "medium"}
             />
         </HologramInputFrame>
     );

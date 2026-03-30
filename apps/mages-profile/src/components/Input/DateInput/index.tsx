@@ -30,7 +30,7 @@ const DateInput: FC<DateInputProps> = ({
                 required={required}
                 helperText={helper_text}
                 sx={hologramControl}
-                size={size}
+                size={size || "medium"}
             />
         </HologramInputFrame>
     );

@@ -34,7 +34,7 @@ const SubmitInput: FC<SubmitInputProps> = ({
                         boxShadow: "0 0 14px rgba(56, 182, 255, 0.4)",
                     },
                 }}
-                size={size}
+                size={size || "medium"}
             >
                 {value}
             </Button>

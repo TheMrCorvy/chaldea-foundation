@@ -4,9 +4,7 @@ import HologramInputFrame from "../HologramInputFrame";
 import { BaseInputProps } from "../types";
 import useStyles from "../useStyles";
 
-export type TextInputProps = BaseInputProps<"input", string> & {
-    placeholder?: string;
-};
+export type TextInputProps = BaseInputProps<"input", string>;
 
 const TextInput: FC<TextInputProps> = ({
     field,
@@ -27,13 +25,13 @@ const TextInput: FC<TextInputProps> = ({
                 variant="outlined"
                 name={field.name}
                 value={value}
-                placeholder={placeholder}
+                placeholder={placeholder || ""}
                 onChange={(event) => onChange(event.target.value)}
                 disabled={disabled}
                 required={required}
                 helperText={helper_text}
                 sx={hologramControl}
-                size={size}
+                size={size || "medium"}
             />
         </HologramInputFrame>
     );

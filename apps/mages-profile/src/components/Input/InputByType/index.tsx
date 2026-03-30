@@ -25,6 +25,8 @@ export interface InputByTypeProps {
     disabled?: boolean;
     required?: boolean;
     helper_text?: string | null;
+    size?: "small" | "medium";
+    placeholder?: string | null;
 }
 
 const InputByType: FC<InputByTypeProps> = ({
@@ -35,6 +37,8 @@ const InputByType: FC<InputByTypeProps> = ({
     disabled,
     required,
     helper_text,
+    size,
+    placeholder,
 }) => {
     const resolvedLabel = label ?? field.label ?? field.name;
     const resolvedDisabled = disabled ?? field.disabled ?? false;
@@ -52,6 +56,8 @@ const InputByType: FC<InputByTypeProps> = ({
                     disabled={resolvedDisabled}
                     required={resolvedRequired}
                     helper_text={resolvedHelperText}
+                    size={size}
+                    placeholder={placeholder}
                 />
             );
 
@@ -65,6 +71,8 @@ const InputByType: FC<InputByTypeProps> = ({
                     disabled={resolvedDisabled}
                     required={resolvedRequired}
                     helper_text={resolvedHelperText}
+                    size={size}
+                    placeholder={placeholder}
                 />
             );
 
@@ -78,6 +86,8 @@ const InputByType: FC<InputByTypeProps> = ({
                     disabled={resolvedDisabled}
                     required={resolvedRequired}
                     helper_text={resolvedHelperText}
+                    size={size}
+                    placeholder={placeholder}
                 />
             );
 
@@ -91,6 +101,7 @@ const InputByType: FC<InputByTypeProps> = ({
                     disabled={resolvedDisabled}
                     required={resolvedRequired}
                     helper_text={resolvedHelperText}
+                    size={size}
                 />
             );
 
@@ -104,6 +115,9 @@ const InputByType: FC<InputByTypeProps> = ({
                     }
                     onChange={(nextValue) => onChange(nextValue)}
                     disabled={resolvedDisabled}
+                    required={resolvedRequired}
+                    helper_text={resolvedHelperText}
+                    size={size}
                 />
             );
 
@@ -120,6 +134,9 @@ const InputByType: FC<InputByTypeProps> = ({
                     value={rangeValue}
                     onChange={(nextValue) => onChange(nextValue)}
                     disabled={resolvedDisabled}
+                    required={resolvedRequired}
+                    helper_text={resolvedHelperText}
+                    size={size}
                 />
             );
         }
@@ -132,6 +149,9 @@ const InputByType: FC<InputByTypeProps> = ({
                     value={typeof value === "string" ? value : "Submit"}
                     onChange={(nextValue) => onChange(nextValue)}
                     disabled={resolvedDisabled}
+                    required={resolvedRequired}
+                    helper_text={resolvedHelperText}
+                    size={size}
                 />
             );
 

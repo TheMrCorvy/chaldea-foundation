@@ -15,6 +15,7 @@ const SelectInput: FC<SelectInputProps> = ({
     required,
     helper_text,
     size,
+    placeholder,
 }) => {
     const { hologramControl } = useStyles();
     return (
@@ -22,6 +23,7 @@ const SelectInput: FC<SelectInputProps> = ({
             <TextField
                 fullWidth
                 select
+                placeholder={placeholder || ""}
                 variant="outlined"
                 name={field.name}
                 value={value}
@@ -30,7 +32,7 @@ const SelectInput: FC<SelectInputProps> = ({
                 required={required}
                 helperText={helper_text}
                 sx={hologramControl}
-                size={size}
+                size={size || "medium"}
                 SelectProps={{
                     MenuProps: {
                         sx: {

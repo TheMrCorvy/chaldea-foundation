@@ -140,6 +140,8 @@ const ContactSection: FC<SectionsContactSection> = ({
                             required={input.required}
                             disabled={input.disabled}
                             helper_text={input.helper_text}
+                            size={input.size || "medium"}
+                            placeholder={input.placeholder}
                         />
                     </Box>
                 ))}

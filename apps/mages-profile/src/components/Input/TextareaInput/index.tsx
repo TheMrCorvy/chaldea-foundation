@@ -6,7 +6,6 @@ import useStyles from "../useStyles";
 
 export type TextareaInputProps = BaseInputProps<"textarea", string> & {
     rows?: number;
-    placeholder?: string;
 };
 
 const TextareaInput: FC<TextareaInputProps> = ({
@@ -31,13 +30,13 @@ const TextareaInput: FC<TextareaInputProps> = ({
                 variant="outlined"
                 name={field.name}
                 value={value}
-                placeholder={placeholder}
+                placeholder={placeholder || ""}
                 onChange={(event) => onChange(event.target.value)}
                 disabled={disabled}
                 required={required}
                 helperText={helper_text}
                 sx={hologramControl}
-                size={size}
+                size={size || "medium"}
             />
         </HologramInputFrame>
     );
