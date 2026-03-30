@@ -23,7 +23,6 @@ const TextInput: FC<TextInputProps> = ({
     end_icon,
 }) => {
     const { hologramControl } = useStyles();
-    console.log({ start_icon, end_icon });
     return (
         <HologramInputFrame label={label ?? field.name} disabled={disabled}>
             <TextField
