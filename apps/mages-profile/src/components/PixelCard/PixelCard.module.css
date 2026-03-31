@@ -17,17 +17,6 @@
     user-select: none;
 }
 
-.pixel_card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    aspect-ratio: 1;
-    background: radial-gradient(circle, #09090b, transparent 85%);
-    opacity: 0;
-    transition: opacity 800ms cubic-bezier(0.5, 1, 0.89, 1);
-    z-index: 2;
-}
 .pixel_card:hover::before,
 .pixel_card:focus-within::before {
     opacity: 1;
