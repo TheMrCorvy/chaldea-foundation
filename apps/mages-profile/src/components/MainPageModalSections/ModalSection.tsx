@@ -42,6 +42,7 @@ const ModalSection: FC<ModalSectionProps> = ({
             case "sections.work-experience-section":
                 return (
                     <WorkExperienceSection
+                        isMobile={isMobile}
                         {...(section as LayoutWorkExperienceSection)}
                     />
                 );
@@ -65,6 +66,7 @@ const ModalSection: FC<ModalSectionProps> = ({
             case "layout.description-with-chips-list":
                 return (
                     <MySkills
+                        isMobile={isMobile}
                         {...(section as LayoutDescriptionWithChipsList)}
                     />
                 );
@@ -97,6 +99,8 @@ const ModalSection: FC<ModalSectionProps> = ({
                         justifyContent: "space-between",
                         width: "100%",
                         px: "11px",
+                        pt: "5px",
+                        pb: "2px",
                     }}
                 >
                     <Link

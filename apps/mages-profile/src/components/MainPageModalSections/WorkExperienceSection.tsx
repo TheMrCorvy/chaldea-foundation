@@ -2,9 +2,16 @@ import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page
 import { FC } from "react";
 import ExperienceListItem from "../ExperienceListItem";
 
-const WorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
+export interface WorkExperienceSectionProps {
+    experience_list_items: LayoutWorkExperienceSection["experience_list_items"];
+    component_id: string;
+    isMobile?: boolean;
+}
+
+const WorkExperienceSection: FC<WorkExperienceSectionProps> = ({
     experience_list_items,
     component_id,
+    isMobile,
 }) => {
     return (
         <section
@@ -25,6 +32,7 @@ const WorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
                 <ExperienceListItem
                     key={experienceItem.component_id + i}
                     experience={experienceItem}
+                    isMobile={isMobile}
                 />
             ))}
         </section>

@@ -5,9 +5,13 @@ import RichTextRenderer from "../RichTextRenderer";
 
 export interface ExperienceListItemProps {
     experience: LayoutWorkExperienceListItem;
+    isMobile?: boolean;
 }
 
-const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
+const ExperienceListItem: FC<ExperienceListItemProps> = ({
+    experience,
+    isMobile,
+}) => {
     const { title, orientation, company, client, from, until, body, location } =
         experience;
 
@@ -77,7 +81,6 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                             flex: 1,
                             minWidth: 0,
                             display: "flex",
-                            flexDirection: "row",
                             gap: 1,
                         }}
                     >
@@ -92,15 +95,15 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({ experience }) => {
                         >
                             {title}
                         </Typography>
-                        {orientation && (
+                        {orientation && !isMobile && (
                             <Typography
                                 component="span"
                                 sx={{
                                     color: "grey.300",
                                     display: "block",
-                                    fontSize: "0.8rem",
                                     lineHeight: 1.3,
                                     pl: 0.2,
+                                    fontSize: "0.8rem",
                                 }}
                             >
                                 {`(${orientation})`}
