@@ -6,10 +6,15 @@ import { IconName } from "../IconComponent";
 import SkillListItem from "../SkillListItem";
 import RichTextRenderer from "../RichTextRenderer";
 
-const MySkills: FC<LayoutDescriptionWithChipsList> = ({
+export interface MySkillsProps extends LayoutDescriptionWithChipsList {
+    isMobile?: boolean;
+}
+
+const MySkills: FC<MySkillsProps> = ({
     body,
     chips,
     component_id,
+    isMobile = false,
 }) => {
     return (
         <Box
@@ -17,7 +22,7 @@ const MySkills: FC<LayoutDescriptionWithChipsList> = ({
             id={component_id}
             sx={{
                 height: "100%",
-                width: "100%",
+                width: "60%",
                 position: "relative",
                 overflow: "hidden",
                 display: "flex",
@@ -42,6 +47,7 @@ const MySkills: FC<LayoutDescriptionWithChipsList> = ({
                     )) || []
                 }
                 isVertical={false}
+                isMobile={isMobile}
             />
         </Box>
     );
