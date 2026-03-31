@@ -95,10 +95,20 @@ const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
                                 populate: "*",
                             },
                             "sections.work-experience-section": {
-                                populate: "*",
+                                populate: {
+                                    link_to_page: {
+                                        populate: "*",
+                                    },
+                                    experience_list_items: {
+                                        populate: "*",
+                                    },
+                                },
                             },
                             "sections.projects-section": {
                                 populate: {
+                                    link_to_page: {
+                                        populate: "*",
+                                    },
                                     projects: {
                                         populate: {
                                             body: {
@@ -134,6 +144,9 @@ const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
                                                 populate: "*",
                                             },
                                         },
+                                    },
+                                    link_to_page: {
+                                        populate: "*",
                                     },
                                 },
                             },
