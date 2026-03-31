@@ -33,10 +33,10 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
         }
 
         if (colNumber === 1) {
-            return isMobile ? "60dvh" : "50dvh";
+            return isMobile ? "75dvh" : "60dvh";
         }
 
-        return isMobile ? "35dvh" : "45dvh";
+        return isMobile ? "20dvh" : "35dvh";
     };
 
     const calcColSize = (colNumber: number) => {
