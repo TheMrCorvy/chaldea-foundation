@@ -31,7 +31,7 @@ const ModalSection: FC<ModalSectionProps> = ({
     countrySelected,
 }) => {
     const section = sections.find(
-        (section) => section.title === countrySelected
+        (section) => section.component_id === countrySelected
     );
 
     const renderModalContent = () => {
@@ -55,12 +55,20 @@ const ModalSection: FC<ModalSectionProps> = ({
                     />
                 );
 
-            case "blog.blog-text":
-                return <AboutMeSection {...(section as BlogText)} />;
+            case "blog.blog-hero":
+                return (
+                    <AboutMeSection
+                        isMobile={isMobile}
+                        {...(section as BlogText)}
+                    />
+                );
 
             case "sections.contact-section":
                 return (
-                    <ContactSection {...(section as SectionsContactSection)} />
+                    <ContactSection
+                        isMobile={isMobile}
+                        {...(section as SectionsContactSection)}
+                    />
                 );
 
             case "layout.description-with-chips-list":

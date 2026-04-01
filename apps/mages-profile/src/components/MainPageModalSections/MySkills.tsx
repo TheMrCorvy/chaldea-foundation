@@ -22,17 +22,28 @@ const MySkills: FC<MySkillsProps> = ({
             id={component_id}
             sx={{
                 height: "100%",
-                width: "60%",
-                position: "relative",
-                overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                paddingBottom: 5,
-                paddingX: "22px",
+                gap: "4px",
+                px: "22px",
+                maxHeight: isMobile ? "65dvh" : "54dvh",
+                overflowY: "auto",
+                overflowX: "hidden",
+                "&::-webkit-scrollbar": { width: "1%" },
+                "&::-webkit-scrollbar-thumb": {
+                    backgroundColor: "rgba(127, 214, 255, 0.45)",
+                    borderRadius: "999px",
+                },
+                paddingBottom: "16px",
             }}
         >
-            <RichTextRenderer content={body} />
+            <RichTextRenderer
+                content={body}
+                color="grey.300"
+                fontSize="0.85rem"
+                lineHeight={1.5}
+            />
 
             <LogoLoop
                 items={

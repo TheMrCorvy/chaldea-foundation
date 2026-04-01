@@ -54,9 +54,14 @@ const getInitialFieldValue = (
     return input.default_value ?? "";
 };
 
-const ContactSection: FC<SectionsContactSection> = ({
+export interface ContactSectionProps extends SectionsContactSection {
+    isMobile?: boolean;
+}
+
+const ContactSection: FC<ContactSectionProps> = ({
     contact_form,
     component_id,
+    isMobile,
 }) => {
     const initialValues = useMemo<ContactFieldState>(() => {
         return contact_form.inputs.reduce<ContactFieldState>((acc, input) => {
@@ -103,19 +108,7 @@ const ContactSection: FC<SectionsContactSection> = ({
     };
 
     return (
-        <Box
-            component="section"
-            id={component_id}
-            sx={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
-                alignItems: "stretch",
-                overflow: "auto",
-            }}
-        >
+        <Box component="section" id={component_id}>
             <Box
                 component="form"
                 onSubmit={handleSubmit}
@@ -125,10 +118,11 @@ const ContactSection: FC<SectionsContactSection> = ({
                     display: "flex",
                     flexDirection: "column",
                     gap: "4%",
-                    overflowY: "auto",
-                    overflowX: "hidden",
                     px: "11px",
                     py: "4%",
+                    maxHeight: isMobile ? "65dvh" : "54dvh",
+                    overflowY: "auto",
+                    overflowX: "hidden",
                     "&::-webkit-scrollbar": { width: "1%" },
                     "&::-webkit-scrollbar-thumb": {
                         backgroundColor: "rgba(127, 214, 255, 0.45)",

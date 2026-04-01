@@ -29,7 +29,8 @@ const ProjectsSection: FC<ProjectsSectionProps> = ({
                 pr: isMobile ? 0 : "11px",
                 pt: isMobile ? 0 : "11px",
                 pb: "11px",
-                overflowY: "hidden",
+                maxHeight: isMobile ? "65dvh" : "54dvh",
+                overflowY: "auto",
                 overflowX: "hidden",
                 "&::-webkit-scrollbar": { width: "1%" },
                 "&::-webkit-scrollbar-thumb": {

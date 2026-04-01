@@ -1,6 +1,7 @@
 import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import ExperienceListItem from "../ExperienceListItem";
+import { Box } from "@mui/material";
 
 export interface WorkExperienceSectionProps {
     experience_list_items: LayoutWorkExperienceSection["experience_list_items"];
@@ -14,9 +15,10 @@ const WorkExperienceSection: FC<WorkExperienceSectionProps> = ({
     isMobile,
 }) => {
     return (
-        <section
+        <Box
+            component="section"
             id={"main-page-work-experience-section-" + component_id}
-            style={{
+            sx={{
                 height: "100%",
                 position: "relative",
                 paddingTop: "5px",
@@ -26,6 +28,14 @@ const WorkExperienceSection: FC<WorkExperienceSectionProps> = ({
                 justifyContent: "space-around",
                 alignItems: "start",
                 paddingRight: "11px",
+                maxHeight: isMobile ? "65dvh" : "54dvh",
+                overflowY: "auto",
+                overflowX: "hidden",
+                "&::-webkit-scrollbar": { width: "1%" },
+                "&::-webkit-scrollbar-thumb": {
+                    backgroundColor: "rgba(127, 214, 255, 0.45)",
+                    borderRadius: "999px",
+                },
             }}
         >
             {experience_list_items.map((experienceItem, i) => (
@@ -35,7 +45,7 @@ const WorkExperienceSection: FC<WorkExperienceSectionProps> = ({
                     isMobile={isMobile}
                 />
             ))}
-        </section>
+        </Box>
     );
 };
 

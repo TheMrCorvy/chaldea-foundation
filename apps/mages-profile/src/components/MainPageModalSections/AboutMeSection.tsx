@@ -3,22 +3,32 @@ import { BlogText } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import RichTextRenderer from "../RichTextRenderer";
 
-const AboutMeSection: FC<BlogText> = ({ body, component_id }) => {
+export interface AboutMeSectionProps extends BlogText {
+    isMobile: boolean;
+}
+
+const AboutMeSection: FC<AboutMeSectionProps> = ({
+    body,
+    component_id,
+    isMobile,
+}) => {
     return (
         <Box
             component="section"
             id={component_id}
             sx={{
                 height: "100%",
-                overflowY: "auto",
                 display: "flex",
                 flexDirection: "column",
                 gap: "4px",
                 px: 1,
-                "&::-webkit-scrollbar": { width: "4px" },
+                maxHeight: isMobile ? "65dvh" : "54dvh",
+                overflowY: "auto",
+                overflowX: "hidden",
+                "&::-webkit-scrollbar": { width: "1%" },
                 "&::-webkit-scrollbar-thumb": {
-                    backgroundColor: "rgba(255,255,255,0.2)",
-                    borderRadius: "2px",
+                    backgroundColor: "rgba(127, 214, 255, 0.45)",
+                    borderRadius: "999px",
                 },
             }}
         >
