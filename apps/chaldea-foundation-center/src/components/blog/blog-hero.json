@@ -23,6 +23,11 @@
             "multiple": false,
             "required": true,
             "allowedTypes": ["images", "files"]
+        },
+        "link_to_page": {
+            "type": "component",
+            "component": "layout.link",
+            "repeatable": false
         }
     },
     "config": {}
