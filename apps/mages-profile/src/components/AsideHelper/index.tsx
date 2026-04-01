@@ -5,9 +5,10 @@ import { motion } from "framer-motion";
 import GlitchButton from "../GlitchButton";
 import ToggleSound from "../ToggleSound";
 import HologramGlitchText from "../HologramGlitchText";
+import { Country } from "../Globe";
 
 export interface AsideHelperProps {
-    markedCountries: string[];
+    markedCountries: Country[];
     handleClick: (country: string | null) => void;
     countrySelected: string | null;
     isMobile: boolean;
@@ -121,12 +122,15 @@ const AsideHelper: FC<AsideHelperProps> = ({
                 animate={isVisible ? "visible" : "exit"}
             >
                 {markedCountries.map((country) => (
-                    <motion.div key={country} variants={itemVariants}>
+                    <motion.div
+                        key={country.country + country.label}
+                        variants={itemVariants}
+                    >
                         <GlitchButton
-                            onClick={() => handleClick(country)}
-                            label={country}
+                            onClick={() => handleClick(country.country)}
+                            label={country.label}
                             cornerVariant="left"
-                            active={countrySelected === country}
+                            active={countrySelected === country.country}
                             data-sound="modal"
                         />
                     </motion.div>

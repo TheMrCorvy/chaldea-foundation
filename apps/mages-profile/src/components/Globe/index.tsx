@@ -12,17 +12,25 @@ export interface GlobeProps {
     sections: StrapiSection[];
 }
 
-const Globe: FC<GlobeProps> = ({ isMobile, sections }) => {
-    const sectionsTitles = sections.map((section) => section.title) as string[];
+export interface Country {
+    country: string;
+    label: string;
+}
 
-    const markedCountries = sectionsTitles.filter((country) =>
-        selectableCountries.includes(country)
-    ) as string[];
+const Globe: FC<GlobeProps> = ({ isMobile, sections }) => {
+    const sectionIds = sections.map((section) => ({
+        country: section.component_id,
+        label: section.title,
+    })) as Country[];
+
+    const markedCountries = sectionIds.filter((country) =>
+        selectableCountries.includes(country.country)
+    ) as Country[];
 
     const { mapContainer, onCountryClick, countrySelected, open } = useChaldeas(
         {
             isMobile,
-            markedCountries,
+            markedCountries: markedCountries.map((country) => country.country),
         }
     );
 
