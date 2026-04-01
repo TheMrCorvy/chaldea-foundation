@@ -47,12 +47,13 @@ const LogoLoop: FC<LogoLoopProps> = ({
             flexDirection: isVertical ? "column" : "row",
             width: isVertical ? "auto" : "100%",
             height: isVertical ? "100%" : "auto",
+            maxWidth: isVertical ? "100%" : isMobile ? "70dvw" : undefined,
             overflow: "hidden",
             position: "relative",
             isolation: "isolate",
             borderRadius: "8px",
         }),
-        [isVertical]
+        [isVertical, isMobile]
     );
 
     const trackStyle: CSSProperties = useMemo(
@@ -177,7 +178,7 @@ const LogoLoop: FC<LogoLoopProps> = ({
                             key={`copy-${copyIndex}-item-${itemIndex}`}
                             style={{
                                 flex: isMobile ? "0 1 auto" : "0 0 auto",
-                                maxWidth: isMobile ? "100%" : undefined,
+                                maxWidth: isMobile ? "60dvw" : undefined,
                                 minWidth: 0,
                             }}
                         >
