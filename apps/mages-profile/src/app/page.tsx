@@ -157,6 +157,13 @@ const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
                                     },
                                 },
                             },
+                            "blog.blog-hero": {
+                                populate: {
+                                    link_to_page: {
+                                        populate: "*",
+                                    },
+                                },
+                            },
                         },
                     },
                 },
