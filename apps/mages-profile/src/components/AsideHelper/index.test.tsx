@@ -108,7 +108,16 @@ describe("AsideHelper", () => {
 
         render(
             <AsideHelper
-                markedCountries={["Japan", "Argentina"]}
+                markedCountries={[
+                    {
+                        country: "Japan",
+                        label: "About me",
+                    },
+                    {
+                        country: "Argentina",
+                        label: "Projects",
+                    },
+                ]}
                 handleClick={handleClick}
                 countrySelected="Japan"
                 isMobile={false}
@@ -122,9 +131,9 @@ describe("AsideHelper", () => {
             screen.getByText("Exploratio anima in cosmi somniorum")
         ).toBeInTheDocument();
 
-        const japanButton = screen.getByRole("button", { name: "Japan" });
+        const japanButton = screen.getByRole("button", { name: "About me" });
         const argentinaButton = screen.getByRole("button", {
-            name: "Argentina",
+            name: "Projects",
         });
 
         expect(japanButton).toHaveAttribute("data-active", "true");
@@ -145,7 +154,16 @@ describe("AsideHelper", () => {
     it("applies hidden interaction style when not visible on mobile", () => {
         render(
             <AsideHelper
-                markedCountries={["Chile"]}
+                markedCountries={[
+                    {
+                        country: "Japan",
+                        label: "About me",
+                    },
+                    {
+                        country: "Argentina",
+                        label: "Projects",
+                    },
+                ]}
                 handleClick={jest.fn()}
                 countrySelected={null}
                 isMobile
