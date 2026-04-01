@@ -1,14 +1,10 @@
 "use client";
 
-import { BGMs, useSound } from "@/contexts/SoundContext";
+import { useSound } from "@/contexts/SoundContext";
 import GlitchButton from "../GlitchButton";
 import { FC } from "react";
 
-export interface ToggleSoundProps {
-    bgm?: BGMs;
-}
-
-const ToggleSound: FC<ToggleSoundProps> = ({ bgm }) => {
+const ToggleSound: FC = () => {
     const { soundEnabled, setSoundEnabled, playSound } = useSound();
 
     const handleClick = () => {
