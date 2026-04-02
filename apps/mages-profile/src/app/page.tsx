@@ -129,6 +129,9 @@ const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
                                                     },
                                                 },
                                             },
+                                            icon: {
+                                                populate: "*",
+                                            },
                                         },
                                     },
                                 },
