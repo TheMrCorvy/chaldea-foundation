@@ -10,7 +10,7 @@
     gap: 0.5rem;
     padding: 0.5rem 0.5rem;
     border: 0;
-    background: var(--background-color);
+    background: var(--background-color, transparent);
     position: relative;
     color: var(--accent);
     cursor: pointer;
@@ -95,17 +95,20 @@
     );
 }
 
-.cyberBtn:is(:hover, :focus-visible),
+.cyberBtn:hover,
+.cyberBtn:focus-visible,
 .cyberBtn.active {
     color: canvas;
 }
 
-.cyberBtn:is(:hover, :focus-visible) .backdrop,
+.cyberBtn:hover .backdrop,
+.cyberBtn:focus-visible .backdrop,
 .cyberBtn.active .backdrop {
     background: var(--accent);
 }
 
-.cyberBtn:is(:hover, :focus-visible) .corner::after,
+.cyberBtn:hover .corner::after,
+.cyberBtn:focus-visible .corner::after,
 .cyberBtn.active .corner::after {
     background: canvas;
 }
@@ -123,12 +126,14 @@
     text-shadow: 0 1px var(--shadow);
 }
 
-.cyberBtn:is(:focus-visible, :hover) .glitch {
+.cyberBtn:focus-visible .glitch,
+.cyberBtn:hover .glitch {
     animation: glitch 2s infinite;
     display: flex;
 }
 
-.cyberBtn:is(:focus-visible, :hover) .glitch .backdrop,
+.cyberBtn:focus-visible .glitch .backdrop,
+.cyberBtn:hover .glitch .backdrop,
 .cyberBtn.active .glitch .backdrop {
     background: canvas;
 }
@@ -190,6 +195,10 @@
     background: var(--accent);
     translate: 0 0;
     border: var(--border) solid #0000;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
     mask: linear-gradient(#0000 0% 100%), linear-gradient(#fff 0% 100%);
     mask-clip: padding-box, border-box;
     mask-repeat: no-repeat;
