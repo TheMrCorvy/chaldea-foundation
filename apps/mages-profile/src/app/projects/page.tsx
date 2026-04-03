@@ -1,5 +1,3 @@
-import GlitchButton from "@/components/GlitchButton";
-import StarryContainer from "@/components/StarryContainer";
 import { BGMs, SoundProvider } from "@/contexts/SoundContext";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
@@ -12,7 +10,7 @@ import { redirect } from "next/navigation";
 import { cache } from "react";
 
 import "../globals.css";
-import MagicBento from "@/components/MagicBento";
+import ClientSideProjectsPage from "@/components/ClientSideProjectsPage";
 
 type DynamicPageResponse = {
     data?: Array<DynamicPage>;
@@ -202,28 +200,11 @@ export default async function StaticProjectsPage() {
 
     return (
         <SoundProvider bgm={dynamicPage.background_music as BGMs}>
-            <StarryContainer>
-                <div
-                    style={{
-                        position: "absolute",
-                        top: "3rem",
-                        left: "3rem",
-                    }}
-                >
-                    <GlitchButton
-                        label="Back"
-                        dataSound="page_change"
-                        cornerVariant="right"
-                    />
-                </div>
-                <MagicBento
-                    layout="vertical"
-                    projects={
-                        (dynamicPage.sections[0] as SectionsProjectsSection)
-                            .projects || []
-                    }
-                />
-            </StarryContainer>
+            <ClientSideProjectsPage
+                projectsSection={
+                    dynamicPage.sections[0] as SectionsProjectsSection
+                }
+            />
         </SoundProvider>
     );
 }
