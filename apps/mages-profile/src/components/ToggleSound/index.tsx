@@ -4,7 +4,11 @@ import { useSound } from "@/contexts/SoundContext";
 import GlitchButton from "../GlitchButton";
 import { FC } from "react";
 
-const ToggleSound: FC = () => {
+export interface ToggleSoundProps {
+    useLeftSideBtn?: boolean;
+}
+
+const ToggleSound: FC<ToggleSoundProps> = ({ useLeftSideBtn }) => {
     const { soundEnabled, setSoundEnabled, playSound } = useSound();
 
     const handleClick = () => {
@@ -15,7 +19,7 @@ const ToggleSound: FC = () => {
     return (
         <GlitchButton
             label="Sound Effects"
-            cornerVariant="right"
+            cornerVariant={useLeftSideBtn ? "left" : "right"}
             active={soundEnabled}
             onClick={handleClick}
             dataSound="page_change"
