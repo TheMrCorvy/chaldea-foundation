@@ -91,7 +91,7 @@ describe("StarryContainer", () => {
         const main = screen.getByRole("main");
         expect(main).toBeInTheDocument();
         expect(main).toHaveAttribute("data-sound", "button");
-        expect(main.getAttribute("data-sx")).toContain('"height":"100dvh"');
+        expect(main.getAttribute("data-sx")).toContain('"minHeight":"100dvh"');
     });
 
     it("renders all star particles from the predefined star list", () => {
