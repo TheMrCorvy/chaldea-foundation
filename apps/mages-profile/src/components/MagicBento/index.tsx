@@ -2,7 +2,6 @@
 
 import React, { useRef, MouseEvent } from "react";
 import { Box, Typography, Link as MuiLink } from "@mui/material";
-import CallMadeIcon from "@mui/icons-material/CallMade";
 import { LayoutProjectListItem } from "@repo/type-definitions/dynamic-page";
 import { motion } from "framer-motion";
 import styles from "./MagicBento.module.css";
@@ -132,7 +131,10 @@ const MagicBento: React.FC<MagicBentoProps> = ({
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                <CallMadeIcon fontSize="small" />
+                                                <IconComponent
+                                                    icon="CallMade"
+                                                    size="small"
+                                                />
                                             </MuiLink>
                                         )}
                                     </Box>

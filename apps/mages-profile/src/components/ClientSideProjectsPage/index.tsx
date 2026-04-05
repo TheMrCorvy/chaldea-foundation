@@ -5,7 +5,7 @@ import GlitchButton from "../GlitchButton";
 import MagicBento from "../MagicBento";
 import StarryContainer from "../StarryContainer";
 import { FC } from "react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { CSSProperties } from "@mui/material";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -52,6 +52,7 @@ const itemVariants = {
 const ClientSideProjectsPage: FC<ClientSideProjectsPageProps> = ({
     projectsSection,
 }) => {
+    const router = useRouter();
     const isMobile = useMediaQuery().max.width("sm");
     const asideStyle: CSSProperties = {
         position: "absolute",
@@ -83,7 +84,7 @@ const ClientSideProjectsPage: FC<ClientSideProjectsPageProps> = ({
                         label="Back"
                         dataSound="page_change"
                         cornerVariant="right"
-                        onClick={() => redirect("/")}
+                        onClick={() => router.push("/")}
                     />
                 </motion.div>
             </motion.aside>
