@@ -10,9 +10,10 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { cache } from "react";
 
-interface ProjectsPageProps {
+export interface ProjectsPageProps {
     params: Promise<{
         pageSection: string;
+        slug: string;
     }>;
 }
 
