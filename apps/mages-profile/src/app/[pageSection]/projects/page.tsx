@@ -1,15 +1,14 @@
-import StarryContainer from "@/components/StarryContainer";
+import ClientSideProjectsPage from "@/components/ClientSideProjectsPage";
 import { BGMs, SoundProvider } from "@/contexts/SoundContext";
-import { Button, Link } from "@mui/material";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
-import { DynamicPage } from "@repo/type-definitions/dynamic-page";
+import {
+    DynamicPage,
+    SectionsProjectsSection,
+} from "@repo/type-definitions/dynamic-page";
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import { cache } from "react";
-
-const ALLOWED_PAGE_SECTIONS = ["home", "blog", "cv"] as const;
-type PageSection = (typeof ALLOWED_PAGE_SECTIONS)[number];
 
 interface ProjectsPageProps {
     params: Promise<{
@@ -29,10 +28,6 @@ const NOT_FOUND_METADATA: Metadata = {
         follow: false,
     },
 };
-
-function isPageSection(value: string): value is PageSection {
-    return ALLOWED_PAGE_SECTIONS.includes(value as PageSection);
-}
 
 function isRecord(value: unknown): value is Record<string, unknown> {
     return typeof value === "object" && value !== null;
@@ -173,21 +168,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 3600;
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-    return ALLOWED_PAGE_SECTIONS.map((pageSection) => ({
-        pageSection,
-    }));
-}
-
-export async function generateMetadata({
-    params,
-}: ProjectsPageProps): Promise<Metadata> {
-    const { pageSection } = await params;
-
-    if (!isPageSection(pageSection)) {
-        return NOT_FOUND_METADATA;
-    }
-
+export async function generateMetadata(): Promise<Metadata> {
     const dynamicPage = await getDynamicProjectsPage();
 
     if (!dynamicPage) {
@@ -199,10 +180,6 @@ export async function generateMetadata({
 
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
     const { pageSection } = await params;
-
-    if (!isPageSection(pageSection)) {
-        notFound();
-    }
 
     const imageBaseUrl = process.env.IMAGES_SOURCE_URL;
 
@@ -228,16 +205,25 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
         return redirect("/404/2");
     }
 
+    const allowedSections = dynamicPage.metadata?.allowedSections as
+        | string[]
+        | undefined;
+
+    if (!allowedSections) {
+        return redirect("/404/3");
+    }
+
+    if (!allowedSections.includes(pageSection)) {
+        return redirect("/404/4");
+    }
+
     return (
         <SoundProvider bgm={dynamicPage.background_music as BGMs}>
-            <StarryContainer>
-                <Button href="/" variant="outlined">
-                    Back
-                </Button>
-                <Link href="/">Back to main homepage</Link>
-                <h1>{pageSection} projects</h1>
-                <p>Dynamic section: {pageSection}</p>
-            </StarryContainer>
+            <ClientSideProjectsPage
+                projectsSection={
+                    dynamicPage.sections[0] as SectionsProjectsSection
+                }
+            />
         </SoundProvider>
     );
 }

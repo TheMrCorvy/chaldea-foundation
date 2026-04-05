@@ -14,6 +14,7 @@ import useClickAnimationAndSounds from "@/hooks/useClickAnimationAndSounds";
 
 export interface ClientSideProjectsPageProps {
     projectsSection: SectionsProjectsSection;
+    appSection?: string;
 }
 
 const containerVariants = {
@@ -51,6 +52,7 @@ const itemVariants = {
 
 const ClientSideProjectsPage: FC<ClientSideProjectsPageProps> = ({
     projectsSection,
+    appSection,
 }) => {
     const router = useRouter();
     const isMobile = useMediaQuery().max.width("sm");
@@ -64,6 +66,16 @@ const ClientSideProjectsPage: FC<ClientSideProjectsPageProps> = ({
     };
 
     useClickAnimationAndSounds();
+
+    const handleClick = () => {
+        let route = "/";
+
+        if (appSection) {
+            route += appSection;
+        }
+
+        return router.push(route);
+    };
 
     return (
         <StarryContainer>
@@ -84,7 +96,7 @@ const ClientSideProjectsPage: FC<ClientSideProjectsPageProps> = ({
                         label="Back"
                         dataSound="page_change"
                         cornerVariant="right"
-                        onClick={() => router.push("/")}
+                        onClick={handleClick}
                     />
                 </motion.div>
             </motion.aside>
