@@ -24,7 +24,13 @@ export type StrapiSection =
     | SectionsProjectsSection
     | SectionsContactSection
     | BlogHero
-    | BlogText;
+    | BlogText
+    | StrapiPDFComponent
+    | BlogImageComponent
+    | LayoutLink
+    | LayoutIcon
+    | LayoutForm
+    | LayoutDescriptionWithChipsList;
 
 export interface DynamicPageSections {
     [key: string]: StrapiSection;
