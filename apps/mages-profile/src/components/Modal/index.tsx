@@ -208,8 +208,9 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                             position: "absolute",
                             top: 0,
                             left: 0,
-                            height: "100dvh",
+                            maxHeight: "100dvh",
                             width: "100dvw",
+                            overflow: "hidden",
                             backgroundColor: isMobile
                                 ? "rgba(0, 0, 0, 0.4)"
                                 : "rgba(8, 46, 105, 0.45)",
