@@ -11,13 +11,14 @@ import { cache } from "react";
 
 import "../globals.css";
 import ClientSideProjectsPage from "@/components/ClientSideProjectsPage";
+import { dynamicPageFields, populateProjectsSection } from "@/lib/constants";
 
 type DynamicPageResponse = {
     data?: Array<DynamicPage>;
 };
 
 export const dynamic = "force-dynamic";
-export const revalidate = 3600;
+export const revalidate = 36000;
 
 const NOT_FOUND_METADATA: Metadata = {
     title: "404 - Page not found",
@@ -86,49 +87,10 @@ const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
                         $eq: "projects",
                     },
                 },
-                fields: [
-                    "slug",
-                    "title",
-                    "description",
-                    "metadata",
-                    "background_music",
-                ],
+                fields: dynamicPageFields,
                 populate: {
                     sections: {
-                        on: {
-                            "sections.projects-section": {
-                                populate: {
-                                    link_to_page: {
-                                        populate: "*",
-                                    },
-                                    projects: {
-                                        populate: {
-                                            body: {
-                                                populate: {
-                                                    chips: {
-                                                        populate: {
-                                                            icon: {
-                                                                populate: "*",
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                            links: {
-                                                populate: {
-                                                    icon: {
-                                                        populate: "*",
-                                                    },
-                                                },
-                                            },
-                                            icon: {
-                                                populate: "*",
-                                            },
-                                        },
-                                    },
-                                },
-                            },
-                        },
+                        on: populateProjectsSection,
                     },
                 },
             },
