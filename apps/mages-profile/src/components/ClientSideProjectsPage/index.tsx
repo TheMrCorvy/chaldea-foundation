@@ -118,8 +118,8 @@ const ClientSideProjectsPage: FC<ClientSideProjectsPageProps> = ({
             </motion.aside>
             <section
                 style={{
-                    marginTop: isMobile ? "7rem" : 0,
-                    marginBottom: isMobile ? "2rem" : 0,
+                    marginTop: isMobile ? "4rem" : 0,
+                    marginBottom: isMobile ? "4rem" : 0,
                     padding: isMobile ? "0 1rem" : 0,
                     width: "100%",
                     maxWidth: "1200px",
