@@ -1,5 +1,6 @@
 import MainPage from "@/components/ClientWrapper";
 import { BGMs, SoundProvider } from "@/contexts/SoundContext";
+import { dynamicPageFields, mainLandingPage } from "@/lib/constants";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
 import { DynamicPage } from "@repo/type-definitions/dynamic-page";
@@ -12,7 +13,7 @@ type DynamicPageResponse = {
 };
 
 export const dynamic = "force-dynamic";
-export const revalidate = 3600;
+export const revalidate = 36000;
 
 const NOT_FOUND_METADATA: Metadata = {
     title: "404 - Page not found",
@@ -81,93 +82,10 @@ const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
                         $eq: "main",
                     },
                 },
-                fields: [
-                    "slug",
-                    "title",
-                    "description",
-                    "metadata",
-                    "background_music",
-                ],
+                fields: dynamicPageFields,
                 populate: {
                     sections: {
-                        on: {
-                            "sections.landing-hero-section": {
-                                populate: "*",
-                            },
-                            "sections.work-experience-section": {
-                                populate: {
-                                    link_to_page: {
-                                        populate: "*",
-                                    },
-                                    experience_list_items: {
-                                        populate: "*",
-                                    },
-                                },
-                            },
-                            "sections.projects-section": {
-                                populate: {
-                                    link_to_page: {
-                                        populate: "*",
-                                    },
-                                    projects: {
-                                        populate: {
-                                            body: {
-                                                populate: {
-                                                    chips: {
-                                                        populate: {
-                                                            icon: {
-                                                                populate: "*",
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                            links: {
-                                                populate: {
-                                                    icon: {
-                                                        populate: "*",
-                                                    },
-                                                },
-                                            },
-                                            icon: {
-                                                populate: "*",
-                                            },
-                                        },
-                                    },
-                                },
-                            },
-                            "blog.blog-text": {
-                                populate: "*",
-                            },
-                            "sections.contact-section": {
-                                populate: {
-                                    contact_form: {
-                                        populate: {
-                                            inputs: {
-                                                populate: "*",
-                                            },
-                                        },
-                                    },
-                                    link_to_page: {
-                                        populate: "*",
-                                    },
-                                },
-                            },
-                            "layout.description-with-chips-list": {
-                                populate: {
-                                    chips: {
-                                        populate: "*",
-                                    },
-                                },
-                            },
-                            "blog.blog-hero": {
-                                populate: {
-                                    link_to_page: {
-                                        populate: "*",
-                                    },
-                                },
-                            },
-                        },
+                        on: mainLandingPage,
                     },
                 },
             },
