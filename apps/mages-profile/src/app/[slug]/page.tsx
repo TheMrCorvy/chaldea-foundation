@@ -11,14 +11,17 @@ import { cache } from "react";
 
 import "../globals.css";
 import ClientSideProjectsPage from "@/components/ClientSideProjectsPage";
-import { ProjectsPageProps } from "../[pageSection]/projects/page";
+import { dynamicZone, dynamicPageFields } from "@/lib/constants";
+
+export interface dynamicZonePageProps {
+    params: Promise<{
+        slug: string;
+    }>;
+}
 
 type DynamicPageResponse = {
     data?: Array<DynamicPage>;
 };
-
-export const dynamic = "force-dynamic";
-export const revalidate = 3600;
 
 const NOT_FOUND_METADATA: Metadata = {
     title: "404 - Page not found",
@@ -88,94 +91,10 @@ const getDynamicPage = cache(
                             $eq: slug,
                         },
                     },
-                    fields: [
-                        "slug",
-                        "title",
-                        "description",
-                        "metadata",
-                        "background_music",
-                    ],
+                    fields: dynamicPageFields,
                     populate: {
                         sections: {
-                            on: {
-                                "sections.landing-hero-section": {
-                                    populate: "*",
-                                },
-                                "sections.work-experience-section": {
-                                    populate: {
-                                        link_to_page: {
-                                            populate: "*",
-                                        },
-                                        experience_list_items: {
-                                            populate: "*",
-                                        },
-                                    },
-                                },
-                                "sections.projects-section": {
-                                    populate: {
-                                        link_to_page: {
-                                            populate: "*",
-                                        },
-                                        projects: {
-                                            populate: {
-                                                body: {
-                                                    populate: {
-                                                        chips: {
-                                                            populate: {
-                                                                icon: {
-                                                                    populate:
-                                                                        "*",
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                                links: {
-                                                    populate: {
-                                                        icon: {
-                                                            populate: "*",
-                                                        },
-                                                    },
-                                                },
-                                                icon: {
-                                                    populate: "*",
-                                                },
-                                            },
-                                        },
-                                    },
-                                },
-                                "blog.blog-text": {
-                                    populate: "*",
-                                },
-                                "sections.contact-section": {
-                                    populate: {
-                                        contact_form: {
-                                            populate: {
-                                                inputs: {
-                                                    populate: "*",
-                                                },
-                                            },
-                                        },
-                                        link_to_page: {
-                                            populate: "*",
-                                        },
-                                    },
-                                },
-                                "layout.description-with-chips-list": {
-                                    populate: {
-                                        chips: {
-                                            populate: "*",
-                                        },
-                                    },
-                                },
-                                "blog.blog-hero": {
-                                    populate: {
-                                        link_to_page: {
-                                            populate: "*",
-                                        },
-                                    },
-                                },
-                            },
+                            on: dynamicZone,
                         },
                     },
                 },
@@ -213,7 +132,7 @@ const getDynamicPage = cache(
 
 export async function generateMetadata({
     params,
-}: ProjectsPageProps): Promise<Metadata> {
+}: dynamicZonePageProps): Promise<Metadata> {
     const { slug } = await params;
     const dynamicPage = await getDynamicPage(slug);
 
@@ -224,7 +143,7 @@ export async function generateMetadata({
     return buildSeoMetadata(dynamicPage);
 }
 
-export default async function DynamicIsland({ params }: ProjectsPageProps) {
+export default async function DynamicIsland({ params }: dynamicZonePageProps) {
     const { slug } = await params;
     const imageBaseUrl = process.env.IMAGES_SOURCE_URL;
 
