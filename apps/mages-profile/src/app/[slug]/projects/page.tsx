@@ -1,5 +1,6 @@
 import ClientSideProjectsPage from "@/components/ClientSideProjectsPage";
 import { BGMs, SoundProvider } from "@/contexts/SoundContext";
+import { dynamicPageFields, populateProjectsSection } from "@/lib/constants";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
 import {
@@ -12,7 +13,6 @@ import { cache } from "react";
 
 export interface ProjectsPageProps {
     params: Promise<{
-        pageSection: string;
         slug: string;
     }>;
 }
@@ -88,49 +88,10 @@ const getDynamicProjectsPage = cache(async (): Promise<DynamicPage | null> => {
                         $eq: "projects",
                     },
                 },
-                fields: [
-                    "slug",
-                    "title",
-                    "description",
-                    "metadata",
-                    "background_music",
-                ],
+                fields: dynamicPageFields,
                 populate: {
                     sections: {
-                        on: {
-                            "sections.projects-section": {
-                                populate: {
-                                    link_to_page: {
-                                        populate: "*",
-                                    },
-                                    projects: {
-                                        populate: {
-                                            body: {
-                                                populate: {
-                                                    chips: {
-                                                        populate: {
-                                                            icon: {
-                                                                populate: "*",
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                            links: {
-                                                populate: {
-                                                    icon: {
-                                                        populate: "*",
-                                                    },
-                                                },
-                                            },
-                                            icon: {
-                                                populate: "*",
-                                            },
-                                        },
-                                    },
-                                },
-                            },
-                        },
+                        on: populateProjectsSection,
                     },
                 },
             },
@@ -166,7 +127,7 @@ const getDynamicProjectsPage = cache(async (): Promise<DynamicPage | null> => {
 });
 
 export const dynamic = "force-dynamic";
-export const revalidate = 3600;
+export const revalidate = 36000;
 export const dynamicParams = false;
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -180,7 +141,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
-    const { pageSection } = await params;
+    const { slug } = await params;
 
     const imageBaseUrl = process.env.IMAGES_SOURCE_URL;
 
@@ -214,7 +175,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
         return redirect("/404/3");
     }
 
-    if (!allowedSections.includes(pageSection)) {
+    if (!allowedSections.includes(slug)) {
         return redirect("/404/4");
     }
 
