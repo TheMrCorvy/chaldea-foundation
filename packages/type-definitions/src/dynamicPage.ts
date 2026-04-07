@@ -121,7 +121,7 @@ export interface LayoutCallToAction {
 }
 
 export interface LayoutIcon extends StrapiComponent {
-    name: string;
+    name: any;
     size?: "inherit" | "small" | "medium" | "large" | null;
     color:
         | "primary"
