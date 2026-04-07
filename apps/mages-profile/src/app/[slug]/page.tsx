@@ -1,17 +1,16 @@
 import { BGMs, SoundProvider } from "@/contexts/SoundContext";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
-import {
-    DynamicPage,
-    SectionsProjectsSection,
-} from "@repo/type-definitions/dynamic-page";
+import { DynamicPage } from "@repo/type-definitions/dynamic-page";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { cache } from "react";
 
 import "../globals.css";
-import ClientSideProjectsPage from "@/components/ClientSideProjectsPage";
 import { dynamicZone, dynamicPageFields } from "@/lib/constants";
+import DynamicZoneComponent from "@/components/DynamicZone";
+import ClientSideUiEffects from "@/components/DynamicZone/ClientSideUI/ClientSideUiEffects";
+import StarryContainer from "@/components/StarryContainer";
 
 export interface dynamicZonePageProps {
     params: Promise<{
@@ -143,7 +142,7 @@ export async function generateMetadata({
     return buildSeoMetadata(dynamicPage);
 }
 
-export default async function DynamicIsland({ params }: dynamicZonePageProps) {
+export default async function DynamicZone({ params }: dynamicZonePageProps) {
     const { slug } = await params;
     const imageBaseUrl = process.env.IMAGES_SOURCE_URL;
 
@@ -169,13 +168,20 @@ export default async function DynamicIsland({ params }: dynamicZonePageProps) {
         return redirect("/404/2");
     }
 
+    const sections = dynamicPage?.sections || [];
+
     return (
         <SoundProvider bgm={dynamicPage.background_music as BGMs}>
-            <ClientSideProjectsPage
-                projectsSection={
-                    dynamicPage.sections[0] as SectionsProjectsSection
-                }
-            />
+            <StarryContainer>
+                <ClientSideUiEffects routerPush="/" />
+
+                {sections.map((section) => (
+                    <DynamicZoneComponent
+                        section={section}
+                        key={section.component_id}
+                    />
+                ))}
+            </StarryContainer>
         </SoundProvider>
     );
 }
