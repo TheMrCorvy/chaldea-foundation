@@ -132,7 +132,7 @@ const MagicBento: React.FC<MagicBentoProps> = ({
                                                 rel="noopener noreferrer"
                                             >
                                                 <IconComponent
-                                                    icon="CallMade"
+                                                    name="CallMade"
                                                     size="small"
                                                 />
                                             </MuiLink>
@@ -180,7 +180,7 @@ const MagicBento: React.FC<MagicBentoProps> = ({
                                         >
                                             {link.label}
                                             <IconComponent
-                                                icon="Link"
+                                                name="Link"
                                                 size="small"
                                             />
                                         </MuiLink>

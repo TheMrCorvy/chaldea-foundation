@@ -24,7 +24,7 @@ jest.mock("@mui/icons-material", () => {
 
 describe("IconComponent", () => {
     it("renders the icon component dynamically by icon name", () => {
-        render(<IconComponent icon="Home" data-testid="home-icon" />);
+        render(<IconComponent name="Home" data-testid="home-icon" />);
 
         const iconElement = screen.getByTestId("home-icon");
 
@@ -36,7 +36,7 @@ describe("IconComponent", () => {
     it("forwards props to the selected icon", () => {
         render(
             <IconComponent
-                icon="Favorite"
+                name="Favorite"
                 data-testid="favorite-icon"
                 className="custom-icon"
             />
@@ -51,7 +51,7 @@ describe("IconComponent", () => {
     it("returns null when the requested icon does not exist", () => {
         render(
             <IconComponent
-                icon={"NotAnIcon" as keyof typeof import("@mui/icons-material")}
+                name={"NotAnIcon" as keyof typeof import("@mui/icons-material")}
                 data-testid="missing-icon"
             />
         );

@@ -25,13 +25,13 @@ const SkillListItem: FC<SkillListItemProps> = ({
                 textAlign: "center",
             }}
         >
-            {icon && <IconComponent size={size} icon={icon} />}
+            {icon && <IconComponent size={size} name={icon} />}
             <Typography variant="caption" fontSize={10} align="center">
                 {title}
             </Typography>
             {popover && (
                 <Tooltip title={popover} placement="top">
-                    <IconComponent icon="Info" size="small" />
+                    <IconComponent name="Info" size="small" />
                 </Tooltip>
             )}
         </span>

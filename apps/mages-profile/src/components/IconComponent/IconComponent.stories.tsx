@@ -22,7 +22,7 @@ const meta = {
     },
     tags: ["autodocs"],
     argTypes: {
-        icon: {
+        name: {
             control: "select",
             options: Object.keys(MuiIcons).filter(
                 (key) =>
@@ -64,7 +64,7 @@ const iconNames = Object.keys(MuiIcons).filter(
 
 export const Default: Story = {
     args: {
-        icon: "Home",
+        name: "Home",
     },
     render: (args) => (
         <StarryContainer>
@@ -75,7 +75,7 @@ export const Default: Story = {
 
 export const WithColor: Story = {
     args: {
-        icon: "Favorite",
+        name: "Favorite",
         color: "error",
     },
     render: (args) => (
@@ -87,7 +87,7 @@ export const WithColor: Story = {
 
 export const WithSize: Story = {
     args: {
-        icon: "Star",
+        name: "Star",
         fontSize: "large",
         color: "primary",
     },
@@ -100,7 +100,7 @@ export const WithSize: Story = {
 
 export const CustomStyle: Story = {
     args: {
-        icon: "Whatshot",
+        name: "Whatshot",
         sx: {
             color: "#ff6600",
             fontSize: "4rem",
@@ -115,7 +115,7 @@ export const CustomStyle: Story = {
 
 export const AllIcons: Story = {
     args: {
-        icon: "Home",
+        name: "Home",
     },
     render: () => (
         <Box
@@ -172,7 +172,7 @@ export const AllIcons: Story = {
                         }}
                     >
                         <IconComponent
-                            icon={iconName}
+                            name={iconName}
                             sx={{
                                 color: "white",
                                 fontSize: "2.5rem",
@@ -199,7 +199,7 @@ export const AllIcons: Story = {
 
 export const PopularIcons: Story = {
     args: {
-        icon: "Home",
+        name: "Home",
     },
     render: () => {
         const popularIconNames: Array<keyof typeof MuiIcons> = [
@@ -287,7 +287,7 @@ export const PopularIcons: Story = {
                             }}
                         >
                             <IconComponent
-                                icon={iconName}
+                                name={iconName}
                                 sx={{
                                     color: "#4dd0e1",
                                     fontSize: "3rem",
