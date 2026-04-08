@@ -13,31 +13,19 @@ const DynamicLink: FC<LayoutLink> = ({
 }) => {
     if (popover) {
         return (
-            <WithTooltip popover={popover}>
+            <Tooltip title={popover} placement="top">
                 <VariantDecider {...{ label, target, icon, href, variant }} />
-            </WithTooltip>
+            </Tooltip>
         );
     }
 
-    return (
-        <Link href={href} target={target}>
-            {label}
-        </Link>
-    );
+    return <VariantDecider {...{ label, target, icon, href, variant }} />;
 };
 
 export interface WithTooltipProps {
     children: ReactElement;
     popover: string;
 }
-
-const WithTooltip: FC<WithTooltipProps> = ({ children, popover }) => {
-    return (
-        <Tooltip title={popover || ""} placement="top">
-            {children}
-        </Tooltip>
-    );
-};
 
 export interface VariantDeciderProps {
     label: string;
