@@ -113,6 +113,7 @@ export interface LayoutLink extends StrapiComponent {
     label: string;
     popover?: string;
     variant: "link" | "icon_link" | "link_with_icon";
+    target?: "_blank" | "_self" | "_parent" | "_top";
 }
 
 export interface LayoutCallToAction {
@@ -153,7 +154,6 @@ export interface JsonRichText {
     italic?: boolean;
     underline?: boolean;
     code?: boolean;
-    color?: "primary" | "secondary" | "warning" | "info" | "error" | "success";
 }
 
 export interface SectionsProjectsSection extends StrapiComponent {
@@ -168,6 +168,9 @@ export interface LayoutToolChip extends StrapiComponent {
 
 export interface LayoutDescriptionWithChipsList extends StrapiComponent {
     body: Array<JsonRichText>;
+    font_size: string | null;
+    line_height: number | null;
+    color: string | null;
     chips?: Array<LayoutToolChip>;
 }
 
@@ -226,4 +229,7 @@ export interface BlogHero extends StrapiComponent {
 
 export interface BlogText extends StrapiComponent {
     body: Array<JsonRichText>;
+    font_size: string | null;
+    line_height: number | null;
+    color: string | null;
 }
