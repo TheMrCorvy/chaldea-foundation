@@ -24,6 +24,15 @@
             "repeatable": true,
             "required": true,
             "min": 1
+        },
+        "font_size": {
+            "type": "string"
+        },
+        "line_height": {
+            "type": "decimal"
+        },
+        "color": {
+            "type": "string"
         }
     },
     "config": {}
