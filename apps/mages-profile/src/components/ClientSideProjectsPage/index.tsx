@@ -1,3 +1,5 @@
+"use client";
+
 import { SectionsProjectsSection } from "@repo/type-definitions/dynamic-page";
 import MagicBento from "../MagicBento";
 import StarryContainer from "../StarryContainer";
