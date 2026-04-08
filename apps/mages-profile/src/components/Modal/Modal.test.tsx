@@ -143,7 +143,7 @@ const findOverlay = (container: HTMLElement): HTMLElement => {
         .find((element) => {
             const sx = element.getAttribute("data-sx") ?? "";
             return (
-                sx.includes('"height":"100dvh"') &&
+                sx.includes('"maxHeight":"100dvh"') &&
                 sx.includes('"width":"100dvw"')
             );
         });
