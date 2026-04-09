@@ -17,7 +17,6 @@ import DynamicProjectsSection from "./DynamicProjectsSection";
 import DynamicLandingHeroSection from "./DynamicLandingHeroSection";
 import DynamicWorkExperienceSection from "./DynamicWorkExperienceSection";
 import DynamicBlogText from "./BlogText";
-import DynamicContactSection from "./DynamicContactSection";
 import DynamicDescriptionWithChipsList from "./DynamicDescriptionWithChipsList";
 import DynamicBlogHero from "./DynamicBlogHero";
 import DynamicPdfFile from "./DynamicPdfFile";
@@ -56,11 +55,7 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({ section }) => {
             return <DynamicBlogText {...(section as BlogText)} />;
 
         case "sections.contact-section":
-            return (
-                <DynamicContactSection
-                    {...(section as SectionsContactSection)}
-                />
-            );
+            return "Contact section component is deprecated"; // This section is going to be replaced with a normal form
 
         case "layout.description-with-chips-list":
             return (
