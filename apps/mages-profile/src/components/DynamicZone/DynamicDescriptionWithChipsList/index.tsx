@@ -59,6 +59,7 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
                 flexDirection: "column",
                 gap: 2,
                 maxWidth: "1300px",
+                color: color || "rgba(222, 233, 241, 0.95)",
             }}
         >
             {title && (
@@ -67,7 +68,6 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
                     variants={textVariants}
                     variant="h3"
                     sx={{
-                        color: "rgba(178, 221, 255, 0.95)",
                         fontWeight: "bold",
                         letterSpacing: "0.1em",
                         textTransform: "uppercase",
@@ -82,7 +82,6 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
                 component={motion.div}
                 variants={textVariants}
                 sx={{
-                    color: color || "rgba(178, 221, 255, 0.9)",
                     fontSize: font_size || "1rem",
                     lineHeight: line_height || 1.6,
                     "& p": {
