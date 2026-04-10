@@ -1,5 +1,6 @@
 import {
     BlogHero,
+    BlogImageComponent,
     BlogText,
     LayoutDescriptionWithChipsList,
     LayoutForm,
@@ -16,13 +17,14 @@ import { FC } from "react";
 import DynamicProjectsSection from "./DynamicProjectsSection";
 import DynamicLandingHeroSection from "./DynamicLandingHeroSection";
 import DynamicWorkExperienceSection from "./DynamicWorkExperienceSection";
-import DynamicBlogText from "./BlogText";
+import DynamicBlogText from "./DynamicBlogText";
 import DynamicDescriptionWithChipsList from "./DynamicDescriptionWithChipsList";
 import DynamicBlogHero from "./DynamicBlogHero";
 import DynamicPdfFile from "./DynamicPdfFile";
 import DynamicLink from "./DynamicLink";
 import IconComponent from "../IconComponent";
 import DynamicForm from "./DynamicForm";
+import DynamicBlogImage from "./DynamicBlogImage";
 
 export interface DynamicZoneComponentProps {
     section: StrapiSection;
@@ -78,6 +80,9 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({ section }) => {
 
         case "layout.form":
             return <DynamicForm {...(section as LayoutForm)} />;
+
+        case "blog.blog-image":
+            return <DynamicBlogImage {...(section as BlogImageComponent)} />;
 
         default:
             return null;
