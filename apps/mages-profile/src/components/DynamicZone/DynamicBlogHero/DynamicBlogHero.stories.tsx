@@ -3,7 +3,7 @@ import DynamicBlogHero from "./index";
 import StarryContainer from "../../StarryContainer";
 
 const meta = {
-    title: "Components/DynamicZone/DynamicBlogHero",
+    title: "DynamicZone/DynamicBlogHero",
     component: DynamicBlogHero,
     parameters: {
         layout: "fullscreen",
@@ -25,15 +25,7 @@ const meta = {
     decorators: [
         (Story) => (
             <StarryContainer>
-                <div
-                    style={{
-                        padding: "4rem",
-                        width: "100%",
-                        zIndex: 10,
-                    }}
-                >
-                    <Story />
-                </div>
+                <Story />
             </StarryContainer>
         ),
     ],
@@ -114,6 +106,15 @@ export const Default: Story = {
             },
         ],
         cover_image: mockCoverImage,
+        link_to_page: {
+            __component: "layout.link",
+            component_id: "link-1",
+            title: "Commence Transfer",
+            href: "/transfer",
+            label: "Initiate RayShift",
+            variant: "link",
+            target: "_self",
+        },
     },
 };
 
@@ -133,6 +134,15 @@ export const NoImage: Story = {
                 ],
             },
         ],
+        link_to_page: {
+            __component: "layout.link",
+            component_id: "link-2",
+            title: "Commence Transfer",
+            href: "/transfer",
+            label: "System Override",
+            variant: "link",
+            target: "_self",
+        },
         cover_image: {
             ...mockCoverImage,
             url: "",
