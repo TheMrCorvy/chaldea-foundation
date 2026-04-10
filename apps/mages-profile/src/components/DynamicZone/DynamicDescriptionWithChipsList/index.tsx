@@ -127,7 +127,7 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
                                     ) : undefined
                                 }
                                 sx={{
-                                    color: "rgba(178, 221, 255, 0.95)",
+                                    color: "#eeeeee",
                                     backgroundColor: "rgba(12, 36, 72, 0.4)",
                                     border: "1px solid rgba(56, 182, 255, 0.3)",
                                     backdropFilter: "blur(4px)",

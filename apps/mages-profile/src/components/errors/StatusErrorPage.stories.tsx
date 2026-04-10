@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import { StatusErrorPage } from "./StatusErrorPage";
 
 const meta = {
-    title: "Components/Errors/StatusErrorPage",
+    title: "Errors/StatusErrorPage",
     component: StatusErrorPage,
     parameters: {
         layout: "fullscreen",

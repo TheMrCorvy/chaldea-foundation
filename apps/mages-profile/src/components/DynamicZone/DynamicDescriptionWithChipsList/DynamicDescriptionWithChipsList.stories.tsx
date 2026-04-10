@@ -3,7 +3,7 @@ import DynamicDescriptionWithChipsList from "./index";
 import StarryContainer from "../../StarryContainer";
 
 const meta = {
-    title: "Components/DynamicZone/DynamicDescriptionWithChipsList",
+    title: "DynamicZone/DynamicDescriptionWithChipsList",
     component: DynamicDescriptionWithChipsList,
     parameters: {
         layout: "fullscreen",
@@ -26,7 +26,7 @@ export const Default: Story = {
         component_id: "desc-chips-1",
         __component: "dynamic-zone.description-with-chips-list",
         title: "Testing title of the component",
-        color: "rgba(178, 221, 255, 0.95)",
+        color: "#eeeeee",
         font_size: "1.1rem",
         line_height: 1.8,
         body: [
