@@ -8,7 +8,7 @@ import Loader from "../Loader";
 
 const GlobeComponent = dynamic(
     async () => {
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 1500));
 
         const mod = await import("./index");
         return mod.default;

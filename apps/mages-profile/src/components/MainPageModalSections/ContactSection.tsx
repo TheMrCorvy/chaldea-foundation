@@ -108,7 +108,17 @@ const ContactSection: FC<ContactSectionProps> = ({
     };
 
     return (
-        <Box component="section" id={component_id}>
+        <Box
+            component="section"
+            id={component_id}
+            sx={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
             <Box
                 component="form"
                 onSubmit={handleSubmit}

@@ -59,6 +59,7 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
                         href={links[0].href}
                         label={links[0].label}
                         size="small"
+                        target={links[0].target || "_self"}
                         sx={{
                             height: "auto",
                             borderRadius: "6px",
@@ -108,7 +109,7 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
                         pt: "1%",
                     }}
                 >
-                    {body.chips.slice(0, 4).map((chip) => (
+                    {body.chips.map((chip) => (
                         <Chip
                             key={chip.component_id}
                             label={chip.title}
@@ -133,22 +134,24 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
                     gap: "12px",
                 }}
             >
-                {links.map((link) => (
-                    <Link
-                        key={link.component_id}
-                        href={link.href}
-                        underline="hover"
-                        target="_blank"
-                        sx={{
-                            color: "grey.400",
-                            fontSize: "0.7rem",
-                            alignSelf: "flex-start",
-                            mt: 1,
-                        }}
-                    >
-                        {link.label}
-                    </Link>
-                ))}
+                {links.map((link, index) =>
+                    index === 0 && !disable_primary_link ? null : (
+                        <Link
+                            key={link.component_id}
+                            href={link.href}
+                            underline="hover"
+                            target={link.target || "_blank"}
+                            sx={{
+                                color: "grey.400",
+                                fontSize: "0.7rem",
+                                alignSelf: "flex-start",
+                                mt: 1,
+                            }}
+                        >
+                            {link.label}
+                        </Link>
+                    )
+                )}
             </Box>
         </Box>
     );

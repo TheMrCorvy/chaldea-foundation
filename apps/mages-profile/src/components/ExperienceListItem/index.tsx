@@ -21,11 +21,20 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
         timeZone: "UTC",
     }).format(new Date(from));
 
-    const endDate = new Intl.DateTimeFormat("en-US", {
-        year: "2-digit",
-        month: "2-digit",
-        timeZone: "UTC",
-    }).format(new Date(until));
+    const endDate = () => {
+        const now = new Date();
+        const end = new Date(until);
+
+        if (end > now) {
+            return "Present";
+        }
+
+        return new Intl.DateTimeFormat("en-US", {
+            year: "2-digit",
+            month: "2-digit",
+            timeZone: "UTC",
+        }).format(new Date(until));
+    };
 
     return (
         <Box
@@ -152,7 +161,7 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                             fontSize: "0.8rem",
                         }}
                     >
-                        {startDate} → {endDate}
+                        {startDate} → {endDate()}
                     </Typography>
                 </Box>
 

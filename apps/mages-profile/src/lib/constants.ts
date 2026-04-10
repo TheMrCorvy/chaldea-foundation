@@ -153,6 +153,16 @@ export const populateForm = {
     },
 };
 
+export const populateBlogImage = {
+    "blog.blog-image": {
+        populate: {
+            image: {
+                populate: "*",
+            },
+        },
+    },
+};
+
 export const mainLandingPage = {
     ...populateBlogHero,
     ...populateBlogText,
@@ -161,6 +171,7 @@ export const mainLandingPage = {
     ...populateProjectsSection,
     ...populateLandingHeroSection,
     ...populateDescriptionWithChipsList,
+    ...populateBlogImage,
 };
 
 export const dynamicZone = {
@@ -175,4 +186,5 @@ export const dynamicZone = {
     ...populateLink,
     ...populateIcon,
     ...populateForm,
+    ...populateBlogImage,
 };

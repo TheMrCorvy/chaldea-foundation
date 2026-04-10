@@ -55,7 +55,7 @@ const ModalSection: FC<ModalSectionProps> = ({
                     />
                 );
 
-            case "blog.blog-hero":
+            case "blog.blog-text":
                 return (
                     <AboutMeSection
                         isMobile={isMobile}

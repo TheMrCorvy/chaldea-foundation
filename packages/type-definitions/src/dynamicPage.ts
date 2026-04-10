@@ -225,6 +225,7 @@ export interface SectionsContactSection extends StrapiComponent {
 export interface BlogHero extends StrapiComponent {
     body: Array<JsonRichText>;
     cover_image: ImageComponent;
+    link_to_page: LayoutLink;
 }
 
 export interface BlogText extends StrapiComponent {
