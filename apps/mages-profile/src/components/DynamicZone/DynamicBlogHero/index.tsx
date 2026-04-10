@@ -7,6 +7,7 @@ import { Box, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { motion } from "framer-motion";
 import RichTextRenderer from "../../RichTextRenderer";
+import DynamicLink from "../DynamicLink";
 import styles from "./DynamicBlogHero.module.css";
 
 const containerVariants = {
@@ -20,7 +21,12 @@ const containerVariants = {
 
 const cornerIconSize = 24;
 
-const DynamicBlogHero: FC<BlogHero> = ({ body, cover_image, title }) => {
+const DynamicBlogHero: FC<BlogHero> = ({
+    body,
+    cover_image,
+    title,
+    link_to_page,
+}) => {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
@@ -140,7 +146,7 @@ const DynamicBlogHero: FC<BlogHero> = ({ body, cover_image, title }) => {
                             variant="h2"
                             sx={{
                                 mb: 2,
-                                color: "rgba(178, 221, 255, 0.95)",
+                                color: "#eeeeee",
                                 fontSize: { xs: "1.5rem", md: "2.5rem" },
                                 fontWeight: "bold",
                                 letterSpacing: "0.1em",
@@ -155,6 +161,11 @@ const DynamicBlogHero: FC<BlogHero> = ({ body, cover_image, title }) => {
                             content={body}
                             color="rgba(178, 221, 255, 0.95)"
                         />
+                    )}
+                    {link_to_page && (
+                        <Box sx={{ mt: 2 }}>
+                            <DynamicLink {...link_to_page} />
+                        </Box>
                     )}
                 </Box>
 
