@@ -25,7 +25,11 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({
         let element: ReactNode = node.text;
 
         if (node.bold) {
-            element = <strong>{element}</strong>;
+            element = (
+                <Box component="strong" sx={{ color: "primary.main" }}>
+                    {element}
+                </Box>
+            );
         }
         if (node.italic) {
             element = <em>{element}</em>;
