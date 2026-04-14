@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import RichTextRenderer from "../../RichTextRenderer";
 import DynamicLink from "../DynamicLink";
 import styles from "./DynamicBlogHero.module.css";
+import useStyles from "./useStyles";
 
 const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -38,6 +39,17 @@ const DynamicBlogHero: FC<BlogHero> = ({
         containerRef.current.style.setProperty("--mouse-y", `${y}px`);
     };
 
+    const {
+        root,
+        textContainer,
+        textContent,
+        title: titleStyles,
+        hologramImage,
+        noImage,
+        noData,
+        divider,
+    } = useStyles();
+
     return (
         <Box
             component={motion.section}
@@ -48,22 +60,7 @@ const DynamicBlogHero: FC<BlogHero> = ({
             ref={containerRef}
             onMouseMove={handleMouseMove}
             className={styles.heroContainer}
-            sx={{
-                position: "relative",
-                width: "100%",
-                maxWidth: "1500px",
-                margin: "0 auto",
-                border: "1px solid rgba(25,118,210, 0.4)",
-                background:
-                    "linear-gradient(135deg, rgba(8, 20, 40, 0.8) 0%, rgba(12, 36, 72, 0.7) 100%)",
-                boxShadow:
-                    "inset 0 0 20px rgba(56, 182, 255, 0.1), 0 0 15px rgba(25,118,210, 0.15)",
-                transition: "box-shadow 0.3s ease",
-                "&:hover": {
-                    boxShadow:
-                        "inset 0 0 25px rgba(56, 182, 255, 0.2), 0 0 25px rgba(56, 182, 255, 0.25)",
-                },
-            }}
+            sx={root}
         >
             <AddIcon
                 color="warning"
@@ -109,50 +106,11 @@ const DynamicBlogHero: FC<BlogHero> = ({
                 }}
             />
 
-            <Box
-                sx={{
-                    position: "relative",
-                    zIndex: 2,
-                    display: "flex",
-                    flexDirection: { xs: "column", md: "row" },
-                    minHeight: "450px",
-                }}
-            >
+            <Box sx={textContainer}>
                 {/* Text Content */}
-                <Box
-                    sx={{
-                        flex: 1,
-                        p: { xs: 4, md: 6 },
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        position: "relative",
-                        gap: 3,
-                        "&::after": {
-                            content: '""',
-                            position: "absolute",
-                            right: 0,
-                            top: "10%",
-                            bottom: "10%",
-                            width: "1px",
-                            background:
-                                "linear-gradient(to bottom, transparent, rgba(56,182,255,0.4), transparent)",
-                            display: { xs: "none", md: "block" },
-                        },
-                    }}
-                >
+                <Box sx={textContent}>
                     {title && (
-                        <Typography
-                            variant="h2"
-                            sx={{
-                                mb: 2,
-                                color: "#eeeeee",
-                                fontSize: { xs: "1.5rem", md: "2.5rem" },
-                                fontWeight: "bold",
-                                letterSpacing: "0.1em",
-                                textTransform: "uppercase",
-                            }}
-                        >
+                        <Typography variant="h2" sx={titleStyles}>
                             {title}
                         </Typography>
                     )}
@@ -170,19 +128,7 @@ const DynamicBlogHero: FC<BlogHero> = ({
                 </Box>
 
                 {/* Image Hologram View */}
-                <Box
-                    sx={{
-                        flex: 1,
-                        position: "relative",
-                        minHeight: { xs: "300px", md: "auto" },
-                        overflow: "hidden",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        background:
-                            "radial-gradient(circle at center, rgba(56, 182, 255, 0.1) 0%, transparent 70%)",
-                    }}
-                >
+                <Box sx={hologramImage}>
                     {cover_image?.url ? (
                         <Image
                             src={cover_image.url}
@@ -196,39 +142,15 @@ const DynamicBlogHero: FC<BlogHero> = ({
                             sizes="(max-width: 768px) 100vw, 50vw"
                         />
                     ) : (
-                        <Box
-                            sx={{
-                                width: "100%",
-                                height: "100%",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                color: "rgba(56, 182, 255, 0.3)",
-                            }}
-                        >
-                            <Typography
-                                sx={{
-                                    letterSpacing: "0.2em",
-                                    fontWeight: "bold",
-                                }}
-                            >
+                        <Box sx={noImage}>
+                            <Typography sx={noData}>
                                 NO DATA STREAM DETECTED
                             </Typography>
                         </Box>
                     )}
 
                     {/* Scanline overlay for that retro-futuristic Chaldea tech vibe */}
-                    <Box
-                        sx={{
-                            position: "absolute",
-                            inset: 0,
-                            background:
-                                "linear-gradient(rgba(25, 118, 210, 0.05) 50%, rgba(0, 0, 0, 0.1) 50%)",
-                            backgroundSize: "100% 4px",
-                            pointerEvents: "none",
-                            zIndex: 3,
-                        }}
-                    />
+                    <Box sx={divider} />
                 </Box>
             </Box>
         </Box>
