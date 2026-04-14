@@ -5,6 +5,7 @@ import { Box, Typography } from "@mui/material";
 import { BlogText } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import { motion } from "framer-motion";
+import useStyles from "./useStyles";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -35,6 +36,7 @@ const DynamicBlogText: FC<BlogText> = ({
     title,
     component_id,
 }) => {
+    const { root } = useStyles();
     return (
         <Box
             component={motion.section}
@@ -44,7 +46,7 @@ const DynamicBlogText: FC<BlogText> = ({
             viewport={{ once: true, margin: "-50px" }}
             id={component_id}
             aria-label={title || "Blog Text Section"}
-            sx={{ marginBottom: "2rem", width: "100%", maxWidth: "1300px" }}
+            sx={root}
         >
             {title && (
                 <Typography
