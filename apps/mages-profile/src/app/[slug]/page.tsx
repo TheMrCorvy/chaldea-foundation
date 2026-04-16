@@ -48,11 +48,20 @@ function buildSeoMetadata(dynamicPage: DynamicPage): Metadata {
             title,
             description,
             type: "website",
+            images: [
+                {
+                    url: "/assets/images/cover.webp",
+                    width: 1200,
+                    height: 630,
+                    alt: title || "Site Cover",
+                },
+            ],
         },
         twitter: {
             title,
             description,
             card: "summary_large_image",
+            images: ["/assets/images/cover.webp"],
         },
         ...rawMetadata,
     };
