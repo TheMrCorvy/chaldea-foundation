@@ -178,11 +178,15 @@ export default async function DynamicZone({ params }: dynamicZonePageProps) {
     }
 
     const sections = dynamicPage?.sections || [];
+    const metadata = isRecord(dynamicPage.metadata) ? dynamicPage.metadata : {};
 
     return (
         <SoundProvider bgm={dynamicPage.background_music as BGMs}>
             <StarryContainer>
-                <ClientSideUiEffects routerPush="/" />
+                <ClientSideUiEffects
+                    allowBackBtn={(metadata.allowBackBtn as boolean) || false}
+                    routerPush={(metadata.routerPush as string) || "/"}
+                />
 
                 {sections.map((section) => (
                     <DynamicZoneComponent
