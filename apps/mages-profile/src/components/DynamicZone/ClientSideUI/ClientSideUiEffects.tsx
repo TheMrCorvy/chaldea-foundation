@@ -11,6 +11,7 @@ import useClickAnimationAndSounds from "@/hooks/useClickAnimationAndSounds";
 
 export interface ClientSideUiEffectsProps {
     routerPush: string;
+    allowBackBtn: boolean;
 }
 
 const containerVariants = {
@@ -46,7 +47,10 @@ const itemVariants = {
     },
 };
 
-const ClientSideUiEffects: FC<ClientSideUiEffectsProps> = ({ routerPush }) => {
+const ClientSideUiEffects: FC<ClientSideUiEffectsProps> = ({
+    routerPush,
+    allowBackBtn,
+}) => {
     const router = useRouter();
     const isMobile = useMediaQuery().max.width("sm");
     const asideStyle: CSSProperties = {
@@ -78,14 +82,16 @@ const ClientSideUiEffects: FC<ClientSideUiEffectsProps> = ({ routerPush }) => {
                 initial="hidden"
                 animate={"visible"}
             >
-                <motion.div variants={itemVariants}>
-                    <GlitchButton
-                        label="Back"
-                        dataSound="page_change"
-                        cornerVariant="right"
-                        onClick={handleClick}
-                    />
-                </motion.div>
+                {allowBackBtn && (
+                    <motion.div variants={itemVariants}>
+                        <GlitchButton
+                            label="Back"
+                            dataSound="page_change"
+                            cornerVariant="right"
+                            onClick={handleClick}
+                        />
+                    </motion.div>
+                )}
             </motion.aside>
             <motion.aside
                 style={{
