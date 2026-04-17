@@ -22,11 +22,12 @@ const ClientSideProjectsPage: FC<ClientSideProjectsPageProps> = ({
         <StarryContainer>
             <ClientSideUiEffects
                 routerPush={appSection ? "/" + appSection : "/"}
+                allowBackBtn={true}
             />
             <section
                 style={{
-                    marginTop: isMobile ? "4rem" : 0,
-                    marginBottom: isMobile ? "4rem" : 0,
+                    marginTop: isMobile ? "5rem" : 0,
+                    marginBottom: isMobile ? "5rem" : 0,
                     padding: isMobile ? "0 1rem" : 0,
                     width: "100%",
                     maxWidth: "1200px",
