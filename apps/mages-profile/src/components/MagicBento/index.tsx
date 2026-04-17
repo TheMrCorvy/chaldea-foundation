@@ -96,7 +96,6 @@ const MagicBento: React.FC<MagicBentoProps> = ({
                                             display: "flex",
                                             justifyContent: "space-between",
                                             alignItems: "center",
-                                            mb: 2,
                                         }}
                                     >
                                         <Typography
@@ -128,7 +127,9 @@ const MagicBento: React.FC<MagicBentoProps> = ({
                                                             "scale(1.05)",
                                                     },
                                                 }}
-                                                target="_blank"
+                                                target={
+                                                    firstLink.target || "_self"
+                                                }
                                                 rel="noopener noreferrer"
                                             >
                                                 <IconComponent
@@ -138,6 +139,14 @@ const MagicBento: React.FC<MagicBentoProps> = ({
                                             </MuiLink>
                                         )}
                                     </Box>
+                                    <Typography
+                                        variant="caption"
+                                        sx={{
+                                            color: "rgba(255, 255, 255, 0.7)",
+                                        }}
+                                    >
+                                        {project.highlighted_subtitle}
+                                    </Typography>
                                     <RichTextRenderer
                                         content={project.body.body}
                                         color="rgba(255, 255, 255, 0.7)"
@@ -175,7 +184,7 @@ const MagicBento: React.FC<MagicBentoProps> = ({
                                                     color: "#ffffff",
                                                 },
                                             }}
-                                            target="_blank"
+                                            target={link.target || "_blank"}
                                             rel="noopener noreferrer"
                                         >
                                             {link.label}
