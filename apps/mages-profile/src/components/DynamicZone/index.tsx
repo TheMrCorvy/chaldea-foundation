@@ -8,7 +8,6 @@ import {
     LayoutLandingHero,
     LayoutLink,
     LayoutWorkExperienceSection,
-    SectionsContactSection,
     SectionsProjectsSection,
     StrapiPDFComponent,
     StrapiSection,
@@ -57,7 +56,7 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({ section }) => {
             return <DynamicBlogText {...(section as BlogText)} />;
 
         case "sections.contact-section":
-            return "Contact section component is deprecated"; // This section is going to be replaced with a normal form
+            return null; // This section is going to be replaced with a normal form
 
         case "layout.description-with-chips-list":
             return (
