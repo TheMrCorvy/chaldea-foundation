@@ -1,5 +1,5 @@
 import IconComponent from "@/components/IconComponent";
-import { Link, Tooltip } from "@mui/material";
+import { Box, Link, Tooltip } from "@mui/material";
 import { LayoutLink } from "@repo/type-definitions/dynamic-page";
 import { FC, ReactElement } from "react";
 
@@ -10,16 +10,23 @@ const DynamicLink: FC<LayoutLink> = ({
     href,
     popover,
     variant,
+    color,
 }) => {
     if (popover) {
         return (
-            <Tooltip title={popover} placement="top">
-                <VariantDecider {...{ label, target, icon, href, variant }} />
+            <Tooltip title={popover} placement="top" arrow>
+                <Box display="inline-block">
+                    <VariantDecider
+                        {...{ label, target, icon, href, variant, color }}
+                    />
+                </Box>
             </Tooltip>
         );
     }
 
-    return <VariantDecider {...{ label, target, icon, href, variant }} />;
+    return (
+        <VariantDecider {...{ label, target, icon, href, variant, color }} />
+    );
 };
 
 export interface WithTooltipProps {
@@ -33,6 +40,7 @@ export interface VariantDeciderProps {
     icon?: LayoutLink["icon"];
     href: string;
     variant: LayoutLink["variant"];
+    color: LayoutLink["color"];
 }
 
 const VariantDecider: FC<VariantDeciderProps> = ({
@@ -41,6 +49,7 @@ const VariantDecider: FC<VariantDeciderProps> = ({
     icon,
     href,
     variant,
+    color,
 }) => {
     switch (variant) {
         case "link":
@@ -51,6 +60,16 @@ const VariantDecider: FC<VariantDeciderProps> = ({
                     href={href}
                     underline="hover"
                     rel="noopener noreferrer"
+                    sx={{
+                        color:
+                            color !== "inherit" ? `${color}.main` : "inherit",
+                        "&:hover": {
+                            color:
+                                color !== "inherit"
+                                    ? `${color}.light`
+                                    : "inherit",
+                        },
+                    }}
                 >
                     {label}
                 </Link>
@@ -61,16 +80,20 @@ const VariantDecider: FC<VariantDeciderProps> = ({
                     href={href}
                     underline="none"
                     sx={{
-                        color: "rgba(255, 255, 255, 0.6)",
+                        color:
+                            color !== "inherit" ? `${color}.main` : "inherit",
                         display: "flex",
                         padding: "8px",
                         borderRadius: "50%",
                         backgroundColor: "rgba(255, 255, 255, 0.05)",
                         transition: "all 0.2s ease",
                         "&:hover": {
-                            color: "#ffffff",
                             backgroundColor: "rgba(255, 255, 255, 0.15)",
                             transform: "scale(1.05)",
+                            color:
+                                color !== "inherit"
+                                    ? `${color}.light`
+                                    : "inherit",
                         },
                     }}
                     target={target}
@@ -91,7 +114,8 @@ const VariantDecider: FC<VariantDeciderProps> = ({
                     href={href}
                     underline="none"
                     sx={{
-                        color: "rgba(255, 255, 255, 0.7)",
+                        color:
+                            color !== "inherit" ? `${color}.main` : "inherit",
                         fontSize: "0.85rem",
                         fontWeight: 500,
                         display: "flex",
@@ -103,7 +127,10 @@ const VariantDecider: FC<VariantDeciderProps> = ({
                         backgroundColor: "rgba(255, 255, 255, 0.05)",
                         border: "1px solid rgba(255, 255, 255, 0.1)",
                         "&:hover": {
-                            color: "#ffffff",
+                            color:
+                                color !== "inherit"
+                                    ? `${color}.light`
+                                    : "inherit",
                         },
                     }}
                     target={target}
@@ -122,11 +149,20 @@ const VariantDecider: FC<VariantDeciderProps> = ({
         default:
             return (
                 <Link
-                    color="primary"
                     target={target}
                     href={href}
                     underline="hover"
                     rel="noopener noreferrer"
+                    sx={{
+                        color:
+                            color !== "inherit" ? `${color}.main` : "inherit",
+                        "&:hover": {
+                            color:
+                                color !== "inherit"
+                                    ? `${color}.light`
+                                    : "inherit",
+                        },
+                    }}
                 >
                     {label}
                 </Link>
