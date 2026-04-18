@@ -27,7 +27,11 @@ const itemVariants = {
     },
 };
 
-const DynamicLandingHeroSection: FC<LayoutLandingHero> = ({
+export interface DynamicLandingHeroSectionProps extends LayoutLandingHero {
+    imageBaseUrl: string;
+}
+
+const DynamicLandingHeroSection: FC<DynamicLandingHeroSectionProps> = ({
     title,
     highlighted_subtitle,
     body,
@@ -37,6 +41,7 @@ const DynamicLandingHeroSection: FC<LayoutLandingHero> = ({
     profile_image,
     call_to_actions,
     component_id,
+    imageBaseUrl,
 }) => {
     return (
         <Box
@@ -48,12 +53,13 @@ const DynamicLandingHeroSection: FC<LayoutLandingHero> = ({
             viewport={{ once: true, margin: "-50px" }}
             sx={{
                 width: "100%",
-                maxWidth: "1600px",
+                maxWidth: "1800px",
                 display: "flex",
                 flexDirection: { xs: "column", lg: "row" },
                 alignItems: "center",
                 justifyContent: "space-between",
                 position: "relative",
+                gap: { xs: 0, md: 6, lg: 12 },
             }}
         >
             {/* Left Content / Profile and Texts */}
@@ -63,7 +69,7 @@ const DynamicLandingHeroSection: FC<LayoutLandingHero> = ({
                     display: "flex",
                     flexDirection: "column",
                     gap: 3,
-                    maxWidth: { lg: "650px" },
+                    maxWidth: { lg: "1000px" },
                     zIndex: 2,
                     position: "relative",
                 }}
@@ -86,16 +92,17 @@ const DynamicLandingHeroSection: FC<LayoutLandingHero> = ({
                             backgroundColor: "rgba(11, 22, 40, 0.8)",
                         }}
                     >
-                        <Image
-                            src={profile_image.url}
+                        <img
+                            src={`${imageBaseUrl}${profile_image.url}`}
                             alt={
                                 profile_image.alternativeText ||
                                 "Profile Picture"
                             }
-                            fill
-                            style={{ objectFit: "cover" }}
-                            sizes="150px"
-                            priority
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                            }}
                         />
                         {/* Avatar Scanline Overlay */}
                         <Box
@@ -162,31 +169,28 @@ const DynamicLandingHeroSection: FC<LayoutLandingHero> = ({
                         />
                     </Box>
                 )}
-
-                {/* Call To Actions */}
-                <Stack
-                    component={motion.div}
-                    variants={itemVariants}
-                    direction={{ xs: "column", sm: "row" }}
-                    spacing={3}
-                    alignItems={{ xs: "stretch", sm: "center" }}
-                    sx={{ mt: 2 }}
+                <div
+                    style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        flexDirection: "row",
+                        gap: "32px",
+                    }}
                 >
-                    {call_to_actions?.map((cta, index) => (
-                        <Box key={`cta-${index}`}>
+                    {call_to_actions &&
+                        call_to_actions.length > 0 &&
+                        call_to_actions?.map((cta, index) => (
                             <DynamicLink
-                                {...cta.link}
-                                popover={cta.popover || cta.link.popover}
+                                key={`cta-${cta.component_id || index}`}
+                                {...cta}
+                                popover={cta.popover || cta.popover}
                             />
-                        </Box>
-                    ))}
+                        ))}
+                </div>
 
-                    {pdf_file && (
-                        <Box>
-                            <DynamicPdfFile {...pdf_file} />
-                        </Box>
-                    )}
-                </Stack>
+                {pdf_file && (
+                    <DynamicPdfFile {...pdf_file} filesBaseUrl={imageBaseUrl} />
+                )}
 
                 {helper_text && (
                     <Typography
@@ -232,17 +236,16 @@ const DynamicLandingHeroSection: FC<LayoutLandingHero> = ({
                 }}
             >
                 {commands?.url ? (
-                    <Image
-                        src={commands.url}
+                    <img
+                        src={`${imageBaseUrl}${commands.url}`}
                         alt={commands.alternativeText || "System Commands"}
-                        fill
                         style={{
-                            objectFit: "contain",
+                            maxWidth: "100%",
+                            maxHeight: "100%",
                             filter: "drop-shadow(0 0 15px rgba(56, 182, 255, 0.5))",
-                            mixBlendMode: "screen",
+                            borderRadius: "8px",
                         }}
                         sizes="(max-width: 1200px) 100vw, 50vw"
-                        priority
                     />
                 ) : (
                     <Box
