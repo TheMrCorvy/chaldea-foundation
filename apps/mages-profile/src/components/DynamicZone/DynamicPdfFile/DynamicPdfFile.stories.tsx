@@ -30,8 +30,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Generic mock PDF file info
-const mockFileUrl =
-    "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+const mockFileUrl = "/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
 
 export const Default: Story = {
     args: {
@@ -42,6 +41,7 @@ export const Default: Story = {
             url: mockFileUrl,
             name: "Agent_Status_Report.pdf",
         },
+        filesBaseUrl: "https://www.w3.org",
     },
 };
 
@@ -61,6 +61,7 @@ export const WithIconAndHelperText: Story = {
             color: "inherit",
         },
         helper_text: "Security Level 4 Required. File size: 2.4 MB.",
+        filesBaseUrl: "https://www.w3.org",
     },
 };
 
@@ -82,6 +83,7 @@ export const WithPopoverTooltip: Story = {
             color: "warning",
         },
         helper_text: "Restricted Access Only",
+        filesBaseUrl: "https://www.w3.org",
     },
 };
 
@@ -93,5 +95,6 @@ export const MissingFileDisabled: Story = {
         popover: "File not found on the server.",
         file: null, // Forces a disabled state
         helper_text: "Download unavailable.",
+        filesBaseUrl: "https://www.w3.org",
     },
 };

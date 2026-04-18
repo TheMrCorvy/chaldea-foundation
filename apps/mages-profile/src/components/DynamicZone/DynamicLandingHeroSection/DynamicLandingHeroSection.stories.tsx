@@ -30,7 +30,7 @@ const mockFormat = {
     height: 400,
     size: 200,
     sizeInBytes: 200000,
-    url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop",
+    url: "/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop",
 };
 
 const mockProfileImage = {
@@ -48,7 +48,7 @@ const mockProfileImage = {
         large: mockFormat,
     },
     mime: "image/png",
-    url: "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=500&auto=format&fit=crop",
+    url: "/photo-1549490349-8643362247b5?q=80&w=500&auto=format&fit=crop",
     publishedAt: new Date().toISOString(),
 };
 
@@ -67,7 +67,7 @@ const mockCommandsImage = {
         large: mockFormat,
     },
     mime: "image/png",
-    url: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop",
+    url: "/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop",
     publishedAt: new Date().toISOString(),
 };
 
@@ -104,15 +104,14 @@ export const Default: Story = {
         call_to_actions: [
             {
                 popover: "Commence briefing",
-                link: {
-                    __component: "layout.link",
-                    component_id: "link-1",
-                    href: "/brief",
-                    label: "Review Briefing",
-                    variant: "link",
-                    target: "_self",
-                    title: "Access Briefing",
-                },
+
+                __component: "layout.link",
+                component_id: "link-1",
+                href: "/brief",
+                label: "Review Briefing",
+                variant: "link",
+                target: "_self",
+                title: "Access Briefing",
             },
         ],
         pdf_file: {
@@ -122,6 +121,7 @@ export const Default: Story = {
             popover: "Classified Mission Report",
             file: {},
         },
+        imageBaseUrl: "https://images.unsplash.com",
     },
 };
 
@@ -142,5 +142,6 @@ export const NoData: Story = {
             ...mockCommandsImage,
             url: "",
         },
+        imageBaseUrl: "https://images.unsplash.com",
     },
 };
