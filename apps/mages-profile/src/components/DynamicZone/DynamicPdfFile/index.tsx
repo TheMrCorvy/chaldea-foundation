@@ -6,17 +6,21 @@ import { FC } from "react";
 import { motion } from "framer-motion";
 import IconComponent from "../../IconComponent";
 
-const DynamicPdfFile: FC<StrapiPDFComponent> = ({
+export interface DynamicPdfFileProps extends StrapiPDFComponent {
+    filesBaseUrl: string;
+}
+
+const DynamicPdfFile: FC<DynamicPdfFileProps> = ({
     title,
     popover,
     helper_text,
     file,
     icon,
     component_id,
+    filesBaseUrl,
 }) => {
-    // Safely extract URL from the unknown 'file' prop
     const fileObj = file as { url?: string; name?: string } | null;
-    const fileUrl = fileObj?.url;
+    const fileUrl = fileObj?.url ? `${filesBaseUrl}${fileObj.url}` : undefined;
 
     const buttonContent = (
         <Button
@@ -29,8 +33,6 @@ const DynamicPdfFile: FC<StrapiPDFComponent> = ({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             sx={{
-                display: "inline-flex",
-                alignItems: "center",
                 gap: 1.5,
                 border: "1px solid rgba(56, 182, 255, 0.5)",
                 borderRadius: "4px",
@@ -88,9 +90,10 @@ const DynamicPdfFile: FC<StrapiPDFComponent> = ({
             sx={{
                 display: "inline-flex",
                 flexDirection: "column",
-                alignItems: { xs: "center", sm: "flex-start" },
+                alignItems: "flex-start",
                 gap: 1,
                 width: { xs: "100%", sm: "auto" },
+                mb: 3,
             }}
         >
             {contentWithTooltip}
@@ -101,7 +104,6 @@ const DynamicPdfFile: FC<StrapiPDFComponent> = ({
                     sx={{
                         color: "rgba(146, 232, 255, 0.6)",
                         letterSpacing: "0.05em",
-                        textAlign: { xs: "center", sm: "left" },
                         maxWidth: "100%",
                         mt: 0.5,
                         textTransform: "uppercase",
