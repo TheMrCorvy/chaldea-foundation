@@ -35,6 +35,7 @@ const DynamicBlogText: FC<BlogText> = ({
     color,
     title,
     component_id,
+    text_align,
 }) => {
     const { root } = useStyles();
     return (
@@ -56,12 +57,19 @@ const DynamicBlogText: FC<BlogText> = ({
                     sx={{
                         color: color || "inherit",
                         marginBottom: "1rem",
+                        textAlign: text_align || "center",
                     }}
                 >
                     {title}
                 </Typography>
             )}
-            <Box component={motion.div} variants={textVariants}>
+            <Box
+                component={motion.div}
+                variants={textVariants}
+                sx={{
+                    textAlign: text_align || "center",
+                }}
+            >
                 <RichTextRenderer
                     content={body}
                     fontSize={font_size || undefined}

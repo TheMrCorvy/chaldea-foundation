@@ -45,6 +45,7 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
     color,
     chips,
     title,
+    text_align,
 }) => {
     return (
         <Box
@@ -60,6 +61,7 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
                 gap: 2,
                 maxWidth: "1300px",
                 color: color || "rgba(222, 233, 241, 0.95)",
+                textAlign: text_align || "center",
             }}
         >
             {title && (
@@ -108,6 +110,8 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
                         flexWrap: "wrap",
                         gap: 1.5,
                         mt: 1,
+                        justifyContent:
+                            chips.length === 1 ? "flex-start" : "center",
                     }}
                 >
                     {chips.map((chip, index) => (
