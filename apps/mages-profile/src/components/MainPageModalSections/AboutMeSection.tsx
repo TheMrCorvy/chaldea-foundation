@@ -11,6 +11,7 @@ const AboutMeSection: FC<AboutMeSectionProps> = ({
     body,
     component_id,
     isMobile,
+    highlighted_text_color,
 }) => {
     return (
         <Box
@@ -37,6 +38,7 @@ const AboutMeSection: FC<AboutMeSectionProps> = ({
                 color="grey.300"
                 fontSize="0.85rem"
                 lineHeight={1.5}
+                highlighted_text_color={highlighted_text_color}
             />
         </Box>
     );

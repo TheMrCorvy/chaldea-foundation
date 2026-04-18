@@ -98,6 +98,7 @@ const ProjectListItem: FC<ProjectListItemProps> = ({ project }) => {
                 color="grey.300"
                 fontSize="0.8rem"
                 lineHeight={1.35}
+                highlighted_text_color={body.highlighted_text_color}
             />
 
             {body.chips && body.chips.length > 0 && (

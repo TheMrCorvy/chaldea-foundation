@@ -15,6 +15,7 @@ const MySkills: FC<MySkillsProps> = ({
     chips,
     component_id,
     isMobile = false,
+    highlighted_text_color,
 }) => {
     return (
         <Box
@@ -43,6 +44,7 @@ const MySkills: FC<MySkillsProps> = ({
                 color="grey.300"
                 fontSize="0.85rem"
                 lineHeight={1.5}
+                highlighted_text_color={highlighted_text_color}
             />
 
             <LogoLoop

@@ -6,13 +6,14 @@ import {
     List,
     ListItem,
 } from "@mui/material";
-import { JsonRichText } from "@repo/type-definitions/dynamic-page";
+import { JsonRichText, TextColors } from "@repo/type-definitions/dynamic-page";
 
 interface RichTextRendererProps {
     content: JsonRichText[];
     color?: string;
     fontSize?: string;
     lineHeight?: number;
+    highlighted_text_color?: TextColors | null;
 }
 
 const RichTextRenderer: FC<RichTextRendererProps> = ({
@@ -20,13 +21,23 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({
     color,
     fontSize,
     lineHeight,
+    highlighted_text_color,
 }) => {
     const renderText = (node: JsonRichText, index: number) => {
         let element: ReactNode = node.text;
 
         if (node.bold) {
             element = (
-                <Box component="strong" sx={{ color: "primary.main" }}>
+                <Box
+                    component="strong"
+                    sx={{
+                        color:
+                            highlighted_text_color &&
+                            highlighted_text_color !== "inherit"
+                                ? `${highlighted_text_color}.main`
+                                : "inherit",
+                    }}
+                >
                     {element}
                 </Box>
             );

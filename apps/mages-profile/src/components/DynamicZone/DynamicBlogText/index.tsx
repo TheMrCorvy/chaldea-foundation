@@ -36,6 +36,7 @@ const DynamicBlogText: FC<BlogText> = ({
     title,
     component_id,
     text_align,
+    highlighted_text_color,
 }) => {
     const { root } = useStyles();
     return (
@@ -75,6 +76,7 @@ const DynamicBlogText: FC<BlogText> = ({
                     fontSize={font_size || undefined}
                     lineHeight={line_height || undefined}
                     color={color || undefined}
+                    highlighted_text_color={highlighted_text_color}
                 />
             </Box>
         </Box>

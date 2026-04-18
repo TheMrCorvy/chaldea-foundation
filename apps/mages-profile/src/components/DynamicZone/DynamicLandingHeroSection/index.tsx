@@ -1,9 +1,8 @@
 "use client";
 
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { LayoutLandingHero } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import RichTextRenderer from "../../RichTextRenderer";
 import DynamicLink from "../DynamicLink";
@@ -42,6 +41,7 @@ const DynamicLandingHeroSection: FC<DynamicLandingHeroSectionProps> = ({
     call_to_actions,
     component_id,
     imageBaseUrl,
+    highlighted_text_color,
 }) => {
     return (
         <Box
@@ -166,6 +166,7 @@ const DynamicLandingHeroSection: FC<DynamicLandingHeroSectionProps> = ({
                         <RichTextRenderer
                             content={body}
                             color="rgba(178, 221, 255, 0.95)"
+                            highlighted_text_color={highlighted_text_color}
                         />
                     </Box>
                 )}

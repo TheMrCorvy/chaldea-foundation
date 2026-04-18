@@ -12,8 +12,17 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
     experience,
     isMobile,
 }) => {
-    const { title, orientation, company, client, from, until, body, location } =
-        experience;
+    const {
+        title,
+        orientation,
+        company,
+        client,
+        from,
+        until,
+        body,
+        location,
+        highlighted_text_color,
+    } = experience;
 
     const startDate = new Intl.DateTimeFormat("en-US", {
         year: "2-digit",
@@ -171,6 +180,7 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                         fontSize="0.875rem"
                         lineHeight={1.4}
                         color="grey.500"
+                        highlighted_text_color={highlighted_text_color}
                     />
                 </Box>
             </Box>

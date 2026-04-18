@@ -46,6 +46,7 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
     chips,
     title,
     text_align,
+    highlighted_text_color,
 }) => {
     return (
         <Box
@@ -100,6 +101,7 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
                     color={color || "inherit"}
                     fontSize={font_size || "inherit"}
                     lineHeight={line_height || undefined}
+                    highlighted_text_color={highlighted_text_color}
                 />
             </Box>
 

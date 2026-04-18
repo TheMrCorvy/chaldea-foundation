@@ -27,6 +27,7 @@ const DynamicBlogHero: FC<BlogHero> = ({
     cover_image,
     title,
     link_to_page,
+    highlighted_text_color,
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -118,6 +119,7 @@ const DynamicBlogHero: FC<BlogHero> = ({
                         <RichTextRenderer
                             content={body}
                             color="rgba(178, 221, 255, 0.95)"
+                            highlighted_text_color={highlighted_text_color}
                         />
                     )}
                     {link_to_page && (
