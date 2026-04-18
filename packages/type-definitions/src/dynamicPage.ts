@@ -44,7 +44,7 @@ export interface LayoutLandingHero extends StrapiComponent {
     pdf_file?: StrapiPDFComponent;
     commands: ImageComponent;
     profile_image: ImageComponent;
-    call_to_actions?: Array<LayoutCallToAction>;
+    call_to_actions?: Array<LayoutLink>;
 }
 
 export interface BlogImageComponent extends StrapiComponent {
@@ -114,11 +114,14 @@ export interface LayoutLink extends StrapiComponent {
     popover?: string;
     variant: "link" | "icon_link" | "link_with_icon";
     target?: "_blank" | "_self" | "_parent" | "_top";
-}
-
-export interface LayoutCallToAction {
-    link: LayoutLink;
-    popover?: string;
+    color:
+        | "primary"
+        | "secondary"
+        | "warning"
+        | "info"
+        | "error"
+        | "success"
+        | "inherit";
 }
 
 export interface LayoutIcon extends StrapiComponent {
@@ -172,6 +175,7 @@ export interface LayoutDescriptionWithChipsList extends StrapiComponent {
     line_height: number | null;
     color: string | null;
     chips?: Array<LayoutToolChip>;
+    text_align?: "left" | "center" | "right" | null;
 }
 
 export interface LayoutProjectListItem extends StrapiComponent {
@@ -233,4 +237,5 @@ export interface BlogText extends StrapiComponent {
     font_size: string | null;
     line_height: number | null;
     color: string | null;
+    text_align?: "left" | "center" | "right" | null;
 }
