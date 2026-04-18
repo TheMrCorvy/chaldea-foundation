@@ -194,6 +194,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                 projectsSection={
                     dynamicPage.sections[0] as SectionsProjectsSection
                 }
+                appSection={slug}
             />
         </SoundProvider>
     );
