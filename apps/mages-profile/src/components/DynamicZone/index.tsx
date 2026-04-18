@@ -27,9 +27,13 @@ import DynamicBlogImage from "./DynamicBlogImage";
 
 export interface DynamicZoneComponentProps {
     section: StrapiSection;
+    imageBaseUrl: string;
 }
 
-const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({ section }) => {
+const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({
+    section,
+    imageBaseUrl,
+}) => {
     switch (section.__component) {
         case "sections.projects-section":
             return (
@@ -41,6 +45,7 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({ section }) => {
         case "sections.landing-hero-section":
             return (
                 <DynamicLandingHeroSection
+                    imageBaseUrl={imageBaseUrl}
                     {...(section as LayoutLandingHero)}
                 />
             );
@@ -69,7 +74,12 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({ section }) => {
             return <DynamicBlogHero {...(section as BlogHero)} />;
 
         case "blog.pdf-file":
-            return <DynamicPdfFile {...(section as StrapiPDFComponent)} />;
+            return (
+                <DynamicPdfFile
+                    {...(section as StrapiPDFComponent)}
+                    filesBaseUrl={imageBaseUrl}
+                />
+            );
 
         case "layout.link":
             return <DynamicLink {...(section as LayoutLink)} />;
