@@ -43,6 +43,19 @@
         },
         "popover": {
             "type": "string"
+        },
+        "highlighted_text_color": {
+            "type": "enumeration",
+            "default": "inherit",
+            "enum": [
+                "primary",
+                "secondary",
+                "warning",
+                "info",
+                "error",
+                "success",
+                "inherit"
+            ]
         }
     },
     "config": {}
