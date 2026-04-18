@@ -43,7 +43,31 @@ export const populateProjectsSection = {
 
 export const populateLandingHeroSection = {
     "sections.landing-hero-section": {
-        populate: "*",
+        populate: {
+            pdf_file: {
+                populate: {
+                    icon: {
+                        populate: "*",
+                    },
+                    file: {
+                        populate: "*",
+                    },
+                },
+            },
+            call_to_actions: {
+                populate: {
+                    icon: {
+                        populate: "*",
+                    },
+                },
+            },
+            profile_image: {
+                populate: "*",
+            },
+            commands: {
+                populate: "*",
+            },
+        },
     },
 };
 
