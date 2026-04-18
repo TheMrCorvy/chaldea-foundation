@@ -26,6 +26,12 @@
         },
         "color": {
             "type": "string"
+        },
+        "text_align": {
+            "type": "enumeration",
+            "required": false,
+            "default": "center",
+            "enum": ["center", "left", "right"]
         }
     },
     "config": {}

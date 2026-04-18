@@ -33,6 +33,11 @@
         },
         "color": {
             "type": "string"
+        },
+        "text_align": {
+            "type": "enumeration",
+            "default": "center",
+            "enum": ["center", "left", "right"]
         }
     },
     "config": {}
