@@ -45,6 +45,7 @@ export interface LayoutLandingHero extends StrapiComponent {
     commands: ImageComponent;
     profile_image: ImageComponent;
     call_to_actions?: Array<LayoutLink>;
+    highlighted_text_color?: TextColors | null;
 }
 
 export interface BlogImageComponent extends StrapiComponent {
@@ -105,6 +106,7 @@ export interface LayoutWorkExperienceListItem extends StrapiComponent {
     popover?: string;
     from: Date;
     until: Date;
+    highlighted_text_color?: TextColors | null;
 }
 
 export interface LayoutLink extends StrapiComponent {
@@ -114,14 +116,7 @@ export interface LayoutLink extends StrapiComponent {
     popover?: string;
     variant: "link" | "icon_link" | "link_with_icon";
     target?: "_blank" | "_self" | "_parent" | "_top";
-    color:
-        | "primary"
-        | "secondary"
-        | "warning"
-        | "info"
-        | "error"
-        | "success"
-        | "inherit";
+    color?: TextColors | null;
 }
 
 export interface LayoutIcon extends StrapiComponent {
@@ -176,6 +171,7 @@ export interface LayoutDescriptionWithChipsList extends StrapiComponent {
     color: string | null;
     chips?: Array<LayoutToolChip>;
     text_align?: "left" | "center" | "right" | null;
+    highlighted_text_color?: TextColors | null;
 }
 
 export interface LayoutProjectListItem extends StrapiComponent {
@@ -230,6 +226,7 @@ export interface BlogHero extends StrapiComponent {
     body: Array<JsonRichText>;
     cover_image: ImageComponent;
     link_to_page: LayoutLink;
+    highlighted_text_color?: TextColors | null;
 }
 
 export interface BlogText extends StrapiComponent {
@@ -238,4 +235,14 @@ export interface BlogText extends StrapiComponent {
     line_height: number | null;
     color: string | null;
     text_align?: "left" | "center" | "right" | null;
+    highlighted_text_color?: TextColors | null;
 }
+
+export type TextColors =
+    | "primary"
+    | "secondary"
+    | "warning"
+    | "info"
+    | "error"
+    | "success"
+    | "inherit";
