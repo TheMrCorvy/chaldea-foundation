@@ -11,6 +11,7 @@ import { dynamicZone, dynamicPageFields } from "@/lib/constants";
 import DynamicZoneComponent from "@/components/DynamicZone";
 import ClientSideUiEffects from "@/components/DynamicZone/ClientSideUI/ClientSideUiEffects";
 import StarryContainer from "@/components/StarryContainer";
+import { Box } from "@mui/material";
 
 export interface dynamicZonePageProps {
     params: Promise<{
@@ -188,12 +189,26 @@ export default async function DynamicZone({ params }: dynamicZonePageProps) {
                     routerPush={(metadata.routerPush as string) || "/"}
                 />
 
-                {sections.map((section) => (
-                    <DynamicZoneComponent
-                        section={section}
-                        key={section.component_id}
-                    />
-                ))}
+                <Box
+                    component="article"
+                    sx={{
+                        px: { xs: 2, md: 6, lg: 7, xl: 8 },
+                        py: { xs: 6, lg: 12 },
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: { xs: 6, md: 8, lg: 10, xl: 12 },
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    {sections.map((section) => (
+                        <DynamicZoneComponent
+                            section={section}
+                            key={section.component_id}
+                            imageBaseUrl={imageBaseUrl}
+                        />
+                    ))}
+                </Box>
             </StarryContainer>
         </SoundProvider>
     );
