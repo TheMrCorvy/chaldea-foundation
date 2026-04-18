@@ -39,6 +39,19 @@
             "type": "enumeration",
             "default": "_self",
             "enum": ["_self", "_blank", "_parent", "_top"]
+        },
+        "color": {
+            "type": "enumeration",
+            "default": "primary",
+            "enum": [
+                "primary",
+                "secondary",
+                "warning",
+                "info",
+                "error",
+                "success",
+                "inherit"
+            ]
         }
     },
     "config": {}
