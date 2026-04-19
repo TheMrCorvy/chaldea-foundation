@@ -95,6 +95,7 @@ export interface ImageFormat {
 export interface LayoutWorkExperienceSection extends StrapiComponent {
     experience_list_items: Array<LayoutWorkExperienceListItem>;
     link_to_page?: LayoutLink | null;
+    color: string | null;
 }
 
 export interface LayoutWorkExperienceListItem extends StrapiComponent {
@@ -106,7 +107,11 @@ export interface LayoutWorkExperienceListItem extends StrapiComponent {
     popover?: string;
     from: Date;
     until: Date;
+    font_size: string | null;
+    line_height: number | null;
+    text_align?: "left" | "center" | "right" | null;
     highlighted_text_color?: TextColors | null;
+    color: string | null;
 }
 
 export interface LayoutLink extends StrapiComponent {
