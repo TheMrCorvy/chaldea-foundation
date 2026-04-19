@@ -1,62 +1,81 @@
 {
-    "collectionName": "components_layout_work_experience_list_items",
-    "info": {
-        "displayName": "Work Experience List Item",
-        "icon": "briefcase"
+  "collectionName": "components_layout_work_experience_list_items",
+  "info": {
+    "displayName": "Work Experience List Item",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "component_id": {
+      "type": "string",
+      "unique": true
     },
-    "options": {},
-    "attributes": {
-        "component_id": {
-            "type": "string",
-            "unique": true
-        },
-        "title": {
-            "type": "string",
-            "required": true
-        },
-        "orientation": {
-            "type": "string",
-            "default": "(Frontend oriented / Backend oriented)"
-        },
-        "company": {
-            "type": "string",
-            "required": true
-        },
-        "client": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "required": true
-        },
-        "from": {
-            "type": "date",
-            "required": true
-        },
-        "until": {
-            "type": "date",
-            "required": true
-        },
-        "body": {
-            "type": "blocks",
-            "required": true
-        },
-        "popover": {
-            "type": "string"
-        },
-        "highlighted_text_color": {
-            "type": "enumeration",
-            "default": "inherit",
-            "enum": [
-                "primary",
-                "secondary",
-                "warning",
-                "info",
-                "error",
-                "success",
-                "inherit"
-            ]
-        }
+    "title": {
+      "type": "string",
+      "required": true
     },
-    "config": {}
+    "orientation": {
+      "type": "string",
+      "default": "(Frontend oriented / Backend oriented)"
+    },
+    "company": {
+      "type": "string",
+      "required": true
+    },
+    "client": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "from": {
+      "type": "date",
+      "required": true
+    },
+    "until": {
+      "type": "date",
+      "required": true
+    },
+    "body": {
+      "type": "blocks",
+      "required": true
+    },
+    "popover": {
+      "type": "string"
+    },
+    "highlighted_text_color": {
+      "type": "enumeration",
+      "default": "inherit",
+      "enum": [
+        "primary",
+        "secondary",
+        "warning",
+        "info",
+        "error",
+        "success",
+        "inherit"
+      ]
+    },
+    "font_size": {
+      "type": "string"
+    },
+    "line_height": {
+      "type": "decimal"
+    },
+    "text_align": {
+      "type": "enumeration",
+      "default": "center",
+      "enum": [
+        "center",
+        "left",
+        "right"
+      ]
+    },
+    "color": {
+      "type": "string",
+      "default": "#eeeeee"
+    }
+  },
+  "config": {}
 }
