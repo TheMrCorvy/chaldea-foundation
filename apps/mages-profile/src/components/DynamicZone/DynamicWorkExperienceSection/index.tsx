@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography, Tooltip } from "@mui/material";
+import { Box, Typography, Tooltip, Grid } from "@mui/material";
 import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import { motion } from "framer-motion";
@@ -12,6 +12,7 @@ const DynamicWorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
     experience_list_items,
     link_to_page,
     component_id,
+    color,
 }) => {
     return (
         <Box
@@ -48,7 +49,7 @@ const DynamicWorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
                     <Typography
                         variant="h4"
                         sx={{
-                            color: "rgba(178, 221, 255, 0.95)",
+                            color: color || undefined,
                             fontWeight: "bold",
                             letterSpacing: "0.1em",
                             textTransform: "uppercase",
@@ -63,16 +64,18 @@ const DynamicWorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
             </Box>
 
             {/* Experience List Items */}
-            <Box
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: { xs: 4, md: 3 },
-                }}
+            <Grid
+                container
+                spacing={3}
+                sx={{ mt: 2, display: "flex", justifyContent: "center" }}
             >
                 {experience_list_items?.map((experience, index) => {
                     const itemContent = (
-                        <Box
+                        <Grid
+                            size={{
+                                sm: 12,
+                                md: 6,
+                            }}
                             key={experience.component_id || `exp-${index}`}
                             sx={{
                                 p: { xs: 2, sm: 3 },
@@ -89,8 +92,11 @@ const DynamicWorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
                                 },
                             }}
                         >
-                            <ExperienceListItem experience={experience} />
-                        </Box>
+                            <ExperienceListItem
+                                experience={experience}
+                                color={experience.color || "inherit"}
+                            />
+                        </Grid>
                     );
 
                     if (experience.popover) {
@@ -111,7 +117,7 @@ const DynamicWorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
 
                     return itemContent;
                 })}
-            </Box>
+            </Grid>
         </Box>
     );
 };
