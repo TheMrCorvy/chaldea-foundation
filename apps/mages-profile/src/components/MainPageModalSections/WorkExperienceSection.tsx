@@ -7,12 +7,14 @@ export interface WorkExperienceSectionProps {
     experience_list_items: LayoutWorkExperienceSection["experience_list_items"];
     component_id: string;
     isMobile?: boolean;
+    color: LayoutWorkExperienceSection["color"];
 }
 
 const WorkExperienceSection: FC<WorkExperienceSectionProps> = ({
     experience_list_items,
     component_id,
     isMobile,
+    color,
 }) => {
     return (
         <Box
@@ -43,6 +45,7 @@ const WorkExperienceSection: FC<WorkExperienceSectionProps> = ({
                     key={experienceItem.component_id + i}
                     experience={experienceItem}
                     isMobile={isMobile}
+                    color={color}
                 />
             ))}
         </Box>
