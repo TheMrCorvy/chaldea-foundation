@@ -6,11 +6,13 @@ import RichTextRenderer from "../RichTextRenderer";
 export interface ExperienceListItemProps {
     experience: LayoutWorkExperienceListItem;
     isMobile?: boolean;
+    color?: string | null;
 }
 
 const ExperienceListItem: FC<ExperienceListItemProps> = ({
     experience,
     isMobile,
+    color,
 }) => {
     const {
         title,
@@ -22,6 +24,9 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
         body,
         location,
         highlighted_text_color,
+        font_size,
+        line_height,
+        text_align,
     } = experience;
 
     const startDate = new Intl.DateTimeFormat("en-US", {
@@ -69,7 +74,7 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                     variant="subtitle1"
                     sx={{
                         fontWeight: 600,
-                        color: "common.white",
+                        color: color || "common.white",
                         lineHeight: 0.7,
                         fontSize: "1.5rem",
                     }}
@@ -106,9 +111,9 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                             variant="body2"
                             sx={{
                                 fontWeight: 700,
-                                color: "common.white",
-                                fontSize: "0.9rem",
-                                lineHeight: 1.3,
+                                color: color || "common.white",
+                                fontSize: font_size || "0.9rem",
+                                lineHeight: line_height || 1.3,
                             }}
                         >
                             {title}
@@ -117,11 +122,11 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                             <Typography
                                 component="span"
                                 sx={{
-                                    color: "grey.300",
+                                    color: color || "grey.300",
                                     display: "block",
-                                    lineHeight: 1.3,
+                                    lineHeight: line_height || 1.3,
                                     pl: 0.2,
-                                    fontSize: "0.8rem",
+                                    fontSize: font_size || "0.8rem",
                                 }}
                             >
                                 {`(${orientation})`}
@@ -130,10 +135,10 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                     </Box>
                     <Typography
                         variant="body2"
-                        color="common.white"
+                        color={color || "common.white"}
                         sx={{
-                            fontSize: "0.8rem",
-                            lineHeight: 1.3,
+                            fontSize: font_size || "0.8rem",
+                            lineHeight: line_height || 1.3,
                         }}
                     >
                         {location}
@@ -154,9 +159,9 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                         variant="body2"
                         sx={{
                             fontWeight: 500,
-                            color: "common.white",
-                            lineHeight: 1.3,
-                            fontSize: "0.875rem",
+                            color: color || "common.white",
+                            lineHeight: line_height || 1.3,
+                            fontSize: font_size || "0.875rem",
                         }}
                     >
                         {company} {client && ` / ${client}`}
@@ -165,21 +170,26 @@ const ExperienceListItem: FC<ExperienceListItemProps> = ({
                         variant="body2"
                         sx={{
                             fontWeight: 400,
-                            color: "common.white",
-                            lineHeight: 1.3,
-                            fontSize: "0.8rem",
+                            color: color || "common.white",
+                            lineHeight: line_height || 1.3,
+                            fontSize: font_size || "0.8rem",
                         }}
                     >
                         {startDate} → {endDate()}
                     </Typography>
                 </Box>
 
-                <Box component="span">
+                <Box
+                    component="span"
+                    sx={{
+                        textAlign: text_align || "inherit",
+                    }}
+                >
                     <RichTextRenderer
                         content={body}
-                        fontSize="0.875rem"
-                        lineHeight={1.4}
-                        color="grey.500"
+                        fontSize={font_size || "0.875rem"}
+                        lineHeight={line_height || 1.4}
+                        color={color || "grey.500"}
                         highlighted_text_color={highlighted_text_color}
                     />
                 </Box>
