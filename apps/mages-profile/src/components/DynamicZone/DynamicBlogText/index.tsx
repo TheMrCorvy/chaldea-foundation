@@ -52,13 +52,13 @@ const DynamicBlogText: FC<BlogText> = ({
         >
             {title && (
                 <Typography
-                    component={motion.h6}
-                    variants={textVariants}
-                    variant="subtitle1"
+                    variant="h4"
                     sx={{
-                        color: color || "inherit",
-                        marginBottom: "1rem",
-                        textAlign: text_align || "center",
+                        color: color || undefined,
+                        fontWeight: "bold",
+                        letterSpacing: "0.1em",
+                        textTransform: "uppercase",
+                        textShadow: "0 0 10px rgba(56, 182, 255, 0.4)",
                     }}
                 >
                     {title}

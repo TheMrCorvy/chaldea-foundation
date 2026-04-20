@@ -225,6 +225,7 @@ const ProjectCard: FC<{ project: LayoutProjectListItem }> = ({ project }) => {
 
 const DynamicProjectsSection: FC<SectionsProjectsSection> = ({
     title,
+    title_color,
     link_to_page,
     projects,
     component_id,
@@ -260,15 +261,13 @@ const DynamicProjectsSection: FC<SectionsProjectsSection> = ({
             >
                 {title && (
                     <Typography
-                        component={motion.h2}
-                        variants={itemVariants}
-                        variant="h3"
+                        variant="h4"
                         sx={{
-                            color: "rgba(178, 221, 255, 0.95)",
+                            color: title_color || "#eeeeee",
                             fontWeight: "bold",
                             letterSpacing: "0.1em",
                             textTransform: "uppercase",
-                            textShadow: "0 0 15px rgba(56, 182, 255, 0.5)",
+                            textShadow: "0 0 10px rgba(56, 182, 255, 0.4)",
                         }}
                     >
                         {title}

@@ -69,12 +69,13 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
                 <Typography
                     component={motion.h3}
                     variants={textVariants}
-                    variant="h3"
+                    variant="h4"
                     sx={{
+                        color: color || undefined,
                         fontWeight: "bold",
                         letterSpacing: "0.1em",
                         textTransform: "uppercase",
-                        mb: 1,
+                        textShadow: "0 0 10px rgba(56, 182, 255, 0.4)",
                     }}
                 >
                     {title}

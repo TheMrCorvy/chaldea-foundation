@@ -125,14 +125,12 @@ const DynamicForm: FC<LayoutForm> = ({
         >
             {title && (
                 <Typography
-                    variant="h5"
-                    component={motion.h5}
-                    variants={itemVariants}
+                    variant="h4"
                     sx={{
-                        mb: 3,
-                        letterSpacing: "0.05em",
+                        fontWeight: "bold",
+                        letterSpacing: "0.1em",
                         textTransform: "uppercase",
-                        textAlign: "center",
+                        textShadow: "0 0 10px rgba(56, 182, 255, 0.4)",
                     }}
                 >
                     {title}
