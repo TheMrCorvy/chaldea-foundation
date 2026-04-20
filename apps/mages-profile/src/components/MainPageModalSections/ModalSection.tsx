@@ -97,6 +97,8 @@ const ModalSection: FC<ModalSectionProps> = ({
                     justifyContent: "space-around",
                     height: "100%",
                     width: "100%",
+                    pt: !isMobile ? "25px" : undefined,
+                    pb: !isMobile ? "11px" : undefined,
                 }}
             >
                 {renderModalContent()}
@@ -108,7 +110,7 @@ const ModalSection: FC<ModalSectionProps> = ({
                         width: "100%",
                         px: "11px",
                         pt: "5px",
-                        pb: "2px",
+                        pb: !isMobile ? "2px" : undefined,
                     }}
                 >
                     <Link
@@ -122,6 +124,7 @@ const ModalSection: FC<ModalSectionProps> = ({
                                 "layout.description-with-chips-list"
                                     ? "11px"
                                     : undefined,
+                            mb: !isMobile ? "11px" : undefined,
                         }}
                         onClick={() => onCountryClick(null)}
                     >
@@ -136,6 +139,7 @@ const ModalSection: FC<ModalSectionProps> = ({
                                 color="#ffffff"
                                 sx={{
                                     mr: isMobile ? "-11px" : "0",
+                                    mb: !isMobile ? "11px" : undefined,
                                 }}
                                 href={
                                     (section as LayoutWorkExperienceSection)

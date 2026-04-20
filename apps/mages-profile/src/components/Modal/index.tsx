@@ -164,6 +164,8 @@ const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
                     <GlitchBackgroundCard
                         data-sound="modal"
                         isMobile={isMobile}
+                        width={450}
+                        height="100%"
                     >
                         {children}
                     </GlitchBackgroundCard>
