@@ -23,6 +23,19 @@
             "component": "layout.project-list-item",
             "repeatable": true,
             "required": true
+        },
+        "title_color": {
+            "type": "enumeration",
+            "default": "inherit",
+            "enum": [
+                "primary",
+                "secondary",
+                "warning",
+                "info",
+                "error",
+                "success",
+                "inherit"
+            ]
         }
     },
     "config": {}
