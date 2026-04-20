@@ -67,12 +67,12 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
 
             <Grid
                 container
-                spacing={3}
+                spacing={8}
                 sx={{
                     mt: 2,
                     display: "flex",
                     justifyContent: "center",
-                    width: "100%",
+                    alignItems: "flex-start",
                 }}
             >
                 {experience_list_items?.map((experience, index) => {
@@ -118,27 +118,23 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                             sx={{
                                 display: "flex",
                                 flexDirection: "column",
-                                gap: 6,
                             }}
                         >
-                            <Box
-                                sx={{ flex: 1, width: "100%", height: "100%" }}
-                            >
+                            <Box sx={{ flex: 1, width: "100%" }}>
                                 <GlitchBackgroundCard isMobile={isMobile}>
                                     <Box
                                         sx={{
-                                            p: 2,
+                                            p: 3,
                                             display: "flex",
                                             flexDirection: "column",
                                             gap: 1.5,
-                                            height: "100%",
                                             width: "100%",
                                             justifyContent: "space-between",
                                         }}
                                     >
                                         <Box>
                                             <Typography
-                                                component="div"
+                                                component="span"
                                                 variant="h6"
                                                 sx={{
                                                     fontWeight: 500,
@@ -150,36 +146,71 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                                                     display: "flex",
                                                     alignItems: "center",
                                                     gap: 1,
+                                                    flexDirection: isMobile
+                                                        ? "column"
+                                                        : "row",
                                                 }}
                                             >
-                                                <WorkIcon fontSize="inherit" />
-                                                {expTitle}
-                                                {orientation && (
-                                                    <Typography
-                                                        component="span"
-                                                        sx={{
-                                                            color: "secondary.light",
-                                                            fontSize: "0.55em",
-                                                            ml: 1,
-                                                            fontWeight: 600,
-                                                            border: "1px solid",
-                                                            borderColor:
-                                                                "secondary.main",
-                                                            borderRadius: "4px",
-                                                            padding: "2px 8px",
-                                                            textTransform:
-                                                                "uppercase",
-                                                            letterSpacing:
-                                                                "0.05em",
-                                                        }}
-                                                    >
-                                                        {orientation}
-                                                    </Typography>
-                                                )}
+                                                <Box
+                                                    sx={{
+                                                        display: "flex",
+                                                        justifyContent:
+                                                            "flex-start",
+                                                        alignItems:
+                                                            "flex-start",
+                                                        width: !isMobile
+                                                            ? "50%"
+                                                            : "100%",
+                                                        gap: 1,
+                                                    }}
+                                                >
+                                                    <WorkIcon fontSize="inherit" />
+                                                    {expTitle}
+                                                </Box>
+                                                <Box
+                                                    sx={{
+                                                        display: "flex",
+                                                        justifyContent:
+                                                            !isMobile
+                                                                ? "flex-end"
+                                                                : "flex-start",
+                                                        alignItems:
+                                                            "flex-start",
+                                                        width: !isMobile
+                                                            ? "50%"
+                                                            : "100%",
+                                                    }}
+                                                >
+                                                    {orientation && (
+                                                        <Typography
+                                                            component="span"
+                                                            sx={{
+                                                                color: "secondary.light",
+                                                                fontSize:
+                                                                    "0.55em",
+                                                                ml: 1,
+                                                                fontWeight: 600,
+                                                                border: "1px solid",
+                                                                borderColor:
+                                                                    "secondary.main",
+                                                                borderRadius:
+                                                                    "4px",
+                                                                padding:
+                                                                    "2px 8px",
+                                                                textTransform:
+                                                                    "uppercase",
+                                                                letterSpacing:
+                                                                    "0.05em",
+                                                            }}
+                                                        >
+                                                            {orientation}
+                                                        </Typography>
+                                                    )}
+                                                </Box>
                                             </Typography>
                                             {(company || client) && (
                                                 <Typography
-                                                    component="div"
+                                                    component="span"
                                                     variant="subtitle1"
                                                     sx={{
                                                         color: "#e0e0e0",
@@ -198,7 +229,18 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                                                         }}
                                                     />
                                                     {company}{" "}
-                                                    {client && `| ${client}`}
+                                                    {client && (
+                                                        <span
+                                                            style={{
+                                                                color: "#b0b0b0",
+                                                                fontWeight: 500,
+                                                                fontSize:
+                                                                    "0.95rem",
+                                                            }}
+                                                        >
+                                                            for {client}
+                                                        </span>
+                                                    )}
                                                 </Typography>
                                             )}
                                             <Box

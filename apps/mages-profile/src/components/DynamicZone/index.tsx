@@ -28,11 +28,13 @@ import DynamicBlogImage from "./DynamicBlogImage";
 export interface DynamicZoneComponentProps {
     section: StrapiSection;
     imageBaseUrl: string;
+    isMobile?: boolean;
 }
 
 const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({
     section,
     imageBaseUrl,
+    isMobile = false,
 }) => {
     switch (section.__component) {
         case "sections.projects-section":
@@ -54,6 +56,7 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({
             return (
                 <DynamicWorkExperienceSection
                     {...(section as LayoutWorkExperienceSection)}
+                    isMobile={isMobile}
                 />
             );
 
