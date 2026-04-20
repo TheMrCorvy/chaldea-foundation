@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { LayoutWorkExperienceListItem } from "@repo/type-definitions/dynamic-page";
 import ExperienceListItem from "./index";
-import StarryContainer from '../StarryContainer'
+import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/ExperienceListItem",
@@ -32,6 +32,11 @@ const mockExperience: LayoutWorkExperienceListItem = {
     from: new Date("2021-08-01"),
     until: new Date("2023-12-31"),
     location: "Neo-Tokyo, JP",
+    color: "#eeeeee",
+    font_size: "1rem",
+    line_height: 1.5,
+    text_align: "left",
+    highlighted_text_color: "inherit",
     body: [
         {
             type: "paragraph",
@@ -65,9 +70,9 @@ export const Default: Story = {
         experience: mockExperience,
     },
     render: (args) => (
-            <StarryContainer>
-                <ExperienceListItem {...args} />
-            </StarryContainer>
+        <StarryContainer>
+            <ExperienceListItem {...args} />
+        </StarryContainer>
     ),
 };
 
@@ -99,6 +104,11 @@ export const DifferentRole: Story = {
             from: new Date("2021-08-01"),
             until: new Date("2023-12-31"),
             location: "Neo-Tokyo, JP",
+            color: "#eeeeee",
+            font_size: "1rem",
+            line_height: 1.5,
+            text_align: "left",
+            highlighted_text_color: "inherit",
             body: [
                 {
                     type: "paragraph",
