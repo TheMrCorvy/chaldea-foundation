@@ -1,39 +1,41 @@
 "use client";
 
 import { Box, Typography, Tooltip, Grid } from "@mui/material";
+import BusinessIcon from "@mui/icons-material/Business";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import WorkIcon from "@mui/icons-material/Work";
 import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
-import { motion } from "framer-motion";
 import DynamicLink from "../DynamicLink";
-import ExperienceListItem from "../../ExperienceListItem";
+import RichTextRenderer from "../../RichTextRenderer";
+import GlitchBackgroundCard from "../../GlitchBacgkroundCard";
 
-const DynamicWorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
+export interface DynamicWorkExperienceSectionProps extends LayoutWorkExperienceSection {
+    isMobile?: boolean;
+}
+
+const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
     title,
     experience_list_items,
     link_to_page,
     component_id,
     color,
+    isMobile,
 }) => {
     return (
         <Box
             id={component_id}
-            component={motion.section}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            component="section"
             sx={{
                 width: "100%",
                 maxWidth: "1500px",
                 margin: "0 auto",
-                py: { xs: 5, md: 8 },
-                px: { xs: 2, sm: 4 },
                 display: "flex",
                 flexDirection: "column",
                 gap: 4,
             }}
         >
-            {/* Header */}
             <Box
                 sx={{
                     display: "flex",
@@ -63,13 +65,49 @@ const DynamicWorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
                 {link_to_page && <DynamicLink {...link_to_page} />}
             </Box>
 
-            {/* Experience List Items */}
             <Grid
                 container
                 spacing={3}
-                sx={{ mt: 2, display: "flex", justifyContent: "center" }}
+                sx={{
+                    mt: 2,
+                    display: "flex",
+                    justifyContent: "center",
+                    width: "100%",
+                }}
             >
                 {experience_list_items?.map((experience, index) => {
+                    const {
+                        title: expTitle,
+                        company,
+                        client,
+                        location,
+                        from,
+                        until,
+                        body,
+                        orientation,
+                    } = experience;
+
+                    const startDate = from
+                        ? new Intl.DateTimeFormat("en-US", {
+                              year: "numeric",
+                              month: "short",
+                              timeZone: "UTC",
+                          }).format(new Date(from))
+                        : "";
+
+                    let endDate = "Present";
+                    if (until) {
+                        const now = new Date();
+                        const end = new Date(until);
+                        if (end <= now) {
+                            endDate = new Intl.DateTimeFormat("en-US", {
+                                year: "numeric",
+                                month: "short",
+                                timeZone: "UTC",
+                            }).format(end);
+                        }
+                    }
+
                     const itemContent = (
                         <Grid
                             size={{
@@ -78,24 +116,169 @@ const DynamicWorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
                             }}
                             key={experience.component_id || `exp-${index}`}
                             sx={{
-                                p: { xs: 2, sm: 3 },
-                                borderRadius: "8px",
-                                backgroundColor: "rgba(8, 20, 40, 0.4)",
-                                border: "1px solid rgba(56, 182, 255, 0.15)",
-                                boxShadow:
-                                    "inset 0 0 10px rgba(56, 182, 255, 0.05)",
-                                transition:
-                                    "background-color 0.3s ease, border-color 0.3s ease",
-                                "&:hover": {
-                                    backgroundColor: "rgba(11, 22, 40, 0.7)",
-                                    borderColor: "rgba(56, 182, 255, 0.4)",
-                                },
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: 6,
                             }}
                         >
-                            <ExperienceListItem
-                                experience={experience}
-                                color={experience.color || "inherit"}
-                            />
+                            <Box
+                                sx={{ flex: 1, width: "100%", height: "100%" }}
+                            >
+                                <GlitchBackgroundCard isMobile={isMobile}>
+                                    <Box
+                                        sx={{
+                                            p: 2,
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            gap: 1.5,
+                                            height: "100%",
+                                            width: "100%",
+                                            justifyContent: "space-between",
+                                        }}
+                                    >
+                                        <Box>
+                                            <Typography
+                                                component="div"
+                                                variant="h6"
+                                                sx={{
+                                                    fontWeight: 500,
+                                                    color:
+                                                        experience.color ||
+                                                        "#eeeeee",
+                                                    lineHeight: 1.2,
+                                                    mb: 0.5,
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: 1,
+                                                }}
+                                            >
+                                                <WorkIcon fontSize="inherit" />
+                                                {expTitle}
+                                                {orientation && (
+                                                    <Typography
+                                                        component="span"
+                                                        sx={{
+                                                            color: "secondary.light",
+                                                            fontSize: "0.55em",
+                                                            ml: 1,
+                                                            fontWeight: 600,
+                                                            border: "1px solid",
+                                                            borderColor:
+                                                                "secondary.main",
+                                                            borderRadius: "4px",
+                                                            padding: "2px 8px",
+                                                            textTransform:
+                                                                "uppercase",
+                                                            letterSpacing:
+                                                                "0.05em",
+                                                        }}
+                                                    >
+                                                        {orientation}
+                                                    </Typography>
+                                                )}
+                                            </Typography>
+                                            {(company || client) && (
+                                                <Typography
+                                                    component="div"
+                                                    variant="subtitle1"
+                                                    sx={{
+                                                        color: "#e0e0e0",
+                                                        fontWeight: 600,
+                                                        display: "flex",
+                                                        alignItems: "center",
+                                                        gap: 1,
+                                                        mt: 1,
+                                                        mb: 1.5,
+                                                        fontSize: "1.15rem",
+                                                    }}
+                                                >
+                                                    <BusinessIcon
+                                                        sx={{
+                                                            fontSize: "1.2rem",
+                                                        }}
+                                                    />
+                                                    {company}{" "}
+                                                    {client && `| ${client}`}
+                                                </Typography>
+                                            )}
+                                            <Box
+                                                sx={{
+                                                    display: "flex",
+                                                    justifyContent:
+                                                        "flex-start",
+                                                    alignItems: "center",
+                                                    gap: 3,
+                                                    mt: 1,
+                                                    mb: 3,
+                                                    flexWrap: "wrap",
+                                                }}
+                                            >
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{
+                                                        color: "#b0b0b0",
+                                                        fontWeight: 500,
+                                                        display: "flex",
+                                                        alignItems: "center",
+                                                        gap: 0.5,
+                                                        fontSize: "0.95rem",
+                                                    }}
+                                                >
+                                                    <CalendarTodayIcon
+                                                        sx={{
+                                                            fontSize: "1.1rem",
+                                                            mr: 1,
+                                                        }}
+                                                    />
+                                                    {startDate} - {endDate}
+                                                </Typography>
+                                                {location && (
+                                                    <Typography
+                                                        variant="body2"
+                                                        sx={{
+                                                            color: "#b0b0b0",
+                                                            fontWeight: 500,
+                                                            display: "flex",
+                                                            alignItems:
+                                                                "center",
+                                                            gap: 0.5,
+                                                            fontSize: "0.95rem",
+                                                        }}
+                                                    >
+                                                        <LocationOnIcon
+                                                            sx={{
+                                                                fontSize:
+                                                                    "1.1rem",
+                                                                color: "error.light",
+                                                            }}
+                                                        />
+                                                        {location}
+                                                    </Typography>
+                                                )}
+                                            </Box>
+                                        </Box>
+
+                                        {body && (
+                                            <Box
+                                                sx={{
+                                                    mt: 1,
+                                                    flex: 1,
+                                                    display: "flex",
+                                                    justifyContent: "center",
+                                                    alignItems: "center",
+                                                }}
+                                            >
+                                                <RichTextRenderer
+                                                    content={body}
+                                                    color="#cccccc"
+                                                    fontSize="0.975rem"
+                                                    lineHeight={1.3}
+                                                />
+                                            </Box>
+                                        )}
+                                    </Box>
+                                </GlitchBackgroundCard>
+                            </Box>
                         </Grid>
                     );
 
