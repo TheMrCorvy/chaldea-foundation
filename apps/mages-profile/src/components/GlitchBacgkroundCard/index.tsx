@@ -22,11 +22,15 @@ const generateRandomString = (length: number, chars: string): string => {
 export interface GlitchBackgroundCardProps {
     children?: ReactNode;
     isMobile?: boolean;
+    height?: string | number;
+    width?: string | number;
 }
 
 const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
     children,
     isMobile = false,
+    height = "100%",
+    width = "100%",
 }) => {
     const chars = useRandomString({
         useMayus: true,
@@ -114,8 +118,11 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
             onMouseLeave={handleMouseLeave}
             sx={{
                 position: "relative",
-                width: 450,
-                height: "100%",
+                width,
+                height,
+                minHeight: "100%",
+                display: "flex",
+                flexDirection: "column",
                 borderLeft: "1px solid rgba(25,118,210, 0.6)",
                 borderRight: "1px solid rgba(25,118,210, 0.6)",
                 overflow: "visible",
@@ -128,7 +135,7 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                 // Vertical line
                 "&::before": {
                     width: "1px",
-                    height: "100vh",
+                    height: "100%",
                     left: "50%",
                     top: "50%",
                     transform: "translate(-50%, -50%)",
@@ -136,7 +143,7 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                 // Horizontal line
                 "&::after": {
                     height: "1px",
-                    width: "100vw",
+                    width: "100%",
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%, -50%)",
@@ -215,15 +222,15 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
             </Box>
             <Box
                 sx={{
-                    position: "absolute",
-                    top: "0",
-                    left: "0",
+                    position: "relative",
                     width: "100%",
-                    height: "100%",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                     borderRadius: "16px",
+                    flex: 1,
+                    minHeight: "100%",
+                    zIndex: 1,
                 }}
             >
                 <Box
@@ -231,13 +238,14 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                         display: "flex",
                         justifyContent: "center",
                         width: "100%",
-                        height: "95%",
+                        height: "100%",
+                        minHeight: "100%",
                         color: "white",
                         marginX: "11px",
-                        backgroundColor: isHovering ? "rgba(0, 0, 0, 0.1)" : "",
                         wordBreak: "break-word",
                         flexDirection: "column",
                         padding: 0,
+                        transition: "background-color 300ms ease",
                     }}
                 >
                     {children}
