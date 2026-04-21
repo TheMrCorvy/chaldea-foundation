@@ -1,11 +1,16 @@
 "use client";
 
-import { Box, Chip, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { LayoutDescriptionWithChipsList } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import { motion } from "framer-motion";
 import RichTextRenderer from "../../RichTextRenderer";
-import IconComponent from "../../IconComponent";
+import ChipsRenderer from "./ChipsRenderer";
+import DynamicTitle from "../DynamicTitle";
+
+export interface DynamicDescriptionWithChipsListProps extends LayoutDescriptionWithChipsList {
+    isMobile?: boolean;
+}
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -28,17 +33,9 @@ const textVariants = {
     },
 };
 
-const chipVariants = {
-    hidden: { opacity: 0, scale: 0.85, filter: "blur(4px)" },
-    visible: {
-        opacity: 1,
-        scale: 1,
-        filter: "blur(0px)",
-        transition: { duration: 0.4, ease: "backOut" },
-    },
-};
-
-const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
+const DynamicDescriptionWithChipsList: FC<
+    DynamicDescriptionWithChipsListProps
+> = ({
     body,
     font_size,
     line_height,
@@ -47,6 +44,10 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
     title,
     text_align,
     highlighted_text_color,
+    logo_loop,
+    isMobile,
+    vertical_logo_loop,
+    component_id,
 }) => {
     return (
         <Box
@@ -66,20 +67,11 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
             }}
         >
             {title && (
-                <Typography
-                    component={motion.h3}
-                    variants={textVariants}
-                    variant="h4"
-                    sx={{
-                        color: color || undefined,
-                        fontWeight: "bold",
-                        letterSpacing: "0.1em",
-                        textTransform: "uppercase",
-                        textShadow: "0 0 10px rgba(56, 182, 255, 0.4)",
-                    }}
-                >
-                    {title}
-                </Typography>
+                <DynamicTitle
+                    title={title}
+                    color={color || "#eeeeee"}
+                    size="h4"
+                />
             )}
 
             <Box
@@ -106,73 +98,13 @@ const DynamicDescriptionWithChipsList: FC<LayoutDescriptionWithChipsList> = ({
                 />
             </Box>
 
-            {chips && chips.length > 0 && (
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: 1.5,
-                        mt: 1,
-                        justifyContent:
-                            chips.length === 1 ? "flex-start" : "center",
-                    }}
-                >
-                    {chips.map((chip, index) => (
-                        <motion.div
-                            key={chip.component_id || `chip-${index}`}
-                            variants={chipVariants}
-                        >
-                            <Chip
-                                label={chip.title}
-                                icon={
-                                    chip.icon ? (
-                                        <IconComponent
-                                            name={chip.icon.name}
-                                            size={chip.icon.size}
-                                            color={chip.icon.color}
-                                        />
-                                    ) : undefined
-                                }
-                                sx={{
-                                    color: "#eeeeee",
-                                    backgroundColor: "rgba(12, 36, 72, 0.4)",
-                                    border: "1px solid rgba(56, 182, 255, 0.3)",
-                                    backdropFilter: "blur(4px)",
-                                    boxShadow:
-                                        "0 0 10px rgba(56, 182, 255, 0.05)",
-                                    transition: "all 0.3s ease",
-                                    "&:hover": {
-                                        backgroundColor:
-                                            "rgba(25, 118, 210, 0.5)",
-                                        borderColor: "rgba(86, 202, 255, 0.8)",
-                                        boxShadow:
-                                            "0 0 16px rgba(56, 182, 255, 0.4), inset 0 0 8px rgba(56, 182, 255, 0.2)",
-                                        transform: "translateY(-2px)",
-                                    },
-                                    "& .MuiChip-label": {
-                                        px: 2,
-                                        py: 0.5,
-                                        fontWeight: 600,
-                                        letterSpacing: "0.08em",
-                                        textTransform: "uppercase",
-                                        fontSize: "0.75rem",
-                                        textShadow:
-                                            "0 0 8px rgba(178, 221, 255, 0.4)",
-                                    },
-                                    "& .MuiChip-icon": {
-                                        color:
-                                            chip.icon?.color &&
-                                            chip.icon.color !== "inherit"
-                                                ? undefined
-                                                : "rgba(178, 221, 255, 0.8)",
-                                        marginLeft: 1,
-                                    },
-                                }}
-                            />
-                        </motion.div>
-                    ))}
-                </Box>
-            )}
+            <ChipsRenderer
+                chips={chips}
+                logo_loop={logo_loop}
+                isMobile={isMobile}
+                vertical_logo_loop={vertical_logo_loop}
+                component_id={component_id}
+            />
         </Box>
     );
 };
