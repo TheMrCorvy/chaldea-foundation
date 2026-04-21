@@ -5,6 +5,7 @@ import { LayoutForm } from "@repo/type-definitions/dynamic-page";
 import { FC, FormEvent, useEffect, useMemo, useState } from "react";
 import { InputByType, RangeInputValue } from "../../Input";
 import { motion } from "framer-motion";
+import DynamicTitle from "../DynamicTitle";
 
 type FormFieldValue = string | number | RangeInputValue;
 type FormFieldState = Record<string, FormFieldValue>;
@@ -124,17 +125,7 @@ const DynamicForm: FC<LayoutForm> = ({
             }}
         >
             {title && (
-                <Typography
-                    variant="h4"
-                    sx={{
-                        fontWeight: "bold",
-                        letterSpacing: "0.1em",
-                        textTransform: "uppercase",
-                        textShadow: "0 0 10px rgba(56, 182, 255, 0.4)",
-                    }}
-                >
-                    {title}
-                </Typography>
+                <DynamicTitle title={title} color={"#eeeeee"} size="h4" />
             )}
 
             <Box

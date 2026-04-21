@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import DynamicLink from "../DynamicLink";
 import IconComponent from "../../IconComponent";
 import DynamicDescriptionWithChipsList from "../DynamicDescriptionWithChipsList";
+import DynamicTitle from "../DynamicTitle";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -260,18 +261,11 @@ const DynamicProjectsSection: FC<SectionsProjectsSection> = ({
                 }}
             >
                 {title && (
-                    <Typography
-                        variant="h4"
-                        sx={{
-                            color: title_color || "#eeeeee",
-                            fontWeight: "bold",
-                            letterSpacing: "0.1em",
-                            textTransform: "uppercase",
-                            textShadow: "0 0 10px rgba(56, 182, 255, 0.4)",
-                        }}
-                    >
-                        {title}
-                    </Typography>
+                    <DynamicTitle
+                        title={title}
+                        color={title_color || "#eeeeee"}
+                        size="h4"
+                    />
                 )}
 
                 {link_to_page && (

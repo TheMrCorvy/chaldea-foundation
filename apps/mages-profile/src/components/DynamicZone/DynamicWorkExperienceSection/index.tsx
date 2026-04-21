@@ -10,6 +10,7 @@ import { FC } from "react";
 import DynamicLink from "../DynamicLink";
 import RichTextRenderer from "../../RichTextRenderer";
 import GlitchBackgroundCard from "../../GlitchBacgkroundCard";
+import DynamicTitle from "../DynamicTitle";
 
 export interface DynamicWorkExperienceSectionProps extends LayoutWorkExperienceSection {
     isMobile?: boolean;
@@ -48,18 +49,11 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                 }}
             >
                 {title && (
-                    <Typography
-                        variant="h4"
-                        sx={{
-                            color: color || undefined,
-                            fontWeight: "bold",
-                            letterSpacing: "0.1em",
-                            textTransform: "uppercase",
-                            textShadow: "0 0 10px rgba(56, 182, 255, 0.4)",
-                        }}
-                    >
-                        {title}
-                    </Typography>
+                    <DynamicTitle
+                        title={title}
+                        color={color || "#eeeeee"}
+                        size="h4"
+                    />
                 )}
 
                 {link_to_page && <DynamicLink {...link_to_page} />}
@@ -132,129 +126,155 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                                             justifyContent: "space-between",
                                         }}
                                     >
-                                        <Box>
-                                            <Typography
-                                                component="span"
-                                                variant="h6"
+                                        {/* <Box> */}
+                                        <Typography
+                                            component="span"
+                                            variant="h6"
+                                            sx={{
+                                                fontWeight: 500,
+                                                color:
+                                                    experience.color ||
+                                                    "#eeeeee",
+                                                lineHeight: 1.2,
+                                                mb: 0.5,
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: 1,
+                                                flexDirection: isMobile
+                                                    ? "column"
+                                                    : "row",
+                                            }}
+                                        >
+                                            <Box
                                                 sx={{
-                                                    fontWeight: 500,
-                                                    color:
-                                                        experience.color ||
-                                                        "#eeeeee",
-                                                    lineHeight: 1.2,
-                                                    mb: 0.5,
                                                     display: "flex",
-                                                    alignItems: "center",
+                                                    justifyContent:
+                                                        "flex-start",
+                                                    alignItems: "flex-start",
+                                                    width: !isMobile
+                                                        ? "50%"
+                                                        : "100%",
                                                     gap: 1,
                                                     flexDirection: isMobile
                                                         ? "column"
                                                         : "row",
                                                 }}
                                             >
-                                                <Box
-                                                    sx={{
-                                                        display: "flex",
-                                                        justifyContent:
-                                                            "flex-start",
-                                                        alignItems:
-                                                            "flex-start",
-                                                        width: !isMobile
-                                                            ? "50%"
-                                                            : "100%",
-                                                        gap: 1,
-                                                    }}
-                                                >
-                                                    <WorkIcon fontSize="inherit" />
-                                                    {expTitle}
-                                                </Box>
-                                                <Box
-                                                    sx={{
-                                                        display: "flex",
-                                                        justifyContent:
-                                                            !isMobile
-                                                                ? "flex-end"
-                                                                : "flex-start",
-                                                        alignItems:
-                                                            "flex-start",
-                                                        width: !isMobile
-                                                            ? "50%"
-                                                            : "100%",
-                                                    }}
-                                                >
-                                                    {orientation && (
-                                                        <Typography
-                                                            component="span"
-                                                            sx={{
-                                                                color: "secondary.light",
-                                                                fontSize:
-                                                                    "0.55em",
-                                                                ml: 1,
-                                                                fontWeight: 600,
-                                                                border: "1px solid",
-                                                                borderColor:
-                                                                    "secondary.main",
-                                                                borderRadius:
-                                                                    "4px",
-                                                                padding:
-                                                                    "2px 8px",
-                                                                textTransform:
-                                                                    "uppercase",
-                                                                letterSpacing:
-                                                                    "0.05em",
-                                                            }}
-                                                        >
-                                                            {orientation}
-                                                        </Typography>
-                                                    )}
-                                                </Box>
-                                            </Typography>
-                                            {(company || client) && (
-                                                <Typography
-                                                    component="span"
-                                                    variant="subtitle1"
-                                                    sx={{
-                                                        color: "#e0e0e0",
-                                                        fontWeight: 600,
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        gap: 1,
-                                                        mt: 1,
-                                                        mb: 1.5,
-                                                        fontSize: "1.15rem",
-                                                    }}
-                                                >
-                                                    <BusinessIcon
-                                                        sx={{
-                                                            fontSize: "1.2rem",
-                                                        }}
-                                                    />
-                                                    {company}{" "}
-                                                    {client && (
-                                                        <span
-                                                            style={{
-                                                                color: "#b0b0b0",
-                                                                fontWeight: 500,
-                                                                fontSize:
-                                                                    "0.95rem",
-                                                            }}
-                                                        >
-                                                            for {client}
-                                                        </span>
-                                                    )}
-                                                </Typography>
-                                            )}
+                                                <WorkIcon fontSize="inherit" />
+                                                {expTitle}
+                                            </Box>
                                             <Box
                                                 sx={{
                                                     display: "flex",
-                                                    justifyContent:
-                                                        "flex-start",
-                                                    alignItems: "center",
-                                                    gap: 3,
-                                                    mt: 1,
-                                                    mb: 3,
-                                                    flexWrap: "wrap",
+                                                    justifyContent: !isMobile
+                                                        ? "flex-end"
+                                                        : "flex-start",
+                                                    alignItems: "flex-start",
+                                                    width: !isMobile
+                                                        ? "50%"
+                                                        : "100%",
                                                 }}
                                             >
+                                                {orientation && (
+                                                    <Typography
+                                                        component="span"
+                                                        sx={{
+                                                            color: "secondary.light",
+                                                            fontSize: "0.55em",
+                                                            ml: 1,
+                                                            fontWeight: 600,
+                                                            border: "1px solid",
+                                                            borderColor:
+                                                                "secondary.main",
+                                                            borderRadius: "4px",
+                                                            padding: "2px 8px",
+                                                            textTransform:
+                                                                "uppercase",
+                                                            letterSpacing:
+                                                                "0.05em",
+                                                        }}
+                                                    >
+                                                        {orientation}
+                                                    </Typography>
+                                                )}
+                                            </Box>
+                                        </Typography>
+                                        {(company || client) && (
+                                            <Typography
+                                                component="span"
+                                                variant="subtitle1"
+                                                sx={{
+                                                    color: "#e0e0e0",
+                                                    fontWeight: 600,
+                                                    display: "flex",
+                                                    // alignItems: "center",
+                                                    gap: 1,
+                                                    mt: 1,
+                                                    mb: 1.5,
+                                                    fontSize: "1.15rem",
+                                                    flexDirection: isMobile
+                                                        ? "column"
+                                                        : "row",
+                                                    justifyContent:
+                                                        "flex-start",
+                                                    textAlign: isMobile
+                                                        ? "left"
+                                                        : "center",
+                                                    alignItems: isMobile
+                                                        ? "flex-start"
+                                                        : "center",
+                                                }}
+                                            >
+                                                <BusinessIcon
+                                                    sx={{
+                                                        fontSize: "1.2rem",
+                                                    }}
+                                                />
+                                                {company}{" "}
+                                                {client && (
+                                                    <span
+                                                        style={{
+                                                            color: "#b0b0b0",
+                                                            fontWeight: 500,
+                                                            fontSize: "0.95rem",
+                                                        }}
+                                                    >
+                                                        for {client}
+                                                    </span>
+                                                )}
+                                            </Typography>
+                                        )}
+                                        <Box
+                                            sx={{
+                                                display: "flex",
+                                                justifyContent: "flex-start",
+                                                alignItems: "center",
+                                                gap: 3,
+                                                mt: 1,
+                                                mb: 3,
+                                                flexWrap: "wrap",
+                                            }}
+                                        >
+                                            <Typography
+                                                variant="body2"
+                                                sx={{
+                                                    color: "#b0b0b0",
+                                                    fontWeight: 500,
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: 0.5,
+                                                    fontSize: "0.95rem",
+                                                }}
+                                            >
+                                                <CalendarTodayIcon
+                                                    sx={{
+                                                        fontSize: "1.1rem",
+                                                        mr: 1,
+                                                    }}
+                                                />
+                                                {startDate} - {endDate}
+                                            </Typography>
+                                            {location && (
                                                 <Typography
                                                     variant="body2"
                                                     sx={{
@@ -266,39 +286,17 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                                                         fontSize: "0.95rem",
                                                     }}
                                                 >
-                                                    <CalendarTodayIcon
+                                                    <LocationOnIcon
                                                         sx={{
                                                             fontSize: "1.1rem",
-                                                            mr: 1,
+                                                            color: "error.light",
                                                         }}
                                                     />
-                                                    {startDate} - {endDate}
+                                                    {location}
                                                 </Typography>
-                                                {location && (
-                                                    <Typography
-                                                        variant="body2"
-                                                        sx={{
-                                                            color: "#b0b0b0",
-                                                            fontWeight: 500,
-                                                            display: "flex",
-                                                            alignItems:
-                                                                "center",
-                                                            gap: 0.5,
-                                                            fontSize: "0.95rem",
-                                                        }}
-                                                    >
-                                                        <LocationOnIcon
-                                                            sx={{
-                                                                fontSize:
-                                                                    "1.1rem",
-                                                                color: "error.light",
-                                                            }}
-                                                        />
-                                                        {location}
-                                                    </Typography>
-                                                )}
-                                            </Box>
+                                            )}
                                         </Box>
+                                        {/* </Box> */}
 
                                         {body && (
                                             <Box
