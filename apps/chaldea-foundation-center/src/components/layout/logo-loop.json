@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_layout_logo_loops",
+  "info": {
+    "displayName": "Logo Loop",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "component_id": {
+      "type": "string"
+    },
+    "chips": {
+      "type": "component",
+      "component": "layout.tool-chip",
+      "repeatable": true,
+      "required": true
+    },
+    "vertical": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "duration": {
+      "type": "decimal"
+    },
+    "direction": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "reverse"
+      ]
+    },
+    "gap": {
+      "type": "string",
+      "default": "1rem"
+    },
+    "title_color": {
+      "type": "string",
+      "default": "#eeeeee",
+      "required": true
+    }
+  },
+  "config": {}
+}

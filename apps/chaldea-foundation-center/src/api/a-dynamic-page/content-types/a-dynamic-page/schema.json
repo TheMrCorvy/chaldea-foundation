@@ -1,59 +1,63 @@
 {
-    "kind": "collectionType",
-    "collectionName": "a_dynamic_pages",
-    "info": {
-        "singularName": "a-dynamic-page",
-        "pluralName": "a-dynamic-pages",
-        "displayName": "A - Dynamic Page"
+  "kind": "collectionType",
+  "collectionName": "a_dynamic_pages",
+  "info": {
+    "singularName": "a-dynamic-page",
+    "pluralName": "a-dynamic-pages",
+    "displayName": "A - Dynamic Page"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     },
-    "options": {
-        "draftAndPublish": false
+    "title": {
+      "type": "string",
+      "required": true
     },
-    "pluginOptions": {},
-    "attributes": {
-        "slug": {
-            "type": "string",
-            "required": true,
-            "unique": true
-        },
-        "title": {
-            "type": "string",
-            "required": true
-        },
-        "description": {
-            "type": "text"
-        },
-        "metadata": {
-            "type": "json"
-        },
-        "background_music": {
-            "type": "enumeration",
-            "default": "ordeal_call",
-            "enum": ["ordeal_call", "class_score"]
-        },
-        "sections": {
-            "type": "dynamiczone",
-            "components": [
-                "blog.pdf-file",
-                "blog.blog-text",
-                "blog.blog-image",
-                "blog.blog-hero",
-                "sections.work-experience-section",
-                "sections.projects-section",
-                "sections.landing-hero-section",
-                "sections.contact-section",
-                "layout.work-experience-list-item",
-                "layout.tool-chip",
-                "layout.select-option",
-                "layout.project-list-item",
-                "layout.link",
-                "layout.icon",
-                "layout.form",
-                "layout.form-input",
-                "layout.description-with-chips-list"
-            ],
-            "required": true,
-            "min": 1
-        }
+    "description": {
+      "type": "text"
+    },
+    "metadata": {
+      "type": "json"
+    },
+    "background_music": {
+      "type": "enumeration",
+      "default": "ordeal_call",
+      "enum": [
+        "ordeal_call",
+        "class_score"
+      ]
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "blog.pdf-file",
+        "blog.blog-text",
+        "blog.blog-image",
+        "blog.blog-hero",
+        "sections.work-experience-section",
+        "sections.projects-section",
+        "sections.landing-hero-section",
+        "sections.contact-section",
+        "layout.work-experience-list-item",
+        "layout.tool-chip",
+        "layout.select-option",
+        "layout.project-list-item",
+        "layout.link",
+        "layout.icon",
+        "layout.form",
+        "layout.form-input",
+        "layout.description-with-chips-list",
+        "layout.logo-loop"
+      ],
+      "required": true,
+      "min": 1
     }
+  }
 }
