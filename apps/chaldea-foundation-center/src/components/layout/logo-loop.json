@@ -1,47 +1,50 @@
 {
-  "collectionName": "components_layout_logo_loops",
-  "info": {
-    "displayName": "Logo Loop",
-    "icon": "apps"
-  },
-  "options": {},
-  "attributes": {
-    "title": {
-      "type": "string"
+    "collectionName": "components_layout_logo_loops",
+    "info": {
+        "displayName": "Logo Loop",
+        "icon": "apps"
     },
-    "component_id": {
-      "type": "string"
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "component_id": {
+            "type": "string"
+        },
+        "chips": {
+            "type": "component",
+            "component": "layout.tool-chip",
+            "repeatable": true,
+            "required": true
+        },
+        "vertical": {
+            "type": "boolean",
+            "required": false,
+            "default": false
+        },
+        "duration": {
+            "type": "decimal"
+        },
+        "direction": {
+            "type": "enumeration",
+            "enum": ["normal", "reverse"]
+        },
+        "gap": {
+            "type": "string",
+            "default": "1rem"
+        },
+        "title_color": {
+            "type": "string",
+            "default": "#eeeeee",
+            "required": true
+        },
+        "text_align": {
+            "type": "enumeration",
+            "required": true,
+            "default": "left",
+            "enum": ["center", "right", "left"]
+        }
     },
-    "chips": {
-      "type": "component",
-      "component": "layout.tool-chip",
-      "repeatable": true,
-      "required": true
-    },
-    "vertical": {
-      "type": "boolean",
-      "required": false,
-      "default": false
-    },
-    "duration": {
-      "type": "decimal"
-    },
-    "direction": {
-      "type": "enumeration",
-      "enum": [
-        "normal",
-        "reverse"
-      ]
-    },
-    "gap": {
-      "type": "string",
-      "default": "1rem"
-    },
-    "title_color": {
-      "type": "string",
-      "default": "#eeeeee",
-      "required": true
-    }
-  },
-  "config": {}
+    "config": {}
 }
