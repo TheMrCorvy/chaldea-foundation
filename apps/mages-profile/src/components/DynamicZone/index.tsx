@@ -70,6 +70,7 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({
             return (
                 <DynamicDescriptionWithChipsList
                     {...(section as LayoutDescriptionWithChipsList)}
+                    isMobile={isMobile}
                 />
             );
 
