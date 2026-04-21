@@ -30,7 +30,8 @@ export type StrapiSection =
     | LayoutLink
     | LayoutIcon
     | LayoutForm
-    | LayoutDescriptionWithChipsList;
+    | LayoutDescriptionWithChipsList
+    | LayoutLogoLoop;
 
 export interface DynamicPageSections {
     [key: string]: StrapiSection;
@@ -178,6 +179,8 @@ export interface LayoutDescriptionWithChipsList extends StrapiComponent {
     chips?: Array<LayoutToolChip>;
     text_align?: "left" | "center" | "right" | null;
     highlighted_text_color?: TextColors | null;
+    logo_loop?: boolean | null;
+    vertical_logo_loop?: boolean | null;
 }
 
 export interface LayoutProjectListItem extends StrapiComponent {
@@ -252,3 +255,12 @@ export type TextColors =
     | "error"
     | "success"
     | "inherit";
+
+export interface LayoutLogoLoop extends StrapiComponent {
+    chips: Array<LayoutToolChip>;
+    vertical?: boolean | null;
+    duration?: number | null;
+    direction: "normal" | "reverse";
+    gap?: string | null;
+    title_color: string;
+}
