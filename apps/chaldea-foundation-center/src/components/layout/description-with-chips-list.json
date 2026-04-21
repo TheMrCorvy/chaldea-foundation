@@ -1,57 +1,69 @@
 {
-    "collectionName": "components_layout_description_with_chips_lists",
-    "info": {
-        "displayName": "Description With Chips List",
-        "icon": "stack"
+  "collectionName": "components_layout_description_with_chips_lists",
+  "info": {
+    "displayName": "Description With Chips List",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "component_id": {
+      "type": "string",
+      "unique": true
     },
-    "options": {},
-    "attributes": {
-        "component_id": {
-            "type": "string",
-            "unique": true
-        },
-        "title": {
-            "type": "string",
-            "required": true
-        },
-        "body": {
-            "type": "blocks",
-            "required": true
-        },
-        "chips": {
-            "type": "component",
-            "component": "layout.tool-chip",
-            "repeatable": true,
-            "required": true,
-            "min": 1
-        },
-        "font_size": {
-            "type": "string"
-        },
-        "line_height": {
-            "type": "decimal"
-        },
-        "color": {
-            "type": "string"
-        },
-        "text_align": {
-            "type": "enumeration",
-            "default": "center",
-            "enum": ["center", "left", "right"]
-        },
-        "highlighted_text_color": {
-            "type": "enumeration",
-            "default": "inherit",
-            "enum": [
-                "primary",
-                "secondary",
-                "warning",
-                "info",
-                "error",
-                "success",
-                "inherit"
-            ]
-        }
+    "title": {
+      "type": "string",
+      "required": true
     },
-    "config": {}
+    "body": {
+      "type": "blocks",
+      "required": true
+    },
+    "chips": {
+      "type": "component",
+      "component": "layout.tool-chip",
+      "repeatable": true,
+      "required": true,
+      "min": 1
+    },
+    "font_size": {
+      "type": "string"
+    },
+    "line_height": {
+      "type": "decimal"
+    },
+    "color": {
+      "type": "string"
+    },
+    "text_align": {
+      "type": "enumeration",
+      "default": "center",
+      "enum": [
+        "center",
+        "left",
+        "right"
+      ]
+    },
+    "highlighted_text_color": {
+      "type": "enumeration",
+      "default": "inherit",
+      "enum": [
+        "primary",
+        "secondary",
+        "warning",
+        "info",
+        "error",
+        "success",
+        "inherit"
+      ]
+    },
+    "logo_loop": {
+      "type": "boolean",
+      "default": false
+    },
+    "vertical_logo_loop": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
 }
