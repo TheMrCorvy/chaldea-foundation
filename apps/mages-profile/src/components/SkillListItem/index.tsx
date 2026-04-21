@@ -7,6 +7,16 @@ export interface SkillListItemProps {
     title: string;
     popover?: string;
     size?: "inherit" | "small" | "medium" | "large";
+    color?:
+        | "inherit"
+        | "disabled"
+        | "action"
+        | "primary"
+        | "secondary"
+        | "error"
+        | "info"
+        | "success"
+        | "warning";
 }
 
 const SkillListItem: FC<SkillListItemProps> = ({
@@ -14,6 +24,7 @@ const SkillListItem: FC<SkillListItemProps> = ({
     title,
     popover,
     size = "medium",
+    color = "inherit",
 }) => {
     return (
         <span
@@ -25,7 +36,7 @@ const SkillListItem: FC<SkillListItemProps> = ({
                 textAlign: "center",
             }}
         >
-            {icon && <IconComponent size={size} name={icon} />}
+            {icon && <IconComponent size={size} name={icon} color={color} />}
             <Typography variant="caption" fontSize={10} align="center">
                 {title}
             </Typography>
