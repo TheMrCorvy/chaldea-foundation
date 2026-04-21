@@ -263,4 +263,5 @@ export interface LayoutLogoLoop extends StrapiComponent {
     direction: "normal" | "reverse";
     gap?: string | null;
     title_color: string;
+    text_align?: "left" | "center" | "right" | null;
 }
