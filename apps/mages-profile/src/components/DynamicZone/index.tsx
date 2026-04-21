@@ -7,6 +7,7 @@ import {
     LayoutIcon,
     LayoutLandingHero,
     LayoutLink,
+    LayoutLogoLoop,
     LayoutWorkExperienceSection,
     SectionsProjectsSection,
     StrapiPDFComponent,
@@ -24,6 +25,7 @@ import DynamicLink from "./DynamicLink";
 import IconComponent from "../IconComponent";
 import DynamicForm from "./DynamicForm";
 import DynamicBlogImage from "./DynamicBlogImage";
+import DynamicLogoLoop from "./DynamicLogoLoop";
 
 export interface DynamicZoneComponentProps {
     section: StrapiSection;
@@ -96,6 +98,14 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({
 
         case "blog.blog-image":
             return <DynamicBlogImage {...(section as BlogImageComponent)} />;
+
+        case "layout.logo-loop":
+            return (
+                <DynamicLogoLoop
+                    {...(section as LayoutLogoLoop)}
+                    isMobile={isMobile}
+                />
+            );
 
         default:
             return null;
