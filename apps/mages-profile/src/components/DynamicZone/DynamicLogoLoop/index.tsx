@@ -1,9 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { LayoutLogoLoop } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import LogoLoop from "../../LogoLoop";
 import SkillListItem from "../../SkillListItem";
 import { IconName } from "../../IconComponent";
+import DynamicTitle from "../DynamicTitle";
 
 export interface DynamicLogoLoopProps extends LayoutLogoLoop {
     isMobile?: boolean;
@@ -19,6 +20,7 @@ const DynamicLogoLoop: FC<DynamicLogoLoopProps> = ({
     direction,
     gap,
     title_color,
+    text_align,
 }) => {
     return (
         <Box
@@ -35,18 +37,13 @@ const DynamicLogoLoop: FC<DynamicLogoLoopProps> = ({
             aria-label={title || "Logo Loop Section"}
         >
             {title && (
-                <Typography
-                    variant="h4"
-                    sx={{
-                        color: title_color,
-                        fontWeight: "bold",
-                        letterSpacing: "0.1em",
-                        textTransform: "uppercase",
-                        textShadow: "0 0 10px rgba(56, 182, 255, 0.4)",
-                    }}
-                >
-                    {title}
-                </Typography>
+                <DynamicTitle
+                    title={title}
+                    color={title_color || "#eeeeee"}
+                    size="h4"
+                    isMobile={isMobile}
+                    text_align={text_align || "center"}
+                />
             )}
             <LogoLoop
                 items={

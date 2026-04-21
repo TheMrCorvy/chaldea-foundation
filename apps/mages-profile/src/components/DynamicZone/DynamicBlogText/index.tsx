@@ -56,6 +56,8 @@ const DynamicBlogText: FC<BlogText> = ({
                     title={title}
                     color={color || "#eeeeee"}
                     size="h4"
+                    isMobile={false}
+                    text_align={text_align || "center"}
                 />
             )}
             <Box

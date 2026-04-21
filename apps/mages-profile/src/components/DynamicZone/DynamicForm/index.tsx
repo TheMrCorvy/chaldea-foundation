@@ -125,7 +125,12 @@ const DynamicForm: FC<LayoutForm> = ({
             }}
         >
             {title && (
-                <DynamicTitle title={title} color={"#eeeeee"} size="h4" />
+                <DynamicTitle
+                    title={title}
+                    color={"#eeeeee"}
+                    size="h4"
+                    isMobile={false}
+                />
             )}
 
             <Box

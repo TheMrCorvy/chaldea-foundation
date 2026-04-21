@@ -265,6 +265,8 @@ const DynamicProjectsSection: FC<SectionsProjectsSection> = ({
                         title={title}
                         color={title_color || "#eeeeee"}
                         size="h4"
+                        isMobile={false}
+                        text_align="left"
                     />
                 )}
 

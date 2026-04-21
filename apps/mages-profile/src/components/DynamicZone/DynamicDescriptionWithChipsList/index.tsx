@@ -71,6 +71,8 @@ const DynamicDescriptionWithChipsList: FC<
                     title={title}
                     color={color || "#eeeeee"}
                     size="h4"
+                    text_align={text_align || "center"}
+                    isMobile={isMobile}
                 />
             )}
 
