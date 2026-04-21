@@ -6,6 +6,7 @@ import { BlogText } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import { motion } from "framer-motion";
 import useStyles from "./useStyles";
+import DynamicTitle from "../DynamicTitle";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -51,18 +52,11 @@ const DynamicBlogText: FC<BlogText> = ({
             sx={root}
         >
             {title && (
-                <Typography
-                    variant="h4"
-                    sx={{
-                        color: color || undefined,
-                        fontWeight: "bold",
-                        letterSpacing: "0.1em",
-                        textTransform: "uppercase",
-                        textShadow: "0 0 10px rgba(56, 182, 255, 0.4)",
-                    }}
-                >
-                    {title}
-                </Typography>
+                <DynamicTitle
+                    title={title}
+                    color={color || "#eeeeee"}
+                    size="h4"
+                />
             )}
             <Box
                 component={motion.div}
