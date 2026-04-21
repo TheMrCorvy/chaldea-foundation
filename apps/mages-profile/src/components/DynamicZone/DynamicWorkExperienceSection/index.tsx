@@ -7,7 +7,6 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WorkIcon from "@mui/icons-material/Work";
 import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
-import DynamicLink from "../DynamicLink";
 import RichTextRenderer from "../../RichTextRenderer";
 import GlitchBackgroundCard from "../../GlitchBacgkroundCard";
 import DynamicTitle from "../DynamicTitle";
@@ -37,27 +36,16 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                 gap: 4,
             }}
         >
-            <Box
-                sx={{
-                    display: "flex",
-                    flexDirection: { xs: "column", sm: "row" },
-                    justifyContent: "space-between",
-                    alignItems: { xs: "flex-start", sm: "center" },
-                    borderBottom: "1px solid rgba(56, 182, 255, 0.3)",
-                    pb: 2,
-                    gap: 2,
-                }}
-            >
-                {title && (
-                    <DynamicTitle
-                        title={title}
-                        color={color || "#eeeeee"}
-                        size="h4"
-                    />
-                )}
-
-                {link_to_page && <DynamicLink {...link_to_page} />}
-            </Box>
+            {title && (
+                <DynamicTitle
+                    title={title}
+                    color={color || "#eeeeee"}
+                    size="h4"
+                    link_to_page={link_to_page}
+                    text_align="left"
+                    isMobile={isMobile}
+                />
+            )}
 
             <Grid
                 container
@@ -121,12 +109,10 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                                             p: 3,
                                             display: "flex",
                                             flexDirection: "column",
-                                            gap: 1.5,
                                             width: "100%",
                                             justifyContent: "space-between",
                                         }}
                                     >
-                                        {/* <Box> */}
                                         <Typography
                                             component="span"
                                             variant="h6"
@@ -136,7 +122,6 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                                                     experience.color ||
                                                     "#eeeeee",
                                                 lineHeight: 1.2,
-                                                mb: 0.5,
                                                 display: "flex",
                                                 alignItems: "center",
                                                 gap: 1,
@@ -207,10 +192,8 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                                                     color: "#e0e0e0",
                                                     fontWeight: 600,
                                                     display: "flex",
-                                                    // alignItems: "center",
                                                     gap: 1,
                                                     mt: 1,
-                                                    mb: 1.5,
                                                     fontSize: "1.15rem",
                                                     flexDirection: isMobile
                                                         ? "column"
@@ -296,7 +279,6 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                                                 </Typography>
                                             )}
                                         </Box>
-                                        {/* </Box> */}
 
                                         {body && (
                                             <Box
