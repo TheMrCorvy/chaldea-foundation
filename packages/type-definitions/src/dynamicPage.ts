@@ -16,6 +16,7 @@ export interface StrapiComponent {
     __component: string;
     component_id: string;
     title: string | null;
+    id: number;
 }
 
 export type StrapiSection =
