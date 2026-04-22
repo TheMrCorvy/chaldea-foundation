@@ -69,6 +69,7 @@ const mockCoverImage2 = {
 export const Default: Story = {
     args: {
         __component: "layout.projects-section",
+        id: 1,
         component_id: "projects-section-1",
         title: "Singularity Archives",
         link_to_page: {
@@ -78,6 +79,7 @@ export const Default: Story = {
             href: "/archives",
             label: "Explore Database",
             variant: "link",
+            id: 1,
             target: "_self",
         },
         projects: [
@@ -86,11 +88,13 @@ export const Default: Story = {
                 component_id: "project-1",
                 title: "Trismegistus Upgrade",
                 highlighted_subtitle: "System Core Rewrite",
+                id: 1,
                 popover: "High priority classified project",
                 cover_image: mockCoverImage1,
                 icon: {
                     __component: "layout.icon",
                     component_id: "icon-1",
+                    id: 1,
                     title: "System Icon",
                     name: "Memory",
                     color: "primary",
@@ -98,6 +102,7 @@ export const Default: Story = {
                 body: {
                     __component: "layout.description-with-chips-list",
                     component_id: "desc-1",
+                    id: 1,
                     title: "Tech Stack",
                     body: [
                         {
@@ -119,12 +124,14 @@ export const Default: Story = {
                             component_id: "chip-1",
                             title: "React",
                             popover: "Frontend",
+                            id: 1,
                         },
                         {
                             __component: "layout.tool-chip",
                             component_id: "chip-2",
                             title: "Node",
                             popover: "Backend",
+                            id: 1,
                         },
                     ],
                 },
@@ -136,6 +143,7 @@ export const Default: Story = {
                         href: "#",
                         label: "GitHub",
                         variant: "link",
+                        id: 1,
                     },
                 ],
             },
@@ -145,9 +153,11 @@ export const Default: Story = {
                 title: "Chaldeas Surveillance",
                 highlighted_subtitle: "Global Monitoring",
                 cover_image: mockCoverImage2,
+                id: 1,
                 body: {
                     __component: "layout.description-with-chips-list",
                     component_id: "desc-2",
+                    id: 1,
                     title: "Monitoring Stack",
                     body: [
                         {
@@ -168,6 +178,7 @@ export const Default: Story = {
                             __component: "layout.tool-chip",
                             component_id: "chip-3",
                             title: "GraphQL",
+                            id: 1,
                             popover: "API",
                         },
                         {
@@ -175,6 +186,7 @@ export const Default: Story = {
                             component_id: "chip-4",
                             title: "TypeScript",
                             popover: "Superset",
+                            id: 1,
                         },
                     ],
                 },
@@ -189,17 +201,77 @@ export const WithoutImagesAndDisabledCard: Story = {
         __component: "layout.projects-section",
         component_id: "projects-section-2",
         title: "Corrupted Projects Log",
+        id: 1,
         projects: [
             {
                 __component: "layout.project-list-item",
                 component_id: "project-3",
                 title: "Project F",
                 highlighted_subtitle: "Data Corrupt",
+                id: 1,
                 disable_primary_link: true, // Simulating disabled card visually
                 body: {
                     __component: "layout.description-with-chips-list",
                     component_id: "desc-3",
                     title: "Error Log",
+                    id: 1,
+                    body: [
+                        {
+                            type: "paragraph",
+                            children: [
+                                {
+                                    type: "text",
+                                    text: "Data unavailable. Contact system administrator.",
+                                },
+                            ],
+                        },
+                    ],
+                    font_size: null,
+                    line_height: null,
+                    color: null,
+                },
+                links: [],
+            },
+            {
+                __component: "layout.project-list-item",
+                component_id: "project-4",
+                title: "Analog Backup",
+                id: 1,
+                highlighted_subtitle: "Offline Archive",
+                body: {
+                    __component: "layout.description-with-chips-list",
+                    component_id: "desc-4",
+                    title: "Details",
+                    id: 1,
+                    body: [
+                        {
+                            type: "paragraph",
+                            children: [
+                                {
+                                    type: "text",
+                                    text: "Physical media storage. Image missing.",
+                                },
+                            ],
+                        },
+                    ],
+                    font_size: null,
+                    line_height: null,
+                    color: null,
+                },
+                links: [],
+            },
+            {
+                __component: "layout.project-list-item",
+                component_id: "project-3",
+                title: "Project F",
+                id: 1,
+                highlighted_subtitle: "Data Corrupt",
+                disable_primary_link: true, // Simulating disabled card visually
+                body: {
+                    __component: "layout.description-with-chips-list",
+                    component_id: "desc-3",
+                    title: "Error Log",
+                    id: 1,
                     body: [
                         {
                             type: "paragraph",
@@ -222,7 +294,9 @@ export const WithoutImagesAndDisabledCard: Story = {
                 component_id: "project-4",
                 title: "Analog Backup",
                 highlighted_subtitle: "Offline Archive",
+                id: 1,
                 body: {
+                    id: 1,
                     __component: "layout.description-with-chips-list",
                     component_id: "desc-4",
                     title: "Details",
@@ -249,7 +323,9 @@ export const WithoutImagesAndDisabledCard: Story = {
                 title: "Project F",
                 highlighted_subtitle: "Data Corrupt",
                 disable_primary_link: true, // Simulating disabled card visually
+                id: 1,
                 body: {
+                    id: 1,
                     __component: "layout.description-with-chips-list",
                     component_id: "desc-3",
                     title: "Error Log",
@@ -275,60 +351,9 @@ export const WithoutImagesAndDisabledCard: Story = {
                 component_id: "project-4",
                 title: "Analog Backup",
                 highlighted_subtitle: "Offline Archive",
+                id: 1,
                 body: {
-                    __component: "layout.description-with-chips-list",
-                    component_id: "desc-4",
-                    title: "Details",
-                    body: [
-                        {
-                            type: "paragraph",
-                            children: [
-                                {
-                                    type: "text",
-                                    text: "Physical media storage. Image missing.",
-                                },
-                            ],
-                        },
-                    ],
-                    font_size: null,
-                    line_height: null,
-                    color: null,
-                },
-                links: [],
-            },
-            {
-                __component: "layout.project-list-item",
-                component_id: "project-3",
-                title: "Project F",
-                highlighted_subtitle: "Data Corrupt",
-                disable_primary_link: true, // Simulating disabled card visually
-                body: {
-                    __component: "layout.description-with-chips-list",
-                    component_id: "desc-3",
-                    title: "Error Log",
-                    body: [
-                        {
-                            type: "paragraph",
-                            children: [
-                                {
-                                    type: "text",
-                                    text: "Data unavailable. Contact system administrator.",
-                                },
-                            ],
-                        },
-                    ],
-                    font_size: null,
-                    line_height: null,
-                    color: null,
-                },
-                links: [],
-            },
-            {
-                __component: "layout.project-list-item",
-                component_id: "project-4",
-                title: "Analog Backup",
-                highlighted_subtitle: "Offline Archive",
-                body: {
+                    id: 1,
                     __component: "layout.description-with-chips-list",
                     component_id: "desc-4",
                     title: "Details",

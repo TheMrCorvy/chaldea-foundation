@@ -112,6 +112,7 @@ export const Default: Story = {
                 variant: "link",
                 target: "_self",
                 title: "Access Briefing",
+                id: 1,
             },
         ],
         pdf_file: {
@@ -120,6 +121,7 @@ export const Default: Story = {
             title: "Download Status Report",
             popover: "Classified Mission Report",
             file: {},
+            id: 1,
         },
         imageBaseUrl: "https://images.unsplash.com",
     },

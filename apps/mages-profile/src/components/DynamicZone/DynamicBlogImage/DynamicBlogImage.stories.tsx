@@ -67,6 +67,7 @@ const mockImage = {
 
 export const Default: Story = {
     args: {
+        id: 1,
         __component: "layout.blog-image-component",
         component_id: "blog-img-1",
         title: "Trismegistus Core Processing",
@@ -80,6 +81,7 @@ export const Default: Story = {
 
 export const CustomAspectRatio: Story = {
     args: {
+        id: 2,
         __component: "layout.blog-image-component",
         component_id: "blog-img-2",
         title: "Subject Monitoring Feed",
@@ -93,6 +95,7 @@ export const CustomAspectRatio: Story = {
 
 export const FallbackNoImage: Story = {
     args: {
+        id: 3,
         __component: "layout.blog-image-component",
         component_id: "blog-img-3",
         title: "Corrupted Data Stream",

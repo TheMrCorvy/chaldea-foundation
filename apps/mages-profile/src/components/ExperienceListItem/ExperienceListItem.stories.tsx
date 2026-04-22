@@ -28,6 +28,7 @@ const mockExperience: LayoutWorkExperienceListItem = {
     title: "Senior Software Engineer",
     orientation: "Full-stack",
     company: "FutureTech Solutions",
+    id: 1,
     client: "Global Innovations Corp",
     from: new Date("2021-08-01"),
     until: new Date("2023-12-31"),

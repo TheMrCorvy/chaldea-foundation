@@ -85,10 +85,12 @@ export const WithIcons: Story = {
             color: "primary",
             __component: "shared.icon",
             component_id: "search_icon_1",
+            id: 1,
             title: "Search Icon",
         },
         end_icon: {
             name: "Close",
+            id: 1,
             color: "error",
             __component: "shared.icon",
             component_id: "close_icon_1",

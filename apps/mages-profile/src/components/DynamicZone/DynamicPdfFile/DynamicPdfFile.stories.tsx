@@ -37,6 +37,7 @@ export const Default: Story = {
         __component: "layout.pdf-component",
         component_id: "pdf-1",
         title: "Download Status Report",
+        id: 1,
         file: {
             url: mockFileUrl,
             name: "Agent_Status_Report.pdf",
@@ -50,10 +51,12 @@ export const WithIconAndHelperText: Story = {
         __component: "layout.pdf-component",
         component_id: "pdf-2",
         title: "Mission Briefing",
+        id: 1,
         file: {
             url: mockFileUrl,
         },
         icon: {
+            id: 1,
             __component: "layout.icon",
             component_id: "icon-1",
             title: "Download Icon",
@@ -70,12 +73,14 @@ export const WithPopoverTooltip: Story = {
         __component: "layout.pdf-component",
         component_id: "pdf-3",
         title: "Classified Intel",
+        id: 1,
         popover:
             "Contains sensitive data about Singularities. Proceed with caution.",
         file: {
             url: mockFileUrl,
         },
         icon: {
+            id: 1,
             __component: "layout.icon",
             component_id: "icon-2",
             title: "Warning Icon",
@@ -89,6 +94,7 @@ export const WithPopoverTooltip: Story = {
 
 export const MissingFileDisabled: Story = {
     args: {
+        id: 1,
         __component: "layout.pdf-component",
         component_id: "pdf-4",
         title: "Corrupted Data Fragment",

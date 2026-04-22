@@ -73,6 +73,7 @@ const mockCoverImage = {
 export const Default: Story = {
     args: {
         component_id: "1",
+        id: 1,
         __component: "dynamic-zone.blog-hero",
         title: "Title of the component",
         body: [
@@ -114,6 +115,7 @@ export const Default: Story = {
             label: "Initiate RayShift",
             variant: "link",
             target: "_self",
+            id: 0,
         },
     },
 };
@@ -121,6 +123,7 @@ export const Default: Story = {
 export const NoImage: Story = {
     args: {
         component_id: "2",
+        id: 2,
         __component: "dynamic-zone.blog-hero",
         title: null,
         body: [
@@ -135,6 +138,7 @@ export const NoImage: Story = {
             },
         ],
         link_to_page: {
+            id: 0,
             __component: "layout.link",
             component_id: "link-2",
             title: "Commence Transfer",

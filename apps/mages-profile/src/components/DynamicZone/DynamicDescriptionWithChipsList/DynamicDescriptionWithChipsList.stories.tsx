@@ -29,6 +29,7 @@ export const Default: Story = {
         color: "#eeeeee",
         font_size: "1.1rem",
         line_height: 1.8,
+        id: 1,
         body: [
             {
                 type: "paragraph",
@@ -53,12 +54,14 @@ export const Default: Story = {
         ],
         chips: [
             {
+                id: 1,
                 component_id: "chip-1",
                 popover: "Global Environment Model",
                 __component: "components.tool-chip",
                 title: "CHALDEAS",
             },
             {
+                id: 2,
                 component_id: "chip-2",
                 popover: "Spiritron Calculation Engine",
                 __component: "components.tool-chip",
@@ -69,18 +72,21 @@ export const Default: Story = {
                 popover: "Near-Future Observation Lens",
                 __component: "components.tool-chip",
                 title: "SHEBA",
+                id: 3,
             },
             {
                 component_id: "chip-4",
                 popover: "Heroic Spirit Summoning System",
                 __component: "components.tool-chip",
                 title: "FATE",
+                id: 4,
             },
             {
                 component_id: "chip-5",
                 popover: "Imaginary Number Observation Device",
                 __component: "components.tool-chip",
                 title: "PAPER MOON",
+                id: 5,
             },
         ],
     },
@@ -127,7 +133,9 @@ export const WithIcons: Story = {
                 popover: "Main Facility Lock",
                 __component: "components.tool-chip",
                 title: "Lockdown",
+                id: 1,
                 icon: {
+                    id: 1,
                     __component: "components.icon",
                     component_id: "icon-1",
                     title: "LockIcon",
@@ -141,7 +149,9 @@ export const WithIcons: Story = {
                 popover: "Network Status",
                 __component: "components.tool-chip",
                 title: "Network Ops",
+                id: 2,
                 icon: {
+                    id: 2,
                     __component: "components.icon",
                     component_id: "icon-2",
                     title: "WifiIcon",
@@ -155,7 +165,9 @@ export const WithIcons: Story = {
                 popover: "Power Supply",
                 __component: "components.tool-chip",
                 title: "Generator",
+                id: 3,
                 icon: {
+                    id: 3,
                     __component: "components.icon",
                     component_id: "icon-3",
                     title: "PowerIcon",

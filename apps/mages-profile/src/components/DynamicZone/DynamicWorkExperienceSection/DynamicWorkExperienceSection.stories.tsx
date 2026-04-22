@@ -32,6 +32,7 @@ export const Default: Story = {
     args: {
         __component: "layout.work-experience-section",
         component_id: "work-exp-1",
+        id: 1,
         title: "Service Record",
         color: "inherit",
         link_to_page: {
@@ -41,6 +42,7 @@ export const Default: Story = {
             href: "/service-record",
             label: "Open Full Record",
             variant: "link",
+            id: 1,
             target: "_self",
         },
         experience_list_items: [
@@ -50,6 +52,7 @@ export const Default: Story = {
                 title: "Master Candidate",
                 company: "Chaldea Security Organization",
                 client: "Humanity Preservation Project",
+                id: 1,
                 location: "Antarctica, Earth",
                 orientation: "General Director",
                 color: "#eeeeee",
@@ -76,6 +79,7 @@ export const Default: Story = {
                 __component: "layout.work-experience-list-item",
                 component_id: "exp-2",
                 title: "Crypter Resistance Leader",
+                id: 1,
                 company: "Novum Chaldea",
                 location: "Wandering Sea",
                 orientation: "Field Commander",
@@ -113,6 +117,7 @@ export const WithoutLinkAndPopover: Story = {
     args: {
         __component: "layout.work-experience-section",
         component_id: "work-exp-2",
+        id: 1,
         title: "Classified History",
         color: "inherit",
         experience_list_items: [
@@ -121,6 +126,7 @@ export const WithoutLinkAndPopover: Story = {
                 component_id: "exp-3",
                 title: "Unknown Operator",
                 company: "Atlas Institute",
+                id: 1,
                 location: "Unknown",
                 color: "#eeeeee",
                 font_size: "1rem",

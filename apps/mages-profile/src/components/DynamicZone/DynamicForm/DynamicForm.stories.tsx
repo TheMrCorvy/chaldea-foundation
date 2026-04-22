@@ -28,6 +28,7 @@ export const Default: Story = {
         title: "Communication Terminal",
         action: "/api/submit",
         method: "post",
+        id: 1,
         inputs: [
             {
                 __component: "layout.form-input",
@@ -38,6 +39,7 @@ export const Default: Story = {
                 placeholder: "Enter identification",
                 required: true,
                 title: "Input Agent Name",
+                id: 1,
             },
             {
                 __component: "layout.form-input",
@@ -48,6 +50,7 @@ export const Default: Story = {
                 placeholder: "communication@chaldea.org",
                 required: true,
                 title: "Input Email Frequency",
+                id: 1,
             },
             {
                 __component: "layout.form-input",
@@ -58,6 +61,7 @@ export const Default: Story = {
                 placeholder: "Enter report details...",
                 required: true,
                 title: "Input Message",
+                id: 1,
             },
             {
                 __component: "layout.form-input",
@@ -65,6 +69,7 @@ export const Default: Story = {
                 name: "Priority",
                 label: "Signal Priority",
                 type: "select",
+                id: 1,
                 option: [
                     {
                         __component: "layout.select-option",
@@ -72,6 +77,7 @@ export const Default: Story = {
                         title: "Low",
                         label: "Low (Class C)",
                         value: "low",
+                        id: 1,
                     },
                     {
                         __component: "layout.select-option",
@@ -79,6 +85,7 @@ export const Default: Story = {
                         title: "Normal",
                         label: "Normal (Class B)",
                         value: "normal",
+                        id: 1,
                     },
                     {
                         __component: "layout.select-option",
@@ -86,6 +93,7 @@ export const Default: Story = {
                         title: "High",
                         label: "High (Class A)",
                         value: "high",
+                        id: 1,
                     },
                 ],
                 required: true,
@@ -98,6 +106,7 @@ export const Default: Story = {
                 label: "Initialize Transfer",
                 type: "submit",
                 title: "Submit Form",
+                id: 1,
             },
         ],
     },

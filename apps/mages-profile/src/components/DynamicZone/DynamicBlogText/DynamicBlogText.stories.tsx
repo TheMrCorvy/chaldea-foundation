@@ -23,6 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
+        id: 1,
         component_id: "blog-text-1",
         __component: "dynamic-zone.blog-text",
         title: "Log Entry: Starlight",
