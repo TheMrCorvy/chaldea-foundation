@@ -91,7 +91,12 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({
             return <DynamicLink {...(section as LayoutLink)} />;
 
         case "layout.icon":
-            return <IconComponent {...(section as LayoutIcon)} />;
+            return (
+                <IconComponent
+                    {...(section as LayoutIcon)}
+                    id={section.component_id}
+                />
+            );
 
         case "layout.form":
             return <DynamicForm {...(section as LayoutForm)} />;

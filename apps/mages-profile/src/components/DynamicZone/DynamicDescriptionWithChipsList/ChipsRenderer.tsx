@@ -11,6 +11,7 @@ export interface ChipsRendererProps {
     logo_loop?: boolean | null;
     vertical_logo_loop?: boolean | null;
     component_id: string;
+    id: number;
 }
 
 const chipVariants = {
@@ -29,6 +30,7 @@ const ChipsRenderer: FC<ChipsRendererProps> = ({
     logo_loop,
     vertical_logo_loop,
     component_id,
+    id,
 }) => {
     if (!chips || !chips.length) {
         return null;
@@ -105,6 +107,7 @@ const ChipsRenderer: FC<ChipsRendererProps> = ({
     if (logo_loop) {
         return (
             <DynamicLogoLoop
+                id={id}
                 chips={chips}
                 isMobile={isMobile}
                 vertical={vertical_logo_loop || false}

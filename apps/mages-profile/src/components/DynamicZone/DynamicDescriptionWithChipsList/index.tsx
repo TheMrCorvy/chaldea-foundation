@@ -108,6 +108,7 @@ const DynamicDescriptionWithChipsList: FC<
                 isMobile={isMobile}
                 vertical_logo_loop={vertical_logo_loop}
                 component_id={component_id}
+                id={id}
             />
         </Box>
     );
