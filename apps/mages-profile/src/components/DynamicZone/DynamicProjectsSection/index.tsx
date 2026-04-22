@@ -151,7 +151,7 @@ const ProjectCard: FC<{ project: LayoutProjectListItem }> = ({ project }) => {
                 >
                     {icon && (
                         <Box sx={{ color: "rgba(56, 182, 255, 0.9)" }}>
-                            <IconComponent {...icon} />
+                            <IconComponent {...icon} id={icon.id.toString()} />
                         </Box>
                     )}
                     {title && (
@@ -230,15 +230,17 @@ const DynamicProjectsSection: FC<SectionsProjectsSection> = ({
     link_to_page,
     projects,
     component_id,
+    id,
 }) => {
     return (
         <Box
             id={component_id}
             component={motion.section}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             variants={containerVariants}
-            initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             sx={{
                 width: "100%",
                 maxWidth: "1500px",
@@ -267,6 +269,7 @@ const DynamicProjectsSection: FC<SectionsProjectsSection> = ({
                         size="h4"
                         isMobile={false}
                         text_align="left"
+                        id={id}
                     />
                 )}
 

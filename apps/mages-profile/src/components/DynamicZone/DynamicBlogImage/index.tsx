@@ -28,10 +28,11 @@ const DynamicBlogImage: FC<BlogImageComponent> = ({
         <Box
             id={component_id}
             component={motion.figure}
-            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
+            style={{ flex: 1, width: "100%" }}
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             sx={{
                 ...root,
                 maxWidth: width ? `${width}px` : "1000px",

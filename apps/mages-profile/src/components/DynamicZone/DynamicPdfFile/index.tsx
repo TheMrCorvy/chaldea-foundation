@@ -58,7 +58,9 @@ const DynamicPdfFile: FC<DynamicPdfFileProps> = ({
                 },
             }}
         >
-            {icon && <IconComponent {...icon} />}
+            {icon && (
+                <IconComponent {...icon} id={`icon-for-${component_id}`} />
+            )}
             <Typography
                 sx={{
                     fontWeight: "bold",

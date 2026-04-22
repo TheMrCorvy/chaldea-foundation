@@ -68,6 +68,7 @@ const DynamicForm: FC<LayoutForm> = ({
     method,
     component_id,
     title,
+    id,
 }) => {
     const initialValues = useMemo<FormFieldState>(() => {
         return inputs.reduce<FormFieldState>((acc, input) => {
@@ -113,9 +114,10 @@ const DynamicForm: FC<LayoutForm> = ({
         <Box
             component={motion.section}
             variants={containerVariants}
-            initial="hidden"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             whileInView="visible"
-            viewport={{ once: true, margin: "-10%" }}
             id={component_id}
             sx={{
                 width: "100%",
@@ -130,6 +132,7 @@ const DynamicForm: FC<LayoutForm> = ({
                     color={"#eeeeee"}
                     size="h4"
                     isMobile={false}
+                    id={id}
                 />
             )}
 

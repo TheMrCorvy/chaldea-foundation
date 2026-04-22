@@ -21,6 +21,7 @@ const DynamicLogoLoop: FC<DynamicLogoLoopProps> = ({
     gap,
     title_color,
     text_align,
+    id,
 }) => {
     return (
         <Box
@@ -43,6 +44,7 @@ const DynamicLogoLoop: FC<DynamicLogoLoopProps> = ({
                     size="h4"
                     isMobile={isMobile}
                     text_align={text_align || "center"}
+                    id={id}
                 />
             )}
             <LogoLoop

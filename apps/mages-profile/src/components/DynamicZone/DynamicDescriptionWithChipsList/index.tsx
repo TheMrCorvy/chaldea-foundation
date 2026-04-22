@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { LayoutDescriptionWithChipsList } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import { motion } from "framer-motion";
@@ -48,6 +48,7 @@ const DynamicDescriptionWithChipsList: FC<
     isMobile,
     vertical_logo_loop,
     component_id,
+    id,
 }) => {
     return (
         <Box
@@ -73,6 +74,7 @@ const DynamicDescriptionWithChipsList: FC<
                     size="h4"
                     text_align={text_align || "center"}
                     isMobile={isMobile}
+                    id={id}
                 />
             )}
 

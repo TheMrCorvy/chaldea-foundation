@@ -1,7 +1,7 @@
 "use client";
 
 import RichTextRenderer from "@/components/RichTextRenderer";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { BlogText } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import { motion } from "framer-motion";
@@ -38,15 +38,17 @@ const DynamicBlogText: FC<BlogText> = ({
     component_id,
     text_align,
     highlighted_text_color,
+    id,
 }) => {
     const { root } = useStyles();
     return (
         <Box
             component={motion.section}
             variants={containerVariants}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             id={component_id}
             aria-label={title || "Blog Text Section"}
             sx={root}
@@ -58,6 +60,7 @@ const DynamicBlogText: FC<BlogText> = ({
                     size="h4"
                     isMobile={false}
                     text_align={text_align || "center"}
+                    id={id}
                 />
             )}
             <Box

@@ -55,9 +55,10 @@ const DynamicBlogHero: FC<BlogHero> = ({
         <Box
             component={motion.section}
             variants={containerVariants}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             ref={containerRef}
             onMouseMove={handleMouseMove}
             className={styles.heroContainer}
