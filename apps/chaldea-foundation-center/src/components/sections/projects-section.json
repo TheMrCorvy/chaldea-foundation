@@ -25,17 +25,8 @@
             "required": true
         },
         "title_color": {
-            "type": "enumeration",
-            "default": "inherit",
-            "enum": [
-                "primary",
-                "secondary",
-                "warning",
-                "info",
-                "error",
-                "success",
-                "inherit"
-            ]
+            "type": "string",
+            "default": "#eeeeee"
         }
     },
     "config": {}
