@@ -29,7 +29,7 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                 margin: "0 auto",
                 display: "flex",
                 flexDirection: "column",
-                gap: 4,
+                gap: 5,
             }}
         >
             {title && (

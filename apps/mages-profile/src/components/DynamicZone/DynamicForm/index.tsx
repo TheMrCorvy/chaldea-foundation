@@ -144,6 +144,7 @@ const DynamicForm: FC<LayoutForm> = ({
                     flexDirection: "column",
                     gap: 3,
                     width: "100%",
+                    mt: 6,
                 }}
             >
                 {inputs.map((input, index) => (
