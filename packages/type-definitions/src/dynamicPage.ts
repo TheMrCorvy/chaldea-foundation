@@ -162,7 +162,7 @@ export interface JsonRichText {
 }
 
 export interface SectionsProjectsSection extends StrapiComponent {
-    title_color?: TextColors | null;
+    title_color?: string | null;
     link_to_page?: LayoutLink | null;
     projects: Array<LayoutProjectListItem>;
 }
