@@ -10,6 +10,7 @@ import DynamicTitle from "../DynamicTitle";
 
 export interface DynamicDescriptionWithChipsListProps extends LayoutDescriptionWithChipsList {
     isMobile?: boolean;
+    renderTitle?: boolean;
 }
 
 const containerVariants = {
@@ -49,6 +50,7 @@ const DynamicDescriptionWithChipsList: FC<
     vertical_logo_loop,
     component_id,
     id,
+    renderTitle = true,
 }) => {
     return (
         <Box
@@ -67,7 +69,7 @@ const DynamicDescriptionWithChipsList: FC<
                 textAlign: text_align || "center",
             }}
         >
-            {title && (
+            {title && renderTitle && (
                 <DynamicTitle
                     title={title}
                     color={color || "#eeeeee"}
@@ -84,6 +86,7 @@ const DynamicDescriptionWithChipsList: FC<
                 sx={{
                     fontSize: font_size || "1rem",
                     lineHeight: line_height || 1.6,
+                    mt: 3,
                     "& p": {
                         margin: 0,
                         marginBottom: "1rem",
