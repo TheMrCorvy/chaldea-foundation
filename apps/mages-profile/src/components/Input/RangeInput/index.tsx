@@ -22,10 +22,15 @@ const RangeInput: FC<RangeInputProps> = ({
     max = 100,
     step = 1,
     size,
+    required,
 }) => {
     const { hologramSlider } = useStyles();
     return (
-        <HologramInputFrame label={label ?? field.name} disabled={disabled}>
+        <HologramInputFrame
+            label={label ?? field.name}
+            disabled={disabled}
+            required={required}
+        >
             <Typography
                 variant="caption"
                 sx={{ color: "rgba(214, 239, 255, 0.88)", mb: 0.4 }}

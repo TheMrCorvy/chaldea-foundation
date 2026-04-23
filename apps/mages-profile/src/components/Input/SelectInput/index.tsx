@@ -22,7 +22,11 @@ const SelectInput: FC<SelectInputProps> = ({
 }) => {
     const { hologramControl } = useStyles();
     return (
-        <HologramInputFrame label={label ?? field.name} disabled={disabled}>
+        <HologramInputFrame
+            label={label ?? field.name}
+            disabled={disabled}
+            required={required}
+        >
             <TextField
                 fullWidth
                 select

@@ -18,7 +18,11 @@ const DateInput: FC<DateInputProps> = ({
 }) => {
     const { hologramControl } = useStyles();
     return (
-        <HologramInputFrame label={label ?? field.name} disabled={disabled}>
+        <HologramInputFrame
+            label={label ?? field.name}
+            disabled={disabled}
+            required={required}
+        >
             <TextField
                 fullWidth
                 type="date"

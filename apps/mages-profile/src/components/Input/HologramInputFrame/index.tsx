@@ -7,6 +7,7 @@ export interface HologramInputFrameProps {
     label?: string;
     disabled?: boolean;
     sx?: SxProps;
+    required?: boolean | null;
 }
 
 const cornerIconSize = 16;
@@ -16,6 +17,7 @@ const HologramInputFrame: FC<HologramInputFrameProps> = ({
     label,
     disabled,
     sx,
+    required,
 }) => {
     return (
         <Box
@@ -23,7 +25,6 @@ const HologramInputFrame: FC<HologramInputFrameProps> = ({
                 position: "relative",
                 width: "100%",
                 border: "1px solid rgba(25,118,210, 0.6)",
-                borderRadius: "10px",
                 py: 1.25,
                 px: 1.5,
                 background:
@@ -84,13 +85,17 @@ const HologramInputFrame: FC<HologramInputFrameProps> = ({
                 <Typography
                     variant="caption"
                     sx={{
-                        display: "block",
+                        display: "flex",
                         mb: 0.5,
                         letterSpacing: "0.08em",
                         textTransform: "uppercase",
                         color: "rgba(178, 221, 255, 0.95)",
+                        gap: 1,
                     }}
                 >
+                    <Typography component="span" color="error">
+                        {required ? "*" : ""}
+                    </Typography>
                     {label}
                 </Typography>
             )}
