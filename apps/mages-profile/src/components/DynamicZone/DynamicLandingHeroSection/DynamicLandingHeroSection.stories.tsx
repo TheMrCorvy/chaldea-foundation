@@ -50,6 +50,7 @@ const mockProfileImage = {
     mime: "image/png",
     url: "/photo-1549490349-8643362247b5?q=80&w=500&auto=format&fit=crop",
     publishedAt: new Date().toISOString(),
+    size: 150,
 };
 
 const mockCommandsImage = {
@@ -69,6 +70,7 @@ const mockCommandsImage = {
     mime: "image/png",
     url: "/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop",
     publishedAt: new Date().toISOString(),
+    size: 300,
 };
 
 export const Default: Story = {

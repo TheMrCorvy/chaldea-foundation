@@ -56,14 +56,16 @@ const mockCoverImage1 = {
         large: mockFormat,
     },
     mime: "image/png",
-    url: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop",
+    url: "/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop",
     publishedAt: new Date().toISOString(),
+    size: 300,
 };
 
 const mockCoverImage2 = {
     ...mockCoverImage1,
     id: 2,
-    url: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop",
+    url: "/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop",
+    size: 300,
 };
 
 export const Default: Story = {
@@ -82,6 +84,7 @@ export const Default: Story = {
             id: 1,
             target: "_self",
         },
+        imageBaseUrl: "https://images.unsplash.com",
         projects: [
             {
                 __component: "layout.project-list-item",
@@ -201,6 +204,7 @@ export const WithoutImagesAndDisabledCard: Story = {
         __component: "layout.projects-section",
         component_id: "projects-section-2",
         title: "Corrupted Projects Log",
+        imageBaseUrl: "https://images.unsplash.com",
         id: 1,
         projects: [
             {
