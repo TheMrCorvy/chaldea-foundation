@@ -47,9 +47,13 @@ const usePixelCard = ({
     const animationRef = useRef<ReturnType<
         typeof requestAnimationFrame
     > | null>(null);
-    const timePreviousRef = useRef(performance.now());
+    const timePreviousRef = useRef(
+        typeof performance !== "undefined" ? performance.now() : 0
+    );
     const reducedMotion = useRef(
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        typeof window !== "undefined"
+            ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            : false
     ).current;
 
     const variantCfg: VariantConfig = VARIANTS[variant] || VARIANTS.default;
