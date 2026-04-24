@@ -1,24 +1,14 @@
 "use client";
 
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { SectionsProjectsSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
-import { motion } from "framer-motion";
 import DynamicTitle from "../DynamicTitle";
 import ProjectItem from "./ProjectItem";
-import PixelCard from "@/components/PixelCard";
-
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.15 },
-        filter: "blur(0px)",
-    },
-};
 
 export interface DynamicProjectsSection extends SectionsProjectsSection {
     isMobile?: boolean | null;
+    imageBaseUrl: string;
 }
 
 const DynamicProjectsSection: FC<DynamicProjectsSection> = ({
@@ -28,17 +18,13 @@ const DynamicProjectsSection: FC<DynamicProjectsSection> = ({
     projects,
     component_id,
     id,
-    isMobile = false,
+    imageBaseUrl,
+    isMobile,
 }) => {
     return (
         <Box
             id={component_id}
-            component={motion.section}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            variants={containerVariants}
-            whileInView="visible"
+            component="section"
             sx={{
                 width: "100%",
                 maxWidth: "1500px",
@@ -52,44 +38,33 @@ const DynamicProjectsSection: FC<DynamicProjectsSection> = ({
                     title={title}
                     color={title_color || "#eeeeee"}
                     size="h4"
-                    isMobile={false}
+                    isMobile={isMobile || false}
                     text_align="left"
                     id={id}
                     link_to_page={link_to_page}
                 />
             )}
+
             <Box
                 sx={{
-                    mt: 6,
+                    display: "grid",
+                    gridTemplateColumns: {
+                        xs: "1fr",
+                        md: "repeat(2, 1fr)",
+                        lg: "repeat(3, 1fr)",
+                    },
+                    gap: { xs: 4, lg: 5 },
+                    pt: 6,
                 }}
             >
-                {/* <PixelCard
-                    variant="blue"
-                    roundedBorders={false}
-                    focusOnMount={isMobile || false}
-                    borders={false}
-                    speed={2}
-                > */}
-                <Box
-                    sx={{
-                        display: "grid",
-                        gridTemplateColumns: {
-                            xs: "1fr",
-                            md: "repeat(2, 1fr)",
-                            lg: "repeat(3, 1fr)",
-                        },
-                        gap: { xs: 4, lg: 5 },
-                        p: 4,
-                    }}
-                >
-                    {projects?.map((project, index) => (
-                        <ProjectItem
-                            key={project.component_id || `project-${index}`}
-                            project={project}
-                        />
-                    ))}
-                </Box>
-                {/* </PixelCard> */}
+                {projects?.map((project, index) => (
+                    <ProjectItem
+                        imageBaseUrl={imageBaseUrl}
+                        key={project.component_id || `project-${index}`}
+                        project={project}
+                        isMobile={isMobile || false}
+                    />
+                ))}
             </Box>
         </Box>
     );
