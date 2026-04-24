@@ -17,6 +17,7 @@ export interface DynamicTitleProps {
     id: number;
     link_icon_color?: TextColors | null;
     popover?: string | null;
+    cycles?: number | null;
 }
 
 const DynamicTitle: FC<DynamicTitleProps> = ({
@@ -29,6 +30,7 @@ const DynamicTitle: FC<DynamicTitleProps> = ({
     id,
     link_icon_color,
     popover,
+    cycles = 2,
 }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [copied, setCopied] = useState(false);
@@ -121,7 +123,8 @@ const DynamicTitle: FC<DynamicTitleProps> = ({
                         disableHover={false}
                         useMinus={true}
                         useSymbols={true}
-                        variant={size}
+                        variant={isMobile ? "subtitle1" : size}
+                        cycles={cycles || 2}
                     />
                 </Box>
                 <motion.div
