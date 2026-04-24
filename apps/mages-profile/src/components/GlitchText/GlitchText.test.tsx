@@ -82,6 +82,7 @@ describe("GlitchText", () => {
             delay: 0,
             characters:
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+            cycles: 1,
         });
 
         fireEvent.mouseEnter(glitchElement);
@@ -123,6 +124,7 @@ describe("GlitchText", () => {
             disableHover: false,
             delay: 2,
             characters: "0123456789",
+            cycles: 1,
         });
         expect(customElement.getAttribute("data-sx")).toContain(
             '"color":"red"'
