@@ -114,7 +114,7 @@ const DynamicForm: FC<LayoutForm> = ({
         <Box
             component={motion.section}
             variants={containerVariants}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             whileInView="visible"
@@ -123,7 +123,6 @@ const DynamicForm: FC<LayoutForm> = ({
                 width: "100%",
                 maxWidth: "600px",
                 margin: "0 auto",
-                py: 4,
             }}
         >
             {title && (

@@ -10,7 +10,11 @@ export const populateProjectsSection = {
     "sections.projects-section": {
         populate: {
             link_to_page: {
-                populate: "*",
+                populate: {
+                    icon: {
+                        populate: "*",
+                    },
+                },
             },
             projects: {
                 populate: {
@@ -33,6 +37,9 @@ export const populateProjectsSection = {
                         },
                     },
                     icon: {
+                        populate: "*",
+                    },
+                    cover_image: {
                         populate: "*",
                     },
                 },
