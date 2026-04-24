@@ -12,6 +12,7 @@ export interface UseGlitchTextProps {
     delay?: number;
     disableHover?: boolean;
     characters: string;
+    cycles?: number;
 }
 
 const useGlitchText = ({
@@ -19,6 +20,7 @@ const useGlitchText = ({
     delay,
     disableHover,
     characters,
+    cycles = 1,
 }: UseGlitchTextProps) => {
     const [string, setString] = useState<string>(text);
     const [isIterating, setIsIterating] = useState(false);
@@ -31,7 +33,8 @@ const useGlitchText = ({
         const newString = text
             .split("")
             .map((_, index) => {
-                if (!iterationsRef.current || index < iterationsRef.current) {
+                const limit = Math.floor(iterationsRef.current / cycles);
+                if (!iterationsRef.current || index < limit) {
                     return text[index];
                 }
 
@@ -42,7 +45,7 @@ const useGlitchText = ({
             .join("");
 
         return newString;
-    }, [characters, text]);
+    }, [characters, text, cycles]);
 
     const handleHover = () => {
         if (isIterating || disableHover) return;
@@ -58,7 +61,7 @@ const useGlitchText = ({
             iterationsRef.current += 1;
             setString(generateRandomText());
 
-            if (iterationsRef.current >= text.length) {
+            if (iterationsRef.current >= text.length * cycles) {
                 clearInterval(intervalId);
                 setIsIterating(false);
                 iterationsRef.current = 0;
@@ -66,7 +69,7 @@ const useGlitchText = ({
         }, 50);
 
         return intervalId;
-    }, [text, generateRandomText]);
+    }, [text, generateRandomText, cycles]);
 
     useEffect(() => {
         if (!isIterating) {

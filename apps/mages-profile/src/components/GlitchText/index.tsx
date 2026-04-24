@@ -12,6 +12,7 @@ export interface GlitchTextProps extends TypographyProps {
     useSymbols?: boolean;
     delay?: number; // This value is in seconds, not in miliseconds
     disableHover?: boolean;
+    cycles?: number;
 }
 
 const GlitchText: FC<GlitchTextProps> = ({
@@ -22,6 +23,7 @@ const GlitchText: FC<GlitchTextProps> = ({
     useSymbols = false,
     delay = 0,
     disableHover = true,
+    cycles = 1,
     ...props
 }) => {
     const characters = useRandomString({
@@ -36,6 +38,7 @@ const GlitchText: FC<GlitchTextProps> = ({
         disableHover,
         delay,
         characters,
+        cycles,
     });
 
     return (
