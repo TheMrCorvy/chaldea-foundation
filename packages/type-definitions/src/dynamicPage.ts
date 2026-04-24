@@ -72,6 +72,7 @@ export interface ImageComponent {
     createdAt?: string;
     updatedAt?: string;
     publishedAt: string;
+    size: number;
 }
 
 export interface ImageFormats {
@@ -124,6 +125,21 @@ export interface LayoutLink extends StrapiComponent {
     variant: "link" | "icon_link" | "link_with_icon";
     target?: "_blank" | "_self" | "_parent" | "_top";
     color?: TextColors | null;
+    size?:
+        | "body1"
+        | "body2"
+        | "button"
+        | "caption"
+        | "h1"
+        | "h2"
+        | "h3"
+        | "h4"
+        | "h5"
+        | "h6"
+        | "inherit"
+        | "overline"
+        | "subtitle1"
+        | "subtitle2";
 }
 
 export interface LayoutIcon extends StrapiComponent {
