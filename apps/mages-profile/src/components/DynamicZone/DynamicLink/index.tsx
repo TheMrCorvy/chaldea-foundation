@@ -11,13 +11,22 @@ const DynamicLink: FC<LayoutLink> = ({
     popover,
     variant,
     color,
+    size = "inherit",
 }) => {
     if (popover) {
         return (
             <Tooltip title={popover} placement="top" arrow>
                 <Box display="inline-block">
                     <VariantDecider
-                        {...{ label, target, icon, href, variant, color }}
+                        {...{
+                            label,
+                            target,
+                            icon,
+                            href,
+                            variant,
+                            color,
+                            size: size || "inherit",
+                        }}
                     />
                 </Box>
             </Tooltip>
@@ -25,7 +34,17 @@ const DynamicLink: FC<LayoutLink> = ({
     }
 
     return (
-        <VariantDecider {...{ label, target, icon, href, variant, color }} />
+        <VariantDecider
+            {...{
+                label,
+                target,
+                icon,
+                href,
+                variant,
+                color,
+                size: size || "inherit",
+            }}
+        />
     );
 };
 
@@ -41,6 +60,7 @@ export interface VariantDeciderProps {
     href: string;
     variant: LayoutLink["variant"];
     color: LayoutLink["color"];
+    size?: LayoutLink["size"];
 }
 
 const VariantDecider: FC<VariantDeciderProps> = ({
@@ -50,6 +70,7 @@ const VariantDecider: FC<VariantDeciderProps> = ({
     href,
     variant,
     color,
+    size = "inherit",
 }) => {
     switch (variant) {
         case "link":
@@ -59,6 +80,7 @@ const VariantDecider: FC<VariantDeciderProps> = ({
                     target={target}
                     href={href}
                     underline="hover"
+                    variant={size}
                     rel="noopener noreferrer"
                     sx={{
                         color:
@@ -98,6 +120,7 @@ const VariantDecider: FC<VariantDeciderProps> = ({
                     }}
                     target={target}
                     rel="noopener noreferrer"
+                    variant={size}
                 >
                     {icon && (
                         <IconComponent
@@ -135,6 +158,7 @@ const VariantDecider: FC<VariantDeciderProps> = ({
                     }}
                     target={target}
                     rel="noopener noreferrer"
+                    variant={size}
                 >
                     {label}
                     {icon && (
@@ -153,6 +177,7 @@ const VariantDecider: FC<VariantDeciderProps> = ({
                     href={href}
                     underline="hover"
                     rel="noopener noreferrer"
+                    variant={size}
                     sx={{
                         color:
                             color !== "inherit" ? `${color}.main` : "inherit",
