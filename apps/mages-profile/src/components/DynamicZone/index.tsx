@@ -43,6 +43,7 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({
             return (
                 <DynamicProjectsSection
                     {...(section as SectionsProjectsSection)}
+                    imageBaseUrl={imageBaseUrl}
                 />
             );
 
