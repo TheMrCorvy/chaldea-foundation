@@ -27,6 +27,7 @@
                                     "title",
                                     "description",
                                     "metadata",
+                                    "background_music",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -49,6 +50,7 @@
                                     "title",
                                     "description",
                                     "metadata",
+                                    "background_music",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -140,6 +142,7 @@
                                         "title",
                                         "description",
                                         "metadata",
+                                        "background_music",
                                         "createdAt",
                                         "updatedAt",
                                         "publishedAt"
@@ -154,6 +157,7 @@
                                             "title",
                                             "description",
                                             "metadata",
+                                            "background_music",
                                             "createdAt",
                                             "updatedAt",
                                             "publishedAt"
@@ -169,6 +173,7 @@
                                             "title",
                                             "description",
                                             "metadata",
+                                            "background_music",
                                             "createdAt",
                                             "updatedAt",
                                             "publishedAt"
@@ -190,6 +195,7 @@
                                                 "title",
                                                 "description",
                                                 "metadata",
+                                                "background_music",
                                                 "createdAt",
                                                 "updatedAt",
                                                 "publishedAt"
@@ -266,6 +272,14 @@
                                                         "type": "string"
                                                     },
                                                     "metadata": {},
+                                                    "background_music": {
+                                                        "default": "ordeal_call",
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "ordeal_call",
+                                                            "class_score"
+                                                        ]
+                                                    },
                                                     "createdAt": {
                                                         "type": "string"
                                                     },
@@ -273,7 +287,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-03-24T14:21:17.109Z",
+                                                        "default": "2026-04-25T11:27:01.333Z",
                                                         "type": "string"
                                                     },
                                                     "sections": {
@@ -286,6 +300,7 @@
                                                     "id",
                                                     "slug",
                                                     "title",
+                                                    "background_music",
                                                     "publishedAt",
                                                     "sections"
                                                 ],
@@ -335,6 +350,7 @@
                                     "title",
                                     "description",
                                     "metadata",
+                                    "background_music",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -402,6 +418,14 @@
                                                     "type": "string"
                                                 },
                                                 "metadata": {},
+                                                "background_music": {
+                                                    "default": "ordeal_call",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ordeal_call",
+                                                        "class_score"
+                                                    ]
+                                                },
                                                 "createdAt": {
                                                     "type": "string"
                                                 },
@@ -409,7 +433,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.120Z",
+                                                    "default": "2026-04-25T11:27:01.362Z",
                                                     "type": "string"
                                                 },
                                                 "sections": {
@@ -422,6 +446,7 @@
                                                 "id",
                                                 "slug",
                                                 "title",
+                                                "background_music",
                                                 "publishedAt",
                                                 "sections"
                                             ],
@@ -471,8 +496,16 @@
                                                 "type": "string"
                                             },
                                             "metadata": {},
+                                            "background_music": {
+                                                "default": "ordeal_call",
+                                                "type": "string",
+                                                "enum": [
+                                                    "ordeal_call",
+                                                    "class_score"
+                                                ]
+                                            },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.119Z",
+                                                "default": "2026-04-25T11:27:01.360Z",
                                                 "type": "string"
                                             },
                                             "sections": {
@@ -483,6 +516,7 @@
                                         "required": [
                                             "slug",
                                             "title",
+                                            "background_music",
                                             "publishedAt",
                                             "sections"
                                         ],
@@ -527,6 +561,7 @@
                                     "title",
                                     "description",
                                     "metadata",
+                                    "background_music",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -577,6 +612,7 @@
                                     "title",
                                     "description",
                                     "metadata",
+                                    "background_music",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -600,6 +636,7 @@
                                         "title",
                                         "description",
                                         "metadata",
+                                        "background_music",
                                         "createdAt",
                                         "updatedAt",
                                         "publishedAt"
@@ -614,6 +651,7 @@
                                             "title",
                                             "description",
                                             "metadata",
+                                            "background_music",
                                             "createdAt",
                                             "updatedAt",
                                             "publishedAt"
@@ -629,6 +667,7 @@
                                             "title",
                                             "description",
                                             "metadata",
+                                            "background_music",
                                             "createdAt",
                                             "updatedAt",
                                             "publishedAt"
@@ -650,6 +689,7 @@
                                                 "title",
                                                 "description",
                                                 "metadata",
+                                                "background_music",
                                                 "createdAt",
                                                 "updatedAt",
                                                 "publishedAt"
@@ -696,6 +736,14 @@
                                                     "type": "string"
                                                 },
                                                 "metadata": {},
+                                                "background_music": {
+                                                    "default": "ordeal_call",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ordeal_call",
+                                                        "class_score"
+                                                    ]
+                                                },
                                                 "createdAt": {
                                                     "type": "string"
                                                 },
@@ -703,7 +751,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.114Z",
+                                                    "default": "2026-04-25T11:27:01.350Z",
                                                     "type": "string"
                                                 },
                                                 "sections": {
@@ -716,6 +764,7 @@
                                                 "id",
                                                 "slug",
                                                 "title",
+                                                "background_music",
                                                 "publishedAt",
                                                 "sections"
                                             ],
@@ -775,6 +824,7 @@
                                     "title",
                                     "description",
                                     "metadata",
+                                    "background_music",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -842,6 +892,14 @@
                                                     "type": "string"
                                                 },
                                                 "metadata": {},
+                                                "background_music": {
+                                                    "default": "ordeal_call",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ordeal_call",
+                                                        "class_score"
+                                                    ]
+                                                },
                                                 "createdAt": {
                                                     "type": "string"
                                                 },
@@ -849,7 +907,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.125Z",
+                                                    "default": "2026-04-25T11:27:01.370Z",
                                                     "type": "string"
                                                 },
                                                 "sections": {
@@ -862,6 +920,7 @@
                                                 "id",
                                                 "slug",
                                                 "title",
+                                                "background_music",
                                                 "publishedAt",
                                                 "sections"
                                             ],
@@ -911,8 +970,16 @@
                                                 "type": "string"
                                             },
                                             "metadata": {},
+                                            "background_music": {
+                                                "default": "ordeal_call",
+                                                "type": "string",
+                                                "enum": [
+                                                    "ordeal_call",
+                                                    "class_score"
+                                                ]
+                                            },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.123Z",
+                                                "default": "2026-04-25T11:27:01.368Z",
                                                 "type": "string"
                                             },
                                             "sections": {
@@ -959,6 +1026,7 @@
                                     "title",
                                     "description",
                                     "metadata",
+                                    "background_music",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -1009,6 +1077,7 @@
                                     "title",
                                     "description",
                                     "metadata",
+                                    "background_music",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -1049,6 +1118,14 @@
                                                     "type": "string"
                                                 },
                                                 "metadata": {},
+                                                "background_music": {
+                                                    "default": "ordeal_call",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ordeal_call",
+                                                        "class_score"
+                                                    ]
+                                                },
                                                 "createdAt": {
                                                     "type": "string"
                                                 },
@@ -1056,7 +1133,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.129Z",
+                                                    "default": "2026-04-25T11:27:01.375Z",
                                                     "type": "string"
                                                 },
                                                 "sections": {
@@ -1069,6 +1146,7 @@
                                                 "id",
                                                 "slug",
                                                 "title",
+                                                "background_music",
                                                 "publishedAt",
                                                 "sections"
                                             ],
@@ -1359,7 +1437,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-03-24T14:21:17.135Z",
+                                                        "default": "2026-04-25T11:27:01.408Z",
                                                         "type": "string"
                                                     },
                                                     "parent_directory": {
@@ -1390,7 +1468,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.137Z",
+                                                                "default": "2026-04-25T11:27:01.415Z",
                                                                 "type": "string"
                                                             },
                                                             "parent_directory": {}
@@ -1533,7 +1611,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.147Z",
+                                                    "default": "2026-04-25T11:27:01.427Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -1564,7 +1642,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.137Z",
+                                                            "default": "2026-04-25T11:27:01.415Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -1643,7 +1721,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.146Z",
+                                                "default": "2026-04-25T11:27:01.425Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -1869,7 +1947,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.142Z",
+                                                    "default": "2026-04-25T11:27:01.422Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -1900,7 +1978,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.137Z",
+                                                            "default": "2026-04-25T11:27:01.415Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -2053,7 +2131,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.151Z",
+                                                    "default": "2026-04-25T11:27:01.433Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -2084,7 +2162,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.137Z",
+                                                            "default": "2026-04-25T11:27:01.415Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -2163,7 +2241,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.150Z",
+                                                "default": "2026-04-25T11:27:01.431Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -2306,7 +2384,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.154Z",
+                                                    "default": "2026-04-25T11:27:01.437Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -2337,7 +2415,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.137Z",
+                                                            "default": "2026-04-25T11:27:01.415Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -2665,7 +2743,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-03-24T14:21:17.162Z",
+                                                        "default": "2026-04-25T11:27:01.445Z",
                                                         "type": "string"
                                                     },
                                                     "parent_directory": {
@@ -2696,7 +2774,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.137Z",
+                                                                "default": "2026-04-25T11:27:01.415Z",
                                                                 "type": "string"
                                                             },
                                                             "parent_directory": {}
@@ -2845,7 +2923,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.170Z",
+                                                    "default": "2026-04-25T11:27:01.462Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -2876,7 +2954,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.137Z",
+                                                            "default": "2026-04-25T11:27:01.415Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -2951,7 +3029,7 @@
                                                 "maxLength": 5
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.169Z",
+                                                "default": "2026-04-25T11:27:01.459Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -3193,7 +3271,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.166Z",
+                                                    "default": "2026-04-25T11:27:01.454Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -3224,7 +3302,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.137Z",
+                                                            "default": "2026-04-25T11:27:01.415Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -3383,7 +3461,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.175Z",
+                                                    "default": "2026-04-25T11:27:01.469Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -3414,7 +3492,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.137Z",
+                                                            "default": "2026-04-25T11:27:01.415Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -3489,7 +3567,7 @@
                                                 "maxLength": 5
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.172Z",
+                                                "default": "2026-04-25T11:27:01.467Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -3641,7 +3719,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.178Z",
+                                                    "default": "2026-04-25T11:27:01.474Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -3672,7 +3750,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.137Z",
+                                                            "default": "2026-04-25T11:27:01.415Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -3982,7 +4060,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-03-24T14:21:17.183Z",
+                                                        "default": "2026-04-25T11:27:01.482Z",
                                                         "type": "string"
                                                     }
                                                 },
@@ -4113,7 +4191,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.190Z",
+                                                    "default": "2026-04-25T11:27:01.490Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -4180,7 +4258,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.764Z",
+                                                "default": "2026-04-25T11:27:02.311Z",
                                                 "type": "string"
                                             }
                                         },
@@ -4401,7 +4479,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.185Z",
+                                                    "default": "2026-04-25T11:27:01.487Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -4542,7 +4620,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.192Z",
+                                                    "default": "2026-04-25T11:27:01.496Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -4609,7 +4687,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.191Z",
+                                                "default": "2026-04-25T11:27:01.493Z",
                                                 "type": "string"
                                             }
                                         },
@@ -4747,7 +4825,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.194Z",
+                                                    "default": "2026-04-25T11:27:01.500Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -5036,7 +5114,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-03-24T14:21:17.198Z",
+                                                        "default": "2026-04-25T11:27:01.509Z",
                                                         "type": "string"
                                                     },
                                                     "media": {
@@ -5099,7 +5177,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.202Z",
+                                                                "default": "2026-04-25T11:27:01.516Z",
                                                                 "type": "string"
                                                             },
                                                             "related": {}
@@ -5240,7 +5318,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.209Z",
+                                                    "default": "2026-04-25T11:27:01.527Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -5303,7 +5381,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.202Z",
+                                                            "default": "2026-04-25T11:27:01.516Z",
                                                             "type": "string"
                                                         },
                                                         "related": {}
@@ -5373,7 +5451,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.208Z",
+                                                "default": "2026-04-25T11:27:01.525Z",
                                                 "type": "string"
                                             },
                                             "media": {}
@@ -5584,7 +5662,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.206Z",
+                                                    "default": "2026-04-25T11:27:01.523Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -5647,7 +5725,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.202Z",
+                                                            "default": "2026-04-25T11:27:01.516Z",
                                                             "type": "string"
                                                         },
                                                         "related": {}
@@ -5798,7 +5876,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.213Z",
+                                                    "default": "2026-04-25T11:27:01.532Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -5861,7 +5939,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.202Z",
+                                                            "default": "2026-04-25T11:27:01.516Z",
                                                             "type": "string"
                                                         },
                                                         "related": {}
@@ -5931,7 +6009,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.211Z",
+                                                "default": "2026-04-25T11:27:01.531Z",
                                                 "type": "string"
                                             },
                                             "media": {}
@@ -6064,7 +6142,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.215Z",
+                                                    "default": "2026-04-25T11:27:01.552Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -6127,7 +6205,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.202Z",
+                                                            "default": "2026-04-25T11:27:01.516Z",
                                                             "type": "string"
                                                         },
                                                         "related": {}
@@ -6461,7 +6539,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-03-24T14:21:17.226Z",
+                                                        "default": "2026-04-25T11:27:01.562Z",
                                                         "type": "string"
                                                     }
                                                 },
@@ -6602,7 +6680,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.239Z",
+                                                    "default": "2026-04-25T11:27:01.573Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -6677,7 +6755,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.771Z",
+                                                "default": "2026-04-25T11:27:02.318Z",
                                                 "type": "string"
                                             }
                                         },
@@ -6918,7 +6996,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.233Z",
+                                                    "default": "2026-04-25T11:27:01.568Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7069,7 +7147,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.246Z",
+                                                    "default": "2026-04-25T11:27:01.579Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7144,7 +7222,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.243Z",
+                                                "default": "2026-04-25T11:27:01.576Z",
                                                 "type": "string"
                                             }
                                         },
@@ -7294,7 +7372,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.259Z",
+                                                    "default": "2026-04-25T11:27:01.583Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7592,7 +7670,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-03-24T14:21:17.264Z",
+                                                        "default": "2026-04-25T11:27:01.591Z",
                                                         "type": "string"
                                                     },
                                                     "franchises": {
@@ -7625,7 +7703,7 @@
                                                                     "type": "string"
                                                                 },
                                                                 "publishedAt": {
-                                                                    "default": "2026-03-24T14:21:17.265Z",
+                                                                    "default": "2026-04-25T11:27:01.594Z",
                                                                     "type": "string"
                                                                 },
                                                                 "anime": {
@@ -7664,7 +7742,7 @@
                                                                             "type": "string"
                                                                         },
                                                                         "publishedAt": {
-                                                                            "default": "2026-03-24T14:21:17.267Z",
+                                                                            "default": "2026-04-25T11:27:01.596Z",
                                                                             "type": "string"
                                                                         }
                                                                     },
@@ -7816,7 +7894,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.273Z",
+                                                    "default": "2026-04-25T11:27:01.605Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -7849,7 +7927,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.265Z",
+                                                                "default": "2026-04-25T11:27:01.594Z",
                                                                 "type": "string"
                                                             },
                                                             "anime": {
@@ -7888,7 +7966,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "publishedAt": {
-                                                                        "default": "2026-03-24T14:21:17.267Z",
+                                                                        "default": "2026-04-25T11:27:01.596Z",
                                                                         "type": "string"
                                                                     }
                                                                 },
@@ -7968,7 +8046,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.272Z",
+                                                "default": "2026-04-25T11:27:01.604Z",
                                                 "type": "string"
                                             },
                                             "franchises": {
@@ -8195,7 +8273,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.270Z",
+                                                    "default": "2026-04-25T11:27:01.601Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -8228,7 +8306,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.265Z",
+                                                                "default": "2026-04-25T11:27:01.594Z",
                                                                 "type": "string"
                                                             },
                                                             "anime": {
@@ -8267,7 +8345,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "publishedAt": {
-                                                                        "default": "2026-03-24T14:21:17.267Z",
+                                                                        "default": "2026-04-25T11:27:01.596Z",
                                                                         "type": "string"
                                                                     }
                                                                 },
@@ -8429,7 +8507,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.278Z",
+                                                    "default": "2026-04-25T11:27:01.611Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -8462,7 +8540,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.265Z",
+                                                                "default": "2026-04-25T11:27:01.594Z",
                                                                 "type": "string"
                                                             },
                                                             "anime": {
@@ -8501,7 +8579,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "publishedAt": {
-                                                                        "default": "2026-03-24T14:21:17.267Z",
+                                                                        "default": "2026-04-25T11:27:01.596Z",
                                                                         "type": "string"
                                                                     }
                                                                 },
@@ -8581,7 +8659,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.276Z",
+                                                "default": "2026-04-25T11:27:01.609Z",
                                                 "type": "string"
                                             },
                                             "franchises": {
@@ -8726,7 +8804,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.281Z",
+                                                    "default": "2026-04-25T11:27:01.615Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -8759,7 +8837,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.265Z",
+                                                                "default": "2026-04-25T11:27:01.594Z",
                                                                 "type": "string"
                                                             },
                                                             "anime": {
@@ -8798,7 +8876,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "publishedAt": {
-                                                                        "default": "2026-03-24T14:21:17.267Z",
+                                                                        "default": "2026-04-25T11:27:01.596Z",
                                                                         "type": "string"
                                                                     }
                                                                 },
@@ -9119,7 +9197,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-03-24T14:21:17.286Z",
+                                                        "default": "2026-04-25T11:27:01.622Z",
                                                         "type": "string"
                                                     },
                                                     "anime": {
@@ -9158,7 +9236,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.267Z",
+                                                                "default": "2026-04-25T11:27:01.596Z",
                                                                 "type": "string"
                                                             }
                                                         },
@@ -9300,7 +9378,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.295Z",
+                                                    "default": "2026-04-25T11:27:01.631Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -9339,7 +9417,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.267Z",
+                                                            "default": "2026-04-25T11:27:01.596Z",
                                                             "type": "string"
                                                         }
                                                     },
@@ -9417,7 +9495,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.294Z",
+                                                "default": "2026-04-25T11:27:01.630Z",
                                                 "type": "string"
                                             },
                                             "anime": {
@@ -9643,7 +9721,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.290Z",
+                                                    "default": "2026-04-25T11:27:01.627Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -9682,7 +9760,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.267Z",
+                                                            "default": "2026-04-25T11:27:01.596Z",
                                                             "type": "string"
                                                         }
                                                     },
@@ -9834,7 +9912,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.298Z",
+                                                    "default": "2026-04-25T11:27:01.636Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -9873,7 +9951,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.267Z",
+                                                            "default": "2026-04-25T11:27:01.596Z",
                                                             "type": "string"
                                                         }
                                                     },
@@ -9951,7 +10029,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.296Z",
+                                                "default": "2026-04-25T11:27:01.634Z",
                                                 "type": "string"
                                             },
                                             "anime": {
@@ -10094,7 +10172,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.299Z",
+                                                    "default": "2026-04-25T11:27:01.641Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -10133,7 +10211,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-03-24T14:21:17.267Z",
+                                                            "default": "2026-04-25T11:27:01.596Z",
                                                             "type": "string"
                                                         }
                                                     },
@@ -10443,7 +10521,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-03-24T14:21:17.304Z",
+                                                        "default": "2026-04-25T11:27:01.648Z",
                                                         "type": "string"
                                                     },
                                                     "jurisdiction": {
@@ -10475,7 +10553,7 @@
                                                                     "type": "string"
                                                                 },
                                                                 "publishedAt": {
-                                                                    "default": "2026-03-24T14:21:17.305Z",
+                                                                    "default": "2026-04-25T11:27:01.667Z",
                                                                     "type": "string"
                                                                 },
                                                                 "franchises": {
@@ -10508,7 +10586,7 @@
                                                                                 "type": "string"
                                                                             },
                                                                             "publishedAt": {
-                                                                                "default": "2026-03-24T14:21:17.265Z",
+                                                                                "default": "2026-04-25T11:27:01.594Z",
                                                                                 "type": "string"
                                                                             },
                                                                             "anime": {
@@ -10547,7 +10625,7 @@
                                                                                         "type": "string"
                                                                                     },
                                                                                     "publishedAt": {
-                                                                                        "default": "2026-03-24T14:21:17.267Z",
+                                                                                        "default": "2026-04-25T11:27:01.596Z",
                                                                                         "type": "string"
                                                                                     }
                                                                                 },
@@ -10711,7 +10789,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.311Z",
+                                                    "default": "2026-04-25T11:27:01.679Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -10743,7 +10821,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.305Z",
+                                                                "default": "2026-04-25T11:27:01.667Z",
                                                                 "type": "string"
                                                             },
                                                             "franchises": {
@@ -10776,7 +10854,7 @@
                                                                             "type": "string"
                                                                         },
                                                                         "publishedAt": {
-                                                                            "default": "2026-03-24T14:21:17.265Z",
+                                                                            "default": "2026-04-25T11:27:01.594Z",
                                                                             "type": "string"
                                                                         },
                                                                         "anime": {
@@ -10815,7 +10893,7 @@
                                                                                     "type": "string"
                                                                                 },
                                                                                 "publishedAt": {
-                                                                                    "default": "2026-03-24T14:21:17.267Z",
+                                                                                    "default": "2026-04-25T11:27:01.596Z",
                                                                                     "type": "string"
                                                                                 }
                                                                             },
@@ -10915,7 +10993,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.311Z",
+                                                "default": "2026-04-25T11:27:01.677Z",
                                                 "type": "string"
                                             },
                                             "jurisdiction": {
@@ -11143,7 +11221,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.309Z",
+                                                    "default": "2026-04-25T11:27:01.673Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -11175,7 +11253,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.305Z",
+                                                                "default": "2026-04-25T11:27:01.667Z",
                                                                 "type": "string"
                                                             },
                                                             "franchises": {
@@ -11208,7 +11286,7 @@
                                                                             "type": "string"
                                                                         },
                                                                         "publishedAt": {
-                                                                            "default": "2026-03-24T14:21:17.265Z",
+                                                                            "default": "2026-04-25T11:27:01.594Z",
                                                                             "type": "string"
                                                                         },
                                                                         "anime": {
@@ -11247,7 +11325,7 @@
                                                                                     "type": "string"
                                                                                 },
                                                                                 "publishedAt": {
-                                                                                    "default": "2026-03-24T14:21:17.267Z",
+                                                                                    "default": "2026-04-25T11:27:01.596Z",
                                                                                     "type": "string"
                                                                                 }
                                                                             },
@@ -11421,7 +11499,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.314Z",
+                                                    "default": "2026-04-25T11:27:01.684Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -11453,7 +11531,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.305Z",
+                                                                "default": "2026-04-25T11:27:01.667Z",
                                                                 "type": "string"
                                                             },
                                                             "franchises": {
@@ -11486,7 +11564,7 @@
                                                                             "type": "string"
                                                                         },
                                                                         "publishedAt": {
-                                                                            "default": "2026-03-24T14:21:17.265Z",
+                                                                            "default": "2026-04-25T11:27:01.594Z",
                                                                             "type": "string"
                                                                         },
                                                                         "anime": {
@@ -11525,7 +11603,7 @@
                                                                                     "type": "string"
                                                                                 },
                                                                                 "publishedAt": {
-                                                                                    "default": "2026-03-24T14:21:17.267Z",
+                                                                                    "default": "2026-04-25T11:27:01.596Z",
                                                                                     "type": "string"
                                                                                 }
                                                                             },
@@ -11625,7 +11703,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-03-24T14:21:17.313Z",
+                                                "default": "2026-04-25T11:27:01.682Z",
                                                 "type": "string"
                                             },
                                             "jurisdiction": {
@@ -11771,7 +11849,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-03-24T14:21:17.320Z",
+                                                    "default": "2026-04-25T11:27:01.688Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -11803,7 +11881,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-03-24T14:21:17.305Z",
+                                                                "default": "2026-04-25T11:27:01.667Z",
                                                                 "type": "string"
                                                             },
                                                             "franchises": {
@@ -11836,7 +11914,7 @@
                                                                             "type": "string"
                                                                         },
                                                                         "publishedAt": {
-                                                                            "default": "2026-03-24T14:21:17.265Z",
+                                                                            "default": "2026-04-25T11:27:01.594Z",
                                                                             "type": "string"
                                                                         },
                                                                         "anime": {
@@ -11875,7 +11953,7 @@
                                                                                     "type": "string"
                                                                                 },
                                                                                 "publishedAt": {
-                                                                                    "default": "2026-03-24T14:21:17.267Z",
+                                                                                    "default": "2026-04-25T11:27:01.596Z",
                                                                                     "type": "string"
                                                                                 }
                                                                             },
