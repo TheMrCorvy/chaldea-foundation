@@ -22,14 +22,9 @@ const itemVariants = {
 export interface ProjectItemProps {
     project: LayoutProjectListItem;
     imageBaseUrl: string;
-    isMobile?: boolean | null;
 }
 
-const ProjectItem: FC<ProjectItemProps> = ({
-    project,
-    imageBaseUrl,
-    isMobile,
-}) => {
+const ProjectItem: FC<ProjectItemProps> = ({ project, imageBaseUrl }) => {
     const {
         title,
         highlighted_subtitle,
