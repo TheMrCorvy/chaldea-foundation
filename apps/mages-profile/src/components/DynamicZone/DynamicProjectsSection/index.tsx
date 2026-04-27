@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 import { SectionsProjectsSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import DynamicTitle from "../DynamicTitle";
@@ -62,7 +62,6 @@ const DynamicProjectsSection: FC<DynamicProjectsSection> = ({
                         imageBaseUrl={imageBaseUrl}
                         key={project.component_id || `project-${index}`}
                         project={project}
-                        isMobile={isMobile || false}
                     />
                 ))}
             </Box>
