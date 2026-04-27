@@ -62,7 +62,6 @@ const DynamicLandingHeroSection: FC<DynamicLandingHeroSectionProps> = ({
                 gap: { xs: 0, md: 6, lg: 12 },
             }}
         >
-            {/* Left Content / Profile and Texts */}
             <Box
                 sx={{
                     flex: 1,
@@ -74,7 +73,6 @@ const DynamicLandingHeroSection: FC<DynamicLandingHeroSectionProps> = ({
                     position: "relative",
                 }}
             >
-                {/* Profile Image Avatar */}
                 {profile_image?.url && (
                     <Box
                         component={motion.div}
@@ -104,7 +102,6 @@ const DynamicLandingHeroSection: FC<DynamicLandingHeroSectionProps> = ({
                                 objectFit: "cover",
                             }}
                         />
-                        {/* Avatar Scanline Overlay */}
                         <Box
                             sx={{
                                 position: "absolute",
@@ -154,7 +151,7 @@ const DynamicLandingHeroSection: FC<DynamicLandingHeroSectionProps> = ({
                             textTransform: "uppercase",
                             borderLeft: "4px solid rgba(56, 182, 255, 0.8)",
                             pl: 2,
-                            ml: 1, // Visual adjustment to align left with text visual center
+                            ml: 1,
                         }}
                     >
                         {highlighted_subtitle}
@@ -209,8 +206,6 @@ const DynamicLandingHeroSection: FC<DynamicLandingHeroSectionProps> = ({
                     </Typography>
                 )}
             </Box>
-
-            {/* Right Content / Commands (Holographic terminal representation) */}
             <Box
                 component={motion.div}
                 variants={itemVariants}
