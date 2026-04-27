@@ -80,8 +80,6 @@ const DynamicBlogImage: FC<BlogImageComponent> = ({
                         </Typography>
                     </Box>
                 )}
-
-                {/* Scanline overlay for the holographic effect */}
                 <Box sx={divider} />
             </Box>
 
