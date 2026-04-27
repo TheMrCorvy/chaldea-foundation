@@ -109,7 +109,6 @@ const DynamicBlogHero: FC<BlogHero> = ({
             />
 
             <Box sx={textContainer}>
-                {/* Text Content */}
                 <Box sx={textContent}>
                     {title && (
                         <Typography variant="h2" sx={titleStyles}>
@@ -129,8 +128,6 @@ const DynamicBlogHero: FC<BlogHero> = ({
                         </Box>
                     )}
                 </Box>
-
-                {/* Image Hologram View */}
                 <Box sx={hologramImage}>
                     {cover_image?.url ? (
                         <Image
@@ -151,8 +148,6 @@ const DynamicBlogHero: FC<BlogHero> = ({
                             </Typography>
                         </Box>
                     )}
-
-                    {/* Scanline overlay for that retro-futuristic Chaldea tech vibe */}
                     <Box sx={divider} />
                 </Box>
             </Box>
