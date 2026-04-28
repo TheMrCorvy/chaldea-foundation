@@ -10,7 +10,7 @@ import "../globals.css";
 import { dynamicZone, dynamicPageFields } from "@/lib/constants";
 import ClientSideUiEffects from "@/components/DynamicZone/ClientSideUI/ClientSideUiEffects";
 import StarryContainer from "@/components/StarryContainer";
-import DynamicClientZone from "@/components/DynamicZone/DynamicClientZone";
+import DynamicClientZone from "@/components/DynamicZone/Client/DynamicClientZone";
 
 export interface dynamicZonePageProps {
     params: Promise<{
