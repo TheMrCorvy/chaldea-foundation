@@ -58,6 +58,11 @@
       ],
       "required": true,
       "min": 1
+    },
+    "use_server": {
+      "type": "boolean",
+      "required": true,
+      "default": true
     }
   }
 }
