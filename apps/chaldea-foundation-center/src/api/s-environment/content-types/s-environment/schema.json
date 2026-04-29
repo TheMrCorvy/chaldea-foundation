@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "s_environments",
+  "info": {
+    "singularName": "s-environment",
+    "pluralName": "s-environments",
+    "displayName": "S - Environment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "app_name": {
+      "type": "string",
+      "required": true
+    },
+    "var": {
+      "type": "json",
+      "required": true
+    }
+  }
+}
