@@ -4,7 +4,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Box } from "@mui/material";
 import { StrapiSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
-import DynamicZoneComponent from ".";
+import DynamicZoneComponentForClient from ".";
 
 export interface DynamicClientZoneProps {
     sections: StrapiSection[];
@@ -30,7 +30,7 @@ const DynamicClientZone: FC<DynamicClientZoneProps> = ({
             }}
         >
             {sections.map((section) => (
-                <DynamicZoneComponent
+                <DynamicZoneComponentForClient
                     section={section}
                     key={section.component_id}
                     imageBaseUrl={imageBaseUrl}
