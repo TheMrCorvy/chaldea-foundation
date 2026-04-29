@@ -33,7 +33,7 @@ export interface DynamicZoneComponentProps {
     isMobile?: boolean;
 }
 
-const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({
+const DynamicZoneComponentForClient: FC<DynamicZoneComponentProps> = ({
     section,
     imageBaseUrl,
     isMobile = false,
@@ -118,4 +118,4 @@ const DynamicZoneComponent: FC<DynamicZoneComponentProps> = ({
     }
 };
 
-export default DynamicZoneComponent;
+export default DynamicZoneComponentForClient;
