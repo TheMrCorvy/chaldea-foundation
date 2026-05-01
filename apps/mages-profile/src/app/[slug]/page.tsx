@@ -11,6 +11,7 @@ import { dynamicZone, dynamicPageFields } from "@/lib/constants";
 import ClientSideUiEffects from "@/components/DynamicZone/ClientSideUI/ClientSideUiEffects";
 import StarryContainer from "@/components/StarryContainer";
 import DynamicClientZone from "@/components/DynamicZone/Client/DynamicClientZone";
+import DynamycServerZone from "@/components/DynamicZone/Server/DynamicServerZone";
 
 export interface dynamicZonePageProps {
     params: Promise<{
@@ -188,10 +189,17 @@ export default async function DynamicZone({ params }: dynamicZonePageProps) {
                     routerPush={(metadata.routerPush as string) || "/"}
                 />
 
-                <DynamicClientZone
-                    sections={sections}
-                    imageBaseUrl={imageBaseUrl}
-                />
+                {dynamicPage.use_server ? (
+                    <DynamycServerZone
+                        sections={sections}
+                        imageBaseUrl={imageBaseUrl}
+                    />
+                ) : (
+                    <DynamicClientZone
+                        sections={sections}
+                        imageBaseUrl={imageBaseUrl}
+                    />
+                )}
             </StarryContainer>
         </SoundProvider>
     );
