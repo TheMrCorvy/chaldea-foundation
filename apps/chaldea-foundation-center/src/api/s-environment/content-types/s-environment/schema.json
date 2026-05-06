@@ -1,23 +1,26 @@
 {
-  "kind": "collectionType",
-  "collectionName": "s_environments",
-  "info": {
-    "singularName": "s-environment",
-    "pluralName": "s-environments",
-    "displayName": "S - Environment"
-  },
-  "options": {
-    "draftAndPublish": false
-  },
-  "pluginOptions": {},
-  "attributes": {
-    "app_name": {
-      "type": "string",
-      "required": true
+    "kind": "collectionType",
+    "collectionName": "s_environments",
+    "info": {
+        "singularName": "s-environment",
+        "pluralName": "s-environments",
+        "displayName": "S - Environment"
     },
-    "var": {
-      "type": "json",
-      "required": true
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "app_name": {
+            "type": "string",
+            "required": true
+        },
+        "variables": {
+            "type": "component",
+            "component": "environment.key-value",
+            "repeatable": true,
+            "required": true,
+            "min": 1
+        }
     }
-  }
 }
