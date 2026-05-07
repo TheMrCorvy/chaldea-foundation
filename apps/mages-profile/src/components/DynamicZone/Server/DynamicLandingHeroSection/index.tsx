@@ -1,5 +1,3 @@
-"use server";
-
 import { Box, Typography } from "@mui/material";
 import { LayoutLandingHero } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";

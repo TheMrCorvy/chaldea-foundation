@@ -1,5 +1,3 @@
-"use server";
-
 import { FC } from "react";
 import { Box, Typography, Tooltip, Stack, CardMedia } from "@mui/material";
 import DynamicLink from "../DynamicLink";

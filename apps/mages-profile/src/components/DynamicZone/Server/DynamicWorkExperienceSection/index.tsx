@@ -1,5 +1,3 @@
-"use server";
-
 import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import DynamicTitle from "../DynamicTitle";

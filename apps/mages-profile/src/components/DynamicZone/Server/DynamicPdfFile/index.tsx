@@ -1,5 +1,3 @@
-"use server";
-
 import { Box, Button, Tooltip, Typography } from "@mui/material";
 import { StrapiPDFComponent } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";

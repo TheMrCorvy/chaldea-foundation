@@ -1,5 +1,3 @@
-"use server";
-
 import { BlogHero } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import Image from "next/image";

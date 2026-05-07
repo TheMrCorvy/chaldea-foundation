@@ -1,5 +1,3 @@
-"use server";
-
 import RichTextRenderer from "@/components/RichTextRenderer";
 import { Box } from "@mui/material";
 import { BlogText } from "@repo/type-definitions/dynamic-page";

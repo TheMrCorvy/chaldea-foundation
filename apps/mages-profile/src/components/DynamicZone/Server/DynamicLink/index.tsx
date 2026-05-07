@@ -1,5 +1,3 @@
-"use server";
-
 import IconComponent from "@/components/IconComponent";
 import { Box, Link, Tooltip } from "@mui/material";
 import { LayoutLink } from "@repo/type-definitions/dynamic-page";

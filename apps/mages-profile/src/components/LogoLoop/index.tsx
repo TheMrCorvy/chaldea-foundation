@@ -16,6 +16,7 @@ import {
 } from "./constants";
 import { useResizeObserver } from "./useResizeObserver";
 import useAnimationLoop from "./useAnimationLoop";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface LogoLoopProps {
     items: ReactElement[];
@@ -32,7 +33,7 @@ const LogoLoop: FC<LogoLoopProps> = ({
     duration = 20,
     direction = "normal",
     gap = "1rem",
-    isMobile = false,
+    isMobile: isMobileProp,
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
@@ -42,6 +43,8 @@ const LogoLoop: FC<LogoLoopProps> = ({
     const [copyCount, setCopyCount] = useState<number>(
         ANIMATION_CONFIG.MIN_COPIES
     );
+
+    const isMobile = isMobileProp ?? useMediaQuery().max.width("sm");
 
     const containerStyle: CSSProperties = useMemo(
         () => ({

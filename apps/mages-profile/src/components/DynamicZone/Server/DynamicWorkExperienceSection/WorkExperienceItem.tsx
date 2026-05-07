@@ -7,7 +7,6 @@ import WorkIcon from "@mui/icons-material/Work";
 import RichTextRenderer from "../../../RichTextRenderer";
 import GlitchBackgroundCard from "../../../GlitchBacgkroundCard";
 import { LayoutWorkExperienceListItem } from "@repo/type-definitions/dynamic-page";
-import { motion } from "framer-motion";
 
 export interface WorkExperienceItemProps {
     experience: LayoutWorkExperienceListItem;
@@ -61,13 +60,7 @@ const WorkExperienceItem: FC<WorkExperienceItemProps> = ({
                 flexDirection: "column",
             }}
         >
-            <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                style={{ flex: 1, width: "100%" }}
-            >
+            <Box sx={{ flex: 1, width: "100%" }}>
                 <GlitchBackgroundCard isMobile={isMobile}>
                     <Box
                         sx={{
@@ -246,7 +239,7 @@ const WorkExperienceItem: FC<WorkExperienceItemProps> = ({
                         )}
                     </Box>
                 </GlitchBackgroundCard>
-            </motion.div>
+            </Box>
         </Grid>
     );
 

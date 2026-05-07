@@ -1,5 +1,3 @@
-'use client";';
-
 import { Box } from "@mui/material";
 import { LayoutLogoLoop } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
@@ -7,7 +5,6 @@ import LogoLoop from "../../../LogoLoop";
 import SkillListItem from "../../../SkillListItem";
 import { IconName } from "../../../IconComponent";
 import DynamicTitle from "../DynamicTitle";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export interface DynamicLogoLoopProps extends LayoutLogoLoop {
     isMobile?: boolean;
@@ -26,14 +23,6 @@ const DynamicLogoLoop: FC<DynamicLogoLoopProps> = ({
     text_align,
     id,
 }) => {
-    let mobile = false;
-
-    if (typeof isMobile === "undefined") {
-        mobile = useMediaQuery().max.width("sm");
-    } else {
-        mobile = isMobile;
-    }
-
     return (
         <Box
             sx={{
@@ -71,7 +60,7 @@ const DynamicLogoLoop: FC<DynamicLogoLoopProps> = ({
                     )) || []
                 }
                 isVertical={vertical || false}
-                isMobile={mobile}
+                isMobile={isMobile}
                 gap={gap || undefined}
                 duration={duration || undefined}
                 direction={direction}

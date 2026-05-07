@@ -1,11 +1,9 @@
-"use server";
-
 import { Box, Chip } from "@mui/material";
 import { LayoutToolChip } from "@repo/type-definitions/dynamic-page";
+
 import { FC } from "react";
 import IconComponent from "../../../IconComponent";
 import DynamicLogoLoop from "../DynamicLogoLoop";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export interface ChipsRendererProps {
     chips?: Array<LayoutToolChip>;
@@ -92,12 +90,10 @@ const ChipsRenderer: FC<ChipsRendererProps> = ({
     }
 
     if (logo_loop) {
-        const isMobile = useMediaQuery().max.width("sm");
         return (
             <DynamicLogoLoop
                 id={id}
                 chips={chips}
-                isMobile={isMobile}
                 vertical={vertical_logo_loop || false}
                 title={""}
                 title_color={""}

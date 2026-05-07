@@ -1,5 +1,3 @@
-"use server";
-
 import { Box } from "@mui/material";
 import { LayoutDescriptionWithChipsList } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";

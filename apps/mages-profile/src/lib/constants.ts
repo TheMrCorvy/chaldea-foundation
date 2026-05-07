@@ -4,6 +4,7 @@ export const dynamicPageFields = [
     "description",
     "metadata",
     "background_music",
+    "use_server",
 ];
 
 export const populateProjectsSection = {
