@@ -10,6 +10,7 @@ export interface DynamicPage {
     title: string;
     metadata: Record<string, unknown>;
     background_music: string;
+    use_server: boolean;
 }
 
 export interface StrapiComponent {
