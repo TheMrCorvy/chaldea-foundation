@@ -28,6 +28,7 @@
                                     "description",
                                     "metadata",
                                     "background_music",
+                                    "use_server",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -51,6 +52,7 @@
                                     "description",
                                     "metadata",
                                     "background_music",
+                                    "use_server",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -143,6 +145,7 @@
                                         "description",
                                         "metadata",
                                         "background_music",
+                                        "use_server",
                                         "createdAt",
                                         "updatedAt",
                                         "publishedAt"
@@ -158,6 +161,7 @@
                                             "description",
                                             "metadata",
                                             "background_music",
+                                            "use_server",
                                             "createdAt",
                                             "updatedAt",
                                             "publishedAt"
@@ -174,6 +178,7 @@
                                             "description",
                                             "metadata",
                                             "background_music",
+                                            "use_server",
                                             "createdAt",
                                             "updatedAt",
                                             "publishedAt"
@@ -196,6 +201,7 @@
                                                 "description",
                                                 "metadata",
                                                 "background_music",
+                                                "use_server",
                                                 "createdAt",
                                                 "updatedAt",
                                                 "publishedAt"
@@ -280,6 +286,10 @@
                                                             "class_score"
                                                         ]
                                                     },
+                                                    "use_server": {
+                                                        "default": true,
+                                                        "type": "boolean"
+                                                    },
                                                     "createdAt": {
                                                         "type": "string"
                                                     },
@@ -287,7 +297,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-04-25T11:27:01.333Z",
+                                                        "default": "2026-05-08T11:02:02.998Z",
                                                         "type": "string"
                                                     },
                                                     "sections": {
@@ -301,6 +311,7 @@
                                                     "slug",
                                                     "title",
                                                     "background_music",
+                                                    "use_server",
                                                     "publishedAt",
                                                     "sections"
                                                 ],
@@ -351,6 +362,7 @@
                                     "description",
                                     "metadata",
                                     "background_music",
+                                    "use_server",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -426,6 +438,10 @@
                                                         "class_score"
                                                     ]
                                                 },
+                                                "use_server": {
+                                                    "default": true,
+                                                    "type": "boolean"
+                                                },
                                                 "createdAt": {
                                                     "type": "string"
                                                 },
@@ -433,7 +449,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.362Z",
+                                                    "default": "2026-05-08T11:02:03.007Z",
                                                     "type": "string"
                                                 },
                                                 "sections": {
@@ -447,6 +463,7 @@
                                                 "slug",
                                                 "title",
                                                 "background_music",
+                                                "use_server",
                                                 "publishedAt",
                                                 "sections"
                                             ],
@@ -504,8 +521,20 @@
                                                     "class_score"
                                                 ]
                                             },
+                                            "use_server": {
+                                                "default": true,
+                                                "type": "string",
+                                                "enum": [
+                                                    "0",
+                                                    "1",
+                                                    "t",
+                                                    "true",
+                                                    "f",
+                                                    "false"
+                                                ]
+                                            },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.360Z",
+                                                "default": "2026-05-08T11:02:03.006Z",
                                                 "type": "string"
                                             },
                                             "sections": {
@@ -517,6 +546,7 @@
                                             "slug",
                                             "title",
                                             "background_music",
+                                            "use_server",
                                             "publishedAt",
                                             "sections"
                                         ],
@@ -562,6 +592,7 @@
                                     "description",
                                     "metadata",
                                     "background_music",
+                                    "use_server",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -613,6 +644,7 @@
                                     "description",
                                     "metadata",
                                     "background_music",
+                                    "use_server",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -637,6 +669,7 @@
                                         "description",
                                         "metadata",
                                         "background_music",
+                                        "use_server",
                                         "createdAt",
                                         "updatedAt",
                                         "publishedAt"
@@ -652,6 +685,7 @@
                                             "description",
                                             "metadata",
                                             "background_music",
+                                            "use_server",
                                             "createdAt",
                                             "updatedAt",
                                             "publishedAt"
@@ -668,6 +702,7 @@
                                             "description",
                                             "metadata",
                                             "background_music",
+                                            "use_server",
                                             "createdAt",
                                             "updatedAt",
                                             "publishedAt"
@@ -690,6 +725,7 @@
                                                 "description",
                                                 "metadata",
                                                 "background_music",
+                                                "use_server",
                                                 "createdAt",
                                                 "updatedAt",
                                                 "publishedAt"
@@ -744,6 +780,10 @@
                                                         "class_score"
                                                     ]
                                                 },
+                                                "use_server": {
+                                                    "default": true,
+                                                    "type": "boolean"
+                                                },
                                                 "createdAt": {
                                                     "type": "string"
                                                 },
@@ -751,7 +791,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.350Z",
+                                                    "default": "2026-05-08T11:02:03.003Z",
                                                     "type": "string"
                                                 },
                                                 "sections": {
@@ -765,6 +805,7 @@
                                                 "slug",
                                                 "title",
                                                 "background_music",
+                                                "use_server",
                                                 "publishedAt",
                                                 "sections"
                                             ],
@@ -825,6 +866,7 @@
                                     "description",
                                     "metadata",
                                     "background_music",
+                                    "use_server",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -900,6 +942,10 @@
                                                         "class_score"
                                                     ]
                                                 },
+                                                "use_server": {
+                                                    "default": true,
+                                                    "type": "boolean"
+                                                },
                                                 "createdAt": {
                                                     "type": "string"
                                                 },
@@ -907,7 +953,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.370Z",
+                                                    "default": "2026-05-08T11:02:03.010Z",
                                                     "type": "string"
                                                 },
                                                 "sections": {
@@ -921,6 +967,7 @@
                                                 "slug",
                                                 "title",
                                                 "background_music",
+                                                "use_server",
                                                 "publishedAt",
                                                 "sections"
                                             ],
@@ -978,8 +1025,20 @@
                                                     "class_score"
                                                 ]
                                             },
+                                            "use_server": {
+                                                "default": true,
+                                                "type": "string",
+                                                "enum": [
+                                                    "0",
+                                                    "1",
+                                                    "t",
+                                                    "true",
+                                                    "f",
+                                                    "false"
+                                                ]
+                                            },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.368Z",
+                                                "default": "2026-05-08T11:02:03.009Z",
                                                 "type": "string"
                                             },
                                             "sections": {
@@ -1027,6 +1086,7 @@
                                     "description",
                                     "metadata",
                                     "background_music",
+                                    "use_server",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -1078,6 +1138,7 @@
                                     "description",
                                     "metadata",
                                     "background_music",
+                                    "use_server",
                                     "createdAt",
                                     "updatedAt",
                                     "publishedAt"
@@ -1126,6 +1187,10 @@
                                                         "class_score"
                                                     ]
                                                 },
+                                                "use_server": {
+                                                    "default": true,
+                                                    "type": "boolean"
+                                                },
                                                 "createdAt": {
                                                     "type": "string"
                                                 },
@@ -1133,7 +1198,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.375Z",
+                                                    "default": "2026-05-08T11:02:03.013Z",
                                                     "type": "string"
                                                 },
                                                 "sections": {
@@ -1147,6 +1212,7 @@
                                                 "slug",
                                                 "title",
                                                 "background_music",
+                                                "use_server",
                                                 "publishedAt",
                                                 "sections"
                                             ],
@@ -1437,7 +1503,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-04-25T11:27:01.408Z",
+                                                        "default": "2026-05-08T11:02:03.017Z",
                                                         "type": "string"
                                                     },
                                                     "parent_directory": {
@@ -1468,7 +1534,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.415Z",
+                                                                "default": "2026-05-08T11:02:03.019Z",
                                                                 "type": "string"
                                                             },
                                                             "parent_directory": {}
@@ -1611,7 +1677,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.427Z",
+                                                    "default": "2026-05-08T11:02:03.025Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -1642,7 +1708,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.415Z",
+                                                            "default": "2026-05-08T11:02:03.019Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -1721,7 +1787,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.425Z",
+                                                "default": "2026-05-08T11:02:03.024Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -1947,7 +2013,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.422Z",
+                                                    "default": "2026-05-08T11:02:03.022Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -1978,7 +2044,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.415Z",
+                                                            "default": "2026-05-08T11:02:03.019Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -2131,7 +2197,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.433Z",
+                                                    "default": "2026-05-08T11:02:03.027Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -2162,7 +2228,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.415Z",
+                                                            "default": "2026-05-08T11:02:03.019Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -2241,7 +2307,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.431Z",
+                                                "default": "2026-05-08T11:02:03.026Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -2384,7 +2450,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.437Z",
+                                                    "default": "2026-05-08T11:02:03.029Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -2415,7 +2481,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.415Z",
+                                                            "default": "2026-05-08T11:02:03.019Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -2743,7 +2809,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-04-25T11:27:01.445Z",
+                                                        "default": "2026-05-08T11:02:03.034Z",
                                                         "type": "string"
                                                     },
                                                     "parent_directory": {
@@ -2774,7 +2840,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.415Z",
+                                                                "default": "2026-05-08T11:02:03.019Z",
                                                                 "type": "string"
                                                             },
                                                             "parent_directory": {}
@@ -2923,7 +2989,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.462Z",
+                                                    "default": "2026-05-08T11:02:03.048Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -2954,7 +3020,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.415Z",
+                                                            "default": "2026-05-08T11:02:03.019Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -3029,7 +3095,7 @@
                                                 "maxLength": 5
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.459Z",
+                                                "default": "2026-05-08T11:02:03.047Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -3271,7 +3337,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.454Z",
+                                                    "default": "2026-05-08T11:02:03.037Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -3302,7 +3368,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.415Z",
+                                                            "default": "2026-05-08T11:02:03.019Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -3461,7 +3527,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.469Z",
+                                                    "default": "2026-05-08T11:02:03.051Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -3492,7 +3558,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.415Z",
+                                                            "default": "2026-05-08T11:02:03.019Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -3567,7 +3633,7 @@
                                                 "maxLength": 5
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.467Z",
+                                                "default": "2026-05-08T11:02:03.050Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -3719,7 +3785,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.474Z",
+                                                    "default": "2026-05-08T11:02:03.053Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -3750,7 +3816,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.415Z",
+                                                            "default": "2026-05-08T11:02:03.019Z",
                                                             "type": "string"
                                                         },
                                                         "parent_directory": {}
@@ -4060,7 +4126,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-04-25T11:27:01.482Z",
+                                                        "default": "2026-05-08T11:02:03.056Z",
                                                         "type": "string"
                                                     }
                                                 },
@@ -4191,7 +4257,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.490Z",
+                                                    "default": "2026-05-08T11:02:03.061Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -4258,7 +4324,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:02.311Z",
+                                                "default": "2026-05-08T11:02:03.651Z",
                                                 "type": "string"
                                             }
                                         },
@@ -4479,7 +4545,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.487Z",
+                                                    "default": "2026-05-08T11:02:03.059Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -4620,7 +4686,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.496Z",
+                                                    "default": "2026-05-08T11:02:03.064Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -4687,7 +4753,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.493Z",
+                                                "default": "2026-05-08T11:02:03.062Z",
                                                 "type": "string"
                                             }
                                         },
@@ -4825,7 +4891,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.500Z",
+                                                    "default": "2026-05-08T11:02:03.069Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -5114,7 +5180,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-04-25T11:27:01.509Z",
+                                                        "default": "2026-05-08T11:02:03.076Z",
                                                         "type": "string"
                                                     },
                                                     "media": {
@@ -5177,7 +5243,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.516Z",
+                                                                "default": "2026-05-08T11:02:03.079Z",
                                                                 "type": "string"
                                                             },
                                                             "related": {}
@@ -5318,7 +5384,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.527Z",
+                                                    "default": "2026-05-08T11:02:03.084Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -5381,7 +5447,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.516Z",
+                                                            "default": "2026-05-08T11:02:03.079Z",
                                                             "type": "string"
                                                         },
                                                         "related": {}
@@ -5451,7 +5517,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.525Z",
+                                                "default": "2026-05-08T11:02:03.083Z",
                                                 "type": "string"
                                             },
                                             "media": {}
@@ -5662,7 +5728,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.523Z",
+                                                    "default": "2026-05-08T11:02:03.082Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -5725,7 +5791,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.516Z",
+                                                            "default": "2026-05-08T11:02:03.079Z",
                                                             "type": "string"
                                                         },
                                                         "related": {}
@@ -5876,7 +5942,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.532Z",
+                                                    "default": "2026-05-08T11:02:03.086Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -5939,7 +6005,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.516Z",
+                                                            "default": "2026-05-08T11:02:03.079Z",
                                                             "type": "string"
                                                         },
                                                         "related": {}
@@ -6009,7 +6075,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.531Z",
+                                                "default": "2026-05-08T11:02:03.085Z",
                                                 "type": "string"
                                             },
                                             "media": {}
@@ -6142,7 +6208,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.552Z",
+                                                    "default": "2026-05-08T11:02:03.088Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -6205,7 +6271,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.516Z",
+                                                            "default": "2026-05-08T11:02:03.079Z",
                                                             "type": "string"
                                                         },
                                                         "related": {}
@@ -6539,7 +6605,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-04-25T11:27:01.562Z",
+                                                        "default": "2026-05-08T11:02:03.092Z",
                                                         "type": "string"
                                                     }
                                                 },
@@ -6680,7 +6746,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.573Z",
+                                                    "default": "2026-05-08T11:02:03.097Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -6755,7 +6821,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:02.318Z",
+                                                "default": "2026-05-08T11:02:03.661Z",
                                                 "type": "string"
                                             }
                                         },
@@ -6996,7 +7062,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.568Z",
+                                                    "default": "2026-05-08T11:02:03.095Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7147,7 +7213,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.579Z",
+                                                    "default": "2026-05-08T11:02:03.101Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7222,7 +7288,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.576Z",
+                                                "default": "2026-05-08T11:02:03.099Z",
                                                 "type": "string"
                                             }
                                         },
@@ -7372,7 +7438,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.583Z",
+                                                    "default": "2026-05-08T11:02:03.104Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7670,7 +7736,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-04-25T11:27:01.591Z",
+                                                        "default": "2026-05-08T11:02:03.120Z",
                                                         "type": "string"
                                                     },
                                                     "franchises": {
@@ -7703,7 +7769,7 @@
                                                                     "type": "string"
                                                                 },
                                                                 "publishedAt": {
-                                                                    "default": "2026-04-25T11:27:01.594Z",
+                                                                    "default": "2026-05-08T11:02:03.121Z",
                                                                     "type": "string"
                                                                 },
                                                                 "anime": {
@@ -7742,7 +7808,7 @@
                                                                             "type": "string"
                                                                         },
                                                                         "publishedAt": {
-                                                                            "default": "2026-04-25T11:27:01.596Z",
+                                                                            "default": "2026-05-08T11:02:03.122Z",
                                                                             "type": "string"
                                                                         }
                                                                     },
@@ -7894,7 +7960,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.605Z",
+                                                    "default": "2026-05-08T11:02:03.127Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -7927,7 +7993,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.594Z",
+                                                                "default": "2026-05-08T11:02:03.121Z",
                                                                 "type": "string"
                                                             },
                                                             "anime": {
@@ -7966,7 +8032,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "publishedAt": {
-                                                                        "default": "2026-04-25T11:27:01.596Z",
+                                                                        "default": "2026-05-08T11:02:03.122Z",
                                                                         "type": "string"
                                                                     }
                                                                 },
@@ -8046,7 +8112,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.604Z",
+                                                "default": "2026-05-08T11:02:03.126Z",
                                                 "type": "string"
                                             },
                                             "franchises": {
@@ -8273,7 +8339,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.601Z",
+                                                    "default": "2026-05-08T11:02:03.125Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -8306,7 +8372,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.594Z",
+                                                                "default": "2026-05-08T11:02:03.121Z",
                                                                 "type": "string"
                                                             },
                                                             "anime": {
@@ -8345,7 +8411,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "publishedAt": {
-                                                                        "default": "2026-04-25T11:27:01.596Z",
+                                                                        "default": "2026-05-08T11:02:03.122Z",
                                                                         "type": "string"
                                                                     }
                                                                 },
@@ -8507,7 +8573,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.611Z",
+                                                    "default": "2026-05-08T11:02:03.129Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -8540,7 +8606,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.594Z",
+                                                                "default": "2026-05-08T11:02:03.121Z",
                                                                 "type": "string"
                                                             },
                                                             "anime": {
@@ -8579,7 +8645,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "publishedAt": {
-                                                                        "default": "2026-04-25T11:27:01.596Z",
+                                                                        "default": "2026-05-08T11:02:03.122Z",
                                                                         "type": "string"
                                                                     }
                                                                 },
@@ -8659,7 +8725,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.609Z",
+                                                "default": "2026-05-08T11:02:03.128Z",
                                                 "type": "string"
                                             },
                                             "franchises": {
@@ -8804,7 +8870,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.615Z",
+                                                    "default": "2026-05-08T11:02:03.131Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -8837,7 +8903,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.594Z",
+                                                                "default": "2026-05-08T11:02:03.121Z",
                                                                 "type": "string"
                                                             },
                                                             "anime": {
@@ -8876,7 +8942,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "publishedAt": {
-                                                                        "default": "2026-04-25T11:27:01.596Z",
+                                                                        "default": "2026-05-08T11:02:03.122Z",
                                                                         "type": "string"
                                                                     }
                                                                 },
@@ -9197,7 +9263,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-04-25T11:27:01.622Z",
+                                                        "default": "2026-05-08T11:02:03.134Z",
                                                         "type": "string"
                                                     },
                                                     "anime": {
@@ -9236,7 +9302,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.596Z",
+                                                                "default": "2026-05-08T11:02:03.122Z",
                                                                 "type": "string"
                                                             }
                                                         },
@@ -9378,7 +9444,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.631Z",
+                                                    "default": "2026-05-08T11:02:03.139Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -9417,7 +9483,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.596Z",
+                                                            "default": "2026-05-08T11:02:03.122Z",
                                                             "type": "string"
                                                         }
                                                     },
@@ -9495,7 +9561,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.630Z",
+                                                "default": "2026-05-08T11:02:03.138Z",
                                                 "type": "string"
                                             },
                                             "anime": {
@@ -9721,7 +9787,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.627Z",
+                                                    "default": "2026-05-08T11:02:03.137Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -9760,7 +9826,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.596Z",
+                                                            "default": "2026-05-08T11:02:03.122Z",
                                                             "type": "string"
                                                         }
                                                     },
@@ -9912,7 +9978,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.636Z",
+                                                    "default": "2026-05-08T11:02:03.141Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -9951,7 +10017,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.596Z",
+                                                            "default": "2026-05-08T11:02:03.122Z",
                                                             "type": "string"
                                                         }
                                                     },
@@ -10029,7 +10095,7 @@
                                                 ]
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.634Z",
+                                                "default": "2026-05-08T11:02:03.140Z",
                                                 "type": "string"
                                             },
                                             "anime": {
@@ -10172,7 +10238,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.641Z",
+                                                    "default": "2026-05-08T11:02:03.143Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -10211,7 +10277,7 @@
                                                             "type": "string"
                                                         },
                                                         "publishedAt": {
-                                                            "default": "2026-04-25T11:27:01.596Z",
+                                                            "default": "2026-05-08T11:02:03.122Z",
                                                             "type": "string"
                                                         }
                                                     },
@@ -10521,7 +10587,7 @@
                                                         "type": "string"
                                                     },
                                                     "publishedAt": {
-                                                        "default": "2026-04-25T11:27:01.648Z",
+                                                        "default": "2026-05-08T11:02:03.147Z",
                                                         "type": "string"
                                                     },
                                                     "jurisdiction": {
@@ -10553,7 +10619,7 @@
                                                                     "type": "string"
                                                                 },
                                                                 "publishedAt": {
-                                                                    "default": "2026-04-25T11:27:01.667Z",
+                                                                    "default": "2026-05-08T11:02:03.148Z",
                                                                     "type": "string"
                                                                 },
                                                                 "franchises": {
@@ -10586,7 +10652,7 @@
                                                                                 "type": "string"
                                                                             },
                                                                             "publishedAt": {
-                                                                                "default": "2026-04-25T11:27:01.594Z",
+                                                                                "default": "2026-05-08T11:02:03.121Z",
                                                                                 "type": "string"
                                                                             },
                                                                             "anime": {
@@ -10625,7 +10691,7 @@
                                                                                         "type": "string"
                                                                                     },
                                                                                     "publishedAt": {
-                                                                                        "default": "2026-04-25T11:27:01.596Z",
+                                                                                        "default": "2026-05-08T11:02:03.122Z",
                                                                                         "type": "string"
                                                                                     }
                                                                                 },
@@ -10789,7 +10855,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.679Z",
+                                                    "default": "2026-05-08T11:02:03.157Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -10821,7 +10887,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.667Z",
+                                                                "default": "2026-05-08T11:02:03.148Z",
                                                                 "type": "string"
                                                             },
                                                             "franchises": {
@@ -10854,7 +10920,7 @@
                                                                             "type": "string"
                                                                         },
                                                                         "publishedAt": {
-                                                                            "default": "2026-04-25T11:27:01.594Z",
+                                                                            "default": "2026-05-08T11:02:03.121Z",
                                                                             "type": "string"
                                                                         },
                                                                         "anime": {
@@ -10893,7 +10959,7 @@
                                                                                     "type": "string"
                                                                                 },
                                                                                 "publishedAt": {
-                                                                                    "default": "2026-04-25T11:27:01.596Z",
+                                                                                    "default": "2026-05-08T11:02:03.122Z",
                                                                                     "type": "string"
                                                                                 }
                                                                             },
@@ -10993,7 +11059,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.677Z",
+                                                "default": "2026-05-08T11:02:03.156Z",
                                                 "type": "string"
                                             },
                                             "jurisdiction": {
@@ -11221,7 +11287,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.673Z",
+                                                    "default": "2026-05-08T11:02:03.154Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -11253,7 +11319,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.667Z",
+                                                                "default": "2026-05-08T11:02:03.148Z",
                                                                 "type": "string"
                                                             },
                                                             "franchises": {
@@ -11286,7 +11352,7 @@
                                                                             "type": "string"
                                                                         },
                                                                         "publishedAt": {
-                                                                            "default": "2026-04-25T11:27:01.594Z",
+                                                                            "default": "2026-05-08T11:02:03.121Z",
                                                                             "type": "string"
                                                                         },
                                                                         "anime": {
@@ -11325,7 +11391,7 @@
                                                                                     "type": "string"
                                                                                 },
                                                                                 "publishedAt": {
-                                                                                    "default": "2026-04-25T11:27:01.596Z",
+                                                                                    "default": "2026-05-08T11:02:03.122Z",
                                                                                     "type": "string"
                                                                                 }
                                                                             },
@@ -11499,7 +11565,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.684Z",
+                                                    "default": "2026-05-08T11:02:03.163Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -11531,7 +11597,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.667Z",
+                                                                "default": "2026-05-08T11:02:03.148Z",
                                                                 "type": "string"
                                                             },
                                                             "franchises": {
@@ -11564,7 +11630,7 @@
                                                                             "type": "string"
                                                                         },
                                                                         "publishedAt": {
-                                                                            "default": "2026-04-25T11:27:01.594Z",
+                                                                            "default": "2026-05-08T11:02:03.121Z",
                                                                             "type": "string"
                                                                         },
                                                                         "anime": {
@@ -11603,7 +11669,7 @@
                                                                                     "type": "string"
                                                                                 },
                                                                                 "publishedAt": {
-                                                                                    "default": "2026-04-25T11:27:01.596Z",
+                                                                                    "default": "2026-05-08T11:02:03.122Z",
                                                                                     "type": "string"
                                                                                 }
                                                                             },
@@ -11703,7 +11769,7 @@
                                                 "type": "string"
                                             },
                                             "publishedAt": {
-                                                "default": "2026-04-25T11:27:01.682Z",
+                                                "default": "2026-05-08T11:02:03.161Z",
                                                 "type": "string"
                                             },
                                             "jurisdiction": {
@@ -11849,7 +11915,7 @@
                                                     "type": "string"
                                                 },
                                                 "publishedAt": {
-                                                    "default": "2026-04-25T11:27:01.688Z",
+                                                    "default": "2026-05-08T11:02:03.167Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -11881,7 +11947,7 @@
                                                                 "type": "string"
                                                             },
                                                             "publishedAt": {
-                                                                "default": "2026-04-25T11:27:01.667Z",
+                                                                "default": "2026-05-08T11:02:03.148Z",
                                                                 "type": "string"
                                                             },
                                                             "franchises": {
@@ -11914,7 +11980,7 @@
                                                                             "type": "string"
                                                                         },
                                                                         "publishedAt": {
-                                                                            "default": "2026-04-25T11:27:01.594Z",
+                                                                            "default": "2026-05-08T11:02:03.121Z",
                                                                             "type": "string"
                                                                         },
                                                                         "anime": {
@@ -11953,7 +12019,7 @@
                                                                                     "type": "string"
                                                                                 },
                                                                                 "publishedAt": {
-                                                                                    "default": "2026-04-25T11:27:01.596Z",
+                                                                                    "default": "2026-05-08T11:02:03.122Z",
                                                                                     "type": "string"
                                                                                 }
                                                                             },
@@ -12024,6 +12090,1097 @@
                     }
                 },
                 "tags": ["p-jurisdiction"]
+            }
+        },
+        "/s-environments": {
+            "get": {
+                "operationId": "s-environment/get/s_environments",
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "app_name",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "type": "object",
+                            "propertyNames": {
+                                "type": "string",
+                                "enum": [
+                                    "app_name",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            },
+                            "additionalProperties": {}
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "_q",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "type": "string"
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "pagination",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "withCount": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "anyOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "page": {
+                                                    "type": "integer",
+                                                    "exclusiveMinimum": 0,
+                                                    "maximum": 9007199254740991
+                                                },
+                                                "pageSize": {
+                                                    "type": "integer",
+                                                    "exclusiveMinimum": 0,
+                                                    "maximum": 9007199254740991
+                                                }
+                                            },
+                                            "required": ["page", "pageSize"],
+                                            "additionalProperties": false
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "start": {
+                                                    "type": "integer",
+                                                    "minimum": 0,
+                                                    "maximum": 9007199254740991
+                                                },
+                                                "limit": {
+                                                    "type": "integer",
+                                                    "exclusiveMinimum": 0,
+                                                    "maximum": 9007199254740991
+                                                }
+                                            },
+                                            "required": ["start", "limit"],
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "app_name",
+                                        "createdAt",
+                                        "updatedAt",
+                                        "publishedAt"
+                                    ]
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "app_name",
+                                            "createdAt",
+                                            "updatedAt",
+                                            "publishedAt"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "object",
+                                    "propertyNames": {
+                                        "type": "string",
+                                        "enum": [
+                                            "app_name",
+                                            "createdAt",
+                                            "updatedAt",
+                                            "publishedAt"
+                                        ]
+                                    },
+                                    "additionalProperties": {
+                                        "type": "string",
+                                        "enum": ["asc", "desc"]
+                                    }
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                            "type": "string",
+                                            "enum": [
+                                                "app_name",
+                                                "createdAt",
+                                                "updatedAt",
+                                                "publishedAt"
+                                            ]
+                                        },
+                                        "additionalProperties": {
+                                            "type": "string",
+                                            "enum": ["asc", "desc"]
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": ["variables"]
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": ["variables"]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "documentId": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                    },
+                                                    "id": {
+                                                        "type": "number"
+                                                    },
+                                                    "app_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "createdAt": {
+                                                        "type": "string"
+                                                    },
+                                                    "updatedAt": {
+                                                        "type": "string"
+                                                    },
+                                                    "publishedAt": {
+                                                        "default": "2026-05-08T11:02:03.173Z",
+                                                        "type": "string"
+                                                    },
+                                                    "variables": {
+                                                        "minItems": 1,
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "key": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "string"
+                                                                },
+                                                                "commented": {
+                                                                    "default": false,
+                                                                    "type": "boolean"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "key",
+                                                                "commented"
+                                                            ],
+                                                            "additionalProperties": false
+                                                        }
+                                                    }
+                                                },
+                                                "required": [
+                                                    "documentId",
+                                                    "id",
+                                                    "app_name",
+                                                    "publishedAt",
+                                                    "variables"
+                                                ],
+                                                "additionalProperties": false
+                                            }
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["s-environment"]
+            },
+            "post": {
+                "operationId": "s-environment/post/s_environments",
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "app_name",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": ["variables"]
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": ["variables"]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "app_name": {
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "default": "2026-05-08T11:02:03.179Z",
+                                                    "type": "string"
+                                                },
+                                                "variables": {
+                                                    "minItems": 1,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "key": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            },
+                                                            "commented": {
+                                                                "default": false,
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "key",
+                                                            "commented"
+                                                        ],
+                                                        "additionalProperties": false
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "app_name",
+                                                "publishedAt",
+                                                "variables"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["s-environment"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "object",
+                                        "properties": {
+                                            "app_name": {
+                                                "type": "string"
+                                            },
+                                            "publishedAt": {
+                                                "default": "2026-05-08T11:02:03.178Z",
+                                                "type": "string"
+                                            },
+                                            "variables": {
+                                                "minItems": 1,
+                                                "type": "array",
+                                                "items": {}
+                                            }
+                                        },
+                                        "required": [
+                                            "app_name",
+                                            "publishedAt",
+                                            "variables"
+                                        ],
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "required": ["data"],
+                                "additionalProperties": false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/s-environments/{id}": {
+            "get": {
+                "operationId": "s-environment/get/s_environments_by_id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "type": "string",
+                            "format": "uuid",
+                            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "app_name",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": ["variables"]
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": ["variables"]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "type": "object",
+                            "propertyNames": {
+                                "type": "string",
+                                "enum": [
+                                    "app_name",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            },
+                            "additionalProperties": {}
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "app_name",
+                                        "createdAt",
+                                        "updatedAt",
+                                        "publishedAt"
+                                    ]
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "app_name",
+                                            "createdAt",
+                                            "updatedAt",
+                                            "publishedAt"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "object",
+                                    "propertyNames": {
+                                        "type": "string",
+                                        "enum": [
+                                            "app_name",
+                                            "createdAt",
+                                            "updatedAt",
+                                            "publishedAt"
+                                        ]
+                                    },
+                                    "additionalProperties": {
+                                        "type": "string",
+                                        "enum": ["asc", "desc"]
+                                    }
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                            "type": "string",
+                                            "enum": [
+                                                "app_name",
+                                                "createdAt",
+                                                "updatedAt",
+                                                "publishedAt"
+                                            ]
+                                        },
+                                        "additionalProperties": {
+                                            "type": "string",
+                                            "enum": ["asc", "desc"]
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "app_name": {
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "default": "2026-05-08T11:02:03.177Z",
+                                                    "type": "string"
+                                                },
+                                                "variables": {
+                                                    "minItems": 1,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "key": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            },
+                                                            "commented": {
+                                                                "default": false,
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "key",
+                                                            "commented"
+                                                        ],
+                                                        "additionalProperties": false
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "app_name",
+                                                "publishedAt",
+                                                "variables"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["s-environment"]
+            },
+            "put": {
+                "operationId": "s-environment/put/s_environments_by_id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "type": "string",
+                            "format": "uuid",
+                            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "app_name",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": ["variables"]
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": ["variables"]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "app_name": {
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "default": "2026-05-08T11:02:03.195Z",
+                                                    "type": "string"
+                                                },
+                                                "variables": {
+                                                    "minItems": 1,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "key": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            },
+                                                            "commented": {
+                                                                "default": false,
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "key",
+                                                            "commented"
+                                                        ],
+                                                        "additionalProperties": false
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "app_name",
+                                                "publishedAt",
+                                                "variables"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["s-environment"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "object",
+                                        "properties": {
+                                            "app_name": {
+                                                "type": "string"
+                                            },
+                                            "publishedAt": {
+                                                "default": "2026-05-08T11:02:03.193Z",
+                                                "type": "string"
+                                            },
+                                            "variables": {
+                                                "minItems": 1,
+                                                "type": "array",
+                                                "items": {}
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "required": ["data"],
+                                "additionalProperties": false
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "s-environment/delete/s_environments_by_id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "type": "string",
+                            "format": "uuid",
+                            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "app_name",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": ["variables"]
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": ["variables"]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "type": "object",
+                            "propertyNames": {
+                                "type": "string",
+                                "enum": [
+                                    "app_name",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            },
+                            "additionalProperties": {}
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "app_name": {
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "default": "2026-05-08T11:02:03.198Z",
+                                                    "type": "string"
+                                                },
+                                                "variables": {
+                                                    "minItems": 1,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "key": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            },
+                                                            "commented": {
+                                                                "default": false,
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "key",
+                                                            "commented"
+                                                        ],
+                                                        "additionalProperties": false
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "app_name",
+                                                "publishedAt",
+                                                "variables"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["s-environment"]
             }
         },
         "/content-types": {
