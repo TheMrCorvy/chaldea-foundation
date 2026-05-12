@@ -21,6 +21,9 @@ const generateRandomString = (length: number, chars: string): string => {
     return result;
 };
 
+const FONT_SIZE_PX = 14;
+const LINE_HEIGHT = 1.15;
+
 export interface GlitchBackgroundCardProps {
     children?: ReactNode;
     isMobile?: boolean;
@@ -41,9 +44,7 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
         useSymbols: false,
     }).build();
 
-    const [text, setText] = useState<string>(
-        isMobile ? generateRandomString(2000, chars) : ""
-    );
+    const [text, setText] = useState<string>("");
     const [isHovering, setIsHovering] = useState<boolean>(isMobile);
     const [mousePosition, setMousePosition] = useState<{
         x: number;
@@ -56,13 +57,34 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
     const containerRef = useRef<HTMLDivElement>(null);
 
     const regenerateText = useCallback(
-        (containerWidth: number) => {
-            const FONT_SIZE = 14;
-            const charsPerLine = Math.floor(containerWidth / FONT_SIZE);
+        (containerWidth: number, containerHeight: number) => {
+            if (containerWidth <= 0 || containerHeight <= 0) return;
 
-            if (charsPerLine <= 0) return;
+            const averageCharWidth =
+                typeof document !== "undefined"
+                    ? (() => {
+                          const canvas = document.createElement("canvas");
+                          const context = canvas.getContext("2d");
+                          if (!context) return FONT_SIZE_PX * 0.55;
 
-            const raw = generateRandomString(4000, chars);
+                          context.font = `${FONT_SIZE_PX}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace`;
+                          const metrics = context.measureText("W");
+                          return metrics.width || FONT_SIZE_PX * 0.55;
+                      })()
+                    : FONT_SIZE_PX * 0.55;
+
+            const charsPerLine = Math.max(
+                1,
+                Math.floor(containerWidth / averageCharWidth)
+            );
+            const lineHeightPx = FONT_SIZE_PX * LINE_HEIGHT;
+            const requiredLines = Math.max(
+                1,
+                Math.ceil(containerHeight / lineHeightPx) + 2
+            );
+            const requiredChars = charsPerLine * requiredLines;
+
+            const raw = generateRandomString(requiredChars, chars);
             const lines = raw.match(new RegExp(`.{1,${charsPerLine}}`, "g"));
 
             setText(lines?.join("\n") ?? "");
@@ -76,14 +98,21 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
     useEffect(() => {
         if (!containerRef.current) return;
 
+        if (isMobile) {
+            regenerateText(
+                containerRef.current.clientWidth,
+                containerRef.current.clientHeight
+            );
+        }
+
         const observer = new ResizeObserver(([entry]) => {
-            regenerateText(entry.contentRect.width * 1.7);
+            regenerateText(entry.contentRect.width, entry.contentRect.height);
         });
 
         observer.observe(containerRef.current);
 
         return () => observer.disconnect();
-    }, [regenerateText]);
+    }, [isMobile, regenerateText]);
 
     const handleMouseMove = useCallback(
         (e: MouseEvent<HTMLDivElement>) => {
@@ -94,7 +123,10 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
             });
 
             if (containerRef.current) {
-                regenerateText(containerRef.current.clientWidth * 1.7);
+                regenerateText(
+                    containerRef.current.clientWidth,
+                    containerRef.current.clientHeight
+                );
             }
         },
         [regenerateText]
@@ -103,7 +135,10 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
     const handleMouseEnter = useCallback(() => {
         setIsHovering(true);
         if (containerRef.current) {
-            regenerateText(containerRef.current.clientWidth * 1.7);
+            regenerateText(
+                containerRef.current.clientWidth,
+                containerRef.current.clientHeight
+            );
         }
     }, [regenerateText]);
 
@@ -204,8 +239,8 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                     transition: "opacity 300ms ease-out",
                     fontFamily:
                         "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
-                    fontSize: "14px",
-                    lineHeight: 1.15,
+                    fontSize: `${FONT_SIZE_PX}px`,
+                    lineHeight: LINE_HEIGHT,
                     whiteSpace: "pre",
                     background: `radial-gradient(
                         circle at ${mousePosition.x}px ${mousePosition.y}px,
@@ -217,7 +252,7 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",
-                    borderRadius: "10px",
+                    borderRadius: "18px",
                 }}
             >
                 {text}
@@ -229,7 +264,7 @@ const GlitchBackgroundCard: FC<GlitchBackgroundCardProps> = ({
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    borderRadius: "16px",
+                    borderRadius: "18px",
                     flex: 1,
                     minHeight: "100%",
                     zIndex: 1,
