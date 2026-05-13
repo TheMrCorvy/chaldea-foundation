@@ -6,7 +6,7 @@
     "scripts": {
         "build": "strapi build",
         "clean": "rimraf dist",
-        "prebuild": "npm run clean",
+        "prebuild": "pnpm run clean",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
         "lint": "eslint src/**/*.ts",
@@ -17,8 +17,8 @@
         "develop": "strapi develop",
         "start": "strapi start",
         "strapi": "strapi",
-        "upgrade": "npx @strapi/upgrade latest",
-        "upgrade:dry": "npx @strapi/upgrade latest --dry"
+        "upgrade": "pnpm dlx @strapi/upgrade latest",
+        "upgrade:dry": "pnpm dlx @strapi/upgrade latest --dry"
     },
     "dependencies": {
         "@strapi/plugin-cloud": "5.31.3",

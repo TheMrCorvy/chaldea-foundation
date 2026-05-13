@@ -7,7 +7,7 @@
         "build": "tsc",
         "start": "ts-node-dev --respawn --transpile-only src/server.ts",
         "clean": "rimraf dist",
-        "prebuild": "npm run clean",
+        "prebuild": "pnpm run clean",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
         "lint": "eslint src/**/*.ts",

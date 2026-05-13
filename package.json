@@ -13,11 +13,11 @@
         "test:coverage": "turbo test:coverage",
         "clean": "turbo clean",
         "start": "turbo run start",
-        "generate:sdk": "cd apps/chaldea-foundation-center && npm run strapi openapi generate -- --output ../../specs/spec.json && cd ../.. && npx @hey-api/openapi-ts",
+        "generate:sdk": "pnpm --dir apps/chaldea-foundation-center exec strapi openapi generate -- --output ../../specs/spec.json && pnpm exec openapi-ts",
         "patch:sdk-types": "node ./scripts/patch-sdk.config.js",
         "generate:mock-sdk": "node scripts/generate-mock-sdk.js",
-        "initialize:platform-sdk": "npm run generate:sdk && npm run patch:sdk-types && npm run generate:mock-sdk",
-        "initialize:private-cloud-db": "cd ./apps/private-cloud-backend && npm run initialize:db",
+        "initialize:platform-sdk": "pnpm run generate:sdk && pnpm run patch:sdk-types && pnpm run generate:mock-sdk",
+        "initialize:private-cloud-db": "pnpm --dir apps/private-cloud-backend run initialize:db",
         "projection-magic": "bash scripts/verify-ports.sh"
     },
     "devDependencies": {

@@ -7,10 +7,10 @@
         "build": "next build",
         "start": "next start -p 3010",
         "lint": "eslint",
-        "deploy": "cd ../../ && npx @hey-api/openapi-ts && npm run patch:sdk-types && npm run generate:mock-sdk && cd ./apps/mages-profile && npm run build",
+        "deploy": "pnpm --dir ../../ exec openapi-ts && pnpm --dir ../../ run patch:sdk-types && pnpm --dir ../../ run generate:mock-sdk && pnpm run build",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "serve-storybook": "npm run build-storybook && http-server ./storybook-static -p 6006",
+        "serve-storybook": "pnpm run build-storybook && http-server ./storybook-static -p 6006",
         "test": "jest",
         "test:watch": "jest --watch"
     },
