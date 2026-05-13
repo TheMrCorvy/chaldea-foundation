@@ -25,9 +25,9 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
-        "@repo/platform-service-sdk": "*",
-        "@repo/shared-utils": "*",
-        "@repo/type-definitions": "*",
+        "@repo/platform-service-sdk": "workspace:*",
+        "@repo/shared-utils": "workspace:*",
+        "@repo/type-definitions": "workspace:*",
         "bcrypt": "^6.0.0",
         "cors": "^2.8.5",
         "dotenv": "^17.2.0",

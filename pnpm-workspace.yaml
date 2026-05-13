@@ -1,0 +1,14 @@
+packages:
+    - "apps/*"
+    - "packages/*"
+allowBuilds:
+    "@swc/core": true
+    bcrypt: true
+    core-js-pure: true
+    esbuild: true
+    sharp: true
+    unrs-resolver: true
+    husky: true
+    lint-staged: true
+    prettier: true
+    typescript: true

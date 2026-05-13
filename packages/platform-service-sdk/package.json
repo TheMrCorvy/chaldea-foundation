@@ -5,13 +5,13 @@
     "main": "./index.ts",
     "types": "./index.ts",
     "dependencies": {
-        "@repo/type-definitions": "*",
-        "@repo/shared-utils": "*",
+        "@repo/type-definitions": "workspace:*",
+        "@repo/shared-utils": "workspace:*",
         "qs": "^6.13.1"
     },
     "devDependencies": {
         "typescript": "^5.0.0",
-        "@repo/typescript-config": "*",
+        "@repo/typescript-config": "workspace:*",
         "@types/qs": "^6.9.17"
     }
 }

@@ -8,7 +8,7 @@
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
         "format:check": "prettier --check .",
         "check-types": "turbo run check-types",
-        "prepare": "husky",
+        "prepare": "node .husky/install.mjs",
         "test": "turbo run test",
         "test:coverage": "turbo test:coverage",
         "clean": "turbo clean",
@@ -39,7 +39,7 @@
     "engines": {
         "node": "<=22.x.x"
     },
-    "packageManager": "npm@11.4.2",
+    "packageManager": "pnpm@11.1.1",
     "workspaces": [
         "apps/*",
         "packages/*"
