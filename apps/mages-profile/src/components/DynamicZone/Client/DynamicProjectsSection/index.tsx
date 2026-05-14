@@ -6,12 +6,12 @@ import { FC } from "react";
 import DynamicTitle from "../DynamicTitle";
 import ProjectItem from "./ProjectItem";
 
-export interface DynamicProjectsSection extends SectionsProjectsSection {
+export interface DynamicProjectsSectionProps extends SectionsProjectsSection {
     isMobile?: boolean | null;
     imageBaseUrl: string;
 }
 
-const DynamicProjectsSection: FC<DynamicProjectsSection> = ({
+const DynamicProjectsSection: FC<DynamicProjectsSectionProps> = ({
     title,
     title_color,
     link_to_page,

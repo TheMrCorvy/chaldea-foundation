@@ -9,7 +9,7 @@ type UseInViewSignature = (
 
 const mockUseInView: jest.MockedFunction<UseInViewSignature> = jest.fn();
 
-jest.mock("motion/react", () => ({
+jest.mock("framer-motion", () => ({
     useInView: (ref: RefObject<Element | null>, options?: { once?: boolean }) =>
         mockUseInView(ref, options),
 }));

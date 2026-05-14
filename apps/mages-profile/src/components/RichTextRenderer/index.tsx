@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { JsonRichText, TextColors } from "@repo/type-definitions/dynamic-page";
 
-interface RichTextRendererProps {
+export interface RichTextRendererProps {
     content: JsonRichText[];
     color?: string;
     fontSize?: string;

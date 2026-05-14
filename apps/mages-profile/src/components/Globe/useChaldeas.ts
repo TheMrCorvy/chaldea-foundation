@@ -29,7 +29,7 @@ const worldData = worldDataImport as GeoJSON.FeatureCollection<
 >;
 
 export const useChaldeas: UseChaldeas = ({ isMobile, markedCountries }) => {
-    const mapContainer = useRef<HTMLDivElement>(null);
+    const mapContainer = useRef<HTMLElement>(null);
     const timerRef = useRef<TimeRef>(null);
     const dragStateRef = useRef<DragState>(initialRotationState as DragState);
     const isCountrySelectedRef = useRef<boolean>(false);
