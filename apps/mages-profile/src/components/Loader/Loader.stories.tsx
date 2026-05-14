@@ -4,7 +4,7 @@ import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/Loader",
-    component: Loader,
+    render: () => <Loader />,
     parameters: {
         layout: "centered",
     },

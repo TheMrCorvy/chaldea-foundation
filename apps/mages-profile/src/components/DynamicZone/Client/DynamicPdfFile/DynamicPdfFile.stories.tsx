@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DynamicPdfFile from "./index";
+import DynamicPdfFile, { DynamicPdfFileProps } from "./index";
 import StarryContainer from "../../../StarryContainer";
 
 const meta = {
     title: "DynamicZone/DynamicPdfFile",
-    component: DynamicPdfFile,
+    render: (args: DynamicPdfFileProps) => <DynamicPdfFile {...args} />,
     parameters: {
         layout: "centered",
     },
@@ -24,10 +24,10 @@ const meta = {
             </StarryContainer>
         ),
     ],
-} satisfies Meta<typeof DynamicPdfFile>;
+} satisfies Meta<DynamicPdfFileProps>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<DynamicPdfFileProps>;
 
 // Generic mock PDF file info
 const mockFileUrl = "/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";

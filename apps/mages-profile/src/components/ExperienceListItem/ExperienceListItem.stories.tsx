@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { LayoutWorkExperienceListItem } from "@repo/type-definitions/dynamic-page";
-import ExperienceListItem from "./index";
+import ExperienceListItem, { ExperienceListItemProps } from "./index";
 import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/ExperienceListItem",
-    component: ExperienceListItem,
+    render: (args: ExperienceListItemProps) => <ExperienceListItem {...args} />,
     parameters: {
         layout: "centered",
         docs: {
@@ -17,7 +17,7 @@ const meta = {
     argTypes: {
         experience: { control: "object" },
     },
-} satisfies Meta<typeof ExperienceListItem>;
+} satisfies Meta<ExperienceListItemProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -1,11 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useState } from "react";
 import StarryContainer from "../../StarryContainer";
 import TextInput, { TextInputProps } from "./index";
 
-const meta: Meta<typeof TextInput> = {
+type TextInputStoryProps = Omit<TextInputProps, "value" | "onChange">;
+
+const meta = {
     title: "Inputs/TextInput",
-    component: TextInput,
+    render: (args: TextInputStoryProps) => <TextInputWithState {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -19,14 +21,12 @@ const meta: Meta<typeof TextInput> = {
             </StarryContainer>
         ),
     ],
-};
+} satisfies Meta<TextInputStoryProps>;
 
 export default meta;
-type Story = StoryObj<typeof TextInput>;
+type Story = StoryObj<typeof meta>;
 
-const TextInputWithState = (
-    args: Omit<TextInputProps, "value" | "onChange">
-) => {
+const TextInputWithState = (args: TextInputStoryProps) => {
     const [value, setValue] = useState("");
 
     return <TextInput {...args} value={value} onChange={setValue} />;

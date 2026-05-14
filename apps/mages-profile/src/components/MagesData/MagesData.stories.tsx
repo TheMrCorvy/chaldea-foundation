@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import MagesData from "./index";
+import MagesData, { MagesDataProps } from "./index";
 import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/MagesData",
-    component: MagesData,
+    render: (args: MagesDataProps) => <MagesData {...args} />,
     parameters: {
         layout: "fullscreen",
         backgrounds: {
@@ -16,7 +16,7 @@ const meta = {
     argTypes: {
         isMobile: { control: "boolean" },
     },
-} satisfies Meta<typeof MagesData>;
+} satisfies Meta<MagesDataProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

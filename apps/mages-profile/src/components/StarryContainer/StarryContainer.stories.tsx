@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import StarryContainer from "./index";
+import StarryContainer, { StarryContainerProps } from "./index";
 import { Typography } from "@mui/material";
 
 const meta = {
     title: "Components/StarryContainer",
-    component: StarryContainer,
+    render: (args: StarryContainerProps) => <StarryContainer {...args} />,
     parameters: {
         layout: "fullscreen",
         docs: {
@@ -18,7 +18,7 @@ const meta = {
     argTypes: {
         children: { control: "text" },
     },
-} satisfies Meta<typeof StarryContainer>;
+} satisfies Meta<StarryContainerProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

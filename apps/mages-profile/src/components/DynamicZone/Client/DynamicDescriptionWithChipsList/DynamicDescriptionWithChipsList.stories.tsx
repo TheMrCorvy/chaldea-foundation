@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import DynamicDescriptionWithChipsList from "./index";
 import StarryContainer from "../../../StarryContainer";
+import { LayoutDescriptionWithChipsList } from "@repo/type-definitions/dynamic-page";
 
 const meta = {
     title: "DynamicZone/DynamicDescriptionWithChipsList",
-    component: DynamicDescriptionWithChipsList,
+    render: (args: LayoutDescriptionWithChipsList) => (
+        <DynamicDescriptionWithChipsList {...args} />
+    ),
     parameters: {
         layout: "fullscreen",
     },
@@ -16,7 +19,7 @@ const meta = {
             </StarryContainer>
         ),
     ],
-} satisfies Meta<typeof DynamicDescriptionWithChipsList>;
+} satisfies Meta<LayoutDescriptionWithChipsList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

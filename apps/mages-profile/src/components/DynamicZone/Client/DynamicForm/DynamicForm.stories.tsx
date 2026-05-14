@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import DynamicForm from "./index";
 import StarryContainer from "../../../StarryContainer";
+import { LayoutForm } from "@repo/type-definitions/dynamic-page";
 
 const meta = {
     title: "DynamicZone/DynamicForm",
-    component: DynamicForm,
+    render: (args: LayoutForm) => <DynamicForm {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -15,11 +16,11 @@ const meta = {
             </StarryContainer>
         ),
     ],
-} satisfies Meta<typeof DynamicForm>;
+} satisfies Meta<LayoutForm>;
 
 export default meta;
 
-type Story = StoryObj<typeof DynamicForm>;
+type Story = StoryObj<LayoutForm>;
 
 export const Default: Story = {
     args: {

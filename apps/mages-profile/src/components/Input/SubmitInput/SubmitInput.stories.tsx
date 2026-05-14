@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import StarryContainer from "../../StarryContainer";
 import SubmitInput, { SubmitInputProps } from "./index";
 
-const meta: Meta<typeof SubmitInput> = {
+const meta = {
     title: "Inputs/SubmitInput",
-    component: SubmitInput,
+    render: (args: SubmitInputProps) => <SubmitInput {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -18,10 +18,10 @@ const meta: Meta<typeof SubmitInput> = {
             </StarryContainer>
         ),
     ],
-};
+} satisfies Meta<SubmitInputProps>;
 
 export default meta;
-type Story = StoryObj<typeof SubmitInput>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
@@ -31,7 +31,8 @@ export const Default: Story = {
         } as SubmitInputProps["field"],
         label: "Primary Action",
         value: "Submit Data",
-        onChange: (value) => console.log("Submit clicked with value:", value),
+        onChange: (value: string) =>
+            console.log("Submit clicked with value:", value),
     },
 };
 
@@ -44,7 +45,8 @@ export const Disabled: Story = {
         label: "Disabled Action",
         value: "Processing...",
         disabled: true,
-        onChange: (value) => console.log("Submit clicked with value:", value),
+        onChange: (value: string) =>
+            console.log("Submit clicked with value:", value),
     },
 };
 
@@ -57,6 +59,7 @@ export const LargeSize: Story = {
         label: "Large Button",
         value: "Launch",
         size: "medium",
-        onChange: (value) => console.log("Submit clicked with value:", value),
+        onChange: (value: string) =>
+            console.log("Submit clicked with value:", value),
     },
 };

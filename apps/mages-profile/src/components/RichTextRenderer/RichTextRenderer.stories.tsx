@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Box } from "@mui/material";
 import type { JsonRichText } from "@repo/type-definitions/dynamic-page";
-import RichTextRenderer from "./index";
+import RichTextRenderer, { RichTextRendererProps } from "./index";
 
 const meta = {
     title: "Components/RichTextRenderer",
-    component: RichTextRenderer,
+    render: (args: RichTextRendererProps) => <RichTextRenderer {...args} />,
     parameters: {
         layout: "centered",
         docs: {
@@ -19,7 +19,7 @@ const meta = {
     argTypes: {
         content: { control: "object" },
     },
-} satisfies Meta<typeof RichTextRenderer>;
+} satisfies Meta<RichTextRendererProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

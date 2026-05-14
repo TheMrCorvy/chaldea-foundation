@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import DynamicBlogText from "./index";
 import StarryContainer from "../../../StarryContainer";
+import { BlogText } from "@repo/type-definitions/dynamic-page";
 
 const meta = {
     title: "DynamicZone/DynamicBlogText",
-    component: DynamicBlogText,
+    render: (args: BlogText) => <DynamicBlogText {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -16,7 +17,7 @@ const meta = {
             </StarryContainer>
         ),
     ],
-} satisfies Meta<typeof DynamicBlogText>;
+} satisfies Meta<BlogText>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

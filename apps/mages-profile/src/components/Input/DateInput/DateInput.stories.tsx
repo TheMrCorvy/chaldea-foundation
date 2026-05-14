@@ -1,11 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useState } from "react";
 import StarryContainer from "../../StarryContainer";
 import DateInput, { DateInputProps } from "./index";
 
-const meta: Meta<typeof DateInput> = {
+type DateInputStoryProps = Omit<DateInputProps, "value" | "onChange">;
+
+const meta = {
     title: "Inputs/DateInput",
-    component: DateInput,
+    render: (args: DateInputStoryProps) => <DateInputWithState {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -19,15 +21,13 @@ const meta: Meta<typeof DateInput> = {
             </StarryContainer>
         ),
     ],
-};
+} satisfies Meta<DateInputStoryProps>;
 
 export default meta;
-type Story = StoryObj<typeof DateInput>;
+type Story = StoryObj<typeof meta>;
 
 // A wrapper component to handle the state of the input in Storybook
-const DateInputWithState = (
-    args: Omit<DateInputProps, "value" | "onChange">
-) => {
+const DateInputWithState = (args: DateInputStoryProps) => {
     const [value, setValue] = useState("");
 
     return <DateInput {...args} value={value} onChange={setValue} />;

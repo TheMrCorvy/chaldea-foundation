@@ -1,11 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useState } from "react";
 import StarryContainer from "../../StarryContainer";
 import SliderInput, { SliderInputProps } from "./index";
 
-const meta: Meta<typeof SliderInput> = {
+type SliderInputStoryProps = Omit<SliderInputProps, "value" | "onChange">;
+
+const meta = {
     title: "Inputs/SliderInput",
-    component: SliderInput,
+    render: (args: SliderInputStoryProps) => <SliderInputWithState {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -19,15 +21,13 @@ const meta: Meta<typeof SliderInput> = {
             </StarryContainer>
         ),
     ],
-};
+} satisfies Meta<SliderInputStoryProps>;
 
 export default meta;
-type Story = StoryObj<typeof SliderInput>;
+type Story = StoryObj<typeof meta>;
 
 // A wrapper component to handle the state of the input in Storybook
-const SliderInputWithState = (
-    args: Omit<SliderInputProps, "value" | "onChange">
-) => {
+const SliderInputWithState = (args: SliderInputStoryProps) => {
     const [value, setValue] = useState<number>(args.min ?? 50);
 
     return <SliderInput {...args} value={value} onChange={setValue} />;

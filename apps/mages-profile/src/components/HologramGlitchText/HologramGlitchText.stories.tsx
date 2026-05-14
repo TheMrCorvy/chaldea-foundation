@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import HologramGlitchText from "./index";
+import HologramGlitchText, { GlitchTextProps } from "./index";
 import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/HologramGlitchText",
-    component: HologramGlitchText,
+    render: (args: GlitchTextProps) => <HologramGlitchText {...args} />,
     parameters: {
         layout: "centered",
         docs: {
@@ -19,7 +19,7 @@ const meta = {
         children: { control: "text" },
         color: { control: "color" },
     },
-} satisfies Meta<typeof HologramGlitchText>;
+} satisfies Meta<GlitchTextProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -32,7 +32,7 @@ export const Default: Story = {
         fontWeight: "bold",
     },
     render: (args) => (
-        <StarryContainer >
+        <StarryContainer>
             <HologramGlitchText {...args} />
         </StarryContainer>
     ),

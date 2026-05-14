@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import IconComponent from "./index";
+import IconComponent, { IconComponentProps } from "./index";
 import { Box, Typography } from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
 import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/IconComponent",
-    component: IconComponent,
+    render: (args: IconComponentProps) => <IconComponent {...args} />,
     parameters: {
         layout: "centered",
         backgrounds: {
@@ -50,7 +50,7 @@ const meta = {
             options: ["small", "medium", "large", "inherit"],
         },
     },
-} satisfies Meta<typeof IconComponent>;
+} satisfies Meta<IconComponentProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

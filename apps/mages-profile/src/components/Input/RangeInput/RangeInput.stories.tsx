@@ -1,11 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useState } from "react";
 import StarryContainer from "../../StarryContainer";
 import RangeInput, { RangeInputProps, RangeInputValue } from "./index";
 
-const meta: Meta<typeof RangeInput> = {
+type RangeInputStoryProps = Omit<RangeInputProps, "value" | "onChange">;
+
+const meta = {
     title: "Inputs/RangeInput",
-    component: RangeInput,
+    render: (args: RangeInputStoryProps) => <RangeInputWithState {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -19,15 +21,13 @@ const meta: Meta<typeof RangeInput> = {
             </StarryContainer>
         ),
     ],
-};
+} satisfies Meta<RangeInputStoryProps>;
 
 export default meta;
-type Story = StoryObj<typeof RangeInput>;
+type Story = StoryObj<typeof meta>;
 
 // A wrapper component to handle the state of the input in Storybook
-const RangeInputWithState = (
-    args: Omit<RangeInputProps, "value" | "onChange">
-) => {
+const RangeInputWithState = (args: RangeInputStoryProps) => {
     const [value, setValue] = useState<RangeInputValue>([
         args.min ?? 20,
         args.max ? args.max - 20 : 80,

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import GlitchText from "./index";
+import GlitchText, { GlitchTextProps } from "./index";
 import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/GlitchText",
-    component: GlitchText,
+    render: (args: GlitchTextProps) => <GlitchText {...args} />,
     parameters: {
         layout: "centered",
         docs: {
@@ -25,7 +25,7 @@ const meta = {
         disableHover: { control: "boolean" },
         color: { control: "color" },
     },
-} satisfies Meta<typeof GlitchText>;
+} satisfies Meta<GlitchTextProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -42,7 +42,7 @@ export const Default: Story = {
         color: "white",
     },
     render: (args) => (
-       <StarryContainer>
+        <StarryContainer>
             <GlitchText {...args} />
         </StarryContainer>
     ),
@@ -55,7 +55,7 @@ export const HoverEffect: Story = {
         disableHover: false,
     },
     render: (args) => (
-       <StarryContainer>
+        <StarryContainer>
             <GlitchText {...args} />
         </StarryContainer>
     ),
@@ -68,7 +68,7 @@ export const WithDelay: Story = {
         delay: 2,
     },
     render: (args) => (
-       <StarryContainer>
+        <StarryContainer>
             <GlitchText {...args} />
         </StarryContainer>
     ),
@@ -81,7 +81,7 @@ export const WithAllCharacters: Story = {
         useSymbols: true,
     },
     render: (args) => (
-       <StarryContainer>
+        <StarryContainer>
             <GlitchText {...args} />
         </StarryContainer>
     ),

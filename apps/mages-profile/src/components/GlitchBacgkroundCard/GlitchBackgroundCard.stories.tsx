@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import GlitchBackgroundCard from "./index";
+import GlitchBackgroundCard, { GlitchBackgroundCardProps } from "./index";
 import { Box } from "@mui/material";
 import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/GlitchBackgroundCard",
-    component: GlitchBackgroundCard,
+    render: (args: GlitchBackgroundCardProps) => (
+        <GlitchBackgroundCard {...args} />
+    ),
     parameters: {
         layout: "centered",
         backgrounds: {
@@ -22,7 +24,7 @@ const meta = {
     argTypes: {
         isMobile: { control: "boolean" },
     },
-} satisfies Meta<typeof GlitchBackgroundCard>;
+} satisfies Meta<GlitchBackgroundCardProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

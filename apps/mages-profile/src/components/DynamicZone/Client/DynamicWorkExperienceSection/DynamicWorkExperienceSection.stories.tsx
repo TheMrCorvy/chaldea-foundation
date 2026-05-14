@@ -1,10 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DynamicWorkExperienceSection from "./index";
+import DynamicWorkExperienceSection, {
+    DynamicWorkExperienceSectionProps,
+} from "./index";
 import StarryContainer from "../../../StarryContainer";
 
 const meta = {
     title: "DynamicZone/DynamicWorkExperienceSection",
-    component: DynamicWorkExperienceSection,
+    render: (args: DynamicWorkExperienceSectionProps) => (
+        <DynamicWorkExperienceSection {...args} />
+    ),
     parameters: {
         layout: "fullscreen",
     },
@@ -23,10 +27,10 @@ const meta = {
             </StarryContainer>
         ),
     ],
-} satisfies Meta<typeof DynamicWorkExperienceSection>;
+} satisfies Meta<DynamicWorkExperienceSectionProps>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<DynamicWorkExperienceSectionProps>;
 
 export const Default: Story = {
     args: {

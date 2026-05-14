@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import Modal from "./index";
+import Modal, { ModalProps } from "./index";
 import { Box } from "@mui/material";
 import StarryContainer from "../StarryContainer";
 
 const meta = {
     title: "Components/Modal",
-    component: Modal,
+    render: (args: ModalProps) => <Modal {...args} />,
     parameters: {
         layout: "centered",
         backgrounds: {
@@ -25,7 +25,7 @@ const meta = {
         isMobile: { control: "boolean" },
         onExit: { action: "exited" },
     },
-} satisfies Meta<typeof Modal>;
+} satisfies Meta<ModalProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DynamicProjectsSection from "./index";
+import DynamicProjectsSection, { DynamicProjectsSectionProps } from "./index";
 import StarryContainer from "../../../StarryContainer";
 
 const meta = {
     title: "DynamicZone/DynamicProjectsSection",
-    component: DynamicProjectsSection,
+    render: (args: DynamicProjectsSectionProps) => (
+        <DynamicProjectsSection {...args} />
+    ),
     parameters: {
         layout: "fullscreen",
     },
@@ -23,10 +25,10 @@ const meta = {
             </StarryContainer>
         ),
     ],
-} satisfies Meta<typeof DynamicProjectsSection>;
+} satisfies Meta<DynamicProjectsSectionProps>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<DynamicProjectsSectionProps>;
 
 const mockFormat = {
     name: "chaldea_base.png",

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import GlitchButton from "./index";
+import GlitchButton, { GlitchButtonProps } from "./index";
 
 const meta = {
     title: "Components/GlitchButton",
-    component: GlitchButton,
+    render: (args: GlitchButtonProps) => <GlitchButton {...args} />,
     parameters: {
         layout: "centered",
     },
@@ -17,7 +17,7 @@ const meta = {
         },
         active: { control: "boolean" },
     },
-} satisfies Meta<typeof GlitchButton>;
+} satisfies Meta<GlitchButtonProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -1,10 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DynamicLandingHeroSection from "./index";
+import DynamicLandingHeroSection, {
+    DynamicLandingHeroSectionProps,
+} from "./index";
 import StarryContainer from "../../../StarryContainer";
 
 const meta = {
     title: "DynamicZone/DynamicLandingHeroSection",
-    component: DynamicLandingHeroSection,
+    render: (args: DynamicLandingHeroSectionProps) => (
+        <DynamicLandingHeroSection {...args} />
+    ),
     parameters: {
         layout: "fullscreen",
     },
@@ -15,10 +19,10 @@ const meta = {
             </StarryContainer>
         ),
     ],
-} satisfies Meta<typeof DynamicLandingHeroSection>;
+} satisfies Meta<DynamicLandingHeroSectionProps>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<DynamicLandingHeroSectionProps>;
 
 const mockFormat = {
     name: "chaldea_base.png",
