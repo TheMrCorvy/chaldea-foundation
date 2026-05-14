@@ -37,7 +37,7 @@ const Globe: FC<GlobeProps> = ({ isMobile, sections }) => {
     return (
         <>
             <motion.section
-                ref={mapContainer}
+                ref={mapContainer as React.RefObject<HTMLDivElement>}
                 initial={{
                     opacity: 0,
                     scale: 0.1,

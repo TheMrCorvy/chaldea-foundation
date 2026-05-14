@@ -6,13 +6,8 @@ import { Box } from "@mui/material";
 import { GlobeProps } from "./index";
 import Loader from "../Loader";
 
-const GlobeComponent = dynamic(
-    async () => {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-
-        const mod = await import("./index");
-        return mod.default;
-    },
+const GlobeComponent = dynamic<GlobeProps>(
+    () => import("./index").then((mod) => mod.default as any),
     {
         ssr: false,
         loading: () => <GlobeLoadingFallback />,

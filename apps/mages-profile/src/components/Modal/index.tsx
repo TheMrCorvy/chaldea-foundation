@@ -17,7 +17,7 @@ interface RenderContentParams {
     rowNumber: number;
 }
 
-type RenderContent = (params: RenderContentParams) => ReactNode;
+type RenderContent = (params: RenderContentParams) => React.ReactNode;
 
 const Modal: FC<ModalProps> = ({ children, open, onExit, isMobile }) => {
     const rows = Array.from({ length: 3 }, (_, i) => i);
