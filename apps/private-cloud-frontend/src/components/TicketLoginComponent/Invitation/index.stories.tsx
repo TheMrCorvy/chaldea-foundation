@@ -1,11 +1,11 @@
 import Box from "@mui/joy/Box";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import Invitation from ".";
+import Invitation, { InvitationProps } from ".";
 
 const meta = {
     title: "Components/TicketLoginComponent/Invitation",
-    component: Invitation,
+    render: (args: InvitationProps) => <Invitation {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -42,7 +42,7 @@ const meta = {
         ticketNumber: "TK-123",
         createdAt: new Date("2026-03-10T12:00:00.000Z"),
     },
-} satisfies Meta<typeof Invitation>;
+} satisfies Meta<InvitationProps>;
 
 export default meta;
 

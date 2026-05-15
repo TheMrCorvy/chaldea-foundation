@@ -3,7 +3,7 @@ import type { PaginationObject } from "@repo/type-definitions";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { fn } from "storybook/test";
 
-import Pagination from ".";
+import Pagination, { PaginationProps } from ".";
 
 const createPagination = (
     overrides: Partial<PaginationObject> = {}
@@ -17,7 +17,7 @@ const createPagination = (
 
 const meta = {
     title: "Components/Pagination",
-    component: Pagination,
+    render: (args: PaginationProps) => <Pagination {...args} />,
     parameters: {
         layout: "centered",
     },
@@ -47,7 +47,7 @@ const meta = {
         }),
         onChange: fn(),
     },
-} satisfies Meta<typeof Pagination>;
+} satisfies Meta<PaginationProps>;
 
 export default meta;
 

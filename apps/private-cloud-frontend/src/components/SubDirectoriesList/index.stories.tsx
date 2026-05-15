@@ -2,7 +2,7 @@ import Box from "@mui/joy/Box";
 import type { Directory } from "@repo/type-definitions";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import SubDirectoriesList from ".";
+import SubDirectoriesList, { SubDirectoriesListProps } from ".";
 
 const createDirectory = (overrides: Partial<Directory> = {}): Directory => ({
     id: 1,
@@ -18,7 +18,7 @@ const createDirectory = (overrides: Partial<Directory> = {}): Directory => ({
 
 const meta = {
     title: "Components/SubDirectoriesList",
-    component: SubDirectoriesList,
+    render: (args: SubDirectoriesListProps) => <SubDirectoriesList {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -57,7 +57,7 @@ const meta = {
             }),
         ],
     },
-} satisfies Meta<typeof SubDirectoriesList>;
+} satisfies Meta<SubDirectoriesListProps>;
 
 export default meta;
 

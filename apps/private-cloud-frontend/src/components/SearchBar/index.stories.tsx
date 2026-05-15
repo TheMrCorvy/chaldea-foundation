@@ -18,7 +18,7 @@ const handleSubmit: SearchBarProps["handleSubmit"] = async () =>
 
 const meta = {
     title: "Components/SearchBar",
-    component: SearchBar,
+    render: (args: SearchBarProps) => <SearchBar {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -49,7 +49,7 @@ const meta = {
             control: false,
         },
     },
-} satisfies Meta<typeof SearchBar>;
+} satisfies Meta<SearchBarProps>;
 
 export default meta;
 

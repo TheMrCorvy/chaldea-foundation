@@ -2,7 +2,7 @@ import { Box } from "@mui/joy";
 import type { Directory, Episode } from "@repo/type-definitions";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import RecentAdditions from ".";
+import RecentAdditions, { RecentAdditionsProps } from ".";
 
 const createDirectory = (overrides: Partial<Directory> = {}): Directory => ({
     id: 1,
@@ -39,7 +39,7 @@ const createEpisode = (overrides: Partial<Episode> = {}): Episode => ({
 
 const meta = {
     title: "Components/RecentAdditions",
-    component: RecentAdditions,
+    render: (args: RecentAdditionsProps) => <RecentAdditions {...args} />,
     parameters: {
         layout: "fullscreen",
         nextjs: {
@@ -96,7 +96,7 @@ const meta = {
             }),
         ],
     },
-} satisfies Meta<typeof RecentAdditions>;
+} satisfies Meta<RecentAdditionsProps>;
 
 export default meta;
 

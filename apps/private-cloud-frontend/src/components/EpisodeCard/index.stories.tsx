@@ -2,7 +2,7 @@ import Box from "@mui/joy/Box";
 import type { Episode } from "@repo/type-definitions";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import EpisodeCard from ".";
+import EpisodeCard, { EpisodeCardProps } from ".";
 
 const createEpisode = (overrides: Partial<Episode> = {}): Episode => ({
     id: 1,
@@ -27,7 +27,7 @@ const createEpisode = (overrides: Partial<Episode> = {}): Episode => ({
 
 const meta = {
     title: "Components/EpisodeCard",
-    component: EpisodeCard,
+    render: (args: EpisodeCardProps) => <EpisodeCard {...args} />,
     parameters: {
         layout: "fullscreen",
     },
@@ -59,7 +59,7 @@ const meta = {
         episode: createEpisode(),
         userId: "user-1",
     },
-} satisfies Meta<typeof EpisodeCard>;
+} satisfies Meta<EpisodeCardProps>;
 
 export default meta;
 

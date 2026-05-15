@@ -21,7 +21,7 @@ const modalContent = (
 
 const meta = {
     title: "Components/SearchModal",
-    component: SearchModal,
+    render: (args: SearchModalStoryProps) => <SearchModal {...args} />,
     parameters: {
         layout: "centered",
     },
@@ -38,7 +38,7 @@ const meta = {
             control: false,
         },
     },
-} satisfies Meta<typeof SearchModal>;
+} satisfies Meta<SearchModalStoryProps>;
 
 export default meta;
 
