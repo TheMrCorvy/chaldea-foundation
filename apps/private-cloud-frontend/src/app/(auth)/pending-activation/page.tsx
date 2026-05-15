@@ -1,8 +1,7 @@
 import BottomNav from "@/components/BottomNavbar";
 import { Container, Typography } from "@mui/joy";
-import { FC } from "react";
 
-const PendingActivation: FC = () => {
+export default function PendingActivation() {
     return (
         <Container
             sx={{
@@ -30,5 +29,4 @@ const PendingActivation: FC = () => {
             <BottomNav mainDirectories={[]} disableNavbar />
         </Container>
     );
-};
-export default PendingActivation;
+}

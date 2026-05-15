@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { FC } from "react";
 
 import TicketForm from "@/components/TicketLoginComponent";
 import {
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
     },
 };
 
-const Login: FC = async () => {
+export default async function Login() {
     if (!isFeatureFlagEnabled(FeatureNames.ENABLE_USERS_LOGIN)) {
         notFound();
     }
@@ -53,6 +52,4 @@ const Login: FC = async () => {
             createdAt={new Date()}
         />
     );
-};
-
-export default Login;
+}

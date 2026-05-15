@@ -11,7 +11,7 @@ import Link from "next/link";
 import NotStartedIcon from "@mui/icons-material/NotStarted";
 import { getScreenSize } from "@/utils/screenSize";
 
-interface EpisodeCardProps {
+export interface EpisodeCardProps {
     episode: Episode;
     userId: string;
 }

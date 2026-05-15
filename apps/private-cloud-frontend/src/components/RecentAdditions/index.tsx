@@ -18,7 +18,7 @@ import { WebRoutes } from "@/utils/routes";
 import NotStartedIcon from "@mui/icons-material/NotStarted";
 import FolderIcon from "@mui/icons-material/Folder";
 
-interface RecentAdditionsProps {
+export interface RecentAdditionsProps {
     recentDirectories: Directory[];
     recentEpisodes: Episode[];
 }

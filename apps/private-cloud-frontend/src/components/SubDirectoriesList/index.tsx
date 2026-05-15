@@ -17,7 +17,7 @@ import FolderIcon from "@mui/icons-material/Folder";
 import ErrorIcon from "@mui/icons-material/Error";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-interface SubDirectoriesListProps {
+export interface SubDirectoriesListProps {
     subDirectories: Directory[];
     hasEpisodes: boolean;
 }

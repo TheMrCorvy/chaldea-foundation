@@ -1,8 +1,7 @@
 import BottomNav from "@/components/BottomNavbar";
 import { Container, Typography } from "@mui/joy";
-import { FC } from "react";
 
-const NotFound: FC = () => {
+export default function NotFound() {
     return (
         <Container
             sx={{
@@ -29,5 +28,4 @@ const NotFound: FC = () => {
             <BottomNav mainDirectories={[]} onlyGoBack disableNavbar />
         </Container>
     );
-};
-export default NotFound;
+}

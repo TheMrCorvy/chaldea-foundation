@@ -5,7 +5,7 @@ import IconButton from "@mui/joy/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-interface PaginationProps {
+export interface PaginationProps {
     pagination: PaginationObject;
     onChange: (page: number) => void;
 }
