@@ -39,6 +39,7 @@
         "@types/bcrypt": "^6.0.0",
         "@types/cors": "^2.8.19",
         "@types/express": "^5.0.2",
+        "@types/express-serve-static-core": "^5.1.1",
         "@types/jest": "^30.0.0",
         "@types/morgan": "^1.9.10",
         "@types/node": "^22.19.15",
