@@ -69,6 +69,10 @@ const originalClientWidthDescriptor = Object.getOwnPropertyDescriptor(
     HTMLElement.prototype,
     "clientWidth"
 );
+const originalClientHeightDescriptor = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    "clientHeight"
+);
 
 const getGlitchTextLayer = (container: HTMLElement): HTMLElement => {
     const layer = Array.from(container.querySelectorAll("div")).find(
@@ -96,6 +100,11 @@ beforeAll(() => {
         configurable: true,
         get: () => 140,
     });
+
+    Object.defineProperty(HTMLElement.prototype, "clientHeight", {
+        configurable: true,
+        get: () => 120,
+    });
 });
 
 afterAll(() => {
@@ -110,6 +119,14 @@ afterAll(() => {
             HTMLElement.prototype,
             "clientWidth",
             originalClientWidthDescriptor
+        );
+    }
+
+    if (originalClientHeightDescriptor) {
+        Object.defineProperty(
+            HTMLElement.prototype,
+            "clientHeight",
+            originalClientHeightDescriptor
         );
     }
 });
