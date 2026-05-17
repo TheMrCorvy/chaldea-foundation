@@ -74,7 +74,12 @@ const DynamicZoneComponentForServer: FC<DynamicZoneComponentProps> = ({
             );
 
         case "blog.blog-hero":
-            return <DynamicBlogHero {...(section as BlogHero)} />;
+            return (
+                <DynamicBlogHero
+                    {...(section as BlogHero)}
+                    imageBaseUrl={imageBaseUrl}
+                />
+            );
 
         case "blog.pdf-file":
             return (

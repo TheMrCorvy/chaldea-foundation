@@ -2,7 +2,6 @@
 
 import { BlogHero } from "@repo/type-definitions/dynamic-page";
 import { FC, MouseEvent, useRef } from "react";
-import Image from "next/image";
 import { Box, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { motion } from "framer-motion";
@@ -22,12 +21,17 @@ const containerVariants = {
 
 const cornerIconSize = 24;
 
-const DynamicBlogHero: FC<BlogHero> = ({
+export interface DynamicBlogHeroProps extends BlogHero {
+    imageBaseUrl: string;
+}
+
+const DynamicBlogHero: FC<DynamicBlogHeroProps> = ({
     body,
     cover_image,
     title,
     link_to_page,
     highlighted_text_color,
+    imageBaseUrl,
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -123,21 +127,21 @@ const DynamicBlogHero: FC<BlogHero> = ({
                         />
                     )}
                     {link_to_page && (
-                        <Box sx={{ mt: 2 }}>
+                        <Box sx={{ mt: 2, color: "#f3f3f3" }}>
                             <DynamicLink {...link_to_page} />
                         </Box>
                     )}
                 </Box>
                 <Box sx={hologramImage}>
                     {cover_image?.url ? (
-                        <Image
-                            src={cover_image.url}
+                        <img
+                            src={`${imageBaseUrl}${cover_image.url}`}
                             alt={cover_image.name || "Hero Banner"}
-                            fill
                             style={{
                                 objectFit: "cover",
                                 opacity: 0.85,
                                 mixBlendMode: "screen",
+                                borderRadius: "8px",
                             }}
                             sizes="(max-width: 768px) 100vw, 50vw"
                         />
