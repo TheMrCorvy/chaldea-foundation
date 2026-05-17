@@ -1,5 +1,5 @@
 import IconComponent from "@/components/IconComponent";
-import { Box, Link, Tooltip } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import { LayoutLink } from "@repo/type-definitions/dynamic-page";
 import { FC, ReactElement } from "react";
 
@@ -15,21 +15,69 @@ const DynamicLink: FC<LayoutLink> = ({
 }) => {
     if (popover) {
         return (
-            <Tooltip title={popover} placement="top" arrow>
-                <Box display="inline-block">
-                    <VariantDecider
-                        {...{
-                            label,
-                            target,
-                            icon,
-                            href,
-                            variant,
-                            color,
-                            size: size || "inherit",
-                        }}
-                    />
-                </Box>
-            </Tooltip>
+            <Box
+                component="span"
+                aria-label={popover}
+                data-tooltip={popover}
+                sx={{
+                    position: "relative",
+                    display: "inline-flex",
+                    verticalAlign: "middle",
+                    "&::after": {
+                        content: "attr(data-tooltip)",
+                        position: "absolute",
+                        left: "50%",
+                        bottom: "calc(100% + 10px)",
+                        transform: "translateX(-50%) translateY(6px)",
+                        opacity: 0,
+                        visibility: "hidden",
+                        transition:
+                            "opacity 180ms ease, transform 180ms ease, visibility 180ms ease",
+                        whiteSpace: "nowrap",
+                        px: 1.25,
+                        py: 0.625,
+                        borderRadius: "10px",
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
+                        letterSpacing: "0.02em",
+                        color: "#dff5ff",
+                        background:
+                            "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.92))",
+                        border: "1px solid rgba(125, 211, 252, 0.35)",
+                        boxShadow:
+                            "0 10px 26px rgba(2, 6, 23, 0.45), inset 0 0 0 1px rgba(125, 211, 252, 0.15)",
+                        zIndex: 20,
+                        pointerEvents: "none",
+                    },
+                    "&:hover::after, &:focus-within::after": {
+                        opacity: 1,
+                        visibility: "visible",
+                        transform: "translateX(-50%) translateY(0)",
+                    },
+                    "&:hover::before, &:focus-within::before": {
+                        opacity: 1,
+                        visibility: "visible",
+                        transform: "translateX(-50%) translateY(0)",
+                    },
+                    "@media (prefers-reduced-motion: reduce)": {
+                        "&::after, &::before": {
+                            transition: "none",
+                        },
+                    },
+                }}
+            >
+                <VariantDecider
+                    {...{
+                        label,
+                        target,
+                        icon,
+                        href,
+                        variant,
+                        color,
+                        size: size || "inherit",
+                    }}
+                />
+            </Box>
         );
     }
 
