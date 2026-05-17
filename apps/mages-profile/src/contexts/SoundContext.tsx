@@ -6,6 +6,8 @@ import {
     useContext,
     useRef,
     useEffect,
+    useCallback,
+    useMemo,
     Dispatch,
     SetStateAction,
     ReactNode,
@@ -44,6 +46,7 @@ export interface SoundProviderProps {
 export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
     const [soundEnabled, setSoundEnabled] = useState(false);
     const pathname = usePathname();
+    const soundEnabledRef = useRef(soundEnabled);
     const sounds = useRef<{ [key: string]: HTMLAudioElement | null }>({
         button: null,
         modal: null,
@@ -52,8 +55,12 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
     });
     const isInitialPageLoad = useRef(true);
 
-    const playSound = (sound: SoundType) => {
-        if (soundEnabled) {
+    useEffect(() => {
+        soundEnabledRef.current = soundEnabled;
+    }, [soundEnabled]);
+
+    const playSound = useCallback((sound: SoundType) => {
+        if (soundEnabledRef.current) {
             const audio = sounds.current[sound];
             if (audio) {
                 audio.currentTime = 0;
@@ -62,7 +69,7 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
                 });
             }
         }
-    };
+    }, []);
 
     useEffect(() => {
         if (isInitialPageLoad.current) {
@@ -116,11 +123,14 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
         };
     }, [bgm]);
 
-    const value = {
-        soundEnabled,
-        setSoundEnabled,
-        playSound,
-    };
+    const value = useMemo(
+        () => ({
+            soundEnabled,
+            setSoundEnabled,
+            playSound,
+        }),
+        [soundEnabled, playSound]
+    );
 
     return (
         <SoundContext.Provider value={value}>{children}</SoundContext.Provider>
