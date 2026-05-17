@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { BlogHero } from "@repo/type-definitions/dynamic-page";
-import DynamicBlogHero from "./index";
+import DynamicBlogHero, { DynamicBlogHeroProps } from "./index";
 import StarryContainer from "../../../StarryContainer";
 
 const meta = {
     title: "DynamicZone/DynamicBlogHero",
-    render: (args: BlogHero) => <DynamicBlogHero {...args} />,
+    render: (args: DynamicBlogHeroProps) => <DynamicBlogHero {...args} />,
     parameters: {
         layout: "fullscreen",
         backgrounds: {
@@ -30,7 +29,7 @@ const meta = {
             </StarryContainer>
         ),
     ],
-} satisfies Meta<BlogHero>;
+} satisfies Meta<DynamicBlogHeroProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -67,7 +66,7 @@ const mockCoverImage = {
     height: 1080,
     size: 2048,
     sizeInBytes: 2048000,
-    url: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2000&auto=format&fit=crop",
+    url: "/photo-1462331940025-496dfbfc7564?q=80&w=2000&auto=format&fit=crop",
     publishedAt: new Date().toISOString(),
 };
 
@@ -107,6 +106,7 @@ export const Default: Story = {
                 ],
             },
         ],
+        imageBaseUrl: "https://images.unsplash.com",
         cover_image: mockCoverImage,
         link_to_page: {
             __component: "layout.link",
@@ -148,6 +148,7 @@ export const NoImage: Story = {
             variant: "link",
             target: "_self",
         },
+        imageBaseUrl: "https://images.unsplash.com",
         cover_image: {
             ...mockCoverImage,
             url: "",
