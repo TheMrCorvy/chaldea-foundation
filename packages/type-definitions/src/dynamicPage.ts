@@ -176,6 +176,8 @@ export interface JsonRichText {
     italic?: boolean;
     underline?: boolean;
     code?: boolean;
+    rel?: string;
+    target?: "_blank" | "_self" | "_parent" | "_top";
 }
 
 export interface SectionsProjectsSection extends StrapiComponent {

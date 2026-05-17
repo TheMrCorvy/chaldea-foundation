@@ -166,8 +166,8 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({
                     <MuiLink
                         key={index}
                         href={node.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        target={node.target || "_blank"}
+                        rel={node.rel || "noopener noreferrer"}
                         sx={{ fontSize, lineHeight }}
                     >
                         {node.children?.map(renderNode)}
