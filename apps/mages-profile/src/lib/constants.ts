@@ -135,6 +135,9 @@ export const populateBlogHero = {
             link_to_page: {
                 populate: "*",
             },
+            cover_image: {
+                populate: "*",
+            },
         },
     },
 };
