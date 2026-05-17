@@ -40,7 +40,7 @@ describe('diskService', () => {
                 directory_path: mockDirPath,
                 adult: false,
                 parent_directory: '/test/anime',
-                sub_directories: ['/test/anime/folder/Season 2'],
+                sub_directories: [path.join(mockDirPath, 'Season 2')],
                 episodes: [
                     {
                         display_name: 'Episode 1',
@@ -148,9 +148,9 @@ describe('diskService', () => {
             expect(result.episodes).toHaveLength(0);
             expect(result.sub_directories).toHaveLength(3);
             expect(result.sub_directories).toEqual([
-                '/test/anime/folder/Season 1',
-                '/test/anime/folder/Season 2',
-                '/test/anime/folder/Extras',
+                path.join(mockDirPath, 'Season 1'),
+                path.join(mockDirPath, 'Season 2'),
+                path.join(mockDirPath, 'Extras'),
             ]);
         });
 
