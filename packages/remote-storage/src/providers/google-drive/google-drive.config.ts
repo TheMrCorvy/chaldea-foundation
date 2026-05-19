@@ -1,3 +1,11 @@
+import {
+    GOOGLE_DRIVE_CLIENT_ID,
+    GOOGLE_DRIVE_CLIENT_SECRET,
+    GOOGLE_DRIVE_FOLDER_ID,
+    GOOGLE_DRIVE_REFRESH_TOKEN,
+    GOOGLE_DRIVE_REDIRECT_URI,
+} from "../../../../../config/config";
+
 export interface GoogleDriveConfig {
     clientId: string;
     clientSecret: string;
@@ -6,24 +14,12 @@ export interface GoogleDriveConfig {
     defaultFolderId?: string;
 }
 
-function requireEnv(name: string): string {
-    const value = process.env[name];
-
-    if (!value) {
-        throw new Error(`Missing required environment variable: ${name}`);
-    }
-
-    return value;
-}
-
 export function loadGoogleDriveConfig(): GoogleDriveConfig {
     return {
-        clientId: requireEnv("GOOGLE_DRIVE_CLIENT_ID"),
-        clientSecret: requireEnv("GOOGLE_DRIVE_CLIENT_SECRET"),
-        refreshToken: requireEnv("GOOGLE_DRIVE_REFRESH_TOKEN"),
-        redirectUri:
-            process.env["GOOGLE_DRIVE_REDIRECT_URI"] ??
-            "urn:ietf:wg:oauth:2.0:oob",
-        defaultFolderId: process.env["GOOGLE_DRIVE_FOLDER_ID"],
+        clientId: GOOGLE_DRIVE_CLIENT_ID,
+        clientSecret: GOOGLE_DRIVE_CLIENT_SECRET,
+        refreshToken: GOOGLE_DRIVE_REFRESH_TOKEN,
+        redirectUri: GOOGLE_DRIVE_REDIRECT_URI,
+        defaultFolderId: GOOGLE_DRIVE_FOLDER_ID,
     };
 }
