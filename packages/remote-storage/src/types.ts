@@ -1,8 +1,10 @@
-export type RemoteStorageProvider =
-    | "google-drive"
-    | "aws-s3"
-    | "google-cloud-storage"
-    | "custom";
+export enum RemoteStorageProvider {
+    GoogleDrive = "google-drive",
+    S3 = "s3",
+    GoogleCloudStorage = "google-cloud-storage",
+    Default = "default",
+    Custom = "custom",
+}
 
 export interface StorageFileReference {
     id: string;
@@ -11,6 +13,7 @@ export interface StorageFileReference {
 }
 
 export interface UploadInput {
+    provider?: RemoteStorageProvider;
     localPath: string;
     fileName?: string;
     destinationPath?: string;

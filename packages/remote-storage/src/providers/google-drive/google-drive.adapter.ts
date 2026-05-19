@@ -6,15 +6,16 @@ import type { Readable } from "node:stream";
 import { google } from "googleapis";
 import type { drive_v3 } from "googleapis";
 import type { RemoteStorageAdapter } from "../../adapter";
-import type {
-    DeleteInput,
-    DeleteResult,
-    DownloadInput,
-    DownloadResult,
-    OverwriteInput,
-    OverwriteResult,
-    UploadInput,
-    UploadResult,
+import {
+    RemoteStorageProvider,
+    type DeleteInput,
+    type DeleteResult,
+    type DownloadInput,
+    type DownloadResult,
+    type OverwriteInput,
+    type OverwriteResult,
+    type UploadInput,
+    type UploadResult,
 } from "../../types";
 import type { GoogleDriveConfig } from "./google-drive.config";
 
@@ -75,7 +76,7 @@ export class GoogleDriveAdapter implements RemoteStorageAdapter {
         return {
             file: {
                 id,
-                provider: "google-drive",
+                provider: RemoteStorageProvider.GoogleDrive,
                 metadata: { name: fileName },
             },
             sizeBytes: stats.size,
@@ -126,7 +127,7 @@ export class GoogleDriveAdapter implements RemoteStorageAdapter {
         return {
             file: {
                 id,
-                provider: "google-drive",
+                provider: RemoteStorageProvider.GoogleDrive,
                 metadata: input.file.metadata,
             },
             updatedAt: modifiedTime ?? undefined,

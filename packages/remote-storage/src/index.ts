@@ -1,57 +1,42 @@
-import type { RemoteStorageAdapter } from "./adapter";
-import { RemoteStorageClient } from "./client";
-import type {
-    DeleteInput,
-    DeleteResult,
-    DownloadInput,
-    DownloadResult,
-    OverwriteInput,
-    OverwriteResult,
-    UploadInput,
-    UploadResult,
+import { getAdapter } from "./factory";
+import {
+    RemoteStorageProvider,
+    type DeleteInput,
+    type DeleteResult,
+    type DownloadInput,
+    type DownloadResult,
+    type OverwriteInput,
+    type OverwriteResult,
+    type UploadInput,
+    type UploadResult,
 } from "./types";
 
-let client: RemoteStorageClient | null = null;
-
-export function configureRemoteStorage(adapter: RemoteStorageAdapter): void {
-    client = new RemoteStorageClient(adapter);
-}
-
-function getClient(): RemoteStorageClient {
-    if (!client) {
-        throw new Error(
-            "Remote storage adapter is not configured. Call configureRemoteStorage() first."
-        );
-    }
-
-    return client;
-}
-
 export function upload(input: UploadInput): Promise<UploadResult> {
-    return getClient().upload(input);
+    return getAdapter(input.provider || RemoteStorageProvider.Default).upload(
+        input
+    );
 }
 
 export function download(input: DownloadInput): Promise<DownloadResult> {
-    return getClient().download(input);
+    return getAdapter(
+        input.file.provider || RemoteStorageProvider.Default
+    ).download(input);
 }
 
 export function overwrite(input: OverwriteInput): Promise<OverwriteResult> {
-    return getClient().overwrite(input);
+    return getAdapter(
+        input.file.provider || RemoteStorageProvider.Default
+    ).overwrite(input);
 }
 
 export function deleteFile(input: DeleteInput): Promise<DeleteResult> {
-    return getClient().delete(input);
+    return getAdapter(
+        input.file.provider || RemoteStorageProvider.Default
+    ).delete(input);
 }
 
 export { deleteFile as delete };
 
-export { RemoteStorageClient };
-export type { RemoteStorageAdapter } from "./adapter";
-export {
-    GoogleDriveAdapter,
-    loadGoogleDriveConfig,
-} from "./providers/google-drive";
-export type { GoogleDriveConfig } from "./providers/google-drive";
 export type {
     DeleteInput,
     DeleteResult,
