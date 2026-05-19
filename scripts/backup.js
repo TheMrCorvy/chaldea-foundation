@@ -43,13 +43,20 @@ function buildBackupEntry(absolutePath, rootPath) {
 async function loadUploadFunction() {
     const remoteStorage = await import("@repo/remote-storage");
 
-    if (typeof remoteStorage.upload !== "function") {
-        throw new Error(
-            'The package "@repo/remote-storage" does not export upload().'
-        );
+    if (typeof remoteStorage.upload === "function") {
+        return remoteStorage.upload;
     }
 
-    return remoteStorage.upload;
+    if (
+        remoteStorage.default &&
+        typeof remoteStorage.default.upload === "function"
+    ) {
+        return remoteStorage.default.upload;
+    }
+
+    throw new Error(
+        'The package "@repo/remote-storage" does not export upload().'
+    );
 }
 
 function isEnvFile(fileName) {
