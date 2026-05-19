@@ -47,6 +47,11 @@ export { deleteFile as delete };
 
 export { RemoteStorageClient };
 export type { RemoteStorageAdapter } from "./adapter";
+export {
+    GoogleDriveAdapter,
+    loadGoogleDriveConfig,
+} from "./providers/google-drive";
+export type { GoogleDriveConfig } from "./providers/google-drive";
 export type {
     DeleteInput,
     DeleteResult,
