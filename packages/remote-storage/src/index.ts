@@ -12,27 +12,39 @@ import {
 } from "./types";
 
 export function upload(input: UploadInput): Promise<UploadResult> {
-    return getAdapter(input.provider || RemoteStorageProvider.Default).upload(
-        input
-    );
+    let provider = RemoteStorageProvider.Default;
+    if (input.provider) {
+        provider = input.provider;
+    }
+
+    return getAdapter(provider).upload(input);
 }
 
 export function download(input: DownloadInput): Promise<DownloadResult> {
-    return getAdapter(
-        input.file.provider || RemoteStorageProvider.Default
-    ).download(input);
+    let provider = RemoteStorageProvider.Default;
+    if (input.file.provider) {
+        provider = input.file.provider;
+    }
+
+    return getAdapter(provider).download(input);
 }
 
 export function overwrite(input: OverwriteInput): Promise<OverwriteResult> {
-    return getAdapter(
-        input.file.provider || RemoteStorageProvider.Default
-    ).overwrite(input);
+    let provider = RemoteStorageProvider.Default;
+    if (input.file.provider) {
+        provider = input.file.provider;
+    }
+
+    return getAdapter(provider).overwrite(input);
 }
 
 export function deleteFile(input: DeleteInput): Promise<DeleteResult> {
-    return getAdapter(
-        input.file.provider || RemoteStorageProvider.Default
-    ).delete(input);
+    let provider = RemoteStorageProvider.Default;
+    if (input.file.provider) {
+        provider = input.file.provider;
+    }
+
+    return getAdapter(provider).delete(input);
 }
 
 export { deleteFile as delete };

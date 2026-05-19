@@ -16,7 +16,7 @@ export interface UploadInput {
     provider?: RemoteStorageProvider;
     localPath: string;
     fileName?: string;
-    destinationPath?: string;
+    destinationPath: string;
     mimeType?: string;
     metadata?: Record<string, unknown>;
 }
