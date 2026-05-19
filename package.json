@@ -18,7 +18,8 @@
         "generate:mock-sdk": "node scripts/generate-mock-sdk.js",
         "initialize:platform-sdk": "pnpm run generate:sdk && pnpm run patch:sdk-types && pnpm run generate:mock-sdk",
         "initialize:private-cloud-db": "pnpm --dir apps/private-cloud-backend run initialize:db",
-        "projection-magic": "bash scripts/verify-ports.sh"
+        "projection-magic": "bash scripts/verify-ports.sh",
+        "initialize:backup": "node scripts/backup.js"
     },
     "devDependencies": {
         "@eslint/js": "^9.31.0",
