@@ -19,8 +19,8 @@
         "initialize:platform-sdk": "pnpm run generate:sdk && pnpm run patch:sdk-types && pnpm run generate:mock-sdk",
         "initialize:private-cloud-db": "pnpm --dir apps/private-cloud-backend run initialize:db",
         "projection-magic": "bash scripts/verify-ports.sh",
-        "initialize:backup": "tsx scripts/backup.js",
-        "verify:drive-auth": "tsx scripts/verify-google-drive-auth.ts"
+        "initialize:backup": "tsx scripts/time-machine.ts",
+        "verify:drive-auth": "tsx scripts/connect-with-SERN.ts"
     },
     "devDependencies": {
         "@eslint/js": "^9.31.0",
