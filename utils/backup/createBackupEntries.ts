@@ -2,12 +2,15 @@ import fs from "fs";
 
 import buildBackupEntry from "./buildBackupEntry";
 import collectBackupFiles from "./collectBackupFiles";
+import ensureBackupIdsFile from "./ensureBackupIdsFile";
 import resolveDriveBackupRoot from "./resolveDriveBackupRoot";
 import type { BackupEntry, ScanContext } from "./types";
 
 export default async function createBackupEntries(
     rootPath: string
 ): Promise<BackupEntry[]> {
+    await ensureBackupIdsFile();
+
     const collectedFiles: string[] = [];
     const rootRealPath = await fs.promises.realpath(rootPath);
     const driveBackupRoot = resolveDriveBackupRoot(rootRealPath);

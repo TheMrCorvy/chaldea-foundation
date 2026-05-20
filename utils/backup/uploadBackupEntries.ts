@@ -1,7 +1,6 @@
-import findStoredEntry from "./findStoredEntry";
 import loadStorageFunctions from "./loadStorageFunctions";
 import readBackupIdsIndex from "./readBackupIdsIndex";
-import upsertStoredEntry from "./upsertStoredEntry";
+import syncSingleBackupFile from "./syncSingleBackupFile";
 import writeBackupIdsIndex from "./writeBackupIdsIndex";
 import type { BackupEntry } from "./types";
 
@@ -13,50 +12,45 @@ export default async function uploadBackupEntries(
     const uploadResults: Array<
         BackupEntry & { fileId: string; checksum?: string }
     > = [];
+    const regularFiles: BackupEntry[] = [];
+    const indexFiles: BackupEntry[] = [];
 
     for (const file of files) {
-        const storedEntry = findStoredEntry(index, file);
-        let result: {
-            file: { id: string };
-            checksum?: string;
-            updatedAt?: string;
-        };
-
-        if (storedEntry) {
-            try {
-                result = await storage.overwrite({
-                    file: {
-                        id: storedEntry.driveId,
-                        metadata: { relativePath: file.relativePath },
-                    },
-                    localPath: file.absolutePath,
-                    metadata: { relativePath: file.relativePath },
-                });
-            } catch {
-                result = await storage.upload({
-                    localPath: file.absolutePath,
-                    destinationPath: file.destinationPath,
-                    metadata: { relativePath: file.relativePath },
-                });
-            }
-        } else {
-            result = await storage.upload({
-                localPath: file.absolutePath,
-                destinationPath: file.destinationPath,
-                metadata: { relativePath: file.relativePath },
-            });
+        if (file.relativePath === "specs/backupIds.json") {
+            indexFiles.push(file);
+            continue;
         }
 
-        const fileId = result.file.id;
-        upsertStoredEntry(index, file, fileId);
+        regularFiles.push(file);
+    }
+
+    for (const file of regularFiles) {
+        const synced = await syncSingleBackupFile(file, index, storage);
 
         uploadResults.push({
             ...file,
-            fileId,
-            checksum: result.checksum,
+            fileId: synced.fileId,
+            checksum: synced.checksum,
         });
     }
 
     await writeBackupIdsIndex(index);
+
+    for (const file of indexFiles) {
+        const synced = await syncSingleBackupFile(file, index, storage);
+
+        uploadResults.push({
+            ...file,
+            fileId: synced.fileId,
+            checksum: synced.checksum,
+        });
+    }
+
+    await writeBackupIdsIndex(index);
+
+    for (const file of indexFiles) {
+        await syncSingleBackupFile(file, index, storage);
+    }
+
     return uploadResults;
 }

@@ -15,3 +15,4 @@ export { default as isPathWithinRoot } from "./isPathWithinRoot";
 export { default as collectBackupFiles } from "./collectBackupFiles";
 export { default as createBackupEntries } from "./createBackupEntries";
 export { default as uploadBackupEntries } from "./uploadBackupEntries";
+export { default as syncSingleBackupFile } from "./syncSingleBackupFile";
