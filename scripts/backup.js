@@ -14,6 +14,12 @@ const IGNORED_DIRECTORIES = new Set([
 ]);
 
 const CONFIG_FILE_PATH = path.resolve(__dirname, "..", "config", "config.ts");
+const BACKUP_IDS_FILE_PATH = path.resolve(
+    __dirname,
+    "..",
+    "specs",
+    "backupIds.json"
+);
 
 let backupMemory = [];
 
@@ -24,9 +30,15 @@ function toPosixPath(filePath) {
 function readDriveBackupRootFromConfig() {
     try {
         const configContent = fs.readFileSync(CONFIG_FILE_PATH, "utf8");
-        const match = configContent.match(
+        let match = configContent.match(
             /^\s*export\s+const\s+DRIVE_ROOT_FOLDER\s*=\s*["']([^"']+)["']\s*;?/m
         );
+
+        if (!match) {
+            match = configContent.match(
+                /^\s*export\s+const\s+DRIVE_BACKUP_ROOT\s*=\s*["']([^"']+)["']\s*;?/m
+            );
+        }
 
         if (!match) {
             return null;
@@ -43,9 +55,11 @@ function resolveDriveBackupRoot(rootPath) {
     const configuredRoot = readDriveBackupRootFromConfig();
 
     if (configuredRoot) {
-        return configuredRoot.startsWith("/")
-            ? configuredRoot
-            : `/${configuredRoot}`;
+        if (configuredRoot.startsWith("/")) {
+            return configuredRoot;
+        }
+
+        return `/${configuredRoot}`;
     }
 
     const repositoryName = path.basename(path.resolve(rootPath));
@@ -71,26 +85,51 @@ function buildBackupEntry(absolutePath, rootPath, driveBackupRoot) {
     };
 }
 
-async function loadUploadFunction() {
+async function loadStorageFunctions() {
     const remoteStorage = await import("@repo/remote-storage");
+    let upload = null;
+    let overwrite = null;
 
     if (typeof remoteStorage.upload === "function") {
-        return remoteStorage.upload;
+        upload = remoteStorage.upload;
     }
 
-    if (
-        remoteStorage.default &&
-        typeof remoteStorage.default.upload === "function"
-    ) {
-        return remoteStorage.default.upload;
+    if (typeof remoteStorage.overwrite === "function") {
+        overwrite = remoteStorage.overwrite;
     }
 
-    throw new Error(
-        'The package "@repo/remote-storage" does not export upload().'
-    );
+    if (remoteStorage.default) {
+        if (!upload && typeof remoteStorage.default.upload === "function") {
+            upload = remoteStorage.default.upload;
+        }
+
+        if (
+            !overwrite &&
+            typeof remoteStorage.default.overwrite === "function"
+        ) {
+            overwrite = remoteStorage.default.overwrite;
+        }
+    }
+
+    if (!upload) {
+        throw new Error(
+            'The package "@repo/remote-storage" does not export upload().'
+        );
+    }
+
+    if (!overwrite) {
+        throw new Error(
+            'The package "@repo/remote-storage" does not export overwrite().'
+        );
+    }
+
+    return {
+        upload,
+        overwrite,
+    };
 }
 
-function isEnvFile(fileName) {
+function shouldBackupFile(fileName) {
     if (
         fileName.includes(".example") ||
         fileName.includes(".sample") ||
@@ -103,6 +142,123 @@ function isEnvFile(fileName) {
         fileName.startsWith(".env.") ||
         fileName === "config.ts"
     );
+}
+
+function createEmptyBackupIdsIndex() {
+    return {
+        backupIds: [],
+    };
+}
+
+async function ensureBackupIdsFile() {
+    const parentDirectory = path.dirname(BACKUP_IDS_FILE_PATH);
+    await fs.promises.mkdir(parentDirectory, { recursive: true });
+
+    const exists = await fs.promises
+        .access(BACKUP_IDS_FILE_PATH, fs.constants.F_OK)
+        .then(() => true)
+        .catch(() => false);
+
+    if (exists) {
+        return;
+    }
+
+    const initialContent = JSON.stringify(createEmptyBackupIdsIndex(), null, 4);
+    await fs.promises.writeFile(BACKUP_IDS_FILE_PATH, `${initialContent}\n`);
+}
+
+async function readBackupIdsIndex() {
+    await ensureBackupIdsFile();
+
+    try {
+        const content = await fs.promises.readFile(
+            BACKUP_IDS_FILE_PATH,
+            "utf8"
+        );
+        const parsed = JSON.parse(content);
+
+        if (!parsed || typeof parsed !== "object") {
+            return createEmptyBackupIdsIndex();
+        }
+
+        if (!Array.isArray(parsed.backupIds)) {
+            return createEmptyBackupIdsIndex();
+        }
+
+        return parsed;
+    } catch {
+        return createEmptyBackupIdsIndex();
+    }
+}
+
+async function writeBackupIdsIndex(index) {
+    const content = JSON.stringify(index, null, 4);
+    await fs.promises.writeFile(BACKUP_IDS_FILE_PATH, `${content}\n`, "utf8");
+}
+
+function findStoredEntry(index, file) {
+    for (const entry of index.backupIds) {
+        if (!entry || typeof entry !== "object") {
+            continue;
+        }
+
+        if (entry.relativePath !== file.relativePath) {
+            continue;
+        }
+
+        if (entry.destinationPath !== file.destinationPath) {
+            continue;
+        }
+
+        if (!entry.driveId || typeof entry.driveId !== "string") {
+            continue;
+        }
+
+        return entry;
+    }
+
+    return null;
+}
+
+function upsertStoredEntry(index, file, driveId) {
+    let updated = false;
+
+    for (let i = 0; i < index.backupIds.length; i += 1) {
+        const entry = index.backupIds[i];
+        if (!entry || typeof entry !== "object") {
+            continue;
+        }
+
+        if (entry.relativePath !== file.relativePath) {
+            continue;
+        }
+
+        if (entry.destinationPath !== file.destinationPath) {
+            continue;
+        }
+
+        index.backupIds[i] = {
+            fileName: path.basename(file.absolutePath),
+            localPath: file.absolutePath,
+            relativePath: file.relativePath,
+            driveId,
+            destinationPath: file.destinationPath,
+        };
+        updated = true;
+        break;
+    }
+
+    if (updated) {
+        return;
+    }
+
+    index.backupIds.push({
+        fileName: path.basename(file.absolutePath),
+        localPath: file.absolutePath,
+        relativePath: file.relativePath,
+        driveId,
+        destinationPath: file.destinationPath,
+    });
 }
 
 function isPathWithinRoot(candidatePath, rootPath) {
@@ -150,7 +306,7 @@ async function collectEnvFiles(directoryPath, collector, scanContext) {
             continue;
         }
 
-        if (stat.isFile() && isEnvFile(entry.name)) {
+        if (stat.isFile() && shouldBackupFile(entry.name)) {
             if (scanContext.seenRealFiles.has(realPath)) {
                 continue;
             }
@@ -184,24 +340,60 @@ async function backup(rootPath = path.resolve(__dirname, "..")) {
 
 async function upload(rootPath = path.resolve(__dirname, "..")) {
     const files = await backup(rootPath);
-    const uploadFile = await loadUploadFunction();
+    const index = await readBackupIdsIndex();
+    const storage = await loadStorageFunctions();
     const uploadResults = [];
 
     for (const file of files) {
-        const result = await uploadFile({
-            localPath: file.absolutePath,
-            destinationPath: file.destinationPath,
-            metadata: {
-                relativePath: file.relativePath,
-            },
-        });
+        const storedEntry = findStoredEntry(index, file);
+        let result;
+
+        if (storedEntry) {
+            try {
+                result = await storage.overwrite({
+                    file: {
+                        id: storedEntry.driveId,
+                        metadata: {
+                            relativePath: file.relativePath,
+                        },
+                    },
+                    localPath: file.absolutePath,
+                    metadata: {
+                        relativePath: file.relativePath,
+                    },
+                });
+            } catch {
+                result = await storage.upload({
+                    localPath: file.absolutePath,
+                    destinationPath: file.destinationPath,
+                    metadata: {
+                        relativePath: file.relativePath,
+                    },
+                });
+            }
+        }
+
+        if (!storedEntry) {
+            result = await storage.upload({
+                localPath: file.absolutePath,
+                destinationPath: file.destinationPath,
+                metadata: {
+                    relativePath: file.relativePath,
+                },
+            });
+        }
+
+        const fileId = result.file.id;
+        upsertStoredEntry(index, file, fileId);
 
         uploadResults.push({
             ...file,
-            fileId: result.file.id,
+            fileId,
             checksum: result.checksum,
         });
     }
+
+    await writeBackupIdsIndex(index);
 
     return uploadResults;
 }
