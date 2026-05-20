@@ -4,7 +4,6 @@ export { default as toPosixPath } from "./toPosixPath";
 export { default as readDriveBackupRootFromConfig } from "./readDriveBackupRootFromConfig";
 export { default as resolveDriveBackupRoot } from "./resolveDriveBackupRoot";
 export { default as buildBackupEntry } from "./buildBackupEntry";
-export { default as loadStorageFunctions } from "./loadStorageFunctions";
 export { default as shouldBackupFile } from "./shouldBackupFile";
 export { default as ensureBackupIdsFile } from "./ensureBackupIdsFile";
 export { default as readBackupIdsIndex } from "./readBackupIdsIndex";

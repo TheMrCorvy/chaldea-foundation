@@ -1,4 +1,4 @@
-import loadStorageFunctions from "./loadStorageFunctions";
+import { overwrite, upload } from "@repo/remote-storage";
 import readBackupIdsIndex from "./readBackupIdsIndex";
 import syncSingleBackupFile from "./syncSingleBackupFile";
 import writeBackupIdsIndex from "./writeBackupIdsIndex";
@@ -8,7 +8,10 @@ export default async function uploadBackupEntries(
     files: BackupEntry[]
 ): Promise<Array<BackupEntry & { fileId: string; checksum?: string }>> {
     const index = await readBackupIdsIndex();
-    const storage = await loadStorageFunctions();
+    const storage = {
+        upload,
+        overwrite,
+    };
     const uploadResults: Array<
         BackupEntry & { fileId: string; checksum?: string }
     > = [];
