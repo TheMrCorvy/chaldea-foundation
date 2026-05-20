@@ -318,6 +318,8 @@ async function collectEnvFiles(directoryPath, collector, scanContext) {
 }
 
 async function backup(rootPath = path.resolve(__dirname, "..")) {
+    console.log("Initializing backup scan...");
+
     const collectedFiles = [];
     const rootRealPath = await fs.promises.realpath(rootPath);
     const driveBackupRoot = resolveDriveBackupRoot(rootRealPath);
