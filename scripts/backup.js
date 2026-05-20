@@ -13,7 +13,7 @@ const IGNORED_DIRECTORIES = new Set([
     "coverage",
 ]);
 
-const DRIVE_BACKUP_ROOT = "/chaldea foundation";
+const CONFIG_FILE_PATH = path.resolve(__dirname, "..", "config", "config.ts");
 
 let backupMemory = [];
 
@@ -21,7 +21,38 @@ function toPosixPath(filePath) {
     return filePath.split(path.sep).join("/");
 }
 
-function buildBackupEntry(absolutePath, rootPath) {
+function readDriveBackupRootFromConfig() {
+    try {
+        const configContent = fs.readFileSync(CONFIG_FILE_PATH, "utf8");
+        const match = configContent.match(
+            /^\s*export\s+const\s+DRIVE_ROOT_FOLDER\s*=\s*["']([^"']+)["']\s*;?/m
+        );
+
+        if (!match) {
+            return null;
+        }
+
+        const configuredPath = match[1].trim();
+        return configuredPath || null;
+    } catch {
+        return null;
+    }
+}
+
+function resolveDriveBackupRoot(rootPath) {
+    const configuredRoot = readDriveBackupRootFromConfig();
+
+    if (configuredRoot) {
+        return configuredRoot.startsWith("/")
+            ? configuredRoot
+            : `/${configuredRoot}`;
+    }
+
+    const repositoryName = path.basename(path.resolve(rootPath));
+    return `/${repositoryName}`;
+}
+
+function buildBackupEntry(absolutePath, rootPath, driveBackupRoot) {
     const relativePath = path.relative(rootPath, absolutePath);
 
     if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
@@ -31,7 +62,7 @@ function buildBackupEntry(absolutePath, rootPath) {
     }
 
     const normalizedRelativePath = toPosixPath(relativePath);
-    const destinationPath = `${DRIVE_BACKUP_ROOT}/${normalizedRelativePath}`;
+    const destinationPath = `${driveBackupRoot}/${normalizedRelativePath}`;
 
     return {
         absolutePath,
@@ -67,7 +98,11 @@ function isEnvFile(fileName) {
     ) {
         return false;
     }
-    return fileName === ".env" || fileName.startsWith(".env.");
+    return (
+        fileName === ".env" ||
+        fileName.startsWith(".env.") ||
+        fileName === "config.ts"
+    );
 }
 
 function isPathWithinRoot(candidatePath, rootPath) {
@@ -129,6 +164,7 @@ async function collectEnvFiles(directoryPath, collector, scanContext) {
 async function backup(rootPath = path.resolve(__dirname, "..")) {
     const collectedFiles = [];
     const rootRealPath = await fs.promises.realpath(rootPath);
+    const driveBackupRoot = resolveDriveBackupRoot(rootRealPath);
     const scanContext = {
         rootRealPath,
         visitedRealDirectories: new Set([rootRealPath]),
@@ -140,7 +176,7 @@ async function backup(rootPath = path.resolve(__dirname, "..")) {
     const sortedFiles = collectedFiles.sort((a, b) => a.localeCompare(b));
 
     backupMemory = sortedFiles.map((absolutePath) => {
-        return buildBackupEntry(absolutePath, rootPath);
+        return buildBackupEntry(absolutePath, rootPath, driveBackupRoot);
     });
 
     return [...backupMemory];
