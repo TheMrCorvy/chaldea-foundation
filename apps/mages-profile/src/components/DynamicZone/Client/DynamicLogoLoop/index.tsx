@@ -4,7 +4,7 @@ import { FC } from "react";
 import LogoLoop from "../../../LogoLoop";
 import SkillListItem from "../../../SkillListItem";
 import { IconName } from "../../../IconComponent";
-import DynamicTitle from "../DynamicTitle";
+import DynamicTitle from "../../Shared/DynamicTitle";
 
 export interface DynamicLogoLoopProps extends LayoutLogoLoop {
     isMobile?: boolean;
@@ -42,7 +42,6 @@ const DynamicLogoLoop: FC<DynamicLogoLoopProps> = ({
                     title={title}
                     color={title_color || "#eeeeee"}
                     size="h4"
-                    isMobile={isMobile}
                     text_align={text_align || "center"}
                     id={id}
                 />

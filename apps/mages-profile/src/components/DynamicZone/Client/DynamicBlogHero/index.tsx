@@ -6,7 +6,7 @@ import { Box, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { motion } from "framer-motion";
 import RichTextRenderer from "../../../RichTextRenderer";
-import DynamicLink from "../DynamicLink";
+import DynamicLink from "../../Shared/DynamicLink";
 import styles from "./DynamicBlogHero.module.css";
 import useStyles from "./useStyles";
 

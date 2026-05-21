@@ -1,6 +1,6 @@
 import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
-import DynamicTitle from "../DynamicTitle";
+import DynamicTitle from "../../Shared/DynamicTitle";
 import { Box, Grid } from "@mui/material";
 import WorkExperienceItem from "./WorkExperienceItem";
 

@@ -5,8 +5,8 @@ import { LayoutLandingHero } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import { motion } from "framer-motion";
 import RichTextRenderer from "../../../RichTextRenderer";
-import DynamicLink from "../DynamicLink";
-import DynamicPdfFile from "../DynamicPdfFile";
+import DynamicLink from "../../Shared/DynamicLink";
+import DynamicPdfFile from "../../Shared/DynamicPdfFile";
 
 const containerVariants = {
     hidden: { opacity: 0 },

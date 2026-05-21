@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { BlogText } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import useStyles from "./useStyles";
-import DynamicTitle from "../DynamicTitle";
+import DynamicTitle from "../../Shared/DynamicTitle";
 
 const DynamicBlogText: FC<BlogText> = ({
     body,

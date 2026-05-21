@@ -2,10 +2,10 @@
 
 import { Box, Typography } from "@mui/material";
 import { LayoutForm } from "@repo/type-definitions/dynamic-page";
-import { FC, FormEvent, useEffect, useMemo, useState } from "react";
+import { FC, ChangeEvent, useEffect, useMemo, useState } from "react";
 import { InputByType, RangeInputValue } from "../../../Input";
 import { motion } from "framer-motion";
-import DynamicTitle from "../DynamicTitle";
+import DynamicTitle from "../../Shared/DynamicTitle";
 
 type FormFieldValue = string | number | RangeInputValue;
 type FormFieldState = Record<string, FormFieldValue>;
@@ -80,16 +80,12 @@ const DynamicForm: FC<LayoutForm> = ({
     const [formValues, setFormValues] = useState<FormFieldState>(initialValues);
     const [submitted, setSubmitted] = useState<boolean>(false);
 
-    useEffect(() => {
-        setFormValues(initialValues);
-    }, [initialValues]);
-
     const handleInputChange = (name: string, value: FormFieldValue) => {
         setSubmitted(false);
         setFormValues((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const response = await fetch(action, {
@@ -130,7 +126,6 @@ const DynamicForm: FC<LayoutForm> = ({
                     title={title}
                     color={"#eeeeee"}
                     size="h4"
-                    isMobile={false}
                     id={id}
                 />
             )}

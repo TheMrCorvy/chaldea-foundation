@@ -2,8 +2,8 @@ import { Box, Typography } from "@mui/material";
 import { LayoutLandingHero } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import RichTextRenderer from "../../../RichTextRenderer";
-import DynamicLink from "../DynamicLink";
-import DynamicPdfFile from "../DynamicPdfFile";
+import DynamicLink from "../../Shared/DynamicLink";
+import DynamicPdfFile from "../../Shared/DynamicPdfFile";
 
 export interface DynamicLandingHeroSectionProps extends LayoutLandingHero {
     imageBaseUrl: string;

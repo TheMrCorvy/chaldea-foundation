@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Box, Typography, Tooltip, Stack, CardMedia } from "@mui/material";
-import DynamicLink from "../DynamicLink";
+import DynamicLink from "../../Shared/DynamicLink";
 import IconComponent from "../../../IconComponent";
 import DynamicDescriptionWithChipsList from "../DynamicDescriptionWithChipsList";
 import { LayoutProjectListItem } from "@repo/type-definitions/dynamic-page";

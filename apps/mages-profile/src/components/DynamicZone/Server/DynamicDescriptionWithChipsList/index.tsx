@@ -3,7 +3,7 @@ import { LayoutDescriptionWithChipsList } from "@repo/type-definitions/dynamic-p
 import { FC } from "react";
 import RichTextRenderer from "../../../RichTextRenderer";
 import ChipsRenderer from "./ChipsRenderer";
-import DynamicTitle from "../DynamicTitle";
+import DynamicTitle from "../../Shared/DynamicTitle";
 
 export interface DynamicDescriptionWithChipsListProps extends LayoutDescriptionWithChipsList {
     renderTitle?: boolean;

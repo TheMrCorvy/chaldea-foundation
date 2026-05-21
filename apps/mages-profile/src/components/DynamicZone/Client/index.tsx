@@ -20,10 +20,10 @@ import DynamicWorkExperienceSection from "./DynamicWorkExperienceSection";
 import DynamicBlogText from "./DynamicBlogText";
 import DynamicDescriptionWithChipsList from "./DynamicDescriptionWithChipsList";
 import DynamicBlogHero from "./DynamicBlogHero";
-import DynamicPdfFile from "./DynamicPdfFile";
-import DynamicLink from "./DynamicLink";
+import DynamicPdfFile from "../Shared/DynamicPdfFile";
+import DynamicLink from "../Shared/DynamicLink";
 import IconComponent from "../../IconComponent";
-import DynamicForm from "./DynamicForm";
+import DynamicForm from "../Shared/DynamicForm";
 import DynamicBlogImage from "./DynamicBlogImage";
 import DynamicLogoLoop from "./DynamicLogoLoop";
 

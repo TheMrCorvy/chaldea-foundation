@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { SectionsProjectsSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
-import DynamicTitle from "../DynamicTitle";
+import DynamicTitle from "../../Shared/DynamicTitle";
 import ProjectItem from "./ProjectItem";
 
 export interface DynamicProjectsSection extends SectionsProjectsSection {

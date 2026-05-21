@@ -2,7 +2,7 @@
 
 import { LayoutWorkExperienceSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
-import DynamicTitle from "../DynamicTitle";
+import DynamicTitle from "../../Shared/DynamicTitle";
 import { Box, Grid } from "@mui/material";
 import WorkExperienceItem from "./WorkExperienceItem";
 
@@ -39,7 +39,6 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                     size="h4"
                     link_to_page={link_to_page}
                     text_align="left"
-                    isMobile={isMobile}
                     id={id}
                 />
             )}

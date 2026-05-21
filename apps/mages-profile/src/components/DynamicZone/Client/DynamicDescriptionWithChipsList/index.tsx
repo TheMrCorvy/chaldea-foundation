@@ -6,7 +6,7 @@ import { FC } from "react";
 import { motion } from "framer-motion";
 import RichTextRenderer from "../../../RichTextRenderer";
 import ChipsRenderer from "./ChipsRenderer";
-import DynamicTitle from "../DynamicTitle";
+import DynamicTitle from "../../Shared/DynamicTitle";
 
 export interface DynamicDescriptionWithChipsListProps extends LayoutDescriptionWithChipsList {
     isMobile?: boolean;
@@ -75,7 +75,6 @@ const DynamicDescriptionWithChipsList: FC<
                     color={color || "#eeeeee"}
                     size="h4"
                     text_align={text_align || "center"}
-                    isMobile={isMobile}
                     id={id}
                 />
             )}

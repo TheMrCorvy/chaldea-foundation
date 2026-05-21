@@ -3,11 +3,10 @@
 import { Box } from "@mui/material";
 import { SectionsProjectsSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
-import DynamicTitle from "../DynamicTitle";
+import DynamicTitle from "../../Shared/DynamicTitle";
 import ProjectItem from "./ProjectItem";
 
 export interface DynamicProjectsSectionProps extends SectionsProjectsSection {
-    isMobile?: boolean | null;
     imageBaseUrl: string;
 }
 
@@ -19,7 +18,6 @@ const DynamicProjectsSection: FC<DynamicProjectsSectionProps> = ({
     component_id,
     id,
     imageBaseUrl,
-    isMobile,
 }) => {
     return (
         <Box
@@ -38,7 +36,6 @@ const DynamicProjectsSection: FC<DynamicProjectsSectionProps> = ({
                     title={title}
                     color={title_color || "#eeeeee"}
                     size="h4"
-                    isMobile={isMobile || false}
                     text_align="left"
                     id={id}
                     link_to_page={link_to_page}
