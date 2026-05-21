@@ -33,11 +33,16 @@ export type StrapiSection =
     | LayoutIcon
     | LayoutForm
     | LayoutDescriptionWithChipsList
-    | LayoutLogoLoop;
+    | LayoutLogoLoop
+    | BlogLastPosts;
 
 export interface DynamicPageSections {
     [key: string]: StrapiSection;
 }
+
+export type DynamicPageResponse = {
+    data?: Array<DynamicPage>;
+};
 
 export interface LayoutLandingHero extends StrapiComponent {
     id: number;
@@ -284,4 +289,21 @@ export interface LayoutLogoLoop extends StrapiComponent {
     gap?: string | null;
     title_color: string;
     text_align?: "left" | "center" | "right" | null;
+}
+
+export interface BlogLastPosts extends StrapiComponent {
+    link_to_page: LayoutLink;
+    posts_count: number;
+    related_posts?: Array<LayoutToolChip> | null;
+}
+
+export interface Post {
+    documentId: string;
+    title: string;
+    slug: string;
+    description?: string | null;
+    cover_image?: {
+        url: string;
+        alt?: string | null;
+    } | null;
 }
