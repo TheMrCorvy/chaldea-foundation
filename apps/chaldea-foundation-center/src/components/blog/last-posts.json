@@ -1,0 +1,33 @@
+{
+    "collectionName": "components_blog_last_posts",
+    "info": {
+        "displayName": "Last Posts",
+        "icon": "message"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "link_to_page": {
+            "type": "component",
+            "component": "layout.link",
+            "repeatable": false
+        },
+        "posts_count": {
+            "type": "integer",
+            "required": true,
+            "min": 1,
+            "max": 10000
+        },
+        "related_posts": {
+            "type": "component",
+            "component": "layout.tool-chip",
+            "repeatable": true
+        }
+    },
+    "config": {}
+}
