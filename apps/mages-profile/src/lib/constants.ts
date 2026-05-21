@@ -83,7 +83,11 @@ export const populateWorkExperienceSection = {
     "sections.work-experience-section": {
         populate: {
             link_to_page: {
-                populate: "*",
+                populate: {
+                    icon: {
+                        populate: "*",
+                    },
+                },
             },
             experience_list_items: {
                 populate: "*",
@@ -109,7 +113,11 @@ export const populateContactSection = {
                 },
             },
             link_to_page: {
-                populate: "*",
+                populate: {
+                    icon: {
+                        populate: "*",
+                    },
+                },
             },
         },
     },
@@ -133,7 +141,11 @@ export const populateBlogHero = {
     "blog.blog-hero": {
         populate: {
             link_to_page: {
-                populate: "*",
+                populate: {
+                    icon: {
+                        populate: "*",
+                    },
+                },
             },
             cover_image: {
                 populate: "*",
@@ -198,6 +210,27 @@ export const populateBlogImage = {
     },
 };
 
+export const populateBlogLastPosts = {
+    "blog.last-posts": {
+        populate: {
+            link_to_page: {
+                populate: {
+                    icon: {
+                        populate: "*",
+                    },
+                },
+            },
+            related_posts: {
+                populate: {
+                    icon: {
+                        populate: "*",
+                    },
+                },
+            },
+        },
+    },
+};
+
 export const mainLandingPage = {
     ...populateBlogHero,
     ...populateBlogText,
@@ -222,4 +255,5 @@ export const dynamicZone = {
     ...populateIcon,
     ...populateForm,
     ...populateBlogImage,
+    ...populateBlogLastPosts,
 };
