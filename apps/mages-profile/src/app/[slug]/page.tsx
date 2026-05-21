@@ -1,7 +1,12 @@
 import { BGMs, SoundProvider } from "@/contexts/SoundContext";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
-import { DynamicPage } from "@repo/type-definitions/dynamic-page";
+import {
+    DynamicPage,
+    DynamicPageResponse,
+    Post,
+    StrapiSection,
+} from "@repo/type-definitions/dynamic-page";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { cache } from "react";
@@ -12,16 +17,13 @@ import ClientSideUiEffects from "@/components/DynamicZone/ClientSideUI/ClientSid
 import StarryContainer from "@/components/StarryContainer";
 import DynamicClientZone from "@/components/DynamicZone/Client/DynamicClientZone";
 import DynamycServerZone from "@/components/DynamicZone/Server/DynamicServerZone";
+import { serverActionReducer } from "next/dist/client/components/router-reducer/reducers/server-action-reducer";
 
 export interface dynamicZonePageProps {
     params: Promise<{
         slug: string;
     }>;
 }
-
-type DynamicPageResponse = {
-    data?: Array<DynamicPage>;
-};
 
 const NOT_FOUND_METADATA: Metadata = {
     title: "404 - Page not found",
