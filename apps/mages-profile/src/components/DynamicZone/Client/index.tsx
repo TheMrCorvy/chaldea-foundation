@@ -121,7 +121,12 @@ const DynamicZoneComponentForClient: FC<DynamicZoneComponentProps> = ({
             );
 
         case "blog.last-posts":
-            return <DynamicLastPosts {...(section as BlogLastPosts)} />;
+            return (
+                <DynamicLastPosts
+                    {...(section as BlogLastPosts)}
+                    isMobile={isMobile}
+                />
+            );
 
         default:
             return null;

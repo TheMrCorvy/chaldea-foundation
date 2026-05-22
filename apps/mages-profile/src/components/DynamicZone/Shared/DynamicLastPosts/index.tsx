@@ -1,7 +1,7 @@
 "use client";
 
 import { BlogLastPosts, Post } from "@repo/type-definitions/dynamic-page";
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import { ChangeEvent, FC, useEffect, useRef, useState } from "react";
 import DynamicTitle from "../DynamicTitle";
 import PostCard from "./PostCard";
 import { Box } from "@mui/joy";
@@ -12,7 +12,11 @@ interface ApiPostsResponse extends RequestPostsResponse {
     error?: string;
 }
 
-const DynamicLastPosts: FC<BlogLastPosts> = ({
+export interface DynamicLastPostsProps extends BlogLastPosts {
+    isMobile?: boolean;
+}
+
+const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
     posts_count,
     related_posts,
     title_color,
@@ -24,12 +28,14 @@ const DynamicLastPosts: FC<BlogLastPosts> = ({
     title,
     id,
     link_to_page,
+    isMobile,
 }) => {
     const [posts, setPosts] = useState<Array<Post>>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [pageNumber, setPageNumber] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const postsContainerRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -70,7 +76,21 @@ const DynamicLastPosts: FC<BlogLastPosts> = ({
         void fetchPosts();
     }, [posts_count, related_posts, pageNumber]);
 
-    const handlePageChange = (event: ChangeEvent<unknown>, value: number) => {
+    const handlePageChange = async (
+        _event: ChangeEvent<unknown>,
+        value: number
+    ) => {
+        postsContainerRef.current?.scrollTo({
+            left: 0,
+            behavior: "smooth",
+        });
+
+        if (isMobile) {
+            await new Promise<void>((resolve) => {
+                window.setTimeout(resolve, 900);
+            });
+        }
+
         setPageNumber(value);
     };
 
@@ -101,6 +121,7 @@ const DynamicLastPosts: FC<BlogLastPosts> = ({
             {error && <p style={{ color: "red" }}>{error}</p>}
 
             <Box
+                ref={postsContainerRef}
                 sx={{
                     marginTop: "1.5rem",
                     display: "flex",
