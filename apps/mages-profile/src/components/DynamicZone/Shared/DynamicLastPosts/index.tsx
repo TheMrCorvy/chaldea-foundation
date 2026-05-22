@@ -1,10 +1,6 @@
 "use client";
 
-import {
-    BlogLastPosts,
-    Pagination,
-    Post,
-} from "@repo/type-definitions/dynamic-page";
+import { BlogLastPosts, Post } from "@repo/type-definitions/dynamic-page";
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import DynamicTitle from "../DynamicTitle";
 import PostCard from "./PostCard";
@@ -145,11 +141,10 @@ const DynamicLastPosts: FC<BlogLastPosts> = ({
                         shape="rounded"
                         sx={{
                             "& .MuiPaginationItem-root": {
-                                color: "#eeeeee", // Color of unselected numbers
+                                color: "#eeeeee",
                             },
                             "& .Mui-selected": {
-                                color: "#fff", // Color of selected number
-                                // bgcolor: "primary.main", // Background of selected number
+                                color: "#fff",
                             },
                         }}
                     />

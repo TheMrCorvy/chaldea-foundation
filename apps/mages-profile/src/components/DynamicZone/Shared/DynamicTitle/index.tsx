@@ -57,6 +57,22 @@ const DynamicTitle: FC<DynamicTitleProps> = ({
 
     const cornerIconSize = 24;
 
+    const selectLinkIconColor = () => {
+        if (link_icon_color) {
+            return link_icon_color;
+        }
+
+        if (link_to_page && link_to_page.icon && link_to_page.icon.color) {
+            return link_to_page.icon.color;
+        }
+
+        if (link_to_page && link_to_page.color) {
+            return link_to_page.color;
+        }
+
+        return "info";
+    };
+
     return (
         <Box
             id={`section-${id}`}
@@ -156,7 +172,7 @@ const DynamicTitle: FC<DynamicTitleProps> = ({
                         <IconButton
                             onClick={handleCopyLink}
                             size="small"
-                            color={link_icon_color || "info"}
+                            color={selectLinkIconColor() as TextColors}
                         >
                             <LinkIcon />
                         </IconButton>
@@ -170,6 +186,7 @@ const DynamicTitle: FC<DynamicTitleProps> = ({
                         style={{
                             display: "inline-block",
                             flexGrow: 1,
+                            color: color || "#eeeeee",
                         }}
                     />
                     <DynamicLink {...link_to_page} />
