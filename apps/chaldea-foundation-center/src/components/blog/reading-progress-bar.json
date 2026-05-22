@@ -1,0 +1,41 @@
+{
+    "collectionName": "components_blog_reading_progress_bars",
+    "info": {
+        "displayName": "Reading Progress Bar",
+        "icon": "magic"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "component_id": {
+            "type": "string"
+        },
+        "reversed": {
+            "type": "boolean",
+            "required": true,
+            "default": false
+        },
+        "position": {
+            "type": "enumeration",
+            "required": true,
+            "default": "top",
+            "enum": ["top", "bottom", "left", "right"]
+        },
+        "color": {
+            "type": "enumeration",
+            "required": true,
+            "default": "info",
+            "enum": [
+                "primary",
+                "secondary",
+                "info",
+                "warning",
+                "error",
+                "success"
+            ]
+        }
+    },
+    "config": {}
+}

@@ -34,7 +34,8 @@ export type StrapiSection =
     | LayoutForm
     | LayoutDescriptionWithChipsList
     | LayoutLogoLoop
-    | BlogLastPosts;
+    | BlogLastPosts
+    | ReadingProgressBar;
 
 export interface DynamicPageSections {
     [key: string]: StrapiSection;
@@ -322,4 +323,10 @@ export interface Post {
         url: string;
         alt?: string | null;
     } | null;
+}
+
+export interface ReadingProgressBar extends StrapiComponent {
+    position: "top" | "bottom" | "right" | "left";
+    reversed: boolean;
+    color: "primary" | "secondary" | "warning" | "info" | "error" | "success";
 }

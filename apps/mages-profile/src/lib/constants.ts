@@ -231,6 +231,12 @@ export const populateBlogLastPosts = {
     },
 };
 
+export const blogReadingProgress = {
+    "blog.reading-progress-bar": {
+        populate: "*",
+    },
+};
+
 export const mainLandingPage = {
     ...populateBlogHero,
     ...populateBlogText,
@@ -256,4 +262,5 @@ export const dynamicZone = {
     ...populateForm,
     ...populateBlogImage,
     ...populateBlogLastPosts,
+    ...blogReadingProgress,
 };
