@@ -329,4 +329,5 @@ export interface ReadingProgressBar extends StrapiComponent {
     position: "top" | "bottom" | "right" | "left";
     reversed: boolean;
     color: "primary" | "secondary" | "warning" | "info" | "error" | "success";
+    bar_thickness: string;
 }

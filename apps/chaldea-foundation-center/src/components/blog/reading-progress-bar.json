@@ -35,6 +35,11 @@
                 "error",
                 "success"
             ]
+        },
+        "bar_thickness": {
+            "type": "string",
+            "default": "6px",
+            "required": true
         }
     },
     "config": {}

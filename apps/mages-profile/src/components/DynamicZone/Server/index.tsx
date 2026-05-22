@@ -10,6 +10,7 @@ import {
     LayoutLink,
     LayoutLogoLoop,
     LayoutWorkExperienceSection,
+    ReadingProgressBar,
     SectionsProjectsSection,
     StrapiPDFComponent,
     StrapiSection,
@@ -28,6 +29,7 @@ import DynamicForm from "../Shared/DynamicForm";
 import DynamicBlogImage from "./DynamicBlogImage";
 import DynamicLogoLoop from "./DynamicLogoLoop";
 import DynamicLastPosts from "../Shared/DynamicLastPosts";
+import DynamicReadingProgressBar from "../Shared/DynamicReadingProgressBar";
 
 export interface DynamicZoneComponentProps {
     section: StrapiSection;
@@ -113,6 +115,13 @@ const DynamicZoneComponentForServer: FC<DynamicZoneComponentProps> = ({
 
         case "blog.last-posts":
             return <DynamicLastPosts {...(section as BlogLastPosts)} />;
+
+        case "blog.reading-progress-bar":
+            return (
+                <DynamicReadingProgressBar
+                    {...(section as ReadingProgressBar)}
+                />
+            );
 
         default:
             return null;
