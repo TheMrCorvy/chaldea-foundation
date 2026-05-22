@@ -4,8 +4,6 @@ import { Box, LinearProgress } from "@mui/material";
 import { ReadingProgressBar } from "@repo/type-definitions/dynamic-page";
 import { FC, useEffect, useMemo, useState } from "react";
 
-// const BAR_THICKNESS = 6;
-
 const DynamicReadingProgressBar: FC<ReadingProgressBar> = ({
     position,
     reversed,
