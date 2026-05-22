@@ -1,95 +1,121 @@
 "use client";
 
-import { dynamicPageFields, dynamicZone } from "@/lib/constants";
-import PlatformService from "@repo/platform-service-sdk";
-import { DynamicPage } from "@repo/type-definitions/dynamic-page";
+import { BlogLastPosts, Post } from "@repo/type-definitions/dynamic-page";
 import { FC, useEffect, useState } from "react";
+import DynamicTitle from "../DynamicTitle";
+import PostCard from "./PostCard";
+import { Box } from "@mui/joy";
+import { RequestPostsResponse } from "@/lib/requestPosts";
 
-type DynamicPageResponse = {
-    data?: Array<DynamicPage>;
-};
-
-export interface DynamicLastPostsProps {
-    apiKey: string;
+interface ApiPostsResponse extends RequestPostsResponse {
+    error?: string;
 }
 
-const DynamicLastPosts: FC<DynamicLastPostsProps> = ({ apiKey }) => {
-    const [posts, setPosts] = useState<DynamicPage[]>([]);
+const DynamicLastPosts: FC<BlogLastPosts> = ({
+    posts_count,
+    related_posts,
+    title_color,
+    title_size,
+    title_text_align,
+    link_icon_color,
+    popover,
+    animation_cycles,
+    title,
+    id,
+    link_to_page,
+}) => {
+    const [posts, setPosts] = useState<Array<Post>>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        let isActive = true;
-
         const fetchPosts = async () => {
-            try {
-                setIsLoading(true);
-                setError(null);
+            setIsLoading(true);
+            setError(null);
 
-                const platformService = new PlatformService();
-                platformService.setJWT(apiKey);
+            const response = await fetch("/api/request-posts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    posts_count,
+                    related_posts,
+                }),
+            });
 
-                const { data } = (await platformService.call(
-                    "aDynamicPageGetADynamicPages",
-                    {
-                        query: {
-                            filters: {
-                                slug: {
-                                    $startsWith: "blog/",
-                                },
-                            },
-                            fields: dynamicPageFields,
-                            populate: {
-                                sections: {
-                                    on: dynamicZone,
-                                },
-                            },
-                        },
-                    }
-                )) as { data?: DynamicPageResponse };
+            const data = (await response.json()) as ApiPostsResponse;
+            console.log(data.meta);
 
-                if (!isActive) {
-                    return;
+            if (!response.ok) {
+                let requestError = "Failed to load dynamic posts.";
+
+                if (data.error) {
+                    requestError = data.error;
                 }
 
-                setPosts(data?.data ?? []);
-            } catch (fetchError) {
-                if (!isActive) {
-                    return;
-                }
-
-                setError(
-                    fetchError instanceof Error
-                        ? fetchError.message
-                        : "Failed to load dynamic posts"
-                );
-            } finally {
-                if (isActive) {
-                    setIsLoading(false);
-                }
+                setError(requestError);
+                setIsLoading(false);
+                return;
             }
+
+            setPosts(data.data as Array<Post>);
+            setIsLoading(false);
         };
 
         void fetchPosts();
-
-        return () => {
-            isActive = false;
-        };
-    }, [apiKey]);
+    }, [posts_count, related_posts]);
 
     return (
-        <div>
-            <h2>Dynamic Last Posts Component</h2>
-            {isLoading ? <p>Loading posts...</p> : null}
-            {error ? <p>{error}</p> : null}
-            {!isLoading && !error ? (
-                <ul>
-                    {posts.map((post) => (
-                        <li key={post.slug}>{post.title}</li>
-                    ))}
-                </ul>
-            ) : null}
-        </div>
+        <Box
+            component="section"
+            sx={{
+                marginBottom: "2.5rem",
+                display: "flex",
+                flexDirection: "column",
+                width: { xs: "90vw", md: "100%" },
+                maxWidth: "1300px",
+                marginInline: "auto",
+            }}
+        >
+            <DynamicTitle
+                id={id}
+                title={title as string}
+                color={title_color}
+                size={title_size}
+                text_align={title_text_align || "left"}
+                link_icon_color={link_icon_color}
+                popover={popover}
+                cycles={animation_cycles}
+                link_to_page={link_to_page}
+            />
+            {isLoading && <p>Loading posts...</p>}
+            {error && <p style={{ color: "red" }}>{error}</p>}
+
+            <Box
+                sx={{
+                    marginTop: "1.5rem",
+                    display: "flex",
+                    gap: { xs: "1rem", md: "2.5rem" },
+                    flexDirection: "row",
+                    justifyContent: { xs: "flex-start", md: "space-around" },
+                    flexWrap: { xs: "nowrap", md: "wrap" },
+                    overflowX: { xs: "auto", md: "visible" },
+                    overflowY: "hidden",
+                    pb: { xs: 3, md: 0 },
+                    scrollSnapType: { xs: "x mandatory", md: "none" },
+                    WebkitOverflowScrolling: "touch",
+                    "& > *": {
+                        flexShrink: 0,
+                        scrollSnapAlign: { xs: "start", md: "none" },
+                    },
+                }}
+            >
+                {posts.map((post, index) => (
+                    <PostCard key={post.documentId} post={post} index={index} />
+                ))}
+            </Box>
+        </Box>
     );
 };
 
