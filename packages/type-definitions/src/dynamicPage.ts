@@ -40,8 +40,18 @@ export interface DynamicPageSections {
     [key: string]: StrapiSection;
 }
 
+export interface MetaPagination {
+    pagination: {
+        page: number;
+        pageSize: number;
+        pageCount: number;
+        total: number;
+    };
+}
+
 export type DynamicPageResponse = {
     data?: Array<DynamicPage>;
+    meta?: MetaPagination;
 };
 
 export interface LayoutLandingHero extends StrapiComponent {
@@ -292,9 +302,15 @@ export interface LayoutLogoLoop extends StrapiComponent {
 }
 
 export interface BlogLastPosts extends StrapiComponent {
-    link_to_page: LayoutLink;
+    link_to_page?: LayoutLink | null;
     posts_count: number;
     related_posts?: Array<LayoutToolChip> | null;
+    title_color?: string;
+    title_size?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+    title_text_align?: "left" | "center" | "right";
+    link_icon_color: TextColors;
+    popover?: string | null;
+    animation_cycles: number;
 }
 
 export interface Post {

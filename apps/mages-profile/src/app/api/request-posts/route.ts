@@ -38,13 +38,13 @@ export async function POST(request: Request) {
                 ? body.related_posts
                 : undefined;
 
-        const posts = await requestPosts({
+        const { data, meta } = await requestPosts({
             apiKey,
             posts_count,
             related_posts,
         });
 
-        return NextResponse.json({ data: posts }, { status: 200 });
+        return NextResponse.json({ data, meta }, { status: 200 });
     } catch (error) {
         logData({
             type: "error",

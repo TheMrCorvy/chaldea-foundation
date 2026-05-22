@@ -2,6 +2,7 @@ import PlatformService from "@repo/platform-service-sdk";
 import {
     DynamicPageResponse,
     LayoutToolChip,
+    MetaPagination,
     Post,
 } from "@repo/type-definitions/dynamic-page";
 import { dynamicPageFields, dynamicZone } from "./constants";
@@ -14,7 +15,14 @@ export interface RequestPostsParams {
     related_posts?: Array<LayoutToolChip> | null;
 }
 
-export type RequestPosts = (params: RequestPostsParams) => Promise<Array<Post>>;
+export interface RequestPostsResponse {
+    data: Array<Post>;
+    meta: MetaPagination;
+}
+
+export type RequestPosts = (
+    params: RequestPostsParams
+) => Promise<RequestPostsResponse>;
 
 export const requestPosts: RequestPosts = async ({
     apiKey,
@@ -53,6 +61,7 @@ export const requestPosts: RequestPosts = async ({
                 $startsWith: "blog/",
             },
         },
+        sort: ["updatedAt:desc"],
         pagination: {
             pageSize: posts_count || 5,
         },
@@ -66,7 +75,7 @@ interface FetchPostsParams {
     queryParams: QueryParams;
 }
 
-type FetchPosts = (params: FetchPostsParams) => Promise<Array<Post>>;
+type FetchPosts = (params: FetchPostsParams) => Promise<RequestPostsResponse>;
 
 const fetchPosts: FetchPosts = async ({ apiKey, queryParams }) => {
     const platformService = new PlatformService();
@@ -100,11 +109,18 @@ const fetchPosts: FetchPosts = async ({ apiKey, queryParams }) => {
             addSpaceAfter: true,
         });
 
-        return [];
+        return {
+            data: [],
+            meta: {
+                pagination: { page: 0, pageSize: 0, pageCount: 0, total: 0 },
+            },
+        };
     }
 };
 
-const prettifyPosts = (data: DynamicPageResponse | undefined): Array<Post> => {
+const prettifyPosts = (
+    data: DynamicPageResponse | undefined
+): RequestPostsResponse => {
     if (!data || !data.data || data.data.length === 0) {
         logData({
             type: "warn",
@@ -115,7 +131,12 @@ const prettifyPosts = (data: DynamicPageResponse | undefined): Array<Post> => {
             addSeparatorAfter: true,
             addSpaceAfter: true,
         });
-        return [];
+        return {
+            data: [],
+            meta: {
+                pagination: { page: 0, pageSize: 0, pageCount: 0, total: 0 },
+            },
+        };
     }
 
     const posts: Post[] = data.data.map((post) => ({
@@ -126,5 +147,10 @@ const prettifyPosts = (data: DynamicPageResponse | undefined): Array<Post> => {
         cover_image: null,
     }));
 
-    return posts;
+    return {
+        data: posts,
+        meta: data.meta || {
+            pagination: { page: 0, pageSize: 0, pageCount: 0, total: 0 },
+        },
+    };
 };
