@@ -1,6 +1,7 @@
 import {
     BlogHero,
     BlogImageComponent,
+    BlogLastPosts,
     BlogText,
     LayoutDescriptionWithChipsList,
     LayoutForm,
@@ -26,6 +27,7 @@ import IconComponent from "../../IconComponent";
 import DynamicForm from "../Shared/DynamicForm";
 import DynamicBlogImage from "./DynamicBlogImage";
 import DynamicLogoLoop from "./DynamicLogoLoop";
+import DynamicLastPosts from "../Shared/DynamicLastPosts";
 
 export interface DynamicZoneComponentProps {
     section: StrapiSection;
@@ -108,6 +110,9 @@ const DynamicZoneComponentForServer: FC<DynamicZoneComponentProps> = ({
 
         case "layout.logo-loop":
             return <DynamicLogoLoop {...(section as LayoutLogoLoop)} />;
+
+        case "blog.last-posts":
+            return <DynamicLastPosts {...(section as BlogLastPosts)} />;
 
         default:
             return null;

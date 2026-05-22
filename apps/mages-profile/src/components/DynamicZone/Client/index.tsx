@@ -1,6 +1,7 @@
 import {
     BlogHero,
     BlogImageComponent,
+    BlogLastPosts,
     BlogText,
     LayoutDescriptionWithChipsList,
     LayoutForm,
@@ -26,6 +27,7 @@ import IconComponent from "../../IconComponent";
 import DynamicForm from "../Shared/DynamicForm";
 import DynamicBlogImage from "./DynamicBlogImage";
 import DynamicLogoLoop from "./DynamicLogoLoop";
+import DynamicLastPosts from "../Shared/DynamicLastPosts";
 
 export interface DynamicZoneComponentProps {
     section: StrapiSection;
@@ -117,6 +119,9 @@ const DynamicZoneComponentForClient: FC<DynamicZoneComponentProps> = ({
                     isMobile={isMobile}
                 />
             );
+
+        case "blog.last-posts":
+            return <DynamicLastPosts {...(section as BlogLastPosts)} />;
 
         default:
             return null;

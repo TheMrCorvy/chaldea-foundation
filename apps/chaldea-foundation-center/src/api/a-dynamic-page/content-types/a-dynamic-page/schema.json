@@ -58,8 +58,7 @@
                 "layout.logo-loop",
                 "blog.last-posts"
             ],
-            "required": true,
-            "min": 1
+            "required": false
         },
         "use_server": {
             "type": "boolean",

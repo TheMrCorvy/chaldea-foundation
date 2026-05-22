@@ -1,11 +1,16 @@
 "use client";
 
-import { BlogLastPosts, Post } from "@repo/type-definitions/dynamic-page";
-import { FC, useEffect, useState } from "react";
+import {
+    BlogLastPosts,
+    Pagination,
+    Post,
+} from "@repo/type-definitions/dynamic-page";
+import { ChangeEvent, FC, useEffect, useState } from "react";
 import DynamicTitle from "../DynamicTitle";
 import PostCard from "./PostCard";
 import { Box } from "@mui/joy";
 import { RequestPostsResponse } from "@/lib/requestPosts";
+import { Pagination as MUIPagination } from "@mui/material";
 
 interface ApiPostsResponse extends RequestPostsResponse {
     error?: string;
@@ -27,6 +32,8 @@ const DynamicLastPosts: FC<BlogLastPosts> = ({
     const [posts, setPosts] = useState<Array<Post>>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [pageNumber, setPageNumber] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -41,11 +48,11 @@ const DynamicLastPosts: FC<BlogLastPosts> = ({
                 body: JSON.stringify({
                     posts_count,
                     related_posts,
+                    pageNumber,
                 }),
             });
 
             const data = (await response.json()) as ApiPostsResponse;
-            console.log(data.meta);
 
             if (!response.ok) {
                 let requestError = "Failed to load dynamic posts.";
@@ -60,11 +67,16 @@ const DynamicLastPosts: FC<BlogLastPosts> = ({
             }
 
             setPosts(data.data as Array<Post>);
+            setTotalPages(data.meta.pagination.pageCount);
             setIsLoading(false);
         };
 
         void fetchPosts();
-    }, [posts_count, related_posts]);
+    }, [posts_count, related_posts, pageNumber]);
+
+    const handlePageChange = (event: ChangeEvent<unknown>, value: number) => {
+        setPageNumber(value);
+    };
 
     return (
         <Box
@@ -101,7 +113,7 @@ const DynamicLastPosts: FC<BlogLastPosts> = ({
                     justifyContent: { xs: "flex-start", md: "space-around" },
                     flexWrap: { xs: "nowrap", md: "wrap" },
                     overflowX: { xs: "auto", md: "visible" },
-                    overflowY: "hidden",
+                    pt: 6,
                     pb: { xs: 3, md: 0 },
                     scrollSnapType: { xs: "x mandatory", md: "none" },
                     WebkitOverflowScrolling: "touch",
@@ -115,6 +127,34 @@ const DynamicLastPosts: FC<BlogLastPosts> = ({
                     <PostCard key={post.documentId} post={post} index={index} />
                 ))}
             </Box>
+            {totalPages > 1 && (
+                <span
+                    style={{
+                        flexGrow: 1,
+                        justifyContent: "flex-end",
+                        display: "flex",
+                        marginTop: "5rem",
+                    }}
+                >
+                    <MUIPagination
+                        page={pageNumber}
+                        count={totalPages}
+                        onChange={handlePageChange}
+                        color="primary"
+                        variant="outlined"
+                        shape="rounded"
+                        sx={{
+                            "& .MuiPaginationItem-root": {
+                                color: "#eeeeee", // Color of unselected numbers
+                            },
+                            "& .Mui-selected": {
+                                color: "#fff", // Color of selected number
+                                // bgcolor: "primary.main", // Background of selected number
+                            },
+                        }}
+                    />
+                </span>
+            )}
         </Box>
     );
 };

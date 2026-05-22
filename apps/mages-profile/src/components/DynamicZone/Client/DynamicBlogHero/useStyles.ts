@@ -6,7 +6,7 @@ const useStyles: MUIStylesService = () => {
             position: "relative",
             width: "100%",
             maxWidth: "1500px",
-            margin: "0 auto",
+            margin: "5rem auto",
             border: "1px solid rgba(25,118,210, 0.4)",
             background:
                 "linear-gradient(135deg, rgba(8, 20, 40, 0.8) 0%, rgba(12, 36, 72, 0.7) 100%)",
@@ -22,7 +22,7 @@ const useStyles: MUIStylesService = () => {
             position: "relative",
             zIndex: 2,
             display: "flex",
-            flexDirection: { xs: "column", md: "row" },
+            flexDirection: { xs: "column-reverse", md: "row" },
             minHeight: "450px",
         },
         textContent: {
@@ -57,14 +57,21 @@ const useStyles: MUIStylesService = () => {
             flex: 1,
             position: "relative",
             minHeight: { xs: "300px", md: "auto" },
-            overflow: "hidden",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            p: 1,
             background:
                 "radial-gradient(circle at center, rgba(56, 182, 255, 0.1) 0%, transparent 70%)",
+            "& img": {
+                width: "100%",
+                height: "100%",
+                maxWidth: "100%",
+                display: "block",
+                objectFit: "cover",
+            },
         },
-        noimage: {
+        noImage: {
             width: "100%",
             height: "100%",
             display: "flex",

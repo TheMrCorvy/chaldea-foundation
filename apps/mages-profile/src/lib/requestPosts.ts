@@ -2,7 +2,7 @@ import PlatformService from "@repo/platform-service-sdk";
 import {
     DynamicPageResponse,
     LayoutToolChip,
-    MetaPagination,
+    Pagination,
     Post,
 } from "@repo/type-definitions/dynamic-page";
 import { dynamicPageFields, dynamicZone } from "./constants";
@@ -13,11 +13,14 @@ export interface RequestPostsParams {
     posts_count: number;
     apiKey: string;
     related_posts?: Array<LayoutToolChip> | null;
+    pageNumber: number;
 }
 
 export interface RequestPostsResponse {
     data: Array<Post>;
-    meta: MetaPagination;
+    meta: {
+        pagination: Pagination;
+    };
 }
 
 export type RequestPosts = (
@@ -28,10 +31,8 @@ export const requestPosts: RequestPosts = async ({
     apiKey,
     posts_count,
     related_posts,
+    pageNumber,
 }) => {
-    const platformService = new PlatformService();
-    platformService.setJWT(apiKey);
-
     let queryParams: QueryParams;
 
     if (related_posts && related_posts.length > 0) {
@@ -51,6 +52,8 @@ export const requestPosts: RequestPosts = async ({
             return await fetchPosts({
                 apiKey,
                 queryParams,
+                pageNumber,
+                posts_count,
             });
         }
     }
@@ -67,17 +70,24 @@ export const requestPosts: RequestPosts = async ({
         },
     };
 
-    return await fetchPosts({ apiKey, queryParams });
+    return await fetchPosts({ apiKey, queryParams, pageNumber, posts_count });
 };
 
 interface FetchPostsParams {
     apiKey: string;
     queryParams: QueryParams;
+    pageNumber: number;
+    posts_count: number;
 }
 
 type FetchPosts = (params: FetchPostsParams) => Promise<RequestPostsResponse>;
 
-const fetchPosts: FetchPosts = async ({ apiKey, queryParams }) => {
+const fetchPosts: FetchPosts = async ({
+    apiKey,
+    queryParams,
+    pageNumber,
+    posts_count,
+}) => {
     const platformService = new PlatformService();
     platformService.setJWT(apiKey);
 
@@ -92,6 +102,10 @@ const fetchPosts: FetchPosts = async ({ apiKey, queryParams }) => {
                         sections: {
                             on: dynamicZone,
                         },
+                    },
+                    pagination: {
+                        page: pageNumber,
+                        pageSize: posts_count,
                     },
                 },
             }

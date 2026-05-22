@@ -138,7 +138,6 @@ const DynamicBlogHero: FC<DynamicBlogHeroProps> = ({
                             src={`${imageBaseUrl}${cover_image.url}`}
                             alt={cover_image.name || "Hero Banner"}
                             style={{
-                                objectFit: "cover",
                                 opacity: 0.85,
                                 mixBlendMode: "screen",
                                 borderRadius: "8px",

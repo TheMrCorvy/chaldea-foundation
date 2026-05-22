@@ -40,18 +40,18 @@ export interface DynamicPageSections {
     [key: string]: StrapiSection;
 }
 
-export interface MetaPagination {
-    pagination: {
-        page: number;
-        pageSize: number;
-        pageCount: number;
-        total: number;
-    };
+export interface Pagination {
+    page: number;
+    pageSize: number;
+    pageCount: number;
+    total: number;
 }
 
 export type DynamicPageResponse = {
     data?: Array<DynamicPage>;
-    meta?: MetaPagination;
+    meta?: {
+        pagination: Pagination;
+    };
 };
 
 export interface LayoutLandingHero extends StrapiComponent {

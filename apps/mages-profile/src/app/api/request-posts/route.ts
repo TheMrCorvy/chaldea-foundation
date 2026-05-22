@@ -6,6 +6,7 @@ import { NextResponse } from "next/server";
 interface RequestPostsBody {
     posts_count?: number;
     related_posts?: Array<LayoutToolChip> | null;
+    pageNumber?: number;
 }
 
 export async function POST(request: Request) {
@@ -42,6 +43,7 @@ export async function POST(request: Request) {
             apiKey,
             posts_count,
             related_posts,
+            pageNumber: body.pageNumber || 1,
         });
 
         return NextResponse.json({ data, meta }, { status: 200 });

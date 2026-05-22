@@ -27,6 +27,45 @@
             "type": "component",
             "component": "layout.tool-chip",
             "repeatable": true
+        },
+        "title_color": {
+            "type": "string",
+            "default": "#eeeeee",
+            "required": true
+        },
+        "title_size": {
+            "type": "enumeration",
+            "required": true,
+            "default": "h4",
+            "enum": ["h1", "h2", "h3", "h4", "h5", "h6"]
+        },
+        "title_text_align": {
+            "type": "enumeration",
+            "required": true,
+            "default": "center",
+            "enum": ["left", "center", "right"]
+        },
+        "link_icon_color": {
+            "type": "enumeration",
+            "required": true,
+            "default": "inherit",
+            "enum": [
+                "primary",
+                "secondary",
+                "warning",
+                "info",
+                "error",
+                "success",
+                "inherit"
+            ]
+        },
+        "popover": {
+            "type": "string"
+        },
+        "animation_cycles": {
+            "type": "integer",
+            "required": true,
+            "default": 2
         }
     },
     "config": {}
