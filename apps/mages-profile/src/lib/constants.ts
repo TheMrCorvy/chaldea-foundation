@@ -227,13 +227,68 @@ export const populateBlogLastPosts = {
                     },
                 },
             },
+            title: {
+                populate: {
+                    link_to_page: {
+                        populate: {
+                            icon: {
+                                populate: "*",
+                            },
+                        },
+                    },
+                },
+            },
         },
     },
 };
 
 export const blogReadingProgress = {
     "blog.reading-progress-bar": {
-        populate: "*",
+        populate: {
+            title: {
+                populate: {
+                    link_to_page: {
+                        populate: {
+                            icon: {
+                                populate: "*",
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    },
+};
+
+export const populateSearchByCategory = {
+    "blog.search-by-category": {
+        populate: {
+            title: {
+                populate: {
+                    link_to_page: {
+                        populate: {
+                            icon: {
+                                populate: "*",
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    },
+};
+
+export const populateTitle = {
+    "layout.title": {
+        populate: {
+            link_to_page: {
+                populate: {
+                    icon: {
+                        populate: "*",
+                    },
+                },
+            },
+        },
     },
 };
 
@@ -263,4 +318,6 @@ export const dynamicZone = {
     ...populateBlogImage,
     ...populateBlogLastPosts,
     ...blogReadingProgress,
+    ...populateTitle,
+    ...populateSearchByCategory,
 };
