@@ -1,11 +1,9 @@
 "use client";
 
-import { Post } from "@repo/type-definitions/dynamic-page";
-import Link from "next/link";
+import { BlogPost } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import {
     Box,
-    Button,
     Card,
     CardActions,
     CardContent,
@@ -19,7 +17,7 @@ import DynamicLink from "../DynamicLink";
 
 const PLACEHOLDER_TEXT = "CHALDEA ARCHIVE FEED";
 
-const PostCard: FC<{ post: Post; index: number }> = ({ post, index }) => {
+const PostCard: FC<{ post: BlogPost; index: number }> = ({ post, index }) => {
     let imageUrl = "";
     let imageAlt = `${post.title} cover image`;
 

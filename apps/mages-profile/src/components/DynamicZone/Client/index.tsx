@@ -2,6 +2,7 @@ import {
     BlogHero,
     BlogImageComponent,
     BlogLastPosts,
+    BlogReadingProgressBar,
     BlogText,
     LayoutDescriptionWithChipsList,
     LayoutForm,
@@ -10,7 +11,6 @@ import {
     LayoutLink,
     LayoutLogoLoop,
     LayoutWorkExperienceSection,
-    ReadingProgressBar,
     SectionsProjectsSection,
     StrapiPDFComponent,
     StrapiSection,
@@ -132,7 +132,7 @@ const DynamicZoneComponentForClient: FC<DynamicZoneComponentProps> = ({
         case "blog.reading-progress-bar":
             return (
                 <DynamicReadingProgressBar
-                    {...(section as ReadingProgressBar)}
+                    {...(section as BlogReadingProgressBar)}
                 />
             );
 

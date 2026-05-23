@@ -1,10 +1,10 @@
 "use client";
 
 import { Box, LinearProgress } from "@mui/material";
-import { ReadingProgressBar } from "@repo/type-definitions/dynamic-page";
+import { BlogReadingProgressBar } from "@repo/type-definitions/dynamic-page";
 import { FC, useEffect, useMemo, useState } from "react";
 
-const DynamicReadingProgressBar: FC<ReadingProgressBar> = ({
+const DynamicReadingProgressBar: FC<BlogReadingProgressBar> = ({
     position,
     reversed,
     color,

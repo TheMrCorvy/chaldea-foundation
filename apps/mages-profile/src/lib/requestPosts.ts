@@ -3,7 +3,7 @@ import {
     DynamicPageResponse,
     LayoutToolChip,
     Pagination,
-    Post,
+    BlogPost,
 } from "@repo/type-definitions/dynamic-page";
 import { dynamicPageFields, dynamicZone } from "./constants";
 import { logData } from "@repo/shared-utils/log-data";
@@ -17,7 +17,7 @@ export interface RequestPostsParams {
 }
 
 export interface RequestPostsResponse {
-    data: Array<Post>;
+    data: Array<BlogPost>;
     meta: {
         pagination: Pagination;
     };
@@ -153,7 +153,7 @@ const prettifyPosts = (
         };
     }
 
-    const posts: Post[] = data.data.map((post) => ({
+    const posts: BlogPost[] = data.data.map((post) => ({
         documentId: post.documentId,
         title: post.title,
         slug: post.slug,

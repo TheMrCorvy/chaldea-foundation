@@ -1,6 +1,6 @@
 "use client";
 
-import { BlogLastPosts, Post } from "@repo/type-definitions/dynamic-page";
+import { BlogLastPosts, BlogPost } from "@repo/type-definitions/dynamic-page";
 import { ChangeEvent, FC, useEffect, useRef, useState } from "react";
 import DynamicTitle from "../DynamicTitle";
 import PostCard from "./PostCard";
@@ -19,18 +19,12 @@ export interface DynamicLastPostsProps extends BlogLastPosts {
 const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
     posts_count,
     related_posts,
-    title_color,
-    title_size,
-    title_text_align,
-    link_icon_color,
-    popover,
-    animation_cycles,
     title,
     id,
     link_to_page,
     isMobile,
 }) => {
-    const [posts, setPosts] = useState<Array<Post>>([]);
+    const [posts, setPosts] = useState<Array<BlogPost>>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [pageNumber, setPageNumber] = useState(1);
@@ -68,7 +62,7 @@ const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
                 return;
             }
 
-            setPosts(data.data as Array<Post>);
+            setPosts(data.data as Array<BlogPost>);
             setTotalPages(data.meta.pagination.pageCount);
             setIsLoading(false);
         };
@@ -106,17 +100,7 @@ const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
                 marginInline: "auto",
             }}
         >
-            <DynamicTitle
-                id={id}
-                title={title as string}
-                color={title_color}
-                size={title_size}
-                text_align={title_text_align || "left"}
-                link_icon_color={link_icon_color}
-                popover={popover}
-                cycles={animation_cycles}
-                link_to_page={link_to_page}
-            />
+            {title && <DynamicTitle {...title} title={title.title as string} />}
             {isLoading && <p>Loading posts...</p>}
             {error && <p style={{ color: "red" }}>{error}</p>}
 
