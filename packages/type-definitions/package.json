@@ -12,6 +12,10 @@
         "./dynamic-page": {
             "types": "./src/dynamicPage.ts",
             "default": "./src/dynamicPage.ts"
+        },
+        "./blog-post-categories": {
+            "types": "./src/blogPostCategories.ts",
+            "default": "./src/blogPostCategories.ts"
         }
     },
     "devDependencies": {
