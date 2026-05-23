@@ -35,7 +35,9 @@ export type StrapiSection =
     | LayoutDescriptionWithChipsList
     | LayoutLogoLoop
     | BlogLastPosts
-    | ReadingProgressBar;
+    | BlogReadingProgressBar
+    | LayoutTitle
+    | BlogSearchByCategory;
 
 export interface DynamicPageSections {
     [key: string]: StrapiSection;
@@ -302,19 +304,14 @@ export interface LayoutLogoLoop extends StrapiComponent {
     text_align?: "left" | "center" | "right" | null;
 }
 
-export interface BlogLastPosts extends StrapiComponent {
+export interface BlogLastPosts extends Omit<StrapiComponent, "title"> {
     link_to_page?: LayoutLink | null;
     posts_count: number;
+    title: LayoutTitle;
     related_posts?: Array<LayoutToolChip> | null;
-    title_color?: string;
-    title_size?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-    title_text_align?: "left" | "center" | "right";
-    link_icon_color: TextColors;
-    popover?: string | null;
-    animation_cycles: number;
 }
 
-export interface Post {
+export interface BlogPost {
     documentId: string;
     title: string;
     slug: string;
@@ -325,9 +322,25 @@ export interface Post {
     } | null;
 }
 
-export interface ReadingProgressBar extends StrapiComponent {
+export interface BlogReadingProgressBar extends Omit<StrapiComponent, "title"> {
     position: "top" | "bottom" | "right" | "left";
     reversed: boolean;
     color: "primary" | "secondary" | "warning" | "info" | "error" | "success";
     bar_thickness: string;
+    title: LayoutTitle;
+}
+
+export interface LayoutTitle extends StrapiComponent {
+    color: string;
+    size: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+    text_align: "left" | "center" | "right";
+    link_icon_color: TextColors;
+    popuver?: string | null;
+    animation_cycles: number;
+    link_to_page?: LayoutLink | null;
+}
+
+export interface BlogSearchByCategory extends Omit<StrapiComponent, "title"> {
+    search_form: LayoutForm;
+    title: LayoutTitle;
 }
