@@ -1,3 +1,5 @@
+import { BlogPostCategory } from "./blogPostCategories";
+
 export interface DynamicPage {
     documentId: string;
     id: number;
@@ -11,6 +13,7 @@ export interface DynamicPage {
     metadata: Record<string, unknown>;
     background_music: string;
     use_server: boolean;
+    a_post_categories?: Array<BlogPostCategory> | null;
 }
 
 export interface StrapiComponent {
