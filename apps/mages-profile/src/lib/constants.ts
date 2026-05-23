@@ -7,6 +7,10 @@ export const dynamicPageFields = [
     "use_server",
 ];
 
+export const populateDynamicPageRelations = {
+    categories: { fields: ["name", "id", "documentId"] },
+};
+
 export const populateProjectsSection = {
     "sections.projects-section": {
         populate: {

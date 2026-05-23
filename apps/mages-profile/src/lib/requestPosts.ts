@@ -5,7 +5,7 @@ import {
     Pagination,
     BlogPost,
 } from "@repo/type-definitions/dynamic-page";
-import { dynamicPageFields, dynamicZone } from "./constants";
+import { dynamicPageFields } from "./constants";
 import { logData } from "@repo/shared-utils/log-data";
 import { QueryParams } from "@repo/type-definitions";
 
@@ -98,11 +98,6 @@ const fetchPosts: FetchPosts = async ({
                 query: {
                     ...queryParams,
                     fields: dynamicPageFields,
-                    populate: {
-                        sections: {
-                            on: dynamicZone,
-                        },
-                    },
                     pagination: {
                         page: pageNumber,
                         pageSize: posts_count,

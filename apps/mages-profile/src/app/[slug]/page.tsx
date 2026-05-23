@@ -10,7 +10,11 @@ import { redirect } from "next/navigation";
 import { cache } from "react";
 
 import "../globals.css";
-import { dynamicZone, dynamicPageFields } from "@/lib/constants";
+import {
+    dynamicPageFields,
+    dynamicZone,
+    populateDynamicPageRelations,
+} from "@/lib/constants";
 import ClientSideUiEffects from "@/components/DynamicZone/ClientSideUI/ClientSideUiEffects";
 import StarryContainer from "@/components/StarryContainer";
 import DynamicClientZone from "@/components/DynamicZone/Client/DynamicClientZone";
@@ -104,6 +108,7 @@ const getDynamicPage = cache(
                         sections: {
                             on: dynamicZone,
                         },
+                        ...populateDynamicPageRelations,
                     },
                 },
             }

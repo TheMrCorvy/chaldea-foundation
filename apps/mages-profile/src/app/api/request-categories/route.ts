@@ -1,18 +1,11 @@
-import { requestPosts } from "@/lib/requestPosts";
+import requestCategories from "@/lib/requestCategories";
 import { logData } from "@repo/shared-utils/log-data";
-import { LayoutToolChip } from "@repo/type-definitions/dynamic-page";
 import { NextResponse } from "next/server";
 
 const methodNotAllowed = () =>
     NextResponse.json({ error: "Method Not Allowed" }, { status: 405 });
 
-interface RequestPostsBody {
-    posts_count?: number;
-    related_posts?: Array<LayoutToolChip> | null;
-    pageNumber?: number;
-}
-
-export async function POST(request: Request) {
+export async function GET() {
     const apiKey = process.env.PLATFORM_SERVICE_KEY || "";
 
     if (!apiKey) {
@@ -32,30 +25,14 @@ export async function POST(request: Request) {
     }
 
     try {
-        const body = (await request.json()) as RequestPostsBody;
-        const posts_count =
-            typeof body.posts_count === "number" && body.posts_count > 0
-                ? body.posts_count
-                : 5;
-        const related_posts =
-            Array.isArray(body.related_posts) || body.related_posts === null
-                ? body.related_posts
-                : undefined;
-
-        const { data, meta } = await requestPosts({
-            apiKey,
-            posts_count,
-            related_posts,
-            pageNumber: body.pageNumber || 1,
-        });
-
+        const { data, meta } = await requestCategories({ apiKey });
         return NextResponse.json({ data, meta }, { status: 200 });
     } catch (error) {
         logData({
             type: "error",
-            title: "Failed to process request-posts endpoint",
+            title: "Failed to process request-categories endpoint",
             data: { error },
-            layer: "internal_http_requests",
+            layer: "external_http_requests",
             timeStamp: true,
             addSeparatorAfter: true,
             addSpaceAfter: true,
@@ -68,7 +45,7 @@ export async function POST(request: Request) {
     }
 }
 
-export function GET() {
+export function POST() {
     return methodNotAllowed();
 }
 

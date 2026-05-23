@@ -13,7 +13,7 @@ export interface DynamicPage {
     metadata: Record<string, unknown>;
     background_music: string;
     use_server: boolean;
-    a_post_categories?: Array<BlogPostCategory> | null;
+    categories?: Array<BlogPostCategory> | null;
 }
 
 export interface StrapiComponent {

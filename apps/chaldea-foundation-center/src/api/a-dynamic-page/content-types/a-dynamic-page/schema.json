@@ -68,7 +68,7 @@
             "required": true,
             "default": false
         },
-        "a_post_categories": {
+        "categories": {
             "type": "relation",
             "relation": "oneToMany",
             "target": "api::a-post-category.a-post-category"
