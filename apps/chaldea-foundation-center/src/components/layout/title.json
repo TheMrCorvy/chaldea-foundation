@@ -1,0 +1,63 @@
+{
+    "collectionName": "components_layout_titles",
+    "info": {
+        "displayName": "Title",
+        "icon": "gate"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "color": {
+            "type": "string",
+            "default": "#eeeeee",
+            "required": true
+        },
+        "size": {
+            "type": "enumeration",
+            "required": true,
+            "default": "h4",
+            "enum": ["h1", "h2", "h3", "h4", "h5", "h6"]
+        },
+        "text_align": {
+            "type": "enumeration",
+            "required": true,
+            "default": "center",
+            "enum": ["left", "center", "right"]
+        },
+        "link_icon_color": {
+            "type": "enumeration",
+            "required": true,
+            "default": "info",
+            "enum": [
+                "primary",
+                "secondary",
+                "warning",
+                "info",
+                "error",
+                "success",
+                "inherit"
+            ]
+        },
+        "popover": {
+            "type": "string"
+        },
+        "animation_cycles": {
+            "type": "integer",
+            "required": true,
+            "default": 2,
+            "min": 1,
+            "max": 10
+        },
+        "link_to_page": {
+            "type": "component",
+            "component": "layout.link",
+            "repeatable": false
+        }
+    },
+    "config": {}
+}

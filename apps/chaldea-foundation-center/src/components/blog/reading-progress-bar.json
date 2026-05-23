@@ -7,7 +7,10 @@
     "options": {},
     "attributes": {
         "title": {
-            "type": "string"
+            "type": "component",
+            "component": "layout.title",
+            "repeatable": false,
+            "required": true
         },
         "component_id": {
             "type": "string"

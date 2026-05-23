@@ -1,0 +1,17 @@
+{
+    "collectionName": "components_blog_search_by_categories",
+    "info": {
+        "displayName": "Search by Category",
+        "icon": "search"
+    },
+    "options": {},
+    "attributes": {
+        "component_id": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        }
+    },
+    "config": {}
+}
