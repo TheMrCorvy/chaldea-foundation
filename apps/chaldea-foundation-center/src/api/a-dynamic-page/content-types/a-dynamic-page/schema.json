@@ -57,14 +57,21 @@
                 "layout.description-with-chips-list",
                 "layout.logo-loop",
                 "blog.last-posts",
-                "blog.reading-progress-bar"
+                "blog.reading-progress-bar",
+                "layout.title",
+                "blog.search-by-category"
             ],
             "required": false
         },
         "use_server": {
             "type": "boolean",
             "required": true,
-            "default": true
+            "default": false
+        },
+        "a_post_categories": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::a-post-category.a-post-category"
         }
     }
 }

@@ -10,7 +10,16 @@
             "type": "string"
         },
         "title": {
-            "type": "string"
+            "type": "component",
+            "component": "layout.title",
+            "repeatable": false,
+            "required": true
+        },
+        "search_form": {
+            "type": "component",
+            "component": "layout.form",
+            "repeatable": false,
+            "required": true
         }
     },
     "config": {}

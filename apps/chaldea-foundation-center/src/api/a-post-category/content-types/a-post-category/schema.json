@@ -1,0 +1,25 @@
+{
+    "kind": "collectionType",
+    "collectionName": "a_post_categories",
+    "info": {
+        "singularName": "a-post-category",
+        "pluralName": "a-post-categories",
+        "displayName": "A - Post Category"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50,
+            "required": true
+        },
+        "publishedAt": {
+            "type": "datetime",
+            "configurable": false
+        }
+    }
+}
