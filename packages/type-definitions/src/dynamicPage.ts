@@ -344,6 +344,5 @@ export interface LayoutTitle extends StrapiComponent {
 }
 
 export interface BlogSearchByCategory extends Omit<StrapiComponent, "title"> {
-    search_form: LayoutForm;
     title: LayoutTitle;
 }
