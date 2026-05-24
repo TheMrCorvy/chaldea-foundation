@@ -345,4 +345,5 @@ export interface LayoutTitle extends StrapiComponent {
 
 export interface BlogSearchByCategory extends Omit<StrapiComponent, "title"> {
     title: LayoutTitle;
+    posts_count: number;
 }

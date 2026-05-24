@@ -1,19 +1,21 @@
 "use client";
 
 import { BlogSearchByCategory } from "@repo/type-definitions/dynamic-page";
-import { FC, useState, KeyboardEvent, useEffect } from "react";
+import { FC, useState, KeyboardEvent, useEffect, ChangeEvent } from "react";
 import {
     Box,
     Chip,
     TextField,
     InputAdornment,
     IconButton,
+    Pagination,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import DynamicTitle from "../DynamicTitle";
 import useStyles from "./useStyles";
 import useCategories from "./useCategories";
 import IconComponent from "../../../IconComponent";
+import { ApiPostsResponse } from "../DynamicLastPosts";
 
 const chipVariants = {
     hidden: { opacity: 0, scale: 0.85, filter: "blur(4px)" },
@@ -35,7 +37,10 @@ const inputVariants = {
     },
 };
 
-const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({ title }) => {
+const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
+    title,
+    posts_count,
+}) => {
     const {
         selectedChipStyles,
         unselectedChipStyles,
@@ -50,51 +55,87 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({ title }) => {
         useCategories();
 
     const [searchTerm, setSearchTerm] = useState("");
+    const [pageNumber, setPageNumber] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     const performSearch = async (
         currentSearchTerm: string,
         currentCategory: string
     ) => {
-        try {
-            const response = await fetch("/api/request-posts", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    category:
-                        currentCategory === "All categories"
-                            ? undefined
-                            : currentCategory,
-                    searchQuery: currentSearchTerm.trim() || undefined,
-                }),
-            });
+        const response = await fetch("/api/request-posts", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                category:
+                    currentCategory === "All categories"
+                        ? undefined
+                        : currentCategory,
+                searchQuery: currentSearchTerm.trim() || undefined,
+                pageNumber,
+                posts_count,
+            }),
+        });
 
-            if (response.ok) {
-                const data = await response.json();
-                console.clear();
-                console.log("Search results:", data);
-            }
-        } catch (error) {
-            console.error("Error fetching searched posts:", error);
+        if (response.ok) {
+            const data = (await response.json()) as ApiPostsResponse;
+
+            return data;
         }
+
+        return {
+            data: [],
+            meta: {
+                pagination: {
+                    page: 1,
+                    pageSize: posts_count,
+                    pageCount: 1,
+                    total: 0,
+                },
+            },
+        };
+    };
+
+    const handleResult = (data: ApiPostsResponse) => {
+        setTotalPages(data.meta.pagination.pageCount);
     };
 
     const handleSearch = () => {
-        performSearch(searchTerm, selectedCategory);
+        const result = performSearch(searchTerm, selectedCategory);
+        result?.then(handleResult);
     };
 
     useEffect(() => {
         if (selectedCategory) {
-            performSearch(searchTerm, selectedCategory);
+            const result = performSearch(searchTerm, selectedCategory);
+            result?.then(handleResult);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedCategory]);
+    }, [selectedCategory, pageNumber]);
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
             handleSearch();
         }
+    };
+
+    const handlePageChange = async (
+        _event: ChangeEvent<unknown>,
+        value: number
+    ) => {
+        // postsContainerRef.current?.scrollTo({
+        //     left: 0,
+        //     behavior: "smooth",
+        // });
+
+        // if (isMobile) {
+        //     await new Promise<void>((resolve) => {
+        //         window.setTimeout(resolve, 900);
+        //     });
+        // }
+
+        setPageNumber(value);
     };
 
     return (
@@ -183,6 +224,33 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({ title }) => {
                     />
                 </Box>
             </Box>
+            {totalPages > 1 && (
+                <span
+                    style={{
+                        flexGrow: 1,
+                        justifyContent: "flex-end",
+                        display: "flex",
+                        marginTop: "5rem",
+                    }}
+                >
+                    <Pagination
+                        page={pageNumber}
+                        count={totalPages}
+                        onChange={handlePageChange}
+                        color="primary"
+                        variant="outlined"
+                        shape="rounded"
+                        sx={{
+                            "& .MuiPaginationItem-root": {
+                                color: "#eeeeee",
+                            },
+                            "& .Mui-selected": {
+                                color: "#fff",
+                            },
+                        }}
+                    />
+                </span>
+            )}
         </Box>
     );
 };

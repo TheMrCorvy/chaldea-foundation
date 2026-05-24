@@ -14,6 +14,11 @@
             "component": "layout.title",
             "repeatable": false,
             "required": true
+        },
+        "posts_count": {
+            "type": "integer",
+            "required": true,
+            "default": 5
         }
     },
     "config": {}

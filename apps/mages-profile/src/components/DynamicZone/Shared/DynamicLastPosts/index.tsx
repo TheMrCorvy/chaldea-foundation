@@ -8,7 +8,7 @@ import { Box } from "@mui/joy";
 import { RequestPostsResponse } from "@/lib/requestPosts";
 import { Pagination as MUIPagination } from "@mui/material";
 
-interface ApiPostsResponse extends RequestPostsResponse {
+export interface ApiPostsResponse extends RequestPostsResponse {
     error?: string;
 }
 
@@ -20,8 +20,6 @@ const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
     posts_count,
     related_posts,
     title,
-    id,
-    link_to_page,
     isMobile,
 }) => {
     const [posts, setPosts] = useState<Array<BlogPost>>([]);

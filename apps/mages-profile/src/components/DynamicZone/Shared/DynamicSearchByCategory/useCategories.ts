@@ -50,7 +50,9 @@ const useCategories = () => {
     }, []);
 
     const handleCategoryClick = (categoryName: string) => {
-        setSelectedCategory(categoryName);
+        setSelectedCategory(
+            categoryName === selectedCategory ? "All categories" : categoryName
+        );
     };
 
     return { categories, loading, selectedCategory, handleCategoryClick };
