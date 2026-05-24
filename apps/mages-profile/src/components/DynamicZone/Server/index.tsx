@@ -14,6 +14,7 @@ import {
     SectionsProjectsSection,
     StrapiPDFComponent,
     StrapiSection,
+    BlogSearchByCategory,
 } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import DynamicProjectsSection from "./DynamicProjectsSection";
@@ -30,6 +31,7 @@ import DynamicBlogImage from "./DynamicBlogImage";
 import DynamicLogoLoop from "./DynamicLogoLoop";
 import DynamicLastPosts from "../Shared/DynamicLastPosts";
 import DynamicReadingProgressBar from "../Shared/DynamicReadingProgressBar";
+import DynamicSearchByCategory from "../Shared/DynamicSearchByCategory";
 
 export interface DynamicZoneComponentProps {
     section: StrapiSection;
@@ -120,6 +122,13 @@ const DynamicZoneComponentForServer: FC<DynamicZoneComponentProps> = ({
             return (
                 <DynamicReadingProgressBar
                     {...(section as BlogReadingProgressBar)}
+                />
+            );
+
+        case "blog.search-by-category":
+            return (
+                <DynamicSearchByCategory
+                    {...(section as BlogSearchByCategory)}
                 />
             );
 

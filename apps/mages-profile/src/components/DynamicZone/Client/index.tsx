@@ -3,6 +3,7 @@ import {
     BlogImageComponent,
     BlogLastPosts,
     BlogReadingProgressBar,
+    BlogSearchByCategory,
     BlogText,
     LayoutDescriptionWithChipsList,
     LayoutForm,
@@ -30,6 +31,7 @@ import DynamicBlogImage from "./DynamicBlogImage";
 import DynamicLogoLoop from "./DynamicLogoLoop";
 import DynamicLastPosts from "../Shared/DynamicLastPosts";
 import DynamicReadingProgressBar from "../Shared/DynamicReadingProgressBar";
+import DynamicSearchByCategory from "../Shared/DynamicSearchByCategory";
 
 export interface DynamicZoneComponentProps {
     section: StrapiSection;
@@ -133,6 +135,12 @@ const DynamicZoneComponentForClient: FC<DynamicZoneComponentProps> = ({
             return (
                 <DynamicReadingProgressBar
                     {...(section as BlogReadingProgressBar)}
+                />
+            );
+        case "blog.search-by-category":
+            return (
+                <DynamicSearchByCategory
+                    {...(section as BlogSearchByCategory)}
                 />
             );
 
