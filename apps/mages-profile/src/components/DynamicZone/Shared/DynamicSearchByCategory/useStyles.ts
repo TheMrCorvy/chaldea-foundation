@@ -9,8 +9,8 @@ const useStyles: MUIStylesService = () => {
             maxWidth: "1300px",
             minWidth: 0,
             boxSizing: "border-box",
-            gap: 4,
             mb: 4,
+            minHeight: "35rem",
         },
         mainChipsContainer: {
             display: "flex",
@@ -19,7 +19,7 @@ const useStyles: MUIStylesService = () => {
             justifyContent: "space-between",
             alignItems: { xs: "stretch", lg: "center" },
             boxSizing: "border-box",
-            gap: 4,
+            pt: 3,
         },
         chipsContentStyles: {
             display: "flex",
@@ -117,6 +117,48 @@ const useStyles: MUIStylesService = () => {
             "& .MuiOutlinedInput-input": {
                 py: 1.1,
             },
+        },
+        resultsContainer: {
+            display: "flex",
+            flexDirection: "row",
+            gap: 3,
+            overflowX: "scroll",
+            overflowY: "hidden",
+            width: "100%",
+            py: 3,
+            "&::-webkit-scrollbar": {
+                height: "6px",
+            },
+            "&::-webkit-scrollbar-track": {
+                background: "rgba(255, 255, 255, 0.05)",
+                borderRadius: "10px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+                background: "rgba(56, 182, 255, 0.3)",
+                borderRadius: "10px",
+            },
+            "&::-webkit-scrollbar-thumb:hover": {
+                background: "rgba(56, 182, 255, 0.5)",
+            },
+        },
+        resultCard: {
+            minWidth: 280,
+            maxWidth: 280,
+            backgroundColor: "rgba(12, 36, 72, 0.4)",
+            border: "1px solid rgba(56, 182, 255, 0.3)",
+            backdropFilter: "blur(4px)",
+            borderRadius: 2,
+            color: "#eeeeee",
+            display: "flex",
+            flexDirection: "column",
+        },
+        placeholderImage: {
+            height: 140,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "rgba(0, 0, 0, 0.2)",
+            color: "rgba(178, 221, 255, 0.5)",
         },
     };
 };

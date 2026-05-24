@@ -1,7 +1,17 @@
 "use client";
 
-import { BlogSearchByCategory } from "@repo/type-definitions/dynamic-page";
-import { FC, useState, KeyboardEvent, useEffect, ChangeEvent } from "react";
+import {
+    BlogSearchByCategory,
+    BlogPost,
+} from "@repo/type-definitions/dynamic-page";
+import {
+    FC,
+    useState,
+    KeyboardEvent,
+    useEffect,
+    ChangeEvent,
+    useRef,
+} from "react";
 import {
     Box,
     Chip,
@@ -9,6 +19,10 @@ import {
     InputAdornment,
     IconButton,
     Pagination,
+    Card,
+    CardMedia,
+    CardContent,
+    Typography,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import DynamicTitle from "../DynamicTitle";
@@ -49,6 +63,9 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
         chipsContentStyles,
         searchFormContainer,
         searchInputStyles,
+        resultsContainer,
+        resultCard,
+        placeholderImage,
     } = useStyles();
 
     const { categories, selectedCategory, handleCategoryClick } =
@@ -58,9 +75,16 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
     const [pageNumber, setPageNumber] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
 
+    const [posts, setPosts] = useState<BlogPost[]>([]);
+    const [isResultsOpen, setIsResultsOpen] = useState(false);
+    const [pendingSearch, setPendingSearch] = useState(false);
+
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
     const performSearch = async (
         currentSearchTerm: string,
-        currentCategory: string
+        currentCategory: string,
+        currentPage: number
     ) => {
         const response = await fetch("/api/request-posts", {
             method: "POST",
@@ -73,14 +97,13 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
                         ? undefined
                         : currentCategory,
                 searchQuery: currentSearchTerm.trim() || undefined,
-                pageNumber,
+                pageNumber: currentPage,
                 posts_count,
             }),
         });
 
         if (response.ok) {
             const data = (await response.json()) as ApiPostsResponse;
-
             return data;
         }
 
@@ -89,7 +112,7 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
             meta: {
                 pagination: {
                     page: 1,
-                    pageSize: posts_count,
+                    pageSize: posts_count || 5,
                     pageCount: 1,
                     total: 0,
                 },
@@ -97,19 +120,34 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
         };
     };
 
-    const handleResult = (data: ApiPostsResponse) => {
-        setTotalPages(data.meta.pagination.pageCount);
+    const runSearch = async () => {
+        const data = await performSearch(
+            searchTerm,
+            selectedCategory,
+            pageNumber
+        );
+
+        setPosts((data.data as BlogPost[]) || []);
+        setTotalPages(data.meta?.pagination?.pageCount || 1);
+        setIsResultsOpen(true);
+    };
+
+    const executeSearchFlow = () => {
+        if (isResultsOpen) {
+            setPendingSearch(true);
+            setIsResultsOpen(false);
+        } else {
+            runSearch();
+        }
     };
 
     const handleSearch = () => {
-        const result = performSearch(searchTerm, selectedCategory);
-        result?.then(handleResult);
+        executeSearchFlow();
     };
 
     useEffect(() => {
         if (selectedCategory) {
-            const result = performSearch(searchTerm, selectedCategory);
-            result?.then(handleResult);
+            executeSearchFlow();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedCategory, pageNumber]);
@@ -124,17 +162,6 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
         _event: ChangeEvent<unknown>,
         value: number
     ) => {
-        // postsContainerRef.current?.scrollTo({
-        //     left: 0,
-        //     behavior: "smooth",
-        // });
-
-        // if (isMobile) {
-        //     await new Promise<void>((resolve) => {
-        //         window.setTimeout(resolve, 900);
-        //     });
-        // }
-
         setPageNumber(value);
     };
 
@@ -224,13 +251,122 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
                     />
                 </Box>
             </Box>
+
+            <motion.div
+                variants={{
+                    open: {
+                        height: "auto",
+                        opacity: 1,
+                        marginTop: "1rem",
+                        transition: { duration: 0.5, staggerChildren: 0.1 },
+                    },
+                    closed: {
+                        height: 0,
+                        opacity: 0,
+                        marginTop: "0rem",
+                        transition: { duration: 0.4 },
+                    },
+                }}
+                initial="closed"
+                animate={isResultsOpen ? "open" : "closed"}
+                onAnimationComplete={(definition) => {
+                    if (definition === "closed") {
+                        if (scrollContainerRef.current) {
+                            scrollContainerRef.current.scrollLeft = 0;
+                        }
+                        if (pendingSearch) {
+                            setPendingSearch(false);
+                            runSearch();
+                        }
+                    }
+                }}
+                style={{ overflow: "hidden" }}
+            >
+                <Box sx={resultsContainer} ref={scrollContainerRef}>
+                    {posts.length === 0 ? (
+                        <Typography
+                            sx={{ color: "rgba(255,255,255,0.7)", p: 2 }}
+                        >
+                            No posts found.
+                        </Typography>
+                    ) : (
+                        posts.map((post) => (
+                            <motion.div
+                                key={post.documentId || post.slug}
+                                variants={{
+                                    open: { opacity: 1, y: 0 },
+                                    closed: { opacity: 0, y: 20 },
+                                }}
+                            >
+                                <Card sx={resultCard}>
+                                    {post.cover_image &&
+                                    typeof post.cover_image === "object" &&
+                                    "url" in
+                                        (post.cover_image as Record<
+                                            string,
+                                            unknown
+                                        >) ? (
+                                        <CardMedia
+                                            component="img"
+                                            height="140"
+                                            image={String(
+                                                (
+                                                    post.cover_image as Record<
+                                                        string,
+                                                        unknown
+                                                    >
+                                                ).url
+                                            )}
+                                            alt={post.title}
+                                        />
+                                    ) : (
+                                        <Box sx={placeholderImage}>
+                                            <IconComponent name="Search" />
+                                        </Box>
+                                    )}
+                                    <CardContent>
+                                        <Typography
+                                            gutterBottom
+                                            variant="h6"
+                                            component="div"
+                                            sx={{
+                                                fontWeight: "bold",
+                                                fontSize: "1rem",
+                                                whiteSpace: "nowrap",
+                                                overflow: "hidden",
+                                                textOverflow: "ellipsis",
+                                            }}
+                                        >
+                                            {post.title}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            color="text.secondary"
+                                            sx={{
+                                                color: "rgba(255,255,255,0.7)",
+                                                display: "-webkit-box",
+                                                WebkitLineClamp: 3,
+                                                WebkitBoxOrient: "vertical",
+                                                overflow: "hidden",
+                                            }}
+                                        >
+                                            {post.description}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
+                        ))
+                    )}
+                </Box>
+            </motion.div>
+
             {totalPages > 1 && (
                 <span
                     style={{
                         flexGrow: 1,
                         justifyContent: "flex-end",
                         display: "flex",
-                        marginTop: "5rem",
+                        marginTop: "2rem",
                     }}
                 >
                     <Pagination
