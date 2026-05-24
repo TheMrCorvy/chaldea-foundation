@@ -20,6 +20,8 @@ export interface ScanContext {
     rootRealPath: string;
     visitedRealDirectories: Set<string>;
     seenRealFiles: Set<string>;
+    allowedApps: string[];
+    allowedExtensions: string[];
 }
 
 export interface StorageFunctions {

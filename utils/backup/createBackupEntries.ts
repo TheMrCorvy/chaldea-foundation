@@ -1,5 +1,9 @@
 import fs from "fs";
 
+import {
+    ALLOWED_APPS_FOR_MEDIA_BACKUP,
+    ALLOWED_MEDIA_FILE_EXTENSIONS,
+} from "../../config/config";
 import buildBackupEntry from "./buildBackupEntry";
 import collectBackupFiles from "./collectBackupFiles";
 import ensureBackupIdsFile from "./ensureBackupIdsFile";
@@ -19,6 +23,8 @@ export default async function createBackupEntries(
         rootRealPath,
         visitedRealDirectories: new Set([rootRealPath]),
         seenRealFiles: new Set(),
+        allowedApps: ALLOWED_APPS_FOR_MEDIA_BACKUP,
+        allowedExtensions: ALLOWED_MEDIA_FILE_EXTENSIONS,
     };
 
     await collectBackupFiles(rootPath, collectedFiles, scanContext);

@@ -50,7 +50,14 @@ export default async function collectBackupFiles(
             continue;
         }
 
-        if (!shouldBackupFile(entry.name)) {
+        if (
+            !shouldBackupFile(
+                entry.name,
+                directoryPath,
+                scanContext.allowedApps,
+                scanContext.allowedExtensions
+            )
+        ) {
             continue;
         }
 

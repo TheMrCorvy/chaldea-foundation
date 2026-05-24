@@ -1,4 +1,9 @@
-export default function shouldBackupFile(fileName: string): boolean {
+export default function shouldBackupFile(
+    fileName: string,
+    directoryPath: string,
+    allowedApps: string[],
+    allowedExtensions: string[]
+): boolean {
     if (
         fileName.includes(".example") ||
         fileName.includes(".sample") ||
@@ -20,6 +25,18 @@ export default function shouldBackupFile(fileName: string): boolean {
     }
 
     if (fileName === "backupIds.json") {
+        return true;
+    }
+
+    const normalizedPath = directoryPath.replace(/\\/g, "/");
+    const hasAllowedExtension = allowedExtensions.some((ext) =>
+        fileName.endsWith(ext)
+    );
+    const isInAllowedApp = allowedApps.some(
+        (app) => normalizedPath.split(app).length > 1
+    );
+
+    if (hasAllowedExtension && isInAllowedApp) {
         return true;
     }
 
