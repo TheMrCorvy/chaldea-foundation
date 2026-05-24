@@ -10,6 +10,8 @@ interface RequestPostsBody {
     posts_count?: number;
     related_posts?: Array<LayoutToolChip> | null;
     pageNumber?: number;
+    category?: string;
+    searchQuery?: string;
 }
 
 export async function POST(request: Request) {
@@ -47,6 +49,8 @@ export async function POST(request: Request) {
             posts_count,
             related_posts,
             pageNumber: body.pageNumber || 1,
+            category: body.category,
+            searchQuery: body.searchQuery,
         });
 
         return NextResponse.json({ data, meta }, { status: 200 });

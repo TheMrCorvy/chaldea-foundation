@@ -14,6 +14,8 @@ export interface RequestPostsParams {
     apiKey: string;
     related_posts?: Array<LayoutToolChip> | null;
     pageNumber: number;
+    category?: string;
+    searchQuery?: string;
 }
 
 export interface RequestPostsResponse {
@@ -32,8 +34,65 @@ export const requestPosts: RequestPosts = async ({
     posts_count,
     related_posts,
     pageNumber,
+    category,
+    searchQuery,
 }) => {
     let queryParams: QueryParams;
+
+    if (category || searchQuery) {
+        let filters: Record<string, unknown> = {
+            slug: {
+                $startsWith: `blog/`,
+            },
+        };
+
+        if (searchQuery && (!category || category === "All categories")) {
+            filters = {
+                ...filters,
+                $or: [
+                    { title: { $containsi: searchQuery } },
+                    { description: { $containsi: searchQuery } },
+                ],
+            };
+        } else if (category && category !== "All categories" && searchQuery) {
+            filters = {
+                ...filters,
+                categories: {
+                    name: {
+                        $eq: category,
+                    },
+                },
+                $or: [
+                    { title: { $containsi: searchQuery } },
+                    { description: { $containsi: searchQuery } },
+                ],
+            };
+        } else if (category && category !== "All categories" && !searchQuery) {
+            filters = {
+                ...filters,
+                categories: {
+                    name: {
+                        $eq: category,
+                    },
+                },
+            };
+        }
+
+        queryParams = {
+            filters,
+            sort: ["updatedAt:desc"],
+            pagination: {
+                pageSize: posts_count || 5,
+            },
+        };
+
+        return await fetchPosts({
+            apiKey,
+            queryParams,
+            pageNumber,
+            posts_count,
+        });
+    }
 
     if (related_posts && related_posts.length > 0) {
         const relatedSlugs = related_posts
@@ -47,6 +106,7 @@ export const requestPosts: RequestPosts = async ({
                         $in: relatedSlugs,
                     },
                 },
+                sort: ["updatedAt:desc"],
             };
 
             return await fetchPosts({

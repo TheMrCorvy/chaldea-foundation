@@ -1,7 +1,7 @@
 "use client";
 
 import { BlogSearchByCategory } from "@repo/type-definitions/dynamic-page";
-import { FC, useState, KeyboardEvent } from "react";
+import { FC, useState, KeyboardEvent, useEffect } from "react";
 import {
     Box,
     Chip,
@@ -51,10 +51,45 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({ title }) => {
 
     const [searchTerm, setSearchTerm] = useState("");
 
-    const handleSearch = () => {
-        if (!searchTerm.trim()) return;
-        console.log("Searching for:", searchTerm);
+    const performSearch = async (
+        currentSearchTerm: string,
+        currentCategory: string
+    ) => {
+        try {
+            const response = await fetch("/api/request-posts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    category:
+                        currentCategory === "All categories"
+                            ? undefined
+                            : currentCategory,
+                    searchQuery: currentSearchTerm.trim() || undefined,
+                }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.clear();
+                console.log("Search results:", data);
+            }
+        } catch (error) {
+            console.error("Error fetching searched posts:", error);
+        }
     };
+
+    const handleSearch = () => {
+        performSearch(searchTerm, selectedCategory);
+    };
+
+    useEffect(() => {
+        if (selectedCategory) {
+            performSearch(searchTerm, selectedCategory);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedCategory]);
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
