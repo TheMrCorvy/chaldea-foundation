@@ -7,7 +7,6 @@ import {
     TextField,
     InputAdornment,
     IconButton,
-    Pagination,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import DynamicTitle from "../DynamicTitle";
@@ -16,7 +15,8 @@ import useCategories from "./useCategories";
 import IconComponent from "../../../IconComponent";
 import usePosts from "./usePosts";
 import { FC } from "react";
-import SearchResultsDisplay from "./SearchResultsDisplay";
+import HorizontalScrollablePosts from "./HorizontalScrollablePosts";
+import Pagination from "@/components/Pagination";
 
 const chipVariants = {
     hidden: { opacity: 0, scale: 0.85, filter: "blur(4px)" },
@@ -165,7 +165,7 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
                 </Box>
             </Box>
 
-            <SearchResultsDisplay
+            <HorizontalScrollablePosts
                 isOpen={isResultsOpen}
                 posts={posts}
                 scrollContainerRef={scrollContainerRef}
@@ -181,33 +181,11 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
                 }}
             />
 
-            {totalPages > 1 && (
-                <span
-                    style={{
-                        flexGrow: 1,
-                        justifyContent: "flex-end",
-                        display: "flex",
-                        marginTop: "2rem",
-                    }}
-                >
-                    <Pagination
-                        page={pageNumber}
-                        count={totalPages}
-                        onChange={handlePageChange}
-                        color="primary"
-                        variant="outlined"
-                        shape="rounded"
-                        sx={{
-                            "& .MuiPaginationItem-root": {
-                                color: "#eeeeee",
-                            },
-                            "& .Mui-selected": {
-                                color: "#fff",
-                            },
-                        }}
-                    />
-                </span>
-            )}
+            <Pagination
+                totalPages={totalPages}
+                pageNumber={pageNumber}
+                handlePageChange={handlePageChange}
+            />
         </Box>
     );
 };

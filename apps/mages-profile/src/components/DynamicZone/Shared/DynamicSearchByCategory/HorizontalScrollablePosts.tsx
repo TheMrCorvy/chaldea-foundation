@@ -6,14 +6,14 @@ import useStyles from "./useStyles";
 import IconComponent from "../../../IconComponent";
 import HologramGlitchText from "../../../HologramGlitchText";
 
-interface SearchResultsDisplayProps {
+interface HorizontalScrollablePostsProps {
     isOpen: boolean;
     posts: BlogPost[];
     scrollContainerRef: RefObject<HTMLDivElement | null>;
     onCloseAnimationComplete: () => void;
 }
 
-const SearchResultsDisplay: FC<SearchResultsDisplayProps> = ({
+const HorizontalScrollablePosts: FC<HorizontalScrollablePostsProps> = ({
     isOpen,
     posts,
     scrollContainerRef,
@@ -144,4 +144,4 @@ const SearchResultsDisplay: FC<SearchResultsDisplayProps> = ({
     );
 };
 
-export default SearchResultsDisplay;
+export default HorizontalScrollablePosts;
