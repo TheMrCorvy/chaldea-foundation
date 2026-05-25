@@ -33,40 +33,64 @@ const StarryContainer: FC<StarryContainerProps> = ({ children }) => {
     return (
         <Box
             sx={{
-                minHeight: "100dvh",
+                height: "100dvh",
+                width: "100%",
                 position: "relative",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                overflowY: "auto",
+                overflowX: "hidden",
                 background:
                     "radial-gradient(ellipse 80% 50% at 60% 100%, #051e3e, #041a33, #000d1a)",
             }}
             component="main"
             data-sound="button"
         >
-            {stars.map((star, index) => (
-                <motion.div
-                    key={index}
-                    style={{
-                        position: "absolute",
-                        top: star.top,
-                        left: star.left,
-                        width: star.size,
-                        height: star.size,
-                        backgroundColor: "white",
-                        borderRadius: "50%",
-                    }}
-                    animate={{
-                        opacity: [0.2, 1, 0.2],
-                    }}
-                    transition={{
-                        duration: star.duration,
-                        repeat: Infinity,
-                        repeatType: "loop",
-                    }}
-                />
-            ))}
-            {children}
+            <Box
+                sx={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    pointerEvents: "none",
+                    zIndex: 0,
+                }}
+            >
+                {stars.map((star, index) => (
+                    <motion.div
+                        key={index}
+                        style={{
+                            position: "absolute",
+                            top: star.top,
+                            left: star.left,
+                            width: star.size,
+                            height: star.size,
+                            backgroundColor: "white",
+                            borderRadius: "50%",
+                        }}
+                        animate={{
+                            opacity: [0.2, 1, 0.2],
+                        }}
+                        transition={{
+                            duration: star.duration,
+                            repeat: Infinity,
+                            repeatType: "loop",
+                        }}
+                    />
+                ))}
+            </Box>
+            <Box
+                sx={{
+                    position: "relative",
+                    minHeight: "100dvh",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    zIndex: 1,
+                }}
+            >
+                {children}
+            </Box>
         </Box>
     );
 };

@@ -19,7 +19,7 @@ const useStyles: MUIStylesService = () => {
             justifyContent: "space-between",
             alignItems: { xs: "stretch", lg: "center" },
             boxSizing: "border-box",
-            pt: 3,
+            pt: 6,
         },
         chipsContentStyles: {
             display: "flex",

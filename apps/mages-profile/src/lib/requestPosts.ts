@@ -5,7 +5,7 @@ import {
     Pagination,
     BlogPost,
 } from "@repo/type-definitions/dynamic-page";
-import { dynamicPageFields } from "./constants";
+import { dynamicPageFields, populateDynamicPageRelations } from "./constants";
 import { logData } from "@repo/shared-utils/log-data";
 import { QueryParams } from "@repo/type-definitions";
 
@@ -157,7 +157,10 @@ const fetchPosts: FetchPosts = async ({
             {
                 query: {
                     ...queryParams,
-                    fields: dynamicPageFields,
+                    fields: Array.from(
+                        new Set([...dynamicPageFields, "updatedAt"])
+                    ),
+                    populate: populateDynamicPageRelations,
                     pagination: {
                         page: pageNumber,
                         pageSize: posts_count,
@@ -214,6 +217,8 @@ const prettifyPosts = (
         slug: post.slug,
         description: post.description,
         cover_image: null,
+        categories: post.categories,
+        updatedAt: post.updatedAt,
     }));
 
     return {

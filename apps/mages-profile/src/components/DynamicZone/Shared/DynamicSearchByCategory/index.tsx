@@ -146,9 +146,13 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
     };
 
     useEffect(() => {
-        if (selectedCategory) {
-            executeSearchFlow();
-        }
+        const triggerSearchFlow = async () => {
+            if (selectedCategory) {
+                executeSearchFlow();
+            }
+        };
+
+        triggerSearchFlow();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedCategory, pageNumber]);
 

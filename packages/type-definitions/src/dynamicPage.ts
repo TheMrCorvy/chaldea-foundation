@@ -323,6 +323,8 @@ export interface BlogPost {
         url: string;
         alt?: string | null;
     } | null;
+    categories?: Array<BlogPostCategory> | null;
+    updatedAt?: string;
 }
 
 export interface BlogReadingProgressBar extends Omit<StrapiComponent, "title"> {
