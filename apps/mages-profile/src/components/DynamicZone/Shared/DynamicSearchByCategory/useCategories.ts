@@ -49,13 +49,7 @@ const useCategories = () => {
         };
     }, []);
 
-    const handleCategoryClick = (categoryName: string) => {
-        setSelectedCategory(
-            categoryName === selectedCategory ? "All categories" : categoryName
-        );
-    };
-
-    return { categories, loading, selectedCategory, handleCategoryClick };
+    return { categories, loading, selectedCategory, setSelectedCategory };
 };
 
 export default useCategories;

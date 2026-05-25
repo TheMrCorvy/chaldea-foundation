@@ -1,17 +1,6 @@
 "use client";
 
-import {
-    BlogSearchByCategory,
-    BlogPost,
-} from "@repo/type-definitions/dynamic-page";
-import {
-    FC,
-    useState,
-    KeyboardEvent,
-    useEffect,
-    ChangeEvent,
-    useRef,
-} from "react";
+import { BlogSearchByCategory } from "@repo/type-definitions/dynamic-page";
 import {
     Box,
     Chip,
@@ -19,17 +8,15 @@ import {
     InputAdornment,
     IconButton,
     Pagination,
-    Card,
-    CardMedia,
-    CardContent,
-    Typography,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import DynamicTitle from "../DynamicTitle";
 import useStyles from "./useStyles";
 import useCategories from "./useCategories";
 import IconComponent from "../../../IconComponent";
-import { ApiPostsResponse } from "../DynamicLastPosts";
+import usePosts from "./usePosts";
+import { FC } from "react";
+import SearchResultsDisplay from "./SearchResultsDisplay";
 
 const chipVariants = {
     hidden: { opacity: 0, scale: 0.85, filter: "blur(4px)" },
@@ -63,117 +50,39 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
         chipsContentStyles,
         searchFormContainer,
         searchInputStyles,
-        resultsContainer,
-        resultCard,
-        placeholderImage,
     } = useStyles();
 
-    const { categories, selectedCategory, handleCategoryClick } =
+    const { categories, selectedCategory, setSelectedCategory } =
         useCategories();
 
-    const [searchTerm, setSearchTerm] = useState("");
-    const [pageNumber, setPageNumber] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
+    const {
+        searchTerm,
+        setSearchTerm,
+        handleKeyDown,
+        posts,
+        isResultsOpen,
+        pendingSearch,
+        setPendingSearch,
+        pageNumber,
+        totalPages,
+        handlePageChange,
+        scrollContainerRef,
+        setPosts,
+        handleSearch,
+        runSearch,
+        setPageNumber,
+    } = usePosts({ posts_count, selectedCategory });
 
-    const [posts, setPosts] = useState<BlogPost[]>([]);
-    const [isResultsOpen, setIsResultsOpen] = useState(false);
-    const [pendingSearch, setPendingSearch] = useState(false);
-
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-    const performSearch = async (
-        currentSearchTerm: string,
-        currentCategory: string,
-        currentPage: number
-    ) => {
-        const response = await fetch("/api/request-posts", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                category:
-                    currentCategory === "All categories"
-                        ? undefined
-                        : currentCategory,
-                searchQuery: currentSearchTerm.trim() || undefined,
-                pageNumber: currentPage,
-                posts_count,
-            }),
-        });
-
-        if (response.ok) {
-            const data = (await response.json()) as ApiPostsResponse;
-            return data;
-        }
-
-        return {
-            data: [],
-            meta: {
-                pagination: {
-                    page: 1,
-                    pageSize: posts_count || 5,
-                    pageCount: 1,
-                    total: 0,
-                },
-            },
-        };
-    };
-
-    const runSearch = async () => {
-        const data = await performSearch(
-            searchTerm,
-            selectedCategory,
-            pageNumber
+    const handleCategoryClick = (categoryName: string) => {
+        setPageNumber(1);
+        setSelectedCategory(
+            categoryName === selectedCategory ? "All categories" : categoryName
         );
-
-        setPosts((data.data as BlogPost[]) || []);
-        setTotalPages(data.meta?.pagination?.pageCount || 1);
-        setIsResultsOpen(true);
-    };
-
-    const executeSearchFlow = () => {
-        if (isResultsOpen) {
-            setPendingSearch(true);
-            setIsResultsOpen(false);
-        } else {
-            runSearch();
-        }
-    };
-
-    const handleSearch = () => {
-        executeSearchFlow();
-    };
-
-    useEffect(() => {
-        const triggerSearchFlow = async () => {
-            if (selectedCategory) {
-                executeSearchFlow();
-            }
-        };
-
-        triggerSearchFlow();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedCategory, pageNumber]);
-
-    const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === "Enter") {
-            handleSearch();
-        }
-    };
-
-    const handlePageChange = async (
-        _event: ChangeEvent<unknown>,
-        value: number
-    ) => {
-        setPageNumber(value);
     };
 
     return (
         <Box sx={{ ...root }}>
-            <Box>
-                <DynamicTitle {...title} title={title.title || ""} />
-            </Box>
+            <DynamicTitle {...title} title={title.title || ""} />
             <Box sx={mainChipsContainer}>
                 <Box sx={chipsContentStyles}>
                     <motion.div
@@ -256,113 +165,21 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
                 </Box>
             </Box>
 
-            <motion.div
-                variants={{
-                    open: {
-                        height: "auto",
-                        opacity: 1,
-                        marginTop: "1rem",
-                        transition: { duration: 0.5, staggerChildren: 0.1 },
-                    },
-                    closed: {
-                        height: 0,
-                        opacity: 0,
-                        marginTop: "0rem",
-                        transition: { duration: 0.4 },
-                    },
-                }}
-                initial="closed"
-                animate={isResultsOpen ? "open" : "closed"}
-                onAnimationComplete={(definition) => {
-                    if (definition === "closed") {
-                        if (scrollContainerRef.current) {
-                            scrollContainerRef.current.scrollLeft = 0;
-                        }
-                        if (pendingSearch) {
-                            setPendingSearch(false);
-                            runSearch();
-                        }
+            <SearchResultsDisplay
+                isOpen={isResultsOpen}
+                posts={posts}
+                scrollContainerRef={scrollContainerRef}
+                onCloseAnimationComplete={() => {
+                    if (scrollContainerRef.current) {
+                        scrollContainerRef.current.scrollLeft = 0;
+                    }
+                    if (pendingSearch) {
+                        setPosts([]);
+                        setPendingSearch(false);
+                        runSearch();
                     }
                 }}
-                style={{ overflow: "hidden" }}
-            >
-                <Box sx={resultsContainer} ref={scrollContainerRef}>
-                    {posts.length === 0 ? (
-                        <Typography
-                            sx={{ color: "rgba(255,255,255,0.7)", p: 2 }}
-                        >
-                            No posts found.
-                        </Typography>
-                    ) : (
-                        posts.map((post) => (
-                            <motion.div
-                                key={post.documentId || post.slug}
-                                variants={{
-                                    open: { opacity: 1, y: 0 },
-                                    closed: { opacity: 0, y: 20 },
-                                }}
-                            >
-                                <Card sx={resultCard}>
-                                    {post.cover_image &&
-                                    typeof post.cover_image === "object" &&
-                                    "url" in
-                                        (post.cover_image as Record<
-                                            string,
-                                            unknown
-                                        >) ? (
-                                        <CardMedia
-                                            component="img"
-                                            height="140"
-                                            image={String(
-                                                (
-                                                    post.cover_image as Record<
-                                                        string,
-                                                        unknown
-                                                    >
-                                                ).url
-                                            )}
-                                            alt={post.title}
-                                        />
-                                    ) : (
-                                        <Box sx={placeholderImage}>
-                                            <IconComponent name="Search" />
-                                        </Box>
-                                    )}
-                                    <CardContent>
-                                        <Typography
-                                            gutterBottom
-                                            variant="h6"
-                                            component="div"
-                                            sx={{
-                                                fontWeight: "bold",
-                                                fontSize: "1rem",
-                                                whiteSpace: "nowrap",
-                                                overflow: "hidden",
-                                                textOverflow: "ellipsis",
-                                            }}
-                                        >
-                                            {post.title}
-                                        </Typography>
-                                        <Typography
-                                            variant="body2"
-                                            color="text.secondary"
-                                            sx={{
-                                                color: "rgba(255,255,255,0.7)",
-                                                display: "-webkit-box",
-                                                WebkitLineClamp: 3,
-                                                WebkitBoxOrient: "vertical",
-                                                overflow: "hidden",
-                                            }}
-                                        >
-                                            {post.description}
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                            </motion.div>
-                        ))
-                    )}
-                </Box>
-            </motion.div>
+            />
 
             {totalPages > 1 && (
                 <span
