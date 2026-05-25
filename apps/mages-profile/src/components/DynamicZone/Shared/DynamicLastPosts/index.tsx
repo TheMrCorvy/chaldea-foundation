@@ -7,6 +7,7 @@ import PostCard from "./PostCard";
 import { Box } from "@mui/joy";
 import { RequestPostsResponse } from "@/lib/requestPosts";
 import { Pagination as MUIPagination } from "@mui/material";
+import LatestPostsLayout from "@/components/LatestPostsLayout";
 
 export interface ApiPostsResponse extends RequestPostsResponse {
     error?: string;
@@ -102,7 +103,7 @@ const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
             {isLoading && <p>Loading posts...</p>}
             {error && <p style={{ color: "red" }}>{error}</p>}
 
-            <Box
+            {/* <Box
                 ref={postsContainerRef}
                 sx={{
                     marginTop: "1.5rem",
@@ -125,7 +126,8 @@ const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
                 {posts.map((post, index) => (
                     <PostCard key={post.documentId} post={post} index={index} />
                 ))}
-            </Box>
+            </Box> */}
+            <LatestPostsLayout posts={posts} />
             {totalPages > 1 && (
                 <span
                     style={{
