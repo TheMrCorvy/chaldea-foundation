@@ -3,11 +3,10 @@
 import { BlogLastPosts, BlogPost } from "@repo/type-definitions/dynamic-page";
 import { ChangeEvent, FC, useEffect, useRef, useState } from "react";
 import DynamicTitle from "../DynamicTitle";
-import PostCard from "./PostCard";
 import { Box } from "@mui/joy";
 import { RequestPostsResponse } from "@/lib/requestPosts";
-import { Pagination as MUIPagination } from "@mui/material";
 import LatestPostsLayout from "@/components/LatestPostsLayout";
+import Pagination from "@/components/Pagination";
 
 export interface ApiPostsResponse extends RequestPostsResponse {
     error?: string;
@@ -103,58 +102,12 @@ const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
             {isLoading && <p>Loading posts...</p>}
             {error && <p style={{ color: "red" }}>{error}</p>}
 
-            {/* <Box
-                ref={postsContainerRef}
-                sx={{
-                    marginTop: "1.5rem",
-                    display: "flex",
-                    gap: { xs: "1rem", md: "2.5rem" },
-                    flexDirection: "row",
-                    justifyContent: { xs: "flex-start", md: "space-around" },
-                    flexWrap: { xs: "nowrap", md: "wrap" },
-                    overflowX: { xs: "auto", md: "visible" },
-                    pt: 6,
-                    pb: { xs: 3, md: 0 },
-                    scrollSnapType: { xs: "x mandatory", md: "none" },
-                    WebkitOverflowScrolling: "touch",
-                    "& > *": {
-                        flexShrink: 0,
-                        scrollSnapAlign: { xs: "start", md: "none" },
-                    },
-                }}
-            >
-                {posts.map((post, index) => (
-                    <PostCard key={post.documentId} post={post} index={index} />
-                ))}
-            </Box> */}
             <LatestPostsLayout posts={posts} />
-            {totalPages > 1 && (
-                <span
-                    style={{
-                        flexGrow: 1,
-                        justifyContent: "flex-end",
-                        display: "flex",
-                        marginTop: "5rem",
-                    }}
-                >
-                    <MUIPagination
-                        page={pageNumber}
-                        count={totalPages}
-                        onChange={handlePageChange}
-                        color="primary"
-                        variant="outlined"
-                        shape="rounded"
-                        sx={{
-                            "& .MuiPaginationItem-root": {
-                                color: "#eeeeee",
-                            },
-                            "& .Mui-selected": {
-                                color: "#fff",
-                            },
-                        }}
-                    />
-                </span>
-            )}
+            <Pagination
+                pageNumber={pageNumber}
+                totalPages={totalPages}
+                handlePageChange={handlePageChange}
+            />
         </Box>
     );
 };

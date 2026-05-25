@@ -77,7 +77,7 @@ const LatestPostsLayout: FC<LatestPostsLayoutProps> = ({ posts }) => {
     return (
         <Grid
             container
-            spacing={2}
+            spacing={4}
             columns={12}
             sx={{ my: 4 }}
             justifyContent="center"
@@ -110,6 +110,43 @@ const LatestPostsLayout: FC<LatestPostsLayoutProps> = ({ posts }) => {
                                 height: "100%",
                             }}
                         >
+                            {!post.cover_image ? (
+                                <Box
+                                    sx={{
+                                        height: 150,
+                                        borderBottom:
+                                            "1px solid rgba(255, 255, 255, 0.1)",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        borderRadius: "8px",
+                                        background:
+                                            "radial-gradient(circle at 20% 30%, rgba(66, 165, 245, 0.22), transparent 55%), radial-gradient(circle at 80% 70%, rgba(255, 160, 0, 0.2), transparent 58%), linear-gradient(160deg, rgba(12, 27, 44, 0.94), rgba(13, 40, 64, 0.7))",
+                                    }}
+                                >
+                                    <Typography
+                                        variant="caption"
+                                        sx={{
+                                            color: "rgba(226, 241, 255, 0.86)",
+                                            letterSpacing: "0.18em",
+                                            textTransform: "uppercase",
+                                            fontWeight: 700,
+                                        }}
+                                    >
+                                        CHALDEA ARCHIVE FEED
+                                    </Typography>
+                                </Box>
+                            ) : (
+                                <img
+                                    src={post.cover_image.url}
+                                    alt={post.title}
+                                    style={{
+                                        height: "150px",
+                                        width: "100%",
+                                        borderRadius: "8px",
+                                    }}
+                                />
+                            )}
                             <Link
                                 href={"/" + post.slug}
                                 target="_self"
