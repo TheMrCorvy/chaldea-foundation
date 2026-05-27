@@ -125,7 +125,8 @@ const useStyles: MUIStylesService = () => {
             overflowX: "scroll",
             overflowY: "hidden",
             width: "100%",
-            py: 3,
+            pt: 3,
+            pb: 6,
             "&::-webkit-scrollbar": {
                 height: "6px",
             },
@@ -151,6 +152,8 @@ const useStyles: MUIStylesService = () => {
             color: "#eeeeee",
             display: "flex",
             flexDirection: "column",
+            textAlign: "left",
+            textDecoration: "none",
         },
         placeholderImage: {
             height: 140,

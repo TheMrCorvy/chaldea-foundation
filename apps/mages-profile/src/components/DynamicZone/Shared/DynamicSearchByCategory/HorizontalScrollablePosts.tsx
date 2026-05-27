@@ -5,6 +5,7 @@ import { BlogPost } from "@repo/type-definitions/dynamic-page";
 import useStyles from "./useStyles";
 import IconComponent from "../../../IconComponent";
 import HologramGlitchText from "../../../HologramGlitchText";
+import PostImagePlaceHolder from "@/components/PostImagePlaceHolder";
 
 interface HorizontalScrollablePostsProps {
     isOpen: boolean;
@@ -19,7 +20,7 @@ const HorizontalScrollablePosts: FC<HorizontalScrollablePostsProps> = ({
     scrollContainerRef,
     onCloseAnimationComplete,
 }) => {
-    const { resultsContainer, resultCard, placeholderImage } = useStyles();
+    const { resultsContainer, resultCard } = useStyles();
 
     const handleAnimationComplete = (definition: unknown) => {
         if (definition === "closed") {
@@ -32,78 +33,70 @@ const HorizontalScrollablePosts: FC<HorizontalScrollablePostsProps> = ({
     if (posts.length > 0) {
         content = (
             <Box sx={resultsContainer} ref={scrollContainerRef}>
-                {posts.map((post) => {
-                    let mediaContent = (
-                        <Box sx={placeholderImage}>
-                            <IconComponent name="Search" />
-                        </Box>
-                    );
-
-                    if (
-                        post.cover_image &&
-                        typeof post.cover_image === "object" &&
-                        "url" in (post.cover_image as Record<string, unknown>)
-                    ) {
-                        mediaContent = (
-                            <CardMedia
-                                component="img"
-                                height="140"
-                                image={String(
-                                    (
-                                        post.cover_image as Record<
-                                            string,
-                                            unknown
-                                        >
-                                    ).url
-                                )}
-                                alt={post.title}
-                            />
-                        );
-                    }
-
-                    return (
-                        <motion.div
-                            key={post.documentId || post.slug}
-                            variants={{
-                                open: { opacity: 1, y: 0 },
-                                closed: { opacity: 0, y: 20 },
-                            }}
+                {posts.map((post) => (
+                    <motion.div
+                        key={post.documentId || post.slug}
+                        variants={{
+                            open: { opacity: 1, y: 0 },
+                            closed: { opacity: 0, y: 20 },
+                        }}
+                    >
+                        <Card
+                            sx={resultCard}
+                            component="a"
+                            href={`/${post.slug}`}
+                            target="_self"
+                            rel="noopener noreferrer"
                         >
-                            <Card sx={resultCard}>
-                                {mediaContent}
-                                <CardContent>
-                                    <Typography
-                                        gutterBottom
-                                        variant="h6"
-                                        component="div"
-                                        sx={{
-                                            fontWeight: "bold",
-                                            fontSize: "1rem",
-                                            whiteSpace: "nowrap",
-                                            overflow: "hidden",
-                                            textOverflow: "ellipsis",
-                                        }}
-                                    >
-                                        {post.title}
-                                    </Typography>
-                                    <Typography
-                                        variant="body2"
-                                        color="text.secondary"
-                                        sx={{
-                                            color: "rgba(255,255,255,0.7)",
-                                            display: "-webkit-box",
-                                            WebkitLineClamp: 3,
-                                            WebkitBoxOrient: "vertical",
-                                            overflow: "hidden",
-                                        }}
-                                    >
-                                        {post.description}
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                        </motion.div>
-                    );
-                })}
+                            {post.cover_image ? (
+                                <CardMedia
+                                    component="img"
+                                    height="140"
+                                    image={String(
+                                        (
+                                            post.cover_image as Record<
+                                                string,
+                                                unknown
+                                            >
+                                        ).url
+                                    )}
+                                    alt={post.title}
+                                />
+                            ) : (
+                                <PostImagePlaceHolder />
+                            )}
+                            <CardContent>
+                                <Typography
+                                    gutterBottom
+                                    variant="h6"
+                                    component="div"
+                                    sx={{
+                                        fontWeight: "bold",
+                                        fontSize: "1rem",
+                                        whiteSpace: "nowrap",
+                                        overflow: "hidden",
+                                        textOverflow: "ellipsis",
+                                    }}
+                                >
+                                    {post.title}
+                                </Typography>
+                                <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                    sx={{
+                                        color: "rgba(255,255,255,0.7)",
+                                        display: "-webkit-box",
+                                        WebkitLineClamp: 3,
+                                        WebkitBoxOrient: "vertical",
+                                        overflow: "hidden",
+                                    }}
+                                >
+                                    {post.description}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+                ))}
             </Box>
         );
     } else {
