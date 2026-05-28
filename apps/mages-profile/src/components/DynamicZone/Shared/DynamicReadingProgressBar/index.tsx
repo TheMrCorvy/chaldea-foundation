@@ -2,7 +2,20 @@
 
 import { Box, LinearProgress } from "@mui/material";
 import { BlogReadingProgressBar } from "@repo/type-definitions/dynamic-page";
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
+
+/**
+ * Walks up the DOM tree to find the first element that has an explicit
+ * overflow auto/scroll style (e.g. StarryContainer's main Box).
+ * Returns null when reaching the document root — the caller falls back to
+ * window-level scroll in that case.
+ */
+function getScrollableParent(el: HTMLElement | null): HTMLElement | null {
+    if (!el || el === document.documentElement) return null;
+    const { overflow, overflowY } = window.getComputedStyle(el);
+    if (/auto|scroll/.test(overflow + overflowY)) return el;
+    return getScrollableParent(el.parentElement);
+}
 
 const DynamicReadingProgressBar: FC<BlogReadingProgressBar> = ({
     position,
@@ -12,17 +25,32 @@ const DynamicReadingProgressBar: FC<BlogReadingProgressBar> = ({
 }) => {
     const [progress, setProgress] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
+    const sentinelRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         let frameId = 0;
 
+        // Detect the nearest scrollable ancestor (e.g. StarryContainer).
+        // If none is found, fall back to window / document.documentElement.
+        const scrollEl = getScrollableParent(
+            sentinelRef.current?.parentElement ?? null
+        );
+
         const computeProgress = () => {
-            const root = document.documentElement;
-            const scrollTop = window.scrollY || root.scrollTop || 0;
-            const maxScroll = Math.max(
-                root.scrollHeight - root.clientHeight,
-                0
-            );
+            let scrollTop: number;
+            let maxScroll: number;
+
+            if (scrollEl) {
+                scrollTop = scrollEl.scrollTop;
+                maxScroll = Math.max(
+                    scrollEl.scrollHeight - scrollEl.clientHeight,
+                    0
+                );
+            } else {
+                const root = document.documentElement;
+                scrollTop = window.scrollY || root.scrollTop || 0;
+                maxScroll = Math.max(root.scrollHeight - root.clientHeight, 0);
+            }
 
             if (scrollTop <= 0 || maxScroll <= 0) {
                 setProgress(0);
@@ -47,7 +75,10 @@ const DynamicReadingProgressBar: FC<BlogReadingProgressBar> = ({
 
         computeProgress();
 
-        window.addEventListener("scroll", onScrollOrResize, { passive: true });
+        const scrollTarget: EventTarget = scrollEl ?? window;
+        scrollTarget.addEventListener("scroll", onScrollOrResize, {
+            passive: true,
+        });
         window.addEventListener("resize", onScrollOrResize);
 
         return () => {
@@ -55,7 +86,7 @@ const DynamicReadingProgressBar: FC<BlogReadingProgressBar> = ({
                 cancelAnimationFrame(frameId);
             }
 
-            window.removeEventListener("scroll", onScrollOrResize);
+            scrollTarget.removeEventListener("scroll", onScrollOrResize);
             window.removeEventListener("resize", onScrollOrResize);
         };
     }, [reversed]);
@@ -140,32 +171,35 @@ const DynamicReadingProgressBar: FC<BlogReadingProgressBar> = ({
         [isVertical, resolvedThickness]
     );
 
-    if (!isVisible) {
-        return null;
-    }
-
     return (
-        <Box sx={containerSx}>
-            <LinearProgress
-                variant="determinate"
-                value={progress}
-                color={color}
-                sx={progressSx}
-                aria-label="Reading progress"
-            />
-            {isVertical && (
-                <Box
-                    sx={{
-                        position: "absolute",
-                        inset: 0,
-                        background:
-                            "repeating-linear-gradient(180deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 4px)",
-                        mixBlendMode: "screen",
-                        opacity: 0.35,
-                    }}
-                />
+        <>
+            {/* Sentinel: always in the DOM so useEffect can locate the
+                scrollable ancestor via parentElement traversal. */}
+            <div ref={sentinelRef} style={{ display: "none" }} aria-hidden />
+            {isVisible && (
+                <Box sx={containerSx}>
+                    <LinearProgress
+                        variant="determinate"
+                        value={progress}
+                        color={color}
+                        sx={progressSx}
+                        aria-label="Reading progress"
+                    />
+                    {isVertical && (
+                        <Box
+                            sx={{
+                                position: "absolute",
+                                inset: 0,
+                                background:
+                                    "repeating-linear-gradient(180deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 4px)",
+                                mixBlendMode: "screen",
+                                opacity: 0.35,
+                            }}
+                        />
+                    )}
+                </Box>
             )}
-        </Box>
+        </>
     );
 };
 
