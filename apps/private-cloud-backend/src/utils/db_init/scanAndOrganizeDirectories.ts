@@ -1,5 +1,5 @@
 import { logData } from '@repo/shared-utils/log-data';
-import { scanSingleFolder } from '../../services/diskService';
+import { scanSingleFolder } from '../../services/disk.service';
 import { LocalDirectory } from '../typesDefinition';
 import { VerifyEnvResult } from '../../types/dbInit';
 

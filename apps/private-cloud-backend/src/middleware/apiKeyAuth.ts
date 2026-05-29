@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express';
-import { verifyApiKey } from '../services/apiKeyService';
+import { verifyApiKey } from '../services/apiKey.service';
 
 declare module 'express-serve-static-core' {
     interface Request {
