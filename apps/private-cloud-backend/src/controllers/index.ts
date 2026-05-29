@@ -1,0 +1,4 @@
+export { default as healthController } from './health.controller';
+export { default as v1EpisodeController } from './v1Episode.controller';
+export { default as v2EpisodeController } from './v2Episode.controller';
+export { default as v2EpisodeSubtitlesController } from './v2EpisodeSubtitles.controller';
