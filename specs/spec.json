@@ -292,7 +292,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-05-23T22:15:06.863Z",
+                                                        "default": "2026-05-29T17:32:15.937Z",
                                                         "type": "string"
                                                     },
                                                     "slug": {
@@ -480,7 +480,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.886Z",
+                                                    "default": "2026-05-29T17:32:15.949Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -587,7 +587,7 @@
                                         "properties": {
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:06.884Z",
+                                                "default": "2026-05-29T17:32:15.948Z",
                                                 "type": "string"
                                             },
                                             "slug": {
@@ -885,7 +885,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.879Z",
+                                                    "default": "2026-05-29T17:32:15.945Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -1084,7 +1084,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.893Z",
+                                                    "default": "2026-05-29T17:32:15.953Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -1191,7 +1191,7 @@
                                         "properties": {
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:06.890Z",
+                                                "default": "2026-05-29T17:32:15.951Z",
                                                 "type": "string"
                                             },
                                             "slug": {
@@ -1392,7 +1392,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.897Z",
+                                                    "default": "2026-05-29T17:32:15.954Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -1749,7 +1749,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-05-23T22:15:06.906Z",
+                                                        "default": "2026-05-29T17:32:15.963Z",
                                                         "type": "string"
                                                     },
                                                     "createdAt": {
@@ -1887,7 +1887,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.918Z",
+                                                    "default": "2026-05-29T17:32:15.966Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -1949,7 +1949,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:08.012Z",
+                                                "default": "2026-05-29T17:32:16.801Z",
                                                 "type": "string"
                                             }
                                         },
@@ -2159,7 +2159,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.910Z",
+                                                    "default": "2026-05-29T17:32:15.965Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -2308,7 +2308,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.922Z",
+                                                    "default": "2026-05-29T17:32:15.968Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -2370,7 +2370,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:06.922Z",
+                                                "default": "2026-05-29T17:32:15.967Z",
                                                 "type": "string"
                                             }
                                         },
@@ -2509,7 +2509,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.924Z",
+                                                    "default": "2026-05-29T17:32:15.969Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -2553,6 +2553,1397 @@
                     }
                 },
                 "tags": ["a-post-category"]
+            }
+        },
+        "/a-social-media-posts": {
+            "get": {
+                "operationId": "a-social-media-post/get/a_social_media_posts",
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The fields to return, this doesn't include populatable fields like relations, components, files, or dynamic zones",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "title",
+                                    "Body",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Filters to apply to the query",
+                            "type": "object",
+                            "propertyNames": {
+                                "type": "string",
+                                "enum": [
+                                    "title",
+                                    "Body",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            },
+                            "additionalProperties": {}
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "_q",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "type": "string"
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "pagination",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Pagination parameters",
+                            "allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "withCount": {
+                                            "description": "Include total count in response",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "anyOf": [
+                                        {
+                                            "description": "Page-based pagination",
+                                            "type": "object",
+                                            "properties": {
+                                                "page": {
+                                                    "description": "Page number (1-based)",
+                                                    "type": "integer",
+                                                    "exclusiveMinimum": 0,
+                                                    "maximum": 9007199254740991
+                                                },
+                                                "pageSize": {
+                                                    "description": "Number of entries per page",
+                                                    "type": "integer",
+                                                    "exclusiveMinimum": 0,
+                                                    "maximum": 9007199254740991
+                                                }
+                                            },
+                                            "required": ["page", "pageSize"],
+                                            "additionalProperties": false
+                                        },
+                                        {
+                                            "description": "Offset-based pagination",
+                                            "type": "object",
+                                            "properties": {
+                                                "start": {
+                                                    "description": "Number of entries to skip",
+                                                    "type": "integer",
+                                                    "minimum": 0,
+                                                    "maximum": 9007199254740991
+                                                },
+                                                "limit": {
+                                                    "description": "Maximum number of entries to return",
+                                                    "type": "integer",
+                                                    "exclusiveMinimum": 0,
+                                                    "maximum": 9007199254740991
+                                                }
+                                            },
+                                            "required": ["start", "limit"],
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Sort the result",
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "title",
+                                        "Body",
+                                        "createdAt",
+                                        "updatedAt",
+                                        "publishedAt"
+                                    ]
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "title",
+                                            "Body",
+                                            "createdAt",
+                                            "updatedAt",
+                                            "publishedAt"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "object",
+                                    "propertyNames": {
+                                        "type": "string",
+                                        "enum": [
+                                            "title",
+                                            "Body",
+                                            "createdAt",
+                                            "updatedAt",
+                                            "publishedAt"
+                                        ]
+                                    },
+                                    "additionalProperties": {
+                                        "type": "string",
+                                        "enum": ["asc", "desc"]
+                                    }
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                            "type": "string",
+                                            "enum": [
+                                                "title",
+                                                "Body",
+                                                "createdAt",
+                                                "updatedAt",
+                                                "publishedAt"
+                                            ]
+                                        },
+                                        "additionalProperties": {
+                                            "type": "string",
+                                            "enum": ["asc", "desc"]
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "description": "Populate all the first level relations, components, files, and dynamic zones for the entry",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "description": "Populate a single relation, component, file, or dynamic zone",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": ["cover_image", "video", "hasgtags"]
+                                },
+                                {
+                                    "description": "Populate a selection of multiple relations, components, files, or dynamic zones",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "cover_image",
+                                            "video",
+                                            "hasgtags"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Fetch documents based on their status. Default to \"published\" if not specified.",
+                            "type": "string",
+                            "enum": ["draft", "published"]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "hasPublishedVersion",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Filter documents by whether they have a published version. Use with status=draft to find documents that have never been published",
+                            "anyOf": [
+                                {
+                                    "type": "boolean"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": ["true", "false"]
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "documentId": {
+                                                        "description": "The document ID, represented by a UUID",
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                    },
+                                                    "id": {
+                                                        "anyOf": [
+                                                            {
+                                                                "type": "string"
+                                                            },
+                                                            {
+                                                                "type": "number"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "title": {
+                                                        "description": "A string field",
+                                                        "type": "string",
+                                                        "minLength": 2,
+                                                        "maxLength": 150
+                                                    },
+                                                    "Body": {
+                                                        "description": "A text field",
+                                                        "type": "string"
+                                                    },
+                                                    "createdAt": {
+                                                        "description": "A datetime field",
+                                                        "type": "string"
+                                                    },
+                                                    "updatedAt": {
+                                                        "description": "A datetime field",
+                                                        "type": "string"
+                                                    },
+                                                    "publishedAt": {
+                                                        "description": "A datetime field",
+                                                        "default": "2026-05-29T17:32:15.972Z",
+                                                        "type": "string"
+                                                    },
+                                                    "cover_image": {
+                                                        "description": "A media field",
+                                                        "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                    },
+                                                    "video": {
+                                                        "description": "A media field",
+                                                        "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                    },
+                                                    "hasgtags": {
+                                                        "description": "A component field",
+                                                        "type": "array",
+                                                        "items": {
+                                                            "$ref": "#/components/schemas/LayoutToolChipEntry"
+                                                        }
+                                                    }
+                                                },
+                                                "required": [
+                                                    "documentId",
+                                                    "id",
+                                                    "title",
+                                                    "Body",
+                                                    "publishedAt"
+                                                ],
+                                                "additionalProperties": false
+                                            }
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["a-social-media-post"]
+            },
+            "post": {
+                "operationId": "a-social-media-post/post/a_social_media_posts",
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The fields to return, this doesn't include populatable fields like relations, components, files, or dynamic zones",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "title",
+                                    "Body",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "description": "Populate all the first level relations, components, files, and dynamic zones for the entry",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "description": "Populate a single relation, component, file, or dynamic zone",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": ["cover_image", "video", "hasgtags"]
+                                },
+                                {
+                                    "description": "Populate a selection of multiple relations, components, files, or dynamic zones",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "cover_image",
+                                            "video",
+                                            "hasgtags"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Fetch documents based on their status. Default to \"published\" if not specified.",
+                            "type": "string",
+                            "enum": ["draft", "published"]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "hasPublishedVersion",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Filter documents by whether they have a published version. Use with status=draft to find documents that have never been published",
+                            "anyOf": [
+                                {
+                                    "type": "boolean"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": ["true", "false"]
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "description": "The document ID, represented by a UUID",
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "type": "number"
+                                                        }
+                                                    ]
+                                                },
+                                                "title": {
+                                                    "description": "A string field",
+                                                    "type": "string",
+                                                    "minLength": 2,
+                                                    "maxLength": 150
+                                                },
+                                                "Body": {
+                                                    "description": "A text field",
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-05-29T17:32:15.984Z",
+                                                    "type": "string"
+                                                },
+                                                "cover_image": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "video": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "hasgtags": {
+                                                    "description": "A component field",
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/LayoutToolChipEntry"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "title",
+                                                "Body",
+                                                "publishedAt"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["a-social-media-post"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "object",
+                                        "properties": {
+                                            "title": {
+                                                "description": "A string field",
+                                                "type": "string",
+                                                "minLength": 2,
+                                                "maxLength": 150
+                                            },
+                                            "Body": {
+                                                "description": "A text field",
+                                                "type": "string"
+                                            },
+                                            "publishedAt": {
+                                                "description": "A datetime field",
+                                                "default": "2026-05-29T17:32:15.984Z",
+                                                "type": "string"
+                                            },
+                                            "cover_image": {
+                                                "description": "A media field"
+                                            },
+                                            "video": {
+                                                "description": "A media field"
+                                            },
+                                            "hasgtags": {
+                                                "description": "A component field",
+                                                "type": "array",
+                                                "items": {}
+                                            }
+                                        },
+                                        "required": [
+                                            "title",
+                                            "Body",
+                                            "publishedAt"
+                                        ],
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "required": ["data"],
+                                "additionalProperties": false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/a-social-media-posts/{id}": {
+            "get": {
+                "operationId": "a-social-media-post/get/a_social_media_posts_by_id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The document ID, represented by a UUID",
+                            "type": "string",
+                            "format": "uuid",
+                            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The fields to return, this doesn't include populatable fields like relations, components, files, or dynamic zones",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "title",
+                                    "Body",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "description": "Populate all the first level relations, components, files, and dynamic zones for the entry",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "description": "Populate a single relation, component, file, or dynamic zone",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": ["cover_image", "video", "hasgtags"]
+                                },
+                                {
+                                    "description": "Populate a selection of multiple relations, components, files, or dynamic zones",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "cover_image",
+                                            "video",
+                                            "hasgtags"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Filters to apply to the query",
+                            "type": "object",
+                            "propertyNames": {
+                                "type": "string",
+                                "enum": [
+                                    "title",
+                                    "Body",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            },
+                            "additionalProperties": {}
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Sort the result",
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "title",
+                                        "Body",
+                                        "createdAt",
+                                        "updatedAt",
+                                        "publishedAt"
+                                    ]
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "title",
+                                            "Body",
+                                            "createdAt",
+                                            "updatedAt",
+                                            "publishedAt"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "object",
+                                    "propertyNames": {
+                                        "type": "string",
+                                        "enum": [
+                                            "title",
+                                            "Body",
+                                            "createdAt",
+                                            "updatedAt",
+                                            "publishedAt"
+                                        ]
+                                    },
+                                    "additionalProperties": {
+                                        "type": "string",
+                                        "enum": ["asc", "desc"]
+                                    }
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                            "type": "string",
+                                            "enum": [
+                                                "title",
+                                                "Body",
+                                                "createdAt",
+                                                "updatedAt",
+                                                "publishedAt"
+                                            ]
+                                        },
+                                        "additionalProperties": {
+                                            "type": "string",
+                                            "enum": ["asc", "desc"]
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Fetch documents based on their status. Default to \"published\" if not specified.",
+                            "type": "string",
+                            "enum": ["draft", "published"]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "hasPublishedVersion",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Filter documents by whether they have a published version. Use with status=draft to find documents that have never been published",
+                            "anyOf": [
+                                {
+                                    "type": "boolean"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": ["true", "false"]
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "description": "The document ID, represented by a UUID",
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "type": "number"
+                                                        }
+                                                    ]
+                                                },
+                                                "title": {
+                                                    "description": "A string field",
+                                                    "type": "string",
+                                                    "minLength": 2,
+                                                    "maxLength": 150
+                                                },
+                                                "Body": {
+                                                    "description": "A text field",
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-05-29T17:32:15.982Z",
+                                                    "type": "string"
+                                                },
+                                                "cover_image": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "video": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "hasgtags": {
+                                                    "description": "A component field",
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/LayoutToolChipEntry"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "title",
+                                                "Body",
+                                                "publishedAt"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["a-social-media-post"]
+            },
+            "put": {
+                "operationId": "a-social-media-post/put/a_social_media_posts_by_id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The document ID, represented by a UUID",
+                            "type": "string",
+                            "format": "uuid",
+                            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The fields to return, this doesn't include populatable fields like relations, components, files, or dynamic zones",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "title",
+                                    "Body",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "description": "Populate all the first level relations, components, files, and dynamic zones for the entry",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "description": "Populate a single relation, component, file, or dynamic zone",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": ["cover_image", "video", "hasgtags"]
+                                },
+                                {
+                                    "description": "Populate a selection of multiple relations, components, files, or dynamic zones",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "cover_image",
+                                            "video",
+                                            "hasgtags"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Fetch documents based on their status. Default to \"published\" if not specified.",
+                            "type": "string",
+                            "enum": ["draft", "published"]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "hasPublishedVersion",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Filter documents by whether they have a published version. Use with status=draft to find documents that have never been published",
+                            "anyOf": [
+                                {
+                                    "type": "boolean"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": ["true", "false"]
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "description": "The document ID, represented by a UUID",
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "type": "number"
+                                                        }
+                                                    ]
+                                                },
+                                                "title": {
+                                                    "description": "A string field",
+                                                    "type": "string",
+                                                    "minLength": 2,
+                                                    "maxLength": 150
+                                                },
+                                                "Body": {
+                                                    "description": "A text field",
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-05-29T17:32:15.987Z",
+                                                    "type": "string"
+                                                },
+                                                "cover_image": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "video": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "hasgtags": {
+                                                    "description": "A component field",
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/LayoutToolChipEntry"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "title",
+                                                "Body",
+                                                "publishedAt"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["a-social-media-post"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "object",
+                                        "properties": {
+                                            "title": {
+                                                "description": "A string field",
+                                                "type": "string",
+                                                "minLength": 2,
+                                                "maxLength": 150
+                                            },
+                                            "Body": {
+                                                "description": "A text field",
+                                                "type": "string"
+                                            },
+                                            "publishedAt": {
+                                                "description": "A datetime field",
+                                                "default": "2026-05-29T17:32:15.986Z",
+                                                "type": "string"
+                                            },
+                                            "cover_image": {
+                                                "description": "A media field"
+                                            },
+                                            "video": {
+                                                "description": "A media field"
+                                            },
+                                            "hasgtags": {
+                                                "description": "A component field",
+                                                "type": "array",
+                                                "items": {}
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "required": ["data"],
+                                "additionalProperties": false
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "a-social-media-post/delete/a_social_media_posts_by_id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The document ID, represented by a UUID",
+                            "type": "string",
+                            "format": "uuid",
+                            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The fields to return, this doesn't include populatable fields like relations, components, files, or dynamic zones",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "title",
+                                    "Body",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "description": "Populate all the first level relations, components, files, and dynamic zones for the entry",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "description": "Populate a single relation, component, file, or dynamic zone",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": ["cover_image", "video", "hasgtags"]
+                                },
+                                {
+                                    "description": "Populate a selection of multiple relations, components, files, or dynamic zones",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "cover_image",
+                                            "video",
+                                            "hasgtags"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Filters to apply to the query",
+                            "type": "object",
+                            "propertyNames": {
+                                "type": "string",
+                                "enum": [
+                                    "title",
+                                    "Body",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            },
+                            "additionalProperties": {}
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Fetch documents based on their status. Default to \"published\" if not specified.",
+                            "type": "string",
+                            "enum": ["draft", "published"]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "hasPublishedVersion",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Filter documents by whether they have a published version. Use with status=draft to find documents that have never been published",
+                            "anyOf": [
+                                {
+                                    "type": "boolean"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": ["true", "false"]
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "description": "The document ID, represented by a UUID",
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "type": "number"
+                                                        }
+                                                    ]
+                                                },
+                                                "title": {
+                                                    "description": "A string field",
+                                                    "type": "string",
+                                                    "minLength": 2,
+                                                    "maxLength": 150
+                                                },
+                                                "Body": {
+                                                    "description": "A text field",
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-05-29T17:32:15.988Z",
+                                                    "type": "string"
+                                                },
+                                                "cover_image": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "video": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "hasgtags": {
+                                                    "description": "A component field",
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/LayoutToolChipEntry"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "title",
+                                                "Body",
+                                                "publishedAt"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["a-social-media-post"]
             }
         },
         "/b-directories": {
@@ -2849,7 +4240,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-05-23T22:15:06.930Z",
+                                                        "default": "2026-05-29T17:32:15.991Z",
                                                         "type": "string"
                                                     },
                                                     "parent_directory": {
@@ -3009,7 +4400,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.940Z",
+                                                    "default": "2026-05-29T17:32:16.006Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -3091,7 +4482,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:06.939Z",
+                                                "default": "2026-05-29T17:32:16.000Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -3346,7 +4737,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.935Z",
+                                                    "default": "2026-05-29T17:32:15.997Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -3517,7 +4908,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.944Z",
+                                                    "default": "2026-05-29T17:32:16.008Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -3599,7 +4990,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:06.943Z",
+                                                "default": "2026-05-29T17:32:16.007Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -3770,7 +5161,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.952Z",
+                                                    "default": "2026-05-29T17:32:16.012Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -4122,7 +5513,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-05-23T22:15:06.959Z",
+                                                        "default": "2026-05-29T17:32:16.020Z",
                                                         "type": "string"
                                                     },
                                                     "parent_directory": {
@@ -4285,7 +5676,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.966Z",
+                                                    "default": "2026-05-29T17:32:16.028Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -4360,7 +5751,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:06.965Z",
+                                                "default": "2026-05-29T17:32:16.026Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -4628,7 +6019,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.963Z",
+                                                    "default": "2026-05-29T17:32:16.024Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -4802,7 +6193,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.974Z",
+                                                    "default": "2026-05-29T17:32:16.032Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -4877,7 +6268,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:06.972Z",
+                                                "default": "2026-05-29T17:32:16.030Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -5054,7 +6445,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.976Z",
+                                                    "default": "2026-05-29T17:32:16.040Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -5391,7 +6782,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-05-23T22:15:06.989Z",
+                                                        "default": "2026-05-29T17:32:16.046Z",
                                                         "type": "string"
                                                     }
                                                 },
@@ -5547,7 +6938,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.995Z",
+                                                    "default": "2026-05-29T17:32:16.053Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -5625,7 +7016,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:08.146Z",
+                                                "default": "2026-05-29T17:32:16.954Z",
                                                 "type": "string"
                                             }
                                         },
@@ -5874,7 +7265,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.992Z",
+                                                    "default": "2026-05-29T17:32:16.050Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -6041,7 +7432,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:06.998Z",
+                                                    "default": "2026-05-29T17:32:16.056Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -6119,7 +7510,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:06.997Z",
+                                                "default": "2026-05-29T17:32:16.055Z",
                                                 "type": "string"
                                             }
                                         },
@@ -6284,7 +7675,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.000Z",
+                                                    "default": "2026-05-29T17:32:16.058Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -6600,7 +7991,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-05-23T22:15:07.007Z",
+                                                        "default": "2026-05-29T17:32:16.061Z",
                                                         "type": "string"
                                                     },
                                                     "media": {
@@ -6746,7 +8137,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.022Z",
+                                                    "default": "2026-05-29T17:32:16.075Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -6807,7 +8198,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:07.015Z",
+                                                "default": "2026-05-29T17:32:16.074Z",
                                                 "type": "string"
                                             },
                                             "media": {
@@ -7040,7 +8431,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.013Z",
+                                                    "default": "2026-05-29T17:32:16.072Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -7197,7 +8588,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.026Z",
+                                                    "default": "2026-05-29T17:32:16.080Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -7258,7 +8649,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:07.025Z",
+                                                "default": "2026-05-29T17:32:16.078Z",
                                                 "type": "string"
                                             },
                                             "media": {
@@ -7412,7 +8803,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.027Z",
+                                                    "default": "2026-05-29T17:32:16.082Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -7771,7 +9162,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-05-23T22:15:07.033Z",
+                                                        "default": "2026-05-29T17:32:16.088Z",
                                                         "type": "string"
                                                     }
                                                 },
@@ -7939,7 +9330,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.042Z",
+                                                    "default": "2026-05-29T17:32:16.096Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -8027,7 +9418,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:08.223Z",
+                                                "default": "2026-05-29T17:32:17.012Z",
                                                 "type": "string"
                                             }
                                         },
@@ -8298,7 +9689,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.037Z",
+                                                    "default": "2026-05-29T17:32:16.091Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -8477,7 +9868,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.045Z",
+                                                    "default": "2026-05-29T17:32:16.102Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -8565,7 +9956,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:07.044Z",
+                                                "default": "2026-05-29T17:32:16.101Z",
                                                 "type": "string"
                                             }
                                         },
@@ -8744,7 +10135,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.054Z",
+                                                    "default": "2026-05-29T17:32:16.104Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -9070,7 +10461,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-05-23T22:15:07.060Z",
+                                                        "default": "2026-05-29T17:32:16.107Z",
                                                         "type": "string"
                                                     },
                                                     "franchises": {
@@ -9224,7 +10615,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.069Z",
+                                                    "default": "2026-05-29T17:32:16.117Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -9292,7 +10683,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:07.068Z",
+                                                "default": "2026-05-29T17:32:16.116Z",
                                                 "type": "string"
                                             },
                                             "franchises": {
@@ -9541,7 +10932,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.066Z",
+                                                    "default": "2026-05-29T17:32:16.113Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -9706,7 +11097,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.073Z",
+                                                    "default": "2026-05-29T17:32:16.119Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -9774,7 +11165,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:07.072Z",
+                                                "default": "2026-05-29T17:32:16.118Z",
                                                 "type": "string"
                                             },
                                             "franchises": {
@@ -9940,7 +11331,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.075Z",
+                                                    "default": "2026-05-29T17:32:16.125Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -10280,7 +11671,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-05-23T22:15:07.088Z",
+                                                        "default": "2026-05-29T17:32:16.130Z",
                                                         "type": "string"
                                                     },
                                                     "anime": {
@@ -10440,7 +11831,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.095Z",
+                                                    "default": "2026-05-29T17:32:16.133Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -10522,7 +11913,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:07.094Z",
+                                                "default": "2026-05-29T17:32:16.133Z",
                                                 "type": "string"
                                             },
                                             "anime": {
@@ -10777,7 +12168,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.092Z",
+                                                    "default": "2026-05-29T17:32:16.132Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -10948,7 +12339,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.097Z",
+                                                    "default": "2026-05-29T17:32:16.135Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -11030,7 +12421,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:07.096Z",
+                                                "default": "2026-05-29T17:32:16.134Z",
                                                 "type": "string"
                                             },
                                             "anime": {
@@ -11201,7 +12592,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.099Z",
+                                                    "default": "2026-05-29T17:32:16.136Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -11539,7 +12930,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-05-23T22:15:07.104Z",
+                                                        "default": "2026-05-29T17:32:16.146Z",
                                                         "type": "string"
                                                     },
                                                     "jurisdiction": {
@@ -11701,7 +13092,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.117Z",
+                                                    "default": "2026-05-29T17:32:16.155Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -11785,7 +13176,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:07.116Z",
+                                                "default": "2026-05-29T17:32:16.154Z",
                                                 "type": "string"
                                             },
                                             "jurisdiction": {
@@ -12042,7 +13433,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.114Z",
+                                                    "default": "2026-05-29T17:32:16.152Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -12215,7 +13606,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.120Z",
+                                                    "default": "2026-05-29T17:32:16.158Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -12299,7 +13690,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-05-23T22:15:07.119Z",
+                                                "default": "2026-05-29T17:32:16.157Z",
                                                 "type": "string"
                                             },
                                             "jurisdiction": {
@@ -12473,7 +13864,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-05-23T22:15:07.123Z",
+                                                    "default": "2026-05-29T17:32:16.160Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -18316,7 +19707,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-05-23T22:15:06.870Z",
+                        "default": "2026-05-29T17:32:15.940Z",
                         "type": "string"
                     },
                     "createdAt": {
@@ -18331,75 +19722,6 @@
                 "required": ["documentId", "id", "name", "publishedAt"],
                 "additionalProperties": false,
                 "id": "ApiAPostCategoryAPostCategoryDocument"
-            },
-            "ApiBDirectoryBDirectoryDocument": {
-                "$schema": "https://json-schema.org/draft/2020-12/schema",
-                "type": "object",
-                "properties": {
-                    "documentId": {
-                        "description": "The document ID, represented by a UUID",
-                        "type": "string",
-                        "format": "uuid",
-                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
-                    },
-                    "id": {
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "number"
-                            }
-                        ]
-                    },
-                    "display_name": {
-                        "description": "A string field",
-                        "type": "string"
-                    },
-                    "path": {
-                        "description": "A text field",
-                        "type": "string"
-                    },
-                    "adult": {
-                        "description": "A boolean field",
-                        "default": false,
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "createdAt": {
-                        "description": "A datetime field",
-                        "type": "string"
-                    },
-                    "updatedAt": {
-                        "description": "A datetime field",
-                        "type": "string"
-                    },
-                    "publishedAt": {
-                        "description": "A datetime field",
-                        "default": "2026-05-23T22:15:06.931Z",
-                        "type": "string"
-                    },
-                    "parent_directory": {
-                        "description": "A relational field",
-                        "$ref": "#/components/schemas/ApiBDirectoryBDirectoryDocument"
-                    }
-                },
-                "required": [
-                    "documentId",
-                    "id",
-                    "display_name",
-                    "path",
-                    "adult",
-                    "publishedAt"
-                ],
-                "additionalProperties": false,
-                "id": "ApiBDirectoryBDirectoryDocument"
             },
             "PluginUploadFileDocument": {
                 "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -18489,7 +19811,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-05-23T22:15:07.010Z",
+                        "default": "2026-05-29T17:32:15.974Z",
                         "type": "string"
                     },
                     "related": {}
@@ -18508,6 +19830,141 @@
                 ],
                 "additionalProperties": false,
                 "id": "PluginUploadFileDocument"
+            },
+            "LayoutToolChipEntry": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "component_id": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "popover": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "icon": {
+                        "description": "A component field",
+                        "$ref": "#/components/schemas/LayoutIconEntry"
+                    }
+                },
+                "required": ["title"],
+                "additionalProperties": false,
+                "id": "LayoutToolChipEntry"
+            },
+            "LayoutIconEntry": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "properties": {
+                    "component_id": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "A string field",
+                        "type": "string",
+                        "minLength": 3,
+                        "maxLength": 20
+                    },
+                    "size": {
+                        "description": "An enum field",
+                        "default": "medium",
+                        "type": "string",
+                        "enum": ["inherit", "small", "medium", "large"]
+                    },
+                    "color": {
+                        "description": "An enum field",
+                        "default": "primary",
+                        "type": "string",
+                        "enum": [
+                            "primary",
+                            "secondary",
+                            "warning",
+                            "info",
+                            "error",
+                            "success",
+                            "disabled",
+                            "inherit",
+                            "action"
+                        ]
+                    }
+                },
+                "required": ["name", "size", "color"],
+                "additionalProperties": false,
+                "id": "LayoutIconEntry"
+            },
+            "ApiBDirectoryBDirectoryDocument": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "properties": {
+                    "documentId": {
+                        "description": "The document ID, represented by a UUID",
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                    },
+                    "id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ]
+                    },
+                    "display_name": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "path": {
+                        "description": "A text field",
+                        "type": "string"
+                    },
+                    "adult": {
+                        "description": "A boolean field",
+                        "default": false,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "createdAt": {
+                        "description": "A datetime field",
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "description": "A datetime field",
+                        "type": "string"
+                    },
+                    "publishedAt": {
+                        "description": "A datetime field",
+                        "default": "2026-05-29T17:32:15.993Z",
+                        "type": "string"
+                    },
+                    "parent_directory": {
+                        "description": "A relational field",
+                        "$ref": "#/components/schemas/ApiBDirectoryBDirectoryDocument"
+                    }
+                },
+                "required": [
+                    "documentId",
+                    "id",
+                    "display_name",
+                    "path",
+                    "adult",
+                    "publishedAt"
+                ],
+                "additionalProperties": false,
+                "id": "ApiBDirectoryBDirectoryDocument"
             },
             "ApiPAnimePAnimeDocument": {
                 "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -18569,7 +20026,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-05-23T22:15:07.063Z",
+                        "default": "2026-05-29T17:32:16.108Z",
                         "type": "string"
                     }
                 },
@@ -18634,7 +20091,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-05-23T22:15:07.062Z",
+                        "default": "2026-05-29T17:32:16.107Z",
                         "type": "string"
                     },
                     "anime": {
@@ -18695,7 +20152,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-05-23T22:15:07.106Z",
+                        "default": "2026-05-29T17:32:16.148Z",
                         "type": "string"
                     },
                     "franchises": {
