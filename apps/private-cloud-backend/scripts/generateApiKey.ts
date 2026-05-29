@@ -1,4 +1,4 @@
-import { generateApiKeyWithPrefix } from '../src/services/apiKeyService';
+import { generateApiKeyWithPrefix } from '../src/services/apiKey.service';
 
 const main = async () => {
     const args = process.argv.slice(2);

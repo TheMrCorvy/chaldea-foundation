@@ -4,6 +4,7 @@ import {
     v1EpisodeController,
     v2EpisodeController,
     v2EpisodeSubtitlesController,
+    strapiWebhookController,
 } from './controllers';
 
 const router = Router();
@@ -20,8 +21,12 @@ router.get('/api/v2/serve-episode', (req: Request, res: Response) => {
     v2EpisodeController(req, res);
 });
 
-router.get('/api/v2/serve-episode/subtitles', (req, res) => {
+router.get('/api/v2/serve-episode/subtitles', (req: Request, res: Response) => {
     v2EpisodeSubtitlesController(req, res);
+});
+
+router.post('/api/v2/platform-service/webhook-listener', (req: Request, res: Response) => {
+    strapiWebhookController(req, res);
 });
 
 // 404 handler
