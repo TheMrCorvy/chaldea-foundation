@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { authenticateApiKey, authenticateApiKeyWithHashes } from '../src/middleware/apiKeyAuth';
-import { generateApiKey } from '../src/services/apiKeyService';
+import { generateApiKey } from '../src/services/apiKey.service';
 
 type MockRequest = Partial<Request> & {
     headers: { [key: string]: string | undefined };

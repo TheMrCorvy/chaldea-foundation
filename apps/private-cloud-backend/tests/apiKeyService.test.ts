@@ -1,4 +1,4 @@
-import { generateApiKey, verifyApiKey, generateApiKeyWithPrefix } from '../src/services/apiKeyService';
+import { generateApiKey, verifyApiKey, generateApiKeyWithPrefix } from '../src/services/apiKey.service';
 
 describe('apiKeyService', () => {
     describe('generateApiKey', () => {

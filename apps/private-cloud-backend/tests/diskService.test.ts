@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { scanSingleFolder, writeJsonFile } from '../src/services/diskService';
+import { scanSingleFolder, writeJsonFile } from '../src/services/disk.service';
 import { LocalDirectory } from '../src/utils/typesDefinition';
 
 // Mock fs module

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { serveVideoFileService } from '../src/services/serveVideoFileService';
+import { serveVideoFileService } from '../src/services/serveVideoFile.service';
 import { isFeatureFlagEnabled, FeatureNames } from '@repo/shared-utils/feature-flags';
 
 jest.mock('fs');
