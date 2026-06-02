@@ -19,3 +19,12 @@ export const ALLOWED_MEDIA_FILE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".gif"];
 export const LINKEDIN_CLIENT_ID = "";
 export const LINKEDIN_CLIENT_SECRET = "";
 export const LINKEDIN_REFRESH_TOKEN = "";
+// Obtain your Person URN by calling GET https://api.linkedin.com/v2/userinfo with a valid
+// access token. The "sub" field in the response is your person ID.
+// Format: "urn:li:person:<sub>"
+export const LINKEDIN_PERSON_URN = "";
+
+export const LINKEDIN_POSTS_URL = "https://api.linkedin.com/rest/posts";
+export const LINKEDIN_TOKEN_URL =
+    "https://www.linkedin.com/oauth/v2/accessToken";
+export const LINKEDIN_API_VERSION = "202401";
