@@ -14,3 +14,8 @@ export const DRIVE_ROOT_FOLDER = "";
 
 export const ALLOWED_APPS_FOR_MEDIA_BACKUP = [];
 export const ALLOWED_MEDIA_FILE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".gif"];
+
+// LinkedIn (Wuphf — OAuth 2.0, scope: w_member_social openid profile)
+export const LINKEDIN_CLIENT_ID = "";
+export const LINKEDIN_CLIENT_SECRET = "";
+export const LINKEDIN_REFRESH_TOKEN = "";

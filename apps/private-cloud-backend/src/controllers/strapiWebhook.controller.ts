@@ -1,8 +1,9 @@
 import type { StrapiWebhookPayload } from '../types/strapiWebhook.types';
 import { Request, Response } from 'express';
 import { logData } from '@repo/shared-utils/log-data';
+import { publishDynamicPageToSocial } from '../services/publishDynamicPage.service';
 
-const strapiWebhookController = (req: Request, res: Response): void => {
+const strapiWebhookController = async (req: Request, res: Response): Promise<void> => {
     const payload = req.body as StrapiWebhookPayload;
 
     switch (payload.event) {
@@ -34,6 +35,19 @@ const strapiWebhookController = (req: Request, res: Response): void => {
                 addSpaceAfter: true,
                 timeStamp: true,
             });
+
+            if (payload.uid === 'api::a-dynamic-page.a-dynamic-page') {
+                const result = await publishDynamicPageToSocial(payload.entry);
+                logData({
+                    title: `Published to social media [${result.provider}] — postId: ${result.postId}`,
+                    data: result,
+                    layer: 'webhooks_received',
+                    type: 'info',
+                    addSeparatorAfter: true,
+                    addSpaceAfter: true,
+                    timeStamp: true,
+                });
+            }
 
             break;
         case 'entry.unpublish':
@@ -67,6 +81,7 @@ const strapiWebhookController = (req: Request, res: Response): void => {
                 timeStamp: true,
             });
             res.status(404).json({ message: `Received unknown event type: ${payload.event}` });
+            return;
     }
 
     res.status(200).json({ message: 'Webhook received successfully' });
