@@ -25,6 +25,7 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
+        "@repo/config": "workspace:*",
         "@repo/platform-service-sdk": "workspace:*",
         "@repo/shared-utils": "workspace:*",
         "@repo/type-definitions": "workspace:*",

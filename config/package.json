@@ -1,0 +1,12 @@
+{
+    "name": "@repo/config",
+    "exports": {
+        ".": {
+            "types": "./config.ts",
+            "default": "./config.ts"
+        }
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "workspace:*"
+    }
+}
