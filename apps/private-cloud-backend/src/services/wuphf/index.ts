@@ -2,16 +2,6 @@ import type { SocialMediaEntry } from '../../types/strapiWebhook.types';
 import { AVAILABLE_PROVIDERS } from './constants';
 import { SocialNetworks, WuphfPostContent, WuphfProvider } from './types';
 
-export function toWuphfPostContent(entry: SocialMediaEntry): WuphfPostContent {
-    return {
-        title: entry.title,
-        body: entry.body,
-        hashtags: entry.hasgtags ?? [],
-        videoUrl: entry.video?.url ?? null,
-        coverImageUrl: entry.cover_image?.url ?? null,
-    };
-}
-
 export class Wuphf {
     private providers: Map<SocialNetworks, WuphfProvider>;
 
@@ -21,15 +11,26 @@ export class Wuphf {
         );
     }
 
+    private toPostContent(entry: SocialMediaEntry): WuphfPostContent {
+        return {
+            title: entry.title,
+            body: entry.body,
+            hashtags: entry.hasgtags ?? [],
+            videoUrl: entry.video?.url ?? null,
+            coverImageUrl: entry.cover_image?.url ?? null,
+        };
+    }
+
     /**
      * Post content to one or more social networks simultaneously.
      * Settled results are returned so a single failure does not abort the others.
      */
     async post(
         networks: SocialNetworks | SocialNetworks[],
-        content: WuphfPostContent
+        entry: SocialMediaEntry
     ): Promise<PromiseSettledResult<void>[]> {
         const targets = Array.isArray(networks) ? networks : [networks];
+        const content = this.toPostContent(entry);
 
         return Promise.allSettled(
             targets.map(network => {
