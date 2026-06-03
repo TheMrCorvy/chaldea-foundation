@@ -19,7 +19,8 @@
         "initialize:db": "ts-node scripts/initializeDatabase.ts",
         "convert:video": "ts-node scripts/convertVideo.ts",
         "test-ffmpeg": "ts-node scripts/testFfmpeg.ts",
-        "linkedin:get-refresh-token": "ts-node scripts/getLinkedInRefreshToken.ts"
+        "linkedin:get-refresh-token": "ts-node scripts/getLinkedInRefreshToken.ts",
+        "db:migrate": "ts-node scripts/migrateJobQueue.ts"
     },
     "keywords": [],
     "author": "",
@@ -35,7 +36,9 @@
         "dotenv": "^17.2.0",
         "express": "^5.1.0",
         "helmet": "^8.1.0",
-        "morgan": "^1.10.1"
+        "morgan": "^1.10.1",
+        "mysql2": "3.20.0",
+        "node-cron": "^4.2.1"
     },
     "devDependencies": {
         "@types/bcrypt": "^6.0.0",
@@ -45,6 +48,7 @@
         "@types/jest": "^30.0.0",
         "@types/morgan": "^1.9.10",
         "@types/node": "^22.19.15",
+        "@types/node-cron": "^3.0.11",
         "jest": "^30.0.5",
         "ts-jest": "^29.4.0",
         "ts-node": "^10.9.2",
