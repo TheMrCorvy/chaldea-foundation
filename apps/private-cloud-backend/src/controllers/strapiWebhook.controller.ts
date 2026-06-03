@@ -1,7 +1,8 @@
 import type { StrapiWebhookPayload } from '../types/strapiWebhook.types';
 import { Request, Response } from 'express';
 import { logData } from '@repo/shared-utils/log-data';
-import { publishDynamicPageToSocial } from '../services/publishDynamicPage.service';
+import { Wuphf } from '../services/wuphf';
+import { SocialNetworks } from '../services/wuphf/types';
 
 const strapiWebhookController = async (req: Request, res: Response): Promise<void> => {
     const payload = req.body as StrapiWebhookPayload;
@@ -36,11 +37,27 @@ const strapiWebhookController = async (req: Request, res: Response): Promise<voi
                 timeStamp: true,
             });
 
-            if (payload.uid === 'api::a-dynamic-page.a-dynamic-page') {
-                const result = await publishDynamicPageToSocial(payload.entry);
+            if (payload.uid === 'api::a-social-media-post.a-social-media-post') {
+                const wuphf = new Wuphf();
+                const results = await wuphf.post(SocialNetworks.LINKEDIN, payload.entry);
+
+                results.forEach(result => {
+                    if (result.status === 'rejected') {
+                        logData({
+                            title: 'Failed to publish to social media',
+                            data: { reason: result.reason },
+                            layer: 'webhooks_received',
+                            type: 'error',
+                            addSeparatorAfter: true,
+                            addSpaceAfter: true,
+                            timeStamp: true,
+                        });
+                    }
+                });
+
                 logData({
-                    title: `Published to social media [${result.provider}] — postId: ${result.postId}`,
-                    data: result,
+                    title: 'Published to social media',
+                    data: { results },
                     layer: 'webhooks_received',
                     type: 'info',
                     addSeparatorAfter: true,

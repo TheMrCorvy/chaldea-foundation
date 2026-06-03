@@ -1,38 +1,10 @@
-import {
-    LINKEDIN_CLIENT_ID,
-    LINKEDIN_CLIENT_SECRET,
-    LINKEDIN_REFRESH_TOKEN,
-    LINKEDIN_POSTS_URL,
-    LINKEDIN_TOKEN_URL,
-    LINKEDIN_API_VERSION,
-    LINKEDIN_PERSON_URN,
-} from '@repo/config';
+import { LINKEDIN_ACCESS_TOKEN, LINKEDIN_POSTS_URL, LINKEDIN_API_VERSION, LINKEDIN_PERSON_URN } from '@repo/config';
 import { SocialNetworks, WuphfPostContent, WuphfProvider } from '../types';
+
+import { logData } from '@repo/shared-utils/log-data';
 
 export class LinkedInProvider implements WuphfProvider {
     readonly network = SocialNetworks.LINKEDIN;
-
-    private async getAccessToken(): Promise<string> {
-        const params = new URLSearchParams({
-            grant_type: 'refresh_token',
-            refresh_token: LINKEDIN_REFRESH_TOKEN,
-            client_id: LINKEDIN_CLIENT_ID,
-            client_secret: LINKEDIN_CLIENT_SECRET,
-        });
-
-        const response = await fetch(LINKEDIN_TOKEN_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: params.toString(),
-        });
-
-        if (!response.ok) {
-            throw new Error(`LinkedIn token refresh failed: ${response.status} ${response.statusText}`);
-        }
-
-        const data = (await response.json()) as { access_token: string };
-        return data.access_token;
-    }
 
     private buildCommentary(content: WuphfPostContent): string {
         const hashtags = content.hashtags
@@ -51,8 +23,6 @@ export class LinkedInProvider implements WuphfProvider {
     }
 
     async post(content: WuphfPostContent): Promise<void> {
-        const accessToken = await this.getAccessToken();
-
         const body = {
             author: LINKEDIN_PERSON_URN,
             commentary: this.buildCommentary(content),
@@ -66,10 +36,20 @@ export class LinkedInProvider implements WuphfProvider {
             isReshareDisabledByAuthor: false,
         };
 
+        logData({
+            title: 'Posting to LinkedIn',
+            data: { body },
+            layer: 'external_http_requests',
+            type: 'info',
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            timeStamp: true,
+        });
+
         const response = await fetch(LINKEDIN_POSTS_URL, {
             method: 'POST',
             headers: {
-                Authorization: `Bearer ${accessToken}`,
+                Authorization: `Bearer ${LINKEDIN_ACCESS_TOKEN}`,
                 'Content-Type': 'application/json',
                 'LinkedIn-Version': LINKEDIN_API_VERSION,
                 'X-Restli-Protocol-Version': '2.0.0',
@@ -77,8 +57,27 @@ export class LinkedInProvider implements WuphfProvider {
             body: JSON.stringify(body),
         });
 
+        logData({
+            title: 'Received response from LinkedIn',
+            data: response,
+            layer: 'external_http_responses',
+            type: response.ok ? 'info' : 'error',
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            timeStamp: true,
+        });
+
         if (!response.ok) {
             const errorText = await response.text();
+            logData({
+                title: 'LinkedIn post failed',
+                data: { status: response.status, errorText },
+                layer: 'external_http_responses',
+                type: 'error',
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
             throw new Error(`LinkedIn post failed [${response.status}]: ${errorText}`);
         }
     }

@@ -17,7 +17,7 @@
             "maxLength": 150,
             "required": true
         },
-        "Body": {
+        "body": {
             "type": "text",
             "required": true
         },
@@ -35,6 +35,10 @@
             "type": "component",
             "component": "layout.tool-chip",
             "repeatable": true
+        },
+        "publishedAt": {
+            "type": "datetime",
+            "configurable": false
         }
     }
 }

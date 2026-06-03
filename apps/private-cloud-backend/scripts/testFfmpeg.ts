@@ -16,7 +16,7 @@
 import * as path from 'path';
 import * as fs from 'fs';
 import dotenv from 'dotenv';
-import { processVideoFile } from '../src/services/ffmpegService';
+import { processVideoFile } from '../src/services/ffmpeg.service';
 
 dotenv.config();
 
