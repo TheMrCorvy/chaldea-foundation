@@ -1,7 +1,8 @@
 import type { StrapiWebhookPayload } from '../types/strapiWebhook.types';
 import { Request, Response } from 'express';
 import { logData } from '@repo/shared-utils/log-data';
-import { Wuphf } from '../services/wuphf';
+import { enqueueJob } from '../database/jobQueue';
+import { JOB_TYPES } from '../services/jobProcessor.service';
 import { SocialNetworks } from '../services/wuphf/types';
 
 const strapiWebhookController = async (req: Request, res: Response): Promise<void> => {
@@ -38,26 +39,14 @@ const strapiWebhookController = async (req: Request, res: Response): Promise<voi
             });
 
             if (payload.uid === 'api::a-social-media-post.a-social-media-post') {
-                const wuphf = new Wuphf();
-                const results = await wuphf.post(SocialNetworks.LINKEDIN, payload.entry);
-
-                results.forEach(result => {
-                    if (result.status === 'rejected') {
-                        logData({
-                            title: 'Failed to publish to social media',
-                            data: { reason: result.reason },
-                            layer: 'webhooks_received',
-                            type: 'error',
-                            addSeparatorAfter: true,
-                            addSpaceAfter: true,
-                            timeStamp: true,
-                        });
-                    }
+                await enqueueJob(JOB_TYPES.SOCIAL_MEDIA_POST, {
+                    networks: [SocialNetworks.LINKEDIN],
+                    entry: payload.entry,
                 });
 
                 logData({
-                    title: 'Published to social media',
-                    data: { results },
+                    title: 'Social media post queued',
+                    data: { uid: payload.uid },
                     layer: 'webhooks_received',
                     type: 'info',
                     addSeparatorAfter: true,
