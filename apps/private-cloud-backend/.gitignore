@@ -92,3 +92,4 @@ Thumbs.db
 
 ./db
 db
+/src/generated/prisma
