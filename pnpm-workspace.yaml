@@ -13,3 +13,5 @@ allowBuilds:
     lint-staged: true
     prettier: true
     typescript: true
+    "@prisma/engines": true
+    prisma: true
