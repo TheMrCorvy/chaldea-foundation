@@ -1,30 +1,21 @@
+import { execSync } from 'child_process';
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { getPool, closePool } from '../src/database/connection';
-
 async function main() {
-    const pool = getPool();
+    console.log('🔄  Syncing Prisma schema with database...');
 
-    await pool.query(`
-        CREATE TABLE IF NOT EXISTS job_queue (
-            id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            type        VARCHAR(100) NOT NULL,
-            payload     JSON         NOT NULL,
-            status      ENUM('pending', 'processing', 'done', 'failed') NOT NULL DEFAULT 'pending',
-            attempts    TINYINT UNSIGNED NOT NULL DEFAULT 0,
-            last_error  TEXT NULL,
-            created_at  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            updated_at  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-            INDEX idx_status_created (status, created_at)
-        )
-    `);
-
-    console.log('✅  job_queue table is ready');
-    await closePool();
+    try {
+        // Using db push for simplicity as requested, which is suitable for this case.
+        execSync('npx prisma db push', { stdio: 'inherit' });
+        console.log('✅  Database schema is in sync');
+    } catch (err) {
+        console.error('❌  Failed to sync database schema:', err);
+        process.exit(1);
+    }
 }
 
 main().catch(err => {
-    console.error('Migration failed:', err);
+    console.error('Unexpected error:', err);
     process.exit(1);
 });

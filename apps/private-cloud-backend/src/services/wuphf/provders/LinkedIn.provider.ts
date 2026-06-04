@@ -8,7 +8,7 @@ const LINKEDIN_IMAGES_URL = 'https://api.linkedin.com/rest/images?action=initial
 export class LinkedInProvider implements WuphfProvider {
     readonly network = SocialNetworks.LINKEDIN;
 
-    private get authHeaders() {
+    private get authHeaders(): Record<string, string> {
         return {
             Authorization: `Bearer ${LINKEDIN_ACCESS_TOKEN}`,
             'LinkedIn-Version': LINKEDIN_API_VERSION,

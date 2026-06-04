@@ -1,27 +1,17 @@
-import mysql from 'mysql2/promise';
+import { PrismaClient } from '@prisma/client';
 
-let pool: mysql.Pool | null = null;
+let prisma: PrismaClient | null = null;
 
-export function getPool(): mysql.Pool {
-    if (!pool) {
-        pool = mysql.createPool({
-            host: process.env.DB_HOST || 'localhost',
-            port: Number(process.env.DB_PORT) || 3306,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            database: process.env.DB_NAME,
-            waitForConnections: true,
-            connectionLimit: 10,
-            queueLimit: 0,
-        });
+export function getPrisma(): PrismaClient {
+    if (!prisma) {
+        prisma = new PrismaClient();
     }
-
-    return pool;
+    return prisma;
 }
 
-export async function closePool(): Promise<void> {
-    if (pool) {
-        await pool.end();
-        pool = null;
+export async function disconnect(): Promise<void> {
+    if (prisma) {
+        await prisma.$disconnect();
+        prisma = null;
     }
 }
