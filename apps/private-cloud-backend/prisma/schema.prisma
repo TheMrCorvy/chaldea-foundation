@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum JobStatus {
+  pending
+  processing
+  done
+  failed
+}
+
+model JobQueue {
+  id         Int       @id @default(autoincrement())
+  type       String    @db.VarChar(100)
+  payload    Json
+  status     JobStatus @default(pending)
+  attempts   Int       @default(0) @db.SmallInt
+  last_error String?   @db.Text
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+
+  @@index([status, created_at], name: "idx_status_created")
+  @@map("job_queue")
+}
