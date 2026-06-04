@@ -10,7 +10,7 @@ export interface JobRow extends RowDataPacket {
     last_error: string | null;
 }
 
-export async function enqueueJob(type: string, payload: unknown): Promise<void> {
+export async function addJobToQueue(type: string, payload: unknown): Promise<void> {
     const pool = getPool();
     await pool.query<ResultSetHeader>('INSERT INTO job_queue (type, payload) VALUES (?, ?)', [
         type,

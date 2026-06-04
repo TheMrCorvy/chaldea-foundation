@@ -15,6 +15,7 @@ export function getPool(): mysql.Pool {
             queueLimit: 0,
         });
     }
+
     return pool;
 }
 
