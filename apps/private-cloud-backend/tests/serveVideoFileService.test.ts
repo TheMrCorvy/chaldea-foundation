@@ -2,9 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import { serveVideoFileService } from '../src/services/serveVideoFile.service';
 import { isFeatureFlagEnabled, FeatureNames } from '@repo/shared-utils/feature-flags';
+import { logData } from '@repo/shared-utils/log-data';
 
 jest.mock('fs');
 jest.mock('@repo/shared-utils/feature-flags');
+jest.mock('@repo/shared-utils/log-data', () => ({
+    logData: jest.fn(),
+}));
 
 const mockFs = fs as jest.Mocked<typeof fs>;
 const mockIsFeatureFlagEnabled = isFeatureFlagEnabled as jest.MockedFunction<typeof isFeatureFlagEnabled>;
@@ -212,7 +216,15 @@ describe('serveVideoFileService', () => {
                 error: 'ENOENT: no such file or directory',
             });
 
-            expect(console.error).toHaveBeenCalledWith('Error streaming video:', error);
+            expect(logData).toHaveBeenCalledWith({
+                title: 'Error streaming video',
+                data: { error },
+                layer: '*',
+                type: 'error',
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
         });
 
         it('should handle non-Error exceptions', () => {
@@ -301,7 +313,7 @@ describe('serveVideoFileService', () => {
             });
 
             expect(mockIsFeatureFlagEnabled).toHaveBeenCalledWith(FeatureNames.SERVE_MOCK_DATA);
-            expect(mockIsFeatureFlagEnabled).toHaveBeenCalledTimes(3);
+            expect(mockIsFeatureFlagEnabled).toHaveBeenCalledTimes(1);
         });
 
         it('should handle mock file error when feature flag enabled', () => {

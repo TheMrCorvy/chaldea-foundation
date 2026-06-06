@@ -1,6 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import { authenticateApiKey, authenticateApiKeyWithHashes } from '../src/middleware/apiKeyAuth';
 import { generateApiKey } from '../src/services/apiKey.service';
+import { logData } from '@repo/shared-utils/log-data';
+
+jest.mock('@repo/shared-utils/log-data', () => ({
+    logData: jest.fn(),
+}));
 
 type MockRequest = Partial<Request> & {
     headers: { [key: string]: string | undefined };
@@ -19,6 +24,7 @@ describe('apiKeyAuth middleware', () => {
     let mockNext: NextFunction;
 
     beforeEach(() => {
+        jest.clearAllMocks();
         mockRequest = {
             headers: {},
             query: {},
@@ -235,7 +241,6 @@ describe('apiKeyAuth middleware', () => {
         });
 
         it('should log errors to console', async () => {
-            const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
             mockRequest.headers['x-api-key'] = testApiKey.key;
             const testError = new Error('Database error');
             mockGetValidHashes.mockRejectedValue(testError);
@@ -243,9 +248,15 @@ describe('apiKeyAuth middleware', () => {
             const middleware = authenticateApiKeyWithHashes(mockGetValidHashes);
             await middleware(mockRequest as Request, mockResponse as Response, mockNext);
 
-            expect(consoleSpy).toHaveBeenCalledWith('Error in API key authentication:', testError);
-
-            consoleSpy.mockRestore();
+            expect(logData).toHaveBeenCalledWith({
+                title: 'Error in API key authentication',
+                data: testError,
+                layer: 'auth_middleware',
+                type: 'error',
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
         });
 
         it('should handle promise rejection in getValidHashes', async () => {
