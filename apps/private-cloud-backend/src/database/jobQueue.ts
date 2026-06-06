@@ -48,20 +48,54 @@ export async function claimPendingJobs(limit = 5): Promise<JobQueue[]> {
 export async function markJobDone(id: number): Promise<void> {
     const prisma = getPrisma();
 
-    await prisma.jobQueue.update({
-        where: { id },
-        data: { status: JobStatus.done },
+    await prisma.$transaction(async tx => {
+        const job = await tx.jobQueue.findUnique({
+            where: { id },
+        });
+
+        if (!job) {
+            throw new Error(`Job with id ${id} not found in queue`);
+        }
+
+        await tx.finishedJob.create({
+            data: {
+                type: job.type,
+                payload: job.payload as Prisma.InputJsonValue,
+                attempts: job.attempts,
+                created_at: job.created_at,
+            },
+        });
+
+        await tx.jobQueue.delete({
+            where: { id },
+        });
     });
 }
 
 export async function markJobFailed(id: number, error: string): Promise<void> {
     const prisma = getPrisma();
 
-    await prisma.jobQueue.update({
-        where: { id },
-        data: {
-            status: JobStatus.failed,
-            last_error: error,
-        },
+    await prisma.$transaction(async tx => {
+        const job = await tx.jobQueue.findUnique({
+            where: { id },
+        });
+
+        if (!job) {
+            throw new Error(`Job with id ${id} not found in queue`);
+        }
+
+        await tx.failedJob.create({
+            data: {
+                type: job.type,
+                payload: job.payload as Prisma.InputJsonValue,
+                attempts: job.attempts,
+                last_error: error,
+                created_at: job.created_at,
+            },
+        });
+
+        await tx.jobQueue.delete({
+            where: { id },
+        });
     });
 }

@@ -3,14 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
 }
 
 enum JobStatus {
   pending
   processing
-  done
-  failed
 }
 
 model JobQueue {
@@ -25,4 +23,27 @@ model JobQueue {
 
   @@index([status, created_at], name: "idx_status_created")
   @@map("job_queue")
+}
+
+model FailedJob {
+  id         Int      @id @default(autoincrement())
+  type       String   @db.VarChar(100)
+  payload    Json
+  attempts   Int      @default(0) @db.SmallInt
+  last_error String?  @db.Text
+  failed_at  DateTime @default(now())
+  created_at DateTime
+
+  @@map("failed_jobs")
+}
+
+model FinishedJob {
+  id          Int      @id @default(autoincrement())
+  type        String   @db.VarChar(100)
+  payload     Json
+  attempts    Int      @default(0) @db.SmallInt
+  finished_at DateTime @default(now())
+  created_at  DateTime
+
+  @@map("finished_jobs")
 }

@@ -3,8 +3,10 @@
     "version": "1.0.0",
     "main": "server.js",
     "scripts": {
+        "predev": "pnpm db:migrate",
         "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
         "build": "tsc",
+        "prestart": "pnpm db:migrate",
         "start": "ts-node-dev --respawn --transpile-only src/server.ts",
         "clean": "rimraf dist",
         "prebuild": "pnpm run clean",
@@ -27,6 +29,7 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
+        "@prisma/adapter-mariadb": "^7.8.0",
         "@prisma/client": "^7.8.0",
         "@repo/config": "workspace:*",
         "@repo/platform-service-sdk": "workspace:*",
@@ -37,6 +40,7 @@
         "dotenv": "^17.2.0",
         "express": "^5.1.0",
         "helmet": "^8.1.0",
+        "mariadb": "^3.5.2",
         "morgan": "^1.10.1",
         "node-cron": "^4.2.1"
     },

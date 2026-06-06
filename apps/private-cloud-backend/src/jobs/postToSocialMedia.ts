@@ -5,7 +5,7 @@ import { Wuphf } from '../services/wuphf';
 import { SocialMediaPostJobPayload } from '../services/jobProcessor.service';
 
 const postToSocialMedia = async (job: JobRow): Promise<void> => {
-    const { networks, entry } = job.payload as SocialMediaPostJobPayload;
+    const { networks, entry } = job.payload as unknown as SocialMediaPostJobPayload;
 
     const wuphf = new Wuphf();
     const results = await wuphf.post(networks, entry);

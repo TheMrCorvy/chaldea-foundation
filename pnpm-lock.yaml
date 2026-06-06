@@ -230,6 +230,9 @@ importers:
 
   apps/private-cloud-backend:
     dependencies:
+      '@prisma/adapter-mariadb':
+        specifier: ^7.8.0
+        version: 7.8.0
       '@prisma/client':
         specifier: ^7.8.0
         version: 7.8.0(prisma@7.8.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.9.2))(typescript@5.9.2)
@@ -260,6 +263,9 @@ importers:
       helmet:
         specifier: ^8.1.0
         version: 8.1.0
+      mariadb:
+        specifier: ^3.5.2
+        version: 3.5.2
       morgan:
         specifier: ^1.10.1
         version: 1.10.1
@@ -2706,6 +2712,9 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
+  '@prisma/adapter-mariadb@7.8.0':
+    resolution: {integrity: sha512-mWsgcfbUjxB3qSzRlLs8E03vsKrqXzYK2zpx3e8u6wIgeHJM/sE46cuOGcYvHiZGmeQLCd3xL6YSSGM9QOLI6w==}
+
   '@prisma/client-runtime-utils@7.8.0':
     resolution: {integrity: sha512-5NQZztQ0oY/ADFkmd9gPuweH5A1/CCY8YQPorLLO0Mu6a87mY5gsnDkzmFmIHs9NFaLnZojzgddFVN4RpKYrdw==}
 
@@ -2732,6 +2741,9 @@ packages:
 
   '@prisma/dev@0.24.3':
     resolution: {integrity: sha512-ffHlQuKXZiaDt9Go0OnCTdJZrHxK0k7omJKNV86/VjpsXu5EIHZLK0T7JSWgvNlJwh56kW9JFu9v0qJciFzepg==}
+
+  '@prisma/driver-adapter-utils@7.8.0':
+    resolution: {integrity: sha512-/Q13o0ZT0rjc1Xk0Q9KhZYwuq2EW/vSbWUBKfgEKkaCuB/Sg6bqnjmTZqC5cD4d6y1vfFAEwBRzfzoSMIVJ55A==}
 
   '@prisma/engines-version@7.8.0-6.3c6e192761c0362d496ed980de936e2f3cebcd3a':
     resolution: {integrity: sha512-fJPQxCkLgA5EayWaW8eArgCvjJ+N+Kz3VyeNKMEeYiQC4alNkxRKFVAGxv/ZUzuJISKqdw+zGeDbS6mn6RCPOA==}
@@ -4613,6 +4625,9 @@ packages:
 
   '@types/node@22.19.19':
     resolution: {integrity: sha512-dyh/xO2Fh5bYrfWaaqGrRQQGkNdmYw6AmaAUvYeUMNTWQtvb796ikLdmTchRmOlOiIJ1TDXfWgVx1QkUlQ6Hew==}
+
+  '@types/node@24.13.0':
+    resolution: {integrity: sha512-5vtOqGQr4NJKeEzV441FcOi2MeG9UTWq9LqVLGneDdu4vlX17H8kQ2PA2UmNwCUGPVDj4oBjNhS7ReVEIWJJrg==}
 
   '@types/node@25.7.0':
     resolution: {integrity: sha512-z+pdZyxE+RTQE9AcboAZCb4otwcrvgHD+GlBpPgn0emDVt0ohrTMhAwlr2Wd9nZ+nihhYFxO2pThz3C5qSu2Eg==}
@@ -8353,6 +8368,9 @@ packages:
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
 
+  linkify-it@5.0.1:
+    resolution: {integrity: sha512-wVoTjP4Q6R0NW5hiZkVJaFZPWgtXfoGF+6LucL3/FtiNjmcHhYjEr5f1Kqjirc1nBW07J/ZuRFumqr2oqccEWg==}
+
   lint-staged@15.5.2:
     resolution: {integrity: sha512-YUSOLq9VeRNAo/CTaVmhGDKG+LBtA8KF1X4K5+ykMSwWST1vDxJRB2kv2COgLb1fvpCo+A/y9A0G0znNVmdx4w==}
     engines: {node: '>=18.12.0'}
@@ -8517,6 +8535,14 @@ packages:
     resolution: {integrity: sha512-8y/eV9QQZCiyn1SprXSrCmqJN0yNRATe+PO8ztwqrvrbdRLA3eYJF0yaR0YayLWkMbsQSKWS9N2gPcGEc4UsZg==}
     engines: {node: '>=0.10.0'}
 
+  mariadb@3.4.5:
+    resolution: {integrity: sha512-gThTYkhIS5rRqkVr+Y0cIdzr+GRqJ9sA2Q34e0yzmyhMCwyApf3OKAC1jnF23aSlIOqJuyaUFUcj7O1qZslmmQ==}
+    engines: {node: '>= 14'}
+
+  mariadb@3.5.2:
+    resolution: {integrity: sha512-9rztrI4nouxAY/82a+RlzzZ5ie2vxu2eYclkBvTy1ATXH1B9cnvZ0O71Pzsy/mlfDb5P3HhOg0JzQKkDRhctyA==}
+    engines: {node: '>= 18'}
+
   markdown-it-abbr@1.0.4:
     resolution: {integrity: sha512-ZeA4Z4SaBbYysZap5iZcxKmlPL6bYA8grqhzJIHB1ikn7njnzaP8uwbtuXc4YXD5LicI4/2Xmc0VwmSiFV04gg==}
 
@@ -8550,6 +8576,10 @@ packages:
 
   markdown-it@14.1.1:
     resolution: {integrity: sha512-BuU2qnTti9YKgK5N+IeMubp14ZUKUUw7yeJbkjtosvHiP0AZ5c8IAgEMk79D0eC8F23r4Ac/q8cAIFdm2FtyoA==}
+    hasBin: true
+
+  markdown-it@14.2.0:
+    resolution: {integrity: sha512-1TGiQiJVRQ3NPmZH6sx5Cfnmg6GQm9jvC1ch4TK511NjSJvjzKLzn5pPfZRNZkRPZP0HqCioSndqH8v2nRaWVQ==}
     hasBin: true
 
   marked@4.3.0:
@@ -9693,6 +9723,9 @@ packages:
 
   react-is@19.2.6:
     resolution: {integrity: sha512-XjBR15BhXuylgWGuslhDKqlSayuqvqBX91BP8pauG8kd1zY8kotkNWbXksTCNRarse4kuGbe2kIY05ARtwNIvw==}
+
+  react-is@19.2.7:
+    resolution: {integrity: sha512-kZFnouyVv7eP/Phmrlo9FK+zcAdriZJvzxXHF1Sl1P377WSGe2G/JxVolhTrB/jeV47lKImhNUsijjHAAbcl/A==}
 
   react-markdown@9.1.0:
     resolution: {integrity: sha512-xaijuJB0kzGiUdG7nc2MOMDUDBWPyGAjZtUrow9XxUeua8IqeP+VlIfAZ3bphpcLTnSZXz6z9jcVC/TCwbfgdw==}
@@ -11052,6 +11085,9 @@ packages:
 
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+
+  undici-types@7.18.2:
+    resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
 
   undici-types@7.21.0:
     resolution: {integrity: sha512-w9IMgQrz4O0YN1LtB7K5P63vhlIOvC7opSmouCJ+ZywlPAlO9gIkJ+otk6LvGpAs2wg4econaCz3TvQ9xPoyuQ==}
@@ -12830,18 +12866,6 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@formatjs/intl@2.10.0(typescript@5.4.4)':
-    dependencies:
-      '@formatjs/ecma402-abstract': 1.18.2
-      '@formatjs/fast-memoize': 2.2.0
-      '@formatjs/icu-messageformat-parser': 2.7.6
-      '@formatjs/intl-displaynames': 6.6.6
-      '@formatjs/intl-listformat': 7.5.5
-      intl-messageformat: 10.5.11
-      tslib: 2.8.1
-    optionalDependencies:
-      typescript: 5.4.4
-
   '@formatjs/intl@2.10.0(typescript@5.4.5)':
     dependencies:
       '@formatjs/ecma402-abstract': 1.18.2
@@ -13979,6 +14003,11 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
+  '@prisma/adapter-mariadb@7.8.0':
+    dependencies:
+      '@prisma/driver-adapter-utils': 7.8.0
+      mariadb: 3.4.5
+
   '@prisma/client-runtime-utils@7.8.0': {}
 
   '@prisma/client@7.8.0(prisma@7.8.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.9.2))(typescript@5.9.2)':
@@ -14022,6 +14051,10 @@ snapshots:
       zeptomatch: 2.1.0
     transitivePeerDependencies:
       - typescript
+
+  '@prisma/driver-adapter-utils@7.8.0':
+    dependencies:
+      '@prisma/debug': 7.8.0
 
   '@prisma/engines-version@7.8.0-6.3c6e192761c0362d496ed980de936e2f3cebcd3a': {}
 
@@ -18553,6 +18586,10 @@ snapshots:
   '@types/node@22.19.19':
     dependencies:
       undici-types: 6.21.0
+
+  '@types/node@24.13.0':
+    dependencies:
+      undici-types: 7.18.2
 
   '@types/node@25.7.0':
     dependencies:
@@ -23262,6 +23299,10 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
+  linkify-it@5.0.1:
+    dependencies:
+      uc.micro: 2.1.0
+
   lint-staged@15.5.2:
     dependencies:
       chalk: 5.6.2
@@ -23436,6 +23477,22 @@ snapshots:
 
   map-cache@0.2.2: {}
 
+  mariadb@3.4.5:
+    dependencies:
+      '@types/geojson': 7946.0.16
+      '@types/node': 24.13.0
+      denque: 2.1.0
+      iconv-lite: 0.6.3
+      lru-cache: 10.4.3
+
+  mariadb@3.5.2:
+    dependencies:
+      '@types/geojson': 7946.0.16
+      '@types/node': 25.7.0
+      denque: 2.1.0
+      iconv-lite: 0.7.2
+      lru-cache: 10.4.3
+
   markdown-it-abbr@1.0.4: {}
 
   markdown-it-container@3.0.0: {}
@@ -23467,6 +23524,15 @@ snapshots:
       argparse: 2.0.1
       entities: 4.5.0
       linkify-it: 5.0.0
+      mdurl: 2.0.0
+      punycode.js: 2.3.1
+      uc.micro: 2.1.0
+
+  markdown-it@14.2.0:
+    dependencies:
+      argparse: 2.0.1
+      entities: 4.5.0
+      linkify-it: 5.0.1
       mdurl: 2.0.0
       punycode.js: 2.3.1
       uc.micro: 2.1.0
@@ -24609,7 +24675,7 @@ snapshots:
       '@jest/schemas': 30.4.1
       ansi-styles: 5.2.0
       react-is-18: react-is@18.3.1
-      react-is-19: react-is@19.2.6
+      react-is-19: react-is@19.2.7
 
   prisma@7.8.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.9.2):
     dependencies:
@@ -24870,7 +24936,7 @@ snapshots:
     dependencies:
       '@formatjs/ecma402-abstract': 1.18.2
       '@formatjs/icu-messageformat-parser': 2.7.6
-      '@formatjs/intl': 2.10.0(typescript@5.4.4)
+      '@formatjs/intl': 2.10.0(typescript@5.9.2)
       '@formatjs/intl-displaynames': 6.6.6
       '@formatjs/intl-listformat': 7.5.5
       '@types/hoist-non-react-statics': 3.3.7(@types/react@18.3.28)
@@ -24905,6 +24971,8 @@ snapshots:
   react-is@18.3.1: {}
 
   react-is@19.2.6: {}
+
+  react-is@19.2.7: {}
 
   react-markdown@9.1.0(@types/react@18.3.28)(react@18.3.1):
     dependencies:
@@ -26584,7 +26652,7 @@ snapshots:
     dependencies:
       '@gerrit0/mini-shiki': 3.23.0
       lunr: 2.3.9
-      markdown-it: 14.1.1
+      markdown-it: 14.2.0
       minimatch: 10.2.5
       typescript: 5.9.2
       yaml: 2.9.0
@@ -26647,6 +26715,8 @@ snapshots:
   undefsafe@2.0.5: {}
 
   undici-types@6.21.0: {}
+
+  undici-types@7.18.2: {}
 
   undici-types@7.21.0: {}
 
