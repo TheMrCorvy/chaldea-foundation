@@ -2,9 +2,8 @@ import type { Hasgtag } from '../../types/strapiWebhook.types';
 
 export enum SocialNetworks {
     LINKEDIN = 'linkedin',
-    INSTAGRAM = 'instagram',
-    REDDIT = 'reddit',
-    TWITTER = 'twitter',
+    MEDIUM = 'medium',
+    DEV_TO = 'devto',
 }
 
 export interface WuphfPostContent {
