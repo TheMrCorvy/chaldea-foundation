@@ -4,8 +4,8 @@ import { reportFailedJobs } from '../jobs/reportFailedJobs';
 import { logData } from '@repo/shared-utils/log-data';
 
 export function startCronJobs(): void {
-    // Process pending jobs every hour
-    cron.schedule('0 * * * *', async () => {
+    // Process pending jobs every minute
+    cron.schedule('* * * * *', async () => {
         try {
             await processJobs();
         } catch (err) {
@@ -45,5 +45,7 @@ export function startCronJobs(): void {
         addSeparatorAfter: true,
         addSpaceAfter: true,
         timeStamp: true,
+        addSpaceBefore: true,
+        addSeparatorBefore: true,
     });
 }

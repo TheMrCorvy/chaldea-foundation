@@ -25,7 +25,7 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
 
     logData({
         title: `Received ${payload.event} event from Platform Service`,
-        data: req,
+        data: req.body,
         layer: 'webhooks_received',
         type: 'info',
         addSeparatorAfter: true,
@@ -36,6 +36,11 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
     if (payload.uid === 'api::a-social-media-post.a-social-media-post') {
         await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
             networks: [SocialNetworks.LINKEDIN],
+            entry: payload.entry,
+        });
+
+        await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
+            networks: [SocialNetworks.DEV_TO],
             entry: payload.entry,
         });
 
@@ -59,7 +64,7 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
 
     logData({
         title: `Received unknown event type: ${payload.event}`,
-        data: req,
+        data: req.body,
         layer: 'external_http_requests',
         type: 'warn',
         addSeparatorAfter: true,

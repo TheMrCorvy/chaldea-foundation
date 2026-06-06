@@ -31,3 +31,7 @@ export const LINKEDIN_POSTS_URL = "https://api.linkedin.com/rest/posts";
 export const LINKEDIN_TOKEN_URL =
     "https://www.linkedin.com/oauth/v2/accessToken";
 export const LINKEDIN_API_VERSION = "202605";
+
+// DEV.to (Wuphf — API Key)
+export const DEV_TO_API_KEY = "";
+export const DEV_TO_ARTICLES_URL = "https://dev.to/api/articles";

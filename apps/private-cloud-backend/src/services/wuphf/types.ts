@@ -2,7 +2,6 @@ import type { Hasgtag } from '../../types/strapiWebhook.types';
 
 export enum SocialNetworks {
     LINKEDIN = 'linkedin',
-    MEDIUM = 'medium',
     DEV_TO = 'devto',
 }
 
