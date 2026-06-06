@@ -1,5 +1,5 @@
 import { getPrisma } from './connection';
-import { Prisma, JobQueue, JobStatus } from '@prisma/client';
+import { Prisma, JobQueue, JobStatus, FailedJob } from '@prisma/client';
 
 export type { JobQueue as JobRow };
 
@@ -97,5 +97,25 @@ export async function markJobFailed(id: number, error: string): Promise<void> {
         await tx.jobQueue.delete({
             where: { id },
         });
+    });
+}
+
+export async function getFailedJobsForDay(date: Date): Promise<FailedJob[]> {
+    const prisma = getPrisma();
+    const startOfDay = new Date(date);
+    startOfDay.setHours(0, 0, 0, 0);
+    const endOfDay = new Date(date);
+    endOfDay.setHours(23, 59, 59, 999);
+
+    return prisma.failedJob.findMany({
+        where: {
+            failed_at: {
+                gte: startOfDay,
+                lte: endOfDay,
+            },
+        },
+        orderBy: {
+            failed_at: 'asc',
+        },
     });
 }
