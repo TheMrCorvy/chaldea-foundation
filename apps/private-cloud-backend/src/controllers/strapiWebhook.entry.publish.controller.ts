@@ -5,12 +5,27 @@ import { addJobToQueue } from '../database/jobQueue';
 import { JOB_TYPES } from '../services/jobProcessor.service';
 import { SocialNetworks } from '../services/wuphf/types';
 
-const strapiWebhookController = async (req: Request, res: Response): Promise<void> => {
+const entryPublishWebhookController = async (req: Request, res: Response): Promise<void> => {
     const payload = req.body as StrapiWebhookPayload;
+
+    if (payload.event !== 'entry.publish') {
+        logData({
+            title: `Received non-entry.publish event: ${payload.event}`,
+            data: req.body,
+            layer: 'webhooks_received',
+            type: 'warn',
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            timeStamp: true,
+        });
+
+        res.status(400).json({ message: `Unsupported event type: ${payload.event}` });
+        return;
+    }
 
     logData({
         title: `Received ${payload.event} event from Platform Service`,
-        data: req.body,
+        data: req,
         layer: 'webhooks_received',
         type: 'info',
         addSeparatorAfter: true,
@@ -18,7 +33,7 @@ const strapiWebhookController = async (req: Request, res: Response): Promise<voi
         timeStamp: true,
     });
 
-    if (payload.event === 'entry.publish' && payload.uid === 'api::a-social-media-post.a-social-media-post') {
+    if (payload.uid === 'api::a-social-media-post.a-social-media-post') {
         await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
             networks: [SocialNetworks.LINKEDIN],
             entry: payload.entry,
@@ -57,4 +72,4 @@ const strapiWebhookController = async (req: Request, res: Response): Promise<voi
     return;
 };
 
-export default strapiWebhookController;
+export default entryPublishWebhookController;
