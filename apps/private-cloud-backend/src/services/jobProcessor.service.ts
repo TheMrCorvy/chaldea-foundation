@@ -2,6 +2,7 @@ import { claimPendingJobs, markJobFailed } from '../database/jobQueue';
 import type { SocialMediaEntry } from '../types/strapiWebhook.types';
 import { SocialNetworks } from './wuphf/types';
 import postToSocialMedia from '../jobs/postToSocialMedia';
+import { logData } from '@repo/shared-utils/log-data';
 
 export const JOB_TYPES = {
     SOCIAL_MEDIA_POST: 'social_media_post',
@@ -27,10 +28,28 @@ export async function processJobs(): Promise<void> {
             }
 
             await markJobFailed(job.id, `Unknown job type: ${job.type}`);
-            console.warn(`[jobProcessor] Unknown job type "${job.type}" for job ${job.id}`);
+
+            logData({
+                title: 'Unknown job type',
+                data: { jobId: job.id, jobType: job.type },
+                layer: 'queue_jobs',
+                type: 'warn',
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
         } catch (err) {
             await markJobFailed(job.id, String(err));
-            console.error(`[jobProcessor] Job ${job.id} threw an error:`, err);
+
+            logData({
+                title: 'Job processing error',
+                data: { jobId: job.id, error: err },
+                layer: 'queue_jobs',
+                type: 'error',
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
         }
     }
 }

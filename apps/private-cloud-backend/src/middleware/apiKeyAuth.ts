@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express';
 import { verifyApiKey } from '../services/apiKey.service';
+import { logData } from '@repo/shared-utils/log-data';
 
 declare module 'express-serve-static-core' {
     interface Request {
@@ -33,8 +34,15 @@ export const authenticateApiKey = (validApiKeys: string[]): RequestHandler => {
         const isValid = validApiKeys.some(validKey => apiKey === validKey);
 
         if (!isValid) {
-            console.log(`Invalid API key attempt: ${apiKey}`);
-            console.log(`Valid API keys: ${validApiKeys.join(', ')}`);
+            logData({
+                title: 'Invalid API key attempt',
+                data: { apiKey },
+                layer: 'auth_middleware',
+                type: 'warn',
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
 
             return res.status(403).json({
                 error: 'Invalid API key',
@@ -80,7 +88,16 @@ export const authenticateApiKeyWithHashes = (getValidHashes: () => Promise<strin
             req.apiKey = apiKey;
             next();
         } catch (error) {
-            console.error('Error in API key authentication:', error);
+            logData({
+                title: 'Error in API key authentication',
+                data: error,
+                layer: 'auth_middleware',
+                type: 'error',
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
+
             return res.status(500).json({
                 error: 'Internal server error',
                 message: 'Error verifying the API key',

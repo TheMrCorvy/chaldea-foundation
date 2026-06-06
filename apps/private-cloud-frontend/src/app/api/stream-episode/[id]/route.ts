@@ -79,7 +79,15 @@ export async function GET(
     const nasApiKey = process.env.NAS_API_KEY;
 
     if (!nasApiKey) {
-        console.error("NAS_API_KEY is not configured");
+        logData({
+            title: "NAS API key is not configured",
+            layer: "*",
+            type: "error",
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            timeStamp: true,
+        });
+
         return NextResponse.json(
             {
                 message: "Server configuration error",
@@ -120,7 +128,16 @@ export async function GET(
             },
         });
     } catch (error) {
-        console.error("Error in stream-episode route:", error);
+        logData({
+            title: "Error in stream-episode route",
+            data: error,
+            type: "error",
+            layer: "*",
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            timeStamp: true,
+        });
+
         return NextResponse.json(
             {
                 message: "Internal server error",

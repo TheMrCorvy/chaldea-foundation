@@ -2,10 +2,11 @@
 
 import { Box, Typography } from "@mui/material";
 import { LayoutForm } from "@repo/type-definitions/dynamic-page";
-import { FC, ChangeEvent, useEffect, useMemo, useState } from "react";
+import { FC, ChangeEvent, useMemo, useState } from "react";
 import { InputByType, RangeInputValue } from "../../../Input";
 import { motion } from "framer-motion";
 import DynamicTitle from "../../Shared/DynamicTitle";
+import { logData } from "@repo/shared-utils/log-data";
 
 type FormFieldValue = string | number | RangeInputValue;
 type FormFieldState = Record<string, FormFieldValue>;
@@ -95,15 +96,45 @@ const DynamicForm: FC<LayoutForm> = ({
             },
             body: JSON.stringify(formValues),
         }).catch((error) => {
-            console.error("Error submitting dynamic form:", error);
+            logData({
+                title: "Error submitting dynamic form",
+                data: error,
+                layer: "internal_http_requests",
+                type: "error",
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
         });
 
         const res = await response?.json().catch((error) => {
-            console.error("Error parsing response:", error);
+            logData({
+                title: "Error parsing dynamic form response",
+                data: error,
+                layer: "internal_http_requests",
+                type: "error",
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
         });
 
         setSubmitted(true);
-        console.log("Form submission response:", res);
+
+        logData({
+            title: "Dynamic form submitted",
+            data: {
+                endpoint: action,
+                method,
+                values: formValues,
+                response: res,
+            },
+            layer: "internal_http_requests",
+            type: "info",
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            timeStamp: true,
+        });
     };
 
     return (

@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 import { SectionsContactSection } from "@repo/type-definitions/dynamic-page";
 import { FC, FormEvent, useEffect, useMemo, useState } from "react";
 import { InputByType, RangeInputValue } from "../Input";
+import { logData } from "@repo/shared-utils/log-data";
 
 type ContactFieldValue = string | number | RangeInputValue;
 
@@ -96,15 +97,44 @@ const ContactSection: FC<ContactSectionProps> = ({
             },
             body: JSON.stringify(formValues),
         }).catch((error) => {
-            console.error("Error submitting contact form:", error);
+            logData({
+                title: "Error submitting contact form",
+                data: error,
+                layer: "internal_http_requests",
+                type: "error",
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
         });
 
         const res = await response?.json().catch((error) => {
-            console.error("Error parsing response:", error);
+            logData({
+                title: "Error parsing contact form response",
+                data: error,
+                layer: "internal_http_requests",
+                type: "error",
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
         });
 
         setSubmitted(true);
-        console.log("Form submission response:", res);
+        logData({
+            title: "Contact form submitted",
+            data: {
+                endpoint: contact_form.action,
+                method: contact_form.method,
+                values: formValues,
+                response: res,
+            },
+            layer: "internal_http_requests",
+            type: "info",
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            timeStamp: true,
+        });
     };
 
     return (

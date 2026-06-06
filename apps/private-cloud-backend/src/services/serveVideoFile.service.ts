@@ -92,7 +92,15 @@ export const serveVideoFileService = ({ videoSrc, range }: NASServiceParams): Vi
 
         return { stream, headers, status: 206, message: 'Streaming video chunk...' };
     } catch (error) {
-        console.error('Error streaming video:', error);
+        logData({
+            title: 'Error streaming video',
+            data: { error },
+            layer: '*',
+            type: 'error',
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            timeStamp: true,
+        });
 
         return {
             status: 500,

@@ -14,6 +14,7 @@ import {
     FC,
 } from "react";
 import { usePathname } from "next/navigation";
+import { logData } from "@repo/shared-utils/log-data";
 
 export type SoundType = "button" | "modal" | "page_change";
 
@@ -65,7 +66,15 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
             if (audio) {
                 audio.currentTime = 0;
                 audio.play().catch((error) => {
-                    console.error(`Error playing sound: ${sound}`, error);
+                    logData({
+                        title: `Error playing sound: ${sound}`,
+                        data: error,
+                        layer: "client_access",
+                        type: "error",
+                        addSeparatorAfter: true,
+                        addSpaceAfter: true,
+                        timeStamp: true,
+                    });
                 });
             }
         }
@@ -86,7 +95,15 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
         if (bgm) {
             if (soundEnabled) {
                 bgm.play().catch((error) => {
-                    console.error("Error playing background music", error);
+                    logData({
+                        title: "Error playing background music",
+                        data: error,
+                        layer: "client_access",
+                        type: "error",
+                        addSeparatorAfter: true,
+                        addSpaceAfter: true,
+                        timeStamp: true,
+                    });
                 });
             } else {
                 bgm.pause();
@@ -107,7 +124,15 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
         currentSounds.page_change = new Audio("/assets/sounds/page_change.wav");
         currentSounds.page_change.volume = 0.2;
 
-        console.log("Setting up background music with bgm:", bgm);
+        logData({
+            title: "Setting up background music",
+            data: { bgm },
+            layer: "client_access",
+            type: "log",
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            timeStamp: true,
+        });
 
         currentSounds.bgm = new Audio(
             `/assets/sounds/${bgm || "ordeal_call"}.mp3`

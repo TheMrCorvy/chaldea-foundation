@@ -6,6 +6,7 @@ import { CookiesList, getCookie, JwtCookie, MeResponse } from "@/utils/cookies";
 import { ApiRoutes, WebRoutes } from "./utils/routes";
 import { NextResponse, type NextRequest } from "next/server";
 import { RoleTypes } from "@repo/type-definitions";
+import { logData } from "@repo/shared-utils/log-data";
 
 const protectedRoutes = [
     WebRoutes.HOME,
@@ -59,7 +60,15 @@ export async function proxy(request: NextRequest) {
 
         return NextResponse.next();
     } catch (error) {
-        console.error("Error verifying user authentication:", error);
+        logData({
+            title: "Error in proxy middleware",
+            data: error,
+            type: "error",
+            layer: "auth_login",
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            timeStamp: true,
+        });
         return NextResponse.redirect(new URL(WebRoutes.LOGIN, request.url));
     }
 }

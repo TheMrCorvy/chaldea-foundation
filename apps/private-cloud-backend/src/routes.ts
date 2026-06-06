@@ -6,6 +6,7 @@ import {
     v2EpisodeSubtitlesController,
     entryPublishWebhookController,
 } from './controllers';
+import { logData } from '@repo/shared-utils/log-data';
 
 const router = Router();
 
@@ -31,7 +32,16 @@ router.post('/api/v2/webhooks/platform-service/entry/publish', (req: Request, re
 
 // 404 handler
 router.use((req: Request, res: Response) => {
-    console.log(`404 Not Found: ${req.originalUrl}`);
+    logData({
+        title: '404 Not Found',
+        data: { path: req.originalUrl },
+        layer: 'external_http_requests',
+        type: 'warn',
+        addSeparatorAfter: true,
+        addSpaceAfter: true,
+        timeStamp: true,
+    });
+
     res.status(404).json({
         error: 'Route not found',
         path: req.originalUrl,

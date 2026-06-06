@@ -1,6 +1,7 @@
 import cron from 'node-cron';
 import { processJobs } from '../services/jobProcessor.service';
 import { reportFailedJobs } from '../jobs/reportFailedJobs';
+import { logData } from '@repo/shared-utils/log-data';
 
 export function startCronJobs(): void {
     // Process pending jobs every hour
@@ -8,7 +9,15 @@ export function startCronJobs(): void {
         try {
             await processJobs();
         } catch (err) {
-            console.error('[cron] processJobs error:', err);
+            logData({
+                title: 'Error processing jobs',
+                data: err,
+                layer: 'queue_jobs',
+                type: 'error',
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
         }
     });
 
@@ -17,9 +26,24 @@ export function startCronJobs(): void {
         try {
             await reportFailedJobs();
         } catch (err) {
-            console.error('[cron] reportFailedJobs error:', err);
+            logData({
+                title: 'Error reporting failed jobs',
+                data: err,
+                layer: 'queue_jobs',
+                type: 'error',
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
         }
     });
 
-    console.log('[cron] Cron jobs scheduled');
+    logData({
+        title: 'Cron jobs scheduled',
+        layer: 'queue_jobs',
+        type: 'info',
+        addSeparatorAfter: true,
+        addSpaceAfter: true,
+        timeStamp: true,
+    });
 }

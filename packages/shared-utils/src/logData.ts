@@ -23,6 +23,7 @@ type LayersAvailable =
     | "bug_report"
     | "webhooks_received"
     | "queue_jobs"
+    | "client_access"
     | "*"; // This layer will always be logged, use it for heavy errors
 
 export interface LogDataParams {

@@ -1,5 +1,6 @@
 import { BlogPostCategory } from "@repo/type-definitions/blog-post-categories";
 import { useEffect, useState } from "react";
+import { logData } from "@repo/shared-utils/log-data";
 
 const useCategories = () => {
     const [categories, setCategories] = useState<Array<BlogPostCategory>>([]);
@@ -34,7 +35,15 @@ const useCategories = () => {
                     }
                 }
             } catch (error) {
-                console.error("Error fetching categories:", error);
+                logData({
+                    title: "Error fetching categories",
+                    data: error,
+                    layer: "external_http_requests",
+                    type: "error",
+                    addSeparatorAfter: true,
+                    addSpaceAfter: true,
+                    timeStamp: true,
+                });
             } finally {
                 if (isMounted) {
                     setLoading(false);
