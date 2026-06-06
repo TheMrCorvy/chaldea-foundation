@@ -3,8 +3,8 @@ import { processJobs } from '../services/jobProcessor.service';
 import { reportFailedJobs } from '../jobs/reportFailedJobs';
 
 export function startCronJobs(): void {
-    // Process pending jobs every minute
-    cron.schedule('* * * * *', async () => {
+    // Process pending jobs every hour
+    cron.schedule('0 * * * *', async () => {
         try {
             await processJobs();
         } catch (err) {
