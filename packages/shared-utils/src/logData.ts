@@ -71,6 +71,8 @@ export const logData: LogData = ({
 
     let logIsAvailable = false;
 
+    const appName = process.env.APP_NAME || "Unknown App";
+
     if (
         layer !== undefined &&
         layersAvailable.includes(layer) &&
@@ -96,14 +98,14 @@ export const logData: LogData = ({
     logSpace(addSpaceBefore);
 
     try {
-        dataString = JSON.stringify({ data });
+        dataString = JSON.stringify({ app: appName, payload: data });
     } catch (err) {
         if (logIsAvailable) {
             console.warn("The data provided was corrupted or circular.", err);
             logSpace(true);
         }
 
-        dataString = data;
+        dataString = { app: appName, payload: data };
     }
 
     if (addSeparatorBefore) {
