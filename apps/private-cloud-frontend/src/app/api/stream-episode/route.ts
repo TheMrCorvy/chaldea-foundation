@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createReadStream, statSync } from "fs";
 import { join } from "path";
-import {
-    FeatureNames,
-    isFeatureFlagEnabled,
-} from "@repo/shared-utils/feature-flags";
+import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
+import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";
 
 export async function GET(request: NextRequest) {
-    if (isFeatureFlagEnabled(FeatureNames.CONSUME_NAS_FILES)) {
+    if (isFeatureFlagEnabled(FeatureFlagsAvailable.CONSUME_NAS_FILES)) {
         return new NextResponse("There was an error", { status: 500 });
     }
 

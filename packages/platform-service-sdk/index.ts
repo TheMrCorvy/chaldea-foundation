@@ -1,10 +1,8 @@
 import * as Real from "./generated-sdk";
 import * as Mock from "./generated-mock-sdk";
 import { client } from "./generated-sdk/client.gen";
-import {
-    FeatureNames,
-    isFeatureFlagEnabled,
-} from "@repo/shared-utils/feature-flags";
+import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
+import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";
 import type { QueryParams } from "@repo/type-definitions";
 import { queryBuilder } from "./queryBuilder";
 
@@ -31,7 +29,7 @@ class PlatformService {
 
     constructor(jwt?: string) {
         this.useMock =
-            !isFeatureFlagEnabled(FeatureNames.CONSUME_STRAPI_DATA) ||
+            !isFeatureFlagEnabled(FeatureFlagsAvailable.CONSUME_STRAPI_DATA) ||
             process.env.NODE_ENV === "test";
 
         this.sdk = this.useMock ? Mock : Real;

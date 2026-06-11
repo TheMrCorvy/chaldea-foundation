@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 
 import TicketForm from "@/components/TicketLoginComponent";
-import {
-    FeatureNames,
-    isFeatureFlagEnabled,
-} from "@repo/shared-utils/feature-flags";
+import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
+import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";
 import { notFound, redirect } from "next/navigation";
 import { CookiesList, getCookie } from "@/utils/cookies";
 import { Page } from "@/utils/pageTypes";
@@ -47,7 +45,7 @@ const Register = async ({ searchParams }: Page) => {
     });
 
     if (
-        !isFeatureFlagEnabled(FeatureNames.ENABLE_USERS_REGISTER) ||
+        !isFeatureFlagEnabled(FeatureFlagsAvailable.ENABLE_USERS_REGISTER) ||
         !invitation
     ) {
         return notFound();

@@ -1,9 +1,7 @@
 import { cookies } from "next/headers";
 import { type RoleTypes } from "@repo/type-definitions";
-import {
-    FeatureNames,
-    isFeatureFlagEnabled,
-} from "@repo/shared-utils/feature-flags";
+import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
+import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";
 
 export interface MeResponse {
     createdAt: Date;
@@ -77,7 +75,7 @@ export const deleteCookie = async (cookieName: CookiesList) => {
 
     if (
         cookieStore.get(cookieName) &&
-        isFeatureFlagEnabled(FeatureNames.ENABLE_USERS_LOGIN)
+        isFeatureFlagEnabled(FeatureFlagsAvailable.ENABLE_USERS_LOGIN)
     ) {
         cookieStore.delete(cookieName);
     }

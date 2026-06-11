@@ -1,8 +1,6 @@
 import { mockMeResponse, mockUserToken } from "@/mocks/mockedResponses";
-import {
-    FeatureNames,
-    isFeatureFlagEnabled,
-} from "@repo/shared-utils/feature-flags";
+import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
+import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";
 import { CookiesList, setCookie } from "@/utils/cookies";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -13,7 +11,7 @@ export async function GET(req: NextRequest) {
 
     const response = NextResponse.redirect(redirectUrl);
 
-    if (isFeatureFlagEnabled(FeatureNames.ENABLE_USERS_LOGIN)) {
+    if (isFeatureFlagEnabled(FeatureFlagsAvailable.ENABLE_USERS_LOGIN)) {
         return response;
     }
 

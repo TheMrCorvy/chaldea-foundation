@@ -14,10 +14,8 @@ import { WebRoutes } from "@/utils/routes";
 import { getScreenSize } from "@/utils/screenSize";
 import { Breadcrumbs, Card, Container, Link, Typography } from "@mui/joy";
 import PlatformService from "@repo/platform-service-sdk";
-import {
-    FeatureNames,
-    isFeatureFlagEnabled,
-} from "@repo/shared-utils/feature-flags";
+import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
+import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";
 import { logData } from "@repo/shared-utils/log-data";
 import { Directory, Episode, RoleTypes } from "@repo/type-definitions";
 import { redirect } from "next/navigation";
@@ -134,7 +132,9 @@ const EpisodePage = async ({ params }: Page) => {
         }
     }
 
-    const enableNas = isFeatureFlagEnabled(FeatureNames.CONSUME_NAS_FILES);
+    const enableNas = isFeatureFlagEnabled(
+        FeatureFlagsAvailable.CONSUME_NAS_FILES
+    );
 
     return (
         <>
@@ -228,7 +228,7 @@ const EpisodePage = async ({ params }: Page) => {
                             }
                             nasBaseUrl={process.env.NAS_BASE_URL || ""}
                             enableProxy={isFeatureFlagEnabled(
-                                FeatureNames.ENABLE_STREAMING_PROXY
+                                FeatureFlagsAvailable.ENABLE_STREAMING_PROXY
                             )}
                         />
                     ) : (

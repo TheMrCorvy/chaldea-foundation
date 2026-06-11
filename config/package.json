@@ -4,6 +4,10 @@
         ".": {
             "types": "./config.ts",
             "default": "./config.ts"
+        },
+        "./feature-flags": {
+            "types": "./featureFlags.ts",
+            "default": "./featureFlags.ts"
         }
     },
     "devDependencies": {

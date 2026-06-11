@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { serveVideoFileService } from '../src/services/serveVideoFile.service';
-import { isFeatureFlagEnabled, FeatureNames } from '@repo/shared-utils/feature-flags';
+import { FeatureFlagsAvailable } from '@repo/config/feature-flags';
+import { isFeatureFlagEnabled } from '@repo/shared-utils/feature-flags';
 import { logData } from '@salvatore.hakase/log-data';
 
 jest.mock('fs');
@@ -61,7 +62,7 @@ describe('serveVideoFileService', () => {
                 range: null,
             });
 
-            expect(mockIsFeatureFlagEnabled).toHaveBeenCalledWith(FeatureNames.SERVE_MOCK_DATA);
+            expect(mockIsFeatureFlagEnabled).toHaveBeenCalledWith(FeatureFlagsAvailable.SERVE_MOCK_DATA);
             expect(mockFs.statSync).toHaveBeenCalledWith(expectedMockPath);
             expect(mockFs.createReadStream).toHaveBeenCalledWith(expectedMockPath);
             expect(result.status).toBe(200);
@@ -312,7 +313,7 @@ describe('serveVideoFileService', () => {
                 range: null,
             });
 
-            expect(mockIsFeatureFlagEnabled).toHaveBeenCalledWith(FeatureNames.SERVE_MOCK_DATA);
+            expect(mockIsFeatureFlagEnabled).toHaveBeenCalledWith(FeatureFlagsAvailable.SERVE_MOCK_DATA);
             expect(mockIsFeatureFlagEnabled).toHaveBeenCalledTimes(1);
         });
 

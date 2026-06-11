@@ -1,4 +1,5 @@
-import { isFeatureFlagEnabled, FeatureNames } from '@repo/shared-utils/feature-flags';
+import { FeatureFlagsAvailable } from '@repo/config/feature-flags';
+import { isFeatureFlagEnabled } from '@repo/shared-utils/feature-flags';
 import { logData } from '@salvatore.hakase/log-data';
 
 import { createReadStream, statSync } from 'fs';
@@ -19,7 +20,7 @@ interface VideoStreamResponse {
 
 export const serveVideoFileService = ({ videoSrc, range }: NASServiceParams): VideoStreamResponse => {
     let fileSrc = '';
-    if (isFeatureFlagEnabled(FeatureNames.SERVE_MOCK_DATA)) {
+    if (isFeatureFlagEnabled(FeatureFlagsAvailable.SERVE_MOCK_DATA)) {
         fileSrc = join(process.cwd(), 'mock/deathNote.mp4');
     } else {
         fileSrc = videoSrc;

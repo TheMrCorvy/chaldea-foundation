@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 
 import TicketForm from "@/components/TicketLoginComponent";
-import {
-    FeatureNames,
-    isFeatureFlagEnabled,
-} from "@repo/shared-utils/feature-flags";
+import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
+import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";
 import { notFound, redirect } from "next/navigation";
 import { CookiesList, getCookie } from "@/utils/cookies";
 
@@ -32,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Login() {
-    if (!isFeatureFlagEnabled(FeatureNames.ENABLE_USERS_LOGIN)) {
+    if (!isFeatureFlagEnabled(FeatureFlagsAvailable.ENABLE_USERS_LOGIN)) {
         notFound();
     }
 

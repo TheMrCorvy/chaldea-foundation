@@ -1,7 +1,5 @@
-import {
-    FeatureNames,
-    isFeatureFlagEnabled,
-} from "@repo/shared-utils/feature-flags";
+import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
+import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";
 import { CookiesList, getCookie, JwtCookie, MeResponse } from "@/utils/cookies";
 import { ApiRoutes, WebRoutes } from "./utils/routes";
 import { NextResponse, type NextRequest } from "next/server";
@@ -31,7 +29,9 @@ export async function proxy(request: NextRequest) {
             CookiesList.USER
         )) as MeResponse | null;
         const token = (await getCookie(CookiesList.JWT)) as JwtCookie | null;
-        const ff = isFeatureFlagEnabled(FeatureNames.ENABLE_USERS_LOGIN);
+        const ff = isFeatureFlagEnabled(
+            FeatureFlagsAvailable.ENABLE_USERS_LOGIN
+        );
 
         if (!ff && (!session || !token)) {
             return NextResponse.redirect(

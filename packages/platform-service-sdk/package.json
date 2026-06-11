@@ -7,6 +7,7 @@
     "dependencies": {
         "@repo/type-definitions": "workspace:*",
         "@repo/shared-utils": "workspace:*",
+        "@repo/config": "workspace:*",
         "qs": "^6.13.1"
     },
     "devDependencies": {
