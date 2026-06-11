@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express';
 import { verifyApiKey } from '../services/apiKey.service';
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 
 declare module 'express-serve-static-core' {
     interface Request {

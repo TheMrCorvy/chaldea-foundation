@@ -1,5 +1,5 @@
 import PlatformService from "@repo/platform-service-sdk";
-import { logData } from "@repo/shared-utils/log-data";
+import { logData } from "@salvatore.hakase/log-data";
 import { BlogPostCategoryResponse } from "@repo/type-definitions/blog-post-categories";
 
 export interface RequestCategoriesParams {

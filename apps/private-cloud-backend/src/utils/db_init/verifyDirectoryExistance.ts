@@ -1,5 +1,5 @@
 import { VerifyDirectoryExistance } from '../../types/dbInit';
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 
 const verifyDirectoryExistance: VerifyDirectoryExistance = async ({
     directory,

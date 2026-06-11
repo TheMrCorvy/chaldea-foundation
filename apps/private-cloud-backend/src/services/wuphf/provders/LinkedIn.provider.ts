@@ -1,7 +1,7 @@
 import { LINKEDIN_ACCESS_TOKEN, LINKEDIN_POSTS_URL, LINKEDIN_API_VERSION, LINKEDIN_PERSON_URN } from '@repo/config';
 import { SocialNetworks, WuphfPostContent, WuphfProvider } from '../types';
 
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 
 const LINKEDIN_IMAGES_URL = 'https://api.linkedin.com/rest/images?action=initializeUpload';
 

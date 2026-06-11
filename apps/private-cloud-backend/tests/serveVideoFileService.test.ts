@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { serveVideoFileService } from '../src/services/serveVideoFile.service';
 import { isFeatureFlagEnabled, FeatureNames } from '@repo/shared-utils/feature-flags';
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 
 jest.mock('fs');
 jest.mock('@repo/shared-utils/feature-flags');

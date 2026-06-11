@@ -6,8 +6,8 @@ import {
     BlogPost,
 } from "@repo/type-definitions/dynamic-page";
 import { dynamicPageFields, populateDynamicPageRelations } from "./constants";
-import { logData } from "@repo/shared-utils/log-data";
 import { QueryParams } from "@repo/type-definitions";
+import { logData } from "@salvatore.hakase/log-data";
 
 export interface RequestPostsParams {
     posts_count: number;

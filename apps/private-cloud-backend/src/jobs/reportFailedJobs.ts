@@ -1,4 +1,4 @@
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 import PlatformService from '@repo/platform-service-sdk';
 import { getFailedJobsForDay } from '../database/jobQueue';
 

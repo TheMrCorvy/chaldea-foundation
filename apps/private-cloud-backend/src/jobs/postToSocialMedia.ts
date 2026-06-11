@@ -1,4 +1,4 @@
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 import { JobRow, markJobDone, markJobFailed } from '../database/jobQueue';
 import { Wuphf } from '../services/wuphf';
 

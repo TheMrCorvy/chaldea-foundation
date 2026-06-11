@@ -32,6 +32,7 @@
         "react-qr-code": "^2.0.18"
     },
     "devDependencies": {
+        "@jest/types": "^30.4.1",
         "@storybook/nextjs-vite": "^10.2.8",
         "@testing-library/jest-dom": "^6.9.1",
         "@testing-library/react": "^16.3.2",

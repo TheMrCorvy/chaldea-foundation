@@ -1,7 +1,7 @@
 import { DEV_TO_API_KEY, DEV_TO_ARTICLES_URL } from '@repo/config';
 import { SocialNetworks, WuphfPostContent, WuphfProvider } from '../types';
 
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 
 export class DevToProvider implements WuphfProvider {
     readonly network = SocialNetworks.DEV_TO;

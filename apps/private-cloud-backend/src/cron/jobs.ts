@@ -1,7 +1,7 @@
 import cron from 'node-cron';
 import { processJobs } from '../services/jobProcessor.service';
 import { reportFailedJobs } from '../jobs/reportFailedJobs';
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 
 export function startCronJobs(): void {
     // Process pending jobs every hour

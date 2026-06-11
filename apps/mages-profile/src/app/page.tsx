@@ -2,7 +2,7 @@ import MainPage from "@/components/ClientWrapper";
 import { BGMs, SoundProvider } from "@/contexts/SoundContext";
 import { dynamicPageFields, mainLandingPage } from "@/lib/constants";
 import PlatformService from "@repo/platform-service-sdk";
-import { logData } from "@repo/shared-utils/log-data";
+import { logData } from "@salvatore.hakase/log-data";
 import { DynamicPage } from "@repo/type-definitions/dynamic-page";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";

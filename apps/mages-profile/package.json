@@ -38,6 +38,7 @@
         "solid-js": "^1.9.10"
     },
     "devDependencies": {
+        "@jest/types": "^30.4.1",
         "@storybook/nextjs-vite": "^10.2.8",
         "@storybook/react": "^10.3.6",
         "@testing-library/jest-dom": "^6.9.1",

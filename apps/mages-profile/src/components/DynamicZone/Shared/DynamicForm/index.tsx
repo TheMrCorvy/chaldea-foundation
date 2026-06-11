@@ -6,7 +6,7 @@ import { FC, ChangeEvent, useMemo, useState } from "react";
 import { InputByType, RangeInputValue } from "../../../Input";
 import { motion } from "framer-motion";
 import DynamicTitle from "../../Shared/DynamicTitle";
-import { logData } from "@repo/shared-utils/log-data";
+import { logData } from "@salvatore.hakase/log-data";
 
 type FormFieldValue = string | number | RangeInputValue;
 type FormFieldState = Record<string, FormFieldValue>;

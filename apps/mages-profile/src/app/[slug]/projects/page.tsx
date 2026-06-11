@@ -2,7 +2,7 @@ import ClientSideProjectsPage from "@/components/ClientSideProjectsPage";
 import { BGMs, SoundProvider } from "@/contexts/SoundContext";
 import { dynamicPageFields, populateProjectsSection } from "@/lib/constants";
 import PlatformService from "@repo/platform-service-sdk";
-import { logData } from "@repo/shared-utils/log-data";
+import { logData } from "@salvatore.hakase/log-data";
 import {
     DynamicPage,
     SectionsProjectsSection,

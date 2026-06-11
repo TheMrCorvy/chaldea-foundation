@@ -1,5 +1,5 @@
 import { StatusErrorPage } from "@/components/errors/StatusErrorPage";
-import { logData } from "@repo/shared-utils/log-data";
+import { logData } from "@salvatore.hakase/log-data";
 
 export default function ForbiddenPage() {
     logData({

@@ -1,5 +1,5 @@
 import requestCategories from "@/lib/requestCategories";
-import { logData } from "@repo/shared-utils/log-data";
+import { logData } from "@salvatore.hakase/log-data";
 import { NextResponse } from "next/server";
 
 const methodNotAllowed = () =>

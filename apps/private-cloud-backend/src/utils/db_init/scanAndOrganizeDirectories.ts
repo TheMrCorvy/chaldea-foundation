@@ -1,4 +1,4 @@
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 import { scanSingleFolder } from '../../services/disk.service';
 import { LocalDirectory } from '../typesDefinition';
 import { VerifyEnvResult } from '../../types/dbInit';

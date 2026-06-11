@@ -2,7 +2,7 @@ import { claimPendingJobs, markJobFailed } from '../database/jobQueue';
 import type { SocialMediaEntry } from '../types/strapiWebhook.types';
 import { SocialNetworks } from './wuphf/types';
 import postToSocialMedia from '../jobs/postToSocialMedia';
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 
 export const JOB_TYPES = {
     SOCIAL_MEDIA_POST: 'social_media_post',

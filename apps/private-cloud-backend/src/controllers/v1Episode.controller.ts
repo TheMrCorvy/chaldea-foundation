@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { serveVideoFileService } from '../services/serveVideoFile.service';
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 import verifyPaths from '../utils/verifyPaths';
 
 const v1EpisodeController = (req: Request, res: Response): void => {

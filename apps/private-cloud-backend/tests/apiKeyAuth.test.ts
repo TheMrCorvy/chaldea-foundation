@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { authenticateApiKey, authenticateApiKeyWithHashes } from '../src/middleware/apiKeyAuth';
 import { generateApiKey } from '../src/services/apiKey.service';
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 
 jest.mock('@repo/shared-utils/log-data', () => ({
     logData: jest.fn(),

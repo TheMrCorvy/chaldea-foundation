@@ -1,5 +1,5 @@
 import { isFeatureFlagEnabled, FeatureNames } from '@repo/shared-utils/feature-flags';
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 
 import { createReadStream, statSync } from 'fs';
 import { join } from 'path';

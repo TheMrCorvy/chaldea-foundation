@@ -14,7 +14,7 @@ import {
     FC,
 } from "react";
 import { usePathname } from "next/navigation";
-import { logData } from "@repo/shared-utils/log-data";
+import { logData } from "@salvatore.hakase/log-data";
 
 export type SoundType = "button" | "modal" | "page_change";
 

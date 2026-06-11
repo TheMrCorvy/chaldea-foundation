@@ -2,9 +2,9 @@
 
 import { Box, Typography } from "@mui/material";
 import { SectionsContactSection } from "@repo/type-definitions/dynamic-page";
-import { FC, FormEvent, useEffect, useMemo, useState } from "react";
+import { FC, ChangeEvent, useEffect, useMemo, useState } from "react";
 import { InputByType, RangeInputValue } from "../Input";
-import { logData } from "@repo/shared-utils/log-data";
+import { logData } from "@salvatore.hakase/log-data";
 
 type ContactFieldValue = string | number | RangeInputValue;
 
@@ -87,7 +87,7 @@ const ContactSection: FC<ContactSectionProps> = ({
         }));
     };
 
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const response = await fetch(contact_form.action, {

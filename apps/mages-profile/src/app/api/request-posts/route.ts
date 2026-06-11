@@ -1,5 +1,5 @@
 import { requestPosts } from "@/lib/requestPosts";
-import { logData } from "@repo/shared-utils/log-data";
+import { logData } from "@salvatore.hakase/log-data";
 import { LayoutToolChip } from "@repo/type-definitions/dynamic-page";
 import { NextResponse } from "next/server";
 

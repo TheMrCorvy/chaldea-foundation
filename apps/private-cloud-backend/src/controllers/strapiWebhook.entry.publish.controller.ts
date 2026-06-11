@@ -1,6 +1,6 @@
 import type { StrapiWebhookPayload } from '../types/strapiWebhook.types';
 import { Request, Response } from 'express';
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 import { addJobToQueue } from '../database/jobQueue';
 import { JOB_TYPES } from '../services/jobProcessor.service';
 import { SocialNetworks } from '../services/wuphf/types';

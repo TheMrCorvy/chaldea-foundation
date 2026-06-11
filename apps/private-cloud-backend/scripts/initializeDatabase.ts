@@ -12,7 +12,7 @@ import verifyDirectoryExistance from '../src/utils/db_init/verifyDirectoryExista
 dotenv.config();
 
 import PlatformService from '@repo/platform-service-sdk';
-import { logData } from '@repo/shared-utils/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 import { processVideoFile } from '../src/services/ffmpeg.service';
 
 const main = async () => {
