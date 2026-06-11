@@ -3,7 +3,7 @@ import { authenticateApiKey, authenticateApiKeyWithHashes } from '../src/middlew
 import { generateApiKey } from '../src/services/apiKey.service';
 import { logData } from '@salvatore.hakase/log-data';
 
-jest.mock('@repo/shared-utils/log-data', () => ({
+jest.mock('@salvatore.hakase/log-data', () => ({
     logData: jest.fn(),
 }));
 

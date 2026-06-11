@@ -7,7 +7,7 @@ import { logData } from '@salvatore.hakase/log-data';
 
 jest.mock('fs');
 jest.mock('@repo/shared-utils/feature-flags');
-jest.mock('@repo/shared-utils/log-data', () => ({
+jest.mock('@salvatore.hakase/log-data', () => ({
     logData: jest.fn(),
 }));
 
