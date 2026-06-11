@@ -15,6 +15,7 @@ type MockTypographyProps = HTMLAttributes<HTMLElement> & {
 };
 
 jest.mock("@mui/material", () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const ReactModule = require("react") as typeof import("react");
 
     const stringifySx = (sx: unknown): string => {

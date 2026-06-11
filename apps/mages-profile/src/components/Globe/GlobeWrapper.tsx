@@ -7,6 +7,7 @@ import { GlobeProps } from "./index";
 import Loader from "../Loader";
 
 const GlobeComponent = dynamic<GlobeProps>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     () => import("./index").then((mod) => mod.default as any),
     {
         ssr: false,

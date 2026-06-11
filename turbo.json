@@ -20,6 +20,7 @@
                 "PORT",
                 "NODE_ENV",
                 "APP_NAME",
+                "LOGS_PATH",
                 "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
@@ -33,6 +34,7 @@
                 "PORT",
                 "NODE_ENV",
                 "APP_NAME",
+                "LOGS_PATH",
                 "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
@@ -45,6 +47,7 @@
                 "PORT",
                 "NODE_ENV",
                 "APP_NAME",
+                "LOGS_PATH",
                 "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
@@ -61,11 +64,12 @@
             "env": [
                 "PORT",
                 "NODE_ENV",
+                "APP_NAME",
+                "LOGS_PATH",
                 "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
-                "CONSUME_STRAPI_DATA",
-                "APP_NAME"
+                "CONSUME_STRAPI_DATA"
             ]
         },
         "test:coverage": {
@@ -75,6 +79,7 @@
                 "PORT",
                 "NODE_ENV",
                 "APP_NAME",
+                "LOGS_PATH",
                 "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
@@ -87,6 +92,7 @@
                 "PORT",
                 "NODE_ENV",
                 "APP_NAME",
+                "LOGS_PATH",
                 "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
@@ -100,6 +106,7 @@
                 "PORT",
                 "NODE_ENV",
                 "APP_NAME",
+                "LOGS_PATH",
                 "RUN_SEEDERS",
                 "FEATURE_FLAGS",
                 "LAYERS_AVAILABLE",
