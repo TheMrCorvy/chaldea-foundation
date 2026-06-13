@@ -82,26 +82,23 @@ const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
     const platformService = new PlatformService();
     platformService.setJWT(token);
 
-    const { data } = (await platformService.call(
-        "aDynamicPageGetADynamicPages",
-        {
-            query: {
-                filters: {
-                    slug: {
-                        $eq: "main",
-                    },
-                },
-                fields: dynamicPageFields,
-                populate: {
-                    sections: {
-                        on: mainLandingPage,
-                    },
+    const data = (await platformService.call("aDynamicPageGetADynamicPages", {
+        query: {
+            filters: {
+                slug: {
+                    $eq: "main",
                 },
             },
-        }
-    )) as { data?: DynamicPageResponse };
+            fields: dynamicPageFields,
+            populate: {
+                sections: {
+                    on: mainLandingPage,
+                },
+            },
+        },
+    })) as { data?: DynamicPageResponse };
 
-    if (!data || !data.data || data.data.length === 0) {
+    if (!data || !data.data || !data.data.data || data.data.data.length === 0) {
         logData({
             title: "The dynamic page requested doesn't exists",
             layer: "external_http_responses",
@@ -126,7 +123,7 @@ const getMainDynamicPage = cache(async (): Promise<DynamicPage | null> => {
         addSpaceBefore: true,
     });
 
-    return data.data[0];
+    return data.data.data[0];
 });
 
 export async function generateMetadata(): Promise<Metadata> {
