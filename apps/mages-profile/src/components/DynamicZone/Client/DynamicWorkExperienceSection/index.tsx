@@ -6,17 +6,12 @@ import DynamicTitle from "../../Shared/DynamicTitle";
 import { Box, Grid } from "@mui/material";
 import WorkExperienceItem from "./WorkExperienceItem";
 
-export interface DynamicWorkExperienceSectionProps extends LayoutWorkExperienceSection {
-    isMobile?: boolean;
-}
-
-const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
+const DynamicWorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
     title,
     experience_list_items,
     link_to_page,
     component_id,
     color,
-    isMobile,
     id,
 }) => {
     return (
@@ -50,14 +45,13 @@ const DynamicWorkExperienceSection: FC<DynamicWorkExperienceSectionProps> = ({
                     mt: 2,
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "flex-start",
+                    alignItems: "center",
                 }}
             >
                 {experience_list_items?.map((experience, index) => (
                     <WorkExperienceItem
                         key={experience.component_id || `exp-${index}`}
                         experience={experience}
-                        isMobile={isMobile}
                     />
                 ))}
             </Grid>
