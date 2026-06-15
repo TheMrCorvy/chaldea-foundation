@@ -65,7 +65,6 @@ const DynamicZoneComponentForClient: FC<DynamicZoneComponentProps> = ({
             return (
                 <DynamicWorkExperienceSection
                     {...(section as LayoutWorkExperienceSection)}
-                    isMobile={isMobile}
                 />
             );
 
