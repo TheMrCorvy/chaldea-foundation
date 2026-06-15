@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { SectionsProjectsSection } from "@repo/type-definitions/dynamic-page";
 import { FC } from "react";
 import DynamicTitle from "../../Shared/DynamicTitle";
@@ -42,26 +42,24 @@ const DynamicProjectsSection: FC<DynamicProjectsSectionProps> = ({
                 />
             )}
 
-            <Box
-                sx={{
-                    display: "grid",
-                    gridTemplateColumns: {
-                        xs: "1fr",
-                        md: "repeat(2, 1fr)",
-                        lg: "repeat(3, 1fr)",
-                    },
-                    gap: { xs: 4, lg: 5 },
-                    pt: 6,
-                }}
+            <Grid
+                container
+                spacing={{ xs: 4, lg: 5 }}
+                justifyContent="center"
+                sx={{ pt: 6 }}
             >
                 {projects?.map((project, index) => (
-                    <ProjectItem
-                        imageBaseUrl={imageBaseUrl}
+                    <Grid
                         key={project.component_id || `project-${index}`}
-                        project={project}
-                    />
+                        size={{ xs: 12, sm: 6, lg: 4 }}
+                    >
+                        <ProjectItem
+                            imageBaseUrl={imageBaseUrl}
+                            project={project}
+                        />
+                    </Grid>
                 ))}
-            </Box>
+            </Grid>
         </Box>
     );
 };
