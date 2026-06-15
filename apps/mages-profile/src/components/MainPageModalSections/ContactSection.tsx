@@ -209,7 +209,7 @@ const ContactSection: FC<ContactSectionProps> = ({
                             textTransform: "uppercase",
                         }}
                     >
-                        Transmission queued
+                        Transmission sent!
                     </Typography>
                 )}
             </Box>

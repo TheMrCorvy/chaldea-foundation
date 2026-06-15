@@ -216,7 +216,7 @@ const DynamicForm: FC<LayoutForm> = ({
                             mt: 1,
                         }}
                     >
-                        Transmission queued
+                        Transmission sent!
                     </Typography>
                 )}
             </Box>
