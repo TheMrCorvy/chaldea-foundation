@@ -43,7 +43,7 @@ const DynamicWorkExperienceSection: FC<LayoutWorkExperienceSection> = ({
                     mt: 2,
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "flex-start",
+                    alignItems: "center",
                 }}
             >
                 {experience_list_items?.map((experience, index) => (
