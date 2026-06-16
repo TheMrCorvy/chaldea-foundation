@@ -25,6 +25,11 @@ export interface RequestPostsResponse {
     };
 }
 
+export interface MetadataCoverImage {
+    url: string;
+    alt: string;
+}
+
 export type RequestPosts = (
     params: RequestPostsParams
 ) => Promise<RequestPostsResponse>;
@@ -216,7 +221,7 @@ const prettifyPosts = (
         title: post.title,
         slug: post.slug,
         description: post.description,
-        cover_image: null,
+        cover_image: (post.metadata?.cover_image as MetadataCoverImage) || null,
         categories: post.categories,
         updatedAt: post.updatedAt,
     }));
