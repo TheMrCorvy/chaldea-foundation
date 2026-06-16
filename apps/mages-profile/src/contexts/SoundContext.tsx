@@ -22,6 +22,10 @@ interface SoundContextType {
     soundEnabled: boolean;
     setSoundEnabled: Dispatch<SetStateAction<boolean>>;
     playSound: (sound: SoundType) => void;
+    bgmVolume: number;
+    setBgmVolume: Dispatch<SetStateAction<number>>;
+    sfxVolume: number;
+    setSfxVolume: Dispatch<SetStateAction<number>>;
 }
 
 const SoundContext = createContext<SoundContextType | undefined>(undefined);
@@ -46,8 +50,12 @@ export interface SoundProviderProps {
 
 export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
     const [soundEnabled, setSoundEnabled] = useState(false);
+    const [bgmVolume, setBgmVolume] = useState(0.3);
+    const [sfxVolume, setSfxVolume] = useState(0.2);
     const pathname = usePathname();
     const soundEnabledRef = useRef(soundEnabled);
+    const sfxVolumeRef = useRef(sfxVolume);
+    const bgmVolumeRef = useRef(bgmVolume);
     const sounds = useRef<{ [key: string]: HTMLAudioElement | null }>({
         button: null,
         modal: null,
@@ -59,6 +67,14 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
     useEffect(() => {
         soundEnabledRef.current = soundEnabled;
     }, [soundEnabled]);
+
+    useEffect(() => {
+        sfxVolumeRef.current = sfxVolume;
+    }, [sfxVolume]);
+
+    useEffect(() => {
+        bgmVolumeRef.current = bgmVolume;
+    }, [bgmVolume]);
 
     const playSound = useCallback((sound: SoundType) => {
         if (soundEnabledRef.current) {
@@ -113,16 +129,37 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
     }, [soundEnabled]);
 
     useEffect(() => {
+        const currentBgm = sounds.current.bgm;
+        if (currentBgm) {
+            const baseVolume = bgm === BGMs.CLASS_SCORE ? 0.6 : 0.4;
+            currentBgm.volume = bgmVolume * baseVolume;
+        }
+    }, [bgmVolume, bgm]);
+
+    useEffect(() => {
+        const currentSounds = sounds.current;
+        if (currentSounds.button) {
+            currentSounds.button.volume = sfxVolume * 0.4;
+        }
+        if (currentSounds.modal) {
+            currentSounds.modal.volume = sfxVolume * 1.0;
+        }
+        if (currentSounds.page_change) {
+            currentSounds.page_change.volume = sfxVolume * 0.4;
+        }
+    }, [sfxVolume]);
+
+    useEffect(() => {
         const currentSounds = sounds.current;
 
         currentSounds.button = new Audio("/assets/sounds/button.wav");
-        currentSounds.button.volume = 0.2;
+        currentSounds.button.volume = sfxVolumeRef.current * 0.4;
 
         currentSounds.modal = new Audio("/assets/sounds/modal.wav");
-        currentSounds.modal.volume = 0.5;
+        currentSounds.modal.volume = sfxVolumeRef.current * 1.0;
 
         currentSounds.page_change = new Audio("/assets/sounds/page_change.wav");
-        currentSounds.page_change.volume = 0.2;
+        currentSounds.page_change.volume = sfxVolumeRef.current * 0.4;
 
         logData({
             title: "Setting up background music",
@@ -137,7 +174,8 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
         currentSounds.bgm = new Audio(
             `/assets/sounds/${bgm || "ordeal_call"}.mp3`
         );
-        currentSounds.bgm.volume = bgm === BGMs.CLASS_SCORE ? 0.3 : 0.2;
+        const baseVolume = bgm === BGMs.CLASS_SCORE ? 0.6 : 0.4;
+        currentSounds.bgm.volume = bgmVolumeRef.current * baseVolume;
         currentSounds.bgm.loop = true;
 
         return () => {
@@ -153,8 +191,12 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
             soundEnabled,
             setSoundEnabled,
             playSound,
+            bgmVolume,
+            setBgmVolume,
+            sfxVolume,
+            setSfxVolume,
         }),
-        [soundEnabled, playSound]
+        [soundEnabled, playSound, bgmVolume, sfxVolume]
     );
 
     return (

@@ -118,7 +118,7 @@ const LatestPostsLayout: FC<LatestPostsLayoutProps> = ({ posts }) => {
                                     src={post.cover_image.url}
                                     alt={post.title}
                                     style={{
-                                        height: "150px",
+                                        height: "250px",
                                         width: "100%",
                                         borderRadius: "8px",
                                     }}
