@@ -14,15 +14,18 @@ import {
     dynamicPageFields,
     dynamicZone,
     populateDynamicPageRelations,
+    populateProjectsSection,
 } from "@/lib/constants";
 import ClientSideUiEffects from "@/components/DynamicZone/ClientSideUI/ClientSideUiEffects";
 import StarryContainer from "@/components/StarryContainer";
 import DynamicClientZone from "@/components/DynamicZone/Client/DynamicClientZone";
 import DynamycServerZone from "@/components/DynamicZone/Server/DynamicServerZone";
+import ClientSideProjectsPage from "@/components/ClientSideProjectsPage";
+import { SectionsProjectsSection } from "@repo/type-definitions/dynamic-page";
 
 export interface dynamicZonePageProps {
     params: Promise<{
-        slug: string;
+        slug: string[];
     }>;
 }
 
@@ -143,11 +146,90 @@ const getDynamicPage = cache(
     }
 );
 
+const getDynamicProjectsPage = cache(async (): Promise<DynamicPage | null> => {
+    const token = process.env.PLATFORM_SERVICE_KEY || "";
+
+    if (!token) {
+        logData({
+            title: "Critical env variable not found",
+            layer: "external_http_requests",
+            timeStamp: true,
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+            data: { token },
+            type: "error",
+        });
+
+        return null;
+    }
+
+    const platformService = new PlatformService();
+    platformService.setJWT(token);
+
+    const { data } = (await platformService.call(
+        "aDynamicPageGetADynamicPages",
+        {
+            query: {
+                filters: {
+                    slug: {
+                        $eq: "projects",
+                    },
+                },
+                fields: dynamicPageFields,
+                populate: {
+                    sections: {
+                        on: populateProjectsSection,
+                    },
+                },
+            },
+        }
+    )) as { data?: DynamicPageResponse };
+
+    if (!data || !data.data || data.data.length === 0) {
+        logData({
+            title: "The dynamic page requested doesn't exists",
+            layer: "external_http_responses",
+            addSeparatorAfter: true,
+            timeStamp: true,
+            addSpaceAfter: true,
+            data,
+            type: "error",
+        });
+
+        return null;
+    }
+
+    logData({
+        title: "Result for projects page",
+        layer: "external_http_responses",
+        addSeparatorAfter: true,
+        addSpaceAfter: true,
+        data,
+        timeStamp: true,
+        type: "info",
+        addSpaceBefore: true,
+    });
+
+    return data.data[0];
+});
+
 export async function generateMetadata({
     params,
 }: dynamicZonePageProps): Promise<Metadata> {
     const { slug } = await params;
-    const dynamicPage = await getDynamicPage(slug);
+
+    if (slug.length > 0 && slug[slug.length - 1] === "projects") {
+        const dynamicPage = await getDynamicProjectsPage();
+
+        if (!dynamicPage) {
+            return NOT_FOUND_METADATA;
+        }
+
+        return buildSeoMetadata(dynamicPage);
+    }
+
+    const slugPath = slug.join("/");
+    const dynamicPage = await getDynamicPage(slugPath);
 
     if (!dynamicPage) {
         return NOT_FOUND_METADATA;
@@ -158,6 +240,58 @@ export async function generateMetadata({
 
 export default async function DynamicZone({ params }: dynamicZonePageProps) {
     const { slug } = await params;
+
+    if (slug.length > 0 && slug[slug.length - 1] === "projects") {
+        const projectSlug = slug.slice(0, -1).join("/");
+        const imageBaseUrl = process.env.IMAGES_SOURCE_URL;
+
+        if (!imageBaseUrl) {
+            logData({
+                title: "Critical env variable not found",
+                layer: "external_http_requests",
+                timeStamp: true,
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                data: {
+                    imageBaseUrl,
+                },
+                type: "error",
+            });
+
+            return redirect("/404/1");
+        }
+
+        const dynamicPage = await getDynamicProjectsPage();
+
+        if (!dynamicPage) {
+            return redirect("/404/2");
+        }
+
+        const allowedSections = dynamicPage.metadata?.allowedSections as
+            | string[]
+            | undefined;
+
+        if (!allowedSections) {
+            return redirect("/404/3");
+        }
+
+        // if (!allowedSections.includes(projectSlug)) {
+        //     return redirect("/404/4");
+        // }
+
+        return (
+            <SoundProvider bgm={dynamicPage.background_music as BGMs}>
+                <ClientSideProjectsPage
+                    projectsSection={
+                        dynamicPage.sections[0] as SectionsProjectsSection
+                    }
+                    appSection={projectSlug}
+                />
+            </SoundProvider>
+        );
+    }
+
+    const slugPath = slug.join("/");
     const imageBaseUrl = process.env.IMAGES_SOURCE_URL;
 
     if (!imageBaseUrl) {
@@ -176,7 +310,7 @@ export default async function DynamicZone({ params }: dynamicZonePageProps) {
         return redirect("/404/1");
     }
 
-    const dynamicPage = await getDynamicPage(slug);
+    const dynamicPage = await getDynamicPage(slugPath);
 
     if (!dynamicPage) {
         return redirect("/404/2");
