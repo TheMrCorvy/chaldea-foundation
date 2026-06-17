@@ -29,7 +29,7 @@ const DynamicBlogHero: FC<DynamicBlogHeroProps> = ({
     body,
     cover_image,
     title,
-    link_to_page,
+    links_to_pages,
     highlighted_text_color,
     imageBaseUrl,
 }) => {
@@ -126,7 +126,7 @@ const DynamicBlogHero: FC<DynamicBlogHeroProps> = ({
                             highlighted_text_color={highlighted_text_color}
                         />
                     )}
-                    {link_to_page && (
+                    {links_to_pages && links_to_pages.length > 0 && (
                         <Box
                             sx={{
                                 mt: 2,
@@ -136,7 +136,9 @@ const DynamicBlogHero: FC<DynamicBlogHeroProps> = ({
                                 flexWrap: "wrap",
                             }}
                         >
-                            <DynamicLink {...link_to_page} />
+                            {links_to_pages.map((link, index) => (
+                                <DynamicLink key={index} {...link} />
+                            ))}
                         </Box>
                     )}
                 </Box>
