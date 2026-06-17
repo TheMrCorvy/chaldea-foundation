@@ -37,6 +37,7 @@ const DynamicBlogText: FC<BlogText> = ({
                 component={"div"}
                 sx={{
                     textAlign: text_align || "center",
+                    mt: 4,
                 }}
             >
                 <RichTextRenderer

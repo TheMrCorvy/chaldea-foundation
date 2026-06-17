@@ -67,6 +67,7 @@ const DynamicBlogText: FC<BlogText> = ({
                 variants={textVariants}
                 sx={{
                     textAlign: text_align || "center",
+                    mt: 4,
                 }}
             >
                 <RichTextRenderer
