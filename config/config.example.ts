@@ -10,7 +10,7 @@ export const GOOGLE_DRIVE_REDIRECT_URI = "http://localhost:3000/callback";
 export const GOOGLE_DRIVE_FOLDER_ID = "";
 
 // Optional: if empty, scripts/backup.js uses the repository folder name.
-export const DRIVE_ROOT_FOLDER = "";
+export const DRIVE_ROOT_FOLDER = "/Chaldea Foundation New";
 
 export const ALLOWED_APPS_FOR_MEDIA_BACKUP = [];
 export const ALLOWED_MEDIA_FILE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".gif"];
