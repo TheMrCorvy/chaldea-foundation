@@ -144,7 +144,7 @@ export const populateDescriptionWithChipsList = {
 export const populateBlogHero = {
     "blog.blog-hero": {
         populate: {
-            link_to_page: {
+            links_to_pages: {
                 populate: {
                     icon: {
                         populate: "*",
