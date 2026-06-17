@@ -7,6 +7,7 @@ import {
     ListItem,
 } from "@mui/material";
 import { JsonRichText, TextColors } from "@repo/type-definitions/dynamic-page";
+import CodeBlock from "./CodeBlock";
 
 export interface RichTextRendererProps {
     content: JsonRichText[];
@@ -71,6 +72,20 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({
 
     const renderNode = (node: JsonRichText, index: number): ReactNode => {
         switch (node.type) {
+            case "code": {
+                const codeContent =
+                    node.plainText ||
+                    node.children?.map((child) => child.text || "").join("") ||
+                    "";
+                return (
+                    <CodeBlock
+                        key={index}
+                        code={codeContent}
+                        language={node.language}
+                    />
+                );
+            }
+
             case "paragraph":
                 return (
                     <Typography

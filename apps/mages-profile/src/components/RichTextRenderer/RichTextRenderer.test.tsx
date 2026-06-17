@@ -229,4 +229,47 @@ describe("RichTextRenderer", () => {
 
         expect(screen.getByText("Short note.")).toBeInTheDocument();
     });
+
+    it("renders code block content with plainText and language (Strapi v5 format)", () => {
+        render(
+            <RichTextRenderer
+                content={[
+                    {
+                        type: "code",
+                        plainText: "const testValue = 42;",
+                        language: "javascript",
+                    },
+                ]}
+            />
+        );
+
+        const preElement = document.querySelector("pre");
+        expect(preElement).toBeInTheDocument();
+        expect(preElement?.textContent).toContain("const testValue = 42;");
+        expect(screen.getByText("javascript")).toBeInTheDocument();
+    });
+
+    it("renders code block content with children nodes (fallback format)", () => {
+        render(
+            <RichTextRenderer
+                content={[
+                    {
+                        type: "code",
+                        children: [
+                            {
+                                type: "text",
+                                text: "import React from 'react';",
+                            },
+                        ],
+                        language: "typescript",
+                    },
+                ]}
+            />
+        );
+
+        const preElement = document.querySelector("pre");
+        expect(preElement).toBeInTheDocument();
+        expect(preElement?.textContent).toContain("import React from 'react';");
+        expect(screen.getByText("typescript")).toBeInTheDocument();
+    });
 });
