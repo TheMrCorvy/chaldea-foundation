@@ -1,11 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DynamicBlogImage from "./index";
+import DynamicBlogImage, { DynamicBlogImageProps } from "./index";
 import StarryContainer from "../../../StarryContainer";
 import { BlogImageComponent } from "@repo/type-definitions/dynamic-page";
 
 const meta = {
     title: "DynamicZone/DynamicBlogImage",
-    render: (args: BlogImageComponent) => <DynamicBlogImage {...args} />,
+    render: (args: BlogImageComponent) => (
+        <DynamicBlogImage
+            {...args}
+            imageBaseUrl="https://images.unsplash.com"
+        />
+    ),
     parameters: {
         layout: "fullscreen",
     },
@@ -28,7 +33,7 @@ const meta = {
 } satisfies Meta<BlogImageComponent>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<DynamicBlogImageProps>;
 
 const mockFormat = {
     name: "chaldea_base.png",
@@ -40,7 +45,7 @@ const mockFormat = {
     height: 400,
     size: 200,
     sizeInBytes: 200000,
-    url: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
+    url: "/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
 };
 
 const mockImage = {
@@ -62,7 +67,7 @@ const mockImage = {
     height: 500,
     size: 2048,
     sizeInBytes: 2048000,
-    url: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
+    url: "/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
     publishedAt: new Date().toISOString(),
 };
 
@@ -77,6 +82,7 @@ export const Default: Story = {
         height: 500,
         body: "Visual representation of the central calculating engine analyzing the current timeline.",
         image: mockImage,
+        imageBaseUrl: "https://images.unsplash.com",
     },
 };
 
@@ -91,6 +97,7 @@ export const CustomAspectRatio: Story = {
         height: 500,
         body: "Live feed tracking bio-signs from the field agent. Minimal latency detected.",
         image: mockImage,
+        imageBaseUrl: "https://images.unsplash.com",
     },
 };
 
@@ -108,5 +115,6 @@ export const FallbackNoImage: Story = {
             ...mockImage,
             url: "",
         },
+        imageBaseUrl: "https://images.unsplash.com",
     },
 };
