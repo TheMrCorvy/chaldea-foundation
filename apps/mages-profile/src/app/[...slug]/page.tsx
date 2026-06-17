@@ -267,18 +267,6 @@ export default async function DynamicZone({ params }: dynamicZonePageProps) {
             return redirect("/404/2");
         }
 
-        const allowedSections = dynamicPage.metadata?.allowedSections as
-            | string[]
-            | undefined;
-
-        if (!allowedSections) {
-            return redirect("/404/3");
-        }
-
-        // if (!allowedSections.includes(projectSlug)) {
-        //     return redirect("/404/4");
-        // }
-
         return (
             <SoundProvider bgm={dynamicPage.background_music as BGMs}>
                 <ClientSideProjectsPage
