@@ -24,10 +24,11 @@
             "required": true,
             "allowedTypes": ["images", "files"]
         },
-        "link_to_page": {
+        "links_to_pages": {
             "type": "component",
             "component": "layout.link",
-            "repeatable": false
+            "repeatable": true,
+            "min": 1
         },
         "highlighted_text_color": {
             "type": "enumeration",
