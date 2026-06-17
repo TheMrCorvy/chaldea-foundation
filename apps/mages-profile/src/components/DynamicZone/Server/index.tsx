@@ -110,7 +110,12 @@ const DynamicZoneComponentForServer: FC<DynamicZoneComponentProps> = ({
             return <DynamicForm {...(section as LayoutForm)} />;
 
         case "blog.blog-image":
-            return <DynamicBlogImage {...(section as BlogImageComponent)} />;
+            return (
+                <DynamicBlogImage
+                    {...(section as BlogImageComponent)}
+                    imageBaseUrl={imageBaseUrl}
+                />
+            );
 
         case "layout.logo-loop":
             return <DynamicLogoLoop {...(section as LayoutLogoLoop)} />;
