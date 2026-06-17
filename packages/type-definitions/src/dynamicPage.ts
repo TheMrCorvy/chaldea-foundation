@@ -275,7 +275,7 @@ export interface SectionsContactSection extends StrapiComponent {
 export interface BlogHero extends StrapiComponent {
     body: Array<JsonRichText>;
     cover_image: ImageComponent;
-    link_to_page: LayoutLink;
+    links_to_pages: Array<LayoutLink>;
     highlighted_text_color?: TextColors | null;
 }
 
