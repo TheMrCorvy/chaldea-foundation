@@ -30,7 +30,7 @@ const useStyles: MUIStylesService = () => {
             p: { xs: 4, md: 6 },
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: "space-between",
             position: "relative",
             gap: 3,
             "&::after": {
@@ -60,7 +60,8 @@ const useStyles: MUIStylesService = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            p: { xs: 4, md: 6 },
+            p: 1,
+            width: { xs: "100%", md: "100vw" },
             background:
                 "radial-gradient(circle at center, rgba(56, 182, 255, 0.1) 0%, transparent 70%)",
         },
