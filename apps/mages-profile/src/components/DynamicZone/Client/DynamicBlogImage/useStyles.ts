@@ -63,7 +63,7 @@ const useStyles: MUIStylesService = () => {
             fontStyle: "italic",
             textAlign: "center",
             mt: 1,
-            maxWidth: "85%",
+            maxWidth: "100%",
             letterSpacing: "0.05em",
         },
     };

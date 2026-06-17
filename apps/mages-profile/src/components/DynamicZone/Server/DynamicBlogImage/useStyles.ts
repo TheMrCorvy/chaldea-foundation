@@ -8,7 +8,7 @@ const useStyles: MUIStylesService = () => {
             alignItems: "center",
             width: "100%",
             margin: "0 auto",
-            py: { xs: 4, md: 6 },
+            py: { xs: 2, md: 3 },
             px: { xs: 2, sm: 4 },
             gap: 2,
             flex: 1,

@@ -7,7 +7,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import useStyles from "./useStyles";
 
-const DynamicBlogImage: FC<BlogImageComponent> = ({
+export interface DynamicBlogImageProps extends BlogImageComponent {
+    imageBaseUrl: string;
+}
+
+const DynamicBlogImage: FC<DynamicBlogImageProps> = ({
     component_id,
     title,
     alt,
@@ -15,6 +19,7 @@ const DynamicBlogImage: FC<BlogImageComponent> = ({
     height,
     body,
     image,
+    imageBaseUrl,
 }) => {
     const {
         root,
@@ -53,7 +58,7 @@ const DynamicBlogImage: FC<BlogImageComponent> = ({
             >
                 {image?.url ? (
                     <Image
-                        src={image.url}
+                        src={imageBaseUrl + image.url}
                         alt={
                             alt ||
                             image.alternativeText ||
