@@ -2,13 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import { serveVideoFileService } from '../src/services/serveVideoFile.service';
 import { FeatureFlagsAvailable } from '@repo/config/feature-flags';
-import { isFeatureFlagEnabled } from '@repo/shared-utils/feature-flags';
-import { logData } from '@salvatore.hakase/log-data';
+import { isFeatureFlagEnabled, logData } from '@salvatore.hakase/log-data';
 
 jest.mock('fs');
-jest.mock('@repo/shared-utils/feature-flags');
 jest.mock('@salvatore.hakase/log-data', () => ({
     logData: jest.fn(),
+    isFeatureFlagEnabled: jest.fn(),
 }));
 
 const mockFs = fs as jest.Mocked<typeof fs>;
