@@ -89,7 +89,15 @@ const DynamicBlogHero: FC<DynamicBlogHeroProps> = ({
                         />
                     )}
                     {link_to_page && (
-                        <Box sx={{ mt: 2, color: "#f3f3f3" }}>
+                        <Box
+                            sx={{
+                                mt: 2,
+                                color: "#f3f3f3",
+                                display: "flex",
+                                gap: 2,
+                                flexWrap: "wrap",
+                            }}
+                        >
                             <DynamicLink {...link_to_page} />
                         </Box>
                     )}
@@ -104,6 +112,7 @@ const DynamicBlogHero: FC<DynamicBlogHeroProps> = ({
                                 opacity: 0.85,
                                 mixBlendMode: "screen",
                                 borderRadius: "8px",
+                                maxHeight: "clamp(300px, 50vh, 450px)",
                             }}
                             sizes="(max-width: 768px) 100vw, 50vw"
                         />

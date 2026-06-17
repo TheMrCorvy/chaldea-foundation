@@ -60,16 +60,9 @@ const useStyles: MUIStylesService = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            p: 1,
+            p: { xs: 4, md: 6 },
             background:
                 "radial-gradient(circle at center, rgba(56, 182, 255, 0.1) 0%, transparent 70%)",
-            "& img": {
-                width: "100%",
-                height: "100%",
-                maxWidth: "100%",
-                display: "block",
-                objectFit: "cover",
-            },
         },
         noImage: {
             width: "100%",

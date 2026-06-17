@@ -57,10 +57,10 @@ const useStyles: MUIStylesService = () => {
             flex: 1,
             position: "relative",
             minHeight: { xs: "300px", md: "auto" },
-            overflow: "hidden",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            p: { xs: 4, md: 6 },
             background:
                 "radial-gradient(circle at center, rgba(56, 182, 255, 0.1) 0%, transparent 70%)",
         },
