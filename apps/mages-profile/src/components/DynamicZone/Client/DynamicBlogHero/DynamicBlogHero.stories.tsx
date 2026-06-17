@@ -108,16 +108,18 @@ export const Default: Story = {
         ],
         imageBaseUrl: "https://images.unsplash.com",
         cover_image: mockCoverImage,
-        link_to_page: {
-            __component: "layout.link",
-            component_id: "link-1",
-            title: "Commence Transfer",
-            href: "/transfer",
-            label: "Initiate RayShift",
-            variant: "link",
-            target: "_self",
-            id: 0,
-        },
+        links_to_pages: [
+            {
+                __component: "layout.link",
+                component_id: "link-1",
+                title: "Commence Transfer",
+                href: "/transfer",
+                label: "Initiate RayShift",
+                variant: "link",
+                target: "_self",
+                id: 0,
+            },
+        ],
     },
 };
 
@@ -138,16 +140,18 @@ export const NoImage: Story = {
                 ],
             },
         ],
-        link_to_page: {
-            id: 0,
-            __component: "layout.link",
-            component_id: "link-2",
-            title: "Commence Transfer",
-            href: "/transfer",
-            label: "System Override",
-            variant: "link",
-            target: "_self",
-        },
+        links_to_pages: [
+            {
+                id: 0,
+                __component: "layout.link",
+                component_id: "link-2",
+                title: "Commence Transfer",
+                href: "/transfer",
+                label: "System Override",
+                variant: "link",
+                target: "_self",
+            },
+        ],
         imageBaseUrl: "https://images.unsplash.com",
         cover_image: {
             ...mockCoverImage,
