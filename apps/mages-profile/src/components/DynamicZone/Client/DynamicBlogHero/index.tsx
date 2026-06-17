@@ -161,7 +161,6 @@ const DynamicBlogHero: FC<DynamicBlogHeroProps> = ({
                                 borderRadius: "8px",
                                 padding: 5,
                             }}
-                            // sizes="(max-width: 1200px) 100vw, 80vw"
                         />
                     ) : (
                         <Box sx={noImage}>

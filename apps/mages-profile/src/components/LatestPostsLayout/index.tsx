@@ -83,6 +83,11 @@ const LatestPostsLayout: FC<LatestPostsLayoutProps> = ({ posts }) => {
             sx={{ my: 4 }}
             justifyContent="center"
         >
+            {posts.length === 0 && (
+                <Typography variant="body1" sx={{ color: "grey.500" }}>
+                    No posts available.
+                </Typography>
+            )}
             {posts.map((post, index) => (
                 <Grid
                     key={index}
