@@ -30,7 +30,7 @@ const DynamicTitle: FC<DynamicTitleProps> = ({
     id,
     link_icon_color,
     popover,
-    cycles = 2,
+    cycles = 1,
 }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [copied, setCopied] = useState(false);
