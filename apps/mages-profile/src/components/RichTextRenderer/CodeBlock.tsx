@@ -62,6 +62,7 @@ const CodeBlock: FC<CodeBlockProps> = ({ code, language }) => {
                 my: 6,
                 borderRadius: 2,
                 overflow: "hidden",
+                maxWidth: "95dvw",
                 border: "1px solid",
                 borderColor: "rgba(56, 182, 255, 0.3)",
                 background:
@@ -176,61 +177,69 @@ const CodeBlock: FC<CodeBlockProps> = ({ code, language }) => {
                     getLineProps,
                     getTokenProps,
                 }) => (
+                    // Scroll wrapper: scoped to the code area only, so the header bar stays full-width
                     <Box
-                        component="pre"
-                        className={className}
-                        style={{
-                            ...style,
-                            backgroundColor: "transparent",
-                            margin: 0,
-                            padding: "16px",
+                        sx={{
                             overflowX: "auto",
-                            fontSize: "0.875rem",
-                            lineHeight: 1.6,
-                            fontFamily:
-                                "Fira Code, JetBrains Mono, source-code-pro, Menlo, Monaco, Consolas, monospace",
                             position: "relative",
                             zIndex: 3,
                         }}
                     >
-                        {tokens.map((line, i) => (
-                            <Box
-                                key={i}
-                                {...getLineProps({ line })}
-                                sx={{
-                                    display: "flex",
-                                    "&:hover": {
-                                        bgcolor: "rgba(56, 182, 255, 0.04)",
-                                    },
-                                }}
-                            >
+                        <Box
+                            component="pre"
+                            className={className}
+                            style={{
+                                ...style,
+                                backgroundColor: "transparent",
+                                margin: 0,
+                                padding: "16px",
+                                whiteSpace: "pre",
+                                fontSize: "0.875rem",
+                                lineHeight: 1.6,
+                                fontFamily:
+                                    "Fira Code, JetBrains Mono, source-code-pro, Menlo, Monaco, Consolas, monospace",
+                            }}
+                        >
+                            {tokens.map((line, i) => (
                                 <Box
-                                    component="span"
+                                    key={i}
+                                    {...getLineProps({ line })}
                                     sx={{
-                                        display: "inline-block",
-                                        width: "2em",
-                                        textAlign: "right",
-                                        pr: 2,
-                                        userSelect: "none",
-                                        color: "rgba(178, 221, 255, 0.4)",
-                                        fontSize: "0.8rem",
+                                        display: "flex",
+                                        "&:hover": {
+                                            bgcolor: "rgba(56, 182, 255, 0.04)",
+                                        },
                                     }}
                                 >
-                                    {i + 1}
+                                    <Box
+                                        component="span"
+                                        sx={{
+                                            display: "inline-block",
+                                            width: "2em",
+                                            textAlign: "right",
+                                            pr: 2,
+                                            userSelect: "none",
+                                            color: "rgba(178, 221, 255, 0.4)",
+                                            fontSize: "0.8rem",
+                                            flexShrink: 0,
+                                        }}
+                                    >
+                                        {i + 1}
+                                    </Box>
+                                    <Box
+                                        component="span"
+                                        sx={{ flex: 1, pr: 2 }}
+                                    >
+                                        {line.map((token, key) => (
+                                            <span
+                                                key={key}
+                                                {...getTokenProps({ token })}
+                                            />
+                                        ))}
+                                    </Box>
                                 </Box>
-                                <Box
-                                    component="span"
-                                    sx={{ flex: 1, whiteSpace: "pre-wrap" }}
-                                >
-                                    {line.map((token, key) => (
-                                        <span
-                                            key={key}
-                                            {...getTokenProps({ token })}
-                                        />
-                                    ))}
-                                </Box>
-                            </Box>
-                        ))}
+                            ))}
+                        </Box>
                     </Box>
                 )}
             </Highlight>
