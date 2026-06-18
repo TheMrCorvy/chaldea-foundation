@@ -33,7 +33,12 @@
         "background_music": {
             "type": "enumeration",
             "default": "ordeal_call",
-            "enum": ["ordeal_call", "class_score"]
+            "enum": [
+                "ordeal_call",
+                "class_score",
+                "phantom_of_kabukicho",
+                "lingering_ice"
+            ]
         },
         "sections": {
             "type": "dynamiczone",
