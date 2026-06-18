@@ -101,7 +101,7 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({
                     </Typography>
                 );
 
-            case "heading":
+            case "heading": {
                 const variant = `h${node.level}` as
                     | "h1"
                     | "h2"
@@ -110,11 +110,22 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({
                     | "h5"
                     | "h6";
 
+                const headingTopMargin: Record<number, number> = {
+                    1: 10,
+                    2: 8,
+                    3: 6,
+                    4: 5,
+                    5: 4,
+                    6: 3,
+                };
+                const mt = headingTopMargin[node.level ?? 6] ?? 2;
+
                 return (
                     <Typography
                         key={index}
                         variant={variant}
                         sx={{
+                            mt,
                             mb: 2,
                             color,
                         }}
@@ -122,6 +133,7 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({
                         {node.children?.map(renderNode)}
                     </Typography>
                 );
+            }
 
             case "list":
                 return (
