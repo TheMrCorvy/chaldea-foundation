@@ -33,6 +33,8 @@ const SoundContext = createContext<SoundContextType | undefined>(undefined);
 export enum BGMs {
     ORDEAL_CALL = "ordeal_call",
     CLASS_SCORE = "class_score",
+    LINGERING_ICE = "lingering_ice",
+    PHANTOM_OF_KABUKICHO = "phantom_of_kabukicho",
 }
 
 export const useSound = () => {
@@ -174,8 +176,8 @@ export const SoundProvider: FC<SoundProviderProps> = ({ children, bgm }) => {
         currentSounds.bgm = new Audio(
             `/assets/sounds/${bgm || "ordeal_call"}.mp3`
         );
-        const baseVolume = bgm === BGMs.CLASS_SCORE ? 0.6 : 0.4;
-        currentSounds.bgm.volume = bgmVolumeRef.current * baseVolume;
+
+        currentSounds.bgm.volume = bgmVolumeRef.current;
         currentSounds.bgm.loop = true;
 
         return () => {
