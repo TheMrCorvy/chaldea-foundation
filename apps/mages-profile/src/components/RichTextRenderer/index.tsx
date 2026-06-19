@@ -15,6 +15,7 @@ export interface RichTextRendererProps {
     fontSize?: string;
     lineHeight?: number;
     highlighted_text_color?: TextColors | null;
+    explicitDisableMarginTopHeaders?: boolean;
 }
 
 const RichTextRenderer: FC<RichTextRendererProps> = ({
@@ -23,6 +24,7 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({
     fontSize,
     lineHeight,
     highlighted_text_color,
+    explicitDisableMarginTopHeaders = false,
 }) => {
     const renderText = (node: JsonRichText, index: number) => {
         let element: ReactNode = node.text;
@@ -125,7 +127,7 @@ const RichTextRenderer: FC<RichTextRendererProps> = ({
                         key={index}
                         variant={variant}
                         sx={{
-                            mt,
+                            mt: explicitDisableMarginTopHeaders ? 0 : mt,
                             mb: 2,
                             color,
                         }}

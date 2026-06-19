@@ -45,6 +45,7 @@ const MySkills: FC<MySkillsProps> = ({
                 fontSize="0.85rem"
                 lineHeight={1.5}
                 highlighted_text_color={highlighted_text_color}
+                explicitDisableMarginTopHeaders
             />
 
             <LogoLoop
