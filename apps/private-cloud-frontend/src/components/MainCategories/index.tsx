@@ -14,11 +14,12 @@ export interface MainCategoriesProps {
 
 const colors = [
     "#f44336",
-    "#e91e63",
+    "#4caf50",
     "#9c27b0",
     "#2196f3",
-    "#4caf50",
+    "#f152a7",
     "#ff9800",
+    "#e91e63",
 ];
 
 const MainCategories: FC<MainCategoriesProps> = ({ directories }) => {
