@@ -102,7 +102,9 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         languageControlsContainer,
         languageControlsStack,
         langTitle,
-    } = useStyles();
+        subtitleContainer,
+        subtitleSpan,
+    } = useStyles({ showControls });
 
     const cues = parseVtt(vtt || "");
     const currentCue = cues.find(
@@ -129,40 +131,10 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                     ></video>
 
                     {vtt !== null && subtitleText && (
-                        <Box
-                            sx={{
-                                position: "absolute",
-                                bottom: showControls
-                                    ? 120
-                                    : {
-                                          xs: 20,
-                                          md: 40,
-                                          lg: 80,
-                                      },
-                                width: {
-                                    xs: "90%",
-                                    md: "60%",
-                                    lg: "100%",
-                                },
-                                bgcolor: "rgba(0, 0, 0, 0.6)",
-                                borderRadius: 2,
-                                padding: 1,
-                                left: "50%",
-                                transform: "translateX(-50%)",
-                                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                pointerEvents: "none",
-                            }}
-                        >
+                        <Box sx={subtitleContainer}>
                             <Typography>
                                 <span
-                                    style={{
-                                        color: "white",
-                                        fontSize: "32px",
-                                        textAlign: "center",
-                                    }}
+                                    style={subtitleSpan as CSSProperties}
                                     dangerouslySetInnerHTML={{
                                         __html: subtitleText,
                                     }}

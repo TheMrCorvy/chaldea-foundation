@@ -1,7 +1,8 @@
 import { getScreenSize } from "@/utils/screenSize";
 import { StylesService } from "@repo/type-definitions/styles";
 
-const useStyles: StylesService = () => {
+const useStyles: StylesService = (params) => {
+    const showControls = params?.showControls;
     return {
         root: {
             background: "neutral.900",
@@ -31,9 +32,15 @@ const useStyles: StylesService = () => {
             "&:hover": {
                 cursor: "pointer",
             },
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
         },
         videoTag: {
             width: "100%",
+            height: "auto",
+            maxHeight: "100%",
+            maxWidth: "100%",
             display: "block",
             aspectRatio: "16/9",
         },
@@ -160,6 +167,36 @@ const useStyles: StylesService = () => {
             mb: 0.5,
             color: "white",
             paddingLeft: 0.5,
+        },
+        subtitleContainer: {
+            position: "absolute",
+            bottom: showControls
+                ? 120
+                : {
+                      xs: 20,
+                      md: 40,
+                      lg: 80,
+                  },
+            width: {
+                xs: "90%",
+                md: "60%",
+                lg: "100%",
+            },
+            bgcolor: "rgba(0, 0, 0, 0.6)",
+            borderRadius: 2,
+            padding: 1,
+            left: "50%",
+            transform: "translateX(-50%)",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            pointerEvents: "none",
+        },
+        subtitleSpan: {
+            color: "white",
+            fontSize: "32px",
+            textAlign: "center",
         },
     };
 };
