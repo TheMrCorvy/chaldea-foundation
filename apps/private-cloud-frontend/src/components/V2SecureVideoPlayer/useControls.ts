@@ -1,6 +1,6 @@
 import { NasApiRoutes } from "@/utils/routes";
 import { LanguagesInfo } from "@repo/type-definitions";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 interface UseControlsProps {
     languagesInfo: LanguagesInfo;
@@ -19,10 +19,53 @@ const useControls = ({
     path,
     display_name,
 }: UseControlsProps) => {
-    const [audioIndex, setAudioIndex] = useState(
-        languagesInfo?.audioTracks?.[0]?.trackIndex ?? 0
-    );
-    const [subtitleIndex, setSubtitleIndex] = useState(-1); // default to 'off'
+    const [audioIndex, setAudioIndex] = useState(() => {
+        if (!languagesInfo?.audioTracks) return 0;
+
+        // Find track with 'jpn'
+        const jpnTrack = languagesInfo.audioTracks.find(
+            (track) => track.language?.toLowerCase() === "jpn"
+        );
+        if (jpnTrack) return jpnTrack.trackIndex;
+
+        // Find track with 'unknown'
+        const unknownTrack = languagesInfo.audioTracks.find(
+            (track) => track.language?.toLowerCase() === "unknown"
+        );
+        if (unknownTrack) return unknownTrack.trackIndex;
+
+        // Default to first audio track
+        return languagesInfo.audioTracks[0]?.trackIndex ?? 0;
+    });
+
+    const [subtitleIndex, setSubtitleIndex] = useState(() => {
+        if (!languagesInfo?.audioTracks || !languagesInfo?.subtitleTracks)
+            return -1;
+
+        // Determine default audio track language
+        const jpnTrack = languagesInfo.audioTracks.find(
+            (track) => track.language?.toLowerCase() === "jpn"
+        );
+        const unknownTrack = languagesInfo.audioTracks.find(
+            (track) => track.language?.toLowerCase() === "unknown"
+        );
+        const defaultAudioTrack =
+            jpnTrack || unknownTrack || languagesInfo.audioTracks[0];
+
+        const defaultAudioLang = defaultAudioTrack?.language?.toLowerCase();
+
+        // If default audio track is jpn or unknown
+        if (defaultAudioLang === "jpn" || defaultAudioLang === "unknown") {
+            // Find Spanish subtitle track ('esp' / 'spa' / 'es')
+            const espSubtitle = languagesInfo.subtitleTracks.find((track) => {
+                const l = track.language?.toLowerCase();
+                return l === "esp" || l === "spa" || l === "es";
+            });
+            if (espSubtitle) return espSubtitle.trackIndex;
+        }
+
+        return -1; // Default to 'off'
+    });
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [showControls, setShowControls] = useState(true);
@@ -221,51 +264,58 @@ const useControls = ({
         }
     };
 
-    const subtitleSrcUrl = (subsIndex: number) => {
-        if (
-            subsIndex < 0 ||
-            !languagesInfo?.subtitleTracks ||
-            subsIndex >= languagesInfo.subtitleTracks.length
-        ) {
-            return null;
+    const subtitleSrcUrl = useCallback(
+        (subsIndex: number) => {
+            if (
+                subsIndex < 0 ||
+                !languagesInfo?.subtitleTracks ||
+                subsIndex >= languagesInfo.subtitleTracks.length
+            ) {
+                return null;
+            }
+
+            return `${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?parentDirectory=${encodeURIComponent(
+                path
+            )}&fileName=${encodeURIComponent(
+                display_name
+            )}&apiKey=${encodeURIComponent(apiKey)}&subtitleIndex=${subsIndex}`;
+        },
+        [apiKey, display_name, languagesInfo, nasBaseUrl, path]
+    );
+
+    // Fetch subtitles automatically when selected subtitle track changes
+    useEffect(() => {
+        if (subtitleIndex === -1) {
+            setVtt(null);
+            return;
         }
 
-        return `${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?parentDirectory=${encodeURIComponent(
-            path
-        )}&fileName=${encodeURIComponent(
-            display_name
-        )}&apiKey=${encodeURIComponent(apiKey)}&subtitleIndex=${subsIndex}`;
-    };
+        const subtitleSrc = subtitleSrcUrl(subtitleIndex);
+        if (subtitleSrc) {
+            setIsLoading(true);
+            fetch(subtitleSrc)
+                .then((res) => res.text())
+                .then((result) => {
+                    setIsLoading(false);
+                    setVtt(result);
+                })
+                .catch(() => {
+                    setIsLoading(false);
+                });
+        }
+    }, [subtitleIndex, subtitleSrcUrl]);
 
     // Handle subtitle selection change
     const handleSubtitleChange = (
         _event: React.SyntheticEvent | null,
         newValue: string | number | null
     ) => {
-        if (newValue === -1) {
-            setSubtitleIndex(-1);
-            setVtt(null);
-            return;
-        }
-
         if (newValue !== null) {
-            const subtitleSrc = subtitleSrcUrl(Number(newValue));
             const wasPlaying = isPlaying;
-
             setSubtitleIndex(Number(newValue) as number);
             setStart(currentTime);
             setIsLoading(true);
-
             seekShouldPlayRef.current = wasPlaying;
-
-            if (subtitleSrc) {
-                fetch(subtitleSrc)
-                    .then((res) => res.text())
-                    .then((result) => {
-                        setIsLoading(false);
-                        setVtt(result);
-                    });
-            }
         }
     };
 
