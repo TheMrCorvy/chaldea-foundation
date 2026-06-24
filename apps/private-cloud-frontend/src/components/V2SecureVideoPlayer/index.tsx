@@ -80,6 +80,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         handleTimelineMouseMove,
         handleTimelineMouseEnter,
         handleTimelineMouseLeave,
+        handleKeyDown,
     } = useControls({
         fileType,
         display_name,
@@ -127,6 +128,8 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                     sx={mainBox}
                     onMouseMove={handleMouseMove}
                     onDoubleClick={handleFullscreenClick}
+                    onKeyDown={handleKeyDown}
+                    tabIndex={0}
                 >
                     <video
                         ref={videoRef}

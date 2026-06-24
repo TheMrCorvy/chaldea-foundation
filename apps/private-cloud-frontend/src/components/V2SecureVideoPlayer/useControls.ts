@@ -1,6 +1,13 @@
 import { NasApiRoutes } from "@/utils/routes";
 import { LanguagesInfo } from "@repo/type-definitions";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+    KeyboardEvent,
+} from "react";
 
 interface UseControlsProps {
     languagesInfo: LanguagesInfo;
@@ -364,6 +371,28 @@ const useControls = ({
         setShowHoverTooltip(false);
     };
 
+    // Handle spacebar play/pause keydowns
+    const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === " " || e.code === "Space") {
+            const activeEl = document.activeElement;
+            if (
+                activeEl &&
+                (activeEl.tagName === "INPUT" ||
+                    activeEl.tagName === "TEXTAREA" ||
+                    activeEl.tagName === "SELECT" ||
+                    activeEl.tagName === "BUTTON" ||
+                    activeEl.getAttribute("role") === "button" ||
+                    activeEl.getAttribute("role") === "combobox" ||
+                    activeEl.getAttribute("role") === "listbox" ||
+                    activeEl.getAttribute("contenteditable") === "true")
+            ) {
+                return;
+            }
+            e.preventDefault();
+            handlePlayPause();
+        }
+    };
+
     return {
         videoRef,
         videoSrc,
@@ -394,6 +423,7 @@ const useControls = ({
         handleTimelineMouseMove,
         handleTimelineMouseEnter,
         handleTimelineMouseLeave,
+        handleKeyDown,
     };
 };
 

@@ -35,6 +35,7 @@ const useStyles: StylesService = (params) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            outline: "none",
         },
         videoTag: {
             width: "100%",
