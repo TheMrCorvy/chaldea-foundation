@@ -44,7 +44,11 @@ const DynamicBlogImage: FC<DynamicBlogImageProps> = ({
             <Box
                 sx={{
                     aspectRatio:
-                        width && height ? `${width} / ${height}` : "16 / 9",
+                        width && height
+                            ? `${width} / ${height}`
+                            : image?.width && image?.height
+                              ? `${image.width} / ${image.height}`
+                              : "16 / 9",
                     ...imageContainer,
                 }}
             >
@@ -59,7 +63,7 @@ const DynamicBlogImage: FC<DynamicBlogImageProps> = ({
                         }
                         fill
                         style={{
-                            objectFit: "cover",
+                            objectFit: "contain",
                             opacity: 0.85,
                             mixBlendMode: "screen",
                         }}
