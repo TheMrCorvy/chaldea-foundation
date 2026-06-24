@@ -198,6 +198,37 @@ const useStyles: StylesService = (params) => {
             fontSize: "32px",
             textAlign: "center",
         },
+        timelineTooltip: {
+            position: "absolute",
+            bottom: "100%",
+            transform: "translateX(-50%)",
+            mb: 1.5,
+            bgcolor: "rgba(0, 0, 0, 0.8)",
+            backdropFilter: "blur(4px)",
+            px: 1.2,
+            py: 0.6,
+            borderRadius: "6px",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+            zIndex: 20,
+            pointerEvents: "none",
+            whiteSpace: "nowrap",
+            "&::after": {
+                content: '""',
+                position: "absolute",
+                top: "100%",
+                left: "50%",
+                transform: "translateX(-50%)",
+                borderWidth: "5px",
+                borderStyle: "solid",
+                borderColor:
+                    "rgba(0, 0, 0, 0.8) transparent transparent transparent",
+            },
+        },
+        timelineTooltipText: {
+            color: "white",
+            fontSize: "12px",
+            fontWeight: 600,
+        },
     };
 };
 

@@ -29,6 +29,9 @@ const useControls = ({
     const [volume, setVolume] = useState(1);
     const [showVolumeSlider, setShowVolumeSlider] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [hoverTime, setHoverTime] = useState(0);
+    const [hoverPosition, setHoverPosition] = useState(0);
+    const [showHoverTooltip, setShowHoverTooltip] = useState(false);
     const duration = languagesInfo?.duration || 0;
     const videoRef = useRef<HTMLVideoElement>(null);
     const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -293,6 +296,24 @@ const useControls = ({
         }, 300);
     };
 
+    // Handle timeline mouse hover events for showing hover time
+    const handleTimelineMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const hoverX = e.clientX - rect.left;
+        const percentage = Math.max(0, Math.min(1, hoverX / rect.width));
+        const calculatedTime = percentage * duration;
+        setHoverTime(calculatedTime);
+        setHoverPosition(hoverX);
+    };
+
+    const handleTimelineMouseEnter = () => {
+        setShowHoverTooltip(true);
+    };
+
+    const handleTimelineMouseLeave = () => {
+        setShowHoverTooltip(false);
+    };
+
     return {
         videoRef,
         videoSrc,
@@ -317,6 +338,12 @@ const useControls = ({
         vtt,
         subtitleSrcUrl,
         handleCommitProgressChange,
+        hoverTime,
+        hoverPosition,
+        showHoverTooltip,
+        handleTimelineMouseMove,
+        handleTimelineMouseEnter,
+        handleTimelineMouseLeave,
     };
 };
 

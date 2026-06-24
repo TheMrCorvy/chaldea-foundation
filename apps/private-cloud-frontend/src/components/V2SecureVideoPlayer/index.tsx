@@ -74,6 +74,12 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         vtt,
         subtitleSrcUrl,
         handleCommitProgressChange,
+        hoverTime,
+        hoverPosition,
+        showHoverTooltip,
+        handleTimelineMouseMove,
+        handleTimelineMouseEnter,
+        handleTimelineMouseLeave,
     } = useControls({
         fileType,
         display_name,
@@ -104,6 +110,8 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         langTitle,
         subtitleContainer,
         subtitleSpan,
+        timelineTooltip,
+        timelineTooltipText,
     } = useStyles({ showControls });
 
     const cues = parseVtt(vtt || "");
@@ -179,7 +187,22 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                     {showControls && (
                         <Box sx={controlsContainer}>
                             {/* Progress Bar */}
-                            <Box sx={{ mb: 1 }}>
+                            <Box
+                                sx={{ position: "relative", mb: 1 }}
+                                onMouseMove={handleTimelineMouseMove}
+                                onMouseEnter={handleTimelineMouseEnter}
+                                onMouseLeave={handleTimelineMouseLeave}
+                            >
+                                {showHoverTooltip && (
+                                    <Box
+                                        style={{ left: hoverPosition }}
+                                        sx={timelineTooltip}
+                                    >
+                                        <Typography sx={timelineTooltipText}>
+                                            {formatTime(hoverTime)}
+                                        </Typography>
+                                    </Box>
+                                )}
                                 <Slider
                                     value={currentTime}
                                     onChange={(e, value) => {
