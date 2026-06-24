@@ -91,7 +91,7 @@ const BottomNav: FC<BottomNavbProps> = ({
                 open={searchModalOpen}
                 onClose={() => setSearchModalOpen(false)}
             >
-                <Search allowAdultContent={allowAdultContent} />
+                <Search allowAdultContent={allowAdultContent} autoFocus />
             </SearchModal>
             <SendReport
                 open={reportModalOpen}

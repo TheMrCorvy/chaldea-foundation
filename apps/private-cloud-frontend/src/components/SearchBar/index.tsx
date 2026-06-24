@@ -2,7 +2,7 @@ import Input from "@mui/joy/Input";
 import IconButton from "@mui/joy/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { FC, FormEvent, useState } from "react";
+import { FC, FormEvent, useState, useEffect, useRef } from "react";
 import { themeConfig } from "@/lib/theme";
 import {
     Box,
@@ -29,16 +29,25 @@ export interface SearchBarProps {
         pageCount: number;
         total: number;
     };
+    autoFocus?: boolean;
 }
 
 const SearchBar: FC<SearchBarProps> = ({
     allowAdultContent,
     handleSubmit,
     pagination,
+    autoFocus,
 }) => {
     const [query, setQuery] = useState("");
     const [switchAdult, setSwitchAdult] = useState(false);
     const [switchOnlyAdult, setSwitchOnlyAdult] = useState(false);
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (autoFocus) {
+            inputRef.current?.focus();
+        }
+    }, [autoFocus]);
 
     const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -60,6 +69,8 @@ const SearchBar: FC<SearchBarProps> = ({
     return (
         <Stack component="form" onSubmit={onSubmit} gap={2}>
             <Input
+                slotProps={{ input: { ref: inputRef } }}
+                autoFocus={autoFocus}
                 required
                 color="primary"
                 placeholder="Buscar..."

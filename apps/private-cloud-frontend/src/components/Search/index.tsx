@@ -20,9 +20,10 @@ import ErrorIcon from "@mui/icons-material/Error";
 
 interface SearchProps {
     allowAdultContent?: boolean;
+    autoFocus?: boolean;
 }
 
-const Search: FC<SearchProps> = ({ allowAdultContent }) => {
+const Search: FC<SearchProps> = ({ allowAdultContent, autoFocus }) => {
     const [loadingState, setLoadingState] = useState<LoadingState>("idle");
     const [directoriesResponse, setDirectoriesResponse] = useState<Directory[]>(
         []
@@ -79,6 +80,7 @@ const Search: FC<SearchProps> = ({ allowAdultContent }) => {
                 allowAdultContent={allowAdultContent}
                 handleSubmit={handlesearch}
                 pagination={pagination}
+                autoFocus={autoFocus}
             />
             {loadingState === "loading" && (
                 <Box
