@@ -113,6 +113,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         subtitleSpan,
         timelineTooltip,
         timelineTooltipText,
+        navigationWrapper,
     } = useStyles({ showControls });
 
     const cues = parseVtt(vtt || "");
@@ -467,7 +468,12 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                         </Box>
                     </Stack>
 
-                    <PrevNextEpisode parentId={parent} episodeId={documentId} />
+                    <Box sx={navigationWrapper}>
+                        <PrevNextEpisode
+                            parentId={parent}
+                            episodeId={documentId}
+                        />
+                    </Box>
                 </CardContent>
             </CardOverflow>
         </Card>

@@ -230,6 +230,12 @@ const useStyles: StylesService = (params) => {
             fontSize: "12px",
             fontWeight: 600,
         },
+        navigationWrapper: {
+            marginLeft: "auto",
+            [`@media (max-width: ${getScreenSize("xl")}px)`]: {
+                marginLeft: 0,
+            },
+        },
     };
 };
 

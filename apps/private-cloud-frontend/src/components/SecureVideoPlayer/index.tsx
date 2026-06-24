@@ -111,6 +111,9 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                 variant="solid"
                 sx={{
                     backgroundColor: "#0B6BCB",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    alignItems: "end",
                 }}
             >
                 <CardContent
