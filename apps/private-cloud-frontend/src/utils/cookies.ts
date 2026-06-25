@@ -22,7 +22,7 @@ export interface Role {
     id: number;
     name: string;
     updatedAt: Date;
-    type: RoleTypes | string;
+    type: RoleTypes;
     description: string;
 }
 

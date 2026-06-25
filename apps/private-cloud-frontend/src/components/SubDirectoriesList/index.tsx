@@ -15,6 +15,7 @@ import { WebRoutes } from "@/utils/routes";
 import { getScreenSize } from "@/utils/screenSize";
 import FolderIcon from "@mui/icons-material/Folder";
 import ErrorIcon from "@mui/icons-material/Error";
+import NoAdultContentIcon from "@mui/icons-material/NoAdultContent";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 export interface SubDirectoriesListProps {
@@ -123,13 +124,26 @@ const SubDirectoriesList: FC<SubDirectoriesListProps> = ({
                                         flexShrink: 0,
                                     }}
                                 >
-                                    {subDir.adult && (
+                                    {subDir.age_rating === "explicit" && (
                                         <Tooltip
                                             title="Contenido sensible"
                                             placement="top"
                                             variant="solid"
                                         >
                                             <ErrorIcon
+                                                sx={{
+                                                    fontSize: 20,
+                                                }}
+                                            />
+                                        </Tooltip>
+                                    )}
+                                    {subDir.age_rating === "adults" && (
+                                        <Tooltip
+                                            title="Contenido para adultos"
+                                            placement="top"
+                                            variant="solid"
+                                        >
+                                            <NoAdultContentIcon
                                                 sx={{
                                                     fontSize: 20,
                                                 }}

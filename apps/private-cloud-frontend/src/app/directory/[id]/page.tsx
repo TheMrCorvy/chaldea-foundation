@@ -24,17 +24,19 @@ import SubDirectoriesList from "@/components/SubDirectoriesList";
 
 const DirectoryPage = async ({ params }: Page) => {
     const jwt = (await getCookie(CookiesList.JWT)) as JwtCookie;
-    const userCookie = (await getCookie(CookiesList.USER)) as MeResponse | null;
+    // const userCookie = (await getCookie(CookiesList.USER)) as MeResponse | null;
+    const session = (await getCookie(CookiesList.USER)) as MeResponse | null;
     const { id } = await params;
 
     if (
         !id ||
         !jwt ||
-        !userCookie ||
+        !session ||
         !jwt.jwt ||
-        !userCookie.role ||
-        (userCookie.role.type !== RoleTypes.ADULT_ANIME_WATCHER &&
-            userCookie.role.type !== RoleTypes.ANIME_WATCHER)
+        !session.role ||
+        (session.role.type !== RoleTypes.ADULT_ANIME_WATCHER &&
+            session.role.type !== RoleTypes.ANIME_WATCHER &&
+            session.role.type !== RoleTypes.EXPLICIT_ANIME_WATCHER)
     ) {
         await deleteCookie(CookiesList.JWT);
         await deleteCookie(CookiesList.USER);
@@ -55,7 +57,7 @@ const DirectoryPage = async ({ params }: Page) => {
                 documentId: id,
             },
         },
-        fields: ["display_name", "documentId", "adult"],
+        fields: ["display_name", "documentId", "age_rating"],
         sort: ["display_name:asc"],
         pagination: {
             pageSize: 2000,
@@ -63,11 +65,29 @@ const DirectoryPage = async ({ params }: Page) => {
     };
 
     if (
-        userCookie.role.type !== RoleTypes.ADULT_ANIME_WATCHER &&
+        session.role.type === RoleTypes.ANIME_WATCHER &&
         subDirectoriesQuery.filters
     ) {
-        subDirectoriesQuery.filters.adult = {
-            $eq: false,
+        subDirectoriesQuery.filters.age_rating = {
+            $eq: "everyone",
+        };
+    }
+
+    if (
+        session.role.type === RoleTypes.EXPLICIT_ANIME_WATCHER &&
+        subDirectoriesQuery.filters
+    ) {
+        subDirectoriesQuery.filters.age_rating = {
+            $in: ["everyone", "explicit"],
+        };
+    }
+
+    if (
+        session.role.type === RoleTypes.ADULT_ANIME_WATCHER &&
+        subDirectoriesQuery.filters
+    ) {
+        subDirectoriesQuery.filters.age_rating = {
+            $in: ["everyone", "explicit", "adults"],
         };
     }
 
@@ -133,7 +153,7 @@ const DirectoryPage = async ({ params }: Page) => {
                         $null: true,
                     },
                 },
-                fields: ["display_name", "documentId", "adult"],
+                fields: ["display_name", "documentId", "age_rating"],
             },
         }
     );
@@ -160,7 +180,7 @@ const DirectoryPage = async ({ params }: Page) => {
             },
             query: {
                 populate: ["parent_directory"],
-                fields: ["display_name", "documentId", "adult"],
+                fields: ["display_name", "documentId", "age_rating"],
             },
         }
     );
@@ -273,7 +293,7 @@ const DirectoryPage = async ({ params }: Page) => {
                                 >
                                     <EpisodeCard
                                         episode={episode}
-                                        userId={userCookie.documentId}
+                                        userId={session.documentId}
                                     />
                                 </Grid>
                             ))}
@@ -284,7 +304,7 @@ const DirectoryPage = async ({ params }: Page) => {
             <BottomNav
                 mainDirectories={mainDirectories}
                 allowAdultContent={
-                    userCookie?.role.type === RoleTypes.ADULT_ANIME_WATCHER
+                    session?.role.type === RoleTypes.ADULT_ANIME_WATCHER
                 }
             />
         </>

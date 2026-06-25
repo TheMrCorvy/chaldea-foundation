@@ -1,10 +1,10 @@
-import { Directory } from "@repo/type-definitions";
+import { AdultContentType, Directory } from "@repo/type-definitions";
 
 export interface DirectoryLink {
     label: string;
     url: string;
     parent_directory?: string | null;
-    adult?: boolean;
+    age_rating?: AdultContentType;
 }
 
 export interface GroupedDirectories {
@@ -43,7 +43,7 @@ const organizedDirectories = (directories: Directory[]): GroupedDirectories => {
         label: dir.display_name,
         url: dir.documentId,
         parent_directory: dir.parent_directory?.documentId || null,
-        adult: dir.adult as boolean,
+        age_rating: dir.age_rating as AdultContentType,
     }));
 
     const sortedDirectories = sortDirectoriesByLabel(links);

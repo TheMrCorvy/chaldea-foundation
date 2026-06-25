@@ -18,6 +18,7 @@ export interface BottomNavbProps {
     mainDirectories: Directory[];
     onlyGoBack?: boolean;
     allowAdultContent?: boolean;
+    allowExplicitContent?: boolean;
 }
 
 const BottomNav: FC<BottomNavbProps> = ({

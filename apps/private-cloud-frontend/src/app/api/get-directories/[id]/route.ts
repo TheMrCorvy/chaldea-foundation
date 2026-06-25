@@ -30,7 +30,7 @@ export const GET = async (
     const { id } = await params;
 
     const queryParams: QueryParams = {
-        fields: ["documentId", "display_name", "adult"],
+        fields: ["documentId", "display_name", "age_rating"],
         pagination: {
             pageSize: 500,
             page: 1,
@@ -46,10 +46,25 @@ export const GET = async (
                 },
             },
         };
-    } else {
+    }
+
+    if (userCookie.role.type === RoleTypes.ANIME_WATCHER) {
         queryParams.filters = {
-            adult: {
-                $eq: false,
+            age_rating: {
+                $eq: "everyone",
+            },
+            parent_directory: {
+                documentId: {
+                    $eq: id,
+                },
+            },
+        };
+    }
+
+    if (userCookie.role.type === RoleTypes.EXPLICIT_ANIME_WATCHER) {
+        queryParams.filters = {
+            age_rating: {
+                $in: ["everyone", "explicit"],
             },
             parent_directory: {
                 documentId: {

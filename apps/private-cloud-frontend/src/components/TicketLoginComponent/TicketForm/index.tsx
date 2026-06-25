@@ -49,10 +49,11 @@ const TicketForm: FC<TicketFormProps> = ({ isRegisterForm, registerToken }) => {
     const [passwordValue, setPasswordValue] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
-    if (formState.submitState === "success") {
-        redirect(
-            isRegisterForm ? WebRoutes.PENDING_USER_ACTIVATION : WebRoutes.HOME
-        );
+    if (formState.submitState === "success" && isRegisterForm) {
+        redirect(WebRoutes.PENDING_USER_ACTIVATION);
+    }
+    if (formState.submitState === "success" && !isRegisterForm) {
+        redirect(WebRoutes.HOME);
     }
 
     const minLength = 12;

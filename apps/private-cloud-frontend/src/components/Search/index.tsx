@@ -17,13 +17,19 @@ import { WebRoutes } from "@/utils/routes";
 import DriveFileMoveIcon from "@mui/icons-material/DriveFileMove";
 import { logData } from "@repo/shared-utils/log-data";
 import ErrorIcon from "@mui/icons-material/Error";
+import NoAdultContentIcon from "@mui/icons-material/NoAdultContent";
 
 interface SearchProps {
     allowAdultContent?: boolean;
     autoFocus?: boolean;
+    allowExplicitContent?: boolean;
 }
 
-const Search: FC<SearchProps> = ({ allowAdultContent, autoFocus }) => {
+const Search: FC<SearchProps> = ({
+    allowAdultContent,
+    allowExplicitContent,
+    autoFocus,
+}) => {
     const [loadingState, setLoadingState] = useState<LoadingState>("idle");
     const [directoriesResponse, setDirectoriesResponse] = useState<Directory[]>(
         []
@@ -37,6 +43,7 @@ const Search: FC<SearchProps> = ({ allowAdultContent, autoFocus }) => {
 
     const handlesearch = async (searchParams: SearchParams) => {
         setLoadingState("loading");
+
         try {
             const response = await fetch("/api/get-directories", {
                 method: "POST",
@@ -47,6 +54,8 @@ const Search: FC<SearchProps> = ({ allowAdultContent, autoFocus }) => {
                     query: searchParams.query,
                     allowAdultContent: searchParams.switchAdult,
                     onlySearchAdultContent: searchParams.switchOnlyAdult,
+                    allowExplicitContent: searchParams.switchExplicit,
+                    onlySearchExplicitContent: searchParams.switchOnlyExplicit,
                     page: searchParams.page,
                     pageSize: 50,
                 }),
@@ -81,6 +90,7 @@ const Search: FC<SearchProps> = ({ allowAdultContent, autoFocus }) => {
                 handleSubmit={handlesearch}
                 pagination={pagination}
                 autoFocus={autoFocus}
+                allowExplicitContent={allowExplicitContent}
             />
             {loadingState === "loading" && (
                 <Box
@@ -158,9 +168,14 @@ const Search: FC<SearchProps> = ({ allowAdultContent, autoFocus }) => {
                                     >
                                         {directory.display_name}
                                     </ListItemContent>
-                                    {directory.adult && (
+                                    {directory.age_rating === "explicit" && (
                                         <ListItemDecorator>
                                             <ErrorIcon />
+                                        </ListItemDecorator>
+                                    )}
+                                    {directory.age_rating === "adults" && (
+                                        <ListItemDecorator>
+                                            <NoAdultContentIcon />
                                         </ListItemDecorator>
                                     )}
                                 </ListItemButton>

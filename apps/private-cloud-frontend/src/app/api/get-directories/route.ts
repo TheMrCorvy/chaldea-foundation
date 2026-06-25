@@ -6,8 +6,15 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (request: NextRequest) => {
     const body = await request.json();
-    const { query, allowAdultContent, onlySearchAdultContent, page, pageSize } =
-        body;
+    const {
+        query,
+        allowAdultContent,
+        onlySearchAdultContent,
+        page,
+        pageSize,
+        allowExplicitContent,
+        onlySearchExplicitContent,
+    } = body;
 
     const jwtCookie = (await getCookie(CookiesList.JWT)) as JwtCookie | null;
     const userCookie = (await getCookie(CookiesList.USER)) as MeResponse | null;
@@ -61,7 +68,7 @@ export const POST = async (request: NextRequest) => {
                 $notNull: true,
             },
         },
-        fields: ["documentId", "display_name", "adult"],
+        fields: ["documentId", "display_name", "age_rating"],
         pagination: {
             pageSize: pageSize ?? 100,
             page,
@@ -69,15 +76,33 @@ export const POST = async (request: NextRequest) => {
         sort: ["display_name:asc"],
     };
 
-    if (!allowAdultContent && queryObject.filters) {
-        queryObject.filters.adult = {
-            $eq: false,
-        };
-    }
+    console.clear();
+    console.log({
+        onlySearchAdultContent,
+        onlySearchExplicitContent,
+        allowAdultContent,
+        allowExplicitContent,
+    });
 
     if (onlySearchAdultContent && queryObject.filters) {
-        queryObject.filters.adult = {
-            $eq: true,
+        queryObject.filters.age_rating = {
+            $eq: "adults",
+        };
+    } else if (onlySearchExplicitContent && queryObject.filters) {
+        queryObject.filters.age_rating = {
+            $eq: "explicit",
+        };
+    } else if (allowAdultContent && queryObject.filters) {
+        queryObject.filters.age_rating = {
+            $in: ["everyone", "adults", "explicit"],
+        };
+    } else if (allowExplicitContent && queryObject.filters) {
+        queryObject.filters.age_rating = {
+            $in: ["everyone", "explicit"],
+        };
+    } else if (queryObject.filters) {
+        queryObject.filters.age_rating = {
+            $eq: "everyone",
         };
     }
 

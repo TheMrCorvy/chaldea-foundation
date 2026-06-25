@@ -95,6 +95,7 @@ export enum RoleTypes {
     ADULT_ANIME_WATCHER = "adult_anime_watcher",
     ANIME_WATCHER = "anime_watcher",
     ANIME_PAGE_ADMIN = "anime_page_admin",
+    EXPLICIT_ANIME_WATCHER = "explicit_anime_watcher",
 }
 
 export interface Role {
@@ -118,13 +119,15 @@ export interface User {
     role?: Role;
 }
 
+export type AdultContentType = "everyone" | "explicit" | "adults";
+
 export interface Directory {
     id: number;
     display_name: string;
     path: string;
     createdAt: Date;
     updatedAt: Date;
-    adult: boolean | "0" | "1" | "t" | "true" | "f" | "false";
+    age_rating: AdultContentType;
     parent_directory?: Directory;
     documentId: string;
     publishedAt: string;
@@ -167,7 +170,7 @@ export interface RequestDirectory {
     path?: string;
     createdAt?: Date;
     updatedAt?: Date;
-    adult?: boolean | "0" | "1" | "t" | "true" | "f" | "false";
+    age_rating?: AdultContentType;
     parent_directory?: string;
     documentId?: string;
     publishedAt?: string;

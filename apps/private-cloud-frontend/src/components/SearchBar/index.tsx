@@ -13,12 +13,15 @@ import {
     Switch,
 } from "@mui/joy";
 import Pagination from "../Pagination";
+import { Divider } from "@mui/joy";
 
 export interface SearchParams {
     query: string;
     switchAdult: boolean;
     switchOnlyAdult: boolean;
     page: number;
+    switchExplicit: boolean;
+    switchOnlyExplicit: boolean;
 }
 
 export interface SearchBarProps {
@@ -30,6 +33,7 @@ export interface SearchBarProps {
         total: number;
     };
     autoFocus?: boolean;
+    allowExplicitContent?: boolean;
 }
 
 const SearchBar: FC<SearchBarProps> = ({
@@ -37,10 +41,13 @@ const SearchBar: FC<SearchBarProps> = ({
     handleSubmit,
     pagination,
     autoFocus,
+    allowExplicitContent,
 }) => {
     const [query, setQuery] = useState("");
     const [switchAdult, setSwitchAdult] = useState(false);
     const [switchOnlyAdult, setSwitchOnlyAdult] = useState(false);
+    const [switchExplicit, setSwitchExplicit] = useState(false);
+    const [switchOnlyExplicit, setSwitchOnlyExplicit] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
@@ -61,6 +68,8 @@ const SearchBar: FC<SearchBarProps> = ({
             query: newQuery,
             switchAdult,
             switchOnlyAdult,
+            switchExplicit,
+            switchOnlyExplicit,
             page: pagination.page,
         });
         (document.activeElement as HTMLInputElement)?.blur();
@@ -122,7 +131,7 @@ const SearchBar: FC<SearchBarProps> = ({
                     <FormControl orientation="horizontal">
                         <Box sx={{ flexGrow: 1 }}>
                             <FormLabel sx={{ typography: "title-sm" }}>
-                                Permitir contenido sensible
+                                Permitir contenido para adultos
                             </FormLabel>
                         </Box>
                         <Switch
@@ -134,6 +143,8 @@ const SearchBar: FC<SearchBarProps> = ({
                                     switchAdult: !switchAdult,
                                     switchOnlyAdult,
                                     page: pagination.page,
+                                    switchExplicit,
+                                    switchOnlyExplicit,
                                 });
                             }}
                         />
@@ -141,7 +152,7 @@ const SearchBar: FC<SearchBarProps> = ({
                     <FormControl orientation="horizontal">
                         <Box sx={{ flexGrow: 1 }}>
                             <FormLabel sx={{ typography: "title-sm" }}>
-                                Buscar solo contenido sensible
+                                Buscar solo contenido para adultos
                             </FormLabel>
                         </Box>
                         <Switch
@@ -150,19 +161,70 @@ const SearchBar: FC<SearchBarProps> = ({
                                 setSwitchOnlyAdult(!switchOnlyAdult);
                                 handleSubmit({
                                     query,
-                                    switchAdult: true,
+                                    switchAdult,
                                     switchOnlyAdult: !switchOnlyAdult,
                                     page: pagination.page,
+                                    switchExplicit,
+                                    switchOnlyExplicit,
                                 });
                             }}
                         />
                     </FormControl>
-                    <FormHelperText>
-                        El contenido sensible son series/películas con mucho fan
-                        service o gore.
-                    </FormHelperText>
+                    <Divider />
                 </>
             )}
+            {allowExplicitContent ||
+                (allowAdultContent && (
+                    <>
+                        <FormControl orientation="horizontal">
+                            <Box sx={{ flexGrow: 1 }}>
+                                <FormLabel sx={{ typography: "title-sm" }}>
+                                    Permitir contenido sensible
+                                </FormLabel>
+                            </Box>
+                            <Switch
+                                checked={switchExplicit}
+                                onChange={() => {
+                                    setSwitchExplicit(!switchExplicit);
+                                    handleSubmit({
+                                        query,
+                                        switchExplicit: !switchExplicit,
+                                        switchOnlyExplicit,
+                                        page: pagination.page,
+                                        switchAdult,
+                                        switchOnlyAdult,
+                                    });
+                                }}
+                            />
+                        </FormControl>
+                        <FormControl orientation="horizontal">
+                            <Box sx={{ flexGrow: 1 }}>
+                                <FormLabel sx={{ typography: "title-sm" }}>
+                                    Buscar solo contenido sensible
+                                </FormLabel>
+                            </Box>
+                            <Switch
+                                checked={switchOnlyExplicit}
+                                onChange={() => {
+                                    setSwitchOnlyExplicit(!switchOnlyExplicit);
+                                    handleSubmit({
+                                        query,
+                                        switchExplicit,
+                                        switchOnlyExplicit: !switchOnlyExplicit,
+                                        page: pagination.page,
+                                        switchAdult,
+                                        switchOnlyAdult,
+                                    });
+                                }}
+                            />
+                        </FormControl>
+                        <FormHelperText>
+                            El contenido sensible son series/películas con mucho
+                            fan service o gore.
+                        </FormHelperText>
+                        <Divider />
+                    </>
+                ))}
             {pagination.total > 0 && (
                 <Pagination
                     pagination={{
@@ -177,6 +239,8 @@ const SearchBar: FC<SearchBarProps> = ({
                             switchAdult,
                             switchOnlyAdult,
                             page: newPage,
+                            switchExplicit,
+                            switchOnlyExplicit,
                         })
                     }
                 />

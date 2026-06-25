@@ -32,7 +32,8 @@ const EpisodePage = async ({ params }: Page) => {
         !jwt.jwt ||
         !userCookie.role ||
         (userCookie.role.type !== RoleTypes.ADULT_ANIME_WATCHER &&
-            userCookie.role.type !== RoleTypes.ANIME_WATCHER)
+            userCookie.role.type !== RoleTypes.ANIME_WATCHER &&
+            userCookie.role.type !== RoleTypes.EXPLICIT_ANIME_WATCHER)
     ) {
         await deleteCookie(CookiesList.JWT);
         await deleteCookie(CookiesList.USER);
@@ -61,7 +62,7 @@ const EpisodePage = async ({ params }: Page) => {
                         $null: true,
                     },
                 },
-                fields: ["display_name", "documentId", "adult"],
+                fields: ["display_name", "documentId", "age_rating"],
             },
         }),
     ]);

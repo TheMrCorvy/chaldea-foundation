@@ -12,7 +12,12 @@ import { WebRoutes } from "@/utils/routes";
 import { Box, Container } from "@mui/joy";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
-import { Directory, Episode, RoleTypes } from "@repo/type-definitions";
+import {
+    Directory,
+    Episode,
+    QueryParams,
+    RoleTypes,
+} from "@repo/type-definitions";
 import { redirect } from "next/navigation";
 
 const Home = async () => {
@@ -25,7 +30,8 @@ const Home = async () => {
         !jwt.jwt ||
         !userCookie.role ||
         (userCookie.role.type !== RoleTypes.ADULT_ANIME_WATCHER &&
-            userCookie.role.type !== RoleTypes.ANIME_WATCHER)
+            userCookie.role.type !== RoleTypes.ANIME_WATCHER &&
+            userCookie.role.type !== RoleTypes.EXPLICIT_ANIME_WATCHER)
     ) {
         await deleteCookie(CookiesList.JWT);
         await deleteCookie(CookiesList.USER);
@@ -35,14 +41,30 @@ const Home = async () => {
     const platformService = new PlatformService();
     platformService.setJWT(jwt.jwt);
 
-    const response = await platformService.call("bDirectoryGetBDirectories", {
-        query: {
-            filters: {
-                parent_directory: {
+    const queryObject: QueryParams = {
+        filters: {
+            parent_directory: {
+                documentId: {
                     $null: true,
                 },
             },
         },
+        pagination: {
+            pageSize: 5,
+        },
+    };
+
+    if (
+        userCookie.role.type !== RoleTypes.ADULT_ANIME_WATCHER &&
+        queryObject.filters
+    ) {
+        queryObject.filters.age_rating = {
+            $eq: "everyone",
+        };
+    }
+
+    const response = await platformService.call("bDirectoryGetBDirectories", {
+        query: queryObject,
     });
 
     logData({
@@ -64,6 +86,11 @@ const Home = async () => {
                 sort: ["createdAt:desc"],
                 pagination: {
                     pageSize: 10,
+                },
+                filters: {
+                    age_rating: {
+                        $eq: "everyone",
+                    },
                 },
             },
         }
@@ -89,6 +116,13 @@ const Home = async () => {
                 sort: ["createdAt:desc"],
                 pagination: {
                     pageSize: 10,
+                },
+                filters: {
+                    parent_directory: {
+                        age_rating: {
+                            $eq: "everyone",
+                        },
+                    },
                 },
             },
         }
@@ -139,6 +173,9 @@ const Home = async () => {
                 mainDirectories={mainDirectories}
                 allowAdultContent={
                     userCookie?.role.type === RoleTypes.ADULT_ANIME_WATCHER
+                }
+                allowExplicitContent={
+                    userCookie?.role.type === RoleTypes.EXPLICIT_ANIME_WATCHER
                 }
             />
         </>

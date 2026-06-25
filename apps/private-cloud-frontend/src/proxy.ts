@@ -47,7 +47,8 @@ export async function proxy(request: NextRequest) {
             session.role &&
             (session.role.type === RoleTypes.ADULT_ANIME_WATCHER ||
                 session.role.type === RoleTypes.ANIME_WATCHER ||
-                session.role.type === RoleTypes.ANIME_PAGE_ADMIN);
+                session.role.type === RoleTypes.ANIME_PAGE_ADMIN ||
+                session.role.type === RoleTypes.EXPLICIT_ANIME_WATCHER);
 
         if (
             !hasValidRole &&

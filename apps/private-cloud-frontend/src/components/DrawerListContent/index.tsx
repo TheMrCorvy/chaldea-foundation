@@ -17,6 +17,7 @@ import DriveFileMoveIcon from "@mui/icons-material/DriveFileMove";
 import CategoryIcon from "@mui/icons-material/Category";
 import DrawerEpisodesList from "../DrawerEpisodesList";
 import ErrorIcon from "@mui/icons-material/Error";
+import NoAdultContentIcon from "@mui/icons-material/NoAdultContent";
 
 export interface DrawerListContentProps {
     directories?: GroupedDirectories;
@@ -213,9 +214,16 @@ const DrawerListContent: FC<DrawerListContentProps> = ({
                                                                         directory.label
                                                                     }
                                                                 </ListItemContent>
-                                                                {directory.adult && (
+                                                                {directory.age_rating ===
+                                                                    "explicit" && (
                                                                     <ListItemDecorator>
                                                                         <ErrorIcon />
+                                                                    </ListItemDecorator>
+                                                                )}
+                                                                {directory.age_rating ===
+                                                                    "adults" && (
+                                                                    <ListItemDecorator>
+                                                                        <NoAdultContentIcon />
                                                                     </ListItemDecorator>
                                                                 )}
                                                             </ListItemButton>
