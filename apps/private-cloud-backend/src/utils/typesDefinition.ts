@@ -1,7 +1,9 @@
+import { AdultContentType } from '@repo/type-definitions';
+
 export interface LocalDirectory {
     display_name: string;
     directory_path: string;
-    adult: boolean;
+    age_rating: AdultContentType;
     parent_directory: string | null;
     sub_directories: string[];
     episodes: LocalEpisode[];
@@ -21,7 +23,7 @@ export interface DirectoryResponseStrapi {
     directory_path: string;
     createdAt: Date;
     updatedAt: Date;
-    adult: boolean;
+    age_rating: AdultContentType;
     documentId: string;
     locale: null | string;
     publishedAt: Date | null;

@@ -95,7 +95,7 @@ const main = async () => {
             const reqData = {
                 display_name: localDirectory.display_name,
                 path: localDirectory.directory_path,
-                adult: localDirectory.adult ? '1' : '0',
+                age_rating: localDirectory.age_rating,
             } as Record<string, string>;
 
             if (parentDirectoryDocId) {

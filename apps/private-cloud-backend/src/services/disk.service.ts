@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { LocalDirectory } from '../utils/typesDefinition';
+import { AdultContentType } from '@repo/type-definitions';
 
 interface ScanSingleFolderParams {
     dirPath: string;
@@ -17,8 +18,11 @@ export const scanSingleFolder = ({
 }: ScanSingleFolderParams): LocalDirectory => {
     const items = fs.readdirSync(secureBasePath + dirPath, { withFileTypes: true });
 
-    const folderIsAdult = determineIfFolderIsAdult(path.basename(dirPath));
-    const displayName = !folderIsAdult ? path.basename(dirPath) : removeAsteriskFromFolderName(path.basename(dirPath));
+    const folderAgeRating = determineFolderAgeRange(path.basename(dirPath));
+    const displayName =
+        folderAgeRating === 'everyone'
+            ? path.basename(dirPath)
+            : removeAsteriskAndExclamationFromFolderName(path.basename(dirPath));
     const parentPath = getParentDirectoryPath(dirPath, excludedParents);
 
     if (parentPath === null) {
@@ -28,7 +32,7 @@ export const scanSingleFolder = ({
     const result: LocalDirectory = {
         display_name: displayName,
         directory_path: removeBasePath(secureBasePath, dirPath),
-        adult: folderIsAdult,
+        age_rating: folderAgeRating,
         parent_directory: parentPath,
         sub_directories: [],
         episodes: [],
@@ -61,8 +65,8 @@ const removeBasePath = (secureBasePath: string, completePath: string): string =>
     return completePath;
 };
 
-const removeAsteriskFromFolderName = (folderName: string): string => {
-    return folderName.startsWith('* ') ? folderName.slice(2) : folderName;
+const removeAsteriskAndExclamationFromFolderName = (folderName: string): string => {
+    return folderName.startsWith('* ') || folderName.startsWith('! ') ? folderName.slice(2) : folderName;
 };
 
 const fileShouldBeIgnored = (fileName: string): boolean => {
@@ -91,8 +95,19 @@ const fileShouldBeIgnored = (fileName: string): boolean => {
     return ignoredPrefixes.some(prefix => fileName.startsWith(prefix));
 };
 
-const determineIfFolderIsAdult = (folderName: string): boolean => {
-    return folderName.split(' ')[0] === '*'; // "*" at the beggining of the folder name indicates adult content
+const determineFolderAgeRange = (folderName: string): AdultContentType => {
+    const isAdult = folderName.split(' ')[0] === '!';
+    const isExplicit = folderName.split(' ')[0] === '*';
+
+    if (isExplicit) {
+        return 'explicit';
+    }
+
+    if (isAdult) {
+        return 'adults';
+    }
+
+    return 'everyone';
 };
 
 const getParentDirectoryPath = (directoryPath: string, excludedParents: string[]): string | null => {
