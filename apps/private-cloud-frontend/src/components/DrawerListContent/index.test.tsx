@@ -44,7 +44,7 @@ describe("DrawerListContent", () => {
                 {
                     label: "Aventura",
                     url: "dir-aventura",
-                    adult: true,
+                    age_rating: "explicit",
                 },
             ],
         };

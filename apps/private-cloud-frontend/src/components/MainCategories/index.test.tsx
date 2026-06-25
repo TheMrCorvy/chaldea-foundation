@@ -15,7 +15,7 @@ const createDirectory = (overrides: Partial<Directory> = {}): Directory => ({
     path: "/media/aventura",
     createdAt: new Date("2024-01-01T00:00:00.000Z"),
     updatedAt: new Date("2024-01-01T00:00:00.000Z"),
-    adult: false,
+    age_rating: "everyone",
     documentId: "dir-aventura",
     publishedAt: "2024-01-01T00:00:00.000Z",
     ...overrides,

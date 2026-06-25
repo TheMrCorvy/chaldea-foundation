@@ -9,7 +9,7 @@ const createDirectory = (overrides: Partial<Directory> = {}): Directory => ({
     path: "/media/aventura",
     createdAt: new Date("2024-01-01T00:00:00.000Z"),
     updatedAt: new Date("2024-01-01T00:00:00.000Z"),
-    adult: false,
+    age_rating: "everyone",
     documentId: "dir-aventura",
     publishedAt: "2024-01-01T00:00:00.000Z",
     ...overrides,
@@ -58,13 +58,13 @@ describe("SubDirectoriesList", () => {
                 id: 3,
                 display_name: "General",
                 documentId: "dir-general",
-                adult: false,
+                age_rating: "everyone",
             }),
             createDirectory({
                 id: 4,
                 display_name: "+18",
                 documentId: "dir-adult",
-                adult: true,
+                age_rating: "adults",
             }),
         ];
 
@@ -76,6 +76,6 @@ describe("SubDirectoriesList", () => {
         );
 
         expect(screen.getAllByTestId("ChevronRightIcon")).toHaveLength(2);
-        expect(screen.getAllByTestId("ErrorIcon")).toHaveLength(1);
+        expect(screen.getAllByTestId("NoAdultContentIcon")).toHaveLength(1);
     });
 });
