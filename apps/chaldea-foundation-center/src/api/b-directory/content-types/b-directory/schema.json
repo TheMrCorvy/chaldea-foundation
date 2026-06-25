@@ -20,15 +20,16 @@
             "required": true,
             "unique": true
         },
-        "adult": {
-            "type": "boolean",
-            "required": true,
-            "default": false
-        },
         "parent_directory": {
             "type": "relation",
             "relation": "oneToOne",
             "target": "api::b-directory.b-directory"
+        },
+        "age_rating": {
+            "type": "enumeration",
+            "required": true,
+            "default": "everyone",
+            "enum": ["everyone", "explicit", "adults"]
         }
     }
 }
