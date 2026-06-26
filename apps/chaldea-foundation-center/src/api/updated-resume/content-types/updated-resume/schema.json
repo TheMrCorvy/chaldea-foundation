@@ -51,6 +51,10 @@
             "repeatable": true,
             "required": true,
             "min": 1
+        },
+        "background_rich_text": {
+            "type": "richtext",
+            "required": true
         }
     }
 }

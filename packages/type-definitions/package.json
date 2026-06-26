@@ -16,6 +16,10 @@
         "./blog-post-categories": {
             "types": "./src/blogPostCategories.ts",
             "default": "./src/blogPostCategories.ts"
+        },
+        "./updated-resume": {
+            "types": "./src/updatedResume.ts",
+            "default": "./src/updatedResume.ts"
         }
     },
     "devDependencies": {
