@@ -4,6 +4,8 @@ import { logData } from '@salvatore.hakase/log-data';
 import { addJobToQueue } from '../database/jobQueue';
 import { JOB_TYPES } from '../services/jobProcessor.service';
 import { SocialNetworks } from '../services/wuphf/types';
+import type { UpdatedResumeWebhookPayload } from '@repo/type-definitions/updated-resume';
+import { generateAndUploadResume } from '../services/king_crimson/resumeGenerator.service';
 
 const entryPublishWebhookController = async (req: Request, res: Response): Promise<void> => {
     const payload = req.body as StrapiWebhookPayload;
@@ -63,7 +65,14 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
     }
 
     if (payload.uid === 'api::updated-resume.updated-resume') {
-        // update resume service
+        const resumePayload = req.body as UpdatedResumeWebhookPayload;
+        try {
+            await generateAndUploadResume(resumePayload);
+            res.status(200).json({ message: 'Resume generated and uploaded successfully.' });
+        } catch (err) {
+            res.status(500).json({ error: String(err) });
+        }
+        return;
     }
 
     logData({

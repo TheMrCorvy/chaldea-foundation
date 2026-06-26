@@ -1,0 +1,1031 @@
+{"level":30,"time":1782504602049,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504602049,"pid":17332,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504602049,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504602049,"pid":17332,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782504602049,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504602049,"pid":17332,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:10:02"}
+{"level":30,"time":1782504602049,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504602049,"pid":17332,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504602049,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504608968,"pid":17332,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:10:08.924Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":4,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo1","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:10:08.766Z","publishedAt":"2026-06-26T20:10:08.857Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","education_list_items":[{"id":4,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null},"experience_list_items":[{"id":4,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782504608968,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504608968,"pid":17332,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:10:08"}
+{"level":30,"time":1782504608968,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504608968,"pid":17332,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":4,"name":"Gonzalo1"},"msg":"Starting resume generation: "}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:10:08"}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/chaldea_823248a18d.jpg"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:10:08"}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504608969,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":50,"time":1782504609009,"pid":17332,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"error":"Error: Template file not found at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\apps\\private-cloud-backend\\src\\services\\assets\\resume_template.docx"},"msg":"Error generating or uploading resume: "}
+{"level":30,"time":1782504609009,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504609009,"pid":17332,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:10:09"}
+{"level":30,"time":1782504609009,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504609009,"pid":17332,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504609009,"pid":17332,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504672941,"pid":5620,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504672941,"pid":5620,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504672941,"pid":5620,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504672941,"pid":5620,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782504672941,"pid":5620,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504672941,"pid":5620,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:11:12"}
+{"level":30,"time":1782504672941,"pid":5620,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504672941,"pid":5620,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504672941,"pid":5620,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504691409,"pid":5620,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:11:31.378Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":5,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo2","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:11:31.221Z","publishedAt":"2026-06-26T20:11:31.312Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","education_list_items":[{"id":5,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null},"experience_list_items":[{"id":5,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782504691409,"pid":5620,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504691409,"pid":5620,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:11:31"}
+{"level":30,"time":1782504691409,"pid":5620,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504691409,"pid":5620,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504691409,"pid":5620,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504749031,"pid":6932,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504749032,"pid":6932,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504749032,"pid":6932,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504749032,"pid":6932,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782504749032,"pid":6932,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504749032,"pid":6932,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:12:29"}
+{"level":30,"time":1782504749032,"pid":6932,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504749032,"pid":6932,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504749032,"pid":6932,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504766433,"pid":6932,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:12:46.399Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":6,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo3","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:12:46.267Z","publishedAt":"2026-06-26T20:12:46.338Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","education_list_items":[{"id":6,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null},"experience_list_items":[{"id":6,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782504766434,"pid":6932,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504766434,"pid":6932,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:12:46"}
+{"level":30,"time":1782504766434,"pid":6932,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504766434,"pid":6932,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504766434,"pid":6932,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504839647,"pid":464,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504839647,"pid":464,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504839647,"pid":464,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504839647,"pid":464,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782504839647,"pid":464,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504839647,"pid":464,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:13:59"}
+{"level":30,"time":1782504839647,"pid":464,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504839647,"pid":464,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504839647,"pid":464,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504895536,"pid":15080,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504895536,"pid":15080,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504895536,"pid":15080,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504895536,"pid":15080,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782504895536,"pid":15080,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504895536,"pid":15080,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:14:55"}
+{"level":30,"time":1782504895536,"pid":15080,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504895536,"pid":15080,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504895537,"pid":15080,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504909917,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504909917,"pid":11368,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504909917,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504909917,"pid":11368,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782504909917,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504909917,"pid":11368,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:15:09"}
+{"level":30,"time":1782504909917,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504909917,"pid":11368,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504909917,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921783,"pid":11368,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:15:21.769Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":7,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo4","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:15:21.707Z","publishedAt":"2026-06-26T20:15:21.742Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","education_list_items":[{"id":7,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null},"experience_list_items":[{"id":7,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782504921783,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921783,"pid":11368,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:15:21"}
+{"level":30,"time":1782504921783,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921783,"pid":11368,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504921783,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":7,"name":"Gonzalo4"},"msg":"Starting resume generation: "}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:15:21"}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/chaldea_823248a18d.jpg"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:15:21"}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504921784,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":50,"time":1782504921868,"pid":11368,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"error":"TemplateError: Multi error"},"msg":"Error generating or uploading resume: "}
+{"level":30,"time":1782504921868,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921869,"pid":11368,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:15:21"}
+{"level":30,"time":1782504921869,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782504921869,"pid":11368,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782504921869,"pid":11368,"hostname":"YogaBook9i","msg":" "}
+{
+  title: 'Starting resume generation',
+  data: { resumeId: 6, name: 'Gonzalo3' },
+  layer: 'queue_jobs',
+  type: 'info',
+  timeStamp: true,
+  addSpaceAfter: true,
+  addSeparatorAfter: true
+}
+{
+  title: 'Fetching QR code image',
+  data: {
+    absoluteQrUrl: 'http://localhost:1337/uploads/chaldea_823248a18d.jpg'
+  },
+  layer: 'external_http_requests',
+  type: 'info',
+  timeStamp: true,
+  addSpaceAfter: true,
+  addSeparatorAfter: true
+}
+{
+  "error": [
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{name",
+        "id": "duplicate_open_tag",
+        "context": "{{name",
+        "offset": 0,
+        "explanation": "The tag beginning with \"{{name\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "name}}",
+        "id": "duplicate_close_tag",
+        "context": "name}}",
+        "offset": 6,
+        "explanation": "The tag ending with \"name}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{job_",
+        "id": "duplicate_open_tag",
+        "context": "{{job_",
+        "offset": 8,
+        "explanation": "The tag beginning with \"{{job_\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "itle}}",
+        "id": "duplicate_close_tag",
+        "context": "itle}}",
+        "offset": 19,
+        "explanation": "The tag ending with \"itle}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{emai",
+        "id": "duplicate_open_tag",
+        "context": "{{emai",
+        "offset": 21,
+        "explanation": "The tag beginning with \"{{emai\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "mail}}",
+        "id": "duplicate_close_tag",
+        "context": "mail}}",
+        "offset": 28,
+        "explanation": "The tag ending with \"mail}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{webs",
+        "id": "duplicate_open_tag",
+        "context": "{{webs",
+        "offset": 37,
+        "explanation": "The tag beginning with \"{{webs\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "site}}",
+        "id": "duplicate_close_tag",
+        "context": "site}}",
+        "offset": 46,
+        "explanation": "The tag ending with \"site}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{gith",
+        "id": "duplicate_open_tag",
+        "context": "{{gith",
+        "offset": 56,
+        "explanation": "The tag beginning with \"{{gith\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "link}}",
+        "id": "duplicate_close_tag",
+        "context": "link}}",
+        "offset": 77,
+        "explanation": "The tag ending with \"link}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{back",
+        "id": "duplicate_open_tag",
+        "context": "{{back",
+        "offset": 89,
+        "explanation": "The tag beginning with \"{{back\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "text}}",
+        "id": "duplicate_close_tag",
+        "context": "text}}",
+        "offset": 111,
+        "explanation": "The tag ending with \"text}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{care",
+        "id": "duplicate_open_tag",
+        "context": "{{care",
+        "offset": 122,
+        "explanation": "The tag beginning with \"{{care\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "itle}}",
+        "id": "duplicate_close_tag",
+        "context": "itle}}",
+        "offset": 140,
+        "explanation": "The tag ending with \"itle}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{care",
+        "id": "duplicate_open_tag",
+        "context": "{{care",
+        "offset": 142,
+        "explanation": "The tag beginning with \"{{care\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "tute}}",
+        "id": "duplicate_close_tag",
+        "context": "tute}}",
+        "offset": 164,
+        "explanation": "The tag ending with \"tute}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{care",
+        "id": "duplicate_open_tag",
+        "context": "{{care",
+        "offset": 168,
+        "explanation": "The tag beginning with \"{{care\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "ntry}}",
+        "id": "duplicate_close_tag",
+        "context": "ntry}}",
+        "offset": 188,
+        "explanation": "The tag ending with \"ntry}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{care",
+        "id": "duplicate_open_tag",
+        "context": "{{care",
+        "offset": 190,
+        "explanation": "The tag beginning with \"{{care\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "from}}",
+        "id": "duplicate_close_tag",
+        "context": "from}}",
+        "offset": 207,
+        "explanation": "The tag ending with \"from}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{care",
+        "id": "duplicate_open_tag",
+        "context": "{{care",
+        "offset": 212,
+        "explanation": "The tag beginning with \"{{care\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "ntil}}",
+        "id": "duplicate_close_tag",
+        "context": "ntil}}",
+        "offset": 230,
+        "explanation": "The tag ending with \"ntil}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{care",
+        "id": "duplicate_open_tag",
+        "context": "{{care",
+        "offset": 232,
+        "explanation": "The tag beginning with \"{{care\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "itle}}",
+        "id": "duplicate_close_tag",
+        "context": "itle}}",
+        "offset": 250,
+        "explanation": "The tag ending with \"itle}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{care",
+        "id": "duplicate_open_tag",
+        "context": "{{care",
+        "offset": 252,
+        "explanation": "The tag beginning with \"{{care\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "tute}}",
+        "id": "duplicate_close_tag",
+        "context": "tute}}",
+        "offset": 274,
+        "explanation": "The tag ending with \"tute}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{care",
+        "id": "duplicate_open_tag",
+        "context": "{{care",
+        "offset": 278,
+        "explanation": "The tag beginning with \"{{care\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "ntry}}",
+        "id": "duplicate_close_tag",
+        "context": "ntry}}",
+        "offset": 298,
+        "explanation": "The tag ending with \"ntry}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{care",
+        "id": "duplicate_open_tag",
+        "context": "{{care",
+        "offset": 300,
+        "explanation": "The tag beginning with \"{{care\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "from}}",
+        "id": "duplicate_close_tag",
+        "context": "from}}",
+        "offset": 317,
+        "explanation": "The tag ending with \"from}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{care",
+        "id": "duplicate_open_tag",
+        "context": "{{care",
+        "offset": 322,
+        "explanation": "The tag beginning with \"{{care\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "ntil}}",
+        "id": "duplicate_close_tag",
+        "context": "ntil}}",
+        "offset": 340,
+        "explanation": "The tag ending with \"ntil}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{work",
+        "id": "duplicate_open_tag",
+        "context": "{{work",
+        "offset": 352,
+        "explanation": "The tag beginning with \"{{work\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "tion}}",
+        "id": "duplicate_close_tag",
+        "context": "tion}}",
+        "offset": 376,
+        "explanation": "The tag ending with \"tion}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{work",
+        "id": "duplicate_open_tag",
+        "context": "{{work",
+        "offset": 383,
+        "explanation": "The tag beginning with \"{{work\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "pany}}",
+        "id": "duplicate_close_tag",
+        "context": "pany}}",
+        "offset": 406,
+        "explanation": "The tag ending with \"pany}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{work",
+        "id": "duplicate_open_tag",
+        "context": "{{work",
+        "offset": 413,
+        "explanation": "The tag beginning with \"{{work\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "ient}}",
+        "id": "duplicate_close_tag",
+        "context": "ient}}",
+        "offset": 435,
+        "explanation": "The tag ending with \"ient}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{work",
+        "id": "duplicate_open_tag",
+        "context": "{{work",
+        "offset": 437,
+        "explanation": "The tag beginning with \"{{work\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "tion}}",
+        "id": "duplicate_close_tag",
+        "context": "tion}}",
+        "offset": 461,
+        "explanation": "The tag ending with \"tion}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{work",
+        "id": "duplicate_open_tag",
+        "context": "{{work",
+        "offset": 465,
+        "explanation": "The tag beginning with \"{{work\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "from}}",
+        "id": "duplicate_close_tag",
+        "context": "from}}",
+        "offset": 485,
+        "explanation": "The tag ending with \"from}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{work",
+        "id": "duplicate_open_tag",
+        "context": "{{work",
+        "offset": 490,
+        "explanation": "The tag beginning with \"{{work\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "ntil}}",
+        "id": "duplicate_close_tag",
+        "context": "ntil}}",
+        "offset": 511,
+        "explanation": "The tag ending with \"ntil}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate open tag, expected one open tag",
+      "stack": "Error: Duplicate open tag, expected one open tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateOpenTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:159:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:136:23\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "{{work",
+        "id": "duplicate_open_tag",
+        "context": "{{work",
+        "offset": 513,
+        "explanation": "The tag beginning with \"{{work\" has duplicate open tags",
+        "file": "word/document.xml"
+      }
+    },
+    {
+      "name": "TemplateError",
+      "message": "Duplicate close tag, expected one close tag",
+      "stack": "Error: Duplicate close tag, expected one close tag\n    at new XTTemplateError (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:21:16)\n    at getDuplicateCloseTagException (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\errors.js:178:13)\n    at C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:161:21\n    at Array.reduce (<anonymous>)\n    at getDelimiterErrors (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:126:46)\n    at parseDelimiters (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:331:29)\n    at Object.parse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\lexer.js:425:28)\n    at XmlTemplater.preparse (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\xml-templater.js:133:32)\n    at Docxtemplater.precompileFile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:412:19)\n    at Docxtemplater.compile (C:\\Users\\gonza\\OneDrive\\Desktop\\localhost\\chaldea-foundation\\node_modules\\.pnpm\\docxtemplater@3.69.0\\node_modules\\docxtemplater\\js\\docxtemplater.js:520:16)",
+      "properties": {
+        "xtag": "tion}}",
+        "id": "duplicate_close_tag",
+        "context": "tion}}",
+        "offset": 550,
+        "explanation": "The tag ending with \"tion}}\" has duplicate close tags",
+        "file": "word/document.xml"
+      }
+    }
+  ]
+}
+{
+  title: 'Error generating or uploading resume',
+  data: { error: 'TemplateError: Multi error' },
+  layer: 'queue_jobs',
+  type: 'error',
+  timeStamp: true,
+  addSpaceAfter: true,
+  addSeparatorAfter: true
+}
+::1 - - [26/Jun/2026:20:12:46 +0000] "POST /api/v2/webhooks/platform-service/entry/publish HTTP/1.1" 500 38 "-" "node"
+{"level":30,"time":1782505664836,"pid":10908,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505664836,"pid":10908,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505664836,"pid":10908,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505664836,"pid":10908,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782505664836,"pid":10908,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505664836,"pid":10908,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:27:44"}
+{"level":30,"time":1782505664836,"pid":10908,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505664836,"pid":10908,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505664836,"pid":10908,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505692727,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505692727,"pid":20596,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505692727,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505692727,"pid":20596,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782505692727,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505692727,"pid":20596,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:28:12"}
+{"level":30,"time":1782505692727,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505692727,"pid":20596,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505692727,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505894875,"pid":20596,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:31:34.829Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":8,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo5","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:31:34.643Z","publishedAt":"2026-06-26T20:31:34.752Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","education_list_items":[{"id":8,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null},"experience_list_items":[{"id":8,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:31:34"}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":8,"name":"Gonzalo5"},"msg":"Starting resume generation: "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:31:34"}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/chaldea_823248a18d.jpg"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:31:34"}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505894876,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505895058,"pid":20596,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempDocxPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_8_1782505894876.docx","tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_8_1782505894876.pdf"},"msg":"Converting DOCX to PDF via Word COM Automation: "}
+{"level":30,"time":1782505895058,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505895058,"pid":20596,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:31:35"}
+{"level":30,"time":1782505895058,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505895058,"pid":20596,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505895058,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900812,"pid":20596,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo5_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782505900812,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900812,"pid":20596,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:31:40"}
+{"level":30,"time":1782505900812,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900812,"pid":20596,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505900812,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":50,"time":1782505900844,"pid":20596,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"error":"Error: Failed to upload PDF to Strapi: Forbidden - {\"data\":null,\"error\":{\"status\":403,\"name\":\"ForbiddenError\",\"message\":\"Forbidden\",\"details\":{}}}"},"msg":"Error generating or uploading resume: "}
+{"level":30,"time":1782505900844,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900844,"pid":20596,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:31:40"}
+{"level":30,"time":1782505900844,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900844,"pid":20596,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505900844,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900845,"pid":20596,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempDocxPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_8_1782505894876.docx"},"msg":"Cleaned up temporary DOCX file: "}
+{"level":30,"time":1782505900845,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900845,"pid":20596,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:31:40"}
+{"level":30,"time":1782505900845,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900845,"pid":20596,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505900845,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900846,"pid":20596,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_8_1782505894876.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782505900846,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900846,"pid":20596,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:31:40"}
+{"level":30,"time":1782505900846,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505900846,"pid":20596,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505900846,"pid":20596,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505972671,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505972671,"pid":2680,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505972672,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505972672,"pid":2680,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782505972672,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505972672,"pid":2680,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:32:52"}
+{"level":30,"time":1782505972672,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505972672,"pid":2680,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505972672,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505984273,"pid":2680,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:33:04.241Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":9,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo6","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:33:04.054Z","publishedAt":"2026-06-26T20:33:04.161Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","education_list_items":[{"id":9,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null},"experience_list_items":[{"id":9,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782505984273,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505984273,"pid":2680,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:33:04"}
+{"level":30,"time":1782505984273,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505984273,"pid":2680,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505984273,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505989929,"pid":2680,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo6_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782505989929,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505989929,"pid":2680,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:33:09"}
+{"level":30,"time":1782505989929,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782505989929,"pid":2680,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782505989929,"pid":2680,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506080224,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506080225,"pid":19492,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506080225,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506080225,"pid":19492,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782506080225,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506080225,"pid":19492,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:34:40"}
+{"level":30,"time":1782506080225,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506080225,"pid":19492,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506080225,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506134465,"pid":19492,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:35:34.427Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":10,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo7","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:35:34.212Z","publishedAt":"2026-06-26T20:35:34.337Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","education_list_items":[{"id":10,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null},"experience_list_items":[{"id":10,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782506134465,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506134465,"pid":19492,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:35:34"}
+{"level":30,"time":1782506134465,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506134465,"pid":19492,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506134465,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506140292,"pid":19492,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo7_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782506140292,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506140292,"pid":19492,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:35:40"}
+{"level":30,"time":1782506140292,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506140292,"pid":19492,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506140292,"pid":19492,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506214414,"pid":22396,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506214414,"pid":22396,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506214414,"pid":22396,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506214415,"pid":22396,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782506214415,"pid":22396,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506214415,"pid":22396,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:36:54"}
+{"level":30,"time":1782506214415,"pid":22396,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506214415,"pid":22396,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506214415,"pid":22396,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506224840,"pid":16612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506224840,"pid":16612,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506224840,"pid":16612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506224840,"pid":16612,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782506224840,"pid":16612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506224840,"pid":16612,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:37:04"}
+{"level":30,"time":1782506224840,"pid":16612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506224840,"pid":16612,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506224840,"pid":16612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506234870,"pid":16612,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:37:14.837Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":11,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo8","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:37:14.652Z","publishedAt":"2026-06-26T20:37:14.753Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","education_list_items":[{"id":11,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null},"experience_list_items":[{"id":11,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782506234870,"pid":16612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506234870,"pid":16612,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:37:14"}
+{"level":30,"time":1782506234870,"pid":16612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506234870,"pid":16612,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506234870,"pid":16612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506977137,"pid":15088,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506977137,"pid":15088,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506977137,"pid":15088,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506977137,"pid":15088,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782506977137,"pid":15088,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506977138,"pid":15088,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:49:37"}
+{"level":30,"time":1782506977138,"pid":15088,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506977138,"pid":15088,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506977138,"pid":15088,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506995999,"pid":15088,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:49:55.959Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":12,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo9","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:49:55.756Z","publishedAt":"2026-06-26T20:49:55.869Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","experience_list_items":[{"id":12,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}],"education_list_items":[{"id":12,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null}}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782506995999,"pid":15088,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506995999,"pid":15088,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:49:55"}
+{"level":30,"time":1782506995999,"pid":15088,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782506995999,"pid":15088,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782506995999,"pid":15088,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507091680,"pid":18884,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507091680,"pid":18884,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507091680,"pid":18884,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507091680,"pid":18884,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782507091680,"pid":18884,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507091680,"pid":18884,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:51:31"}
+{"level":30,"time":1782507091680,"pid":18884,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507091680,"pid":18884,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507091680,"pid":18884,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507117274,"pid":19800,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507117274,"pid":19800,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507117274,"pid":19800,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507117274,"pid":19800,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782507117274,"pid":19800,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507117274,"pid":19800,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:51:57"}
+{"level":30,"time":1782507117274,"pid":19800,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507117274,"pid":19800,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507117274,"pid":19800,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507124831,"pid":19056,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507124832,"pid":19056,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507124832,"pid":19056,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507124832,"pid":19056,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782507124832,"pid":19056,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507124832,"pid":19056,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:52:04"}
+{"level":30,"time":1782507124832,"pid":19056,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507124832,"pid":19056,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507124832,"pid":19056,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507143605,"pid":14656,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507143605,"pid":14656,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507143606,"pid":14656,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507143606,"pid":14656,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782507143606,"pid":14656,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507143606,"pid":14656,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:52:23"}
+{"level":30,"time":1782507143606,"pid":14656,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507143606,"pid":14656,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507143606,"pid":14656,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507145577,"pid":16972,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507145577,"pid":16972,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507145577,"pid":16972,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507145577,"pid":16972,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782507145577,"pid":16972,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507145577,"pid":16972,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:52:25"}
+{"level":30,"time":1782507145577,"pid":16972,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507145577,"pid":16972,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507145578,"pid":16972,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507159695,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507159696,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507159696,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507159696,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782507159696,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507159696,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:52:39"}
+{"level":30,"time":1782507159696,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507159696,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507159696,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194188,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:53:14.157Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":13,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo10","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:53:13.959Z","publishedAt":"2026-06-26T20:53:14.071Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","education_list_items":[{"id":13,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null},"experience_list_items":[{"id":13,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782507194188,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194188,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:53:14"}
+{"level":30,"time":1782507194188,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194188,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507194188,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":13,"name":"Gonzalo10"},"msg":"Starting resume generation: "}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:53:14"}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/chaldea_823248a18d.jpg"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:53:14"}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507194189,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194353,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempDocxPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_13_1782507194189.docx","tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_13_1782507194189.pdf"},"msg":"Converting DOCX to PDF via Word COM Automation: "}
+{"level":30,"time":1782507194353,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194353,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:53:14"}
+{"level":30,"time":1782507194353,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507194353,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507194353,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":50,"time":1782507201423,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"error":"Error: Failed to upload PDF to Strapi: Forbidden - {\"data\":null,\"error\":{\"status\":403,\"name\":\"ForbiddenError\",\"message\":\"Forbidden\",\"details\":{}}}"},"msg":"Error generating or uploading resume: "}
+{"level":30,"time":1782507201423,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507201423,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:53:21"}
+{"level":30,"time":1782507201423,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507201423,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507201423,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265645,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-26T20:54:25.637Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":14,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo11","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-26T20:54:25.463Z","publishedAt":"2026-06-26T20:54:25.556Z","title":"dfgdfg","email":"dfgdfgs@dfsd.com","website":"https://www.corvalangonzalo.com","github_profile_link":"erytyrtyrty","background_rich_text":"fghfghfgh _fghfgh_ <u>fghfghfgh</u> fghfgh~~fhfghfhg~~","education_list_items":[{"id":14,"title":"ghfghfgh","institute":"fghfgh","country":"fghfgh","from":"fghfgh","until":"fghfgh"}],"experience_list_items":[{"id":14,"position":"ghjghj","location":"fghjfghj","from":"fghjfghj","until":"gfhjfghj","description":"## fghjfghj\n\n**fghfgh**ffg_hfgh_","company":"fghfgh","client":"fghfgh"}],"web_portfolio_qr_code":{"id":6,"documentId":"s8mnvadzugkol2nswkpl1awv","name":"chaldea.jpg","alternativeText":null,"caption":null,"width":1200,"height":675,"formats":{"thumbnail":{"name":"thumbnail_chaldea.jpg","hash":"thumbnail_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":245,"height":138,"size":2.62,"sizeInBytes":2618,"url":"/uploads/thumbnail_chaldea_823248a18d.jpg"},"large":{"name":"large_chaldea.jpg","hash":"large_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":1000,"height":563,"size":20.57,"sizeInBytes":20566,"url":"/uploads/large_chaldea_823248a18d.jpg"},"small":{"name":"small_chaldea.jpg","hash":"small_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":500,"height":281,"size":7.39,"sizeInBytes":7386,"url":"/uploads/small_chaldea_823248a18d.jpg"},"medium":{"name":"medium_chaldea.jpg","hash":"medium_chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","path":null,"width":750,"height":422,"size":13.29,"sizeInBytes":13285,"url":"/uploads/medium_chaldea_823248a18d.jpg"}},"hash":"chaldea_823248a18d","ext":".jpg","mime":"image/jpeg","size":27.24,"url":"/uploads/chaldea_823248a18d.jpg","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-03T00:02:22.515Z","updatedAt":"2026-06-06T11:34:37.463Z","publishedAt":"2026-06-03T00:02:22.516Z","focalPoint":null}}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782507265645,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265645,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:54:25"}
+{"level":30,"time":1782507265645,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265645,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507265645,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":14,"name":"Gonzalo11"},"msg":"Starting resume generation: "}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:54:25"}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/chaldea_823248a18d.jpg"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:54:25"}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507265646,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265703,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempDocxPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_14_1782507265646.docx","tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_14_1782507265646.pdf"},"msg":"Converting DOCX to PDF via Word COM Automation: "}
+{"level":30,"time":1782507265703,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265703,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:54:25"}
+{"level":30,"time":1782507265703,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507265703,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507265703,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":50,"time":1782507271541,"pid":14820,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"error":"Error: Failed to upload PDF to Strapi: Forbidden - {\"data\":null,\"error\":{\"status\":403,\"name\":\"ForbiddenError\",\"message\":\"Forbidden\",\"details\":{}}}"},"msg":"Error generating or uploading resume: "}
+{"level":30,"time":1782507271541,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507271541,"pid":14820,"hostname":"YogaBook9i","msg":"2026-06-26 - 17:54:31"}
+{"level":30,"time":1782507271541,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507271541,"pid":14820,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507271541,"pid":14820,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507813725,"pid":11408,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":3,"name":"Gonzalo E2E Test"},"msg":"Starting resume generation: "}
+{"level":30,"time":1782507813726,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507813727,"pid":11408,"hostname":"YogaBook9i","msg":"2026-06-26 - 18:03:33"}
+{"level":30,"time":1782507813727,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507813727,"pid":11408,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507813727,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507813727,"pid":11408,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/chaldea_823248a18d.jpg"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782507813727,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507813727,"pid":11408,"hostname":"YogaBook9i","msg":"2026-06-26 - 18:03:33"}
+{"level":30,"time":1782507813727,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507813727,"pid":11408,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507813728,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507813889,"pid":11408,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempDocxPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_3_1782507813727.docx","tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_3_1782507813727.pdf"},"msg":"Converting DOCX to PDF via Word COM Automation: "}
+{"level":30,"time":1782507813889,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507813889,"pid":11408,"hostname":"YogaBook9i","msg":"2026-06-26 - 18:03:33"}
+{"level":30,"time":1782507813889,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507813889,"pid":11408,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507813889,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":50,"time":1782507821664,"pid":11408,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"error":"Error: Failed to upload PDF to Strapi: Forbidden - {\"data\":null,\"error\":{\"status\":403,\"name\":\"ForbiddenError\",\"message\":\"Forbidden\",\"details\":{}}}"},"msg":"Error generating or uploading resume: "}
+{"level":30,"time":1782507821664,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507821664,"pid":11408,"hostname":"YogaBook9i","msg":"2026-06-26 - 18:03:41"}
+{"level":30,"time":1782507821664,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782507821664,"pid":11408,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782507821664,"pid":11408,"hostname":"YogaBook9i","msg":" "}

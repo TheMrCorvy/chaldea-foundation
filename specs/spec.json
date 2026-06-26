@@ -292,7 +292,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:27.724Z",
+                                                        "default": "2026-06-26T19:42:40.400Z",
                                                         "type": "string"
                                                     },
                                                     "slug": {
@@ -482,7 +482,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.746Z",
+                                                    "default": "2026-06-26T19:42:40.430Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -591,7 +591,7 @@
                                         "properties": {
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.744Z",
+                                                "default": "2026-06-26T19:42:40.428Z",
                                                 "type": "string"
                                             },
                                             "slug": {
@@ -891,7 +891,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.737Z",
+                                                    "default": "2026-06-26T19:42:40.417Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -1092,7 +1092,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.755Z",
+                                                    "default": "2026-06-26T19:42:40.436Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -1201,7 +1201,7 @@
                                         "properties": {
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.753Z",
+                                                "default": "2026-06-26T19:42:40.434Z",
                                                 "type": "string"
                                             },
                                             "slug": {
@@ -1404,7 +1404,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.759Z",
+                                                    "default": "2026-06-26T19:42:40.438Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -1763,7 +1763,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:27.768Z",
+                                                        "default": "2026-06-26T19:42:40.447Z",
                                                         "type": "string"
                                                     },
                                                     "createdAt": {
@@ -1901,7 +1901,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.779Z",
+                                                    "default": "2026-06-26T19:42:40.454Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -1963,7 +1963,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:30.212Z",
+                                                "default": "2026-06-26T19:42:41.272Z",
                                                 "type": "string"
                                             }
                                         },
@@ -2173,7 +2173,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.776Z",
+                                                    "default": "2026-06-26T19:42:40.451Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -2322,7 +2322,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.785Z",
+                                                    "default": "2026-06-26T19:42:40.463Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -2384,7 +2384,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.784Z",
+                                                "default": "2026-06-26T19:42:40.462Z",
                                                 "type": "string"
                                             }
                                         },
@@ -2523,7 +2523,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.790Z",
+                                                    "default": "2026-06-26T19:42:40.465Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -2895,7 +2895,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:27.801Z",
+                                                        "default": "2026-06-26T19:42:40.472Z",
                                                         "type": "string"
                                                     },
                                                     "createdAt": {
@@ -3110,7 +3110,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.822Z",
+                                                    "default": "2026-06-26T19:42:40.490Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -3192,7 +3192,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.821Z",
+                                                "default": "2026-06-26T19:42:40.489Z",
                                                 "type": "string"
                                             },
                                             "cover_image": {
@@ -3483,7 +3483,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.818Z",
+                                                    "default": "2026-06-26T19:42:40.487Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -3709,7 +3709,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.829Z",
+                                                    "default": "2026-06-26T19:42:40.501Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -3791,7 +3791,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.828Z",
+                                                "default": "2026-06-26T19:42:40.494Z",
                                                 "type": "string"
                                             },
                                             "cover_image": {
@@ -4003,7 +4003,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.832Z",
+                                                    "default": "2026-06-26T19:42:40.505Z",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -4357,7 +4357,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:27.841Z",
+                                                        "default": "2026-06-26T19:42:40.513Z",
                                                         "type": "string"
                                                     },
                                                     "parent_directory": {
@@ -4515,7 +4515,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.869Z",
+                                                    "default": "2026-06-26T19:42:40.526Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -4587,7 +4587,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.867Z",
+                                                "default": "2026-06-26T19:42:40.524Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -4840,7 +4840,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.861Z",
+                                                    "default": "2026-06-26T19:42:40.521Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -5009,7 +5009,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.878Z",
+                                                    "default": "2026-06-26T19:42:40.531Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -5081,7 +5081,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.874Z",
+                                                "default": "2026-06-26T19:42:40.529Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -5250,7 +5250,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.883Z",
+                                                    "default": "2026-06-26T19:42:40.533Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -5602,7 +5602,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:27.914Z",
+                                                        "default": "2026-06-26T19:42:40.548Z",
                                                         "type": "string"
                                                     },
                                                     "parent_directory": {
@@ -5765,7 +5765,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.922Z",
+                                                    "default": "2026-06-26T19:42:40.556Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -5840,7 +5840,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.921Z",
+                                                "default": "2026-06-26T19:42:40.555Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -6108,7 +6108,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.919Z",
+                                                    "default": "2026-06-26T19:42:40.553Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -6282,7 +6282,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.926Z",
+                                                    "default": "2026-06-26T19:42:40.562Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -6357,7 +6357,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.924Z",
+                                                "default": "2026-06-26T19:42:40.560Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -6534,7 +6534,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.929Z",
+                                                    "default": "2026-06-26T19:42:40.565Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -6871,7 +6871,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:27.935Z",
+                                                        "default": "2026-06-26T19:42:40.571Z",
                                                         "type": "string"
                                                     }
                                                 },
@@ -7027,7 +7027,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.943Z",
+                                                    "default": "2026-06-26T19:42:40.580Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7105,7 +7105,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:30.434Z",
+                                                "default": "2026-06-26T19:42:41.536Z",
                                                 "type": "string"
                                             }
                                         },
@@ -7354,7 +7354,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.939Z",
+                                                    "default": "2026-06-26T19:42:40.578Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7521,7 +7521,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.949Z",
+                                                    "default": "2026-06-26T19:42:40.582Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7599,7 +7599,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.945Z",
+                                                "default": "2026-06-26T19:42:40.581Z",
                                                 "type": "string"
                                             }
                                         },
@@ -7764,7 +7764,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.951Z",
+                                                    "default": "2026-06-26T19:42:40.583Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -8080,7 +8080,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:27.955Z",
+                                                        "default": "2026-06-26T19:42:40.585Z",
                                                         "type": "string"
                                                     },
                                                     "media": {
@@ -8226,7 +8226,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.962Z",
+                                                    "default": "2026-06-26T19:42:40.588Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -8287,7 +8287,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.961Z",
+                                                "default": "2026-06-26T19:42:40.587Z",
                                                 "type": "string"
                                             },
                                             "media": {
@@ -8520,7 +8520,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.959Z",
+                                                    "default": "2026-06-26T19:42:40.586Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -8677,7 +8677,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.965Z",
+                                                    "default": "2026-06-26T19:42:40.595Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -8738,7 +8738,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.964Z",
+                                                "default": "2026-06-26T19:42:40.594Z",
                                                 "type": "string"
                                             },
                                             "media": {
@@ -8892,7 +8892,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.968Z",
+                                                    "default": "2026-06-26T19:42:40.597Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -9251,7 +9251,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:27.978Z",
+                                                        "default": "2026-06-26T19:42:40.602Z",
                                                         "type": "string"
                                                     }
                                                 },
@@ -9419,7 +9419,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.985Z",
+                                                    "default": "2026-06-26T19:42:40.606Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -9507,7 +9507,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:30.529Z",
+                                                "default": "2026-06-26T19:42:41.635Z",
                                                 "type": "string"
                                             }
                                         },
@@ -9778,7 +9778,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.981Z",
+                                                    "default": "2026-06-26T19:42:40.604Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -9957,7 +9957,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.988Z",
+                                                    "default": "2026-06-26T19:42:40.609Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -10045,7 +10045,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:27.987Z",
+                                                "default": "2026-06-26T19:42:40.608Z",
                                                 "type": "string"
                                             }
                                         },
@@ -10224,7 +10224,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:27.990Z",
+                                                    "default": "2026-06-26T19:42:40.616Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -10550,7 +10550,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:27.995Z",
+                                                        "default": "2026-06-26T19:42:40.623Z",
                                                         "type": "string"
                                                     },
                                                     "franchises": {
@@ -10704,7 +10704,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.010Z",
+                                                    "default": "2026-06-26T19:42:40.634Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -10772,7 +10772,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:28.009Z",
+                                                "default": "2026-06-26T19:42:40.633Z",
                                                 "type": "string"
                                             },
                                             "franchises": {
@@ -11021,7 +11021,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.006Z",
+                                                    "default": "2026-06-26T19:42:40.631Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -11186,7 +11186,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.013Z",
+                                                    "default": "2026-06-26T19:42:40.636Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -11254,7 +11254,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:28.012Z",
+                                                "default": "2026-06-26T19:42:40.635Z",
                                                 "type": "string"
                                             },
                                             "franchises": {
@@ -11420,7 +11420,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.015Z",
+                                                    "default": "2026-06-26T19:42:40.637Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -11760,7 +11760,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:28.020Z",
+                                                        "default": "2026-06-26T19:42:40.645Z",
                                                         "type": "string"
                                                     },
                                                     "anime": {
@@ -11920,7 +11920,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.030Z",
+                                                    "default": "2026-06-26T19:42:40.649Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -12002,7 +12002,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:28.029Z",
+                                                "default": "2026-06-26T19:42:40.648Z",
                                                 "type": "string"
                                             },
                                             "anime": {
@@ -12257,7 +12257,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.023Z",
+                                                    "default": "2026-06-26T19:42:40.647Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -12428,7 +12428,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.033Z",
+                                                    "default": "2026-06-26T19:42:40.650Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -12510,7 +12510,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:28.032Z",
+                                                "default": "2026-06-26T19:42:40.650Z",
                                                 "type": "string"
                                             },
                                             "anime": {
@@ -12681,7 +12681,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.035Z",
+                                                    "default": "2026-06-26T19:42:40.652Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -13019,7 +13019,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-25T18:00:28.039Z",
+                                                        "default": "2026-06-26T19:42:40.654Z",
                                                         "type": "string"
                                                     },
                                                     "jurisdiction": {
@@ -13181,7 +13181,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.046Z",
+                                                    "default": "2026-06-26T19:42:40.664Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -13265,7 +13265,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:28.046Z",
+                                                "default": "2026-06-26T19:42:40.663Z",
                                                 "type": "string"
                                             },
                                             "jurisdiction": {
@@ -13522,7 +13522,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.044Z",
+                                                    "default": "2026-06-26T19:42:40.662Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -13695,7 +13695,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.054Z",
+                                                    "default": "2026-06-26T19:42:40.666Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -13779,7 +13779,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-25T18:00:28.053Z",
+                                                "default": "2026-06-26T19:42:40.665Z",
                                                 "type": "string"
                                             },
                                             "jurisdiction": {
@@ -13953,7 +13953,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-25T18:00:28.056Z",
+                                                    "default": "2026-06-26T19:42:40.667Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -13997,6 +13997,846 @@
                     }
                 },
                 "tags": ["p-jurisdiction"]
+            }
+        },
+        "/updated-resume": {
+            "get": {
+                "operationId": "updated-resume/get/updated_resume",
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The fields to return, this doesn't include populatable fields like relations, components, files, or dynamic zones",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "name",
+                                    "title",
+                                    "email",
+                                    "website",
+                                    "github_profile_link",
+                                    "background_rich_text",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "description": "Populate all the first level relations, components, files, and dynamic zones for the entry",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "description": "Populate a single relation, component, file, or dynamic zone",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": [
+                                        "web_portfolio_qr_code",
+                                        "experience_list_items",
+                                        "education_list_items"
+                                    ]
+                                },
+                                {
+                                    "description": "Populate a selection of multiple relations, components, files, or dynamic zones",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "web_portfolio_qr_code",
+                                            "experience_list_items",
+                                            "education_list_items"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Filters to apply to the query",
+                            "type": "object",
+                            "propertyNames": {
+                                "type": "string",
+                                "enum": [
+                                    "name",
+                                    "title",
+                                    "email",
+                                    "website",
+                                    "github_profile_link",
+                                    "background_rich_text",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            },
+                            "additionalProperties": {}
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Fetch documents based on their status. Default to \"published\" if not specified.",
+                            "type": "string",
+                            "enum": ["draft", "published"]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "publicationFilter",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Derived publication cohort: pair-scoped (per documentId+locale), document-scoped variants (-document), or published-slice diagnostics (published-without-draft / published-with-draft)",
+                            "type": "string",
+                            "enum": [
+                                "never-published",
+                                "has-published-version",
+                                "modified",
+                                "unmodified",
+                                "never-published-document",
+                                "has-published-version-document",
+                                "published-without-draft",
+                                "published-with-draft"
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "hasPublishedVersion",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "[Deprecated: prefer publicationFilter] Filter documents by whether they have a published version. Use with status=draft to find documents that have never been published",
+                            "anyOf": [
+                                {
+                                    "type": "boolean"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": ["true", "false"]
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "description": "The document ID, represented by a UUID",
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "type": "number"
+                                                        }
+                                                    ]
+                                                },
+                                                "name": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "website": {
+                                                    "description": "A string field",
+                                                    "default": "https://www.corvalangonzalo.com",
+                                                    "type": "string"
+                                                },
+                                                "github_profile_link": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "background_rich_text": {
+                                                    "description": "A richtext field",
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-06-26T19:42:40.670Z",
+                                                    "type": "string"
+                                                },
+                                                "web_portfolio_qr_code": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "experience_list_items": {
+                                                    "description": "A component field",
+                                                    "minItems": 1,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ResumeResumeExperienceListItemEntry"
+                                                    }
+                                                },
+                                                "education_list_items": {
+                                                    "description": "A component field",
+                                                    "minItems": 1,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ResumeEducationListItemEntry"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "name",
+                                                "title",
+                                                "email",
+                                                "website",
+                                                "github_profile_link",
+                                                "background_rich_text",
+                                                "publishedAt",
+                                                "web_portfolio_qr_code",
+                                                "experience_list_items",
+                                                "education_list_items"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["updated-resume"]
+            },
+            "put": {
+                "operationId": "updated-resume/put/updated_resume",
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The fields to return, this doesn't include populatable fields like relations, components, files, or dynamic zones",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "name",
+                                    "title",
+                                    "email",
+                                    "website",
+                                    "github_profile_link",
+                                    "background_rich_text",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "description": "Populate all the first level relations, components, files, and dynamic zones for the entry",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "description": "Populate a single relation, component, file, or dynamic zone",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": [
+                                        "web_portfolio_qr_code",
+                                        "experience_list_items",
+                                        "education_list_items"
+                                    ]
+                                },
+                                {
+                                    "description": "Populate a selection of multiple relations, components, files, or dynamic zones",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "web_portfolio_qr_code",
+                                            "experience_list_items",
+                                            "education_list_items"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Fetch documents based on their status. Default to \"published\" if not specified.",
+                            "type": "string",
+                            "enum": ["draft", "published"]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "publicationFilter",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Derived publication cohort: pair-scoped (per documentId+locale), document-scoped variants (-document), or published-slice diagnostics (published-without-draft / published-with-draft)",
+                            "type": "string",
+                            "enum": [
+                                "never-published",
+                                "has-published-version",
+                                "modified",
+                                "unmodified",
+                                "never-published-document",
+                                "has-published-version-document",
+                                "published-without-draft",
+                                "published-with-draft"
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "hasPublishedVersion",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "[Deprecated: prefer publicationFilter] Filter documents by whether they have a published version. Use with status=draft to find documents that have never been published",
+                            "anyOf": [
+                                {
+                                    "type": "boolean"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": ["true", "false"]
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "description": "The document ID, represented by a UUID",
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "type": "number"
+                                                        }
+                                                    ]
+                                                },
+                                                "name": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "website": {
+                                                    "description": "A string field",
+                                                    "default": "https://www.corvalangonzalo.com",
+                                                    "type": "string"
+                                                },
+                                                "github_profile_link": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "background_rich_text": {
+                                                    "description": "A richtext field",
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-06-26T19:42:40.678Z",
+                                                    "type": "string"
+                                                },
+                                                "web_portfolio_qr_code": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "experience_list_items": {
+                                                    "description": "A component field",
+                                                    "minItems": 1,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ResumeResumeExperienceListItemEntry"
+                                                    }
+                                                },
+                                                "education_list_items": {
+                                                    "description": "A component field",
+                                                    "minItems": 1,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ResumeEducationListItemEntry"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "name",
+                                                "title",
+                                                "email",
+                                                "website",
+                                                "github_profile_link",
+                                                "background_rich_text",
+                                                "publishedAt",
+                                                "web_portfolio_qr_code",
+                                                "experience_list_items",
+                                                "education_list_items"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["updated-resume"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "description": "A string field",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "A string field",
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "description": "A string field",
+                                                "type": "string"
+                                            },
+                                            "website": {
+                                                "description": "A string field",
+                                                "default": "https://www.corvalangonzalo.com",
+                                                "type": "string"
+                                            },
+                                            "github_profile_link": {
+                                                "description": "A string field",
+                                                "type": "string"
+                                            },
+                                            "background_rich_text": {
+                                                "description": "A richtext field",
+                                                "type": "string"
+                                            },
+                                            "publishedAt": {
+                                                "description": "A datetime field",
+                                                "default": "2026-06-26T19:42:40.672Z",
+                                                "type": "string"
+                                            },
+                                            "web_portfolio_qr_code": {
+                                                "description": "A media field"
+                                            },
+                                            "experience_list_items": {
+                                                "description": "A component field",
+                                                "minItems": 1,
+                                                "type": "array",
+                                                "items": {}
+                                            },
+                                            "education_list_items": {
+                                                "description": "A component field",
+                                                "minItems": 1,
+                                                "type": "array",
+                                                "items": {}
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "required": ["data"],
+                                "additionalProperties": false
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "updated-resume/delete/updated_resume",
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "The fields to return, this doesn't include populatable fields like relations, components, files, or dynamic zones",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "name",
+                                    "title",
+                                    "email",
+                                    "website",
+                                    "github_profile_link",
+                                    "background_rich_text",
+                                    "createdAt",
+                                    "updatedAt",
+                                    "publishedAt"
+                                ]
+                            }
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "populate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "anyOf": [
+                                {
+                                    "description": "Populate all the first level relations, components, files, and dynamic zones for the entry",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "const": "*"
+                                },
+                                {
+                                    "description": "Populate a single relation, component, file, or dynamic zone",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "enum": [
+                                        "web_portfolio_qr_code",
+                                        "experience_list_items",
+                                        "education_list_items"
+                                    ]
+                                },
+                                {
+                                    "description": "Populate a selection of multiple relations, components, files, or dynamic zones",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "web_portfolio_qr_code",
+                                            "experience_list_items",
+                                            "education_list_items"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Fetch documents based on their status. Default to \"published\" if not specified.",
+                            "type": "string",
+                            "enum": ["draft", "published"]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "publicationFilter",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "Derived publication cohort: pair-scoped (per documentId+locale), document-scoped variants (-document), or published-slice diagnostics (published-without-draft / published-with-draft)",
+                            "type": "string",
+                            "enum": [
+                                "never-published",
+                                "has-published-version",
+                                "modified",
+                                "unmodified",
+                                "never-published-document",
+                                "has-published-version-document",
+                                "published-without-draft",
+                                "published-with-draft"
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    },
+                    {
+                        "name": "hasPublishedVersion",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "$schema": "https://json-schema.org/draft/2020-12/schema",
+                            "description": "[Deprecated: prefer publicationFilter] Filter documents by whether they have a published version. Use with status=draft to find documents that have never been published",
+                            "anyOf": [
+                                {
+                                    "type": "boolean"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": ["true", "false"]
+                                }
+                            ]
+                        },
+                        "x-strapi-serialize": "querystring"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "documentId": {
+                                                    "description": "The document ID, represented by a UUID",
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$"
+                                                },
+                                                "id": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "type": "number"
+                                                        }
+                                                    ]
+                                                },
+                                                "name": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "website": {
+                                                    "description": "A string field",
+                                                    "default": "https://www.corvalangonzalo.com",
+                                                    "type": "string"
+                                                },
+                                                "github_profile_link": {
+                                                    "description": "A string field",
+                                                    "type": "string"
+                                                },
+                                                "background_rich_text": {
+                                                    "description": "A richtext field",
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "description": "A datetime field",
+                                                    "type": "string"
+                                                },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-06-26T19:42:40.683Z",
+                                                    "type": "string"
+                                                },
+                                                "web_portfolio_qr_code": {
+                                                    "description": "A media field",
+                                                    "$ref": "#/components/schemas/PluginUploadFileDocument"
+                                                },
+                                                "experience_list_items": {
+                                                    "description": "A component field",
+                                                    "minItems": 1,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ResumeResumeExperienceListItemEntry"
+                                                    }
+                                                },
+                                                "education_list_items": {
+                                                    "description": "A component field",
+                                                    "minItems": 1,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ResumeEducationListItemEntry"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "documentId",
+                                                "id",
+                                                "name",
+                                                "title",
+                                                "email",
+                                                "website",
+                                                "github_profile_link",
+                                                "background_rich_text",
+                                                "publishedAt",
+                                                "web_portfolio_qr_code",
+                                                "experience_list_items",
+                                                "education_list_items"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "required": ["data"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "tags": ["updated-resume"]
             }
         },
         "/content-type-builder/content-types": {
@@ -19796,7 +20636,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-25T18:00:27.732Z",
+                        "default": "2026-06-26T19:42:40.409Z",
                         "type": "string"
                     },
                     "createdAt": {
@@ -19903,7 +20743,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-25T18:00:27.811Z",
+                        "default": "2026-06-26T19:42:40.479Z",
                         "type": "string"
                     },
                     "related": {}
@@ -20033,7 +20873,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-25T18:00:27.843Z",
+                        "default": "2026-06-26T19:42:40.516Z",
                         "type": "string"
                     },
                     "parent_directory": {
@@ -20112,7 +20952,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-25T18:00:28.003Z",
+                        "default": "2026-06-26T19:42:40.628Z",
                         "type": "string"
                     }
                 },
@@ -20177,7 +21017,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-25T18:00:27.996Z",
+                        "default": "2026-06-26T19:42:40.626Z",
                         "type": "string"
                     },
                     "anime": {
@@ -20238,7 +21078,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-25T18:00:28.041Z",
+                        "default": "2026-06-26T19:42:40.655Z",
                         "type": "string"
                     },
                     "franchises": {
@@ -20258,6 +21098,72 @@
                 ],
                 "additionalProperties": false,
                 "id": "ApiPBubblePBubbleDocument"
+            },
+            "ResumeResumeExperienceListItemEntry": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "properties": {
+                    "position": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "location": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "from": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "until": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "A richtext field",
+                        "type": "string"
+                    },
+                    "company": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "client": {
+                        "description": "A string field",
+                        "type": "string"
+                    }
+                },
+                "required": ["position", "location", "company"],
+                "additionalProperties": false,
+                "id": "ResumeResumeExperienceListItemEntry"
+            },
+            "ResumeEducationListItemEntry": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "institute": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "country": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "from": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "until": {
+                        "description": "A string field",
+                        "type": "string"
+                    }
+                },
+                "required": ["title", "institute", "country", "from", "until"],
+                "additionalProperties": false,
+                "id": "ResumeEducationListItemEntry"
             }
         }
     }

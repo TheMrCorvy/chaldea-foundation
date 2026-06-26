@@ -17,7 +17,8 @@ export interface UpdatedResume {
     website: string;
     github_profile_link: string;
     web_portfolio_qr_code: ImageComponent;
-    background: string; // markdown
+    background?: string; // markdown
+    background_rich_text?: string; // markdown
     experience_list_items: Array<ResumeExperienceListItem>;
     education_list_items: Array<ResumeEducationListItem>;
 }
