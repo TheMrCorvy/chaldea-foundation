@@ -76,14 +76,6 @@ export const POST = async (request: NextRequest) => {
         sort: ["display_name:asc"],
     };
 
-    console.clear();
-    console.log({
-        onlySearchAdultContent,
-        onlySearchExplicitContent,
-        allowAdultContent,
-        allowExplicitContent,
-    });
-
     if (onlySearchAdultContent && queryObject.filters) {
         queryObject.filters.age_rating = {
             $eq: "adults",
