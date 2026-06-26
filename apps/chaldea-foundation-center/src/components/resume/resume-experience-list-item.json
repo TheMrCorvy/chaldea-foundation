@@ -1,0 +1,28 @@
+{
+    "collectionName": "components_resume_resume_experience_list_items",
+    "info": {
+        "displayName": "resume_experience_list_item",
+        "icon": "globe"
+    },
+    "options": {},
+    "attributes": {
+        "position": {
+            "type": "string",
+            "required": true
+        },
+        "location": {
+            "type": "string",
+            "required": true
+        },
+        "from": {
+            "type": "string"
+        },
+        "until": {
+            "type": "string"
+        },
+        "description": {
+            "type": "richtext"
+        }
+    },
+    "config": {}
+}

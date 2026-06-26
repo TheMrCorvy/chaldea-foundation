@@ -1,0 +1,31 @@
+{
+    "collectionName": "components_resume_education_list_items",
+    "info": {
+        "displayName": "education_list_item",
+        "icon": "seed"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "institute": {
+            "type": "string",
+            "required": true
+        },
+        "country": {
+            "type": "string",
+            "required": true
+        },
+        "from": {
+            "type": "string",
+            "required": true
+        },
+        "until": {
+            "type": "string",
+            "required": true
+        }
+    },
+    "config": {}
+}

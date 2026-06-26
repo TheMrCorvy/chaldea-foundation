@@ -1,0 +1,56 @@
+{
+    "kind": "singleType",
+    "collectionName": "updated_resumes",
+    "info": {
+        "singularName": "updated-resume",
+        "pluralName": "updated-resumes",
+        "displayName": "Updated Resume"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "email": {
+            "type": "string",
+            "required": true
+        },
+        "website": {
+            "type": "string",
+            "default": "https://www.corvalangonzalo.com",
+            "required": true
+        },
+        "github_profile_link": {
+            "type": "string",
+            "required": true
+        },
+        "web_portfolio_qr_code": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": ["images"]
+        },
+        "experience_list_items": {
+            "type": "component",
+            "component": "resume.resume-experience-list-item",
+            "repeatable": true,
+            "required": true,
+            "min": 1
+        },
+        "education_list_items": {
+            "type": "component",
+            "component": "resume.education-list-item",
+            "repeatable": true,
+            "required": true,
+            "min": 1
+        }
+    }
+}
