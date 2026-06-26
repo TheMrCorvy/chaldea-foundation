@@ -1,5 +1,13 @@
 import { ImageComponent } from "./dynamicPage";
 
+export interface UpdatedResumeWebhookPayload {
+    id: number;
+    documentId: string;
+    model: string;
+    createdAt: string;
+    entry: UpdatedResume;
+}
+
 export interface UpdatedResume {
     id: number;
     documentId: string;
@@ -16,18 +24,17 @@ export interface UpdatedResume {
 
 export interface ResumeExperienceListItem {
     id: number;
-    documentId: string;
     company: string;
     client: string;
     position: string;
     from: string; // YYYY-MM-DD / "Present"
     until: string; // YYYY-MM-DD / "Present"
     description: string; // markdown
+    location: string;
 }
 
 export interface ResumeEducationListItem {
     id: number;
-    documentId: string;
     title: string;
     institute: string;
     from: string; // YYYY-MM-DD / "Present"

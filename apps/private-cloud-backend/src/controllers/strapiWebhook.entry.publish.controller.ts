@@ -62,6 +62,10 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
         return;
     }
 
+    if (payload.uid === 'api::updated-resume.updated-resume') {
+        // update resume service
+    }
+
     logData({
         title: `Received unknown event type: ${payload.event}`,
         data: req.body,
