@@ -1,9 +1,6 @@
-// import { logData } from '@salvatore.hakase/log-data';
+import { logData } from '@salvatore.hakase/log-data';
 import fs from 'fs';
 
-/**
- * Upload the generated PDF file to Strapi's Media Library.
- */
 const uploadPdfToStrapi = async (pdfPath: string, fileName: string, strapiHost: string): Promise<void> => {
     const strapiApiKey = process.env.STRAPI_API_KEY || process.env.STRAPI_REPORTS_API_KEY || '';
     const fileBuffer = fs.readFileSync(pdfPath);
@@ -12,7 +9,7 @@ const uploadPdfToStrapi = async (pdfPath: string, fileName: string, strapiHost: 
     formData.append('files', blob, fileName);
 
     const uploadUrl = `${strapiHost}/api/upload`;
-    console.log({
+    logData({
         title: 'Uploading PDF to Strapi',
         data: { uploadUrl, fileName },
         layer: 'external_http_requests',
@@ -36,7 +33,7 @@ const uploadPdfToStrapi = async (pdfPath: string, fileName: string, strapiHost: 
     }
 
     const result = await response.json();
-    console.log({
+    logData({
         title: 'Successfully uploaded PDF to Strapi',
         data: result as Record<string, unknown>,
         layer: 'external_http_requests',

@@ -205,45 +205,53 @@ export async function generateAndUploadResume(payload: UpdatedResumeWebhookPaylo
         throw err;
     } finally {
         // 7. Cleanup temp files immediately
-        // try {
-        //     if (fs.existsSync(tempDocxPath)) {
-        //         fs.unlinkSync(tempDocxPath);
-        //         logData({
-        //             title: 'Cleaned up temporary DOCX file',
-        //             data: { tempDocxPath },
-        //             layer: 'queue_jobs',
-        //             type: 'info',
-        //             timeStamp: true,
-        //             addSpaceAfter: true,
-        //             addSeparatorAfter: true,
-        //         });
-        //     }
-        // } catch (cleanupErr) {
-        //     logData({
-        //         title: 'Error cleaning up temp docx',
-        //         data: { error: String(cleanupErr) },
-        //         layer: '*',
-        //         type: 'error',
-        //         timeStamp: true,
-        //         addSpaceAfter: true,
-        //         addSeparatorAfter: true,
-        //     });
-        // }
-        // try {
-        //     if (fs.existsSync(tempPdfPath)) {
-        //         fs.unlinkSync(tempPdfPath);
-        //         logData({
-        //             title: 'Cleaned up temporary PDF file',
-        //             data: { tempPdfPath },
-        //             layer: 'queue_jobs',
-        //             type: 'info',
-        //             timeStamp: true,
-        //             addSpaceAfter: true,
-        //             addSeparatorAfter: true,
-        //         });
-        //     }
-        // } catch (cleanupErr) {
-        //     console.error('Error cleaning up temp pdf:', cleanupErr);
-        // }
+        try {
+            if (fs.existsSync(tempDocxPath)) {
+                fs.unlinkSync(tempDocxPath);
+                logData({
+                    title: 'Cleaned up temporary DOCX file',
+                    data: { tempDocxPath },
+                    layer: 'queue_jobs',
+                    type: 'info',
+                    timeStamp: true,
+                    addSpaceAfter: true,
+                    addSeparatorAfter: true,
+                });
+            }
+        } catch (cleanupErr) {
+            logData({
+                title: 'Error cleaning up temp docx',
+                data: { error: String(cleanupErr) },
+                layer: '*',
+                type: 'error',
+                timeStamp: true,
+                addSpaceAfter: true,
+                addSeparatorAfter: true,
+            });
+        }
+        try {
+            if (fs.existsSync(tempPdfPath)) {
+                fs.unlinkSync(tempPdfPath);
+                logData({
+                    title: 'Cleaned up temporary PDF file',
+                    data: { tempPdfPath },
+                    layer: 'queue_jobs',
+                    type: 'info',
+                    timeStamp: true,
+                    addSpaceAfter: true,
+                    addSeparatorAfter: true,
+                });
+            }
+        } catch (cleanupErr) {
+            logData({
+                title: 'Error cleaning up temp pdf',
+                data: { error: String(cleanupErr) },
+                layer: '*',
+                type: 'error',
+                timeStamp: true,
+                addSpaceAfter: true,
+                addSeparatorAfter: true,
+            });
+        }
     }
 }

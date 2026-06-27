@@ -1,6 +1,3 @@
-/**
- * Clean markdown symbols to yield clean plain text with standard Unicode characters.
- */
 const cleanMarkdown = (md: string | undefined | null): string => {
     if (!md) return '';
     return (

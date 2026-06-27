@@ -3,9 +3,7 @@ import { promisify } from 'util';
 import path from 'path';
 
 const execAsync = promisify(exec);
-/**
- * Convert DOCX to PDF using local Word COM automation via PowerShell.
- */
+
 const convertDocxToPdf = async (docxPath: string, pdfPath: string): Promise<void> => {
     const absoluteDocx = path.resolve(docxPath).replace(/\//g, '\\');
     const absolutePdf = path.resolve(pdfPath).replace(/\//g, '\\');
