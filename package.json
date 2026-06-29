@@ -67,5 +67,11 @@
         "*.{json,md}": [
             "prettier --check"
         ]
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "puppeteer",
+            "bcrypt"
+        ]
     }
 }
