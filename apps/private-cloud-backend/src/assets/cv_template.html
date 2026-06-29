@@ -6,6 +6,15 @@
         <title> </title>
 
         <style>
+            @page {
+                size: letter;
+                margin: 0;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
             .pdf24_ sup {
                 vertical-align: baseline;
                 position: relative;
@@ -21,6 +30,25 @@
             }
             .pdf24_ a:visited {
                 text-decoration: none;
+            }
+            ul {
+                margin: 0;
+                padding-left: 1.2em;
+                list-style-type: square;
+            }
+            li {
+                margin-bottom: 0.3em;
+                line-height: 1.22em;
+            }
+            p {
+                margin: 0 0 0.3em 0;
+            }
+            h1,
+            h2,
+            h3 {
+                margin: 0.3em 0 0.2em 0;
+                font-size: 1.05em;
+                font-weight: bold;
             }
             @media screen and (min-device-pixel-ratio: 0),
                 (-webkit-min-device-pixel-ratio: 0),
@@ -47,6 +75,10 @@
                     font-size: 1em;
                     transform: scale(1);
                 }
+                body > div {
+                    box-shadow: none !important;
+                    margin: 0 !important;
+                }
             }
             .pdf24_grlink {
                 position: relative;
@@ -66,6 +98,12 @@
                 border-style: none;
                 display: block;
                 margin: 0em;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .pdf24_02:not(:last-child) {
+                page-break-after: always;
+                break-after: page;
             }
 
             @supports (-ms-ime-align: auto) {
@@ -552,9 +590,11 @@
                 letter-spacing: -0.3769px;
             }
 
-            body > div {
-                box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
-                margin: 20px auto !important;
+            @media screen {
+                body > div {
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+                    margin: 20px auto !important;
+                }
             }
         </style>
     </head>
@@ -569,307 +609,120 @@
             </div>
             <div class="pdf24_view">
                 <div class="pdf24_05 pdf24_06">
+                    <!-- Name & Job Title -->
                     <div class="pdf24_01" style="left: 4.482em; top: 3.1737em">
-                        <span class="pdf24_07 pdf24_08 pdf24_09" style="word-spacing: 0.0051em"
-                            >GONZALO SALVADOR CORVALAN &nbsp;</span
+                        <span
+                            class="pdf24_07 pdf24_08 pdf24_09"
+                            style="word-spacing: 0.0051em; text-transform: uppercase"
+                            >{{name}} &nbsp;</span
                         >
                     </div>
                     <div class="pdf24_01" style="left: 4.482em; top: 6.6774em">
-                        <span class="pdf24_10 pdf24_08 pdf24_11" style="word-spacing: -0.001em"
-                            >FULLSTACK DEVELOPER &nbsp;</span
+                        <span
+                            class="pdf24_10 pdf24_08 pdf24_11"
+                            style="word-spacing: -0.001em; text-transform: uppercase"
+                            >{{job_title}} &nbsp;</span
                         >
                     </div>
+
+                    <!-- Contact Details -->
                     <div class="pdf24_01" style="left: 4.482em; top: 10.292em">
-                        <a href="http://www.corvalangonzalo.comgithub.com/TheMrCorvy" target="_blank"
-                            ><span class="pdf24_12 pdf24_08 pdf24_13" style="word-spacing: 0.6816em"
-                                >gonzalosalvadorcorvalan@gmail.com | www.corvalangonzalo.com |</span
-                            ></a
-                        ><a href="http://www.corvalangonzalo.comgithub.com/TheMrCorvy" target="_blank"
-                            ><span class="pdf24_12 pdf24_08 pdf24_14" style="word-spacing: 0.4563em">&nbsp;</span></a
-                        ><a href="http://www.corvalangonzalo.comgithub.com/TheMrCorvy" target="_blank"
-                            ><span class="pdf24_12 pdf24_08 pdf24_15">github.com/TheMrCorvy &nbsp;</span></a
+                        <span class="pdf24_12 pdf24_08 pdf24_13" style="word-spacing: 0.25em"
+                            >{{email}} | {{website}} | {{github_profile_link}} &nbsp;</span
                         >
                     </div>
+
+                    <!-- Headers -->
                     <div class="pdf24_01" style="left: 4.602em; top: 12.996em">
                         <span class="pdf24_16 pdf24_08 pdf24_17">BACKGROUND &nbsp;</span>
                     </div>
                     <div class="pdf24_01" style="left: 26.75em; top: 12.996em">
                         <span class="pdf24_16 pdf24_08 pdf24_18">EDUCATION &nbsp;</span>
                     </div>
-                    <div class="pdf24_01" style="left: 4.602em; top: 15.9044em">
-                        <span class="pdf24_19 pdf24_08 pdf24_20" style="word-spacing: -0.0022em"
-                            >With a strong background in web development gained &nbsp;</span
+
+                    <!-- Background text -->
+                    <div
+                        class="pdf24_01"
+                        style="left: 4.602em; top: 15.9044em; width: 21em; white-space: normal; line-height: 1.22em"
+                    >
+                        <span
+                            class="pdf24_19 pdf24_08 pdf24_20"
+                            style="font-size: 9pt; text-align: justify; display: block"
+                            >{{background}}</span
                         >
                     </div>
-                    <div class="pdf24_01" style="left: 4.602em; top: 16.926em">
-                        <span class="pdf24_19 pdf24_08 pdf24_21" style="word-spacing: -0.0035em"
-                            >through years of Fullstack work. &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 26.75em; top: 15.8282em">
-                        <span class="pdf24_22 pdf24_08 pdf24_23" style="word-spacing: -0.0015em"
-                            >SYSTEMS ANALYST, BACHELOR OF INFORMATICS &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 26.75em; top: 16.946em">
-                        <span class="pdf24_19 pdf24_08 pdf24_24" style="word-spacing: 0.0067em"
-                            >Interamerican Open University. Buenos Aires, Argentina. &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 26.75em; top: 17.966em">
-                        <span class="pdf24_19 pdf24_08 pdf24_25" style="word-spacing: 0.0189em">2023 </span
-                        ><span class="pdf24_26 pdf24_08 pdf24_14" style="word-spacing: 0.014em">– </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_27">2025 &nbsp;</span>
-                    </div>
-                    <div class="pdf24_01" style="left: 4.602em; top: 18.606em">
-                        <span class="pdf24_19 pdf24_08 pdf24_28" style="word-spacing: -0.0057em"
-                            >Skilled in Frontend and Backend web technologies &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.602em; top: 19.626em">
-                        <span class="pdf24_19 pdf24_08 pdf24_29" style="word-spacing: 0.0057em"
-                            >such as HTML, CSS, JavaScript, Next JS, TypeScript, and &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.602em; top: 20.646em">
-                        <span class="pdf24_19 pdf24_08 pdf24_30">Node.JS. &nbsp;</span>
-                    </div>
-                    <div class="pdf24_01" style="left: 26.75em; top: 19.8299em">
-                        <span class="pdf24_22 pdf24_08 pdf24_31" style="word-spacing: -0.015em"
-                            >JAPANESE LANGUAGE &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 26.75em; top: 20.926em">
-                        <span class="pdf24_19 pdf24_08 pdf24_20" style="word-spacing: -0.0053em"
-                            >ISI Language School. Kyoto, Japan. &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 26.75em; top: 21.946em">
-                        <span class="pdf24_19 pdf24_08 pdf24_25" style="word-spacing: 0.0189em">2022 </span
-                        ><span class="pdf24_26 pdf24_08 pdf24_14" style="word-spacing: 0.014em">– </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_25" style="word-spacing: 0.2351em">2023 </span
-                        ><span class="pdf24_32 pdf24_08 pdf24_33" style="word-spacing: 0.2419em">| JLPT</span
-                        ><span class="pdf24_32 pdf24_08 pdf24_14" style="word-spacing: -0.0001em">&nbsp;</span
-                        ><span class="pdf24_32 pdf24_08 pdf24_34" style="word-spacing: 0.2318em">N3 - 73/100 </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_35" style="word-spacing: 0.0077em"
-                            >(December 2022) &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.602em; top: 22.326em">
-                        <span class="pdf24_19 pdf24_08 pdf24_34" style="word-spacing: 0.0028em"
-                            >Proven ability to work independently and meet tight &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.602em; top: 23.346em">
-                        <span class="pdf24_19 pdf24_08 pdf24_36" style="word-spacing: 0.0125em"
-                            >deadlines while ensuring high-quality code. &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 26.75em; top: 23.8124em">
-                        <span class="pdf24_22 pdf24_08 pdf24_37" style="word-spacing: 0.0214em"
-                            >ENGLISH LANGUAGE &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 26.75em; top: 24.9285em">
-                        <span class="pdf24_19 pdf24_08 pdf24_34" style="word-spacing: 0.0044em"
-                            >CUI (University Language Center). Buenos Aires, Argentina. &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 26.75em; top: 25.9485em">
-                        <span class="pdf24_19 pdf24_08 pdf24_25" style="word-spacing: 0.0189em">2018 </span
-                        ><span class="pdf24_26 pdf24_08 pdf24_14" style="word-spacing: 0.014em">– </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_27" style="word-spacing: 0.2312em">2022 | </span
-                        ><span class="pdf24_32 pdf24_08 pdf24_38" style="word-spacing: 0.0305em">TOEFL IBT</span
-                        ><span class="pdf24_32 pdf24_08 pdf24_14" style="word-spacing: 0.222em">&nbsp;</span
-                        ><span class="pdf24_32 pdf24_08 pdf24_39" style="word-spacing: 0.2356em">- 95/120 </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_40" style="word-spacing: -0.0028em"
-                            >(August 2020) &nbsp;</span
-                        >
-                    </div>
+
+                    <!-- Experience header -->
                     <div class="pdf24_01" style="left: 4.482em; top: 26.9601em">
                         <span class="pdf24_16 pdf24_08 pdf24_41">EXPERIENCE &nbsp;</span>
                     </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 29.7924em">
-                        <span class="pdf24_22 pdf24_08 pdf24_42" style="word-spacing: -0.0042em"
-                            >FULLSTACK TS DEVELOPER</span
-                        ><span class="pdf24_22 pdf24_08 pdf24_14" style="word-spacing: 0.2333em">&nbsp;</span
-                        ><span class="pdf24_22 pdf24_08 pdf24_43" style="word-spacing: 0.2151em"
-                            >| GLOBALLOGIC &nbsp;</span
-                        >
+
+                    <!-- Experience Item 0 -->
+                    <div class="pdf24_01" style="left: 4.482em; top: 29.7924em">{{exp_0_header}}</div>
+                    <div class="pdf24_01" style="left: 4.482em; top: 30.9102em">{{exp_0_meta}}</div>
+                    <div
+                        class="pdf24_01"
+                        style="left: 4.482em; top: 32.2em; width: 21em; white-space: normal; line-height: 1.22em"
+                    >
+                        {{exp_0_description}}
                     </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 30.9102em">
-                        <span class="pdf24_19 pdf24_08 pdf24_44" style="word-spacing: 0.0016em"
-                            >United States, remotely.</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_14" style="word-spacing: 0.4531em">&nbsp;</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_45" style="word-spacing: 0.0101em">October 2023</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_14" style="word-spacing: 0.224em">&nbsp;</span
-                        ><span class="pdf24_26 pdf24_08 pdf24_14" style="word-spacing: 0.2074em">– </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_28">Present. &nbsp;</span>
+
+                    <!-- Experience Item 1 -->
+                    <div class="pdf24_01" style="left: 4.482em; top: 40.3157em">{{exp_1_header}}</div>
+                    <div class="pdf24_01" style="left: 4.482em; top: 41.4319em">{{exp_1_meta}}</div>
+                    <div
+                        class="pdf24_01"
+                        style="left: 4.482em; top: 42.6em; width: 21em; white-space: normal; line-height: 1.22em"
+                    >
+                        {{exp_1_description}}
                     </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 32.5902em">
-                        <span class="pdf24_19 pdf24_08 pdf24_46" style="word-spacing: -0.0036em"
-                            >Currently engaged as a </span
-                        ><span class="pdf24_32 pdf24_08 pdf24_28" style="word-spacing: -0.003em"
-                            >Fullstack Node.JS </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_47" style="word-spacing: 0.001em">with </span
-                        ><span class="pdf24_32 pdf24_08 pdf24_45" style="word-spacing: 0.0365em">TypeScript </span
-                        ><span class="pdf24_26 pdf24_08 pdf24_48" style="word-spacing: 0.0001em"
-                            >developer, leveraging expertise in React.JS’ framework</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_49" style="word-spacing: 0.0083em"
-                            >, Next JS. &nbsp;</span
-                        >
+
+                    <!-- Experience Item 2 -->
+                    <div class="pdf24_01" style="left: 4.482em; top: 47.6782em">{{exp_2_header}}</div>
+                    <div class="pdf24_01" style="left: 4.482em; top: 48.7944em">{{exp_2_meta}}</div>
+                    <div
+                        class="pdf24_01"
+                        style="left: 4.482em; top: 49.9em; width: 21em; white-space: normal; line-height: 1.22em"
+                    >
+                        {{exp_2_description}}
                     </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 34.1055em">
-                        <span class="pdf24_50 pdf24_51 pdf24_14"></span>
+
+                    <!-- Experience Item 3 -->
+                    <div class="pdf24_01" style="left: 4.482em; top: 55.0199em">{{exp_3_header}}</div>
+                    <div class="pdf24_01" style="left: 4.482em; top: 56.156em">{{exp_3_meta}}</div>
+                    <div
+                        class="pdf24_01"
+                        style="left: 4.482em; top: 57.3em; width: 21em; white-space: normal; line-height: 1.22em"
+                    >
+                        {{exp_3_description}}
                     </div>
-                    <div class="pdf24_01" style="left: 5.962em; top: 34.1502em">
-                        <span class="pdf24_26 pdf24_08 pdf24_52" style="word-spacing: -0.0001em"
-                            >Developing together with the Backend team a new flow to handle users’ identification, and
-                            implementing the system &nbsp;</span
-                        >
+
+                    <!-- Education Item 0 -->
+                    <div
+                        class="pdf24_01"
+                        style="left: 26.75em; top: 15.8282em; width: 20em; white-space: normal; line-height: 1.22em"
+                    >
+                        {{edu_0_title_meta}}
                     </div>
-                    <div class="pdf24_01" style="left: 5.962em; top: 35.1702em">
-                        <span class="pdf24_19 pdf24_08 pdf24_53" style="word-spacing: 0.0032em"
-                            >across multiple API consumer apps. &nbsp;</span
-                        >
+                    <div class="pdf24_01" style="left: 26.75em; top: 17.966em">{{edu_0_dates}}</div>
+
+                    <!-- Education Item 1 -->
+                    <div
+                        class="pdf24_01"
+                        style="left: 26.75em; top: 19.8299em; width: 20em; white-space: normal; line-height: 1.22em"
+                    >
+                        {{edu_1_title_meta}}
                     </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 36.3455em">
-                        <span class="pdf24_50 pdf24_51 pdf24_14"></span>
+                    <div class="pdf24_01" style="left: 26.75em; top: 21.946em">{{edu_1_dates}}</div>
+
+                    <!-- Education Item 2 -->
+                    <div
+                        class="pdf24_01"
+                        style="left: 26.75em; top: 23.8124em; width: 20em; white-space: normal; line-height: 1.22em"
+                    >
+                        {{edu_2_title_meta}}
                     </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 37.5872em">
-                        <span class="pdf24_50 pdf24_51 pdf24_14"></span>
-                    </div>
-                    <div class="pdf24_01" style="left: 5.962em; top: 36.3902em">
-                        <span class="pdf24_19 pdf24_08 pdf24_34" style="word-spacing: -0.0003em"
-                            >Coordinating tasks with multiple team members from different sectors such as design, UX/UI,
-                            Backend, and DevOps. &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 5.962em; top: 37.6319em">
-                        <span class="pdf24_19 pdf24_08 pdf24_54" style="word-spacing: -0.0007em"
-                            >Development focused on customer satisfaction and computer security. &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 40.3157em">
-                        <span class="pdf24_22 pdf24_08 pdf24_23" style="word-spacing: -0.0025em"
-                            >FRONTEND REACT DEVELOPER</span
-                        ><span class="pdf24_22 pdf24_08 pdf24_14" style="word-spacing: 0.2147em">&nbsp;</span
-                        ><span class="pdf24_22 pdf24_08 pdf24_55" style="word-spacing: 0.2428em">| FINALIS &nbsp;</span>
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 41.4319em">
-                        <span class="pdf24_19 pdf24_08 pdf24_43" style="word-spacing: -0.0021em"
-                            >United States, remotely.</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_14" style="word-spacing: 0.4527em">&nbsp;</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_45" style="word-spacing: 0.0111em">December 2023</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_14" style="word-spacing: 0.227em">&nbsp;</span
-                        ><span class="pdf24_26 pdf24_08 pdf24_14" style="word-spacing: 0.4425em">– </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_56" style="word-spacing: 0.0092em"
-                            >April 2024 &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 42.9519em">
-                        <span class="pdf24_19 pdf24_08 pdf24_44" style="word-spacing: -0.0009em"
-                            >Short-term side-job where I performed as a Frontend developer for a fintech located in the
-                            US, helping on the migration &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 43.9719em">
-                        <span class="pdf24_19 pdf24_08 pdf24_56" style="word-spacing: 0.0157em">from a </span
-                        ><span class="pdf24_32 pdf24_08 pdf24_57" style="word-spacing: 0.0035em">GraphQL </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_43" style="word-spacing: 0.0004em">integration to a </span
-                        ><span class="pdf24_32 pdf24_08 pdf24_58" style="word-spacing: 0.0325em">REST API </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_29" style="word-spacing: 0.0027em"
-                            >approach, while following the </span
-                        ><span class="pdf24_32 pdf24_08 pdf24_59" style="word-spacing: -0.0166em">SOLID </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_57" style="word-spacing: 0.008em"
-                            >principles and making use of tools such as &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 44.9944em">
-                        <span class="pdf24_19 pdf24_08 pdf24_60" style="word-spacing: -0.011em"
-                            >ES Lint and Prettier to ensure good code quality. &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 47.6782em">
-                        <span class="pdf24_22 pdf24_08 pdf24_61" style="word-spacing: 0em">FULLSTACK PHP DEVELOPER</span
-                        ><span class="pdf24_22 pdf24_08 pdf24_14" style="word-spacing: 0.2362em">&nbsp;</span
-                        ><span class="pdf24_22 pdf24_08 pdf24_30" style="word-spacing: 0.2153em">| BIWINI &nbsp;</span>
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 48.7944em">
-                        <span class="pdf24_19 pdf24_08 pdf24_62" style="word-spacing: 0.0066em"
-                            >Buenos Aires, Argentina.</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_14" style="word-spacing: 0.455em">&nbsp;</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_63" style="word-spacing: 0.0401em">April 2023</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_14" style="word-spacing: 0.2283em">&nbsp;</span
-                        ><span class="pdf24_26 pdf24_08 pdf24_14" style="word-spacing: 0.2045em">– </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_24" style="word-spacing: 0.0099em"
-                            >October 2023 &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 50.3144em">
-                        <span class="pdf24_19 pdf24_08 pdf24_64" style="word-spacing: -0.0045em">Engaged as a </span
-                        ><span class="pdf24_32 pdf24_08 pdf24_65" style="word-spacing: -0.0017em"
-                            >Fullstack PHP developer</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_54" style="word-spacing: -0.0041em"
-                            >, applying my knowledge in Laravel framework to digitalize legal processes and &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 51.336em">
-                        <span class="pdf24_19 pdf24_08 pdf24_52" style="word-spacing: 0.0009em"
-                            >procedures for state entities, prioritizing efficiency regarding backend responses and
-                            securing communications between &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 52.336em">
-                        <span class="pdf24_19 pdf24_08 pdf24_64" style="word-spacing: -0.0095em"
-                            >Frontend and Backend via </span
-                        ><span class="pdf24_66 pdf24_08 pdf24_36" style="word-spacing: 0.0059em">Laravel’s </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_40" style="word-spacing: -0.0059em"
-                            >built in REST API methods. &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 55.0199em">
-                        <span class="pdf24_22 pdf24_08 pdf24_40" style="word-spacing: 0.0025em">FRONTEND DEVELOPER</span
-                        ><span class="pdf24_22 pdf24_08 pdf24_14" style="word-spacing: 0.2347em">&nbsp;</span
-                        ><span class="pdf24_22 pdf24_08 pdf24_67" style="word-spacing: 0.2173em">| TSUMUGI</span
-                        ><span class="pdf24_22 pdf24_08 pdf24_14" style="word-spacing: -0.0141em">&nbsp;</span
-                        ><span class="pdf24_22 pdf24_08 pdf24_68">HOTEL &nbsp;</span>
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 56.156em">
-                        <span class="pdf24_19 pdf24_08 pdf24_31" style="word-spacing: 0.0032em">Kyoto, Japan.</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_14" style="word-spacing: 0.4494em">&nbsp;</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_55" style="word-spacing: 0.0046em">April 2022</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_14" style="word-spacing: 0.226em">&nbsp;</span
-                        ><span class="pdf24_26 pdf24_08 pdf24_14" style="word-spacing: 0.2283em">– </span
-                        ><span class="pdf24_19 pdf24_08 pdf24_33" style="word-spacing: 0.0279em"
-                            >March 2023 &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 57.6562em">
-                        <span class="pdf24_19 pdf24_08 pdf24_40" style="word-spacing: 0.0013em"
-                            >Contributed to the web development team for a prestigious hotel in Kyoto. Among other
-                            things, my tasks included &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 58.6782em">
-                        <span class="pdf24_19 pdf24_08 pdf24_69" style="word-spacing: 0.0101em"
-                            >translating documentation from Japanese to English, updating old Class-based components to
-                            hooks and server-side &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 59.6982em">
-                        <span class="pdf24_26 pdf24_08 pdf24_70" style="word-spacing: 0.0051em"
-                            >rendering with Next JS and TypeScript, and helping in the process of restructuring the
-                            project’s internal architecture to &nbsp;</span
-                        >
-                    </div>
-                    <div class="pdf24_01" style="left: 4.482em; top: 60.7182em">
-                        <span class="pdf24_19 pdf24_08 pdf24_31" style="word-spacing: -0.0008em"
-                            >follow the principles of </span
-                        ><span class="pdf24_32 pdf24_08 pdf24_71" style="word-spacing: 0.0314em"
-                            >Clean Architecture</span
-                        ><span class="pdf24_19 pdf24_08 pdf24_71" style="word-spacing: 0.0314em">. &nbsp;</span>
-                    </div>
+                    <div class="pdf24_01" style="left: 26.75em; top: 25.9485em">{{edu_2_dates}}</div>
                 </div>
             </div>
         </div>
