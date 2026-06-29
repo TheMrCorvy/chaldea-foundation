@@ -8,6 +8,16 @@ const uploadPdfToStrapi = async (pdfPath: string, fileName: string, strapiHost: 
     const formData = new FormData();
     formData.append('files', blob, fileName);
 
+    const folderId = process.env.STRAPI_RESUME_FOLDER_ID;
+    if (folderId) {
+        formData.append(
+            'fileInfo',
+            JSON.stringify({
+                folder: /^\d+$/.test(folderId) ? parseInt(folderId, 10) : folderId,
+            })
+        );
+    }
+
     const uploadUrl = `${strapiHost}/api/upload`;
     logData({
         title: 'Uploading PDF to Strapi',

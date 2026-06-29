@@ -1,26 +1,46 @@
-import { exec } from 'child_process';
-import { promisify } from 'util';
 import path from 'path';
 
-const execAsync = promisify(exec);
+/**
+ * Converts raw HTML content to a PDF using Puppeteer.
+ */
+const convertHtmlToPdf = async (htmlContent: string, pdfPath: string): Promise<void> => {
+    const absolutePdf = path.resolve(pdfPath);
 
-const convertDocxToPdf = async (docxPath: string, pdfPath: string): Promise<void> => {
-    const absoluteDocx = path.resolve(docxPath).replace(/\//g, '\\');
-    const absolutePdf = path.resolve(pdfPath).replace(/\//g, '\\');
+    // Use dynamic import because puppeteer is an ESM-only module
+    const puppeteer = await import('puppeteer');
 
-    const psCommand = `& {
-        $word = New-Object -ComObject Word.Application;
-        $word.Visible = $false;
-        $doc = $word.Documents.Open('${absoluteDocx}');
-        $doc.SaveAs('${absolutePdf}', 17);
-        $doc.Close();
-        $word.Quit();
-    }`;
+    // Launch headless Chromium browser
+    const browser = await puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
 
-    const base64Command = Buffer.from(psCommand, 'utf16le').toString('base64');
-    const command = `powershell.exe -NoProfile -NonInteractive -EncodedCommand ${base64Command}`;
+    try {
+        const page = await browser.newPage();
 
-    await execAsync(command);
+        // Set content and wait for network/styles to load
+        await page.setContent(htmlContent, {
+            waitUntil: 'networkidle0' as any,
+        });
+
+        // Emulate print media type so that print-specific CSS and @page rules are active
+        await page.emulateMediaType('print');
+
+        // Print page to PDF with Letter page size
+        await page.pdf({
+            path: absolutePdf,
+            format: 'Letter',
+            printBackground: true,
+            margin: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+            },
+        });
+    } finally {
+        await browser.close();
+    }
 };
 
-export default convertDocxToPdf;
+export default convertHtmlToPdf;

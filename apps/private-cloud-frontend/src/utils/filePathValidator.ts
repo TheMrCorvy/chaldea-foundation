@@ -1,25 +1,18 @@
 import path from "path";
 
 export function isValidFilePath(filePath: string): boolean {
-
     if (!filePath || filePath.trim() === "") {
         return false;
     }
 
     const normalized = path.normalize(filePath);
-    const dangerousPatterns = [
-        /\.\./,
-        /\/\//,
-        /^[a-z]:/i,
-        /^~/,
-    ];
+    const dangerousPatterns = [/\.\./, /\/\//, /^[a-z]:/i, /^~/];
 
     for (const pattern of dangerousPatterns) {
         if (pattern.test(normalized)) {
             return false;
         }
     }
-
 
     const validExtensions = [
         ".mp4",
