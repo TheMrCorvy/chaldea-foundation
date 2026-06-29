@@ -42,7 +42,7 @@ export const markdownToHtml = (md: string | undefined | null): string => {
             }
             // If empty line, close paragraph or add space. If not list, make it paragraph or keep line.
             if (line.trim() !== '') {
-                processedLines.push(`<p>${line}</p>`);
+                processedLines.push(`<p style="margin-bottom: 1em;">${line}</p>`);
             }
         }
     }

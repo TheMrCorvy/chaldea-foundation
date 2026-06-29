@@ -1029,3 +1029,1011 @@
 {"level":30,"time":1782507821664,"pid":11408,"hostname":"YogaBook9i","msg":" "}
 {"level":30,"time":1782507821664,"pid":11408,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
 {"level":30,"time":1782507821664,"pid":11408,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735201606,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735201607,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735201607,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735201607,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782735201607,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735201607,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:13:21"}
+{"level":30,"time":1782735201607,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735201607,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735201607,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:14:55.575Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":24,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:14:55.313Z","publishedAt":"2026-06-29T12:14:55.461Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":28,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":29,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":30,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":28,"position":"fullstack developer","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":29,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":30,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:14:55"}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":24,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:14:55"}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:14:55"}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735295641,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295762,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782735295762,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295762,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:14:55"}
+{"level":30,"time":1782735295762,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295762,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735295762,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295775,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_24_1782735295641.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782735295775,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295775,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:14:55"}
+{"level":30,"time":1782735295775,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735295775,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735295775,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735304012,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782735304012,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735304012,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:15:04"}
+{"level":30,"time":1782735304012,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735304012,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735304012,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":27,"documentId":"zb6zc4kae902itltye3mkz5l","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_395b3d7d01","ext":".pdf","mime":"application/pdf","size":190.29,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_395b3d7d01.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:15:05.121Z","updatedAt":"2026-06-29T12:15:05.121Z","publishedAt":"2026-06-29T12:15:05.122Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:15:05"}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:15:05"}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735305151,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735305152,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_24_1782735295641.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782735305152,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735305152,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:15:05"}
+{"level":30,"time":1782735305152,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735305152,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735305152,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485023,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:18:05.016Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":25,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:18:04.817Z","publishedAt":"2026-06-29T12:18:04.923Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":31,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":32,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":33,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"experience_list_items":[{"id":31,"position":"FULLSTACK DEVELOPER","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":32,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":33,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null}}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:18:05"}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":25,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:18:05"}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:18:05"}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735485024,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485042,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782735485042,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485042,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:18:05"}
+{"level":30,"time":1782735485042,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485042,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735485042,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485099,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_25_1782735485024.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782735485099,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485099,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:18:05"}
+{"level":30,"time":1782735485099,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735485099,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735485099,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735486967,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782735486967,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735486967,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:18:06"}
+{"level":30,"time":1782735486967,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735486967,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735486967,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":28,"documentId":"iez429v17qmew51r36463svm","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_a53ec071b4","ext":".pdf","mime":"application/pdf","size":85.44,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_a53ec071b4.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:18:07.020Z","updatedAt":"2026-06-29T12:18:07.020Z","publishedAt":"2026-06-29T12:18:07.020Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:18:07"}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:18:07"}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_25_1782735485024.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:18:07"}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735487036,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699658,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:21:39.649Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":26,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:21:39.440Z","publishedAt":"2026-06-29T12:21:39.569Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":34,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":35,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":36,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":34,"position":"fullstack developer","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":35,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":36,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:21:39"}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":26,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:21:39"}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:21:39"}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735699659,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699679,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782735699679,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699679,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:21:39"}
+{"level":30,"time":1782735699679,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699679,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735699679,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699694,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_26_1782735699659.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782735699694,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699694,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:21:39"}
+{"level":30,"time":1782735699694,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735699694,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735699694,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701602,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782735701602,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701602,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:21:41"}
+{"level":30,"time":1782735701602,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701602,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735701602,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":29,"documentId":"y47pfxbc070gjaiytz6gjbdz","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_a18c676d21","ext":".pdf","mime":"application/pdf","size":85.49,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_a18c676d21.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:21:41.659Z","updatedAt":"2026-06-29T12:21:41.659Z","publishedAt":"2026-06-29T12:21:41.659Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:21:41"}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:21:41"}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735701674,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701675,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_26_1782735699659.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782735701675,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701675,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:21:41"}
+{"level":30,"time":1782735701675,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735701675,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735701675,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783518,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:23:03.511Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":27,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:23:03.281Z","publishedAt":"2026-06-29T12:23:03.378Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":37,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":38,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":39,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":37,"position":"FULLSTACK DEVELOPER","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":38,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":39,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:23:03"}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":27,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:23:03"}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:23:03"}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735783519,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783540,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782735783540,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783540,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:23:03"}
+{"level":30,"time":1782735783540,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783540,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735783540,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783613,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_27_1782735783519.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782735783613,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783613,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:23:03"}
+{"level":30,"time":1782735783613,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735783613,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735783613,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786079,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782735786079,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786079,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:23:06"}
+{"level":30,"time":1782735786079,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786079,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735786079,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786203,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":30,"documentId":"xhznczl228jjyzeaxlkjhfbe","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_f3d7862710","ext":".pdf","mime":"application/pdf","size":189.51,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_f3d7862710.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:23:06.170Z","updatedAt":"2026-06-29T12:23:06.170Z","publishedAt":"2026-06-29T12:23:06.170Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782735786203,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786203,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:23:06"}
+{"level":30,"time":1782735786203,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786203,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735786203,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:23:06"}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_27_1782735783519.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:23:06"}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735786204,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:24:00.597Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":28,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:24:00.326Z","publishedAt":"2026-06-29T12:24:00.508Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":40,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":41,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":42,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":40,"position":"fullstack developer","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":41,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":42,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:24:00"}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":28,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:24:00"}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:24:00"}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735840605,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840619,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782735840619,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840619,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:24:00"}
+{"level":30,"time":1782735840619,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840619,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735840619,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840694,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_28_1782735840605.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782735840694,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840694,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:24:00"}
+{"level":30,"time":1782735840694,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735840694,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735840694,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842859,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782735842859,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842859,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:24:02"}
+{"level":30,"time":1782735842859,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842859,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735842859,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":31,"documentId":"fhmpnucxxlk64cl6d0kigqxa","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_4dcc879c82","ext":".pdf","mime":"application/pdf","size":190.29,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_4dcc879c82.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:24:02.929Z","updatedAt":"2026-06-29T12:24:02.929Z","publishedAt":"2026-06-29T12:24:02.930Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:24:02"}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:24:02"}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735842946,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842947,"pid":21672,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_28_1782735840605.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782735842947,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842947,"pid":21672,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:24:02"}
+{"level":30,"time":1782735842947,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735842947,"pid":21672,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735842947,"pid":21672,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735929962,"pid":17856,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735929962,"pid":17856,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735929962,"pid":17856,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735929962,"pid":17856,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782735929962,"pid":17856,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735929962,"pid":17856,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:25:29"}
+{"level":30,"time":1782735929962,"pid":17856,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735929962,"pid":17856,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735929962,"pid":17856,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735969716,"pid":14144,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735969717,"pid":14144,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735969717,"pid":14144,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735969717,"pid":14144,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782735969717,"pid":14144,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735969717,"pid":14144,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:26:09"}
+{"level":30,"time":1782735969717,"pid":14144,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735969717,"pid":14144,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735969718,"pid":14144,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735978841,"pid":22072,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735978841,"pid":22072,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735978841,"pid":22072,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735978841,"pid":22072,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782735978841,"pid":22072,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735978841,"pid":22072,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:26:18"}
+{"level":30,"time":1782735978841,"pid":22072,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782735978841,"pid":22072,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782735978842,"pid":22072,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736013157,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736013157,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736013157,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736013157,"pid":21928,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736013157,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736013157,"pid":21928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:26:53"}
+{"level":30,"time":1782736013157,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736013157,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736013157,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062211,"pid":21928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:27:42.173Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":29,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:27:41.949Z","publishedAt":"2026-06-29T12:27:42.075Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"education_list_items":[{"id":43,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":44,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":45,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"experience_list_items":[{"id":43,"position":"FULLSTACK DEVELOPER","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":44,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":45,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782736062211,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062211,"pid":21928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:27:42"}
+{"level":30,"time":1782736062211,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062211,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736062211,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":29,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:27:42"}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:27:42"}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736062212,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062284,"pid":21928,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782736062284,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062284,"pid":21928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:27:42"}
+{"level":30,"time":1782736062284,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062284,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736062284,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062296,"pid":21928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_29_1782736062212.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782736062296,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062296,"pid":21928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:27:42"}
+{"level":30,"time":1782736062296,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736062296,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736062296,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736064993,"pid":21928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782736064993,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736064994,"pid":21928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:27:44"}
+{"level":30,"time":1782736064994,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736064994,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736064994,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736065079,"pid":21928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":32,"documentId":"hpf1d1yutiouolbw3ixkggga","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_a662acdedc","ext":".pdf","mime":"application/pdf","size":184.69,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_a662acdedc.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:27:45.064Z","updatedAt":"2026-06-29T12:27:45.064Z","publishedAt":"2026-06-29T12:27:45.064Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782736065079,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736065080,"pid":21928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:27:45"}
+{"level":30,"time":1782736065080,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736065080,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736065080,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736065080,"pid":21928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782736065080,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736065080,"pid":21928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:27:45"}
+{"level":30,"time":1782736065080,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736065080,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736065080,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736065081,"pid":21928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_29_1782736062212.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782736065081,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736065081,"pid":21928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:27:45"}
+{"level":30,"time":1782736065081,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736065081,"pid":21928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736065081,"pid":21928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736125618,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736125618,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736125618,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736125618,"pid":12892,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736125618,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736125619,"pid":12892,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:28:45"}
+{"level":30,"time":1782736125619,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736125619,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736125619,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144547,"pid":12892,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:29:04.509Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":30,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:29:04.286Z","publishedAt":"2026-06-29T12:29:04.413Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":46,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":47,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":48,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"experience_list_items":[{"id":46,"position":"fullstack developer","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":47,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":48,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null}}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782736144547,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144547,"pid":12892,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:29:04"}
+{"level":30,"time":1782736144547,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144547,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736144547,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":30,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:29:04"}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:29:04"}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736144548,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144606,"pid":12892,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782736144606,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144606,"pid":12892,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:29:04"}
+{"level":30,"time":1782736144606,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144606,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736144606,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144623,"pid":12892,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_30_1782736144548.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782736144623,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144623,"pid":12892,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:29:04"}
+{"level":30,"time":1782736144623,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736144623,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736144623,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147343,"pid":12892,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782736147343,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147343,"pid":12892,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:29:07"}
+{"level":30,"time":1782736147343,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147343,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736147343,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147436,"pid":12892,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":33,"documentId":"ubnz97kgpk044xxelv5c0wh4","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_23249d61c9","ext":".pdf","mime":"application/pdf","size":183.94,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_23249d61c9.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:29:07.418Z","updatedAt":"2026-06-29T12:29:07.418Z","publishedAt":"2026-06-29T12:29:07.418Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:29:07"}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:29:07"}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736147437,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147438,"pid":12892,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_30_1782736144548.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782736147438,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147438,"pid":12892,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:29:07"}
+{"level":30,"time":1782736147438,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736147438,"pid":12892,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736147438,"pid":12892,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736206091,"pid":3168,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736206092,"pid":3168,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736206092,"pid":3168,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736206092,"pid":3168,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736206092,"pid":3168,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736206092,"pid":3168,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:30:06"}
+{"level":30,"time":1782736206092,"pid":3168,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736206092,"pid":3168,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736206092,"pid":3168,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736416350,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736416351,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736416351,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736416351,"pid":2380,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736416351,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736416351,"pid":2380,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:33:36"}
+{"level":30,"time":1782736416351,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736416351,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736416351,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463198,"pid":2380,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:34:23.165Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":31,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:34:22.962Z","publishedAt":"2026-06-29T12:34:23.073Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":49,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":50,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":51,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":49,"position":"FULLSTACK DEVELOPER","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":50,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":51,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782736463198,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463198,"pid":2380,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:34:23"}
+{"level":30,"time":1782736463198,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463198,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":31,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:34:23"}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:34:23"}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736463199,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463257,"pid":2380,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782736463257,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463257,"pid":2380,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:34:23"}
+{"level":30,"time":1782736463257,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463257,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736463257,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463269,"pid":2380,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_31_1782736463199.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782736463269,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463269,"pid":2380,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:34:23"}
+{"level":30,"time":1782736463269,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736463269,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736463269,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466302,"pid":2380,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782736466302,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466302,"pid":2380,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:34:26"}
+{"level":30,"time":1782736466302,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466302,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736466302,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":34,"documentId":"ejfj6y1fv1f016d9vm0vbvuz","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_5a8f686a45","ext":".pdf","mime":"application/pdf","size":183.73,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_5a8f686a45.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:34:26.354Z","updatedAt":"2026-06-29T12:34:26.354Z","publishedAt":"2026-06-29T12:34:26.355Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:34:26"}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:34:26"}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736466372,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466373,"pid":2380,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_31_1782736463199.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782736466373,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466373,"pid":2380,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:34:26"}
+{"level":30,"time":1782736466373,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736466373,"pid":2380,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736466373,"pid":2380,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736498465,"pid":21628,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736498466,"pid":21628,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736498466,"pid":21628,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736498466,"pid":21628,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736498466,"pid":21628,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736498466,"pid":21628,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:34:58"}
+{"level":30,"time":1782736498466,"pid":21628,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736498466,"pid":21628,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736498466,"pid":21628,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736513730,"pid":20612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736513731,"pid":20612,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736513731,"pid":20612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736513731,"pid":20612,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736513731,"pid":20612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736513731,"pid":20612,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:35:13"}
+{"level":30,"time":1782736513731,"pid":20612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736513731,"pid":20612,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736513731,"pid":20612,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736584715,"pid":20984,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736584716,"pid":20984,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736584716,"pid":20984,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736584716,"pid":20984,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736584716,"pid":20984,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736584716,"pid":20984,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:36:24"}
+{"level":30,"time":1782736584716,"pid":20984,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736584716,"pid":20984,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736584716,"pid":20984,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736617355,"pid":6180,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736617356,"pid":6180,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736617356,"pid":6180,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736617356,"pid":6180,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736617356,"pid":6180,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736617356,"pid":6180,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:36:57"}
+{"level":30,"time":1782736617356,"pid":6180,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736617356,"pid":6180,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736617356,"pid":6180,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736626250,"pid":21288,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736626250,"pid":21288,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736626250,"pid":21288,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736626250,"pid":21288,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736626250,"pid":21288,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736626250,"pid":21288,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:06"}
+{"level":30,"time":1782736626250,"pid":21288,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736626250,"pid":21288,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736626250,"pid":21288,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736641866,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736641866,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736641866,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736641866,"pid":14468,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736641866,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736641866,"pid":14468,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:21"}
+{"level":30,"time":1782736641866,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736641866,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736641867,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676773,"pid":14468,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:37:56.736Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":32,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:37:56.538Z","publishedAt":"2026-06-29T12:37:56.649Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":52,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":53,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":54,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":52,"position":"fullstack developer","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":53,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":54,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782736676773,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676773,"pid":14468,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:56"}
+{"level":30,"time":1782736676773,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676773,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736676773,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":32,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:56"}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:56"}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736676774,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676829,"pid":14468,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782736676829,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676830,"pid":14468,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:56"}
+{"level":30,"time":1782736676830,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676830,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736676830,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676912,"pid":14468,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_32_1782736676774.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782736676912,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676912,"pid":14468,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:56"}
+{"level":30,"time":1782736676912,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736676912,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736676912,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679352,"pid":14468,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782736679352,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679352,"pid":14468,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:59"}
+{"level":30,"time":1782736679352,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679352,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736679352,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":35,"documentId":"fovjn4c8lyvaztzro7bl2luv","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_00501cacbd","ext":".pdf","mime":"application/pdf","size":183.71,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_00501cacbd.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:37:59.409Z","updatedAt":"2026-06-29T12:37:59.409Z","publishedAt":"2026-06-29T12:37:59.410Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:59"}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:59"}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736679425,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679426,"pid":14468,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_32_1782736676774.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782736679426,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679426,"pid":14468,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:37:59"}
+{"level":30,"time":1782736679426,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736679426,"pid":14468,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736679426,"pid":14468,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736711893,"pid":17060,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736711893,"pid":17060,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736711893,"pid":17060,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736711893,"pid":17060,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736711893,"pid":17060,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736711894,"pid":17060,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:38:31"}
+{"level":30,"time":1782736711894,"pid":17060,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736711894,"pid":17060,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736711894,"pid":17060,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736719761,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736719761,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736719762,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736719762,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782736719762,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736719762,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:38:39"}
+{"level":30,"time":1782736719762,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736719762,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736719762,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965062,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:42:45.026Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":33,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:42:44.849Z","publishedAt":"2026-06-29T12:42:44.949Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":55,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":56,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":57,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":55,"position":"FULLSTACK DEVELOPER","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":56,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":57,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782736965062,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965062,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:42:45"}
+{"level":30,"time":1782736965062,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965062,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736965062,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":33,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:42:45"}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:42:45"}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736965063,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965110,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782736965110,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965110,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:42:45"}
+{"level":30,"time":1782736965110,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965110,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736965110,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965122,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_33_1782736965063.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782736965122,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965123,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:42:45"}
+{"level":30,"time":1782736965123,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736965123,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736965123,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967571,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782736967571,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967571,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:42:47"}
+{"level":30,"time":1782736967571,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967571,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736967571,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":36,"documentId":"e25hfnpx57p3ryzrd7rizam2","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_fc73d27583","ext":".pdf","mime":"application/pdf","size":183.81,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_fc73d27583.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:42:47.623Z","updatedAt":"2026-06-29T12:42:47.623Z","publishedAt":"2026-06-29T12:42:47.624Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:42:47"}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:42:47"}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736967640,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967641,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_33_1782736965063.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782736967641,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967641,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:42:47"}
+{"level":30,"time":1782736967641,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782736967641,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782736967641,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:49:13.761Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":34,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:49:13.603Z","publishedAt":"2026-06-29T12:49:13.696Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":58,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":59,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":60,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":58,"position":"fullstack developer","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":59,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":60,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:49:13"}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":34,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:49:13"}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737353767,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353768,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782737353768,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353768,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:49:13"}
+{"level":30,"time":1782737353768,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353768,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737353768,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353781,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782737353781,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353781,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:49:13"}
+{"level":30,"time":1782737353781,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353781,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737353781,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353852,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_34_1782737353767.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782737353852,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353852,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:49:13"}
+{"level":30,"time":1782737353852,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737353852,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737353852,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356174,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782737356174,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356174,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:49:16"}
+{"level":30,"time":1782737356174,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356174,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737356174,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":37,"documentId":"wgwl3e42t8d4oxb2amlmnxwp","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_8e158cc50a","ext":".pdf","mime":"application/pdf","size":183.75,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_8e158cc50a.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:49:16.219Z","updatedAt":"2026-06-29T12:49:16.219Z","publishedAt":"2026-06-29T12:49:16.219Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:49:16"}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:49:16"}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737356231,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356232,"pid":18816,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_34_1782737353767.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782737356232,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356232,"pid":18816,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:49:16"}
+{"level":30,"time":1782737356232,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737356232,"pid":18816,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737356232,"pid":18816,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737419449,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737419449,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737419449,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737419449,"pid":18352,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782737419449,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737419449,"pid":18352,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:50:19"}
+{"level":30,"time":1782737419449,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737419449,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737419449,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435067,"pid":18352,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:50:35.031Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":35,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:50:34.866Z","publishedAt":"2026-06-29T12:50:34.959Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":61,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":62,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":63,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"experience_list_items":[{"id":61,"position":"FULLSTACK DEVELOPER","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":62,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":63,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null}}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782737435067,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435067,"pid":18352,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:50:35"}
+{"level":30,"time":1782737435067,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435067,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737435067,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435067,"pid":18352,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":35,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782737435067,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435068,"pid":18352,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:50:35"}
+{"level":30,"time":1782737435068,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435068,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737435068,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435068,"pid":18352,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782737435068,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435068,"pid":18352,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:50:35"}
+{"level":30,"time":1782737435068,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435068,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737435068,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435116,"pid":18352,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782737435116,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435116,"pid":18352,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:50:35"}
+{"level":30,"time":1782737435116,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435116,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737435116,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435130,"pid":18352,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_35_1782737435068.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782737435130,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435130,"pid":18352,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:50:35"}
+{"level":30,"time":1782737435130,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737435130,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737435130,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437765,"pid":18352,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782737437765,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437765,"pid":18352,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:50:37"}
+{"level":30,"time":1782737437765,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437765,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737437765,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437840,"pid":18352,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":38,"documentId":"d0q1dgve5vfpvewyyyhltywk","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_1b85d35aaa","ext":".pdf","mime":"application/pdf","size":183.75,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_1b85d35aaa.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:50:37.827Z","updatedAt":"2026-06-29T12:50:37.827Z","publishedAt":"2026-06-29T12:50:37.827Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782737437840,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437841,"pid":18352,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:50:37"}
+{"level":30,"time":1782737437841,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437841,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737437841,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437841,"pid":18352,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782737437841,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437841,"pid":18352,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:50:37"}
+{"level":30,"time":1782737437841,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437841,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737437841,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437842,"pid":18352,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_35_1782737435068.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782737437842,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437842,"pid":18352,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:50:37"}
+{"level":30,"time":1782737437842,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737437842,"pid":18352,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737437842,"pid":18352,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737461152,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737461152,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737461153,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737461153,"pid":20292,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782737461153,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737461153,"pid":20292,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:01"}
+{"level":30,"time":1782737461153,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737461153,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737461153,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474261,"pid":20292,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:51:14.232Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":36,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:51:14.049Z","publishedAt":"2026-06-29T12:51:14.161Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and\nNode.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":64,"position":"fullstack developer","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":65,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":66,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}],"education_list_items":[{"id":64,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":65,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":66,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782737474261,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474261,"pid":20292,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:14"}
+{"level":30,"time":1782737474261,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474261,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737474261,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":36,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:14"}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:14"}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737474262,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474317,"pid":20292,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782737474317,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474317,"pid":20292,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:14"}
+{"level":30,"time":1782737474317,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474317,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737474317,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474329,"pid":20292,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_36_1782737474262.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782737474329,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474329,"pid":20292,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:14"}
+{"level":30,"time":1782737474329,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737474329,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737474329,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476795,"pid":20292,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782737476795,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476795,"pid":20292,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:16"}
+{"level":30,"time":1782737476795,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476795,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737476795,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476866,"pid":20292,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":39,"documentId":"lpdflbotv3n994ruew4ctnxr","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_2760c050a4","ext":".pdf","mime":"application/pdf","size":183.75,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_2760c050a4.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:51:16.850Z","updatedAt":"2026-06-29T12:51:16.850Z","publishedAt":"2026-06-29T12:51:16.850Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782737476866,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476866,"pid":20292,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:16"}
+{"level":30,"time":1782737476866,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476866,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737476866,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:16"}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_36_1782737474262.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:16"}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737476867,"pid":20292,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737515492,"pid":18512,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737515492,"pid":18512,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737515492,"pid":18512,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737515492,"pid":18512,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782737515492,"pid":18512,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737515492,"pid":18512,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:51:55"}
+{"level":30,"time":1782737515492,"pid":18512,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737515492,"pid":18512,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737515492,"pid":18512,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737579170,"pid":15548,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737579170,"pid":15548,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737579170,"pid":15548,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737579170,"pid":15548,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782737579170,"pid":15548,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737579170,"pid":15548,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:52:59"}
+{"level":30,"time":1782737579170,"pid":15548,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737579170,"pid":15548,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737579170,"pid":15548,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737603862,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737603862,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737603862,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737603862,"pid":7016,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782737603862,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737603862,"pid":7016,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:53:23"}
+{"level":30,"time":1782737603862,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737603862,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737603863,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:53:33.640Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":37,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:53:33.487Z","publishedAt":"2026-06-29T12:53:33.576Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and Node.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":67,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":68,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":69,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":67,"position":"fullstack developer","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":68,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":69,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:53:33"}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":37,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:53:33"}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613670,"pid":7016,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:53:33"}
+{"level":30,"time":1782737613671,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613671,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737613671,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613727,"pid":7016,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782737613727,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613727,"pid":7016,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:53:33"}
+{"level":30,"time":1782737613727,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613727,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737613727,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613738,"pid":7016,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_37_1782737613670.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782737613738,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613738,"pid":7016,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:53:33"}
+{"level":30,"time":1782737613738,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737613738,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737613738,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616172,"pid":7016,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782737616172,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616172,"pid":7016,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:53:36"}
+{"level":30,"time":1782737616172,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616172,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737616172,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":40,"documentId":"k1teqygwdcvx7xb9m3z563eu","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_088109ecdd","ext":".pdf","mime":"application/pdf","size":182.69,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_088109ecdd.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:53:36.225Z","updatedAt":"2026-06-29T12:53:36.225Z","publishedAt":"2026-06-29T12:53:36.225Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:53:36"}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:53:36"}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737616239,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616240,"pid":7016,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_37_1782737613670.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782737616240,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616240,"pid":7016,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:53:36"}
+{"level":30,"time":1782737616240,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737616240,"pid":7016,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737616240,"pid":7016,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737663092,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737663093,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737663093,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737663093,"pid":16928,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Cron jobs scheduled"}
+{"level":30,"time":1782737663093,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737663093,"pid":16928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:54:23"}
+{"level":30,"time":1782737663093,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737663093,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737663093,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684442,"pid":16928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"event":"entry.publish","createdAt":"2026-06-29T12:54:44.410Z","model":"updated-resume","uid":"api::updated-resume.updated-resume","entry":{"id":38,"documentId":"zqedekjbl2zytjbowpma4h1i","name":"Gonzalo salvador corvalán","createdAt":"2026-06-26T19:15:57.301Z","updatedAt":"2026-06-29T12:54:44.228Z","publishedAt":"2026-06-29T12:54:44.328Z","title":"fullstack software engineer","email":"gonzalosalvadorcorvalan@gmail.com","website":"www.corvalangonzalo.com","github_profile_link":"github.com/TheMrCorvy","background_rich_text":"With a strong background in web development gained through years of Fullstack work.\nSkilled in Frontend and Backend web technologies such as HTML, CSS, JavaScript, Next JS, TypeScript, and Node.JS.\nProven ability to work independently and meet tight deadlines while ensuring high-quality code.\n","education_list_items":[{"id":70,"title":"SYSTEMS ANALYST, BACHELOR OF INFORMATICS","institute":"Interamerican Open University","country":"Buenos Aires, Argentina.","from":"2023","until":"2025"},{"id":71,"title":"JAPANESE LANGUAGE","institute":"ISI Language School","country":"Kyoto, Japan","from":"2022","until":"2023"},{"id":72,"title":"ENGLISH LANGUAGE","institute":"CUI (University Language Center)","country":"Buenos Aires, Argentina.","from":"2018","until":"2022"}],"web_portfolio_qr_code":{"id":24,"documentId":"j06wfn6zpnbqyw1sz6g31ykn","name":"f519a5ac447dbdc95aa23a3fc2aeca5e.png","alternativeText":null,"caption":null,"width":1584,"height":1584,"formats":{"thumbnail":{"name":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":156,"height":156,"size":14.4,"sizeInBytes":14404,"url":"/uploads/thumbnail_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"large":{"name":"large_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":1000,"height":1000,"size":43.34,"sizeInBytes":43341,"url":"/uploads/large_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"medium":{"name":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":750,"height":750,"size":32.69,"sizeInBytes":32686,"url":"/uploads/medium_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"small":{"name":"small_f519a5ac447dbdc95aa23a3fc2aeca5e.png","hash":"small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","path":null,"width":500,"height":500,"size":25.97,"sizeInBytes":25967,"url":"/uploads/small_f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"}},"hash":"f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad","ext":".png","mime":"image/png","size":27.81,"url":"/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T10:50:23.626Z","updatedAt":"2026-06-29T10:50:23.626Z","publishedAt":"2026-06-29T10:50:23.627Z","focalPoint":null},"experience_list_items":[{"id":70,"position":"FULLSTACK DEVELOPER","location":"United States, remotely","from":"October 2023","until":"Present","description":"Currently engaged as a **Fullstack Node.JS** with **TypeScript** developer, leveraging expertise in React.JS framework, Next JS.\n- Developing together with the Backend team a new flow to handle users’ identification, and implementing the system\nacross multiple API consumer apps.\n- Coordinating tasks with multiple team members from different sectors such as design, UX/UI, Backend, and DevOps.\n- Development focused on customer satisfaction and computer security.","company":"GlobalLogic","client":"Verizon"},{"id":71,"position":"FRONTEND REACT DEVELOPER","location":"United States, remotely.","from":"December 2023","until":"April 2024","description":"Short-term side-job where I performed as a Frontend developer for a fintech located in the US, helping on the migration from a **GraphQL** integration to a **REST API** approach, while following the **SOLID** principles and making use of tools such as ES Lint and Prettier to ensure good code quality","company":"finalis","client":null},{"id":72,"position":"FRONTEND DEVELOPER","location":"Kyoto, Japan.","from":"April 2022","until":"March 2023","description":"Contributed to the web development team for a prestigious hotel in Kyoto. Among other things, my tasks included translating documentation from Japanese to English, updating old Class-based components to hooks and server-side rendering with Next JS and TypeScript, and helping in the process of restructuring the project’s internal architecture to follow the principles of **Clean Architecture**.","company":"TSUMUGI HOTEL","client":null}]}},"msg":"Received entry.publish event from Platform Service: "}
+{"level":30,"time":1782737684442,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684442,"pid":16928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:54:44"}
+{"level":30,"time":1782737684442,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684442,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737684442,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"resumeId":38,"name":"Gonzalo salvador corvalán"},"msg":"Starting resume generation (HTML to PDF): "}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:54:44"}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"absoluteQrUrl":"http://localhost:1337/uploads/f519a5ac447dbdc95aa23a3fc2aeca5e_3b6101cfad.png"},"msg":"Fetching QR code image: "}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:54:44"}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737684443,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684487,"pid":16928,"hostname":"YogaBook9i","app":"Private Cloud Backend","msg":"Rendering HTML Template"}
+{"level":30,"time":1782737684487,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684487,"pid":16928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:54:44"}
+{"level":30,"time":1782737684487,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684487,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737684487,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684499,"pid":16928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_38_1782737684443.pdf"},"msg":"Converting HTML to PDF via Puppeteer: "}
+{"level":30,"time":1782737684499,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684499,"pid":16928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:54:44"}
+{"level":30,"time":1782737684499,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737684499,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737684499,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686881,"pid":16928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"uploadUrl":"http://localhost:1337/api/upload","fileName":"Gonzalo_salvador_corvalán_Resume.pdf"},"msg":"Uploading PDF to Strapi: "}
+{"level":30,"time":1782737686881,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686881,"pid":16928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:54:46"}
+{"level":30,"time":1782737686881,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686881,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737686881,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":[{"id":41,"documentId":"sx70v62uut6yeioihgqfr7x5","name":"Gonzalo_salvador_corvalán_Resume.pdf","alternativeText":null,"caption":null,"width":null,"height":null,"formats":null,"hash":"Gonzalo_salvador_corvalan_Resume_f84aaa1b70","ext":".pdf","mime":"application/pdf","size":182.64,"url":"/uploads/Gonzalo_salvador_corvalan_Resume_f84aaa1b70.pdf","previewUrl":null,"provider":"local","provider_metadata":null,"createdAt":"2026-06-29T12:54:46.937Z","updatedAt":"2026-06-29T12:54:46.937Z","publishedAt":"2026-06-29T12:54:46.937Z","focalPoint":null,"isUrlSigned":false}],"msg":"Successfully uploaded PDF to Strapi: "}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:54:46"}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"name":"Gonzalo salvador corvalán"},"msg":"Resume generation and upload process complete: "}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:54:46"}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737686950,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686951,"pid":16928,"hostname":"YogaBook9i","app":"Private Cloud Backend","payload":{"tempPdfPath":"C:\\Users\\gonza\\AppData\\Local\\Temp\\resume_38_1782737684443.pdf"},"msg":"Cleaned up temporary PDF file: "}
+{"level":30,"time":1782737686951,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686951,"pid":16928,"hostname":"YogaBook9i","msg":"2026-06-29 - 09:54:46"}
+{"level":30,"time":1782737686951,"pid":16928,"hostname":"YogaBook9i","msg":" "}
+{"level":30,"time":1782737686951,"pid":16928,"hostname":"YogaBook9i","msg":"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"}
+{"level":30,"time":1782737686951,"pid":16928,"hostname":"YogaBook9i","msg":" "}

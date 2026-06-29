@@ -48,38 +48,38 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
     const expSlotStyles = [
         {
             posClass: 'pdf24_22 pdf24_08 pdf24_42',
-            posStyle: 'word-spacing: -0.0042em',
+            posStyle: 'word-spacing: -0.0042em; text-transform: uppercase;',
             compClass: 'pdf24_22 pdf24_08 pdf24_43',
-            compStyle: 'word-spacing: 0.2151em',
+            compStyle: 'word-spacing: 0.2151em; text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_44',
-            metaStyle: 'word-spacing: 0.0016em',
+            metaStyle: 'word-spacing: 0.0016em; font-size: 12pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_52',
         },
         {
             posClass: 'pdf24_22 pdf24_08 pdf24_23',
-            posStyle: 'word-spacing: -0.0025em',
+            posStyle: 'word-spacing: -0.0025em; text-transform: uppercase;',
             compClass: 'pdf24_22 pdf24_08 pdf24_55',
-            compStyle: 'word-spacing: 0.2428em',
+            compStyle: 'word-spacing: 0.2428em; text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_43',
-            metaStyle: 'word-spacing: -0.0021em',
+            metaStyle: 'word-spacing: -0.0021em; font-size: 12pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_44',
         },
         {
             posClass: 'pdf24_22 pdf24_08 pdf24_61',
-            posStyle: 'word-spacing: 0em',
+            posStyle: 'word-spacing: 0em; text-transform: uppercase;',
             compClass: 'pdf24_22 pdf24_08 pdf24_30',
-            compStyle: 'word-spacing: 0.2153em',
+            compStyle: 'word-spacing: 0.2153em; text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_62',
-            metaStyle: 'word-spacing: 0.0066em',
+            metaStyle: 'word-spacing: 0.0066em; font-size: 12pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_64',
         },
         {
             posClass: 'pdf24_22 pdf24_08 pdf24_40',
-            posStyle: 'word-spacing: 0.0025em',
+            posStyle: 'word-spacing: 0.0025em; text-transform: uppercase;',
             compClass: 'pdf24_22 pdf24_08 pdf24_67',
-            compStyle: 'word-spacing: 0.2173em',
+            compStyle: 'word-spacing: 0.2173em; text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_31',
-            metaStyle: 'word-spacing: 0.0032em',
+            metaStyle: 'word-spacing: 0.0032em; font-size: 12pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_40',
         },
     ];
@@ -90,7 +90,7 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
             const position = escapeHtml(item.position);
             const company = escapeHtml(item.company);
             const client = item.client ? escapeHtml(item.client) : '';
-            const companyDisplay = client ? `${company} (Client: ${client})` : company;
+            const companyDisplay = client ? `${company} (for ${client})` : company;
             const location = escapeHtml(item.location);
             const from = escapeHtml(item.from);
             const until = escapeHtml(item.until);
@@ -99,12 +99,10 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
             const style = expSlotStyles[i];
 
             const headerHtml = `
-                <span class="${style.posClass}" style="${style.posStyle}">${position}</span>
-                <span class="pdf24_22 pdf24_08 pdf24_14" style="word-spacing: 0.2333em">&nbsp;</span>
-                <span class="${style.compClass}" style="${style.compStyle}">| ${companyDisplay} &nbsp;</span>
+                <span class="${style.compClass}" style="${style.compStyle}">${position}  |  ${companyDisplay} &nbsp;</span>
             `;
-            const metaHtml = `<span class="${style.metaClass}" style="${style.metaStyle}">${location}. &nbsp;&nbsp;|&nbsp;&nbsp; ${from} – ${until}.</span>`;
-            const descHtml = `<div class="${style.descClass}" style="font-size: 8.5pt;">${descriptionHtml}</div>`;
+            const metaHtml = `<span class="${style.metaClass}" style="${style.metaStyle}">${location}.  |  ${from} – ${until}.</span>`;
+            const descHtml = `<div class="${style.descClass}" style="font-size: 10pt;">${descriptionHtml}</div>`;
 
             html = html.replace(new RegExp(`{{exp_${i}_header}}`, 'g'), headerHtml);
             html = html.replace(new RegExp(`{{exp_${i}_meta}}`, 'g'), metaHtml);
@@ -148,8 +146,8 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
             const style = eduSlotStyles[i];
 
             const titleMetaHtml = `
-                <span class="${style.titleClass}" style="font-size: 9.5pt;">${title}</span><br/>
-                <span class="${style.metaClass}" style="font-size: 8.5pt;">${institute}. ${country}.</span>
+                <span class="${style.titleClass}" style="font-size: 10.5pt;">${title}</span><br/>
+                <span class="${style.metaClass}" style="font-size: 10pt;">${institute}. ${country}.</span>
             `;
             const datesHtml = `<span class="${style.datesClass}">${from} – ${until}</span>`;
 
