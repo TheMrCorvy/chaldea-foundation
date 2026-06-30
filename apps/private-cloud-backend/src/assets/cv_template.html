@@ -590,6 +590,11 @@
                 letter-spacing: -0.3769px;
             }
 
+            /* Hide broken/empty images */
+            img[src=""], img:not([src]) {
+                display: none !important;
+            }
+
             /* Experience Section font styling overrides */
             .experience-section .pdf24_22 {
                 font-size: 11pt !important;
@@ -651,95 +656,45 @@
                             width: 42.036em;
                             display: flex;
                             flex-direction: column;
-                            gap: 2em;
+                            gap: 0;
                         "
                     >
                         <!-- Row 1: Background & Education -->
                         <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 2em">
                             <!-- Left Column: Background -->
-                            <div style="display: flex; flex-direction: column; width: 21em; flex-shrink: 0; gap: 0.8em">
+                            <div style="display: flex; flex-direction: column; width: 21em; flex-shrink: 0; gap: 0">
                                 <div style="line-height: 1.22em">
                                     <span class="pdf24_16 pdf24_08 pdf24_17">BACKGROUND &nbsp;</span>
                                 </div>
                                 <div style="white-space: normal; line-height: 1.22em">
                                     <span
                                         class="pdf24_19 pdf24_08 pdf24_20"
-                                        style="font-size: 10pt; text-align: left; display: block"
+                                        style="font-size: 9pt; text-align: left; display: block"
                                         >{{background}}</span
                                     >
                                 </div>
                             </div>
 
                             <!-- Right Column: Education -->
-                            <div style="display: flex; flex-direction: column; width: 20em; flex-shrink: 0; gap: 0.8em">
+                            <div style="display: flex; flex-direction: column; width: 20em; flex-shrink: 0; gap: 0">
                                 <div style="line-height: 1.22em">
                                     <span class="pdf24_16 pdf24_08 pdf24_18">EDUCATION &nbsp;</span>
                                 </div>
-                                <div style="display: flex; flex-direction: column; gap: 0.8em">
-                                    <!-- Education Item 0 -->
-                                    <div style="display: flex; flex-direction: column; gap: 0.2em; line-height: 1.22em">
-                                        <div style="white-space: normal">{{edu_0_title_meta}}</div>
-                                        <div>{{edu_0_dates}}</div>
-                                    </div>
-                                    <!-- Education Item 1 -->
-                                    <div style="display: flex; flex-direction: column; gap: 0.2em; line-height: 1.22em">
-                                        <div style="white-space: normal">{{edu_1_title_meta}}</div>
-                                        <div>{{edu_1_dates}}</div>
-                                    </div>
-                                    <!-- Education Item 2 -->
-                                    <div style="display: flex; flex-direction: column; gap: 0.2em; line-height: 1.22em">
-                                        <div style="white-space: normal">{{edu_2_title_meta}}</div>
-                                        <div>{{edu_2_dates}}</div>
-                                    </div>
-                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 0.6em">{{education_items}}</div>
                             </div>
                         </div>
 
                         <!-- Row 2: Experience -->
                         <div
                             class="experience-section"
-                            style="display: flex; flex-direction: column; gap: 1em; width: 100%"
+                            style="display: flex; flex-direction: column; gap: 1em; width: 100%; margin-top: 0"
                         >
                             <div style="line-height: 1.22em">
                                 <span class="pdf24_16 pdf24_08 pdf24_41">EXPERIENCE &nbsp;</span>
                             </div>
 
                             <div style="display: flex; flex-direction: column; gap: 1.2em; width: 100%">
-                                <!-- Experience Item 0 -->
-                                <div style="display: flex; flex-direction: column; gap: 0.3em; width: 100%">
-                                    <div style="line-height: 1.22em; white-space: normal">{{exp_0_header}}</div>
-                                    <div style="line-height: 1.22em; white-space: normal">{{exp_0_meta}}</div>
-                                    <div style="line-height: 1.22em; white-space: normal; width: 100%">
-                                        {{exp_0_description}}
-                                    </div>
-                                </div>
-
-                                <!-- Experience Item 1 -->
-                                <div style="display: flex; flex-direction: column; gap: 0.3em; width: 100%">
-                                    <div style="line-height: 1.22em; white-space: normal">{{exp_1_header}}</div>
-                                    <div style="line-height: 1.22em; white-space: normal">{{exp_1_meta}}</div>
-                                    <div style="line-height: 1.22em; white-space: normal; width: 100%">
-                                        {{exp_1_description}}
-                                    </div>
-                                </div>
-
-                                <!-- Experience Item 2 -->
-                                <div style="display: flex; flex-direction: column; gap: 0.3em; width: 100%">
-                                    <div style="line-height: 1.22em; white-space: normal">{{exp_2_header}}</div>
-                                    <div style="line-height: 1.22em; white-space: normal">{{exp_2_meta}}</div>
-                                    <div style="line-height: 1.22em; white-space: normal; width: 100%">
-                                        {{exp_2_description}}
-                                    </div>
-                                </div>
-
-                                <!-- Experience Item 3 -->
-                                <div style="display: flex; flex-direction: column; gap: 0.3em; width: 100%">
-                                    <div style="line-height: 1.22em; white-space: normal">{{exp_3_header}}</div>
-                                    <div style="line-height: 1.22em; white-space: normal">{{exp_3_meta}}</div>
-                                    <div style="line-height: 1.22em; white-space: normal; width: 100%">
-                                        {{exp_3_description}}
-                                    </div>
-                                </div>
+                                {{experience_items}}
                             </div>
                         </div>
                     </div>
@@ -756,10 +711,10 @@
             </div>
             <div class="pdf24_view">
                 <div class="pdf24_05 pdf24_06">
-                    <div class="pdf24_01" style="left: 16.0658em; top: 3.1737em">
-                        <span class="pdf24_07 pdf24_08 pdf24_72" style="word-spacing: -0.0007em"
-                            >WEB PORTFOLIO &nbsp;</span
-                        >
+                    <!-- Centered Container for Web Portfolio and QR Code -->
+                    <div style="position: absolute; left: 0; top: 3.1737em; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 3em;">
+                        <span class="pdf24_07 pdf24_08 pdf24_72" style="word-spacing: -0.0007em;">WEB PORTFOLIO &nbsp;</span>
+                        <img src="{{qr_code_url}}" style="width: 15em; height: 15em; object-fit: contain;" alt="" onerror="this.style.display='none';" />
                     </div>
                 </div>
             </div>

@@ -43,7 +43,7 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
     const qrUrl = qrCodeDataUrl || '';
     html = html.replace(/{{qr_code_url}}/g, qrUrl);
 
-    // 2. Render Experience Section (4 slots max)
+    // 2. Render Experience Section
     const experienceList = entry.experience_list_items || [];
     const expSlotStyles = [
         {
@@ -52,7 +52,7 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
             compClass: 'pdf24_22 pdf24_08 pdf24_43',
             compStyle: 'word-spacing: 0.2151em; text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_44',
-            metaStyle: 'word-spacing: 0.0016em; font-size: 12pt !important;',
+            metaStyle: 'word-spacing: 0.0016em; font-size: 11pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_52',
         },
         {
@@ -61,7 +61,7 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
             compClass: 'pdf24_22 pdf24_08 pdf24_55',
             compStyle: 'word-spacing: 0.2428em; text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_43',
-            metaStyle: 'word-spacing: -0.0021em; font-size: 12pt !important;',
+            metaStyle: 'word-spacing: -0.0021em; font-size: 11pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_44',
         },
         {
@@ -70,7 +70,7 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
             compClass: 'pdf24_22 pdf24_08 pdf24_30',
             compStyle: 'word-spacing: 0.2153em; text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_62',
-            metaStyle: 'word-spacing: 0.0066em; font-size: 12pt !important;',
+            metaStyle: 'word-spacing: 0.0066em; font-size: 11pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_64',
         },
         {
@@ -79,42 +79,41 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
             compClass: 'pdf24_22 pdf24_08 pdf24_67',
             compStyle: 'word-spacing: 0.2173em; text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_31',
-            metaStyle: 'word-spacing: 0.0032em; font-size: 12pt !important;',
+            metaStyle: 'word-spacing: 0.0032em; font-size: 11pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_40',
         },
     ];
 
-    for (let i = 0; i < 4; i++) {
-        const item = experienceList[i];
-        if (item) {
-            const position = escapeHtml(item.position);
-            const company = escapeHtml(item.company);
-            const client = item.client ? escapeHtml(item.client) : '';
-            const companyDisplay = client ? `${company} (for ${client})` : company;
-            const location = escapeHtml(item.location);
-            const from = escapeHtml(item.from);
-            const until = escapeHtml(item.until);
-            const descriptionHtml = markdownToHtml(item.description);
+    let experienceItemsHtml = '';
+    experienceList.forEach((item, index) => {
+        const position = escapeHtml(item.position);
+        const company = escapeHtml(item.company);
+        const client = item.client ? escapeHtml(item.client) : '';
+        const companyDisplay = client ? `${company} (for ${client})` : company;
+        const location = escapeHtml(item.location);
+        const from = escapeHtml(item.from);
+        const until = escapeHtml(item.until);
+        const descriptionHtml = markdownToHtml(item.description);
 
-            const style = expSlotStyles[i];
+        const style = expSlotStyles[index % expSlotStyles.length];
 
-            const headerHtml = `
-                <span class="${style.compClass}" style="${style.compStyle}">${position}  |  ${companyDisplay} &nbsp;</span>
-            `;
-            const metaHtml = `<span class="${style.metaClass}" style="${style.metaStyle}">${location}.  |  ${from} – ${until}.</span>`;
-            const descHtml = `<div class="${style.descClass}" style="font-size: 10pt;">${descriptionHtml}</div>`;
+        const headerHtml = `
+            <span class="${style.compClass}" style="${style.compStyle}">${position}  |  ${companyDisplay} &nbsp;</span>
+        `;
+        const metaHtml = `<span class="${style.metaClass}" style="${style.metaStyle}">${location}.  |  ${from} – ${until}.</span>`;
+        const descHtml = `<div class="${style.descClass}" style="font-size: 10pt;">${descriptionHtml}</div>`;
 
-            html = html.replace(new RegExp(`{{exp_${i}_header}}`, 'g'), headerHtml);
-            html = html.replace(new RegExp(`{{exp_${i}_meta}}`, 'g'), metaHtml);
-            html = html.replace(new RegExp(`{{exp_${i}_description}}`, 'g'), descHtml);
-        } else {
-            html = html.replace(new RegExp(`{{exp_${i}_header}}`, 'g'), '');
-            html = html.replace(new RegExp(`{{exp_${i}_meta}}`, 'g'), '');
-            html = html.replace(new RegExp(`{{exp_${i}_description}}`, 'g'), '');
-        }
-    }
+        experienceItemsHtml += `
+            <div style="display: flex; flex-direction: column; gap: 0.2em; width: 100%;">
+                <div style="line-height: 1.22em; white-space: normal;">${headerHtml}</div>
+                <div style="line-height: 1.22em; white-space: normal;">${metaHtml}</div>
+                <div style="line-height: 1.22em; white-space: normal; width: 100%;">${descHtml}</div>
+            </div>
+        `;
+    });
+    html = html.replace(/{{experience_items}}/g, experienceItemsHtml);
 
-    // 3. Render Education Section (3 slots max)
+    // 3. Render Education Section
     const educationList = entry.education_list_items || [];
     const eduSlotStyles = [
         {
@@ -134,30 +133,29 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
         },
     ];
 
-    for (let i = 0; i < 3; i++) {
-        const item = educationList[i];
-        if (item) {
-            const title = escapeHtml(item.title);
-            const institute = escapeHtml(item.institute);
-            const country = escapeHtml(item.country);
-            const from = escapeHtml(item.from);
-            const until = escapeHtml(item.until);
+    let educationItemsHtml = '';
+    educationList.forEach((item, index) => {
+        const title = escapeHtml(item.title);
+        const institute = escapeHtml(item.institute);
+        const country = escapeHtml(item.country);
+        const from = escapeHtml(item.from);
+        const until = escapeHtml(item.until);
 
-            const style = eduSlotStyles[i];
+        const style = eduSlotStyles[index % eduSlotStyles.length];
 
-            const titleMetaHtml = `
-                <span class="${style.titleClass}" style="font-size: 10.5pt;">${title}</span><br/>
-                <span class="${style.metaClass}" style="font-size: 10pt;">${institute}. ${country}.</span>
-            `;
-            const datesHtml = `<span class="${style.datesClass}">${from} – ${until}</span>`;
-
-            html = html.replace(new RegExp(`{{edu_${i}_title_meta}}`, 'g'), titleMetaHtml);
-            html = html.replace(new RegExp(`{{edu_${i}_dates}}`, 'g'), datesHtml);
-        } else {
-            html = html.replace(new RegExp(`{{edu_${i}_title_meta}}`, 'g'), '');
-            html = html.replace(new RegExp(`{{edu_${i}_dates}}`, 'g'), '');
-        }
-    }
+        educationItemsHtml += `
+            <div style="display: flex; flex-direction: column; gap: 0.05em; line-height: 1.15em;">
+                <div style="white-space: normal;">
+                    <span class="${style.titleClass}" style="font-size: 10.5pt;">${title}</span><br/>
+                    <span class="${style.metaClass}" style="font-size: 10pt;">${institute}. ${country}.</span>
+                </div>
+                <div>
+                    <span class="${style.datesClass}">${from} – ${until}</span>
+                </div>
+            </div>
+        `;
+    });
+    html = html.replace(/{{education_items}}/g, educationItemsHtml);
 
     return html;
 }
