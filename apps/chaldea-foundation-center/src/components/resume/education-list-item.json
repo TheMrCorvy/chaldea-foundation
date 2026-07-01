@@ -26,10 +26,10 @@
             "type": "string",
             "required": true
         },
-        "certifcation": {
+        "certification_date": {
             "type": "string"
         },
-        "certification_date": {
+        "certification": {
             "type": "string"
         }
     },

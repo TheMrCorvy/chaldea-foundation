@@ -140,8 +140,14 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
         const country = escapeHtml(item.country);
         const from = escapeHtml(item.from);
         const until = escapeHtml(item.until);
+        const certification = item.certification ? escapeHtml(item.certification) : '';
+        const certificationDate = item.certification_date ? escapeHtml(item.certification_date) : '';
 
         const style = eduSlotStyles[index % eduSlotStyles.length];
+
+        const certSuffix = certification
+            ? `<span class="pdf24_32 pdf24_08"> | ${certification}</span><span class="${style.datesClass}"> (${certificationDate})</span>`
+            : '';
 
         educationItemsHtml += `
             <div style="display: flex; flex-direction: column; gap: 0.05em; line-height: 1.15em;">
@@ -150,7 +156,7 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
                     <span class="${style.metaClass}" style="font-size: 10pt;">${institute}. ${country}.</span>
                 </div>
                 <div>
-                    <span class="${style.datesClass}">${from} – ${until}</span>
+                    <span class="${style.datesClass}">${from} – ${until}</span>${certSuffix}
                 </div>
             </div>
         `;
