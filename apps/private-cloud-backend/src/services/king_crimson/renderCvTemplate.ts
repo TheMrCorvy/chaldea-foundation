@@ -48,36 +48,36 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
     const expSlotStyles = [
         {
             posClass: 'pdf24_22 pdf24_08 pdf24_42',
-            posStyle: 'word-spacing: -0.0042em; text-transform: uppercase;',
+            posStyle: 'text-transform: uppercase;',
             compClass: 'pdf24_22 pdf24_08 pdf24_43',
-            compStyle: 'word-spacing: 0.2151em; text-transform: uppercase;',
+            compStyle: 'text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_44',
             metaStyle: 'word-spacing: 0.0016em; font-size: 11pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_52',
         },
         {
             posClass: 'pdf24_22 pdf24_08 pdf24_23',
-            posStyle: 'word-spacing: -0.0025em; text-transform: uppercase;',
+            posStyle: 'text-transform: uppercase;',
             compClass: 'pdf24_22 pdf24_08 pdf24_55',
-            compStyle: 'word-spacing: 0.2428em; text-transform: uppercase;',
+            compStyle: 'text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_43',
             metaStyle: 'word-spacing: -0.0021em; font-size: 11pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_44',
         },
         {
             posClass: 'pdf24_22 pdf24_08 pdf24_61',
-            posStyle: 'word-spacing: 0em; text-transform: uppercase;',
+            posStyle: 'text-transform: uppercase;',
             compClass: 'pdf24_22 pdf24_08 pdf24_30',
-            compStyle: 'word-spacing: 0.2153em; text-transform: uppercase;',
+            compStyle: 'text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_62',
             metaStyle: 'word-spacing: 0.0066em; font-size: 11pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_64',
         },
         {
             posClass: 'pdf24_22 pdf24_08 pdf24_40',
-            posStyle: 'word-spacing: 0.0025em; text-transform: uppercase;',
+            posStyle: 'text-transform: uppercase;',
             compClass: 'pdf24_22 pdf24_08 pdf24_67',
-            compStyle: 'word-spacing: 0.2173em; text-transform: uppercase;',
+            compStyle: 'text-transform: uppercase;',
             metaClass: 'pdf24_19 pdf24_08 pdf24_31',
             metaStyle: 'word-spacing: 0.0032em; font-size: 11pt !important;',
             descClass: 'pdf24_19 pdf24_08 pdf24_40',
@@ -101,7 +101,7 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
             <span class="${style.compClass}" style="${style.compStyle}">${position}  |  ${companyDisplay} &nbsp;</span>
         `;
         const metaHtml = `<span class="${style.metaClass}" style="${style.metaStyle}">${location}.  |  ${from} – ${until}.</span>`;
-        const descHtml = `<div class="${style.descClass}" style="font-size: 10pt;">${descriptionHtml}</div>`;
+        const descHtml = `<div class="${style.descClass}" style="font-size: 11.5pt;">${descriptionHtml}</div>`;
 
         experienceItemsHtml += `
             <div style="display: flex; flex-direction: column; gap: 0.2em; width: 100%;">
