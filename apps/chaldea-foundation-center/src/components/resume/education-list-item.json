@@ -25,6 +25,12 @@
         "until": {
             "type": "string",
             "required": true
+        },
+        "certifcation": {
+            "type": "string"
+        },
+        "certification_date": {
+            "type": "string"
         }
     },
     "config": {}
