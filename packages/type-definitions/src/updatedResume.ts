@@ -41,4 +41,6 @@ export interface ResumeEducationListItem {
     from: string; // YYYY-MM-DD / "Present"
     until: string; // YYYY-MM-DD / "Present"
     country: string;
+    certification?: string | null;
+    certification_date?: string | null;
 }
