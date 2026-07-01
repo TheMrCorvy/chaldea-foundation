@@ -89,7 +89,9 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
         const position = escapeHtml(item.position);
         const company = escapeHtml(item.company);
         const client = item.client ? escapeHtml(item.client) : '';
-        const companyDisplay = client ? `${company} (for ${client})` : company;
+        const companyDisplay = client
+            ? `${company} <span style="text-transform: none;">(for <span style="text-transform: capitalize; font-weight: bold;">${client}</span>)</span>`
+            : company;
         const location = escapeHtml(item.location);
         const from = escapeHtml(item.from);
         const until = escapeHtml(item.until);
@@ -98,7 +100,7 @@ export function renderCvTemplate(entry: UpdatedResume, qrCodeDataUrl?: string): 
         const style = expSlotStyles[index % expSlotStyles.length];
 
         const headerHtml = `
-            <span class="${style.compClass}" style="${style.compStyle}">${position}  |  ${companyDisplay} &nbsp;</span>
+            <span class="${style.compClass}" style="${style.compStyle}"><span style="font-size: 1.2em;">${position}</span>  |  ${companyDisplay} &nbsp;</span>
         `;
         const metaHtml = `<span class="${style.metaClass}" style="${style.metaStyle}">${location}.  |  ${from} – ${until}.</span>`;
         const descHtml = `<div class="${style.descClass}" style="font-size: 11.5pt;">${descriptionHtml}</div>`;
