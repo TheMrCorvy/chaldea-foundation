@@ -2,6 +2,7 @@ import { LINKEDIN_ACCESS_TOKEN, LINKEDIN_POSTS_URL, LINKEDIN_API_VERSION, LINKED
 import { SocialNetworks, WuphfPostContent, WuphfProvider } from '../types';
 
 import { logData } from '@salvatore.hakase/log-data';
+import cleanMarkdown from '../../king_crimson/cleanMarkdown';
 
 const LINKEDIN_IMAGES_URL = 'https://api.linkedin.com/rest/images?action=initializeUpload';
 
@@ -24,7 +25,7 @@ export class LinkedInProvider implements WuphfProvider {
             })
             .join(' ');
 
-        const parts = [content.title, content.body];
+        const parts = [content.title, cleanMarkdown(content.body)];
 
         if (hashtags) parts.push(hashtags);
 
