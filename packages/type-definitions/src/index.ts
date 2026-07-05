@@ -1,5 +1,5 @@
 import { BlogPostCategory } from "./blogPostCategories";
-import { DynamicPage } from "./dynamicPage";
+import { DynamicPage, ImageComponent } from "./dynamicPage";
 
 export interface PaginationQuery {
     page?: number;
@@ -132,6 +132,9 @@ export interface Directory {
     parent_directory?: Directory;
     documentId: string;
     publishedAt: string;
+    tags?: Array<BlogPostCategory> | null;
+    cover?: ImageComponent | null;
+    description?: string | null;
 }
 
 export interface Episode {

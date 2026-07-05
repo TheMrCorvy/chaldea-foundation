@@ -30,6 +30,19 @@
             "required": true,
             "default": "everyone",
             "enum": ["everyone", "explicit", "adults"]
+        },
+        "tags": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::a-post-category.a-post-category"
+        },
+        "cover": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": ["images"]
+        },
+        "description": {
+            "type": "text"
         }
     }
 }
