@@ -11,15 +11,21 @@
     },
     "pluginOptions": {},
     "attributes": {
+        "publishedAt": {
+            "type": "datetime",
+            "configurable": false
+        },
         "name": {
             "type": "string",
             "minLength": 2,
             "maxLength": 50,
             "required": true
         },
-        "publishedAt": {
-            "type": "datetime",
-            "configurable": false
+        "type_of_category": {
+            "type": "enumeration",
+            "required": true,
+            "default": "blog_post",
+            "enum": ["blog_post", "explicit_content", "media_content"]
         }
     }
 }
