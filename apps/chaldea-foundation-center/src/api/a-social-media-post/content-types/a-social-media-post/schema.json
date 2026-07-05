@@ -11,6 +11,10 @@
     },
     "pluginOptions": {},
     "attributes": {
+        "publishedAt": {
+            "type": "datetime",
+            "configurable": false
+        },
         "title": {
             "type": "string",
             "minLength": 2,
@@ -18,7 +22,7 @@
             "required": true
         },
         "body": {
-            "type": "text",
+            "type": "richtext",
             "required": true
         },
         "cover_image": {
@@ -35,10 +39,6 @@
             "type": "component",
             "component": "layout.tool-chip",
             "repeatable": true
-        },
-        "publishedAt": {
-            "type": "datetime",
-            "configurable": false
         }
     }
 }
