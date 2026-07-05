@@ -23,6 +23,11 @@ const requestCategories: RequestCategories = async ({ apiKey }) => {
                     pagination: {
                         pageSize: 100,
                     },
+                    filters: {
+                        type_of_category: {
+                            $eq: "blog_post",
+                        },
+                    },
                 },
             }
         )) as { data?: BlogPostCategoryResponse };

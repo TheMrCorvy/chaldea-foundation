@@ -1,3 +1,4 @@
+import { BlogPostCategory } from "./blogPostCategories";
 import { DynamicPage } from "./dynamicPage";
 
 export interface PaginationQuery {
@@ -62,14 +63,14 @@ type QueryFiltersRecord = Partial<
         | keyof Directory
         | keyof Episode
         | keyof DynamicPage
-        | keyof ExtraKeysForQueryParams,
+        | keyof ExtraKeysForQueryParams
+        | keyof BlogPostCategory,
         QueryFilters
     >
 >;
 
 interface ExtraKeysForQueryParams {
     token: string;
-    name: string;
     type: RoleTypes | string;
     email: string;
     username: string;
