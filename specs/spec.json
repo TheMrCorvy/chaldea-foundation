@@ -292,7 +292,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.400Z",
+                                                        "default": "2026-07-05T09:30:20.238Z",
                                                         "type": "string"
                                                     },
                                                     "slug": {
@@ -482,7 +482,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.430Z",
+                                                    "default": "2026-07-05T09:30:20.256Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -591,7 +591,7 @@
                                         "properties": {
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.428Z",
+                                                "default": "2026-07-05T09:30:20.254Z",
                                                 "type": "string"
                                             },
                                             "slug": {
@@ -891,7 +891,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.417Z",
+                                                    "default": "2026-07-05T09:30:20.249Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -1092,7 +1092,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.436Z",
+                                                    "default": "2026-07-05T09:30:20.266Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -1201,7 +1201,7 @@
                                         "properties": {
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.434Z",
+                                                "default": "2026-07-05T09:30:20.264Z",
                                                 "type": "string"
                                             },
                                             "slug": {
@@ -1404,7 +1404,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.438Z",
+                                                    "default": "2026-07-05T09:30:20.269Z",
                                                     "type": "string"
                                                 },
                                                 "slug": {
@@ -1519,8 +1519,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
-                                    "name",
                                     "publishedAt",
+                                    "name",
+                                    "type_of_category",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -1539,8 +1540,9 @@
                             "propertyNames": {
                                 "type": "string",
                                 "enum": [
-                                    "name",
                                     "publishedAt",
+                                    "name",
+                                    "type_of_category",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -1636,8 +1638,9 @@
                                 {
                                     "type": "string",
                                     "enum": [
-                                        "name",
                                         "publishedAt",
+                                        "name",
+                                        "type_of_category",
                                         "createdAt",
                                         "updatedAt"
                                     ]
@@ -1647,8 +1650,9 @@
                                     "items": {
                                         "type": "string",
                                         "enum": [
-                                            "name",
                                             "publishedAt",
+                                            "name",
+                                            "type_of_category",
                                             "createdAt",
                                             "updatedAt"
                                         ]
@@ -1659,8 +1663,9 @@
                                     "propertyNames": {
                                         "type": "string",
                                         "enum": [
-                                            "name",
                                             "publishedAt",
+                                            "name",
+                                            "type_of_category",
                                             "createdAt",
                                             "updatedAt"
                                         ]
@@ -1677,8 +1682,9 @@
                                         "propertyNames": {
                                             "type": "string",
                                             "enum": [
-                                                "name",
                                                 "publishedAt",
+                                                "name",
+                                                "type_of_category",
                                                 "createdAt",
                                                 "updatedAt"
                                             ]
@@ -1755,16 +1761,26 @@
                                                             }
                                                         ]
                                                     },
+                                                    "publishedAt": {
+                                                        "description": "A datetime field",
+                                                        "default": "2026-07-05T09:30:20.277Z",
+                                                        "type": "string"
+                                                    },
                                                     "name": {
                                                         "description": "A string field",
                                                         "type": "string",
                                                         "minLength": 2,
                                                         "maxLength": 50
                                                     },
-                                                    "publishedAt": {
-                                                        "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.447Z",
-                                                        "type": "string"
+                                                    "type_of_category": {
+                                                        "description": "An enum field",
+                                                        "default": "blog_post",
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "blog_post",
+                                                            "explicit_content",
+                                                            "media_content"
+                                                        ]
                                                     },
                                                     "createdAt": {
                                                         "description": "A datetime field",
@@ -1778,8 +1794,9 @@
                                                 "required": [
                                                     "documentId",
                                                     "id",
+                                                    "publishedAt",
                                                     "name",
-                                                    "publishedAt"
+                                                    "type_of_category"
                                                 ],
                                                 "additionalProperties": false
                                             }
@@ -1824,8 +1841,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
-                                    "name",
                                     "publishedAt",
+                                    "name",
+                                    "type_of_category",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -1893,16 +1911,26 @@
                                                         }
                                                     ]
                                                 },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-07-05T09:30:20.284Z",
+                                                    "type": "string"
+                                                },
                                                 "name": {
                                                     "description": "A string field",
                                                     "type": "string",
                                                     "minLength": 2,
                                                     "maxLength": 50
                                                 },
-                                                "publishedAt": {
-                                                    "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.454Z",
-                                                    "type": "string"
+                                                "type_of_category": {
+                                                    "description": "An enum field",
+                                                    "default": "blog_post",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "blog_post",
+                                                        "explicit_content",
+                                                        "media_content"
+                                                    ]
                                                 },
                                                 "createdAt": {
                                                     "description": "A datetime field",
@@ -1916,8 +1944,9 @@
                                             "required": [
                                                 "documentId",
                                                 "id",
+                                                "publishedAt",
                                                 "name",
-                                                "publishedAt"
+                                                "type_of_category"
                                             ],
                                             "additionalProperties": false
                                         }
@@ -1955,19 +1984,33 @@
                                     "data": {
                                         "type": "object",
                                         "properties": {
+                                            "publishedAt": {
+                                                "description": "A datetime field",
+                                                "default": "2026-07-05T09:30:20.283Z",
+                                                "type": "string"
+                                            },
                                             "name": {
                                                 "description": "A string field",
                                                 "type": "string",
                                                 "minLength": 2,
                                                 "maxLength": 50
                                             },
-                                            "publishedAt": {
-                                                "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:41.272Z",
-                                                "type": "string"
+                                            "type_of_category": {
+                                                "description": "An enum field",
+                                                "default": "blog_post",
+                                                "type": "string",
+                                                "enum": [
+                                                    "blog_post",
+                                                    "explicit_content",
+                                                    "media_content"
+                                                ]
                                             }
                                         },
-                                        "required": ["name", "publishedAt"],
+                                        "required": [
+                                            "publishedAt",
+                                            "name",
+                                            "type_of_category"
+                                        ],
                                         "additionalProperties": false
                                     }
                                 },
@@ -2007,8 +2050,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
-                                    "name",
                                     "publishedAt",
+                                    "name",
+                                    "type_of_category",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -2058,8 +2102,9 @@
                             "propertyNames": {
                                 "type": "string",
                                 "enum": [
-                                    "name",
                                     "publishedAt",
+                                    "name",
+                                    "type_of_category",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -2079,8 +2124,9 @@
                                 {
                                     "type": "string",
                                     "enum": [
-                                        "name",
                                         "publishedAt",
+                                        "name",
+                                        "type_of_category",
                                         "createdAt",
                                         "updatedAt"
                                     ]
@@ -2090,8 +2136,9 @@
                                     "items": {
                                         "type": "string",
                                         "enum": [
-                                            "name",
                                             "publishedAt",
+                                            "name",
+                                            "type_of_category",
                                             "createdAt",
                                             "updatedAt"
                                         ]
@@ -2102,8 +2149,9 @@
                                     "propertyNames": {
                                         "type": "string",
                                         "enum": [
-                                            "name",
                                             "publishedAt",
+                                            "name",
+                                            "type_of_category",
                                             "createdAt",
                                             "updatedAt"
                                         ]
@@ -2120,8 +2168,9 @@
                                         "propertyNames": {
                                             "type": "string",
                                             "enum": [
-                                                "name",
                                                 "publishedAt",
+                                                "name",
+                                                "type_of_category",
                                                 "createdAt",
                                                 "updatedAt"
                                             ]
@@ -2165,16 +2214,26 @@
                                                         }
                                                     ]
                                                 },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-07-05T09:30:20.281Z",
+                                                    "type": "string"
+                                                },
                                                 "name": {
                                                     "description": "A string field",
                                                     "type": "string",
                                                     "minLength": 2,
                                                     "maxLength": 50
                                                 },
-                                                "publishedAt": {
-                                                    "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.451Z",
-                                                    "type": "string"
+                                                "type_of_category": {
+                                                    "description": "An enum field",
+                                                    "default": "blog_post",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "blog_post",
+                                                        "explicit_content",
+                                                        "media_content"
+                                                    ]
                                                 },
                                                 "createdAt": {
                                                     "description": "A datetime field",
@@ -2188,8 +2247,9 @@
                                             "required": [
                                                 "documentId",
                                                 "id",
+                                                "publishedAt",
                                                 "name",
-                                                "publishedAt"
+                                                "type_of_category"
                                             ],
                                             "additionalProperties": false
                                         }
@@ -2245,8 +2305,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
-                                    "name",
                                     "publishedAt",
+                                    "name",
+                                    "type_of_category",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -2314,16 +2375,26 @@
                                                         }
                                                     ]
                                                 },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-07-05T09:30:20.287Z",
+                                                    "type": "string"
+                                                },
                                                 "name": {
                                                     "description": "A string field",
                                                     "type": "string",
                                                     "minLength": 2,
                                                     "maxLength": 50
                                                 },
-                                                "publishedAt": {
-                                                    "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.463Z",
-                                                    "type": "string"
+                                                "type_of_category": {
+                                                    "description": "An enum field",
+                                                    "default": "blog_post",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "blog_post",
+                                                        "explicit_content",
+                                                        "media_content"
+                                                    ]
                                                 },
                                                 "createdAt": {
                                                     "description": "A datetime field",
@@ -2337,8 +2408,9 @@
                                             "required": [
                                                 "documentId",
                                                 "id",
+                                                "publishedAt",
                                                 "name",
-                                                "publishedAt"
+                                                "type_of_category"
                                             ],
                                             "additionalProperties": false
                                         }
@@ -2376,16 +2448,26 @@
                                     "data": {
                                         "type": "object",
                                         "properties": {
+                                            "publishedAt": {
+                                                "description": "A datetime field",
+                                                "default": "2026-07-05T09:30:20.286Z",
+                                                "type": "string"
+                                            },
                                             "name": {
                                                 "description": "A string field",
                                                 "type": "string",
                                                 "minLength": 2,
                                                 "maxLength": 50
                                             },
-                                            "publishedAt": {
-                                                "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.462Z",
-                                                "type": "string"
+                                            "type_of_category": {
+                                                "description": "An enum field",
+                                                "default": "blog_post",
+                                                "type": "string",
+                                                "enum": [
+                                                    "blog_post",
+                                                    "explicit_content",
+                                                    "media_content"
+                                                ]
                                             }
                                         },
                                         "additionalProperties": false
@@ -2425,8 +2507,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
-                                    "name",
                                     "publishedAt",
+                                    "name",
+                                    "type_of_category",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -2476,8 +2559,9 @@
                             "propertyNames": {
                                 "type": "string",
                                 "enum": [
-                                    "name",
                                     "publishedAt",
+                                    "name",
+                                    "type_of_category",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -2515,16 +2599,26 @@
                                                         }
                                                     ]
                                                 },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-07-05T09:30:20.289Z",
+                                                    "type": "string"
+                                                },
                                                 "name": {
                                                     "description": "A string field",
                                                     "type": "string",
                                                     "minLength": 2,
                                                     "maxLength": 50
                                                 },
-                                                "publishedAt": {
-                                                    "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.465Z",
-                                                    "type": "string"
+                                                "type_of_category": {
+                                                    "description": "An enum field",
+                                                    "default": "blog_post",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "blog_post",
+                                                        "explicit_content",
+                                                        "media_content"
+                                                    ]
                                                 },
                                                 "createdAt": {
                                                     "description": "A datetime field",
@@ -2538,8 +2632,9 @@
                                             "required": [
                                                 "documentId",
                                                 "id",
+                                                "publishedAt",
                                                 "name",
-                                                "publishedAt"
+                                                "type_of_category"
                                             ],
                                             "additionalProperties": false
                                         }
@@ -2585,9 +2680,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "publishedAt",
                                     "title",
                                     "body",
-                                    "publishedAt",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -2606,9 +2701,9 @@
                             "propertyNames": {
                                 "type": "string",
                                 "enum": [
+                                    "publishedAt",
                                     "title",
                                     "body",
-                                    "publishedAt",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -2704,9 +2799,9 @@
                                 {
                                     "type": "string",
                                     "enum": [
+                                        "publishedAt",
                                         "title",
                                         "body",
-                                        "publishedAt",
                                         "createdAt",
                                         "updatedAt"
                                     ]
@@ -2716,9 +2811,9 @@
                                     "items": {
                                         "type": "string",
                                         "enum": [
+                                            "publishedAt",
                                             "title",
                                             "body",
-                                            "publishedAt",
                                             "createdAt",
                                             "updatedAt"
                                         ]
@@ -2729,9 +2824,9 @@
                                     "propertyNames": {
                                         "type": "string",
                                         "enum": [
+                                            "publishedAt",
                                             "title",
                                             "body",
-                                            "publishedAt",
                                             "createdAt",
                                             "updatedAt"
                                         ]
@@ -2748,9 +2843,9 @@
                                         "propertyNames": {
                                             "type": "string",
                                             "enum": [
+                                                "publishedAt",
                                                 "title",
                                                 "body",
-                                                "publishedAt",
                                                 "createdAt",
                                                 "updatedAt"
                                             ]
@@ -2883,6 +2978,11 @@
                                                             }
                                                         ]
                                                     },
+                                                    "publishedAt": {
+                                                        "description": "A datetime field",
+                                                        "default": "2026-07-05T09:30:20.300Z",
+                                                        "type": "string"
+                                                    },
                                                     "title": {
                                                         "description": "A string field",
                                                         "type": "string",
@@ -2890,12 +2990,7 @@
                                                         "maxLength": 150
                                                     },
                                                     "body": {
-                                                        "description": "A text field",
-                                                        "type": "string"
-                                                    },
-                                                    "publishedAt": {
-                                                        "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.472Z",
+                                                        "description": "A richtext field",
                                                         "type": "string"
                                                     },
                                                     "createdAt": {
@@ -2925,9 +3020,9 @@
                                                 "required": [
                                                     "documentId",
                                                     "id",
+                                                    "publishedAt",
                                                     "title",
-                                                    "body",
-                                                    "publishedAt"
+                                                    "body"
                                                 ],
                                                 "additionalProperties": false
                                             }
@@ -2972,9 +3067,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "publishedAt",
                                     "title",
                                     "body",
-                                    "publishedAt",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -3098,6 +3193,11 @@
                                                         }
                                                     ]
                                                 },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-07-05T09:30:20.315Z",
+                                                    "type": "string"
+                                                },
                                                 "title": {
                                                     "description": "A string field",
                                                     "type": "string",
@@ -3105,12 +3205,7 @@
                                                     "maxLength": 150
                                                 },
                                                 "body": {
-                                                    "description": "A text field",
-                                                    "type": "string"
-                                                },
-                                                "publishedAt": {
-                                                    "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.490Z",
+                                                    "description": "A richtext field",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -3140,9 +3235,9 @@
                                             "required": [
                                                 "documentId",
                                                 "id",
+                                                "publishedAt",
                                                 "title",
-                                                "body",
-                                                "publishedAt"
+                                                "body"
                                             ],
                                             "additionalProperties": false
                                         }
@@ -3180,6 +3275,11 @@
                                     "data": {
                                         "type": "object",
                                         "properties": {
+                                            "publishedAt": {
+                                                "description": "A datetime field",
+                                                "default": "2026-07-05T09:30:20.314Z",
+                                                "type": "string"
+                                            },
                                             "title": {
                                                 "description": "A string field",
                                                 "type": "string",
@@ -3187,12 +3287,7 @@
                                                 "maxLength": 150
                                             },
                                             "body": {
-                                                "description": "A text field",
-                                                "type": "string"
-                                            },
-                                            "publishedAt": {
-                                                "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.489Z",
+                                                "description": "A richtext field",
                                                 "type": "string"
                                             },
                                             "cover_image": {
@@ -3208,9 +3303,9 @@
                                             }
                                         },
                                         "required": [
+                                            "publishedAt",
                                             "title",
-                                            "body",
-                                            "publishedAt"
+                                            "body"
                                         ],
                                         "additionalProperties": false
                                     }
@@ -3251,9 +3346,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "publishedAt",
                                     "title",
                                     "body",
-                                    "publishedAt",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -3307,9 +3402,9 @@
                             "propertyNames": {
                                 "type": "string",
                                 "enum": [
+                                    "publishedAt",
                                     "title",
                                     "body",
-                                    "publishedAt",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -3329,9 +3424,9 @@
                                 {
                                     "type": "string",
                                     "enum": [
+                                        "publishedAt",
                                         "title",
                                         "body",
-                                        "publishedAt",
                                         "createdAt",
                                         "updatedAt"
                                     ]
@@ -3341,9 +3436,9 @@
                                     "items": {
                                         "type": "string",
                                         "enum": [
+                                            "publishedAt",
                                             "title",
                                             "body",
-                                            "publishedAt",
                                             "createdAt",
                                             "updatedAt"
                                         ]
@@ -3354,9 +3449,9 @@
                                     "propertyNames": {
                                         "type": "string",
                                         "enum": [
+                                            "publishedAt",
                                             "title",
                                             "body",
-                                            "publishedAt",
                                             "createdAt",
                                             "updatedAt"
                                         ]
@@ -3373,9 +3468,9 @@
                                         "propertyNames": {
                                             "type": "string",
                                             "enum": [
+                                                "publishedAt",
                                                 "title",
                                                 "body",
-                                                "publishedAt",
                                                 "createdAt",
                                                 "updatedAt"
                                             ]
@@ -3471,6 +3566,11 @@
                                                         }
                                                     ]
                                                 },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-07-05T09:30:20.312Z",
+                                                    "type": "string"
+                                                },
                                                 "title": {
                                                     "description": "A string field",
                                                     "type": "string",
@@ -3478,12 +3578,7 @@
                                                     "maxLength": 150
                                                 },
                                                 "body": {
-                                                    "description": "A text field",
-                                                    "type": "string"
-                                                },
-                                                "publishedAt": {
-                                                    "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.487Z",
+                                                    "description": "A richtext field",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -3513,9 +3608,9 @@
                                             "required": [
                                                 "documentId",
                                                 "id",
+                                                "publishedAt",
                                                 "title",
-                                                "body",
-                                                "publishedAt"
+                                                "body"
                                             ],
                                             "additionalProperties": false
                                         }
@@ -3571,9 +3666,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "publishedAt",
                                     "title",
                                     "body",
-                                    "publishedAt",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -3697,6 +3792,11 @@
                                                         }
                                                     ]
                                                 },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-07-05T09:30:20.319Z",
+                                                    "type": "string"
+                                                },
                                                 "title": {
                                                     "description": "A string field",
                                                     "type": "string",
@@ -3704,12 +3804,7 @@
                                                     "maxLength": 150
                                                 },
                                                 "body": {
-                                                    "description": "A text field",
-                                                    "type": "string"
-                                                },
-                                                "publishedAt": {
-                                                    "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.501Z",
+                                                    "description": "A richtext field",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -3739,9 +3834,9 @@
                                             "required": [
                                                 "documentId",
                                                 "id",
+                                                "publishedAt",
                                                 "title",
-                                                "body",
-                                                "publishedAt"
+                                                "body"
                                             ],
                                             "additionalProperties": false
                                         }
@@ -3779,6 +3874,11 @@
                                     "data": {
                                         "type": "object",
                                         "properties": {
+                                            "publishedAt": {
+                                                "description": "A datetime field",
+                                                "default": "2026-07-05T09:30:20.318Z",
+                                                "type": "string"
+                                            },
                                             "title": {
                                                 "description": "A string field",
                                                 "type": "string",
@@ -3786,12 +3886,7 @@
                                                 "maxLength": 150
                                             },
                                             "body": {
-                                                "description": "A text field",
-                                                "type": "string"
-                                            },
-                                            "publishedAt": {
-                                                "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.494Z",
+                                                "description": "A richtext field",
                                                 "type": "string"
                                             },
                                             "cover_image": {
@@ -3843,9 +3938,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "publishedAt",
                                     "title",
                                     "body",
-                                    "publishedAt",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -3899,9 +3994,9 @@
                             "propertyNames": {
                                 "type": "string",
                                 "enum": [
+                                    "publishedAt",
                                     "title",
                                     "body",
-                                    "publishedAt",
                                     "createdAt",
                                     "updatedAt"
                                 ]
@@ -3991,6 +4086,11 @@
                                                         }
                                                     ]
                                                 },
+                                                "publishedAt": {
+                                                    "description": "A datetime field",
+                                                    "default": "2026-07-05T09:30:20.322Z",
+                                                    "type": "string"
+                                                },
                                                 "title": {
                                                     "description": "A string field",
                                                     "type": "string",
@@ -3998,12 +4098,7 @@
                                                     "maxLength": 150
                                                 },
                                                 "body": {
-                                                    "description": "A text field",
-                                                    "type": "string"
-                                                },
-                                                "publishedAt": {
-                                                    "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.505Z",
+                                                    "description": "A richtext field",
                                                     "type": "string"
                                                 },
                                                 "createdAt": {
@@ -4033,9 +4128,9 @@
                                             "required": [
                                                 "documentId",
                                                 "id",
+                                                "publishedAt",
                                                 "title",
-                                                "body",
-                                                "publishedAt"
+                                                "body"
                                             ],
                                             "additionalProperties": false
                                         }
@@ -4357,7 +4452,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.513Z",
+                                                        "default": "2026-07-05T09:30:20.334Z",
                                                         "type": "string"
                                                     },
                                                     "parent_directory": {
@@ -4515,7 +4610,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.526Z",
+                                                    "default": "2026-07-05T09:30:20.345Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -4587,7 +4682,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.524Z",
+                                                "default": "2026-07-05T09:30:20.344Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -4840,7 +4935,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.521Z",
+                                                    "default": "2026-07-05T09:30:20.341Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -5009,7 +5104,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.531Z",
+                                                    "default": "2026-07-05T09:30:20.349Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -5081,7 +5176,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.529Z",
+                                                "default": "2026-07-05T09:30:20.347Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -5250,7 +5345,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.533Z",
+                                                    "default": "2026-07-05T09:30:20.352Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -5602,7 +5697,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.548Z",
+                                                        "default": "2026-07-05T09:30:20.360Z",
                                                         "type": "string"
                                                     },
                                                     "parent_directory": {
@@ -5765,7 +5860,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.556Z",
+                                                    "default": "2026-07-05T09:30:20.372Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -5840,7 +5935,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.555Z",
+                                                "default": "2026-07-05T09:30:20.371Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -6108,7 +6203,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.553Z",
+                                                    "default": "2026-07-05T09:30:20.369Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -6282,7 +6377,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.562Z",
+                                                    "default": "2026-07-05T09:30:20.378Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -6357,7 +6452,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.560Z",
+                                                "default": "2026-07-05T09:30:20.374Z",
                                                 "type": "string"
                                             },
                                             "parent_directory": {
@@ -6534,7 +6629,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.565Z",
+                                                    "default": "2026-07-05T09:30:20.382Z",
                                                     "type": "string"
                                                 },
                                                 "parent_directory": {
@@ -6871,7 +6966,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.571Z",
+                                                        "default": "2026-07-05T09:30:20.389Z",
                                                         "type": "string"
                                                     }
                                                 },
@@ -7027,7 +7122,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.580Z",
+                                                    "default": "2026-07-05T09:30:20.395Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7105,7 +7200,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:41.536Z",
+                                                "default": "2026-07-05T09:30:21.773Z",
                                                 "type": "string"
                                             }
                                         },
@@ -7354,7 +7449,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.578Z",
+                                                    "default": "2026-07-05T09:30:20.392Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7521,7 +7616,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.582Z",
+                                                    "default": "2026-07-05T09:30:20.404Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -7599,7 +7694,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.581Z",
+                                                "default": "2026-07-05T09:30:20.402Z",
                                                 "type": "string"
                                             }
                                         },
@@ -7764,7 +7859,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.583Z",
+                                                    "default": "2026-07-05T09:30:20.406Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -8080,7 +8175,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.585Z",
+                                                        "default": "2026-07-05T09:30:20.412Z",
                                                         "type": "string"
                                                     },
                                                     "media": {
@@ -8226,7 +8321,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.588Z",
+                                                    "default": "2026-07-05T09:30:20.418Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -8287,7 +8382,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.587Z",
+                                                "default": "2026-07-05T09:30:20.418Z",
                                                 "type": "string"
                                             },
                                             "media": {
@@ -8520,7 +8615,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.586Z",
+                                                    "default": "2026-07-05T09:30:20.416Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -8677,7 +8772,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.595Z",
+                                                    "default": "2026-07-05T09:30:20.421Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -8738,7 +8833,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.594Z",
+                                                "default": "2026-07-05T09:30:20.420Z",
                                                 "type": "string"
                                             },
                                             "media": {
@@ -8892,7 +8987,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.597Z",
+                                                    "default": "2026-07-05T09:30:20.422Z",
                                                     "type": "string"
                                                 },
                                                 "media": {
@@ -9251,7 +9346,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.602Z",
+                                                        "default": "2026-07-05T09:30:20.432Z",
                                                         "type": "string"
                                                     }
                                                 },
@@ -9419,7 +9514,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.606Z",
+                                                    "default": "2026-07-05T09:30:20.439Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -9507,7 +9602,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:41.635Z",
+                                                "default": "2026-07-05T09:30:21.902Z",
                                                 "type": "string"
                                             }
                                         },
@@ -9778,7 +9873,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.604Z",
+                                                    "default": "2026-07-05T09:30:20.436Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -9957,7 +10052,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.609Z",
+                                                    "default": "2026-07-05T09:30:20.442Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -10045,7 +10140,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.608Z",
+                                                "default": "2026-07-05T09:30:20.440Z",
                                                 "type": "string"
                                             }
                                         },
@@ -10224,7 +10319,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.616Z",
+                                                    "default": "2026-07-05T09:30:20.444Z",
                                                     "type": "string"
                                                 }
                                             },
@@ -10550,7 +10645,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.623Z",
+                                                        "default": "2026-07-05T09:30:20.450Z",
                                                         "type": "string"
                                                     },
                                                     "franchises": {
@@ -10704,7 +10799,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.634Z",
+                                                    "default": "2026-07-05T09:30:20.465Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -10772,7 +10867,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.633Z",
+                                                "default": "2026-07-05T09:30:20.464Z",
                                                 "type": "string"
                                             },
                                             "franchises": {
@@ -11021,7 +11116,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.631Z",
+                                                    "default": "2026-07-05T09:30:20.462Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -11186,7 +11281,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.636Z",
+                                                    "default": "2026-07-05T09:30:20.467Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -11254,7 +11349,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.635Z",
+                                                "default": "2026-07-05T09:30:20.466Z",
                                                 "type": "string"
                                             },
                                             "franchises": {
@@ -11420,7 +11515,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.637Z",
+                                                    "default": "2026-07-05T09:30:20.469Z",
                                                     "type": "string"
                                                 },
                                                 "franchises": {
@@ -11760,7 +11855,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.645Z",
+                                                        "default": "2026-07-05T09:30:20.474Z",
                                                         "type": "string"
                                                     },
                                                     "anime": {
@@ -11920,7 +12015,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.649Z",
+                                                    "default": "2026-07-05T09:30:20.488Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -12002,7 +12097,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.648Z",
+                                                "default": "2026-07-05T09:30:20.487Z",
                                                 "type": "string"
                                             },
                                             "anime": {
@@ -12257,7 +12352,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.647Z",
+                                                    "default": "2026-07-05T09:30:20.484Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -12428,7 +12523,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.650Z",
+                                                    "default": "2026-07-05T09:30:20.493Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -12510,7 +12605,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.650Z",
+                                                "default": "2026-07-05T09:30:20.491Z",
                                                 "type": "string"
                                             },
                                             "anime": {
@@ -12681,7 +12776,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.652Z",
+                                                    "default": "2026-07-05T09:30:20.496Z",
                                                     "type": "string"
                                                 },
                                                 "anime": {
@@ -13019,7 +13114,7 @@
                                                     },
                                                     "publishedAt": {
                                                         "description": "A datetime field",
-                                                        "default": "2026-06-26T19:42:40.654Z",
+                                                        "default": "2026-07-05T09:30:20.503Z",
                                                         "type": "string"
                                                     },
                                                     "jurisdiction": {
@@ -13181,7 +13276,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.664Z",
+                                                    "default": "2026-07-05T09:30:20.512Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -13265,7 +13360,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.663Z",
+                                                "default": "2026-07-05T09:30:20.511Z",
                                                 "type": "string"
                                             },
                                             "jurisdiction": {
@@ -13522,7 +13617,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.662Z",
+                                                    "default": "2026-07-05T09:30:20.508Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -13695,7 +13790,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.666Z",
+                                                    "default": "2026-07-05T09:30:20.522Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -13779,7 +13874,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.665Z",
+                                                "default": "2026-07-05T09:30:20.521Z",
                                                 "type": "string"
                                             },
                                             "jurisdiction": {
@@ -13953,7 +14048,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.667Z",
+                                                    "default": "2026-07-05T09:30:20.524Z",
                                                     "type": "string"
                                                 },
                                                 "jurisdiction": {
@@ -14210,7 +14305,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.670Z",
+                                                    "default": "2026-07-05T09:30:20.530Z",
                                                     "type": "string"
                                                 },
                                                 "web_portfolio_qr_code": {
@@ -14459,7 +14554,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.678Z",
+                                                    "default": "2026-07-05T09:30:20.537Z",
                                                     "type": "string"
                                                 },
                                                 "web_portfolio_qr_code": {
@@ -14560,7 +14655,7 @@
                                             },
                                             "publishedAt": {
                                                 "description": "A datetime field",
-                                                "default": "2026-06-26T19:42:40.672Z",
+                                                "default": "2026-07-05T09:30:20.536Z",
                                                 "type": "string"
                                             },
                                             "web_portfolio_qr_code": {
@@ -14773,7 +14868,7 @@
                                                 },
                                                 "publishedAt": {
                                                     "description": "A datetime field",
-                                                    "default": "2026-06-26T19:42:40.683Z",
+                                                    "default": "2026-07-05T09:30:20.540Z",
                                                     "type": "string"
                                                 },
                                                 "web_portfolio_qr_code": {
@@ -20628,16 +20723,26 @@
                             }
                         ]
                     },
+                    "publishedAt": {
+                        "description": "A datetime field",
+                        "default": "2026-07-05T09:30:20.244Z",
+                        "type": "string"
+                    },
                     "name": {
                         "description": "A string field",
                         "type": "string",
                         "minLength": 2,
                         "maxLength": 50
                     },
-                    "publishedAt": {
-                        "description": "A datetime field",
-                        "default": "2026-06-26T19:42:40.409Z",
-                        "type": "string"
+                    "type_of_category": {
+                        "description": "An enum field",
+                        "default": "blog_post",
+                        "type": "string",
+                        "enum": [
+                            "blog_post",
+                            "explicit_content",
+                            "media_content"
+                        ]
                     },
                     "createdAt": {
                         "description": "A datetime field",
@@ -20648,7 +20753,13 @@
                         "type": "string"
                     }
                 },
-                "required": ["documentId", "id", "name", "publishedAt"],
+                "required": [
+                    "documentId",
+                    "id",
+                    "publishedAt",
+                    "name",
+                    "type_of_category"
+                ],
                 "additionalProperties": false,
                 "id": "ApiAPostCategoryAPostCategoryDocument"
             },
@@ -20743,7 +20854,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-26T19:42:40.479Z",
+                        "default": "2026-07-05T09:30:20.304Z",
                         "type": "string"
                     },
                     "related": {}
@@ -20873,7 +20984,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-26T19:42:40.516Z",
+                        "default": "2026-07-05T09:30:20.336Z",
                         "type": "string"
                     },
                     "parent_directory": {
@@ -20952,7 +21063,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-26T19:42:40.628Z",
+                        "default": "2026-07-05T09:30:20.459Z",
                         "type": "string"
                     }
                 },
@@ -21017,7 +21128,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-26T19:42:40.626Z",
+                        "default": "2026-07-05T09:30:20.457Z",
                         "type": "string"
                     },
                     "anime": {
@@ -21078,7 +21189,7 @@
                     },
                     "publishedAt": {
                         "description": "A datetime field",
-                        "default": "2026-06-26T19:42:40.655Z",
+                        "default": "2026-07-05T09:30:20.505Z",
                         "type": "string"
                     },
                     "franchises": {
@@ -21157,6 +21268,14 @@
                         "type": "string"
                     },
                     "until": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "certification_date": {
+                        "description": "A string field",
+                        "type": "string"
+                    },
+                    "certification": {
                         "description": "A string field",
                         "type": "string"
                     }
