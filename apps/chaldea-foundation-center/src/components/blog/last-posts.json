@@ -30,6 +30,11 @@
             "component": "layout.title",
             "repeatable": false,
             "required": true
+        },
+        "show_pagination": {
+            "type": "boolean",
+            "required": true,
+            "default": true
         }
     },
     "config": {}

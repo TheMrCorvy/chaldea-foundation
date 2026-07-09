@@ -314,6 +314,7 @@ export interface BlogLastPosts extends Omit<StrapiComponent, "title"> {
     posts_count: number;
     title: LayoutTitle;
     related_posts?: Array<LayoutToolChip> | null;
+    show_pagination?: boolean | null;
 }
 
 export interface BlogPost {

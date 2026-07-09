@@ -21,6 +21,7 @@ const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
     related_posts,
     title,
     isMobile,
+    show_pagination = true,
 }) => {
     const [posts, setPosts] = useState<Array<BlogPost>>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -103,11 +104,13 @@ const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
             {error && <p style={{ color: "red" }}>{error}</p>}
 
             <LatestPostsLayout posts={posts} />
-            <Pagination
-                pageNumber={pageNumber}
-                totalPages={totalPages}
-                handlePageChange={handlePageChange}
-            />
+            {show_pagination && totalPages > 1 && (
+                <Pagination
+                    pageNumber={pageNumber}
+                    totalPages={totalPages}
+                    handlePageChange={handlePageChange}
+                />
+            )}
         </Box>
     );
 };
