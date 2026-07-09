@@ -25,17 +25,18 @@
             "type": "decimal"
         },
         "color": {
-            "type": "string"
+            "type": "string",
+            "default": "#eeeeee"
         },
         "text_align": {
             "type": "enumeration",
             "required": false,
-            "default": "center",
+            "default": "left",
             "enum": ["center", "left", "right"]
         },
         "highlighted_text_color": {
             "type": "enumeration",
-            "default": "inherit",
+            "default": "primary",
             "enum": [
                 "primary",
                 "secondary",
