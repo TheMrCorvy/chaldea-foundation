@@ -58,6 +58,7 @@ export interface SocialMediaEntry {
     video: Video | null;
     cover_image: CoverImage | null;
     hasgtags: Hasgtag[] | null;
+    post_on_platform: 'LinkedIn' | 'Dev.to' | 'All';
 }
 
 export interface Video extends StrapiEntryBase {
