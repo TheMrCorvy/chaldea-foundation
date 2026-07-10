@@ -39,6 +39,12 @@
             "type": "component",
             "component": "layout.tool-chip",
             "repeatable": true
+        },
+        "post_on_platform": {
+            "type": "enumeration",
+            "required": true,
+            "default": "Dev.to",
+            "enum": ["LinkedIn", "Dev.to", "All"]
         }
     }
 }
