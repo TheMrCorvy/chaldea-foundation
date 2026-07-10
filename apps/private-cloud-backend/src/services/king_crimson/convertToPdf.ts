@@ -20,7 +20,7 @@ const convertHtmlToPdf = async (htmlContent: string, pdfPath: string): Promise<v
 
         // Set content and wait for network/styles to load
         await page.setContent(htmlContent, {
-            waitUntil: 'networkidle0' as any,
+            waitUntil: 'networkidle0' as unknown as 'load',
         });
 
         // Emulate print media type so that print-specific CSS and @page rules are active
