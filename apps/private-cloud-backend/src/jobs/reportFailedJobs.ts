@@ -1,6 +1,6 @@
 import { logData } from '@salvatore.hakase/log-data';
 import PlatformService from '@repo/platform-service-sdk';
-import { getFailedJobsForDay } from '../database/jobQueue';
+import { getFailedJobsForDay, deleteFailedJob } from '../database/jobQueue';
 
 export async function reportFailedJobs(): Promise<void> {
     logData({
@@ -12,10 +12,10 @@ export async function reportFailedJobs(): Promise<void> {
         addSeparatorAfter: true,
     });
 
-    const apiKey = process.env.STRAPI_REPORTS_API_KEY;
+    const apiKey = process.env.STRAPI_API_KEY;
     if (!apiKey) {
         logData({
-            title: 'STRAPI_REPORTS_API_KEY is not set. Cannot run daily failed jobs reporting job.',
+            title: 'STRAPI_API_KEY is not set. Cannot run daily failed jobs reporting job.',
             layer: 'queue_jobs',
             type: 'error',
             timeStamp: true,
@@ -82,6 +82,7 @@ Payload: ${payloadStr}`,
                     addSpaceAfter: true,
                     addSeparatorAfter: true,
                 });
+                await deleteFailedJob(job.id);
             }
         } catch (err) {
             logData({
