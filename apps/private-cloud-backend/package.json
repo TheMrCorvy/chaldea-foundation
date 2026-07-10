@@ -19,8 +19,7 @@
         "test:coverage": "jest --coverage",
         "api-key:generate": "ts-node scripts/generateApiKey.ts",
         "initialize:db": "ts-node scripts/initializeDatabase.ts",
-        "convert:video": "ts-node scripts/convertVideo.ts",
-        "test-ffmpeg": "ts-node scripts/testFfmpeg.ts",
+        "initialize:video-processing": "ts-node scripts/testFfmpeg.ts",
         "linkedin:get-refresh-token": "ts-node scripts/getLinkedInRefreshToken.ts",
         "db:migrate": "ts-node scripts/migrateJobQueue.ts"
     },
