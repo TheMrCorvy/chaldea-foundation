@@ -36,20 +36,24 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
     });
 
     if (payload.uid === 'api::a-social-media-post.a-social-media-post') {
-        await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
-            networks: [SocialNetworks.LINKEDIN],
-            entry: payload.entry,
-        });
+        if (payload.entry.post_on_platform === 'All' || payload.entry.post_on_platform === 'LinkedIn') {
+            await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
+                networks: [SocialNetworks.LINKEDIN],
+                entry: payload.entry,
+            });
+        }
 
-        await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
-            networks: [SocialNetworks.DEV_TO],
-            entry: payload.entry,
-        });
+        if (payload.entry.post_on_platform === 'All' || payload.entry.post_on_platform === 'Dev.to') {
+            await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
+                networks: [SocialNetworks.DEV_TO],
+                entry: payload.entry,
+            });
+        }
 
         logData({
-            title: 'LinkedIn post queued',
+            title: 'Social media post queued',
             data: {
-                networks: [SocialNetworks.LINKEDIN],
+                networks: [SocialNetworks.LINKEDIN, SocialNetworks.DEV_TO],
                 entry: payload.entry,
             },
             layer: 'webhooks_received',
