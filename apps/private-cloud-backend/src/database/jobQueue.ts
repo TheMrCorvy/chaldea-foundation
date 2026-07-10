@@ -119,3 +119,10 @@ export async function getFailedJobsForDay(date: Date): Promise<FailedJob[]> {
         },
     });
 }
+
+export async function deleteFailedJob(id: number): Promise<void> {
+    const prisma = getPrisma();
+    await prisma.failedJob.delete({
+        where: { id },
+    });
+}
