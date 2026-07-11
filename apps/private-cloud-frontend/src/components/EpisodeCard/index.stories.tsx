@@ -22,6 +22,7 @@ const createEpisode = (overrides: Partial<Episode> = {}): Episode => ({
     },
     publishedAt: "2024-01-01T00:00:00.000Z",
     file_type: "video/mp4",
+    is_processing: false,
     ...overrides,
 });
 
@@ -32,7 +33,7 @@ const meta = {
         layout: "fullscreen",
     },
     decorators: [
-        (Story) => (
+        (Story: React.ComponentType<object>) => (
             <Box
                 sx={{
                     minHeight: "100vh",
@@ -74,6 +75,7 @@ export const WatchedByCurrentUser: Story = {
             watched_by: {
                 data: ["user-1"],
             },
+            is_processing: false,
         }),
     },
 };
@@ -86,6 +88,7 @@ export const NotWatchedByCurrentUser: Story = {
             watched_by: {
                 data: ["another-user"],
             },
+            is_processing: false,
         }),
     },
 };
@@ -96,6 +99,7 @@ export const NullWatchedList: Story = {
             display_name: "Episode With Null Watched List",
             documentId: "episode-3",
             watched_by: null,
+            is_processing: false,
         }),
     },
 };

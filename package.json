@@ -21,7 +21,8 @@
         "projection-magic": "bash scripts/verify-ports.sh",
         "initialize:backup": "tsx scripts/time-machine.ts",
         "initialize:backup-restoration": "tsx scripts/speedwagon-rescue.ts",
-        "verify:drive-auth": "tsx scripts/connect-with-SERN.ts"
+        "verify:drive-auth": "tsx scripts/connect-with-SERN.ts",
+        "initialize:deploy": "pnpm install && pnpm initialize:platform-sdk && cd ./apps/private-cloud-backend && npx prisma generate && cd ../../ && pnpm build"
     },
     "devDependencies": {
         "@eslint/js": "^9.31.0",
