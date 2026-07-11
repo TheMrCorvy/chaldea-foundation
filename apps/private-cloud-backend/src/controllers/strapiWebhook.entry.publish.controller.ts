@@ -1,4 +1,4 @@
-import type { StrapiWebhookPayload } from '../types/strapiWebhook.types';
+import type { SocialMediaEntry, StrapiWebhookPayload } from '../types/strapiWebhook.types';
 import { Request, Response } from 'express';
 import { logData } from '@salvatore.hakase/log-data';
 import { addJobToQueue } from '../database/jobQueue';
@@ -9,6 +9,7 @@ import { generateAndUploadResume } from '../services/king_crimson/resumeGenerato
 
 const entryPublishWebhookController = async (req: Request, res: Response): Promise<void> => {
     const payload = req.body as StrapiWebhookPayload;
+    const entry = payload.entry as SocialMediaEntry;
 
     if (payload.event !== 'entry.publish') {
         logData({
@@ -36,17 +37,17 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
     });
 
     if (payload.uid === 'api::a-social-media-post.a-social-media-post') {
-        if (payload.entry.post_on_platform === 'All' || payload.entry.post_on_platform === 'LinkedIn') {
+        if (entry.post_on_platform === 'All' || entry.post_on_platform === 'LinkedIn') {
             await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
                 networks: [SocialNetworks.LINKEDIN],
-                entry: payload.entry,
+                entry: entry,
             });
         }
 
-        if (payload.entry.post_on_platform === 'All' || payload.entry.post_on_platform === 'Dev.to') {
+        if (entry.post_on_platform === 'All' || entry.post_on_platform === 'Dev.to') {
             await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
                 networks: [SocialNetworks.DEV_TO],
-                entry: payload.entry,
+                entry: entry,
             });
         }
 
@@ -54,7 +55,7 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
             title: 'Social media post queued',
             data: {
                 networks: [SocialNetworks.LINKEDIN, SocialNetworks.DEV_TO],
-                entry: payload.entry,
+                entry: entry,
             },
             layer: 'webhooks_received',
             type: 'info',
