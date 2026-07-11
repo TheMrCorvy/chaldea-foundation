@@ -11,7 +11,7 @@ const processEpisodeWebhook = async ({ entry }: ProcessEpisodeParams): Promise<v
     }
 
     const platformService = new PlatformService();
-    platformService.setApiToken(apiKey);
+    platformService.setJWT(apiKey);
 
     if (entry.version === 'V1') {
         logData({

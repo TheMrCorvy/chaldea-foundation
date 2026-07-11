@@ -22,7 +22,7 @@ const main = async () => {
     const env = envVerification();
 
     const platformService = new PlatformService();
-    platformService.setApiToken(env.strapiApiKey);
+    platformService.setJWT(env.strapiApiKey);
 
     const organizedData = scanAndOrganizeDirectories(env);
 

@@ -1,6 +1,6 @@
-import type { ProcessDirectoryWebhookParams } from './index';
+import type { ProcessDirectoryParams } from './index';
 
-const processDirectoryWebhook = async (_params: ProcessDirectoryWebhookParams): Promise<void> => {
+const processDirectoryWebhook = async (_params: ProcessDirectoryParams): Promise<void> => {
     // TODO: implement directory processing
 };
 

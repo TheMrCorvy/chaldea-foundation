@@ -26,7 +26,7 @@ export async function reportFailedJobs(): Promise<void> {
     }
 
     const platformService = new PlatformService();
-    platformService.setApiToken(apiKey);
+    platformService.setJWT(apiKey);
 
     const today = new Date();
     const failedJobs = await getFailedJobsForDay(today);
