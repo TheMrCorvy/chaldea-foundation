@@ -36,6 +36,10 @@
             "type": "string",
             "minLength": 3,
             "maxLength": 5
+        },
+        "is_processing": {
+            "type": "boolean",
+            "default": false
         }
     }
 }
