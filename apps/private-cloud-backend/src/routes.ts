@@ -5,6 +5,7 @@ import {
     v2EpisodeController,
     v2EpisodeSubtitlesController,
     entryPublishWebhookController,
+    entryCreateWebhookController,
 } from './controllers';
 import { logData } from '@salvatore.hakase/log-data';
 
@@ -28,6 +29,10 @@ router.get('/api/v2/serve-episode/subtitles', (req: Request, res: Response) => {
 
 router.post('/api/v2/webhooks/platform-service/entry/publish', (req: Request, res: Response) => {
     entryPublishWebhookController(req, res);
+});
+
+router.post('/api/v2/webhooks/platform-service/entry/create', (req: Request, res: Response) => {
+    entryCreateWebhookController(req, res);
 });
 
 // 404 handler
