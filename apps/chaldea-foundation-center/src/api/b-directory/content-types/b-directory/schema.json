@@ -43,6 +43,10 @@
         },
         "description": {
             "type": "text"
+        },
+        "is_processing": {
+            "type": "boolean",
+            "default": false
         }
     }
 }
