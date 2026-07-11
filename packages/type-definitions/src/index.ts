@@ -135,6 +135,7 @@ export interface Directory {
     tags?: Array<BlogPostCategory> | null;
     cover?: ImageComponent | null;
     description?: string | null;
+    is_processing?: boolean | null;
 }
 
 export interface Episode {
@@ -151,6 +152,7 @@ export interface Episode {
     } | null;
     publishedAt: string;
     file_type: string;
+    is_processing?: boolean | null;
 }
 
 export interface StreamTracks {
@@ -190,4 +192,5 @@ export interface RequestEpisode {
     version: "V1" | "V2";
     languages_info?: object;
     watched_by?: User[];
+    is_processing?: boolean | null;
 }

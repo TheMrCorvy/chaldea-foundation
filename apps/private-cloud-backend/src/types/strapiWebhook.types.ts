@@ -8,7 +8,7 @@ export interface StrapiWebhookPayload {
     publishedAt?: string | null;
     model: ModelNames;
     uid: string;
-    entry: SocialMediaEntry;
+    entry: SocialMediaEntry | BEpisodeEntry | BDirectoryEntry;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -34,6 +34,33 @@ export enum StrapiEventName {
 
 export enum ModelNames {
     SOCIAL_MEDIA_POST = 'a-social-media-post',
+    B_EPISODE = 'b-episode',
+    B_DIRECTORY = 'b-directory',
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// b-episode entry
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface BEpisodeEntry extends StrapiEntryBase {
+    display_name: string;
+    version: 'V1' | 'V2';
+    file_type: string;
+    languages_info: unknown;
+    is_processing: boolean;
+    parent_directory: BDirectoryEntry | null;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// b-directory entry
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface BDirectoryEntry extends StrapiEntryBase {
+    display_name: string;
+    path: string;
+    age_rating: string;
+    is_processing: boolean;
+    parent_directory: BDirectoryEntry | null;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
