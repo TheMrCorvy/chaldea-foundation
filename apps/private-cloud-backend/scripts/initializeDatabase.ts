@@ -96,7 +96,8 @@ const main = async () => {
                 display_name: localDirectory.display_name,
                 path: localDirectory.directory_path,
                 age_rating: localDirectory.age_rating,
-            } as Record<string, string>;
+                is_processing: false,
+            } as Record<string, string | boolean | null>;
 
             if (parentDirectoryDocId) {
                 reqData.parent_directory = parentDirectoryDocId;
@@ -252,6 +253,7 @@ const main = async () => {
                             version: episode.version,
                             file_type: episode.file_type,
                             languages_info: episode.version === 'V1' ? undefined : metadata,
+                            is_processing: false,
                         },
                     },
                 });
