@@ -2,13 +2,16 @@
 // Generic entry webhook payload shape
 // ─────────────────────────────────────────────────────────────────────────────
 
+import { Directory, Episode } from '@repo/type-definitions';
+import { ImageComponent } from '@repo/type-definitions/dynamic-page';
+
 export interface StrapiWebhookPayload {
     event: StrapiEventName;
     createdAt: string;
     publishedAt?: string | null;
     model: ModelNames;
     uid: string;
-    entry: SocialMediaEntry | BEpisodeEntry | BDirectoryEntry;
+    entry: SocialMediaEntry | Episode | Directory;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -39,31 +42,6 @@ export enum ModelNames {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// b-episode entry
-// ─────────────────────────────────────────────────────────────────────────────
-
-export interface BEpisodeEntry extends StrapiEntryBase {
-    display_name: string;
-    version: 'V1' | 'V2';
-    file_type: string;
-    languages_info: unknown;
-    is_processing: boolean;
-    parent_directory: BDirectoryEntry | null;
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// b-directory entry
-// ─────────────────────────────────────────────────────────────────────────────
-
-export interface BDirectoryEntry extends StrapiEntryBase {
-    display_name: string;
-    path: string;
-    age_rating: string;
-    is_processing: boolean;
-    parent_directory: BDirectoryEntry | null;
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
 // Shared entry base
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -83,7 +61,7 @@ export interface SocialMediaEntry {
     title: string;
     body: string;
     video: Video | null;
-    cover_image: CoverImage | null;
+    cover_image: ImageComponent | null;
     hasgtags: Hasgtag[] | null;
     post_on_platform: 'LinkedIn' | 'Dev.to' | 'All';
 }
@@ -96,48 +74,6 @@ export interface Video extends StrapiEntryBase {
     url: string;
     previewUrl: string | null;
     provider: string;
-}
-
-export interface CoverImage extends StrapiEntryBase {
-    width: number;
-    height: number;
-    formats: Formats;
-    hash: string;
-    ext: string;
-    mime: string;
-    size: number;
-    url: string;
-    previewUrl: string | null;
-    provider: string;
-}
-
-export interface Formats {
-    thumbnail: Thumbnail;
-    small: Small;
-}
-
-export interface Thumbnail {
-    hash: string;
-    ext: string;
-    mime: string;
-    path: string | null;
-    width: number;
-    height: number;
-    size: number;
-    sizeInBytes: number;
-    url: string;
-}
-
-export interface Small {
-    hash: string;
-    ext: string;
-    mime: string;
-    path: string | null;
-    width: number;
-    height: number;
-    size: number;
-    sizeInBytes: number;
-    url: string;
 }
 
 export interface Hasgtag {
