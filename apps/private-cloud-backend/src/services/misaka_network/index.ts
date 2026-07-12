@@ -1,13 +1,13 @@
-import type { BEpisodeEntry, BDirectoryEntry } from '../../types/strapiWebhook.types';
 import processEpisodeWebhook from './processEpisodeWebhook';
 import processDirectoryWebhook from './processDirectoryWebhook';
+import { Directory, Episode } from '@repo/type-definitions';
 
 export interface ProcessEpisodeParams {
-    entry: BEpisodeEntry;
+    entry: Episode;
 }
 
 export interface ProcessDirectoryParams {
-    entry: BDirectoryEntry;
+    entry: Directory;
 }
 
 export class MisakaNetwork {
