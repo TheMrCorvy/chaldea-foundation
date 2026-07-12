@@ -1,10 +1,11 @@
 import { claimPendingJobs, markJobFailed } from '../database/jobQueue';
-import type { SocialMediaEntry, BEpisodeEntry, BDirectoryEntry } from '../types/strapiWebhook.types';
+import type { SocialMediaEntry } from '../types/strapiWebhook.types';
 import { SocialNetworks } from './wuphf/types';
 import postToSocialMedia from '../jobs/postToSocialMedia';
 import processEpisodeJob from '../jobs/processEpisodeJob';
 import processDirectoryJob from '../jobs/processDirectoryJob';
 import { logData } from '@salvatore.hakase/log-data';
+import { Directory, Episode } from '@repo/type-definitions';
 
 export const JOB_TYPES = {
     SOCIAL_MEDIA_POST: 'social_media_post',
@@ -22,11 +23,11 @@ export interface SocialMediaPostJobPayload {
 }
 
 export interface ProcessEpisodeJobPayload {
-    entry: BEpisodeEntry;
+    entry: Episode;
 }
 
 export interface ProcessDirectoryJobPayload {
-    entry: BDirectoryEntry;
+    entry: Directory;
 }
 
 export async function processJobs(): Promise<void> {
