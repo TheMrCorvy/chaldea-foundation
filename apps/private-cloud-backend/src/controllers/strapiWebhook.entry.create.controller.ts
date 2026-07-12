@@ -1,8 +1,9 @@
-import type { StrapiWebhookPayload, BEpisodeEntry, BDirectoryEntry } from '../types/strapiWebhook.types';
+import type { StrapiWebhookPayload } from '../types/strapiWebhook.types';
 import { Request, Response } from 'express';
 import { logData } from '@salvatore.hakase/log-data';
 import { addJobToQueue } from '../database/jobQueue';
 import { JOB_TYPES } from '../services/jobProcessor.service';
+import { Directory, Episode } from '@repo/type-definitions';
 
 const entryCreateWebhookController = async (req: Request, res: Response): Promise<void> => {
     const payload = req.body as StrapiWebhookPayload;
@@ -33,7 +34,7 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
     });
 
     if (payload.uid === 'api::b-episode.b-episode') {
-        const episodeEntry = payload.entry as BEpisodeEntry;
+        const episodeEntry = payload.entry as Episode;
 
         if (episodeEntry.version === 'V1') {
             res.status(200).json({ message: 'Webhook received successfully' });
@@ -59,7 +60,7 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
     }
 
     if (payload.uid === 'api::b-directory.b-directory') {
-        const directoryEntry = payload.entry as BDirectoryEntry;
+        const directoryEntry = payload.entry as Directory;
 
         await addJobToQueue(JOB_TYPES.PROCESS_DIRECTORY, {
             entry: directoryEntry,
