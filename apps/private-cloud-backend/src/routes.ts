@@ -35,6 +35,10 @@ router.post('/api/v2/webhooks/platform-service/entry/create', (req: Request, res
     entryCreateWebhookController(req, res);
 });
 
+router.post('/api/v2/webhooks/platform-service/entry/update', (req: Request, res: Response) => {
+    entryCreateWebhookController(req, res);
+});
+
 // 404 handler
 router.use((req: Request, res: Response) => {
     logData({
