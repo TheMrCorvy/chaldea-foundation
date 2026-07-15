@@ -9,8 +9,6 @@ import { authenticateApiKey } from './middleware/apiKeyAuth';
 
 dotenv.config();
 
-const validApiKeys: string[] = JSON.parse(process.env.API_KEYS as string);
-
 export function createApp(): Express {
     const app = express();
 
@@ -24,7 +22,7 @@ export function createApp(): Express {
     app.use(morgan('combined'));
     app.use(express.json({ limit: '10mb' }));
     app.use(express.urlencoded({ extended: true }));
-    app.use(authenticateApiKey(validApiKeys));
+    app.use(authenticateApiKey());
 
     app.use((_, res, next) => {
         res.setHeader('Connection', 'keep-alive');
