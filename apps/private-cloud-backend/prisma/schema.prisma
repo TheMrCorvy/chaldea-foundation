@@ -47,3 +47,44 @@ model FinishedJob {
 
   @@map("finished_jobs")
 }
+
+enum HttpMethod {
+  GET
+  POST
+  PUT
+  PATCH
+  DELETE
+  HEAD
+  OPTIONS
+}
+
+model ApiKey {
+  id           Int                @id @default(autoincrement())
+  name         String             @db.VarChar(100)
+  key_prefix   String             @db.VarChar(16)
+  hash         String             @db.VarChar(255)
+  is_active    Boolean            @default(true)
+  created_at   DateTime           @default(now())
+  updated_at   DateTime           @updatedAt
+  expires_at   DateTime?
+  last_used_at DateTime?
+
+  permissions  ApiKeyPermission[]
+
+  @@index([key_prefix], name: "idx_key_prefix")
+  @@map("api_keys")
+}
+
+model ApiKeyPermission {
+  id         Int        @id @default(autoincrement())
+  api_key_id Int
+  method     HttpMethod
+  route      String     @db.VarChar(255)
+
+  api_key    ApiKey     @relation(fields: [api_key_id], references: [id], onDelete: Cascade)
+
+  @@unique([api_key_id, method, route])
+  @@index([api_key_id], name: "idx_permission_key")
+  @@map("api_key_permissions")
+}
+
