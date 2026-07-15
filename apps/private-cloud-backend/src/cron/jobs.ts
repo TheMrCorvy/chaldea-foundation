@@ -21,23 +21,6 @@ export function startCronJobs(): void {
         }
     });
 
-    // Process media (episodes/directories) every 2 hours
-    cron.schedule('0 */2 * * *', async () => {
-        try {
-            await processJobs();
-        } catch (err) {
-            logData({
-                title: 'Error processing media jobs',
-                data: err,
-                layer: 'queue_jobs',
-                type: 'error',
-                addSeparatorAfter: true,
-                addSpaceAfter: true,
-                timeStamp: true,
-            });
-        }
-    });
-
     // Report failed jobs once a day at midnight
     cron.schedule('0 0 * * *', async () => {
         try {
