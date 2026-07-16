@@ -8,8 +8,10 @@ const V2_EXTENSIONS = new Set(['mkv', 'avi', 'mov', 'wmv', 'flv', 'webm']);
 
 function getEpisodeVersion(ext: string): 'V1' | 'V2' | null {
     const lower = ext.toLowerCase();
+
     if (V1_EXTENSIONS.has(lower)) return 'V1';
     if (V2_EXTENSIONS.has(lower)) return 'V2';
+
     return null;
 }
 

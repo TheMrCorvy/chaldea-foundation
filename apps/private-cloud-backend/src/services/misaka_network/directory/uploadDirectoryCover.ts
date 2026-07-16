@@ -15,7 +15,7 @@ export const uploadDirectoryCover = async (coverPath: string): Promise<string | 
     const formData = new FormData();
     formData.append('files', blob, path.basename(coverPath));
 
-    const response = await fetch(baseUrl, {
+    const response = await fetch(baseUrl + '/api/upload', {
         method: 'POST',
         headers: { Authorization: `Bearer ${apiKey}` },
         body: formData,
