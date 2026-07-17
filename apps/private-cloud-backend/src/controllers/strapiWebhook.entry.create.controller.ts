@@ -62,6 +62,21 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
     if (payload.uid === 'api::b-directory.b-directory') {
         const directoryEntry = payload.entry as Directory;
 
+        if (!directoryEntry.is_processing) {
+            logData({
+                title: 'Directory is not marked for processing. Ignoring webhook.',
+                data: directoryEntry,
+                layer: 'webhooks_received',
+                type: 'info',
+                addSeparatorAfter: true,
+                addSpaceAfter: true,
+                timeStamp: true,
+            });
+
+            res.status(200).json({ message: 'Webhook received but directory is not marked for processing' });
+            return;
+        }
+
         await addJobToQueue(JOB_TYPES.PROCESS_DIRECTORY, {
             entry: directoryEntry,
         });
