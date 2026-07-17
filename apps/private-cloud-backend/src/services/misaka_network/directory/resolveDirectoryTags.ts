@@ -92,6 +92,16 @@ export const resolveDirectoryTags = async (
         }
     }
 
+    logData({
+        title: `Resolved tags for directory ${directoryPath}`,
+        data: { resolved, failedTags },
+        layer: 'queue_jobs',
+        type: 'info',
+        addSpaceAfter: true,
+        addSeparatorAfter: true,
+        timeStamp: true,
+    });
+
     if (failedTags.length > 0) {
         const errorMessages = failedTags
             .map(failedTag => {

@@ -75,6 +75,13 @@ export interface ProcessChildDirectoriesParams {
 export const processChildDirectories = async (params: ProcessChildDirectoriesParams): Promise<void> => {
     const { childNames, parentDirectory, platformService } = params;
 
+    logData({
+        title: `Processing child directories for parent ${parentDirectory.display_name}`,
+        layer: 'queue_jobs',
+        type: 'info',
+        timeStamp: true,
+    });
+
     for (const childName of childNames) {
         const childPath = `${parentDirectory.path}/${childName}`;
 
@@ -87,8 +94,15 @@ export const processChildDirectories = async (params: ProcessChildDirectoriesPar
                 },
             },
         });
-
         const items = existing.data?.data as StrapiDirectoryListItem[] | undefined;
+
+        logData({
+            title: `Checking for existing child directory: ${childPath}`,
+            data: { existing: items },
+            layer: 'queue_jobs',
+            type: 'info',
+            timeStamp: true,
+        });
 
         if (items && items.length > 0) {
             const existingDir = items[0];

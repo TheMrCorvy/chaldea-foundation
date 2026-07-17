@@ -46,7 +46,14 @@ const processDirectoryWebhook = async ({ entry }: ProcessDirectoryParams): Promi
         platformService,
     });
 
-    const coverId = scanResult.hasCover ? await uploadDirectoryCover(path.join(diskPath, 'cover.jpg')) : undefined;
+    let coverId: number | undefined = undefined;
+
+    if (scanResult.hasCover) {
+        coverId = await uploadDirectoryCover({
+            coverPath: path.join(diskPath, 'cover.jpg'),
+            apiKey,
+        });
+    }
 
     const tagIds =
         scanResult.metadata && scanResult.metadata.tags.length > 0

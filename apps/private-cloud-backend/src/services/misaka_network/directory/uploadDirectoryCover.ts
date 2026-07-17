@@ -1,9 +1,16 @@
 import { ImageComponent } from '@repo/type-definitions/dynamic-page';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { logData } from '@salvatore.hakase/log-data';
 
-export const uploadDirectoryCover = async (coverPath: string): Promise<string | undefined> => {
-    const apiKey = process.env.STRAPI_API_KEY ?? '';
+export interface UploadDirectoryCoverParams {
+    coverPath: string;
+    apiKey: string;
+}
+
+export type UploadDirectoryCover = (params: UploadDirectoryCoverParams) => Promise<number>;
+
+export const uploadDirectoryCover: UploadDirectoryCover = async ({ apiKey, coverPath }) => {
     const apiBaseUrl = process.env.STRAPI_BASE_URL ?? 'http://localhost:1337/api';
     const strapiHost = apiBaseUrl.endsWith('/api') ? apiBaseUrl.slice(0, -4) : apiBaseUrl;
     const uploadUrl = `${strapiHost}/api/upload`;
@@ -17,6 +24,16 @@ export const uploadDirectoryCover = async (coverPath: string): Promise<string | 
     const formData = new FormData();
     formData.append('files', blob, path.basename(coverPath));
 
+    logData({
+        title: `Uploading cover image: ${coverPath}`,
+        data: { uploadUrl, coverPath },
+        layer: 'queue_jobs',
+        type: 'info',
+        addSpaceAfter: true,
+        addSeparatorAfter: true,
+        timeStamp: true,
+    });
+
     const response = await fetch(uploadUrl, {
         method: 'POST',
         headers: { Authorization: `Bearer ${apiKey}` },
@@ -29,5 +46,20 @@ export const uploadDirectoryCover = async (coverPath: string): Promise<string | 
     }
 
     const result = (await response.json()) as ImageComponent[];
-    return result[0]?.documentId;
+
+    if (!result || result.length === 0) {
+        throw new Error('No cover image returned from Strapi after upload');
+    }
+
+    logData({
+        title: `Cover image uploaded successfully`,
+        data: { result },
+        layer: 'queue_jobs',
+        type: 'info',
+        addSpaceAfter: true,
+        addSeparatorAfter: true,
+        timeStamp: true,
+    });
+
+    return result[0]?.id; // Strapi V5 still uses numeric IDs for relations with media
 };

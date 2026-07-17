@@ -8,7 +8,7 @@ import { cleanName } from './namePrefixes';
 interface FinalizeDirectoryParams {
     entry: Directory;
     description: string | undefined;
-    coverId: string | undefined;
+    coverId: number | undefined;
     tagIds: ResolvedTag[];
     platformService: PlatformService;
 }
@@ -31,21 +31,21 @@ export const finalizeDirectory = async ({
     const cleanDisplayName = cleanName(folderNameOnDisk);
     const ageRating = determineAgeRating(folderNameOnDisk);
 
-    const updateData: Record<string, string | boolean | string[]> = {
+    const updateData: Record<string, string | number | boolean | string[]> = {
         display_name: cleanDisplayName,
         age_rating: ageRating,
         is_processing: false,
     };
 
-    if (description !== undefined) {
+    if (description) {
         updateData.description = description;
     }
 
-    if (coverId !== undefined) {
+    if (coverId) {
         updateData.cover = coverId;
     }
 
-    if (tagIds.length > 0) {
+    if (tagIds && tagIds.length > 0) {
         updateData.tags = tagIds.map(t => t.documentId);
     }
 

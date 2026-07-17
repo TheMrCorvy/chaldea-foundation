@@ -2,6 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import type { DirectoryMetadata, DiskScanResult } from './types';
 import { LocalEpisode } from '../../../utils/typesDefinition';
+import { logData } from '@salvatore.hakase/log-data';
 
 const V1_EXTENSIONS = new Set(['mp4']);
 const V2_EXTENSIONS = new Set(['mkv', 'avi', 'mov', 'wmv', 'flv', 'webm']);
@@ -52,6 +53,16 @@ export const scanDirectoryOnDisk = async (parentDirectoryPath: string): Promise<
             });
         }
     }
+
+    logData({
+        title: `Scanned directory ${parentDirectoryPath}`,
+        data: { episodes, hasCover, metadata, childDirectories },
+        layer: 'queue_jobs',
+        type: 'info',
+        addSpaceAfter: true,
+        addSeparatorAfter: true,
+        timeStamp: true,
+    });
 
     return { episodes, hasCover, metadata, childDirectories };
 };
