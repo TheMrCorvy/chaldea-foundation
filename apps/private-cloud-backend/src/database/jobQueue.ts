@@ -100,20 +100,9 @@ export async function markJobFailed(id: number, error: string): Promise<void> {
     });
 }
 
-export async function getFailedJobsForDay(date: Date): Promise<FailedJob[]> {
+export async function getFailedJobs(): Promise<FailedJob[]> {
     const prisma = getPrisma();
-    const startOfDay = new Date(date);
-    startOfDay.setHours(0, 0, 0, 0);
-    const endOfDay = new Date(date);
-    endOfDay.setHours(23, 59, 59, 999);
-
     return prisma.failedJob.findMany({
-        where: {
-            failed_at: {
-                gte: startOfDay,
-                lte: endOfDay,
-            },
-        },
         orderBy: {
             failed_at: 'asc',
         },

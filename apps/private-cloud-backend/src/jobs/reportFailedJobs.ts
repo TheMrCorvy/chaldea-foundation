@@ -1,6 +1,6 @@
 import { logData } from '@salvatore.hakase/log-data';
 import PlatformService from '@repo/platform-service-sdk';
-import { getFailedJobsForDay, deleteFailedJob } from '../database/jobQueue';
+import { getFailedJobs, deleteFailedJob } from '../database/jobQueue';
 
 export async function reportFailedJobs(): Promise<void> {
     logData({
@@ -28,8 +28,7 @@ export async function reportFailedJobs(): Promise<void> {
     const platformService = new PlatformService();
     platformService.setJWT(apiKey);
 
-    const today = new Date();
-    const failedJobs = await getFailedJobsForDay(today);
+    const failedJobs = await getFailedJobs();
 
     logData({
         title: `Found ${failedJobs.length} failed jobs to report`,
