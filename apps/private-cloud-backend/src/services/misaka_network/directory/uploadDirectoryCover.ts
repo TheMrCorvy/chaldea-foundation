@@ -4,7 +4,9 @@ import path from 'path';
 
 export const uploadDirectoryCover = async (coverPath: string): Promise<string | undefined> => {
     const apiKey = process.env.STRAPI_API_KEY ?? '';
-    const baseUrl = process.env.STRAPI_BASE_URL ?? 'http://localhost:1337';
+    const apiBaseUrl = process.env.STRAPI_BASE_URL ?? 'http://localhost:1337/api';
+    const strapiHost = apiBaseUrl.endsWith('/api') ? apiBaseUrl.slice(0, -4) : apiBaseUrl;
+    const uploadUrl = `${strapiHost}/api/upload`;
 
     if (!apiKey) {
         throw new Error('STRAPI_API_KEY is not set');
@@ -15,7 +17,7 @@ export const uploadDirectoryCover = async (coverPath: string): Promise<string | 
     const formData = new FormData();
     formData.append('files', blob, path.basename(coverPath));
 
-    const response = await fetch(baseUrl + '/api/upload', {
+    const response = await fetch(uploadUrl, {
         method: 'POST',
         headers: { Authorization: `Bearer ${apiKey}` },
         body: formData,
