@@ -2,11 +2,18 @@ import PlatformService from '@repo/platform-service-sdk';
 import type { ResolvedTag } from './types';
 import { logData } from '@salvatore.hakase/log-data';
 import { BlogPostCategory, TagType } from '@repo/type-definitions/blog-post-categories';
+import { hasSpecificPrefix, PREFIXES } from './namePrefixes';
 
 const determineTagType = (directoryPath: string): TagType => {
-    const lastSegment = directoryPath.split('/').filter(Boolean).pop() ?? '';
+    const segments = directoryPath.split('/').filter(Boolean);
+    let lastSegment = '';
+    const popped = segments.pop();
 
-    if (lastSegment.startsWith('! ') || lastSegment.startsWith('* ')) {
+    if (popped) {
+        lastSegment = popped;
+    }
+
+    if (hasSpecificPrefix({ name: lastSegment, prefix: PREFIXES.ADULTS })) {
         return 'explicit_content';
     }
 

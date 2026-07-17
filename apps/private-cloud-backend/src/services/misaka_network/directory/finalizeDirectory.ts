@@ -1,8 +1,9 @@
 import PlatformService from '@repo/platform-service-sdk';
 import type { ResolvedTag } from './types';
 import { logData } from '@salvatore.hakase/log-data';
-import { determineAgeRating } from './processChildDirectories';
+import { determineAgeRating } from './namePrefixes';
 import { Directory } from '@repo/type-definitions';
+import { cleanName } from './namePrefixes';
 
 interface FinalizeDirectoryParams {
     entry: Directory;
@@ -19,8 +20,20 @@ export const finalizeDirectory = async ({
     tagIds,
     platformService,
 }: FinalizeDirectoryParams): Promise<void> => {
+    const segments = entry.path.split('/').filter(Boolean);
+    let folderNameOnDisk = '';
+    const popped = segments.pop();
+
+    if (popped) {
+        folderNameOnDisk = popped;
+    }
+
+    const cleanDisplayName = cleanName(folderNameOnDisk);
+    const ageRating = determineAgeRating(folderNameOnDisk);
+
     const updateData: Record<string, string | boolean | string[]> = {
-        age_rating: determineAgeRating(entry.display_name),
+        display_name: cleanDisplayName,
+        age_rating: ageRating,
         is_processing: false,
     };
 

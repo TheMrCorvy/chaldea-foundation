@@ -1,13 +1,8 @@
 import PlatformService from '@repo/platform-service-sdk';
 import type { StrapiDirectoryListItem } from './types';
 import { logData } from '@salvatore.hakase/log-data';
-import { AdultContentType, Directory } from '@repo/type-definitions';
-
-export const determineAgeRating = (displayName: string): AdultContentType => {
-    if (displayName.startsWith('! ')) return 'adults';
-    if (displayName.startsWith('* ')) return 'explicit';
-    return 'everyone';
-};
+import { Directory } from '@repo/type-definitions';
+import { cleanName, determineAgeRating } from './namePrefixes';
 
 export interface CreateChildrenDirectoryParams {
     childName: string;
@@ -19,10 +14,12 @@ export interface CreateChildrenDirectoryParams {
 const createChildDirectory = async (params: CreateChildrenDirectoryParams): Promise<void> => {
     const { childName, childPath, parentDirectory, platformService } = params;
 
+    const cleanChildName = cleanName(childName);
+
     await platformService.call('bDirectoryPostBDirectories', {
         body: {
             data: {
-                display_name: childName,
+                display_name: cleanChildName,
                 path: childPath,
                 age_rating: determineAgeRating(childName),
                 parent_directory: parentDirectory.documentId,
@@ -32,7 +29,7 @@ const createChildDirectory = async (params: CreateChildrenDirectoryParams): Prom
     });
 
     logData({
-        title: `Created child directory: ${childName}`,
+        title: `Created child directory: ${cleanChildName}`,
         layer: 'queue_jobs',
         type: 'info',
         timeStamp: true,
