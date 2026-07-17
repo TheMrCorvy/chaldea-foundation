@@ -1,3 +1,5 @@
+import { AdultContentType } from '@repo/type-definitions';
+
 export const PREFIXES = {
     ADULTS: '! ',
     EXPLICIT: '* ',
@@ -37,3 +39,11 @@ export function cleanName(name: string): string {
 
     return name;
 }
+
+export const determineAgeRating = (name: string): AdultContentType => {
+    if (hasSpecificPrefix({ name, prefix: PREFIXES.ADULTS })) return 'adults';
+
+    if (hasSpecificPrefix({ name, prefix: PREFIXES.EXPLICIT })) return 'explicit';
+
+    return 'everyone';
+};
