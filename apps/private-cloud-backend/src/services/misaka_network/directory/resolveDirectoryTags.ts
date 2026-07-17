@@ -69,13 +69,38 @@ export const resolveDirectoryTags = async (
 ): Promise<ResolvedTag[]> => {
     const tagType = determineTagType(directoryPath);
     const resolved: ResolvedTag[] = [];
+    const failedTags: { name: string; error: unknown }[] = [];
 
     for (const tagName of tagNames) {
-        const tag = await getOrCreateTag(tagName, tagType, platformService);
+        try {
+            const tag = await getOrCreateTag(tagName, tagType, platformService);
 
-        if (!tag) throw new Error(`Failed to create or retrieve tag: ${tagName}`);
+            if (!tag) {
+                failedTags.push({ name: tagName, error: new Error('Returned null or undefined tag') });
+            } else {
+                resolved.push(tag);
+            }
+        } catch (error) {
+            failedTags.push({ name: tagName, error });
+        }
+    }
 
-        resolved.push(tag);
+    if (failedTags.length > 0) {
+        const errorMessages = failedTags
+            .map(failedTag => {
+                let errorMessage;
+
+                if (failedTag.error instanceof Error) {
+                    errorMessage = failedTag.error.message;
+                } else {
+                    errorMessage = String(failedTag.error);
+                }
+
+                return `${failedTag.name}: ${errorMessage}`;
+            })
+            .join(', ');
+
+        throw new Error(`Failed to create or retrieve tags: [${errorMessages}]`);
     }
 
     return resolved;
