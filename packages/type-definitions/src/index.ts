@@ -1,6 +1,8 @@
 import { BlogPostCategory } from "./blogPostCategories";
 import { DynamicPage, ImageComponent } from "./dynamicPage";
 
+export type { BlogPostCategory, DynamicPage, ImageComponent };
+
 export interface PaginationQuery {
     page?: number;
     pageSize?: number;
