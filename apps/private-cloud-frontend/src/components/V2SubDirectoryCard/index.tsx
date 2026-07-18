@@ -42,17 +42,22 @@ const V2SubDirectoryCard: FC<V2SubDirectoryCardProps> = ({
     return (
         <Grid xs={12} md={6} xl={4} sx={root}>
             <Card orientation="horizontal" variant="soft" sx={cardStyles}>
-                <Link href={directoryLinkUrl} style={cardLink as CSSProperties}>
-                    <Box sx={cardCover}>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                            src={imageBaseUrl + directory.cover?.url}
-                            alt={directory.display_name}
-                            style={coverStyles as CSSProperties}
-                            className="card-cover-image"
-                        />
-                    </Box>
-                </Link>
+                {directory.cover && (
+                    <Link
+                        href={directoryLinkUrl}
+                        style={cardLink as CSSProperties}
+                    >
+                        <Box sx={cardCover}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={imageBaseUrl + directory.cover?.url}
+                                alt={directory.display_name}
+                                style={coverStyles as CSSProperties}
+                                className="card-cover-image"
+                            />
+                        </Box>
+                    </Link>
+                )}
                 <CardContent sx={cardBodyStyles}>
                     <Link
                         href={directoryLinkUrl}
