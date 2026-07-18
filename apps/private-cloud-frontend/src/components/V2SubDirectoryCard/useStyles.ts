@@ -20,7 +20,6 @@ const useStyles: StylesService = () => {
                 "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out",
             padding: "12px 12px 12px 0",
             "&:hover": {
-                cursor: "pointer",
                 transform: "scale(1.02)",
                 backgroundColor: "#0B6BCB25 !important",
                 borderColor: "#0B6BCB80",
@@ -77,6 +76,15 @@ const useStyles: StylesService = () => {
             transition: "all 0.2s ease-in-out",
             borderTopLeftRadius: "8px !important",
             borderBottomLeftRadius: "8px !important",
+        },
+        cardBtnLinkStyles: {
+            textDecoration: "none",
+            color: "#0B6BCB",
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            alignItems: "center",
+            justifyContent: "center",
         },
         tagsContainer: {
             display: "flex",

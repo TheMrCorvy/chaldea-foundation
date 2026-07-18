@@ -31,6 +31,7 @@ const V2SubDirectoryCard: FC<V2SubDirectoryCardProps> = ({
         cardBodyStyles,
         titleStyles,
         cardBtnStyles,
+        cardBtnLinkStyles,
         tagsContainer,
         tagStyles,
         descriptionStyles,
@@ -40,8 +41,8 @@ const V2SubDirectoryCard: FC<V2SubDirectoryCardProps> = ({
 
     return (
         <Grid xs={12} md={6} xl={4} sx={root}>
-            <Link href={directoryLinkUrl} style={cardLink as CSSProperties}>
-                <Card orientation="horizontal" variant="soft" sx={cardStyles}>
+            <Card orientation="horizontal" variant="soft" sx={cardStyles}>
+                <Link href={directoryLinkUrl} style={cardLink as CSSProperties}>
                     <Box sx={cardCover}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
@@ -51,37 +52,49 @@ const V2SubDirectoryCard: FC<V2SubDirectoryCardProps> = ({
                             className="card-cover-image"
                         />
                     </Box>
-                    <CardContent sx={cardBodyStyles}>
+                </Link>
+                <CardContent sx={cardBodyStyles}>
+                    <Link
+                        href={directoryLinkUrl}
+                        style={{ textDecoration: "none" }}
+                    >
                         <Typography level="title-md" sx={titleStyles}>
                             {directory.display_name}
                         </Typography>
+                    </Link>
 
-                        {directory.description && (
-                            <Typography level="body-sm" sx={descriptionStyles}>
-                                {directory.description}
-                            </Typography>
-                        )}
+                    {directory.description && (
+                        <Typography level="body-sm" sx={descriptionStyles}>
+                            {directory.description}
+                        </Typography>
+                    )}
 
-                        {directory.tags && directory.tags.length > 0 && (
-                            <Box sx={tagsContainer}>
-                                {directory.tags.map((tag, index) => {
-                                    return (
-                                        <Chip
-                                            key={`tag-${index}`}
-                                            size="sm"
-                                            variant="soft"
-                                            sx={tagStyles}
-                                        >
-                                            {tag.name}
-                                        </Chip>
-                                    );
-                                })}
-                            </Box>
-                        )}
-                    </CardContent>
-                    <CardOverflow sx={cardBtnStyles}>ENTRAR</CardOverflow>
-                </Card>
-            </Link>
+                    {directory.tags && directory.tags.length > 0 && (
+                        <Box sx={tagsContainer}>
+                            {directory.tags.map((tag, index) => {
+                                return (
+                                    <Chip
+                                        key={`tag-${index}`}
+                                        size="sm"
+                                        variant="soft"
+                                        sx={tagStyles}
+                                    >
+                                        {tag.name}
+                                    </Chip>
+                                );
+                            })}
+                        </Box>
+                    )}
+                </CardContent>
+                <CardOverflow sx={cardBtnStyles}>
+                    <Link
+                        href={directoryLinkUrl}
+                        style={cardBtnLinkStyles as CSSProperties}
+                    >
+                        ENTRAR
+                    </Link>
+                </CardOverflow>
+            </Card>
         </Grid>
     );
 };
