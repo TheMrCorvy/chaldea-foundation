@@ -56,8 +56,18 @@ const DirectoryPage = async ({ params }: Page) => {
             parent_directory: {
                 documentId: id,
             },
+            is_processing: {
+                $eq: false,
+            },
         },
-        fields: ["display_name", "documentId", "age_rating"],
+        populate: {
+            cover: {
+                populate: "*",
+            },
+            tags: {
+                populate: "*",
+            },
+        },
         sort: ["display_name:asc"],
         pagination: {
             pageSize: 2000,
@@ -109,7 +119,7 @@ const DirectoryPage = async ({ params }: Page) => {
             addSeparatorAfter: true,
             addSpaceAfter: true,
         });
-        return redirect(WebRoutes.NOT_FOUND + "/2");
+        return null;
     }
 
     const episodesResponse = await platformService.call(
@@ -120,6 +130,9 @@ const DirectoryPage = async ({ params }: Page) => {
                 filters: {
                     parent_directory: {
                         documentId: id,
+                    },
+                    is_processing: {
+                        $eq: false,
                     },
                 },
                 sort: ["display_name:asc"],
@@ -214,6 +227,21 @@ const DirectoryPage = async ({ params }: Page) => {
         });
     }
 
+    const imageBaseUrl = process.env.STRAPI_IMAGES_BASE_URL || "";
+
+    if (!imageBaseUrl) {
+        logData({
+            title: "Image base URL is not defined",
+            data: { imageBaseUrl },
+            layer: "*",
+            timeStamp: true,
+            addSeparatorAfter: true,
+            addSpaceAfter: true,
+        });
+
+        return redirect(WebRoutes.NOT_FOUND + "/6");
+    }
+
     return (
         <>
             <Container
@@ -274,6 +302,7 @@ const DirectoryPage = async ({ params }: Page) => {
                         <SubDirectoriesList
                             subDirectories={subDirectories}
                             hasEpisodes={episodes.length > 0}
+                            imageBaseUrl={imageBaseUrl}
                         />
                     )}
                     {episodes.length > 0 && (

@@ -2,7 +2,7 @@ import { StylesService } from "@repo/type-definitions/styles";
 
 const useStyles: StylesService = () => {
     return {
-        root: { mt: 7 },
+        root: { mt: 8, mb: 3 },
         cardLink: {
             textDecoration: "none",
             position: "relative",
@@ -11,7 +11,7 @@ const useStyles: StylesService = () => {
             height: "100%",
         },
         cardStyles: {
-            height: 180,
+            minHeight: 200,
             overflow: "visible",
             position: "relative",
             backgroundColor: "#0B6BCB15 !important",
@@ -57,6 +57,7 @@ const useStyles: StylesService = () => {
             color: "white",
             fontWeight: 600,
             textOverflow: "ellipsis",
+            overflow: "hidden",
             whiteSpace: "nowrap",
         },
         cardBtnStyles: {
@@ -96,7 +97,7 @@ const useStyles: StylesService = () => {
         tagStyles: {
             textTransform: "capitalize",
             backgroundColor: "#0B6BCB20",
-            color: "#0B6BCB",
+            color: "#D2DBE8",
         },
         descriptionStyles: {
             color: "#A8B2C3",

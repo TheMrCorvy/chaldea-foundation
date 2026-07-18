@@ -63,7 +63,11 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+    args: {
+        imageBaseUrl: "https://example.com/images/",
+    },
+};
 
 export const WithAdultDirectory: Story = {
     args: {
@@ -82,6 +86,7 @@ export const WithAdultDirectory: Story = {
                 age_rating: "adults",
             }),
         ],
+        imageBaseUrl: "https://example.com/images/",
     },
 };
 
@@ -89,5 +94,6 @@ export const EmptyState: Story = {
     args: {
         hasEpisodes: false,
         subDirectories: [],
+        imageBaseUrl: "https://example.com/images/",
     },
 };
