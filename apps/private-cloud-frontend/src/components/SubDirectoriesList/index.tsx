@@ -36,22 +36,13 @@ const SubDirectoriesList: FC<SubDirectoriesListProps> = ({
                 },
             }}
         >
-            {subDirectories.map((subDir, i) =>
-                subDir.cover ||
-                (subDir.tags && subDir.tags.length > 0) ||
-                subDir.description ? (
-                    <V2SubDirectoryCard
-                        key={`directory-page-sub-directories-list-${subDir.documentId}-${i}`}
-                        directory={subDir}
-                        imageBaseUrl={imageBaseUrl}
-                    />
-                ) : (
-                    <SubDirectoryCard
-                        key={`directory-page-sub-directories-list-${subDir.documentId}-${i}`}
-                        directory={subDir}
-                    />
-                )
-            )}
+            {subDirectories.map((subDir, i) => (
+                <V2SubDirectoryCard
+                    key={`directory-page-sub-directories-list-${subDir.documentId}-${i}`}
+                    directory={subDir}
+                    imageBaseUrl={imageBaseUrl}
+                />
+            ))}
         </Grid>
     );
 };
