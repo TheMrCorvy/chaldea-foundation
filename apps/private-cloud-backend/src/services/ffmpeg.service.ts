@@ -35,7 +35,7 @@ interface FFprobeData {
     streams?: FFprobeStream[];
 }
 
-interface VideoMetadata {
+export interface VideoMetadata {
     duration?: number;
     audioTracks: AudioTrack[];
     subtitleTracks: SubtitleTrack[];
