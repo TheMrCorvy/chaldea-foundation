@@ -15,8 +15,3 @@ export interface DiskScanResult {
 export interface ResolvedTag {
     documentId: string;
 }
-
-export interface StrapiDirectoryListItem {
-    documentId: string;
-    parent_directory: { documentId: string } | null;
-}
