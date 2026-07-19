@@ -10,7 +10,7 @@ import {
 } from "react";
 
 interface UseControlsProps {
-    languagesInfo: LanguagesInfo;
+    languagesInfo: LanguagesInfo | null;
     nasBaseUrl: string;
     apiKey: string;
     fileType: string;
