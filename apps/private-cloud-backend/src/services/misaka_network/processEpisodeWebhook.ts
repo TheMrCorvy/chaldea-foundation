@@ -1,7 +1,13 @@
 import type { ProcessEpisodeParams } from './index';
-import { processVideoFile } from '../ffmpeg.service';
+import { processVideoFile, VideoMetadata } from '../ffmpeg.service';
 import PlatformService from '@repo/platform-service-sdk';
 import { logData } from '@salvatore.hakase/log-data';
+import fs from 'fs';
+
+interface UpdatedBody {
+    languages_info?: VideoMetadata | null;
+    is_processing: boolean;
+}
 
 const processEpisodeWebhook = async ({ entry }: ProcessEpisodeParams): Promise<void> => {
     const apiKey = process.env.STRAPI_API_KEY;
@@ -13,15 +19,18 @@ const processEpisodeWebhook = async ({ entry }: ProcessEpisodeParams): Promise<v
     const platformService = new PlatformService();
     platformService.setJWT(apiKey);
 
-    if (entry.version === 'V1') {
+    const hasIncorrectV1Metadata = entry.version === 'V1' && entry.languages_info !== null;
+
+    if ((entry.version === 'V1' && !hasIncorrectV1Metadata) || entry.is_processing === false) {
         logData({
-            title: `Episode ${entry.display_name} is V1, no processing needed`,
+            title: `Episode ${entry.display_name} is V1 or not processing, no processing needed`,
             layer: 'queue_jobs',
             type: 'info',
             addSpaceAfter: true,
             addSeparatorAfter: true,
             timeStamp: true,
         });
+
         return;
     }
 
@@ -39,9 +48,23 @@ const processEpisodeWebhook = async ({ entry }: ProcessEpisodeParams): Promise<v
 
     const filePath = `${secureBasePath}${directoryPath}/${entry.display_name}.${entry.file_type}`;
 
+    if (!fs.existsSync(filePath)) {
+        logData({
+            title: `Episode file does not exist on ${filePath}`,
+            layer: '*',
+            type: 'error',
+            addSpaceAfter: true,
+            addSeparatorAfter: true,
+            timeStamp: true,
+            data: entry,
+        });
+
+        throw new Error(`Episode file does not exist: ${filePath}`);
+    }
+
     logData({
-        title: `Processing V2 episode: ${entry.display_name}`,
-        data: { filePath },
+        title: `Processing episode: ${entry.display_name}`,
+        data: entry,
         layer: 'queue_jobs',
         type: 'info',
         addSpaceAfter: true,
@@ -49,14 +72,31 @@ const processEpisodeWebhook = async ({ entry }: ProcessEpisodeParams): Promise<v
         timeStamp: true,
     });
 
-    const metadata = await processVideoFile(filePath);
+    const hasIncorrectV2Metadata = entry.languages_info === null && entry.version === 'V2';
+    let metadata: VideoMetadata | null = null;
+    let needToUpdateMetadata = false;
+
+    if (hasIncorrectV2Metadata) {
+        metadata = await processVideoFile(filePath);
+        needToUpdateMetadata = true;
+    }
+
+    if (hasIncorrectV1Metadata) {
+        metadata = null;
+        needToUpdateMetadata = true;
+    }
+
+    const updatedBody: UpdatedBody = {
+        is_processing: false,
+    };
+
+    if (needToUpdateMetadata) {
+        updatedBody.languages_info = metadata;
+    }
 
     await platformService.call('bEpisodePutBEpisodesById', {
         body: {
-            data: {
-                languages_info: metadata,
-                is_processing: false,
-            },
+            data: updatedBody,
         },
         path: {
             id: entry.documentId,
