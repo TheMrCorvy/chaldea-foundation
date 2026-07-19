@@ -1,5 +1,4 @@
 import PlatformService from '@repo/platform-service-sdk';
-import type { StrapiDirectoryListItem } from './types';
 import { logData } from '@salvatore.hakase/log-data';
 import { Directory } from '@repo/type-definitions';
 import { cleanName, determineAgeRating } from './namePrefixes';
@@ -37,27 +36,28 @@ const createChildDirectory = async (params: CreateChildrenDirectoryParams): Prom
     });
 };
 
-export interface UpdateChildDirectoryParentParams {
-    existingDir: StrapiDirectoryListItem;
+export interface UpdateChildDirectoryParams {
+    existingDir: Directory;
     parentDirectory: Directory;
     platformService: PlatformService;
+    is_processing: boolean;
 }
 
-const updateChildDirectoryParent = async (params: UpdateChildDirectoryParentParams): Promise<void> => {
-    const { existingDir, parentDirectory, platformService } = params;
+const updateChildDirectory = async (params: UpdateChildDirectoryParams): Promise<void> => {
+    const { existingDir, parentDirectory, platformService, is_processing } = params;
 
     await platformService.call('bDirectoryPutBDirectoriesById', {
         body: {
             data: {
                 parent_directory: parentDirectory.documentId,
-                is_processing: true,
+                is_processing: is_processing,
             },
         },
         path: { id: existingDir.documentId },
     });
 
     logData({
-        title: `Updated child directory parent`,
+        title: `Updated child directory: ${existingDir.display_name}`,
         data: { documentId: existingDir.documentId },
         layer: 'queue_jobs',
         type: 'info',
@@ -94,7 +94,8 @@ export const processChildDirectories = async (params: ProcessChildDirectoriesPar
                 },
             },
         });
-        const items = existing.data?.data as StrapiDirectoryListItem[] | undefined;
+
+        const items = existing.data?.data as Directory[] | undefined;
 
         logData({
             title: `Checking for existing child directory: ${childPath}`,
@@ -107,10 +108,18 @@ export const processChildDirectories = async (params: ProcessChildDirectoriesPar
         if (items && items.length > 0) {
             const existingDir = items[0];
             const hasCorrectParent = existingDir.parent_directory?.documentId === parentDirectory.documentId;
+            const hasIncorrectProcessingState =
+                existingDir.is_processing === undefined || existingDir.is_processing === null;
 
-            if (!hasCorrectParent) {
-                await updateChildDirectoryParent({ existingDir, parentDirectory, platformService });
+            if (!hasCorrectParent || hasIncorrectProcessingState) {
+                await updateChildDirectory({
+                    existingDir,
+                    parentDirectory,
+                    platformService,
+                    is_processing: hasIncorrectProcessingState ? false : true,
+                });
             }
+
             continue;
         }
 

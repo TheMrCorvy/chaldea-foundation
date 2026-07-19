@@ -1,7 +1,7 @@
 import PlatformService from '@repo/platform-service-sdk';
 import { logData } from '@salvatore.hakase/log-data';
 import { LocalEpisode } from '../../../utils/typesDefinition';
-import { Directory } from '@repo/type-definitions';
+import { Directory, Episode } from '@repo/type-definitions';
 
 export interface ProcessEpisodesInDirectoryParams {
     episodes?: LocalEpisode[];
@@ -33,49 +33,104 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
         timeStamp: true,
     });
 
-    for (const episode of episodes) {
+    for (const localEpisode of episodes) {
         const existing = await platformService.call('bEpisodeGetBEpisodes', {
             query: {
                 filters: {
-                    display_name: { $eq: episode.display_name },
-                    file_type: { $eq: episode.file_type },
+                    display_name: { $eq: localEpisode.display_name },
+                    file_type: { $eq: localEpisode.file_type },
                     parent_directory: { documentId: directory.documentId },
                 },
             },
         });
 
-        if (existing.data?.data && existing.data.data.length > 0) {
+        if (!existing || !existing.data || existing.data.data.length === 0) {
+            await platformService.call('bEpisodePostBEpisodes', {
+                body: {
+                    data: {
+                        display_name: localEpisode.display_name,
+                        file_type: localEpisode.file_type,
+                        version: localEpisode.version,
+                        parent_directory: directory.documentId,
+                        is_processing: localEpisode.version === 'V2',
+                    },
+                },
+            });
+
             logData({
-                title: `Episode already exists, skipping: ${episode.display_name}`,
+                title: `Created episode: ${localEpisode.display_name}`,
+                data: { version: localEpisode.version, file_type: localEpisode.file_type },
                 layer: 'queue_jobs',
                 type: 'info',
                 addSpaceAfter: true,
                 timeStamp: true,
                 addSeparatorAfter: true,
             });
+
             continue;
         }
 
-        await platformService.call('bEpisodePostBEpisodes', {
-            body: {
-                data: {
-                    display_name: episode.display_name,
-                    file_type: episode.file_type,
-                    version: episode.version,
-                    parent_directory: directory.documentId,
-                    is_processing: episode.version === 'V2',
+        const strapiEpisode = existing.data.data[0] as Episode;
+        const hasIncorrectV2Metadata = strapiEpisode.version === 'V2' && strapiEpisode.languages_info === null;
+        const hasIncorrectV1Metadata = strapiEpisode.version === 'V1' && strapiEpisode.languages_info !== null;
+
+        if ((hasIncorrectV2Metadata || hasIncorrectV1Metadata) && !strapiEpisode.is_processing) {
+            const updatedEpisode = await platformService.call('bEpisodePutBEpisodesById', {
+                path: { id: strapiEpisode.documentId },
+                body: {
+                    data: {
+                        is_processing: true,
+                    },
                 },
-            },
-        });
+            });
+
+            logData({
+                title: `Updated existing episode to set is_processing to true: ${strapiEpisode.display_name}`,
+                data: updatedEpisode.data,
+                layer: 'queue_jobs',
+                type: 'info',
+                addSpaceAfter: true,
+                timeStamp: true,
+                addSeparatorAfter: true,
+            });
+
+            continue;
+        }
+
+        if (strapiEpisode.is_processing === undefined || strapiEpisode.is_processing === null) {
+            strapiEpisode.is_processing = false;
+
+            const updatedEpisode = await platformService.call('bEpisodePutBEpisodesById', {
+                path: { id: strapiEpisode.documentId },
+                body: {
+                    data: {
+                        is_processing: false,
+                    },
+                },
+            });
+
+            logData({
+                title: `Updated existing episode to set is_processing to false: ${strapiEpisode.display_name}`,
+                data: updatedEpisode.data,
+                layer: 'queue_jobs',
+                type: 'info',
+                addSpaceAfter: true,
+                timeStamp: true,
+                addSeparatorAfter: true,
+            });
+
+            continue;
+        }
 
         logData({
-            title: `Created episode: ${episode.display_name}`,
-            data: { version: episode.version, file_type: episode.file_type },
+            title: `Episode already exists, skipping: ${strapiEpisode.display_name}`,
             layer: 'queue_jobs',
             type: 'info',
             addSpaceAfter: true,
             timeStamp: true,
             addSeparatorAfter: true,
         });
+
+        continue;
     }
 };
