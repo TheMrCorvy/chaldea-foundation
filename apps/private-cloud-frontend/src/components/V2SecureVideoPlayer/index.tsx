@@ -33,7 +33,7 @@ export interface V2SecureVideoPlayerProps {
     fileType: string;
     display_name: string;
     path: string;
-    languages_info: LanguagesInfo;
+    languages_info: LanguagesInfo | null;
     documentId: string;
     parent: string;
     apiKey: string;
@@ -317,7 +317,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                         }
                                         metadata={
                                             subtitleIndex !== -1 &&
-                                            languages_info.subtitleTracks?.[
+                                            languages_info?.subtitleTracks?.[
                                                 subtitleIndex
                                             ]
                                                 ? (() => {
@@ -401,7 +401,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                 variant="soft"
                                 size="sm"
                             >
-                                {languages_info.audioTracks?.map(
+                                {languages_info?.audioTracks?.map(
                                     (track, index) => {
                                         const langInfo = getLanguageInfo(
                                             track.language,
@@ -445,7 +445,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                 {/* Allow turning subtitles off */}
                                 <Option value={-1}>Sin subtítulos</Option>
 
-                                {languages_info.subtitleTracks?.map(
+                                {languages_info?.subtitleTracks?.map(
                                     (track, index) => {
                                         const langInfo = getLanguageInfo(
                                             track.language,
