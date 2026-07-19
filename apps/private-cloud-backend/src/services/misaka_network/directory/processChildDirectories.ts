@@ -41,16 +41,18 @@ export interface UpdateChildDirectoryParams {
     parentDirectory: Directory;
     platformService: PlatformService;
     is_processing: boolean;
+    age_rating?: string;
 }
 
 const updateChildDirectory = async (params: UpdateChildDirectoryParams): Promise<void> => {
-    const { existingDir, parentDirectory, platformService, is_processing } = params;
+    const { existingDir, parentDirectory, platformService, is_processing, age_rating } = params;
 
     await platformService.call('bDirectoryPutBDirectoriesById', {
         body: {
             data: {
                 parent_directory: parentDirectory.documentId,
                 is_processing: is_processing,
+                age_rating: age_rating,
             },
         },
         path: { id: existingDir.documentId },
@@ -84,6 +86,7 @@ export const processChildDirectories = async (params: ProcessChildDirectoriesPar
 
     for (const childName of childNames) {
         const childPath = `${parentDirectory.path}/${childName}`;
+        const childAgeRating = determineAgeRating(childName);
 
         const existing = await platformService.call('bDirectoryGetBDirectories', {
             query: {
@@ -108,15 +111,17 @@ export const processChildDirectories = async (params: ProcessChildDirectoriesPar
         if (items && items.length > 0) {
             const existingDir = items[0];
             const hasCorrectParent = existingDir.parent_directory?.documentId === parentDirectory.documentId;
+            const hasIncorrectAgeRating = existingDir.age_rating !== childAgeRating;
             const hasIncorrectProcessingState =
                 existingDir.is_processing === undefined || existingDir.is_processing === null;
 
-            if (!hasCorrectParent || hasIncorrectProcessingState) {
+            if (!hasCorrectParent || hasIncorrectProcessingState || hasIncorrectAgeRating) {
                 await updateChildDirectory({
                     existingDir,
                     parentDirectory,
                     platformService,
                     is_processing: hasIncorrectProcessingState ? false : true,
+                    age_rating: hasIncorrectAgeRating ? childAgeRating : existingDir.age_rating,
                 });
             }
 
