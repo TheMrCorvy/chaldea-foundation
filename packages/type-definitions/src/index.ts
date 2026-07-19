@@ -148,7 +148,7 @@ export interface Episode {
     parent_directory?: Directory;
     documentId: string;
     version: "V1" | "V2";
-    languages_info: LanguagesInfo;
+    languages_info: LanguagesInfo | null;
     watched_by: {
         data: string[];
     } | null;
