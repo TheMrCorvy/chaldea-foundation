@@ -15,7 +15,7 @@ const createChildDirectory = async (params: CreateChildrenDirectoryParams): Prom
 
     const cleanChildName = cleanName(childName);
 
-    await platformService.call('bDirectoryPostBDirectories', {
+    const createdDirectory = await platformService.call('bDirectoryPostBDirectories', {
         body: {
             data: {
                 display_name: cleanChildName,
@@ -29,6 +29,7 @@ const createChildDirectory = async (params: CreateChildrenDirectoryParams): Prom
 
     logData({
         title: `Created child directory: ${cleanChildName}`,
+        data: { createdDirectory: createdDirectory.data },
         layer: 'queue_jobs',
         type: 'info',
         timeStamp: true,
@@ -47,7 +48,7 @@ export interface UpdateChildDirectoryParams {
 const updateChildDirectory = async (params: UpdateChildDirectoryParams): Promise<void> => {
     const { existingDir, parentDirectory, platformService, is_processing, age_rating } = params;
 
-    await platformService.call('bDirectoryPutBDirectoriesById', {
+    const updatedDirectory = await platformService.call('bDirectoryPutBDirectoriesById', {
         body: {
             data: {
                 parent_directory: parentDirectory.documentId,
@@ -60,7 +61,7 @@ const updateChildDirectory = async (params: UpdateChildDirectoryParams): Promise
 
     logData({
         title: `Updated child directory: ${existingDir.display_name}`,
-        data: { documentId: existingDir.documentId },
+        data: { updatedDirectory: updatedDirectory.data },
         layer: 'queue_jobs',
         type: 'info',
         timeStamp: true,
@@ -82,6 +83,7 @@ export const processChildDirectories = async (params: ProcessChildDirectoriesPar
         layer: 'queue_jobs',
         type: 'info',
         timeStamp: true,
+        data: params,
     });
 
     for (const childName of childNames) {
