@@ -26,8 +26,6 @@ const processEpisodeWebhook = async ({ entry }: ProcessEpisodeParams): Promise<v
             title: `Episode ${entry.display_name} is V1 or not processing, no processing needed`,
             layer: 'queue_jobs',
             type: 'info',
-            addSpaceAfter: true,
-            addSeparatorAfter: true,
             timeStamp: true,
         });
 
@@ -53,8 +51,6 @@ const processEpisodeWebhook = async ({ entry }: ProcessEpisodeParams): Promise<v
             title: `Episode file does not exist on ${filePath}`,
             layer: '*',
             type: 'error',
-            addSpaceAfter: true,
-            addSeparatorAfter: true,
             timeStamp: true,
             data: entry,
         });
@@ -67,8 +63,6 @@ const processEpisodeWebhook = async ({ entry }: ProcessEpisodeParams): Promise<v
         data: entry,
         layer: 'queue_jobs',
         type: 'info',
-        addSpaceAfter: true,
-        addSeparatorAfter: true,
         timeStamp: true,
     });
 
@@ -94,7 +88,7 @@ const processEpisodeWebhook = async ({ entry }: ProcessEpisodeParams): Promise<v
         updatedBody.languages_info = metadata;
     }
 
-    await platformService.call('bEpisodePutBEpisodesById', {
+    const updatedEpisode = await platformService.call('bEpisodePutBEpisodesById', {
         body: {
             data: updatedBody,
         },
@@ -105,11 +99,9 @@ const processEpisodeWebhook = async ({ entry }: ProcessEpisodeParams): Promise<v
 
     logData({
         title: `Finished processing episode: ${entry.display_name}`,
-        data: { documentId: entry.documentId },
+        data: { originalEpisode: entry, updatedEpisode: updatedEpisode.data },
         layer: 'queue_jobs',
         type: 'info',
-        addSpaceAfter: true,
-        addSeparatorAfter: true,
         timeStamp: true,
     });
 };

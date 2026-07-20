@@ -29,8 +29,6 @@ export const uploadDirectoryCover: UploadDirectoryCover = async ({ apiKey, cover
         data: { uploadUrl, coverPath },
         layer: 'queue_jobs',
         type: 'info',
-        addSpaceAfter: true,
-        addSeparatorAfter: true,
         timeStamp: true,
     });
 
@@ -56,8 +54,6 @@ export const uploadDirectoryCover: UploadDirectoryCover = async ({ apiKey, cover
         data: { result },
         layer: 'queue_jobs',
         type: 'info',
-        addSpaceAfter: true,
-        addSeparatorAfter: true,
         timeStamp: true,
     });
 

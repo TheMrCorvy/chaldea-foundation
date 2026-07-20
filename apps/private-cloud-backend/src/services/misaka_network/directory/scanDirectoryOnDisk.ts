@@ -63,8 +63,6 @@ export const scanDirectoryOnDisk = async (parentDirectoryPath: string): Promise<
         data: { episodes, hasCover, metadata, childDirectories },
         layer: 'queue_jobs',
         type: 'info',
-        addSpaceAfter: true,
-        addSeparatorAfter: true,
         timeStamp: true,
     });
 

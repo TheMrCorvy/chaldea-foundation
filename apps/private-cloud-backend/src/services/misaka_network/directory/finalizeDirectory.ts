@@ -59,8 +59,6 @@ export const finalizeDirectory = async ({
         data: { documentId: entry.documentId, age_rating: updateData.age_rating },
         layer: 'queue_jobs',
         type: 'info',
-        addSpaceAfter: true,
-        addSeparatorAfter: true,
         timeStamp: true,
     });
 };

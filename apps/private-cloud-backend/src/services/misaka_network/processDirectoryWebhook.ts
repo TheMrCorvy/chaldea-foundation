@@ -33,8 +33,6 @@ const processDirectoryWebhook = async ({ entry }: ProcessDirectoryParams): Promi
         data: { diskPath, documentId: entry.documentId },
         layer: 'queue_jobs',
         type: 'info',
-        addSpaceAfter: true,
-        addSeparatorAfter: true,
         timeStamp: true,
     });
 

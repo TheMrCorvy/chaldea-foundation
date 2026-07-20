@@ -42,7 +42,6 @@ const getOrCreateTag = async (
             layer: 'queue_jobs',
             type: 'info',
             timeStamp: true,
-            addSpaceAfter: true,
         });
         return { documentId: items[0].documentId };
     }
@@ -64,7 +63,6 @@ const getOrCreateTag = async (
         layer: 'queue_jobs',
         type: 'info',
         timeStamp: true,
-        addSpaceAfter: true,
     });
     return { documentId: newItem.documentId };
 };
@@ -97,8 +95,6 @@ export const resolveDirectoryTags = async (
         data: { resolved, failedTags },
         layer: 'queue_jobs',
         type: 'info',
-        addSpaceAfter: true,
-        addSeparatorAfter: true,
         timeStamp: true,
     });
 

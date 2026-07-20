@@ -33,7 +33,6 @@ const createChildDirectory = async (params: CreateChildrenDirectoryParams): Prom
         layer: 'queue_jobs',
         type: 'info',
         timeStamp: true,
-        addSpaceAfter: true,
     });
 };
 
@@ -65,7 +64,6 @@ const updateChildDirectory = async (params: UpdateChildDirectoryParams): Promise
         layer: 'queue_jobs',
         type: 'info',
         timeStamp: true,
-        addSpaceAfter: true,
     });
 };
 

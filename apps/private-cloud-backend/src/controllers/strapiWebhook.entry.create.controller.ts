@@ -14,8 +14,6 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
             data: req.body,
             layer: 'webhooks_received',
             type: 'warn',
-            addSeparatorAfter: true,
-            addSpaceAfter: true,
             timeStamp: true,
         });
 
@@ -28,8 +26,6 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
         data: req.body,
         layer: 'webhooks_received',
         type: 'info',
-        addSeparatorAfter: true,
-        addSpaceAfter: true,
         timeStamp: true,
     });
 
@@ -50,8 +46,6 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
             data: episodeEntry,
             layer: 'webhooks_received',
             type: 'info',
-            addSeparatorAfter: true,
-            addSpaceAfter: true,
             timeStamp: true,
         });
 
@@ -68,8 +62,6 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
                 data: directoryEntry,
                 layer: 'webhooks_received',
                 type: 'info',
-                addSeparatorAfter: true,
-                addSpaceAfter: true,
                 timeStamp: true,
             });
 
@@ -86,8 +78,6 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
             data: directoryEntry,
             layer: 'webhooks_received',
             type: 'info',
-            addSeparatorAfter: true,
-            addSpaceAfter: true,
             timeStamp: true,
         });
 
@@ -100,8 +90,6 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
         data: req.body,
         layer: 'webhooks_received',
         type: 'warn',
-        addSeparatorAfter: true,
-        addSpaceAfter: true,
         timeStamp: true,
     });
 

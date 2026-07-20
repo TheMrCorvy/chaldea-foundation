@@ -17,8 +17,6 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
             data: req.body,
             layer: 'webhooks_received',
             type: 'warn',
-            addSeparatorAfter: true,
-            addSpaceAfter: true,
             timeStamp: true,
         });
 
@@ -31,8 +29,6 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
         data: req.body,
         layer: 'webhooks_received',
         type: 'info',
-        addSeparatorAfter: true,
-        addSpaceAfter: true,
         timeStamp: true,
     });
 
@@ -59,8 +55,6 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
             },
             layer: 'webhooks_received',
             type: 'info',
-            addSeparatorAfter: true,
-            addSpaceAfter: true,
             timeStamp: true,
         });
 
@@ -85,8 +79,6 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
         data: req.body,
         layer: 'external_http_requests',
         type: 'warn',
-        addSeparatorAfter: true,
-        addSpaceAfter: true,
         timeStamp: true,
     });
 

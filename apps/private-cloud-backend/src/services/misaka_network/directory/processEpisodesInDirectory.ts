@@ -17,9 +17,7 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
             title: `No episodes found in directory: ${directory.display_name}`,
             layer: 'queue_jobs',
             type: 'info',
-            addSpaceAfter: true,
             timeStamp: true,
-            addSeparatorAfter: true,
             data: params,
         });
         return;
@@ -29,8 +27,6 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
         title: `Processing ${episodes.length} episodes in directory: ${directory.display_name}`,
         layer: 'queue_jobs',
         type: 'info',
-        addSpaceAfter: true,
-        addSeparatorAfter: true,
         timeStamp: true,
         data: params,
     });
@@ -64,9 +60,7 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
                 data: { localEpisode, createdEpisode: createdEpisode.data },
                 layer: 'queue_jobs',
                 type: 'info',
-                addSpaceAfter: true,
                 timeStamp: true,
-                addSeparatorAfter: true,
             });
 
             continue;
@@ -96,9 +90,7 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
                 },
                 layer: 'queue_jobs',
                 type: 'info',
-                addSpaceAfter: true,
                 timeStamp: true,
-                addSeparatorAfter: true,
             });
 
             continue;
@@ -126,9 +118,7 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
                 },
                 layer: 'queue_jobs',
                 type: 'info',
-                addSpaceAfter: true,
                 timeStamp: true,
-                addSeparatorAfter: true,
             });
 
             continue;
@@ -138,9 +128,7 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
             title: `Episode already exists, skipping: ${strapiEpisode.display_name}`,
             layer: 'queue_jobs',
             type: 'info',
-            addSpaceAfter: true,
             timeStamp: true,
-            addSeparatorAfter: true,
             data: {
                 localEpisode,
                 existingEpisode: strapiEpisode,

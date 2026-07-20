@@ -1,4 +1,5 @@
 import type { StrapiWebhookPayload } from '../types/strapiWebhook.types';
+import type { Episode } from '@repo/type-definitions';
 import { Request, Response } from 'express';
 import { logData } from '@salvatore.hakase/log-data';
 import { addJobToQueue } from '../database/jobQueue';
@@ -28,10 +29,32 @@ const entryUpdateWebhookController = async (req: Request, res: Response): Promis
         data: req.body,
         layer: 'webhooks_received',
         type: 'info',
-        addSeparatorAfter: true,
-        addSpaceAfter: true,
         timeStamp: true,
     });
+
+    if (payload.uid === 'api::b-episode.b-episode') {
+        const episodeEntry = payload.entry as Episode;
+
+        if (episodeEntry.version === 'V1') {
+            res.status(200).json({ message: 'Webhook received successfully' });
+            return;
+        }
+
+        await addJobToQueue(JOB_TYPES.PROCESS_EPISODE, {
+            entry: episodeEntry,
+        });
+
+        logData({
+            title: 'Episode processing job queued',
+            data: episodeEntry,
+            layer: 'webhooks_received',
+            type: 'info',
+            timeStamp: true,
+        });
+
+        res.status(200).json({ message: 'Webhook received successfully' });
+        return;
+    }
 
     if (payload.uid === 'api::b-directory.b-directory') {
         const directoryEntry = payload.entry as Directory;
@@ -42,8 +65,6 @@ const entryUpdateWebhookController = async (req: Request, res: Response): Promis
                 data: directoryEntry,
                 layer: 'webhooks_received',
                 type: 'info',
-                addSeparatorAfter: true,
-                addSpaceAfter: true,
                 timeStamp: true,
             });
 
@@ -60,8 +81,6 @@ const entryUpdateWebhookController = async (req: Request, res: Response): Promis
             data: directoryEntry,
             layer: 'webhooks_received',
             type: 'info',
-            addSeparatorAfter: true,
-            addSpaceAfter: true,
             timeStamp: true,
         });
 
@@ -74,8 +93,6 @@ const entryUpdateWebhookController = async (req: Request, res: Response): Promis
         data: req.body,
         layer: 'webhooks_received',
         type: 'warn',
-        addSeparatorAfter: true,
-        addSpaceAfter: true,
         timeStamp: true,
     });
 
