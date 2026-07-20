@@ -24,6 +24,10 @@ export const scanDirectoryOnDisk = async (parentDirectoryPath: string): Promise<
     const childDirectories: string[] = [];
 
     for (const dirEntry of entries) {
+        if (dirEntry.name.startsWith('.')) {
+            continue;
+        }
+
         if (dirEntry.isDirectory()) {
             childDirectories.push(dirEntry.name);
             continue;
