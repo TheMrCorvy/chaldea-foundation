@@ -20,6 +20,7 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
             addSpaceAfter: true,
             timeStamp: true,
             addSeparatorAfter: true,
+            data: params,
         });
         return;
     }
@@ -31,6 +32,7 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
         addSpaceAfter: true,
         addSeparatorAfter: true,
         timeStamp: true,
+        data: params,
     });
 
     for (const localEpisode of episodes) {
@@ -45,7 +47,7 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
         });
 
         if (!existing || !existing.data || existing.data.data.length === 0) {
-            await platformService.call('bEpisodePostBEpisodes', {
+            const createdEpisode = await platformService.call('bEpisodePostBEpisodes', {
                 body: {
                     data: {
                         display_name: localEpisode.display_name,
@@ -59,7 +61,7 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
 
             logData({
                 title: `Created episode: ${localEpisode.display_name}`,
-                data: { version: localEpisode.version, file_type: localEpisode.file_type },
+                data: { localEpisode, createdEpisode: createdEpisode.data },
                 layer: 'queue_jobs',
                 type: 'info',
                 addSpaceAfter: true,
@@ -86,7 +88,12 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
 
             logData({
                 title: `Updated existing episode to set is_processing to true: ${strapiEpisode.display_name}`,
-                data: updatedEpisode.data,
+                data: {
+                    localEpisode,
+                    updatedEpisode: updatedEpisode.data,
+                    hasIncorrectV2Metadata,
+                    hasIncorrectV1Metadata,
+                },
                 layer: 'queue_jobs',
                 type: 'info',
                 addSpaceAfter: true,
@@ -111,7 +118,12 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
 
             logData({
                 title: `Updated existing episode to set is_processing to false: ${strapiEpisode.display_name}`,
-                data: updatedEpisode.data,
+                data: {
+                    localEpisode,
+                    updatedEpisode: updatedEpisode.data,
+                    hasIncorrectV2Metadata,
+                    hasIncorrectV1Metadata,
+                },
                 layer: 'queue_jobs',
                 type: 'info',
                 addSpaceAfter: true,
@@ -129,6 +141,12 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
             addSpaceAfter: true,
             timeStamp: true,
             addSeparatorAfter: true,
+            data: {
+                localEpisode,
+                existingEpisode: strapiEpisode,
+                hasIncorrectV2Metadata,
+                hasIncorrectV1Metadata,
+            },
         });
 
         continue;
