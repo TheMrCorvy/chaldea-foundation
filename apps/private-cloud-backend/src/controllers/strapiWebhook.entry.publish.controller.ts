@@ -1,8 +1,8 @@
 import type { SocialMediaEntry, StrapiWebhookPayload } from '../types/strapiWebhook.types';
 import { Request, Response } from 'express';
 import { logData } from '@salvatore.hakase/log-data';
-import { addJobToQueue } from '../database/jobQueue';
 import { JOB_TYPES } from '../services/jobProcessor.service';
+import addJobToQueue from '../database/addJobToQueue';
 import { SocialNetworks } from '../services/wuphf/types';
 import type { UpdatedResumeWebhookPayload } from '@repo/type-definitions/updated-resume';
 import { generateAndUploadResume } from '../services/king_crimson/resumeGenerator.service';

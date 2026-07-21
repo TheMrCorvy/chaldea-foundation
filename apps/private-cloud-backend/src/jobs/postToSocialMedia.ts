@@ -1,8 +1,10 @@
 import { logData } from '@salvatore.hakase/log-data';
-import { JobRow, markJobDone, markJobFailed } from '../database/jobQueue';
+import markJobDone from '../database/markJobDone';
+import markJobFailed from '../database/markJobFailed';
 import { Wuphf } from '../services/wuphf';
 
 import { SocialMediaPostJobPayload } from '../services/jobProcessor.service';
+import { JobRow } from '../database/utils';
 
 const postToSocialMedia = async (job: JobRow): Promise<void> => {
     const { networks, entry } = job.payload as unknown as SocialMediaPostJobPayload;

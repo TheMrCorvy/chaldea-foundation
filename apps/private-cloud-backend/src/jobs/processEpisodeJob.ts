@@ -1,5 +1,7 @@
 import { logData } from '@salvatore.hakase/log-data';
-import { JobRow, markJobDone, markJobFailed } from '../database/jobQueue';
+import type { JobRow } from '../database/utils';
+import markJobDone from '../database/markJobDone';
+import markJobFailed from '../database/markJobFailed';
 import { MisakaNetwork } from '../services/misaka_network';
 import type { ProcessEpisodeJobPayload } from '../services/jobProcessor.service';
 

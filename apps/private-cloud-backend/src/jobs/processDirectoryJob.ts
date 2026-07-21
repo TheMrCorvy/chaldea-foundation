@@ -1,7 +1,9 @@
 import { logData } from '@salvatore.hakase/log-data';
-import { JobRow, markJobDone, markJobFailed } from '../database/jobQueue';
 import { MisakaNetwork } from '../services/misaka_network';
 import type { ProcessDirectoryJobPayload } from '../services/jobProcessor.service';
+import type { JobRow } from '../database/utils';
+import markJobDone from '../database/markJobDone';
+import markJobFailed from '../database/markJobFailed';
 
 const processDirectoryJob = async (job: JobRow): Promise<void> => {
     const { entry } = job.payload as unknown as ProcessDirectoryJobPayload;

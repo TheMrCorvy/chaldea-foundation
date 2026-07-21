@@ -2,7 +2,7 @@ import type { StrapiWebhookPayload } from '../types/strapiWebhook.types';
 import type { Episode } from '@repo/type-definitions';
 import { Request, Response } from 'express';
 import { logData } from '@salvatore.hakase/log-data';
-import { addJobToQueue } from '../database/jobQueue';
+import addJobToQueue from '../database/addJobToQueue';
 import { JOB_TYPES } from '../services/jobProcessor.service';
 import { Directory } from '@repo/type-definitions';
 

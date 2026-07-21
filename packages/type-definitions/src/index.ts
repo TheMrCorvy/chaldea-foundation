@@ -81,6 +81,7 @@ interface ExtraKeysForQueryParams {
     blocked: boolean;
     confirmed: boolean;
     used: null | boolean;
+    job_id: number;
 }
 
 export interface QueryParams {

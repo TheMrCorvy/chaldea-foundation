@@ -1,4 +1,5 @@
-import { claimPendingJobs, markJobFailed } from '../database/jobQueue';
+import claimPendingJobs from '../database/claimPendingJobs';
+import markJobFailed from '../database/markJobFailed';
 import type { SocialMediaEntry } from '../types/strapiWebhook.types';
 import { SocialNetworks } from './wuphf/types';
 import postToSocialMedia from '../jobs/postToSocialMedia';

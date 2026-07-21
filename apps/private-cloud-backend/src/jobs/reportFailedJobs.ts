@@ -1,7 +1,7 @@
 import { logData } from '@salvatore.hakase/log-data';
 import PlatformService from '@repo/platform-service-sdk';
-import { getFailedJobs, deleteFailedJob } from '../database/jobQueue';
-
+import getFailedJobs from '../database/getFailedJobs';
+import deleteFailedJob from '../database/deleteFailedJob';
 export async function reportFailedJobs(): Promise<void> {
     logData({
         title: 'Starting daily failed jobs reporting job',
