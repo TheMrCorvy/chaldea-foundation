@@ -20,6 +20,10 @@
         "./updated-resume": {
             "types": "./src/updatedResume.ts",
             "default": "./src/updatedResume.ts"
+        },
+        "./jobs": {
+            "types": "./src/jobs.ts",
+            "default": "./src/jobs.ts"
         }
     },
     "devDependencies": {
