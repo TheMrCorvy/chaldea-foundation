@@ -23,6 +23,17 @@
             "type": "media",
             "multiple": false,
             "allowedTypes": ["images", "videos"]
+        },
+        "state": {
+            "type": "enumeration",
+            "default": "pending",
+            "enum": ["pending", "resolved", "failed"]
+        },
+        "type_of_report": {
+            "type": "string"
+        },
+        "job_id": {
+            "type": "integer"
         }
     }
 }
