@@ -28,15 +28,15 @@ router.get('/api/v2/serve-episode/subtitles', (req: Request, res: Response) => {
     v2EpisodeSubtitlesController(req, res);
 });
 
-router.post('/api/v2/webhooks/platform-service/entry/publish', (req: Request, res: Response) => {
+router.post('/api/v2/d-mail/platform-service/entry/publish', (req: Request, res: Response) => {
     entryPublishWebhookController(req, res);
 });
 
-router.post('/api/v2/webhooks/platform-service/entry/create', (req: Request, res: Response) => {
+router.post('/api/v2/d-mail/platform-service/entry/create', (req: Request, res: Response) => {
     entryCreateWebhookController(req, res);
 });
 
-router.post('/api/v2/webhooks/platform-service/entry/update', (req: Request, res: Response) => {
+router.post('/api/v2/d-mail/platform-service/entry/update', (req: Request, res: Response) => {
     entryUpdateWebhookController(req, res);
 });
 
