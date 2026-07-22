@@ -1,8 +1,8 @@
 import { StylesService } from "@repo/type-definitions/styles";
 
-const useStyles: StylesService = () => {
+const useStyles: StylesService = (params) => {
     return {
-        root: { mt: 8, mb: 3 },
+        root: { mt: params?.hasCover ? 8 : 2, mb: 3 },
         cardLink: {
             textDecoration: "none",
             position: "relative",

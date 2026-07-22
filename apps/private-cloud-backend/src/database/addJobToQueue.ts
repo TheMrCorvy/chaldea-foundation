@@ -32,7 +32,7 @@ const addJobToQueue = async (type: string, payload: unknown): Promise<JobQueue> 
         const { data, error } = await platformService.call('bReportPostBReports', {
             body: {
                 data: {
-                    title: type,
+                    title: (payload as { display_name?: string }).display_name || type,
                     description: `Job of type '${type}' with ID ${job.id} has been added to the queue and is pending.`,
                     state: 'pending',
                     type_of_report: type,

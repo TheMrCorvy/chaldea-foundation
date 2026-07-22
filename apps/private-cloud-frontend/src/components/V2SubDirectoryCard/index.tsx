@@ -35,7 +35,9 @@ const V2SubDirectoryCard: FC<V2SubDirectoryCardProps> = ({
         tagsContainer,
         tagStyles,
         descriptionStyles,
-    } = useStyles();
+    } = useStyles({
+        hasCover: directory.cover ? true : false,
+    });
 
     const directoryLinkUrl = `${WebRoutes.DIRECTORY}/${directory.documentId}`;
 
