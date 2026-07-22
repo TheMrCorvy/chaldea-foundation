@@ -8,6 +8,7 @@ import { parseTimeOption } from '../utils/jobUtils';
 let intervalId: NodeJS.Timeout | null = null;
 let timeoutId: NodeJS.Timeout | null = null;
 let isRunning = false;
+let isProcessing = false;
 let reportDocumentId: string | null = null;
 
 export const stopEngine = async (): Promise<void> => {
@@ -50,6 +51,19 @@ export const stopEngine = async (): Promise<void> => {
 };
 
 const checkAndProcessJobs = async (): Promise<void> => {
+    if (isProcessing) {
+        logData({
+            title: 'Stateful engine: Skipping tick — previous run still in progress',
+            layer: 'queue_jobs',
+            type: 'warn',
+            timeStamp: true,
+        });
+
+        return;
+    }
+
+    isProcessing = true;
+
     const prisma = getPrisma();
 
     const count = await prisma.jobQueue.count();
@@ -62,7 +76,7 @@ const checkAndProcessJobs = async (): Promise<void> => {
             timeStamp: true,
         });
 
-        stopEngine();
+        await stopEngine();
         return;
     }
 
@@ -85,8 +99,10 @@ const checkAndProcessJobs = async (): Promise<void> => {
             timeStamp: true,
         });
 
-        stopEngine();
+        await stopEngine();
     }
+
+    isProcessing = false;
 };
 
 export const startEngine = async (every: TimeOptions, during: TimeOptions | 'until_finishing_jobs'): Promise<void> => {
@@ -96,6 +112,8 @@ export const startEngine = async (every: TimeOptions, during: TimeOptions | 'unt
     const apiKey = process.env.STRAPI_API_KEY;
 
     if (!apiKey) {
+        isRunning = false;
+
         logData({
             title: 'Missing STRAPI_API_KEY environment variable. Cannot report engine status.',
             layer: '*',
