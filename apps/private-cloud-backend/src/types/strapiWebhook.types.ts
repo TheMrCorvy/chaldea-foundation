@@ -4,6 +4,7 @@
 
 import { Directory, Episode } from '@repo/type-definitions';
 import { ImageComponent } from '@repo/type-definitions/dynamic-page';
+import { JobReport } from '@repo/type-definitions/jobs';
 
 export interface StrapiWebhookPayload {
     event: StrapiEventName;
@@ -11,7 +12,7 @@ export interface StrapiWebhookPayload {
     publishedAt?: string | null;
     model: ModelNames;
     uid: string;
-    entry: SocialMediaEntry | Episode | Directory;
+    entry: SocialMediaEntry | Episode | Directory | JobReport;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

@@ -7,6 +7,7 @@ import {
     entryPublishWebhookController,
     entryCreateWebhookController,
     entryUpdateWebhookController,
+    entryDeleteWebhookController,
 } from './controllers';
 import { logData } from '@salvatore.hakase/log-data';
 
@@ -38,6 +39,10 @@ router.post('/api/v2/d-mail/platform-service/entry/create', (req: Request, res: 
 
 router.post('/api/v2/d-mail/platform-service/entry/update', (req: Request, res: Response) => {
     entryUpdateWebhookController(req, res);
+});
+
+router.post('/api/v2/d-mail/platform-service/entry/delete', (req: Request, res: Response) => {
+    entryDeleteWebhookController(req, res);
 });
 
 // 404 handler

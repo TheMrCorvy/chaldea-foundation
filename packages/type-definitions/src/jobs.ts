@@ -2,7 +2,7 @@ import { ImageComponent } from "./dynamicPage";
 
 export type JobState = "pending" | "resolved" | "failed";
 
-export interface Report {
+export interface JobReport {
     documentId: string;
     id: number;
     title: string;

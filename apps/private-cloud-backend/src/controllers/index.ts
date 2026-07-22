@@ -5,3 +5,4 @@ export { default as v2EpisodeSubtitlesController } from './v2EpisodeSubtitles.co
 export { default as entryPublishWebhookController } from './strapiWebhook.entry.publish.controller';
 export { default as entryCreateWebhookController } from './strapiWebhook.entry.create.controller';
 export { default as entryUpdateWebhookController } from './strapiWebhook.entry.update.controller';
+export { default as entryDeleteWebhookController } from './strapiWebhook.entry.delete.controller';
