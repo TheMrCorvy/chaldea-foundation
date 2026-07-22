@@ -32,6 +32,11 @@ const entryDeleteWebhookController = async (req: Request, res: Response): Promis
         const reportEntry = payload.entry as JobReport;
         const jobId = reportEntry.job_id;
 
+        if (reportEntry.type_of_report === 'stateful_engine') {
+            res.status(200).json({ message: 'Webhook received successfully, no job_id to delete' });
+            return;
+        }
+
         if (jobId === null || jobId === undefined) {
             logData({
                 title: `Received delete event for report without a job_id: ${reportEntry.id}`,

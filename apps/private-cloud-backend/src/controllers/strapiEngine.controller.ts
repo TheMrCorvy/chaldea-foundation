@@ -5,15 +5,15 @@ import { logData } from '@salvatore.hakase/log-data';
 
 const strapiEngineController = async (req: Request, res: Response): Promise<void> => {
     const action = req.headers['action'] as string | undefined;
-    const during = req.headers['during'] as string | undefined;
-    const every = req.headers['every'] as string | undefined;
+    const during = req.headers['during'] as TimeOptions | 'until_finishing_jobs' | undefined;
+    const every = req.headers['every'] as TimeOptions | undefined;
 
     const isStart = action === 'start_engine';
     const isStop = action === 'stop_engine';
 
     if (!isStart && !isStop && !action) {
         logData({
-            title: 'Invalid headers in Strapi controller request',
+            title: 'Invalid headers or path in Strapi controller request',
             layer: 'queue_jobs',
             type: 'warn',
             timeStamp: true,
@@ -41,7 +41,8 @@ const strapiEngineController = async (req: Request, res: Response): Promise<void
             },
         });
 
-        stopEngine();
+        await stopEngine();
+
         res.status(200).json({ status: 'stopped', message: 'Stateful engine stopped successfully' });
         return;
     }
@@ -93,7 +94,7 @@ const strapiEngineController = async (req: Request, res: Response): Promise<void
                 },
             });
 
-            startEngine(every as TimeOptions, during as TimeOptions | 'until_finishing_jobs');
+            await startEngine(every, during);
 
             res.status(200).json({
                 status: 'started',
