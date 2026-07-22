@@ -3,8 +3,8 @@ import { processJobs } from '../services/jobProcessor.service';
 import { logData } from '@salvatore.hakase/log-data';
 
 export function startCronJobs(): void {
-    // Process pending jobs every hour
-    cron.schedule('0 * * * *', async () => {
+    // Process pending jobs every 2 hours
+    cron.schedule('0 */2 * * *', async () => {
         try {
             await processJobs();
         } catch (err) {
