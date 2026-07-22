@@ -7,7 +7,7 @@
         "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
         "build": "tsc",
         "prestart": "pnpm db:migrate",
-        "start": "ts-node-dev --respawn --transpile-only src/server.ts",
+        "start": "npx tsx dist/server.js",
         "clean": "rimraf dist",
         "prebuild": "pnpm run clean",
         "format": "prettier --write .",

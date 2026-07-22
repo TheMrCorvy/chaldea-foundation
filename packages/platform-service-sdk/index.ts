@@ -1,5 +1,5 @@
-import * as Real from "./generated-sdk";
-import * as Mock from "./generated-mock-sdk";
+import * as Real from "./generated-sdk/index";
+import * as Mock from "./generated-mock-sdk/index";
 import { client } from "./generated-sdk/client.gen";
 import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
 import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";
