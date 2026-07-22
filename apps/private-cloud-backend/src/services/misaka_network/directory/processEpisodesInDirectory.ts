@@ -69,8 +69,13 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
         const strapiEpisode = existing.data.data[0] as Episode;
         const hasIncorrectV2Metadata = strapiEpisode.version === 'V2' && strapiEpisode.languages_info === null;
         const hasIncorrectV1Metadata = strapiEpisode.version === 'V1' && strapiEpisode.languages_info !== null;
+        const hasIncorrectProcessingState =
+            strapiEpisode.is_processing === undefined || strapiEpisode.is_processing === null;
 
-        if ((hasIncorrectV2Metadata || hasIncorrectV1Metadata) && !strapiEpisode.is_processing) {
+        if (
+            ((hasIncorrectV2Metadata || hasIncorrectV1Metadata) && !strapiEpisode.is_processing) ||
+            hasIncorrectProcessingState
+        ) {
             const updatedEpisode = await platformService.call('bEpisodePutBEpisodesById', {
                 path: { id: strapiEpisode.documentId },
                 body: {
@@ -96,45 +101,26 @@ export const processEpisodesInDirectory = async (params: ProcessEpisodesInDirect
             continue;
         }
 
-        if (strapiEpisode.is_processing === undefined || strapiEpisode.is_processing === null) {
-            strapiEpisode.is_processing = false;
-
-            const updatedEpisode = await platformService.call('bEpisodePutBEpisodesById', {
-                path: { id: strapiEpisode.documentId },
-                body: {
-                    data: {
-                        is_processing: false,
-                    },
-                },
-            });
-
-            logData({
-                title: `Updated existing episode to set is_processing to false: ${strapiEpisode.display_name}`,
+        const finalizedEpisode = await platformService.call('bEpisodePutBEpisodesById', {
+            path: { id: strapiEpisode.documentId },
+            body: {
                 data: {
-                    localEpisode,
-                    updatedEpisode: updatedEpisode.data,
-                    hasIncorrectV2Metadata,
-                    hasIncorrectV1Metadata,
+                    is_processing: false,
                 },
-                layer: 'queue_jobs',
-                type: 'info',
-                timeStamp: true,
-            });
-
-            continue;
-        }
+            },
+        });
 
         logData({
-            title: `Episode already exists, skipping: ${strapiEpisode.display_name}`,
-            layer: 'queue_jobs',
-            type: 'info',
-            timeStamp: true,
+            title: `Updated existing episode to set is_processing to false: ${strapiEpisode.display_name}`,
             data: {
                 localEpisode,
-                existingEpisode: strapiEpisode,
+                finalizedEpisode: finalizedEpisode.data,
                 hasIncorrectV2Metadata,
                 hasIncorrectV1Metadata,
             },
+            layer: 'queue_jobs',
+            type: 'info',
+            timeStamp: true,
         });
 
         continue;

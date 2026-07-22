@@ -40,18 +40,17 @@ export interface UpdateChildDirectoryParams {
     existingDir: Directory;
     parentDirectory: Directory;
     platformService: PlatformService;
-    is_processing: boolean;
     age_rating?: string;
 }
 
 const updateChildDirectory = async (params: UpdateChildDirectoryParams): Promise<void> => {
-    const { existingDir, parentDirectory, platformService, is_processing, age_rating } = params;
+    const { existingDir, parentDirectory, platformService, age_rating } = params;
 
     const updatedDirectory = await platformService.call('bDirectoryPutBDirectoriesById', {
         body: {
             data: {
                 parent_directory: parentDirectory.documentId,
-                is_processing: is_processing,
+                is_processing: true,
                 age_rating: age_rating,
             },
         },
@@ -110,20 +109,13 @@ export const processChildDirectories = async (params: ProcessChildDirectoriesPar
 
         if (items && items.length > 0) {
             const existingDir = items[0];
-            const hasCorrectParent = existingDir.parent_directory?.documentId === parentDirectory.documentId;
-            const hasIncorrectAgeRating = existingDir.age_rating !== childAgeRating;
-            const hasIncorrectProcessingState =
-                existingDir.is_processing === undefined || existingDir.is_processing === null;
 
-            if (!hasCorrectParent || hasIncorrectProcessingState || hasIncorrectAgeRating) {
-                await updateChildDirectory({
-                    existingDir,
-                    parentDirectory,
-                    platformService,
-                    is_processing: hasIncorrectProcessingState ? false : true,
-                    age_rating: hasIncorrectAgeRating ? childAgeRating : existingDir.age_rating,
-                });
-            }
+            await updateChildDirectory({
+                existingDir,
+                parentDirectory,
+                platformService,
+                age_rating: childAgeRating,
+            });
 
             continue;
         }

@@ -35,7 +35,7 @@ const entryUpdateWebhookController = async (req: Request, res: Response): Promis
     if (payload.uid === 'api::b-episode.b-episode') {
         const episodeEntry = payload.entry as Episode;
 
-        if (episodeEntry.version === 'V1') {
+        if (episodeEntry.is_processing === false) {
             res.status(200).json({ message: 'Webhook received successfully' });
             return;
         }
