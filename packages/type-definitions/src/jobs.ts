@@ -15,3 +15,19 @@ export interface JobReport {
     created_at: string;
     updated_at: string;
 }
+
+export type TimeOptions =
+    | "1min"
+    | "2min"
+    | "5min"
+    | "10min"
+    | "15min"
+    | "30min"
+    | "45min"
+    | "50min";
+
+export interface AwakeEnginePayload {
+    during: TimeOptions | "until_finishing_jobs";
+    every: TimeOptions;
+    action: "start_engine" | "stop_engine";
+}

@@ -11,10 +11,8 @@ export function startCronJobs(): void {
             logData({
                 title: 'Error processing jobs',
                 data: err,
-                layer: 'queue_jobs',
+                layer: '*',
                 type: 'error',
-                addSeparatorAfter: true,
-                addSpaceAfter: true,
                 timeStamp: true,
             });
         }
@@ -24,10 +22,6 @@ export function startCronJobs(): void {
         title: 'Cron jobs scheduled',
         layer: 'queue_jobs',
         type: 'info',
-        addSeparatorAfter: true,
-        addSpaceAfter: true,
         timeStamp: true,
-        addSpaceBefore: true,
-        addSeparatorBefore: true,
     });
 }

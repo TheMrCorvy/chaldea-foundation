@@ -6,3 +6,4 @@ export { default as entryPublishWebhookController } from './strapiWebhook.entry.
 export { default as entryCreateWebhookController } from './strapiWebhook.entry.create.controller';
 export { default as entryUpdateWebhookController } from './strapiWebhook.entry.update.controller';
 export { default as entryDeleteWebhookController } from './strapiWebhook.entry.delete.controller';
+export { default as strapiEngineController } from './strapiEngine.controller';
