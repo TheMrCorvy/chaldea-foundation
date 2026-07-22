@@ -11,7 +11,7 @@ let isRunning = false;
 let isProcessing = false;
 let reportDocumentId: string | null = null;
 
-export const stopEngine = async (): Promise<void> => {
+export const stopEngine = async (deleteReport = true): Promise<void> => {
     if (intervalId) {
         global.clearInterval(intervalId);
         intervalId = null;
@@ -30,6 +30,10 @@ export const stopEngine = async (): Promise<void> => {
             type: 'info',
             timeStamp: true,
         });
+    }
+
+    if (!deleteReport) {
+        return;
     }
 
     const apiKey = process.env.STRAPI_API_KEY;

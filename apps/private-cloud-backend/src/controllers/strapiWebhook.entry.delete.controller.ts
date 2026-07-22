@@ -3,6 +3,7 @@ import type { JobReport } from '@repo/type-definitions/jobs';
 import { Request, Response } from 'express';
 import { logData } from '@salvatore.hakase/log-data';
 import deleteJobFromQueue from '../database/deleteJobFromQueue';
+import { stopEngine } from '../services/statefulEngine.service';
 
 const entryDeleteWebhookController = async (req: Request, res: Response): Promise<void> => {
     const payload = req.body as StrapiWebhookPayload;
@@ -33,7 +34,8 @@ const entryDeleteWebhookController = async (req: Request, res: Response): Promis
         const jobId = reportEntry.job_id;
 
         if (reportEntry.type_of_report === 'stateful_engine') {
-            res.status(200).json({ message: 'Webhook received successfully, no job_id to delete' });
+            await stopEngine(false);
+            res.status(200).json({ message: 'Webhook received successfully, stateful engine stopped.' });
             return;
         }
 
