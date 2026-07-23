@@ -38,7 +38,7 @@ describe('diskService', () => {
             expect(result).toEqual({
                 display_name: 'folder',
                 directory_path: mockDirPath,
-                adult: false,
+                age_rating: 'everyone',
                 parent_directory: '/test/anime',
                 sub_directories: [path.join(mockDirPath, 'Season 2')],
                 episodes: [
@@ -73,7 +73,7 @@ describe('diskService', () => {
             });
 
             expect(result.display_name).toBe('Adult Content');
-            expect(result.adult).toBe(true);
+            expect(result.age_rating).toBe('explicit');
         });
 
         it('should exclude files based on excluded extensions', () => {
@@ -190,7 +190,7 @@ describe('diskService', () => {
                 {
                     display_name: 'Test Anime',
                     directory_path: '/test/anime',
-                    adult: false,
+                    age_rating: 'everyone',
                     parent_directory: null,
                     sub_directories: [],
                     episodes: [],
@@ -260,7 +260,7 @@ describe('diskService', () => {
             const testData: LocalDirectory[] = Array.from({ length: 1000 }, (_, i) => ({
                 display_name: `Test Anime ${i}`,
                 directory_path: `/test/anime/${i}`,
-                adult: false,
+                age_rating: 'everyone',
                 parent_directory: null,
                 sub_directories: [],
                 episodes: [],

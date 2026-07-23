@@ -9,7 +9,7 @@ describe('sortDirectories', () => {
     ): LocalDirectory => ({
         display_name: name,
         directory_path: directoryPath,
-        adult: false,
+        age_rating: 'everyone',
         parent_directory: parentDirectory,
         sub_directories: [],
         episodes: [],
@@ -131,7 +131,7 @@ describe('sortDirectories', () => {
         const originalDirectory: LocalDirectory = {
             display_name: 'Test Anime',
             directory_path: '/test/anime',
-            adult: true,
+            age_rating: 'adults',
             parent_directory: '/test',
             sub_directories: ['/test/anime/season1'],
             episodes: [
@@ -147,7 +147,7 @@ describe('sortDirectories', () => {
         const sorted = sortDirectories([originalDirectory]);
 
         expect(sorted[0]).toEqual(originalDirectory);
-        expect(sorted[0].adult).toBe(true);
+        expect(sorted[0].age_rating).toBe('adults');
         expect(sorted[0].sub_directories).toEqual(['/test/anime/season1']);
         expect(sorted[0].episodes).toHaveLength(1);
     });
