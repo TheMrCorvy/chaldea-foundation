@@ -14,6 +14,7 @@ const useStyles: StylesService = () => {
             display: "flex",
             justifyContent: "center",
             padding: matches ? 0 : "2vh",
+            zIndex: 1100,
         },
         sheet: {
             p: 1,
