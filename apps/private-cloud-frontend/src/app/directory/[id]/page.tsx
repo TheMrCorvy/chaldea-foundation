@@ -360,7 +360,7 @@ const DirectoryPage = async ({ params }: Page) => {
                                                 md: 200,
                                             },
                                             height: {
-                                                xs: 240,
+                                                xs: "auto",
                                                 sm: 240,
                                                 md: 300,
                                             },
@@ -377,16 +377,23 @@ const DirectoryPage = async ({ params }: Page) => {
                                             },
                                         }}
                                     >
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                        <img
+                                        <Box
+                                            component="img"
                                             src={getCoverUrl(
                                                 currentDirectory.cover.url
                                             )}
                                             alt={currentDirectory.display_name}
-                                            style={{
+                                            sx={{
                                                 width: "100%",
-                                                height: "100%",
-                                                objectFit: "cover",
+                                                height: {
+                                                    xs: "auto",
+                                                    sm: "100%",
+                                                },
+                                                objectFit: {
+                                                    xs: "contain",
+                                                    sm: "cover",
+                                                },
+                                                display: "block",
                                             }}
                                         />
                                     </Box>
