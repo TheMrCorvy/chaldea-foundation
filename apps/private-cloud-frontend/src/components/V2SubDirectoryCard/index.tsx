@@ -45,7 +45,7 @@ const V2SubDirectoryCard: FC<V2SubDirectoryCardProps> = ({
     const directoryLinkUrl = `${WebRoutes.DIRECTORY}/${directory.documentId}`;
 
     return (
-        <Grid lg={12} xl={6} sx={root}>
+        <Grid xs={12} lg={12} xl={6} sx={root}>
             <Card orientation="horizontal" variant="soft" sx={cardStyles}>
                 {directory.cover && (
                     <Link
