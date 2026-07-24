@@ -39,7 +39,10 @@ const EpisodeCard: FC<EpisodeCardProps> = ({ episode, userId }) => {
                         md: 350,
                     },
                     height: "100%",
-                    backgroundColor: "#0B6BCB !important",
+                    backgroundColor:
+                        episode.version === "V1"
+                            ? "#0B6BCB !important"
+                            : "#2A3B52 !important",
                     transition:
                         "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
                     "&:hover": {
