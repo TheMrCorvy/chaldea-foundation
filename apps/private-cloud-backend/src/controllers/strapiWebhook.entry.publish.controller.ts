@@ -34,16 +34,24 @@ const entryPublishWebhookController = async (req: Request, res: Response): Promi
 
     if (payload.uid === 'api::a-social-media-post.a-social-media-post') {
         if (entry.post_on_platform === 'All' || entry.post_on_platform === 'LinkedIn') {
-            await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
-                networks: [SocialNetworks.LINKEDIN],
-                entry: entry,
+            await addJobToQueue({
+                type: JOB_TYPES.SOCIAL_MEDIA_POST,
+                payload: {
+                    networks: [SocialNetworks.LINKEDIN],
+                    entry: entry,
+                },
+                name: 'Post to ' + entry.post_on_platform,
             });
         }
 
         if (entry.post_on_platform === 'All' || entry.post_on_platform === 'Dev.to') {
-            await addJobToQueue(JOB_TYPES.SOCIAL_MEDIA_POST, {
-                networks: [SocialNetworks.DEV_TO],
-                entry: entry,
+            await addJobToQueue({
+                type: JOB_TYPES.SOCIAL_MEDIA_POST,
+                payload: {
+                    networks: [SocialNetworks.DEV_TO],
+                    entry: entry,
+                },
+                name: 'Post to ' + entry.post_on_platform,
             });
         }
 

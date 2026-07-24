@@ -37,8 +37,10 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
             return;
         }
 
-        await addJobToQueue(JOB_TYPES.PROCESS_EPISODE, {
-            entry: episodeEntry,
+        await addJobToQueue({
+            type: JOB_TYPES.PROCESS_EPISODE,
+            payload: episodeEntry,
+            name: episodeEntry.display_name,
         });
 
         logData({
@@ -69,8 +71,10 @@ const entryCreateWebhookController = async (req: Request, res: Response): Promis
             return;
         }
 
-        await addJobToQueue(JOB_TYPES.PROCESS_DIRECTORY, {
-            entry: directoryEntry,
+        await addJobToQueue({
+            type: JOB_TYPES.PROCESS_DIRECTORY,
+            payload: directoryEntry,
+            name: directoryEntry.display_name,
         });
 
         logData({

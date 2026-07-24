@@ -3,7 +3,15 @@ import { Prisma, JobQueue } from '@prisma/client';
 import { logData } from '@salvatore.hakase/log-data';
 import getPlatformServiceClient from './utils';
 
-const addJobToQueue = async (type: string, payload: unknown): Promise<JobQueue> => {
+export interface AddJobToQueueParams {
+    type: string;
+    payload: unknown;
+    name?: string;
+}
+
+export type AddJobToQueue = (params: AddJobToQueueParams) => Promise<JobQueue>;
+
+const addJobToQueue: AddJobToQueue = async ({ type, payload, name }) => {
     const prisma = getPrisma();
 
     const job = await prisma.jobQueue.create({
@@ -32,7 +40,7 @@ const addJobToQueue = async (type: string, payload: unknown): Promise<JobQueue> 
         const { data, error } = await platformService.call('bReportPostBReports', {
             body: {
                 data: {
-                    title: (payload as { display_name?: string }).display_name || type,
+                    title: name || type,
                     description: `Job of type '${type}' with ID ${job.id} has been added to the queue and is pending.`,
                     state: 'pending',
                     type_of_report: type,
