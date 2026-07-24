@@ -6,12 +6,15 @@ import {
     CardOverflow,
     Chip,
     Grid,
+    Tooltip,
     Typography,
 } from "@mui/joy";
 import { Directory } from "@repo/type-definitions";
 import { WebRoutes } from "@/utils/routes";
 import Link from "next/link";
 import useStyles from "./useStyles";
+import ErrorIcon from "@mui/icons-material/Error";
+import NoAdultContentIcon from "@mui/icons-material/NoAdultContent";
 
 export interface V2SubDirectoryCardProps {
     directory: Directory;
@@ -61,14 +64,67 @@ const V2SubDirectoryCard: FC<V2SubDirectoryCardProps> = ({
                     </Link>
                 )}
                 <CardContent sx={cardBodyStyles}>
-                    <Link
-                        href={directoryLinkUrl}
-                        style={{ textDecoration: "none" }}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1,
+                            justifyContent: "space-between",
+                            width: "100%",
+                        }}
                     >
-                        <Typography level="title-md" sx={titleStyles}>
-                            {directory.display_name}
-                        </Typography>
-                    </Link>
+                        <Link
+                            href={directoryLinkUrl}
+                            style={{
+                                textDecoration: "none",
+                                flexGrow: 1,
+                                minWidth: 0,
+                            }}
+                        >
+                            <Typography level="title-md" sx={titleStyles}>
+                                {directory.display_name}
+                            </Typography>
+                        </Link>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 0.5,
+                                flexShrink: 0,
+                            }}
+                        >
+                            {directory.age_rating === "explicit" && (
+                                <Tooltip
+                                    title="Contenido sensible"
+                                    placement="top"
+                                    variant="solid"
+                                >
+                                    <ErrorIcon
+                                        data-testid="ErrorIcon"
+                                        sx={{
+                                            fontSize: 20,
+                                            color: "orange",
+                                        }}
+                                    />
+                                </Tooltip>
+                            )}
+                            {directory.age_rating === "adults" && (
+                                <Tooltip
+                                    title="Contenido para adultos"
+                                    placement="top"
+                                    variant="solid"
+                                >
+                                    <NoAdultContentIcon
+                                        data-testid="NoAdultContentIcon"
+                                        sx={{
+                                            fontSize: 20,
+                                            color: "#e63946",
+                                        }}
+                                    />
+                                </Tooltip>
+                            )}
+                        </Box>
+                    </Box>
 
                     {directory.description && (
                         <Typography level="body-sm" sx={descriptionStyles}>

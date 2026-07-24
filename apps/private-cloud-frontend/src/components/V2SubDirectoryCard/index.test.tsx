@@ -79,8 +79,9 @@ describe("V2SubDirectoryCard", () => {
         ).toBeInTheDocument();
         expect(screen.getByText("ENTRAR")).toBeInTheDocument();
 
-        const link = screen.getByRole("link");
-        expect(link.getAttribute("href")).toBe("/directory/abc-xyz");
+        const links = screen.getAllByRole("link");
+        expect(links.length).toBeGreaterThan(0);
+        expect(links[0].getAttribute("href")).toBe("/directory/abc-xyz");
     });
 
     it("resolves cover image URL properly using imageBaseUrl", () => {

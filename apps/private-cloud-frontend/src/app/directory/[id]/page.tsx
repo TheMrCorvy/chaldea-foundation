@@ -8,7 +8,17 @@ import {
 } from "@/utils/cookies";
 import { Page } from "@/utils/pageTypes";
 import { WebRoutes } from "@/utils/routes";
-import { Breadcrumbs, Card, Container, Grid, Link, Typography } from "@mui/joy";
+import {
+    Box,
+    Breadcrumbs,
+    Card,
+    Chip,
+    Container,
+    Divider,
+    Grid,
+    Link,
+    Typography,
+} from "@mui/joy";
 import PlatformService from "@repo/platform-service-sdk";
 import { logData } from "@repo/shared-utils/log-data";
 import {
@@ -192,8 +202,23 @@ const DirectoryPage = async ({ params }: Page) => {
                 id,
             },
             query: {
-                populate: ["parent_directory"],
-                fields: ["display_name", "documentId", "age_rating"],
+                populate: {
+                    parent_directory: {
+                        populate: "*",
+                    },
+                    cover: {
+                        populate: "*",
+                    },
+                    tags: {
+                        populate: "*",
+                    },
+                },
+                fields: [
+                    "display_name",
+                    "documentId",
+                    "age_rating",
+                    "description",
+                ],
             },
         }
     );
@@ -241,6 +266,14 @@ const DirectoryPage = async ({ params }: Page) => {
 
         return redirect(WebRoutes.NOT_FOUND + "/6");
     }
+
+    const getCoverUrl = (url?: string) => {
+        if (!url) return "";
+        if (url.startsWith("http://") || url.startsWith("https://")) {
+            return url;
+        }
+        return `${imageBaseUrl}${url}`;
+    };
 
     return (
         <>
@@ -298,6 +331,167 @@ const DirectoryPage = async ({ params }: Page) => {
                     }}
                     component={"article"}
                 >
+                    {/* Directory Info Header */}
+                    {currentDirectory.cover ||
+                    currentDirectory.description ||
+                    (currentDirectory.tags &&
+                        currentDirectory.tags.length > 0) ? (
+                        <>
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: { xs: "column", sm: "row" },
+                                    gap: { xs: 3, md: 4 },
+                                    mb: 3,
+                                    mt: 1,
+                                    alignItems: {
+                                        xs: "center",
+                                        sm: "flex-start",
+                                    },
+                                    width: "100%",
+                                }}
+                            >
+                                {currentDirectory.cover && (
+                                    <Box
+                                        sx={{
+                                            width: {
+                                                xs: "100%",
+                                                sm: 160,
+                                                md: 200,
+                                            },
+                                            height: {
+                                                xs: 240,
+                                                sm: 240,
+                                                md: 300,
+                                            },
+                                            position: "relative",
+                                            flexShrink: 0,
+                                            borderRadius: "12px",
+                                            overflow: "hidden",
+                                            border: "1px solid rgba(11, 107, 203, 0.3)",
+                                            boxShadow:
+                                                "0 8px 32px rgba(0, 0, 0, 0.4)",
+                                            transition: "transform 0.3s ease",
+                                            "&:hover": {
+                                                transform: "scale(1.02)",
+                                            },
+                                        }}
+                                    >
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
+                                            src={getCoverUrl(
+                                                currentDirectory.cover.url
+                                            )}
+                                            alt={currentDirectory.display_name}
+                                            style={{
+                                                width: "100%",
+                                                height: "100%",
+                                                objectFit: "cover",
+                                            }}
+                                        />
+                                    </Box>
+                                )}
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: 2,
+                                        flexGrow: 1,
+                                        width: "100%",
+                                    }}
+                                >
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            gap: 1,
+                                        }}
+                                    >
+                                        <Typography
+                                            level="h2"
+                                            sx={{
+                                                color: "white",
+                                                fontWeight: 700,
+                                                fontSize: {
+                                                    xs: "1.8rem",
+                                                    md: "2.2rem",
+                                                },
+                                            }}
+                                        >
+                                            {currentDirectory.display_name}
+                                        </Typography>
+
+                                        {currentDirectory.tags &&
+                                            currentDirectory.tags.length >
+                                                0 && (
+                                                <Box
+                                                    sx={{
+                                                        display: "flex",
+                                                        flexWrap: "wrap",
+                                                        gap: 1,
+                                                        mt: 0.5,
+                                                    }}
+                                                >
+                                                    {currentDirectory.tags.map(
+                                                        (tag, idx) => (
+                                                            <Chip
+                                                                key={`current-dir-tag-${tag.documentId || idx}`}
+                                                                size="md"
+                                                                variant="soft"
+                                                                sx={{
+                                                                    textTransform:
+                                                                        "capitalize",
+                                                                    backgroundColor:
+                                                                        "rgba(11, 107, 203, 0.2)",
+                                                                    color: "#D2DBE8",
+                                                                    fontWeight: 500,
+                                                                    borderRadius:
+                                                                        "6px",
+                                                                }}
+                                                            >
+                                                                {tag.name}
+                                                            </Chip>
+                                                        )
+                                                    )}
+                                                </Box>
+                                            )}
+                                    </Box>
+
+                                    {currentDirectory.description && (
+                                        <Typography
+                                            level="body-md"
+                                            sx={{
+                                                color: "#A8B2C3",
+                                                lineHeight: 1.6,
+                                                maxWidth: "800px",
+                                            }}
+                                        >
+                                            {currentDirectory.description}
+                                        </Typography>
+                                    )}
+                                </Box>
+                            </Box>
+                            <Divider
+                                sx={{
+                                    mb: 4,
+                                    opacity: 0.3,
+                                    backgroundColor: "rgba(11, 107, 203, 0.3)",
+                                }}
+                            />
+                        </>
+                    ) : (
+                        <Typography
+                            level="h2"
+                            sx={{
+                                color: "white",
+                                fontWeight: 700,
+                                mb: 3,
+                                fontSize: { xs: "1.8rem", md: "2.2rem" },
+                            }}
+                        >
+                            {currentDirectory.display_name}
+                        </Typography>
+                    )}
                     {subDirectories.length > 0 && (
                         <SubDirectoriesList
                             subDirectories={subDirectories}

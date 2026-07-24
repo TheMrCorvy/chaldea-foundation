@@ -75,7 +75,7 @@ describe("SubDirectoriesList", () => {
             />
         );
 
-        expect(screen.getAllByTestId("ChevronRightIcon")).toHaveLength(2);
+        expect(screen.getAllByText("ENTRAR")).toHaveLength(2);
         expect(screen.getAllByTestId("NoAdultContentIcon")).toHaveLength(1);
     });
 });

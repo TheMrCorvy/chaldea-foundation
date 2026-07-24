@@ -73,6 +73,8 @@ describe("SearchBar", () => {
             query: "One Piece",
             switchAdult: false,
             switchOnlyAdult: false,
+            switchExplicit: false,
+            switchOnlyExplicit: false,
             page: 3,
         });
     });
@@ -120,17 +122,17 @@ describe("SearchBar", () => {
         );
 
         expect(
-            screen.getByText("Permitir contenido sensible")
+            screen.getByText("Permitir contenido para adultos")
         ).toBeInTheDocument();
         expect(
-            screen.getByText("Buscar solo contenido sensible")
+            screen.getByText("Buscar solo contenido para adultos")
         ).toBeInTheDocument();
 
         const allowAdultSwitch = screen.getByRole("switch", {
-            name: "Permitir contenido sensible",
+            name: "Permitir contenido para adultos",
         });
         const onlyAdultSwitch = screen.getByRole("switch", {
-            name: "Buscar solo contenido sensible",
+            name: "Buscar solo contenido para adultos",
         });
 
         fireEvent.click(allowAdultSwitch);
@@ -144,12 +146,16 @@ describe("SearchBar", () => {
             query: "",
             switchAdult: true,
             switchOnlyAdult: false,
+            switchExplicit: false,
+            switchOnlyExplicit: false,
             page: 7,
         });
         expect(handleSubmit).toHaveBeenNthCalledWith(2, {
             query: "",
             switchAdult: true,
             switchOnlyAdult: true,
+            switchExplicit: false,
+            switchOnlyExplicit: false,
             page: 7,
         });
     });
@@ -205,6 +211,8 @@ describe("SearchBar", () => {
             query: "Bleach",
             switchAdult: false,
             switchOnlyAdult: false,
+            switchExplicit: false,
+            switchOnlyExplicit: false,
             page: 4,
         });
     });
