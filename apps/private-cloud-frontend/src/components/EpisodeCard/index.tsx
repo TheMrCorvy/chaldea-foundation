@@ -10,6 +10,7 @@ import { Box } from "@mui/joy";
 import Link from "next/link";
 import NotStartedIcon from "@mui/icons-material/NotStarted";
 import { getScreenSize } from "@/utils/screenSize";
+import MarkUnseenButton from "./MarkUnseenButton";
 
 export interface EpisodeCardProps {
     episode: Episode;
@@ -46,6 +47,9 @@ const EpisodeCard: FC<EpisodeCardProps> = ({ episode, userId }) => {
                     },
                 }}
             >
+                {episode.watched_by?.data.includes(userId) && (
+                    <MarkUnseenButton episodeId={documentId} />
+                )}
                 <CardContent
                     sx={{
                         display: "flex",

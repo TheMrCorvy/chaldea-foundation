@@ -24,6 +24,12 @@ jest.mock("next/link", () => ({
     },
 }));
 
+jest.mock("next/navigation", () => ({
+    useRouter: jest.fn().mockReturnValue({
+        refresh: jest.fn(),
+    }),
+}));
+
 const createEpisode = (overrides: Partial<Episode> = {}): Episode => ({
     id: 1,
     display_name: "Episode One",
@@ -79,5 +85,43 @@ describe("EpisodeCard", () => {
         render(<EpisodeCard episode={episode} userId="user-1" />);
 
         expect(screen.queryByText("VISTO")).not.toBeInTheDocument();
+    });
+
+    it("calls unseen API and router refresh when mark unseen is clicked", async () => {
+        const mockRefresh = jest.fn();
+        const { useRouter } = require("next/navigation");
+        useRouter.mockReturnValue({
+            refresh: mockRefresh,
+        });
+
+        const episode = createEpisode({
+            watched_by: {
+                data: ["user-1"],
+            },
+            documentId: "ep-123",
+        });
+
+        const fetchMock = jest.fn().mockResolvedValue({
+            ok: true,
+            json: jest.fn().mockResolvedValue({}),
+        });
+        global.fetch = fetchMock;
+
+        const { fireEvent, waitFor } = require("@testing-library/react");
+
+        render(<EpisodeCard episode={episode} userId="user-1" />);
+
+        const unseenButton = screen.getByTestId("mark-unseen-button");
+        expect(unseenButton).toBeInTheDocument();
+
+        fireEvent.click(unseenButton);
+
+        await waitFor(() => {
+            expect(fetchMock).toHaveBeenCalledWith(
+                "/api/episodes/ep-123/unseen",
+                expect.any(Object)
+            );
+            expect(mockRefresh).toHaveBeenCalled();
+        });
     });
 });
