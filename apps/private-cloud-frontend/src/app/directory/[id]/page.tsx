@@ -516,7 +516,8 @@ const DirectoryPage = async ({ params }: Page) => {
                             {episodes.map((episode, i) => (
                                 <Grid
                                     key={`episodes-list-directory-page-${episode.documentId}-${i}`}
-                                    xs={"auto"}
+                                    xs={12}
+                                    sm={"auto"}
                                     sx={{
                                         marginBottom: 2,
                                     }}

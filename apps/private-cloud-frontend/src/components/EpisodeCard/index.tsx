@@ -33,7 +33,11 @@ const EpisodeCard: FC<EpisodeCardProps> = ({ episode, userId }) => {
                 orientation="horizontal"
                 variant="soft"
                 sx={{
-                    width: 350,
+                    width: {
+                        xs: "100%",
+                        sm: 260,
+                        md: 350,
+                    },
                     height: "100%",
                     backgroundColor: "#0B6BCB !important",
                     transition:
@@ -41,9 +45,6 @@ const EpisodeCard: FC<EpisodeCardProps> = ({ episode, userId }) => {
                     "&:hover": {
                         cursor: "pointer",
                         transform: "scale(1.04)",
-                    },
-                    [`@media (max-width: ${getScreenSize("xl")}px)`]: {
-                        width: 260,
                     },
                 }}
             >

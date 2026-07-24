@@ -29,13 +29,12 @@ export const POST = async (
     try {
         logData({
             title: `Marking episode ${id} as unseen for user ${userCookie.documentId}`,
-            layer: "internal_http_requests",
+            layer: "external_http_requests",
             timeStamp: true,
             addSeparatorAfter: true,
             addSpaceAfter: true,
         });
 
-        // 1. Fetch current episode's watched_by list
         const episodeResponse = await platformService.call(
             "bEpisodeGetBEpisodesById",
             {
@@ -48,12 +47,10 @@ export const POST = async (
         const episode = episodeResponse.data.data;
         const currentWatchedBy = episode.watched_by?.data || [];
 
-        // 2. Remove user ID from watched_by list
         const updatedWatchedBy = currentWatchedBy.filter(
             (userId: string) => userId !== userCookie.documentId
         );
 
-        // 3. Put updated watched_by list back to Platform SDK
         const updateResponse = await platformService.call(
             "bEpisodePutBEpisodesById",
             {
