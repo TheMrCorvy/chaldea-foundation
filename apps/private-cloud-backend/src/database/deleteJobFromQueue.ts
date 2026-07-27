@@ -5,6 +5,21 @@ const deleteJobFromQueue = async (id: number): Promise<void> => {
     const prisma = getPrisma();
 
     try {
+        const job = await prisma.jobQueue.findUnique({
+            where: { id },
+        });
+
+        if (!job) {
+            logData({
+                title: `Job ${id} not found in queue`,
+                layer: 'queue_jobs',
+                type: 'warn',
+                timeStamp: true,
+            });
+
+            return;
+        }
+
         await prisma.jobQueue.delete({
             where: { id },
         });
