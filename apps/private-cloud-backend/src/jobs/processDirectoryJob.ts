@@ -8,10 +8,6 @@ import { Directory } from '@repo/type-definitions';
 const processDirectoryJob = async (job: JobRow): Promise<void> => {
     const payload = job.payload as unknown as Directory;
 
-    console.log('- - - - - - - - - -');
-    console.log(payload);
-    console.log('- - - - - - - - - -');
-
     logData({
         title: `Processing directory job: ${payload.display_name}`,
         data: { jobId: job.id, entry: payload },
