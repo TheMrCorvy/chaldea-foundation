@@ -1,32 +1,30 @@
 import { getPrisma } from './connection';
 import { JobQueue, JobStatus } from '@prisma/client';
 
-const claimPendingJobs = async (limit = 5): Promise<JobQueue[]> => {
+const claimPendingJob = async (): Promise<JobQueue | null> => {
     const prisma = getPrisma();
 
     return await prisma.$transaction(async transaction => {
-        const jobs = await transaction.jobQueue.findMany({
+        const job = await transaction.jobQueue.findFirstOrThrow({
             where: { status: JobStatus.pending },
             orderBy: { created_at: 'asc' },
-            take: limit,
+            take: 1,
         });
 
-        if (jobs.length === 0) {
-            return [];
+        if (!job || job.status !== JobStatus.pending) {
+            return null;
         }
 
-        const ids = jobs.map(j => j.id);
-
-        await transaction.jobQueue.updateMany({
-            where: { id: { in: ids } },
+        await transaction.jobQueue.update({
+            where: { id: job.id },
             data: {
                 status: JobStatus.processing,
                 attempts: { increment: 1 },
             },
         });
 
-        return jobs;
+        return job;
     });
 };
 
-export default claimPendingJobs;
+export default claimPendingJob;
