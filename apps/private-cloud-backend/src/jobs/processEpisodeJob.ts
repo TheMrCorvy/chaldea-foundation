@@ -3,14 +3,14 @@ import type { JobRow } from '../database/utils';
 import markJobDone from '../database/markJobDone';
 import markJobFailed from '../database/markJobFailed';
 import { MisakaNetwork } from '../services/misaka_network';
-import type { ProcessEpisodeJobPayload } from '../services/jobProcessor.service';
+import { Episode } from '@repo/type-definitions';
 
 const processEpisodeJob = async (job: JobRow): Promise<void> => {
-    const { entry } = job.payload as unknown as ProcessEpisodeJobPayload;
+    const payload = job.payload as unknown as Episode;
 
     logData({
-        title: `Processing episode job: ${entry.display_name}`,
-        data: { jobId: job.id, entry },
+        title: `Processing episode job: ${payload.display_name}`,
+        data: { jobId: job.id, entry: payload },
         layer: 'queue_jobs',
         type: 'info',
         addSpaceAfter: true,
@@ -20,11 +20,11 @@ const processEpisodeJob = async (job: JobRow): Promise<void> => {
 
     try {
         const processingPower = new MisakaNetwork();
-        await processingPower.processEpisode({ entry });
+        await processingPower.processEpisode({ entry: payload });
         await markJobDone(job.id);
     } catch (err) {
         logData({
-            title: `Error processing episode job: ${entry.display_name}`,
+            title: `Error processing episode job: ${payload.display_name}`,
             data: { jobId: job.id, error: String(err) },
             layer: 'queue_jobs',
             type: 'error',
