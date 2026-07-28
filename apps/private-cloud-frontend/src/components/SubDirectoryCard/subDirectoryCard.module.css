@@ -94,22 +94,33 @@
     overflow: hidden;
 }
 
-.paper::before,
+/* Top accent bar — simulates a video file header strip */
+.paper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 22%;
+    background: #0b6bcb;
+    border-radius: 0.375em 0.375em 0 0;
+}
+
+/* Circular play button — SVG background for clean circle + triangle */
 .paper::after {
     content: "";
     position: absolute;
-    left: 14%;
-    right: 24%;
-    height: 6%;
-    border-radius: 0.2em;
-    background: var(--paper-2);
-}
-.paper::before {
-    top: 22%;
-}
-.paper::after {
-    top: 40%;
-    right: 40%;
+    top: 45%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 1.6em;
+    height: 1.6em;
+    border-style: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='rgba(40%2C40%2C40%2C0.78)'/%3E%3Cpolygon points='8.5%2C7 19%2C12 8.5%2C17' fill='rgba(210%2C210%2C210%2C0.92)'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: none;
 }
 
 .paper--1 {
@@ -117,13 +128,25 @@
     height: 70%;
     background: #f6f4ee;
 }
+.paper--1::before {
+    background: #0b6bcb;
+}
+
 .paper--2 {
     width: 82%;
     height: 74%;
     background: #fbfaf6;
 }
+.paper--2::before {
+    background: #0b6bcb;
+}
+
 .paper--3 {
     width: 86%;
+    background: var(--paper);
+}
+.paper--3::before {
+    background: #ff5a1f;
 }
 
 .folder__front {
