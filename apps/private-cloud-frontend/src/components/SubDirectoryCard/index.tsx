@@ -1,136 +1,65 @@
 import { FC } from "react";
-import {
-    Box,
-    Card,
-    CardContent,
-    Grid,
-    Link,
-    Tooltip,
-    Typography,
-} from "@mui/joy";
+import { Grid } from "@mui/joy";
 import { Directory } from "@repo/type-definitions";
-import { WebRoutes } from "@/utils/routes";
-import { getScreenSize } from "@/utils/screenSize";
-import FolderIcon from "@mui/icons-material/Folder";
-import ErrorIcon from "@mui/icons-material/Error";
-import NoAdultContentIcon from "@mui/icons-material/NoAdultContent";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import styles from "./subDirectoryCard.module.css";
+import Link from "next/link";
 
 export interface SubDirectoryCardProps {
     directory: Directory;
 }
 
 const SubDirectoryCard: FC<SubDirectoryCardProps> = ({ directory }) => {
+    const tags =
+        directory.tags && directory.tags?.length > 0
+            ? directory.tags.map((tag) => tag.name).join(", ")
+            : "No tags available";
+
     return (
-        <Grid xs="auto">
+        <Grid
+            xs={12}
+            md={6}
+            lg={4}
+            xl={3}
+            sx={{
+                mt: 2,
+                mb: 2,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
             <Link
-                href={WebRoutes.DIRECTORY + "/" + directory.documentId}
-                sx={{
-                    textDecoration: "none",
-                    zIndex: 0,
-                    "&:hover": {
-                        textDecoration: "none",
-                    },
-                }}
+                href={`/directory/${directory.documentId}`}
+                className={styles.link}
             >
-                <Card
-                    variant="soft"
-                    sx={{
-                        backgroundColor: "#0B6BCB15 !important",
-                        border: "1px solid #0B6BCB40",
-                        transition: "all 0.2s ease-in-out",
-                        "&:hover": {
-                            cursor: "pointer",
-                            transform: "translateX(4px)",
-                            backgroundColor: "#0B6BCB25 !important",
-                            borderColor: "#0B6BCB80",
-                        },
-                        [`@media (max-width: ${getScreenSize("xl")}px)`]: {
-                            width: "350px",
-                            textOverflow: "ellipsis",
-                        },
-                    }}
-                >
-                    <CardContent
-                        sx={{
-                            display: "flex",
-                            flexDirection: "row",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            padding: 1.5,
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: 1.5,
-                                flex: 1,
-                                minWidth: 0,
-                            }}
-                        >
-                            <FolderIcon
-                                sx={{
-                                    fontSize: 28,
-                                    color: "#0B6BCB",
-                                    flexShrink: 0,
-                                }}
-                            />
-                            <Typography
-                                sx={{
-                                    color: "white",
-                                    fontWeight: 500,
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    whiteSpace: "nowrap",
-                                }}
-                            >
-                                {directory.display_name}
-                            </Typography>
-                        </Box>
-                        <Box
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: 0.5,
-                                flexShrink: 0,
-                            }}
-                        >
-                            {directory.age_rating === "explicit" && (
-                                <Tooltip
-                                    title="Contenido sensible"
-                                    placement="top"
-                                    variant="solid"
-                                >
-                                    <ErrorIcon
-                                        sx={{
-                                            fontSize: 20,
-                                        }}
-                                    />
-                                </Tooltip>
-                            )}
-                            {directory.age_rating === "adults" && (
-                                <Tooltip
-                                    title="Contenido para adultos"
-                                    placement="top"
-                                    variant="solid"
-                                >
-                                    <NoAdultContentIcon
-                                        sx={{
-                                            fontSize: 20,
-                                        }}
-                                    />
-                                </Tooltip>
-                            )}
-                            <ChevronRightIcon
-                                sx={{
-                                    fontSize: 24,
-                                    color: "#A8B2C3",
-                                }}
-                            />
-                        </Box>
-                    </CardContent>
-                </Card>
+                <label className={styles.folder}>
+                    <input
+                        type="checkbox"
+                        className={styles.folder__toggle}
+                        aria-label="Open folder"
+                    />
+                    <span className={styles.folder__shape}>
+                        <span className={styles.folder__back}></span>
+                        <span className={styles.folder__papers}>
+                            <span
+                                className={`${styles.paper} ${styles["paper--1"]}`}
+                            ></span>
+                            <span
+                                className={`${styles.paper} ${styles["paper--2"]}`}
+                            ></span>
+                            <span
+                                className={`${styles.paper} ${styles["paper--3"]}`}
+                            ></span>
+                        </span>
+                        <span className={styles.folder__front}></span>
+                    </span>
+                    <span className={styles.folder__meta}>
+                        <span className={styles.folder__title}>
+                            {directory.display_name}
+                        </span>
+                        <span className={styles.folder__count}>{tags}</span>
+                    </span>
+                </label>
             </Link>
         </Grid>
     );
