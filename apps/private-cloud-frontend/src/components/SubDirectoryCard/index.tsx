@@ -12,7 +12,7 @@ const SubDirectoryCard: FC<SubDirectoryCardProps> = ({ directory }) => {
     const tags =
         directory.tags && directory.tags?.length > 0
             ? directory.tags.map((tag) => tag.name).join(", ")
-            : "No tags available";
+            : "";
 
     return (
         <Grid
