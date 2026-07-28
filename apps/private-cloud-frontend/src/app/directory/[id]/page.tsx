@@ -167,17 +167,28 @@ const DirectoryPage = async ({ params }: Page) => {
         return redirect(WebRoutes.NOT_FOUND + "/3");
     }
 
+    const queryObject: QueryParams = {
+        filters: {
+            parent_directory: {
+                $null: true,
+            },
+        },
+        fields: ["display_name", "documentId", "age_rating"],
+    };
+
+    if (
+        session.role.type !== RoleTypes.ADULT_ANIME_WATCHER &&
+        queryObject.filters
+    ) {
+        queryObject.filters.age_rating = {
+            $in: ["everyone", "explicit"],
+        };
+    }
+
     const mainDirectoriesResponse = await platformService.call(
         "bDirectoryGetBDirectories",
         {
-            query: {
-                filters: {
-                    parent_directory: {
-                        $null: true,
-                    },
-                },
-                fields: ["display_name", "documentId", "age_rating"],
-            },
+            query: queryObject,
         }
     );
 

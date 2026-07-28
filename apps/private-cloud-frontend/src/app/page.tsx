@@ -59,7 +59,7 @@ const Home = async () => {
         queryObject.filters
     ) {
         queryObject.filters.age_rating = {
-            $eq: "everyone",
+            $in: ["everyone", "explicit"],
         };
     }
 

@@ -17,7 +17,12 @@ import PlatformService from "@repo/platform-service-sdk";
 import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
 import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";
 import { logData } from "@repo/shared-utils/log-data";
-import { Directory, Episode, RoleTypes } from "@repo/type-definitions";
+import {
+    Directory,
+    Episode,
+    QueryParams,
+    RoleTypes,
+} from "@repo/type-definitions";
 import { redirect } from "next/navigation";
 
 const EpisodePage = async ({ params }: Page) => {
@@ -46,6 +51,24 @@ const EpisodePage = async ({ params }: Page) => {
     const platformService = new PlatformService();
     platformService.setJWT(jwt.jwt);
 
+    const queryObject: QueryParams = {
+        filters: {
+            parent_directory: {
+                $null: true,
+            },
+        },
+        fields: ["display_name", "documentId", "age_rating"],
+    };
+
+    if (
+        userCookie.role.type !== RoleTypes.ADULT_ANIME_WATCHER &&
+        queryObject.filters
+    ) {
+        queryObject.filters.age_rating = {
+            $in: ["everyone", "explicit"],
+        };
+    }
+
     const [episodeBeforeWatching, mainDirectoriesResponse] = await Promise.all([
         platformService.call("bEpisodeGetBEpisodesById", {
             path: {
@@ -56,14 +79,7 @@ const EpisodePage = async ({ params }: Page) => {
             },
         }),
         platformService.call("bDirectoryGetBDirectories", {
-            query: {
-                filters: {
-                    parent_directory: {
-                        $null: true,
-                    },
-                },
-                fields: ["display_name", "documentId", "age_rating"],
-            },
+            query: queryObject,
         }),
     ]);
 

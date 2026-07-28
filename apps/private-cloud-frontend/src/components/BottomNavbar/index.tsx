@@ -26,6 +26,7 @@ const BottomNav: FC<BottomNavbProps> = ({
     mainDirectories,
     onlyGoBack = false,
     allowAdultContent = false,
+    allowExplicitContent = false,
 }) => {
     const {
         actions,
@@ -92,7 +93,11 @@ const BottomNav: FC<BottomNavbProps> = ({
                 open={searchModalOpen}
                 onClose={() => setSearchModalOpen(false)}
             >
-                <Search allowAdultContent={allowAdultContent} autoFocus />
+                <Search
+                    allowAdultContent={allowAdultContent}
+                    allowExplicitContent={allowExplicitContent}
+                    autoFocus
+                />
             </SearchModal>
             <SendReport
                 open={reportModalOpen}
