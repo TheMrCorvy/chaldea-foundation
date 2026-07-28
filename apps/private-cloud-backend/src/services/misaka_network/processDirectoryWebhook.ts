@@ -18,11 +18,30 @@ const processDirectoryWebhook = async ({ entry }: ProcessDirectoryParams): Promi
     if (!secureBasePath) throw new Error('SECURE_BASE_PATH is not set');
 
     const diskPath = secureBasePath + entry.path;
+    const updatedPath = secureBasePath + entry.parent_directory?.path + '/' + entry.display_name;
+
+    let realPath = '';
 
     try {
         await fs.access(diskPath);
+        realPath = diskPath;
     } catch {
-        throw new Error(`Directory not found on disk: ${diskPath}`);
+        logData({
+            title: "Directory's path has been updated, trying with parent's path",
+            data: { diskPath, updatedPath, entry },
+            layer: 'queue_jobs',
+            type: 'info',
+            timeStamp: true,
+        });
+    }
+
+    if (!realPath) {
+        try {
+            await fs.access(updatedPath);
+            realPath = updatedPath;
+        } catch {
+            throw new Error(`Directory not found on disk: ${diskPath} or ${updatedPath}`);
+        }
     }
 
     const platformService = new PlatformService();
@@ -30,13 +49,13 @@ const processDirectoryWebhook = async ({ entry }: ProcessDirectoryParams): Promi
 
     logData({
         title: `Processing directory: ${entry.display_name}`,
-        data: { diskPath, documentId: entry.documentId },
+        data: { realPath, documentId: entry.documentId },
         layer: 'queue_jobs',
         type: 'info',
         timeStamp: true,
     });
 
-    const scanResult = await scanDirectoryOnDisk(diskPath);
+    const scanResult = await scanDirectoryOnDisk(realPath);
 
     await processEpisodesInDirectory({
         episodes: scanResult.episodes,
@@ -48,7 +67,7 @@ const processDirectoryWebhook = async ({ entry }: ProcessDirectoryParams): Promi
 
     if (scanResult.hasCover) {
         coverId = await uploadDirectoryCover({
-            coverPath: path.join(diskPath, 'cover.jpg'),
+            coverPath: path.join(realPath, 'cover.jpg'),
             apiKey,
         });
     }
@@ -58,7 +77,12 @@ const processDirectoryWebhook = async ({ entry }: ProcessDirectoryParams): Promi
             ? await resolveDirectoryTags(scanResult.metadata.tags, entry.path, platformService)
             : [];
 
-    await processChildDirectories({ childNames: scanResult.childDirectories, parentDirectory: entry, platformService });
+    await processChildDirectories({
+        childNames: scanResult.childDirectories,
+        parentDirectory: entry,
+        platformService,
+        realParentDirPath: realPath,
+    });
 
     await finalizeDirectory({
         entry,

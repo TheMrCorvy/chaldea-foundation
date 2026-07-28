@@ -41,10 +41,11 @@ export interface UpdateChildDirectoryParams {
     parentDirectory: Directory;
     platformService: PlatformService;
     age_rating?: string;
+    path: string;
 }
 
 const updateChildDirectory = async (params: UpdateChildDirectoryParams): Promise<void> => {
-    const { existingDir, parentDirectory, platformService, age_rating } = params;
+    const { existingDir, parentDirectory, platformService, age_rating, path } = params;
 
     const updatedDirectory = await platformService.call('bDirectoryPutBDirectoriesById', {
         body: {
@@ -52,6 +53,7 @@ const updateChildDirectory = async (params: UpdateChildDirectoryParams): Promise
                 parent_directory: parentDirectory.documentId,
                 is_processing: true,
                 age_rating: age_rating,
+                path,
             },
         },
         path: { id: existingDir.documentId },
@@ -70,10 +72,11 @@ export interface ProcessChildDirectoriesParams {
     childNames: string[];
     parentDirectory: Directory;
     platformService: PlatformService;
+    realParentDirPath: string;
 }
 
 export const processChildDirectories = async (params: ProcessChildDirectoriesParams): Promise<void> => {
-    const { childNames, parentDirectory, platformService } = params;
+    const { childNames, parentDirectory, platformService, realParentDirPath } = params;
 
     logData({
         title: `Processing child directories for parent ${parentDirectory.display_name}`,
@@ -84,7 +87,7 @@ export const processChildDirectories = async (params: ProcessChildDirectoriesPar
     });
 
     for (const childName of childNames) {
-        const childPath = `${parentDirectory.path}/${childName}`;
+        const childPath = `${realParentDirPath}/${childName}`;
         const childAgeRating = determineAgeRating(childName);
 
         const existing = await platformService.call('bDirectoryGetBDirectories', {
@@ -115,6 +118,7 @@ export const processChildDirectories = async (params: ProcessChildDirectoriesPar
                 parentDirectory,
                 platformService,
                 age_rating: childAgeRating,
+                path: childPath,
             });
 
             continue;
