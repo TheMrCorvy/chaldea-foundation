@@ -52,6 +52,7 @@ const Home = async () => {
         pagination: {
             pageSize: 5,
         },
+        sort:["createdAt:desc"]
     };
 
     if (
