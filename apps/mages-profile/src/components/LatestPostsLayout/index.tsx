@@ -126,6 +126,8 @@ const LatestPostsLayout: FC<LatestPostsLayoutProps> = ({ posts }) => {
                                         height: "250px",
                                         width: "100%",
                                         borderRadius: "8px",
+                                        objectFit: "cover",
+                                        objectPosition: "center",
                                     }}
                                 />
                             )}
