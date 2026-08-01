@@ -65,7 +65,7 @@ describe("TagFilterBar", () => {
             />
         );
 
-        await userEvent.click(screen.getByText("acción"));
+        await userEvent.click(screen.getByRole("button", { name: /acción/i }));
 
         expect(onTagToggle).toHaveBeenCalledTimes(1);
         expect(onTagToggle).toHaveBeenCalledWith(2);
@@ -109,7 +109,7 @@ describe("TagFilterBar", () => {
             />
         );
 
-        await userEvent.click(screen.getByText("Limpiar"));
+        await userEvent.click(screen.getByRole("button", { name: /limpiar/i }));
 
         expect(onClearAll).toHaveBeenCalledTimes(1);
     });

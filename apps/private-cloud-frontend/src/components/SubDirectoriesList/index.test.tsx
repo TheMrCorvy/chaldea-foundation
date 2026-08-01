@@ -52,7 +52,7 @@ describe("SubDirectoriesList", () => {
         expect(dramaLink.getAttribute("href")).toBe("/directory/dir-drama");
     });
 
-    it("shows adult indicator only for adult sub-directories", () => {
+    it("renders one link per sub-directory regardless of age rating", () => {
         const subDirectories: Directory[] = [
             createDirectory({
                 id: 3,
@@ -75,7 +75,12 @@ describe("SubDirectoriesList", () => {
             />
         );
 
-        expect(screen.getAllByText("ENTRAR")).toHaveLength(2);
-        expect(screen.getAllByTestId("NoAdultContentIcon")).toHaveLength(1);
+        const generalLink = screen.getByRole("link", { name: /general/i });
+        const adultLink = screen.getByRole("link", { name: /\+18/i });
+
+        expect(generalLink).toBeInTheDocument();
+        expect(generalLink.getAttribute("href")).toBe("/directory/dir-general");
+        expect(adultLink).toBeInTheDocument();
+        expect(adultLink.getAttribute("href")).toBe("/directory/dir-adult");
     });
 });
