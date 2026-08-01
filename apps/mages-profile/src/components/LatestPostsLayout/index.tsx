@@ -171,6 +171,8 @@ const LatestPostsLayout: FC<LatestPostsLayoutProps> = ({ posts }) => {
                                                         component="div"
                                                         sx={{
                                                             color: "grey.400",
+                                                            textTransform:
+                                                                "capitalize",
                                                         }}
                                                     >
                                                         {category.name}
