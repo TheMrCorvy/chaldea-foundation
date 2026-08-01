@@ -27,7 +27,7 @@ import DynamicPdfFile from "../Shared/DynamicPdfFile";
 import DynamicLink from "../Shared/DynamicLink";
 import IconComponent from "../../IconComponent";
 import DynamicForm from "../Shared/DynamicForm";
-import DynamicBlogImage from "./DynamicBlogImage";
+import DynamicBlogImage from "../Shared/DynamicBlogImage";
 import DynamicLogoLoop from "./DynamicLogoLoop";
 import DynamicLastPosts from "../Shared/DynamicLastPosts";
 import DynamicReadingProgressBar from "../Shared/DynamicReadingProgressBar";
