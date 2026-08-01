@@ -34,7 +34,6 @@ import SubDirectoriesList from "@/components/SubDirectoriesList";
 
 const DirectoryPage = async ({ params }: Page) => {
     const jwt = (await getCookie(CookiesList.JWT)) as JwtCookie;
-    // const userCookie = (await getCookie(CookiesList.USER)) as MeResponse | null;
     const session = (await getCookie(CookiesList.USER)) as MeResponse | null;
     const { id } = await params;
 
