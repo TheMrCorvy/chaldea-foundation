@@ -24,18 +24,25 @@ import { logData } from "@repo/shared-utils/log-data";
 import {
     Directory,
     Episode,
+    PaginationObject,
     QueryParams,
     RoleTypes,
 } from "@repo/type-definitions";
+import DirectoryPagination from "@/components/DirectoryPagination";
 import { redirect } from "next/navigation";
 import { getScreenSize } from "@/utils/screenSize";
 import EpisodeCard from "@/components/EpisodeCard";
 import SubDirectoriesList from "@/components/SubDirectoriesList";
 
-const DirectoryPage = async ({ params }: Page) => {
+const DirectoryPage = async ({ params, searchParams }: Page) => {
     const jwt = (await getCookie(CookiesList.JWT)) as JwtCookie;
     const session = (await getCookie(CookiesList.USER)) as MeResponse | null;
     const { id } = await params;
+    const { page: pageParam } = await searchParams;
+    const currentPage = Math.max(
+        1,
+        parseInt(String(pageParam ?? "1"), 10) || 1
+    );
 
     if (
         !id ||
@@ -54,6 +61,7 @@ const DirectoryPage = async ({ params }: Page) => {
 
     let mainDirectories: Directory[];
     let subDirectories: Directory[];
+    let subDirectoriesPagination: PaginationObject;
     let currentDirectory: Directory;
     let episodes: Episode[];
 
@@ -79,7 +87,8 @@ const DirectoryPage = async ({ params }: Page) => {
         },
         sort: ["display_name:asc"],
         pagination: {
-            pageSize: 2000,
+            pageSize: 52,
+            page: currentPage,
         },
     };
 
@@ -119,6 +128,7 @@ const DirectoryPage = async ({ params }: Page) => {
 
     try {
         subDirectories = directoriesResponse.data.data;
+        subDirectoriesPagination = directoriesResponse.data.meta.pagination;
     } catch (error) {
         logData({
             title: "Sub directories query threw an error",
@@ -516,6 +526,10 @@ const DirectoryPage = async ({ params }: Page) => {
                             imageBaseUrl={imageBaseUrl}
                         />
                     )}
+                    <DirectoryPagination
+                        page={subDirectoriesPagination!.page}
+                        pageCount={subDirectoriesPagination!.pageCount}
+                    />
                     {episodes.length > 0 && (
                         <Grid
                             container
