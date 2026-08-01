@@ -1,6 +1,5 @@
 import Box from "@mui/joy/Box";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { fn } from "@storybook/test";
 import TagFilterBar, { TagFilterBarProps } from ".";
 import type { BlogPostCategory } from "@repo/type-definitions";
 
@@ -73,8 +72,8 @@ const meta = {
     args: {
         tags: mockTags,
         selectedTagIds: [],
-        onTagToggle: fn(),
-        onClearAll: fn(),
+        onTagToggle: () => {},
+        onClearAll: () => {},
     },
 } satisfies Meta<TagFilterBarProps>;
 
