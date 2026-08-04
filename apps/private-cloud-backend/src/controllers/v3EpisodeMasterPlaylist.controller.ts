@@ -57,7 +57,6 @@ const v3EpisodeMasterPlaylistController = (req: Request, res: Response): void =>
     res.writeHead(200, {
         'Content-Type': 'application/x-mpegURL',
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true',
         'Cache-Control': 'no-cache, no-store, must-revalidate',
     });
 

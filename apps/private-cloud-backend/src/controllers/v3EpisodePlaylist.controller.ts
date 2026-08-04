@@ -88,7 +88,6 @@ const v3EpisodePlaylistController = async (req: Request, res: Response): Promise
         res.writeHead(200, {
             'Content-Type': 'application/x-mpegURL',
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': 'true',
             'Cache-Control': 'no-cache, no-store, must-revalidate',
         });
 

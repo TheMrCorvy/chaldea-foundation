@@ -47,7 +47,6 @@ const v3EpisodeSegmentController = (req: Request, res: Response): void => {
     res.writeHead(200, {
         'Content-Type': 'video/MP2T',
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true',
         'Cache-Control': 'public, max-age=3600',
     });
 
@@ -83,11 +82,31 @@ const v3EpisodeSegmentController = (req: Request, res: Response): void => {
 
     ffmpeg.stdout.pipe(res);
 
+    // Drain stderr to prevent the subprocess from blocking on a full buffer
+    // ffmpeg.stderr.resume();
+
     const killFfmpeg = (): void => {
         if (!ffmpeg.killed) {
             ffmpeg.kill('SIGKILL');
         }
     };
+
+    ffmpeg.on('error', err => {
+        logData({
+            layer: 'video_streaming',
+            title: 'ffmpeg spawn error',
+            data: { message: err.message },
+            addSpaceAfter: true,
+            addSeparatorAfter: true,
+            timeStamp: true,
+            type: 'error',
+        });
+        if (!res.writableEnded) res.end();
+    });
+
+    ffmpeg.on('close', code => {
+        if (code !== 0 && !res.writableEnded) res.end();
+    });
 
     // Kill process when client disconnects or connection closes
     req.on('close', killFfmpeg);
