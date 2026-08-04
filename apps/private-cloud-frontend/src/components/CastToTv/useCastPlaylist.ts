@@ -1,15 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { LanguagesInfo } from "@repo/type-definitions";
-import { getLanguageInfo } from "@repo/shared-utils/language-utils";
-
-export interface UseCastPlaylistProps {
-    fileName: string;
-    fileType: string;
-    parentDirectory: string;
-    languagesInfo: LanguagesInfo | null;
-    apiKey: string;
-    nasBaseUrl: string;
-}
+export { useCast as useCastPlaylist } from "./useCast";
+export type { UseCastProps as UseCastPlaylistProps } from "./useCast";
 
 interface CastContextInstance {
     setOptions: (options: {

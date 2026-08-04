@@ -1,5 +1,13 @@
-export { useCast as useCastMaster } from "./useCast";
-export type { UseCastProps as UseCastMasterProps } from "./useCast";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+export interface UseCastProps {
+    videoSrc: string;
+    subtitleSrc?: string;
+    metadata?: {
+        subsLabel: string;
+        subsLanguage: string;
+    };
+}
 
 interface CastContextInstance {
     setOptions: (options: {
@@ -62,14 +70,7 @@ interface CastWindow extends Window {
 
 const DEFAULT_RECEIVER_APP_ID = "CC1AD845";
 
-export const useCastMaster = ({
-    fileName,
-    fileType,
-    parentDirectory,
-    languagesInfo,
-    apiKey,
-    nasBaseUrl,
-}: UseCastMasterProps) => {
+export const useCast = ({ videoSrc, subtitleSrc, metadata }: UseCastProps) => {
     const [castReady, setCastReady] = useState(false);
     const [casting, setCasting] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -78,74 +79,6 @@ export const useCastMaster = ({
     const remoteControllerRef = useRef<RemotePlayerControllerInstance | null>(
         null
     );
-
-    // Compute default indices
-    const audioIndex = (() => {
-        if (!languagesInfo?.audioTracks) return 0;
-        const jpnTrack = languagesInfo.audioTracks.find(
-            (track) => track.language?.toLowerCase() === "jpn"
-        );
-        if (jpnTrack) return jpnTrack.trackIndex;
-        const unknownTrack = languagesInfo.audioTracks.find(
-            (track) => track.language?.toLowerCase() === "unknown"
-        );
-        if (unknownTrack) return unknownTrack.trackIndex;
-        return languagesInfo.audioTracks[0]?.trackIndex ?? 0;
-    })();
-
-    const subtitleIndex = (() => {
-        if (!languagesInfo?.audioTracks || !languagesInfo?.subtitleTracks)
-            return -1;
-        const jpnTrack = languagesInfo.audioTracks.find(
-            (track) => track.language?.toLowerCase() === "jpn"
-        );
-        const unknownTrack = languagesInfo.audioTracks.find(
-            (track) => track.language?.toLowerCase() === "unknown"
-        );
-        const defaultAudioTrack =
-            jpnTrack || unknownTrack || languagesInfo.audioTracks[0];
-        const defaultAudioLang = defaultAudioTrack?.language?.toLowerCase();
-
-        if (defaultAudioLang === "jpn" || defaultAudioLang === "unknown") {
-            const espSubtitle = languagesInfo.subtitleTracks.find((track) => {
-                const l = track.language?.toLowerCase();
-                return l === "esp" || l === "spa" || l === "es";
-            });
-            if (espSubtitle) return espSubtitle.trackIndex;
-        }
-        return -1;
-    })();
-
-    // Construct media URLs
-    const videoSrc = `${nasBaseUrl}/api/v3/serve-episode/master.m3u8?parentDirectory=${encodeURIComponent(
-        parentDirectory
-    )}&fileName=${encodeURIComponent(fileName)}&fileType=${fileType}&audioIndex=${audioIndex}&apiKey=${encodeURIComponent(apiKey)}`;
-
-    const subtitleSrc =
-        subtitleIndex !== -1
-            ? `${nasBaseUrl}/api/v2/serve-episode/subtitles?parentDirectory=${encodeURIComponent(
-                  parentDirectory
-              )}&fileName=${encodeURIComponent(fileName)}&apiKey=${encodeURIComponent(apiKey)}&subtitleIndex=${subtitleIndex}`
-            : undefined;
-
-    const subtitleMetadata = (() => {
-        if (
-            subtitleIndex !== -1 &&
-            languagesInfo?.subtitleTracks?.[subtitleIndex]
-        ) {
-            const track = languagesInfo.subtitleTracks[subtitleIndex];
-            const languageInfo = getLanguageInfo(track.language, {
-                code2: true,
-                nameSpanish: true,
-            });
-            return {
-                subsLabel:
-                    languageInfo?.nameSpanish || track.language || "Spanish",
-                subsLanguage: languageInfo?.code2 || track.language || "es",
-            };
-        }
-        return undefined;
-    })();
 
     useEffect(() => {
         const win = window as unknown as CastWindow;
@@ -192,7 +125,7 @@ export const useCastMaster = ({
 
         mediaInfo.streamType = "BUFFERED";
 
-        if (subtitleSrc && subtitleMetadata) {
+        if (subtitleSrc && metadata) {
             mediaInfo.tracks = [
                 {
                     trackId: 1,
@@ -200,8 +133,8 @@ export const useCastMaster = ({
                     trackContentId: subtitleSrc,
                     trackContentType: "text/vtt",
                     subtype: "SUBTITLES",
-                    name: subtitleMetadata.subsLabel,
-                    language: subtitleMetadata.subsLanguage,
+                    name: metadata.subsLabel,
+                    language: metadata.subsLanguage,
                     customData: null,
                 },
             ];
@@ -210,12 +143,12 @@ export const useCastMaster = ({
 
         const request = new win.chrome.cast.media.LoadRequest(mediaInfo);
 
-        if (subtitleSrc && subtitleMetadata) {
+        if (subtitleSrc && metadata) {
             request.activeTrackIds = [1];
         }
 
         await session.loadMedia(request);
-    }, [videoSrc, subtitleSrc, subtitleMetadata]);
+    }, [videoSrc, subtitleSrc, metadata]);
 
     const handleCast = useCallback(async () => {
         setError(null);

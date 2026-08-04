@@ -2,8 +2,7 @@ import BottomNav from "@/components/BottomNavbar";
 import Script from "next/script";
 import SecureVideoPlayer from "@/components/SecureVideoPlayer";
 import V2SecureVideoPlayer from "@/components/V2SecureVideoPlayer";
-import CastPlaylistToTv from "@/components/CastToTv/CastPlaylistToTv";
-import CastMasterToTv from "@/components/CastToTv/CastMasterToTv";
+import CastToTvSelector from "@/components/CastToTv/CastToTvSelector";
 import {
     CookiesList,
     deleteCookie,
@@ -277,19 +276,7 @@ const EpisodePage = async ({ params }: Page) => {
                         justifyContent="center"
                         sx={{ mt: 2, mb: 1 }}
                     >
-                        <CastPlaylistToTv
-                            fileName={episode.display_name}
-                            fileType={episode.file_type}
-                            parentDirectory={
-                                episode.parent_directory?.path || ""
-                            }
-                            languagesInfo={episode.languages_info}
-                            apiKey={
-                                enableNas ? process.env.NAS_API_KEY || "" : ""
-                            }
-                            nasBaseUrl={process.env.NAS_BASE_URL || ""}
-                        />
-                        <CastMasterToTv
+                        <CastToTvSelector
                             fileName={episode.display_name}
                             fileType={episode.file_type}
                             parentDirectory={
