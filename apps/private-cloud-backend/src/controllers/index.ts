@@ -4,6 +4,7 @@ export { default as v2EpisodeController } from './v2Episode.controller';
 export { default as v2EpisodeSubtitlesController } from './v2EpisodeSubtitles.controller';
 export { default as v3EpisodePlaylistController } from './v3EpisodePlaylist.controller';
 export { default as v3EpisodeSegmentController } from './v3EpisodeSegment.controller';
+export { default as v3EpisodeMasterPlaylistController } from './v3EpisodeMasterPlaylist.controller';
 export { default as entryPublishWebhookController } from './strapiWebhook.entry.publish.controller';
 export { default as entryCreateWebhookController } from './strapiWebhook.entry.create.controller';
 export { default as entryUpdateWebhookController } from './strapiWebhook.entry.update.controller';
