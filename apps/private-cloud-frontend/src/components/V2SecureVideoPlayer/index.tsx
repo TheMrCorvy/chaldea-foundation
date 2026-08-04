@@ -27,7 +27,7 @@ import { getLanguageInfo } from "@repo/shared-utils/language-utils";
 import useControls from "./useControls";
 import useStyles from "./useStyles";
 import parseVtt from "@/utils/parseVtt";
-import CastToTv from "../CastToTv";
+// import CastToTv from "../CastToTv";
 
 export interface V2SecureVideoPlayerProps {
     fileType: string;
@@ -309,7 +309,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                 </Box>
 
                                 <div>
-                                    <CastToTv
+                                    {/* <CastToTv
                                         videoSrc={videoSrc}
                                         subtitleSrc={
                                             subtitleSrcUrl(subtitleIndex) ||
@@ -346,7 +346,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
                                                   })()
                                                 : undefined
                                         }
-                                    />
+                                    /> */}
 
                                     {/* Right Side: Fullscreen */}
                                     <IconButton
