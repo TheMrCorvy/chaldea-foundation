@@ -60,6 +60,7 @@ const v3EpisodePlaylistController = async (req: Request, res: Response): Promise
             '#EXT-X-PLAYLIST-TYPE:VOD',
         ];
 
+        const apiKey = String(req.query.apiKey ?? (req as { apiKey?: string }).apiKey ?? '');
         const totalSegments = Math.ceil(duration / SEGMENT_DURATION);
         for (let i = 0; i < totalSegments; i++) {
             const isLast = i === totalSegments - 1;
@@ -75,6 +76,9 @@ const v3EpisodePlaylistController = async (req: Request, res: Response): Promise
                 audioIndex: audioIndex.toString(),
                 segment: i.toString(),
             });
+            if (apiKey) {
+                queryParams.set('apiKey', apiKey);
+            }
             lines.push(`/api/v3/serve-episode/segment?${queryParams.toString()}`);
         }
 

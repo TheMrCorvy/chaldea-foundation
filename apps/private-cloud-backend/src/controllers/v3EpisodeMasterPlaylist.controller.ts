@@ -35,6 +35,7 @@ const v3EpisodeMasterPlaylistController = (req: Request, res: Response): void =>
         return;
     }
 
+    const apiKey = String(req.query.apiKey ?? (req as { apiKey?: string }).apiKey ?? '');
     // Multivariant (Master) Playlist lines
     const queryParams = new URLSearchParams({
         parentDirectory,
@@ -42,6 +43,9 @@ const v3EpisodeMasterPlaylistController = (req: Request, res: Response): void =>
         fileType,
         audioIndex: audioIndex.toString(),
     });
+    if (apiKey) {
+        queryParams.set('apiKey', apiKey);
+    }
 
     const lines: string[] = [
         '#EXTM3U',
