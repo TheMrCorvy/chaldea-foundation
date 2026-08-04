@@ -4,6 +4,8 @@ import {
     v1EpisodeController,
     v2EpisodeController,
     v2EpisodeSubtitlesController,
+    v3EpisodePlaylistController,
+    v3EpisodeSegmentController,
     entryPublishWebhookController,
     entryCreateWebhookController,
     entryUpdateWebhookController,
@@ -28,6 +30,14 @@ router.get('/api/v2/serve-episode', (req: Request, res: Response) => {
 
 router.get('/api/v2/serve-episode/subtitles', (req: Request, res: Response) => {
     v2EpisodeSubtitlesController(req, res);
+});
+
+router.get('/api/v3/serve-episode/playlist.m3u8', (req: Request, res: Response) => {
+    v3EpisodePlaylistController(req, res);
+});
+
+router.get('/api/v3/serve-episode/segment', (req: Request, res: Response) => {
+    v3EpisodeSegmentController(req, res);
 });
 
 router.post('/api/v2/d-mail/platform-service/entry/publish', (req: Request, res: Response) => {
