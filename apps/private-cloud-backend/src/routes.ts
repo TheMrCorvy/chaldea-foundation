@@ -6,6 +6,7 @@ import {
     v2EpisodeSubtitlesController,
     v3EpisodePlaylistController,
     v3EpisodeSegmentController,
+    v3EpisodeMasterPlaylistController,
     entryPublishWebhookController,
     entryCreateWebhookController,
     entryUpdateWebhookController,
@@ -30,6 +31,10 @@ router.get('/api/v2/serve-episode', (req: Request, res: Response) => {
 
 router.get('/api/v2/serve-episode/subtitles', (req: Request, res: Response) => {
     v2EpisodeSubtitlesController(req, res);
+});
+
+router.get('/api/v3/serve-episode/master.m3u8', (req: Request, res: Response) => {
+    v3EpisodeMasterPlaylistController(req, res);
 });
 
 router.get('/api/v3/serve-episode/playlist.m3u8', (req: Request, res: Response) => {
