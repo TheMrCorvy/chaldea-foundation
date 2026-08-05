@@ -71,9 +71,6 @@ const meta = {
     ],
     args: {
         tags: mockTags,
-        selectedTagIds: [],
-        onTagToggle: () => {},
-        onClearAll: () => {},
     },
 } satisfies Meta<TagFilterBarProps>;
 
@@ -83,17 +80,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-export const WithSelections: Story = {
-    args: {
-        selectedTagIds: [1, 3],
-    },
-};
+export const WithSelections: Story = {};
 
-export const AllSelected: Story = {
-    args: {
-        selectedTagIds: mockTags.map((t) => t.id),
-    },
-};
+export const AllSelected: Story = {};
 
 export const NoTags: Story = {
     args: {
