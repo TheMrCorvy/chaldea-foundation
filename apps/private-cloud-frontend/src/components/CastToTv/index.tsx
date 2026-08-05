@@ -11,9 +11,58 @@ export interface CastToTvProps {
     };
 }
 
+interface RemotePlayerControllerInstance {
+    playOrPause: () => void;
+}
+
+interface CastSession {
+    getMediaSession: () => unknown;
+    loadMedia: (request: LoadRequestInstance) => Promise<void>;
+}
+
+interface MediaInfoInstance {
+    streamType: string;
+    tracks?: unknown[];
+    textTrackStyle?: Record<string, unknown>;
+}
+
+interface LoadRequestInstance {
+    activeTrackIds?: number[];
+}
+
 interface CastWindow extends Window {
-    cast?: any;
-    chrome?: any;
+    cast?: {
+        framework: {
+            CastContext: {
+                getInstance: () => {
+                    setOptions: (options: {
+                        receiverApplicationId: string;
+                        autoJoinPolicy: string;
+                    }) => void;
+                    getCurrentSession: () => CastSession | null;
+                    requestSession: () => Promise<void>;
+                };
+            };
+            RemotePlayer: new () => unknown;
+            RemotePlayerController: new (
+                player: unknown
+            ) => RemotePlayerControllerInstance;
+        };
+    };
+    chrome?: {
+        cast: {
+            AutoJoinPolicy: { ORIGIN_SCOPED: string };
+            media: {
+                MediaInfo: new (
+                    contentUrl: string,
+                    contentType: string
+                ) => MediaInfoInstance;
+                LoadRequest: new (
+                    mediaInfo: MediaInfoInstance
+                ) => LoadRequestInstance;
+            };
+        };
+    };
     __onGCastApiAvailable?: (isAvailable: boolean) => void;
 }
 
@@ -49,8 +98,10 @@ const CastToTv: FC<CastToTvProps> = ({ videoSrc, subtitleSrc, metadata }) => {
     const [casting, setCasting] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const remotePlayerRef = useRef<any>(null);
-    const remoteControllerRef = useRef<any>(null);
+    const remotePlayerRef = useRef<unknown>(null);
+    const remoteControllerRef = useRef<RemotePlayerControllerInstance | null>(
+        null
+    );
 
     const canCast =
         !!videoSrc &&
@@ -58,9 +109,10 @@ const CastToTv: FC<CastToTvProps> = ({ videoSrc, subtitleSrc, metadata }) => {
 
     /** Initialize Cast SDK */
     useEffect(() => {
-        const win = window as CastWindow;
+        const win = window as unknown as CastWindow;
 
         const initCast = () => {
+            if (!win.cast || !win.chrome) return;
             const context = win.cast.framework.CastContext.getInstance();
             context.setOptions({
                 receiverApplicationId: DEFAULT_RECEIVER_APP_ID,
@@ -88,7 +140,8 @@ const CastToTv: FC<CastToTvProps> = ({ videoSrc, subtitleSrc, metadata }) => {
 
     /** Load media into Chromecast */
     const loadMedia = useCallback(async () => {
-        const win = window as CastWindow;
+        const win = window as unknown as CastWindow;
+        if (!win.cast || !win.chrome) return;
         const context = win.cast.framework.CastContext.getInstance();
         const session = context.getCurrentSession();
 
@@ -134,7 +187,10 @@ const CastToTv: FC<CastToTvProps> = ({ videoSrc, subtitleSrc, metadata }) => {
         setCasting(true);
 
         try {
-            const win = window as CastWindow;
+            const win = window as unknown as CastWindow;
+            if (!win.cast) {
+                throw new Error("Chromecast Cast API not loaded");
+            }
             const context = win.cast.framework.CastContext.getInstance();
             let session = context.getCurrentSession();
 
