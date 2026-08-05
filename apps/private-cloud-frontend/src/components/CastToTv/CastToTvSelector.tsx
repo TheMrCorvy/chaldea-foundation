@@ -6,10 +6,12 @@ import Option from "@mui/joy/Option";
 import Stack from "@mui/joy/Stack";
 import { LanguagesInfo } from "@repo/type-definitions";
 import { getLanguageInfo } from "@repo/shared-utils/language-utils";
+import CastToTv from "./index";
 import CastMasterToTv from "./CastMasterToTv";
 import CastPlaylistToTv from "./CastPlaylistToTv";
 
 export interface CastToTvSelectorProps {
+    version: "V1" | "V2";
     fileName: string;
     fileType: string;
     parentDirectory: string;
@@ -21,6 +23,7 @@ export interface CastToTvSelectorProps {
 type CastMode = "playlist" | "master";
 
 const CastToTvSelector: FC<CastToTvSelectorProps> = ({
+    version,
     fileName,
     fileType,
     parentDirectory,
@@ -104,6 +107,15 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
 
     const videoSrcPlaylist = `${nasBaseUrl}/api/v3/serve-episode/playlist.m3u8?${baseParams}`;
     const videoSrcMaster = `${nasBaseUrl}/api/v3/serve-episode/master.m3u8?${baseParams}`;
+
+    if (version === "V1") {
+        const videoSrcV1 = `${nasBaseUrl}/api/v1/serve-episode?parentDirectory=${encodeURIComponent(
+            parentDirectory
+        )}&fileName=${encodeURIComponent(
+            fileName
+        )}&fileType=${fileType}&apiKey=${encodeURIComponent(apiKey)}`;
+        return <CastToTv videoSrc={videoSrcV1} />;
+    }
 
     return (
         <Stack direction="row" spacing={1} alignItems="center">

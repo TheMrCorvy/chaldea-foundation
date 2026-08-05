@@ -277,6 +277,7 @@ const EpisodePage = async ({ params }: Page) => {
                         sx={{ mt: 2, mb: 1 }}
                     >
                         <CastToTvSelector
+                            version={episode.version}
                             fileName={episode.display_name}
                             fileType={episode.file_type}
                             parentDirectory={
