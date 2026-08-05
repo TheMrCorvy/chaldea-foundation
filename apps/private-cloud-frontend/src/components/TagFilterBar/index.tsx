@@ -4,21 +4,39 @@ import { FC } from "react";
 import { Box, Chip, Typography } from "@mui/joy";
 import { BlogPostCategory } from "@repo/type-definitions";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 export interface TagFilterBarProps {
     tags: BlogPostCategory[];
-    selectedTagIds: number[];
-    onTagToggle: (tagId: number) => void;
-    onClearAll: () => void;
 }
 
-const TagFilterBar: FC<TagFilterBarProps> = ({
-    tags,
-    selectedTagIds,
-    onTagToggle,
-    onClearAll,
-}) => {
+const TagFilterBar: FC<TagFilterBarProps> = ({ tags }) => {
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    const selectedTagNames = searchParams.getAll("tags");
+
     if (tags.length === 0) return null;
+
+    const handleTagToggle = (tagName: string) => {
+        const params = new URLSearchParams(searchParams.toString());
+        params.delete("tags");
+        const isSelected = selectedTagNames.includes(tagName);
+        const newTags = isSelected
+            ? selectedTagNames.filter((n) => n !== tagName)
+            : [...selectedTagNames, tagName];
+        newTags.forEach((n) => params.append("tags", n));
+        params.set("page", "1");
+        router.push(`${pathname}?${params.toString()}`);
+    };
+
+    const handleClearAll = () => {
+        const params = new URLSearchParams(searchParams.toString());
+        params.delete("tags");
+        params.set("page", "1");
+        router.push(`${pathname}?${params.toString()}`);
+    };
 
     return (
         <Box
@@ -60,14 +78,14 @@ const TagFilterBar: FC<TagFilterBarProps> = ({
             </Box>
 
             {tags.map((tag) => {
-                const isSelected = selectedTagIds.includes(tag.id);
+                const isSelected = selectedTagNames.includes(tag.name);
                 return (
                     <Chip
                         key={tag.id}
                         color={isSelected ? "primary" : "success"}
                         size="md"
                         variant={isSelected ? "solid" : "soft"}
-                        onClick={() => onTagToggle(tag.id)}
+                        onClick={() => handleTagToggle(tag.name)}
                         sx={{
                             cursor: "pointer",
                             textTransform: "capitalize",
@@ -80,11 +98,11 @@ const TagFilterBar: FC<TagFilterBarProps> = ({
                 );
             })}
 
-            {selectedTagIds.length > 0 && (
+            {selectedTagNames.length > 0 && (
                 <Chip
                     size="md"
                     variant="outlined"
-                    onClick={onClearAll}
+                    onClick={handleClearAll}
                     sx={{
                         cursor: "pointer",
                         ml: "auto",

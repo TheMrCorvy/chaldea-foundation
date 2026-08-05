@@ -15,7 +15,7 @@ export interface PaginationObject {
     total: number;
 }
 
-interface QueryObject {
+export interface QueryObject {
     [key: string]: string | string[] | QueryObject;
 }
 
@@ -68,7 +68,11 @@ type QueryFiltersRecord = Partial<
         | keyof ExtraKeysForQueryParams
         | keyof BlogPostCategory,
         QueryFilters
-    >
+    > & {
+        $and: QueryObject[];
+        $or: QueryObject[];
+        $not: QueryObject[];
+    }
 >;
 
 interface ExtraKeysForQueryParams {

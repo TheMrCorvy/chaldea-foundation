@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useMemo, useState } from "react";
+import { FC, useMemo } from "react";
 import { Grid } from "@mui/joy";
 import { BlogPostCategory, Directory } from "@repo/type-definitions";
 import { getScreenSize } from "@/utils/screenSize";
@@ -19,8 +19,6 @@ const SubDirectoriesList: FC<SubDirectoriesListProps> = ({
     hasEpisodes,
     imageBaseUrl,
 }) => {
-    const [selectedTagIds, setSelectedTagIds] = useState<number[]>([]);
-
     const allTags = useMemo<BlogPostCategory[]>(() => {
         const seen = new Set<number>();
         const tags: BlogPostCategory[] = [];
@@ -35,35 +33,13 @@ const SubDirectoriesList: FC<SubDirectoriesListProps> = ({
         return tags;
     }, [subDirectories]);
 
-    const handleTagToggle = (tagId: number) => {
-        setSelectedTagIds((prev) =>
-            prev.includes(tagId)
-                ? prev.filter((id) => id !== tagId)
-                : [...prev, tagId]
-        );
-    };
-
-    const visibleDirectories = useMemo(() => {
-        if (selectedTagIds.length === 0) return subDirectories;
-        return subDirectories.filter((dir) =>
-            selectedTagIds.every((tagId) =>
-                dir.tags?.some((t) => t.id === tagId)
-            )
-        );
-    }, [subDirectories, selectedTagIds]);
-
     if (subDirectories.length === 0) {
         return null;
     }
 
     return (
         <section>
-            <TagFilterBar
-                tags={allTags}
-                selectedTagIds={selectedTagIds}
-                onTagToggle={handleTagToggle}
-                onClearAll={() => setSelectedTagIds([])}
-            />
+            <TagFilterBar tags={allTags} />
             <Grid
                 container
                 spacing={2}
@@ -77,7 +53,7 @@ const SubDirectoriesList: FC<SubDirectoriesListProps> = ({
                     },
                 }}
             >
-                {visibleDirectories.map((subDir, i) =>
+                {subDirectories.map((subDir, i) =>
                     subDir.cover || subDir.description ? (
                         <V2SubDirectoryCard
                             key={`directory-page-sub-directories-list-${subDir.documentId}-${i}`}

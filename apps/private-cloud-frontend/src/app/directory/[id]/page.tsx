@@ -38,11 +38,16 @@ const DirectoryPage = async ({ params, searchParams }: Page) => {
     const jwt = (await getCookie(CookiesList.JWT)) as JwtCookie;
     const session = (await getCookie(CookiesList.USER)) as MeResponse | null;
     const { id } = await params;
-    const { page: pageParam } = await searchParams;
+    const { page: pageParam, tags: tagsParam } = await searchParams;
     const currentPage = Math.max(
         1,
         parseInt(String(pageParam ?? "1"), 10) || 1
     );
+    const selectedTagNames: string[] = tagsParam
+        ? Array.isArray(tagsParam)
+            ? tagsParam
+            : [tagsParam]
+        : [];
 
     if (
         !id ||
@@ -117,6 +122,12 @@ const DirectoryPage = async ({ params, searchParams }: Page) => {
         subDirectoriesQuery.filters.age_rating = {
             $in: ["everyone", "explicit", "adults"],
         };
+    }
+
+    if (selectedTagNames.length > 0 && subDirectoriesQuery.filters) {
+        subDirectoriesQuery.filters.$and = selectedTagNames.map((name) => ({
+            tags: { name: { $eq: name } },
+        }));
     }
 
     const directoriesResponse = await platformService.call(
