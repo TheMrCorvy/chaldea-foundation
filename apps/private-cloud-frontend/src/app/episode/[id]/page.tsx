@@ -233,13 +233,35 @@ const EpisodePage = async ({ params }: Page) => {
                         }}
                         fontWeight="bold"
                         mt={0}
-                        mb={1}
+                        mb={0}
                         sx={{
                             textTransform: "capitalize",
                         }}
                     >
                         {episode.display_name}
                     </Typography>
+
+                    <Stack
+                        direction="row"
+                        spacing={2}
+                        justifyContent="start"
+                        sx={{ mt: 0, mb: 1 }}
+                    >
+                        <CastToTvSelector
+                            version={episode.version}
+                            fileName={episode.display_name}
+                            fileType={episode.file_type}
+                            parentDirectory={
+                                episode.parent_directory?.path || ""
+                            }
+                            languagesInfo={episode.languages_info}
+                            apiKey={
+                                enableNas ? process.env.NAS_API_KEY || "" : ""
+                            }
+                            nasBaseUrl={process.env.NAS_BASE_URL || ""}
+                        />
+                    </Stack>
+
                     {episode.version === "V1" ? (
                         <SecureVideoPlayer
                             display_name={episode.display_name}
@@ -270,26 +292,6 @@ const EpisodePage = async ({ params }: Page) => {
                             nasBaseUrl={process.env.NAS_BASE_URL || ""}
                         />
                     )}
-                    <Stack
-                        direction="row"
-                        spacing={2}
-                        justifyContent="center"
-                        sx={{ mt: 2, mb: 1 }}
-                    >
-                        <CastToTvSelector
-                            version={episode.version}
-                            fileName={episode.display_name}
-                            fileType={episode.file_type}
-                            parentDirectory={
-                                episode.parent_directory?.path || ""
-                            }
-                            languagesInfo={episode.languages_info}
-                            apiKey={
-                                enableNas ? process.env.NAS_API_KEY || "" : ""
-                            }
-                            nasBaseUrl={process.env.NAS_BASE_URL || ""}
-                        />
-                    </Stack>
                 </Card>
                 <BottomNav
                     mainDirectories={mainDirectories}
