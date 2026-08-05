@@ -14,8 +14,8 @@ export interface MainCategoriesProps {
 
 const colors = [
     "#f44336",
-    "#4caf50",
     "#9c27b0",
+    "#4caf50",
     "#2196f3",
     "#f152a7",
     "#ff9800",
