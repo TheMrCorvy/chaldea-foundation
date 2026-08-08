@@ -1,0 +1,48 @@
+{
+    "kind": "collectionType",
+    "collectionName": "j_job_radars",
+    "info": {
+        "singularName": "j-job-radar",
+        "pluralName": "j-job-radars",
+        "displayName": "J - Job Radar"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "job_post_link": {
+            "type": "string"
+        },
+        "job_title": {
+            "type": "string"
+        },
+        "seniority": {
+            "type": "string"
+        },
+        "posted_at": {
+            "type": "date"
+        },
+        "company_name": {
+            "type": "string"
+        },
+        "company_website": {
+            "type": "string"
+        },
+        "salary": {
+            "type": "string"
+        },
+        "company_description": {
+            "type": "text"
+        },
+        "job_post_description": {
+            "type": "string"
+        },
+        "reason": {
+            "type": "text"
+        },
+        "applicants_count": {
+            "type": "integer"
+        }
+    }
+}
