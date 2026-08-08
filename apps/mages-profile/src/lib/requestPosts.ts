@@ -16,6 +16,7 @@ export interface RequestPostsParams {
     pageNumber: number;
     category?: string;
     searchQuery?: string;
+    currentPost: string;
 }
 
 export interface RequestPostsResponse {
@@ -41,6 +42,7 @@ export const requestPosts: RequestPosts = async ({
     pageNumber,
     category,
     searchQuery,
+    currentPost,
 }) => {
     let queryParams: QueryParams;
 
@@ -48,6 +50,7 @@ export const requestPosts: RequestPosts = async ({
         let filters: Record<string, unknown> = {
             slug: {
                 $startsWith: `blog/`,
+                $ne: currentPost,
             },
         };
 
@@ -127,6 +130,7 @@ export const requestPosts: RequestPosts = async ({
         filters: {
             slug: {
                 $startsWith: "blog/",
+                $ne: currentPost,
             },
         },
         sort: ["updatedAt:desc"],
