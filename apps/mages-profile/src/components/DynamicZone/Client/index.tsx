@@ -37,11 +37,13 @@ export interface DynamicZoneComponentProps {
     section: StrapiSection;
     imageBaseUrl: string;
     isMobile?: boolean;
+    currentPostSlug?: string;
 }
 
 const DynamicZoneComponentForClient: FC<DynamicZoneComponentProps> = ({
     section,
     imageBaseUrl,
+    currentPostSlug,
     isMobile = false,
 }) => {
     switch (section.__component) {
@@ -133,6 +135,7 @@ const DynamicZoneComponentForClient: FC<DynamicZoneComponentProps> = ({
                 <DynamicLastPosts
                     {...(section as BlogLastPosts)}
                     isMobile={isMobile}
+                    currentPostSlug={currentPostSlug || ""}
                 />
             );
         case "blog.reading-progress-bar":
@@ -145,6 +148,7 @@ const DynamicZoneComponentForClient: FC<DynamicZoneComponentProps> = ({
             return (
                 <DynamicSearchByCategory
                     {...(section as BlogSearchByCategory)}
+                    currentPostSlug={currentPostSlug || ""}
                 />
             );
 

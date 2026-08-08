@@ -36,11 +36,13 @@ import DynamicSearchByCategory from "../Shared/DynamicSearchByCategory";
 export interface DynamicZoneComponentProps {
     section: StrapiSection;
     imageBaseUrl: string;
+    currentPostSlug?: string;
 }
 
 const DynamicZoneComponentForServer: FC<DynamicZoneComponentProps> = ({
     section,
     imageBaseUrl,
+    currentPostSlug,
 }) => {
     switch (section.__component) {
         case "sections.projects-section":
@@ -121,7 +123,12 @@ const DynamicZoneComponentForServer: FC<DynamicZoneComponentProps> = ({
             return <DynamicLogoLoop {...(section as LayoutLogoLoop)} />;
 
         case "blog.last-posts":
-            return <DynamicLastPosts {...(section as BlogLastPosts)} />;
+            return (
+                <DynamicLastPosts
+                    {...(section as BlogLastPosts)}
+                    currentPostSlug={currentPostSlug || ""}
+                />
+            );
 
         case "blog.reading-progress-bar":
             return (
@@ -134,6 +141,7 @@ const DynamicZoneComponentForServer: FC<DynamicZoneComponentProps> = ({
             return (
                 <DynamicSearchByCategory
                     {...(section as BlogSearchByCategory)}
+                    currentPostSlug={currentPostSlug || ""}
                 />
             );
 

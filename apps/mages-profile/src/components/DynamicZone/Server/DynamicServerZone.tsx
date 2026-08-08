@@ -6,11 +6,13 @@ import DynamicZoneComponent from ".";
 export interface DynamycServerZone {
     sections: StrapiSection[];
     imageBaseUrl: string;
+    currentPostSlug?: string;
 }
 
 const DynamycServerZone: FC<DynamycServerZone> = ({
     sections,
     imageBaseUrl,
+    currentPostSlug,
 }) => {
     return (
         <Box
@@ -30,6 +32,7 @@ const DynamycServerZone: FC<DynamycServerZone> = ({
                     section={section}
                     key={section.component_id}
                     imageBaseUrl={imageBaseUrl}
+                    currentPostSlug={currentPostSlug || ""}
                 />
             ))}
         </Box>

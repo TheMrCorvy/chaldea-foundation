@@ -319,11 +319,13 @@ export default async function DynamicZone({ params }: dynamicZonePageProps) {
                     <DynamycServerZone
                         sections={sections}
                         imageBaseUrl={imageBaseUrl}
+                        currentPostSlug={dynamicPage.slug || ""}
                     />
                 ) : (
                     <DynamicClientZone
                         sections={sections}
                         imageBaseUrl={imageBaseUrl}
+                        currentPostSlug={dynamicPage.slug || ""}
                     />
                 )}
             </StarryContainer>

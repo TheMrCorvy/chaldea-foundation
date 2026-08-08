@@ -9,11 +9,13 @@ import DynamicZoneComponentForClient from ".";
 export interface DynamicClientZoneProps {
     sections: StrapiSection[];
     imageBaseUrl: string;
+    currentPostSlug?: string;
 }
 
 const DynamicClientZone: FC<DynamicClientZoneProps> = ({
     sections,
     imageBaseUrl,
+    currentPostSlug = "",
 }) => {
     const isMobile = useMediaQuery().max.width("sm");
     return (
@@ -35,6 +37,7 @@ const DynamicClientZone: FC<DynamicClientZoneProps> = ({
                     key={section.component_id}
                     imageBaseUrl={imageBaseUrl}
                     isMobile={isMobile}
+                    currentPostSlug={currentPostSlug}
                 />
             ))}
         </Box>
