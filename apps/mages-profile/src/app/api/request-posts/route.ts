@@ -12,6 +12,7 @@ interface RequestPostsBody {
     pageNumber?: number;
     category?: string;
     searchQuery?: string;
+    currentPost?: string;
 }
 
 export async function POST(request: Request) {
@@ -51,6 +52,7 @@ export async function POST(request: Request) {
             pageNumber: body.pageNumber || 1,
             category: body.category,
             searchQuery: body.searchQuery,
+            currentPost: body.currentPost || "",
         });
 
         return NextResponse.json({ data, meta }, { status: 200 });
