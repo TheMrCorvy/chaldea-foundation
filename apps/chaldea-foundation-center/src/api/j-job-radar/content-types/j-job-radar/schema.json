@@ -43,6 +43,9 @@
         },
         "applicants_count": {
             "type": "integer"
+        },
+        "cover_letter": {
+            "type": "text"
         }
     }
 }
