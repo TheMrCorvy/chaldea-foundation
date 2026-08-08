@@ -28,7 +28,11 @@ const mockFetch = (data: unknown, ok = true) =>
         json: () => Promise.resolve(data),
     } as Response);
 
-const DEFAULT_PARAMS = { posts_count: 5, selectedCategory: "All categories" };
+const DEFAULT_PARAMS = {
+    posts_count: 5,
+    selectedCategory: "All categories",
+    currentPostSlug: "current-post",
+};
 
 describe("usePosts", () => {
     afterEach(() => {
@@ -64,7 +68,11 @@ describe("usePosts", () => {
         global.fetch = fetchSpy;
 
         renderHook(() =>
-            usePosts({ posts_count: 10, selectedCategory: "All categories" })
+            usePosts({
+                posts_count: 10,
+                selectedCategory: "All categories",
+                currentPostSlug: "current-post",
+            })
         );
 
         await waitFor(() => expect(fetchSpy).toHaveBeenCalled());
@@ -97,7 +105,11 @@ describe("usePosts", () => {
         global.fetch = fetchSpy;
 
         renderHook(() =>
-            usePosts({ posts_count: 5, selectedCategory: "Technology" })
+            usePosts({
+                posts_count: 5,
+                selectedCategory: "Technology",
+                currentPostSlug: "current-post",
+            })
         );
 
         await waitFor(() => expect(fetchSpy).toHaveBeenCalled());
