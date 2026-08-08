@@ -14,6 +14,7 @@ export interface ApiPostsResponse extends RequestPostsResponse {
 
 export interface DynamicLastPostsProps extends BlogLastPosts {
     isMobile?: boolean;
+    currentPostSlug: string;
 }
 
 const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
@@ -22,6 +23,7 @@ const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
     title,
     isMobile,
     show_pagination = true,
+    currentPostSlug,
 }) => {
     const [posts, setPosts] = useState<Array<BlogPost>>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +46,7 @@ const DynamicLastPosts: FC<DynamicLastPostsProps> = ({
                     posts_count,
                     related_posts,
                     pageNumber,
+                    currentPost: currentPostSlug,
                 }),
             });
 

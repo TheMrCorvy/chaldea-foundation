@@ -38,9 +38,14 @@ const inputVariants = {
     },
 };
 
-const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
+export interface DynamicSearchByCategoryProps extends BlogSearchByCategory {
+    currentPostSlug: string;
+}
+
+const DynamicSearchByCategory: FC<DynamicSearchByCategoryProps> = ({
     title,
     posts_count,
+    currentPostSlug,
 }) => {
     const {
         selectedChipStyles,
@@ -71,7 +76,7 @@ const DynamicSearchByCategory: FC<BlogSearchByCategory> = ({
         handleSearch,
         runSearch,
         setPageNumber,
-    } = usePosts({ posts_count, selectedCategory });
+    } = usePosts({ posts_count, selectedCategory, currentPostSlug });
 
     const handleCategoryClick = (categoryName: string) => {
         setPageNumber(1);

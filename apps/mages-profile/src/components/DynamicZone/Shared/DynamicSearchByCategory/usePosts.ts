@@ -5,9 +5,14 @@ import { ApiPostsResponse } from "../DynamicLastPosts";
 export interface UsePostParams {
     posts_count: number;
     selectedCategory: string;
+    currentPostSlug: string;
 }
 
-const usePosts = ({ posts_count, selectedCategory }: UsePostParams) => {
+const usePosts = ({
+    posts_count,
+    selectedCategory,
+    currentPostSlug,
+}: UsePostParams) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [pageNumber, setPageNumber] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
@@ -36,6 +41,7 @@ const usePosts = ({ posts_count, selectedCategory }: UsePostParams) => {
                 searchQuery: currentSearchTerm.trim() || undefined,
                 pageNumber: currentPage,
                 posts_count,
+                currentPost: currentPostSlug,
             }),
         });
 
