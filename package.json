@@ -13,7 +13,7 @@
         "test:coverage": "turbo test:coverage",
         "clean": "turbo clean",
         "start": "turbo run start",
-        "generate:sdk": "pnpm --dir apps/chaldea-foundation-center run generate:openapi --output ../../specs/spec.json && pnpm exec openapi-ts",
+        "generate:sdk": "pnpm --dir apps/chaldea-foundation-center exec strapi ts:generate-types && pnpm --dir apps/chaldea-foundation-center run generate:openapi --output ../../specs/spec.json && pnpm exec openapi-ts",
         "patch:sdk-types": "node ./scripts/patch-sdk.config.js",
         "generate:mock-sdk": "node scripts/generate-mock-sdk.js",
         "initialize:platform-sdk": "pnpm run generate:sdk && pnpm run patch:sdk-types && pnpm run generate:mock-sdk",
