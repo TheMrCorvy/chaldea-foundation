@@ -36,7 +36,7 @@
             "type": "text"
         },
         "job_post_description": {
-            "type": "string"
+            "type": "text"
         },
         "reason": {
             "type": "text"
