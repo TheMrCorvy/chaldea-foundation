@@ -12,6 +12,7 @@ import {
     entryUpdateWebhookController,
     entryDeleteWebhookController,
     strapiEngineController,
+    externalDmailController,
 } from './controllers';
 import { logData } from '@salvatore.hakase/log-data';
 
@@ -63,6 +64,10 @@ router.post('/api/v2/d-mail/platform-service/entry/delete', (req: Request, res: 
 
 router.post('/api/v2/d-mail/platform-service/manage-engine', (req: Request, res: Response) => {
     strapiEngineController(req, res);
+});
+
+router.post('/api/v2/d-mail/print-pdf-cv', (req: Request, res: Response) => {
+    externalDmailController(req, res);
 });
 
 // 404 handler

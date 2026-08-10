@@ -10,3 +10,4 @@ export { default as entryCreateWebhookController } from './strapiWebhook.entry.c
 export { default as entryUpdateWebhookController } from './strapiWebhook.entry.update.controller';
 export { default as entryDeleteWebhookController } from './strapiWebhook.entry.delete.controller';
 export { default as strapiEngineController } from './strapiEngine.controller';
+export { default as externalDmailController } from './externalDmail.controller';
