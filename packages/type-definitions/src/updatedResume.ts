@@ -44,3 +44,20 @@ export interface ResumeEducationListItem {
     certification?: string | null;
     certification_date?: string | null;
 }
+
+export interface JobRadar {
+    job_post_link?: string | null;
+    job_title?: string | null;
+    seniority?: string | null;
+    posted_at?: Date | null;
+    company_name?: string | null;
+    company_website?: string | null;
+    salary?: string | null;
+    company_description?: string | null;
+    job_post_description?: string | null;
+    reason: string;
+    applicants_count?: number | null;
+    cover_letter?: string | null;
+    platform: string;
+    custom_cv?: any;
+}
