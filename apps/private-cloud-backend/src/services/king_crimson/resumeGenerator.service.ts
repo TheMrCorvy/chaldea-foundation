@@ -103,7 +103,7 @@ export async function generateAndUploadResume(payload: UpdatedResumeWebhookPaylo
 
         // 4. Upload PDF to Strapi
         const uploadFileName = `${entry.name.replace(/\s+/g, '_')}_Resume.pdf`;
-        await uploadPdfToStrapi(tempPdfPath, uploadFileName, strapiHost);
+        await uploadPdfToStrapi(tempPdfPath, uploadFileName);
 
         logData({
             title: 'Resume generation and upload process complete',
