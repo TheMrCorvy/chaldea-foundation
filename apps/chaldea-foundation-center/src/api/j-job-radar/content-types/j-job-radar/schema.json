@@ -46,6 +46,15 @@
         },
         "cover_letter": {
             "type": "text"
+        },
+        "custom_cv": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": ["files"]
+        },
+        "platform": {
+            "type": "string",
+            "required": true
         }
     }
 }
