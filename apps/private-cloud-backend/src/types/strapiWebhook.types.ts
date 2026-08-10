@@ -5,14 +5,14 @@
 import { Directory, Episode } from '@repo/type-definitions';
 import { ImageComponent } from '@repo/type-definitions/dynamic-page';
 import { JobReport } from '@repo/type-definitions/jobs';
+import { JobRadar } from '@repo/type-definitions/updated-resume';
 
 export interface StrapiWebhookPayload {
     event: StrapiEventName;
     createdAt: string;
     publishedAt?: string | null;
-    model: ModelNames;
     uid: string;
-    entry: SocialMediaEntry | Episode | Directory | JobReport;
+    entry: SocialMediaEntry | Episode | Directory | JobReport | JobRadarEntry;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -30,16 +30,6 @@ export enum StrapiEventName {
     DELETE_MEDIA = 'media.delete',
     PUBLISH_MEDIA = 'media.publish',
     UNPUBLISH_MEDIA = 'media.unpublish',
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Model names
-// ─────────────────────────────────────────────────────────────────────────────
-
-export enum ModelNames {
-    SOCIAL_MEDIA_POST = 'a-social-media-post',
-    B_EPISODE = 'b-episode',
-    B_DIRECTORY = 'b-directory',
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -85,4 +75,8 @@ export interface Hasgtag {
 
 export interface Icon {
     name: string;
+}
+
+export interface JobRadarEntry extends JobRadar, StrapiEntryBase {
+    custom_cv?: unknown | null; // This field is optional and can be the customized CV PDF file or null
 }

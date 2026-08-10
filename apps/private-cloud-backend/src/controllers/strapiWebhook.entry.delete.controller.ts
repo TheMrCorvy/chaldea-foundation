@@ -4,6 +4,8 @@ import { Request, Response } from 'express';
 import { logData } from '@salvatore.hakase/log-data';
 import deleteJobFromQueue from '../database/deleteJobFromQueue';
 import { stopEngine } from '../services/statefulEngine.service';
+import { JobRadarEntry } from '../types/strapiWebhook.types';
+import deleteCustomCvs from '../utils/deleteCustomCvs';
 
 const entryDeleteWebhookController = async (req: Request, res: Response): Promise<void> => {
     const payload = req.body as StrapiWebhookPayload;
@@ -74,6 +76,15 @@ const entryDeleteWebhookController = async (req: Request, res: Response): Promis
         }
 
         res.status(200).json({ message: 'Webhook received and job deleted successfully' });
+        return;
+    }
+
+    if (payload.uid === 'api::j-job-radar.j-job-radar') {
+        await deleteCustomCvs({ payload: payload.entry as JobRadarEntry });
+
+        res.status(200).json({
+            message: 'Webhook received successfully, associated custom_cv file deleted if present.',
+        });
         return;
     }
 
