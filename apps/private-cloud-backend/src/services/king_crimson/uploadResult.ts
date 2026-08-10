@@ -1,24 +1,17 @@
 import { logData } from '@salvatore.hakase/log-data';
 import fs from 'fs';
 
-const uploadPdfToStrapi = async (pdfPath: string, fileName: string, strapiHost: string): Promise<void> => {
+const uploadPdfToStrapi = async (pdfPath: string, fileName: string): Promise<number> => {
+    const strapiBaseUrl = process.env.STRAPI_BASE_URL ?? 'http://localhost:1337/api';
     const strapiApiKey = process.env.STRAPI_API_KEY || process.env.STRAPI_REPORTS_API_KEY || '';
+
     const fileBuffer = fs.readFileSync(pdfPath);
     const blob = new Blob([fileBuffer], { type: 'application/pdf' });
     const formData = new FormData();
+
     formData.append('files', blob, fileName);
 
-    const folderId = process.env.STRAPI_RESUME_FOLDER_ID;
-    if (folderId) {
-        formData.append(
-            'fileInfo',
-            JSON.stringify({
-                folder: /^\d+$/.test(folderId) ? parseInt(folderId, 10) : folderId,
-            })
-        );
-    }
-
-    const uploadUrl = `${strapiHost}/api/upload`;
+    const uploadUrl = `${strapiBaseUrl}/upload`;
     logData({
         title: 'Uploading PDF to Strapi',
         data: { uploadUrl, fileName },
@@ -43,6 +36,11 @@ const uploadPdfToStrapi = async (pdfPath: string, fileName: string, strapiHost: 
     }
 
     const result = await response.json();
+
+    if (!result || result.length === 0) {
+        throw new Error('No PDF file returned from Strapi after upload');
+    }
+
     logData({
         title: 'Successfully uploaded PDF to Strapi',
         data: result as Record<string, unknown>,
@@ -52,6 +50,8 @@ const uploadPdfToStrapi = async (pdfPath: string, fileName: string, strapiHost: 
         addSpaceAfter: true,
         addSeparatorAfter: true,
     });
+
+    return result[0]?.id; // Strapi V5 still uses numeric IDs for relations with media
 };
 
 export default uploadPdfToStrapi;
