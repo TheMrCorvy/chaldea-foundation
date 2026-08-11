@@ -7,8 +7,8 @@ import path from 'path';
 import os from 'os';
 import fs from 'fs';
 
-export type ExternalWebhooksActions = 'print_pdf_cv' | 'save_job_to_strapi';
-const validActions = new Set<ExternalWebhooksActions>(['print_pdf_cv', 'save_job_to_strapi']);
+export type ExternalWebhooksActions = 'print_pdf_cv';
+const validActions = new Set<ExternalWebhooksActions>(['print_pdf_cv']);
 
 const externalWebhooksController = async (req: Request, res: Response): Promise<void> => {
     const payload = req.body;
@@ -34,53 +34,6 @@ const externalWebhooksController = async (req: Request, res: Response): Promise<
     platformService.setApiToken(apiKey);
 
     const action: ExternalWebhooksActions = payload.action;
-
-    if (action === 'save_job_to_strapi') {
-        const {
-            job_post_link,
-            job_title,
-            seniority,
-            posted_at,
-            company_name,
-            salary,
-            company_description,
-            job_post_description,
-            reason,
-            applicants_count,
-            cover_letter,
-            platform,
-        } = payload;
-
-        await platformService.call('jJobRadarPostJJobRadars', {
-            body: {
-                data: {
-                    job_post_link,
-                    job_title,
-                    seniority,
-                    posted_at,
-                    company_name,
-                    salary,
-                    company_description,
-                    job_post_description,
-                    reason,
-                    applicants_count,
-                    cover_letter,
-                    platform,
-                },
-            },
-        });
-
-        logData({
-            title: `Saved job posting to strapi`,
-            data: payload,
-            layer: 'external_http_requests',
-            type: 'info',
-            timeStamp: true,
-        });
-
-        res.status(200).json({ message: 'Job saved to Strapi successfully' });
-        return;
-    }
 
     if (action === 'print_pdf_cv') {
         const { html_cv, strapi_job_id } = payload;
