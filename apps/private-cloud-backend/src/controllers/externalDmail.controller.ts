@@ -12,9 +12,9 @@ const validActions = new Set<ExternalWebhooksActions>(['print_pdf_cv']);
 
 const externalWebhooksController = async (req: Request, res: Response): Promise<void> => {
     const payload = req.body;
-    const passPhrase = payload.passPhrase;
+    const passphrase = payload.passphrase;
 
-    if (passPhrase !== process.env.EXTERNAL_WEBHOOKS_PASSPHRASE || !validActions.has(payload.action)) {
+    if (passphrase !== process.env.EXTERNAL_WEBHOOKS_PASSPHRASE || !validActions.has(payload.action)) {
         logData({
             title: `Unauthorized attempt to use external webhook receiver`,
             data: payload,
@@ -23,7 +23,9 @@ const externalWebhooksController = async (req: Request, res: Response): Promise<
             timeStamp: true,
         });
 
-        res.status(401).json({ message: 'Unauthorized' });
+        res.status(401).json({
+            message: 'Unauthorized',
+        });
         return;
     }
 
@@ -53,7 +55,7 @@ const externalWebhooksController = async (req: Request, res: Response): Promise<
         await convertToPdf(html_cv, tempPdfPath);
         const numericId = await uploadPdfToStrapi(tempPdfPath, strapi_job_id);
 
-        await platformService.call('jJobRadarPutJJobRadarsById', {
+        const { data, error } = await platformService.call('jJobRadarPutJJobRadarsById', {
             body: {
                 data: {
                     custom_cv: numericId,
@@ -61,6 +63,32 @@ const externalWebhooksController = async (req: Request, res: Response): Promise<
             },
             path: { id: strapi_job_id },
         });
+
+        if (error) {
+            logData({
+                title: 'Error updating job radar with custom CV',
+                data: { error, data },
+                layer: '*',
+                type: 'error',
+                timeStamp: true,
+            });
+
+            res.status(500).json({ message: 'Error updating job radar with custom CV' });
+            return;
+        }
+
+        if (!data) {
+            logData({
+                title: 'No data returned from updating job radar with custom CV',
+                data: { payload, data, error },
+                layer: '*',
+                type: 'error',
+                timeStamp: true,
+            });
+
+            res.status(500).json({ message: 'No data returned from updating job radar with custom CV' });
+            return;
+        }
 
         try {
             if (fs.existsSync(tempPdfPath)) {
@@ -71,8 +99,6 @@ const externalWebhooksController = async (req: Request, res: Response): Promise<
                     layer: 'queue_jobs',
                     type: 'info',
                     timeStamp: true,
-                    addSpaceAfter: true,
-                    addSeparatorAfter: true,
                 });
             }
         } catch (cleanupErr) {
@@ -82,8 +108,6 @@ const externalWebhooksController = async (req: Request, res: Response): Promise<
                 layer: '*',
                 type: 'error',
                 timeStamp: true,
-                addSpaceAfter: true,
-                addSeparatorAfter: true,
             });
         }
 
