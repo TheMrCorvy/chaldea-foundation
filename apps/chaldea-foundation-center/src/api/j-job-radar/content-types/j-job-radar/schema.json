@@ -12,25 +12,25 @@
     "pluginOptions": {},
     "attributes": {
         "job_post_link": {
-            "type": "string"
+            "type": "text"
         },
         "job_title": {
-            "type": "string"
+            "type": "text"
         },
         "seniority": {
-            "type": "string"
+            "type": "text"
         },
         "posted_at": {
             "type": "date"
         },
         "company_name": {
-            "type": "string"
+            "type": "text"
         },
         "company_website": {
-            "type": "string"
+            "type": "text"
         },
         "salary": {
-            "type": "string"
+            "type": "text"
         },
         "company_description": {
             "type": "text"
@@ -53,7 +53,7 @@
             "allowedTypes": ["files"]
         },
         "platform": {
-            "type": "string",
+            "type": "text",
             "required": true
         }
     }
