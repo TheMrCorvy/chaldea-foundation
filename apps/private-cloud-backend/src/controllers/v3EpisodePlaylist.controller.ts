@@ -62,6 +62,16 @@ const v3EpisodePlaylistController = async (req: Request, res: Response): Promise
 
         const apiKey = String(req.query.apiKey ?? (req as { apiKey?: string }).apiKey ?? '');
         const totalSegments = Math.ceil(duration / SEGMENT_DURATION);
+
+        logData({
+            title: 'Generating HLS Playlist for ' + fileName,
+            type: 'info',
+            layer: 'video_streaming',
+            addSpaceAfter: true,
+            addSeparatorAfter: true,
+            data: { parentDirectory, fileName, duration, totalSegments },
+        });
+
         for (let i = 0; i < totalSegments; i++) {
             const isLast = i === totalSegments - 1;
             const segDuration = isLast ? duration % SEGMENT_DURATION || SEGMENT_DURATION : SEGMENT_DURATION;

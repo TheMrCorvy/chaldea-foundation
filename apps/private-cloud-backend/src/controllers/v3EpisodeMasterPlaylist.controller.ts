@@ -35,6 +35,15 @@ const v3EpisodeMasterPlaylistController = (req: Request, res: Response): void =>
         return;
     }
 
+    logData({
+        title: 'Generating HLS Master Playlist for ' + fileName,
+        type: 'info',
+        layer: 'video_streaming',
+        addSpaceAfter: true,
+        addSeparatorAfter: true,
+        data: { parentDirectory, fileName, fileType, audioIndex, metadataPath },
+    });
+
     const apiKey = String(req.query.apiKey ?? (req as { apiKey?: string }).apiKey ?? '');
     // Multivariant (Master) Playlist lines
     const queryParams = new URLSearchParams({

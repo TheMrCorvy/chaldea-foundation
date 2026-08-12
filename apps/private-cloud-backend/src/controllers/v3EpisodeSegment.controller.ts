@@ -45,7 +45,7 @@ const v3EpisodeSegmentController = (req: Request, res: Response): void => {
 
     // HLS segments are static and should be cached to optimize performance and prevent repeated disk reads
     res.writeHead(200, {
-        'Content-Type': 'video/MP2T',
+        'Content-Type': 'video/mp2t',
         'Access-Control-Allow-Origin': '*',
         'Cache-Control': 'public, max-age=3600',
     });
@@ -73,6 +73,8 @@ const v3EpisodeSegmentController = (req: Request, res: Response): void => {
             'copy', // Stream copy: zero transcoding lag
             '-avoid_negative_ts',
             'make_zero',
+            '-output_ts_offset',
+            startTime,
             '-f',
             'mpegts', // Output container format
             'pipe:1',
@@ -80,13 +82,36 @@ const v3EpisodeSegmentController = (req: Request, res: Response): void => {
         { stdio: ['ignore', 'pipe', 'pipe'] }
     );
 
+    logData({
+        title: `Streaming HLS Segment ${segmentIndex} for ${fullFileName}`,
+        type: 'info',
+        layer: 'video_streaming',
+        addSpaceAfter: true,
+        addSeparatorAfter: true,
+        data: {
+            parentDirectory,
+            fileName,
+            segmentIndex,
+            startTime,
+            videoPath,
+            audioPath,
+        },
+    });
+
     ffmpeg.stdout.pipe(res);
 
     // Drain stderr to prevent the subprocess from blocking on a full buffer
-    // ffmpeg.stderr.resume();
+    ffmpeg.stderr.resume();
 
     const killFfmpeg = (): void => {
         if (!ffmpeg.killed) {
+            logData({
+                layer: 'video_streaming',
+                title: `Killing ffmpeg segment ${segmentIndex} process due to client disconnect/error`,
+                type: 'info',
+                addSpaceAfter: true,
+                addSeparatorAfter: true,
+            });
             ffmpeg.kill('SIGKILL');
         }
     };
@@ -105,6 +130,15 @@ const v3EpisodeSegmentController = (req: Request, res: Response): void => {
     });
 
     ffmpeg.on('close', code => {
+        logData({
+            layer: 'video_streaming',
+            title: `ffmpeg segment ${segmentIndex} process closed`,
+            data: { code },
+            addSpaceAfter: true,
+            addSeparatorAfter: true,
+            timeStamp: true,
+            type: code === 0 ? 'info' : 'error',
+        });
         if (code !== 0 && !res.writableEnded) res.end();
     });
 
