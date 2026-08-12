@@ -30,6 +30,15 @@ interface LoadRequestInstance {
     activeTrackIds?: number[];
 }
 
+interface TrackInstance {
+    trackContentId?: string;
+    trackContentType?: string;
+    subtype?: string;
+    name?: string;
+    language?: string;
+    customData?: unknown;
+}
+
 interface CastWindow extends Window {
     cast?: {
         framework: {
@@ -53,6 +62,19 @@ interface CastWindow extends Window {
         cast: {
             AutoJoinPolicy: { ORIGIN_SCOPED: string };
             media: {
+                Track: new (
+                    trackId: number,
+                    trackType: string
+                ) => TrackInstance;
+                TrackType: {
+                    TEXT: string;
+                    AUDIO: string;
+                    VIDEO: string;
+                };
+                TextTrackType: {
+                    SUBTITLES: string;
+                    CAPTIONS: string;
+                };
                 MediaInfo: new (
                     contentUrl: string,
                     contentType: string
@@ -157,18 +179,18 @@ const CastToTv: FC<CastToTvProps> = ({ videoSrc, subtitleSrc, metadata }) => {
         mediaInfo.streamType = streamType;
 
         if (subtitleSrc && metadata) {
-            mediaInfo.tracks = [
-                {
-                    trackId: 1,
-                    type: "TEXT",
-                    trackContentId: subtitleSrc,
-                    trackContentType: "text/vtt",
-                    subtype: "SUBTITLES",
-                    name: metadata.subsLabel,
-                    language: metadata.subsLanguage,
-                    customData: null,
-                },
-            ];
+            const track = new win.chrome.cast.media.Track(
+                1,
+                win.chrome.cast.media.TrackType.TEXT
+            );
+            track.trackContentId = subtitleSrc;
+            track.trackContentType = "text/vtt";
+            track.subtype = win.chrome.cast.media.TextTrackType.SUBTITLES;
+            track.name = metadata.subsLabel;
+            track.language = metadata.subsLanguage;
+            track.customData = null;
+
+            mediaInfo.tracks = [track];
             mediaInfo.textTrackStyle = {};
         }
 
