@@ -27,8 +27,6 @@ import { getLanguageInfo } from "@repo/shared-utils/language-utils";
 import useControls from "./useControls";
 import useStyles from "./useStyles";
 import parseVtt from "@/utils/parseVtt";
-import CastToTvSelector from "../CastToTv/CastToTvSelector";
-// import CastToTv from "../CastToTv";
 
 export interface V2SecureVideoPlayerProps {
     fileType: string;

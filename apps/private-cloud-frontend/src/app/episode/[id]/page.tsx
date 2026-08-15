@@ -1,7 +1,7 @@
 import BottomNav from "@/components/BottomNavbar";
 import Script from "next/script";
 import SecureVideoPlayer from "@/components/SecureVideoPlayer";
-import V2SecureVideoPlayer from "@/components/V2SecureVideoPlayer";
+import VideoPlayerSelector from "@/components/VideoPlayerSelector";
 import CastToTvSelector from "@/components/CastToTv/CastToTvSelector";
 import {
     CookiesList,
@@ -279,7 +279,7 @@ const EpisodePage = async ({ params }: Page) => {
                             )}
                         />
                     ) : (
-                        <V2SecureVideoPlayer
+                        <VideoPlayerSelector
                             display_name={episode.display_name}
                             path={episode.parent_directory?.path || ""}
                             fileType={episode.file_type}
