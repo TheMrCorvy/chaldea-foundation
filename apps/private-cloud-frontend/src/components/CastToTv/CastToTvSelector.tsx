@@ -20,7 +20,7 @@ export interface CastToTvSelectorProps {
     nasBaseUrl: string;
 }
 
-type CastMode = "playlist" | "master";
+type CastMode = "playlist" | "master" | "legacy";
 
 const CastToTvSelector: FC<CastToTvSelectorProps> = ({
     version,
@@ -107,13 +107,13 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
 
     const videoSrcPlaylist = `${nasBaseUrl}/api/v3/serve-episode/playlist.m3u8?${baseParams}`;
     const videoSrcMaster = `${nasBaseUrl}/api/v3/serve-episode/master.m3u8?${baseParams}`;
+    const videoSrcV1 = `${nasBaseUrl}/api/v1/serve-episode?parentDirectory=${encodeURIComponent(
+        parentDirectory
+    )}&fileName=${encodeURIComponent(
+        fileName
+    )}&fileType=${fileType}&apiKey=${encodeURIComponent(apiKey)}`;
 
     if (version === "V1") {
-        const videoSrcV1 = `${nasBaseUrl}/api/v1/serve-episode?parentDirectory=${encodeURIComponent(
-            parentDirectory
-        )}&fileName=${encodeURIComponent(
-            fileName
-        )}&fileType=${fileType}&apiKey=${encodeURIComponent(apiKey)}`;
         return <CastToTv videoSrc={videoSrcV1} />;
     }
 
@@ -129,6 +129,7 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
             >
                 <Option value="playlist">HLS Playlist (V3)</Option>
                 <Option value="master">HLS Master (V3, legacy)</Option>
+                <Option value="legacy">Direct MP4 (V1)</Option>
             </Select>
 
             {mode === "playlist" ? (
@@ -137,9 +138,15 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
                     subtitleSrc={subtitleSrc}
                     metadata={metadata}
                 />
-            ) : (
+            ) : mode === "master" ? (
                 <CastMasterToTv
                     videoSrc={videoSrcMaster}
+                    subtitleSrc={subtitleSrc}
+                    metadata={metadata}
+                />
+            ) : (
+                <CastToTv
+                    videoSrc={videoSrcV1}
                     subtitleSrc={subtitleSrc}
                     metadata={metadata}
                 />
