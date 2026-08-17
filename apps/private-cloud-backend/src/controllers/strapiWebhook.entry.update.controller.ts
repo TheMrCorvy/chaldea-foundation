@@ -42,9 +42,7 @@ const entryUpdateWebhookController = async (req: Request, res: Response): Promis
 
         await addJobToQueue({
             type: JOB_TYPES.PROCESS_EPISODE,
-            payload: {
-                entry: episodeEntry,
-            },
+            payload: episodeEntry,
             name: episodeEntry.display_name,
         });
 
