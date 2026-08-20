@@ -19,8 +19,8 @@ export interface CastToTvSelectorProps {
     languagesInfo: LanguagesInfo | null;
     apiKey: string;
     nasBaseUrl: string;
-    audioIndex: number; // Optional audio index for V2 streaming
-    subtitleIndex: number; // Optional subtitle index for V2 streaming
+    audioIndex: number;
+    subtitleIndex: number;
     start: number;
     subtitleSrcUrl?: (subsIndex: number) => string | null;
 }
@@ -41,57 +41,6 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
     subtitleSrcUrl,
 }) => {
     const [mode, setMode] = useState<CastMode>("legacy");
-
-    // Find the default subtitle track by searching — not by array index
-    const defaultSubtitleTrack = (() => {
-        if (!languagesInfo?.audioTracks || !languagesInfo?.subtitleTracks)
-            return null;
-        const jpnTrack = languagesInfo.audioTracks.find(
-            (t) => t.language?.toLowerCase() === "jpn"
-        );
-        const unknownTrack = languagesInfo.audioTracks.find(
-            (t) => t.language?.toLowerCase() === "unknown"
-        );
-        const defaultAudioTrack =
-            jpnTrack || unknownTrack || languagesInfo.audioTracks[0];
-        const defaultAudioLang = defaultAudioTrack?.language?.toLowerCase();
-
-        if (defaultAudioLang === "jpn" || defaultAudioLang === "unknown") {
-            return (
-                languagesInfo.subtitleTracks.find((t) => {
-                    const l = t.language?.toLowerCase();
-                    return l === "esp" || l === "spa" || l === "es";
-                }) ?? null
-            );
-        }
-        return null;
-    })();
-
-    const subtitleSrc = defaultSubtitleTrack
-        ? `${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?parentDirectory=${encodeURIComponent(
-              parentDirectory
-          )}&fileName=${encodeURIComponent(
-              fileName
-          )}&apiKey=${encodeURIComponent(
-              apiKey
-          )}&subtitleIndex=${defaultSubtitleTrack.trackIndex}`
-        : undefined;
-
-    const metadata = (() => {
-        if (!defaultSubtitleTrack) return undefined;
-        const languageInfo = getLanguageInfo(defaultSubtitleTrack.language, {
-            code2: true,
-            nameSpanish: true,
-        });
-        return {
-            subsLabel:
-                languageInfo?.nameSpanish ||
-                defaultSubtitleTrack.language ||
-                "Spanish",
-            subsLanguage:
-                languageInfo?.code2 || defaultSubtitleTrack.language || "es",
-        };
-    })();
 
     const baseParams = `parentDirectory=${encodeURIComponent(
         parentDirectory
@@ -138,6 +87,25 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
         return <CastToTv videoSrc={videoSrcV1Url.toString()} />;
     }
 
+    const metadata =
+        subtitleIndex !== -1 && languagesInfo?.subtitleTracks?.[subtitleIndex]
+            ? (() => {
+                  const track = languagesInfo.subtitleTracks![subtitleIndex];
+                  const languageInfo = getLanguageInfo(track.language, {
+                      code2: true,
+                      nameSpanish: true,
+                  });
+
+                  return {
+                      subsLabel: languageInfo?.nameSpanish || track.language,
+                      subsLanguage: languageInfo?.code2 || track.language,
+                  };
+              })()
+            : undefined;
+
+    const subtitleSrc =
+        (subtitleSrcUrl && subtitleSrcUrl(subtitleIndex)) || undefined;
+
     return (
         <Stack direction="row" spacing={1} alignItems="center">
             <Select
@@ -148,9 +116,9 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
                 }
                 sx={{ minWidth: 180 }}
             >
+                <Option value="legacy">Direct MP4 (V1)</Option>
                 <Option value="playlist">HLS Playlist (V3)</Option>
                 <Option value="master">HLS Master (V3, legacy)</Option>
-                <Option value="legacy">Direct MP4 (V1)</Option>
             </Select>
 
             {mode === "playlist" ? (
@@ -168,36 +136,8 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
             ) : (
                 <CastToTv
                     videoSrc={videoSrcV2}
-                    subtitleSrc={
-                        (subtitleSrcUrl && subtitleSrcUrl(subtitleIndex)) ||
-                        undefined
-                    }
-                    metadata={
-                        subtitleIndex !== -1 &&
-                        languagesInfo?.subtitleTracks?.[subtitleIndex]
-                            ? (() => {
-                                  const track =
-                                      languagesInfo.subtitleTracks![
-                                          subtitleIndex
-                                      ];
-                                  const languageInfo = getLanguageInfo(
-                                      track.language,
-                                      {
-                                          code2: true,
-                                          nameSpanish: true,
-                                      }
-                                  );
-
-                                  return {
-                                      subsLabel:
-                                          languageInfo?.nameSpanish ||
-                                          track.language,
-                                      subsLanguage:
-                                          languageInfo?.code2 || track.language,
-                                  };
-                              })()
-                            : undefined
-                    }
+                    subtitleSrc={subtitleSrc}
+                    metadata={metadata}
                 />
             )}
         </Stack>
