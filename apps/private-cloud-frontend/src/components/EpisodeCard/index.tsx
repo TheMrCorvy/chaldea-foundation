@@ -9,7 +9,6 @@ import { FC } from "react";
 import { Box } from "@mui/joy";
 import Link from "next/link";
 import NotStartedIcon from "@mui/icons-material/NotStarted";
-import { getScreenSize } from "@/utils/screenSize";
 import MarkUnseenButton from "./MarkUnseenButton";
 
 export interface EpisodeCardProps {
