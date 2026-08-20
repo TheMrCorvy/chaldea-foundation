@@ -21,6 +21,8 @@ export interface CastToTvSelectorProps {
     nasBaseUrl: string;
     audioIndex: number; // Optional audio index for V2 streaming
     subtitleIndex: number; // Optional subtitle index for V2 streaming
+    start: number;
+    subtitleSrcUrl?: (subsIndex: number) => string | null;
 }
 
 type CastMode = "playlist" | "master" | "legacy";
@@ -33,31 +35,12 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
     languagesInfo,
     apiKey,
     nasBaseUrl,
+    start,
+    audioIndex,
+    subtitleIndex,
+    subtitleSrcUrl,
 }) => {
     const [mode, setMode] = useState<CastMode>("legacy");
-
-    const videoSrcV2 = useMemo(() => {
-        const url = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}?fileType=${fileType}&parentDirectory=${encodeURIComponent(
-            parentDirectory
-        )}&fileName=${encodeURIComponent(
-            fileName
-        )}&apiKey=${encodeURIComponent(apiKey)}&audioIndex=0`;
-
-        return url;
-    }, [apiKey, fileName, fileType, nasBaseUrl, parentDirectory]); // audioindex
-
-    const audioIndex = (() => {
-        if (!languagesInfo?.audioTracks) return 0;
-        const jpnTrack = languagesInfo.audioTracks.find(
-            (t) => t.language?.toLowerCase() === "jpn"
-        );
-        if (jpnTrack) return jpnTrack.trackIndex;
-        const unknownTrack = languagesInfo.audioTracks.find(
-            (t) => t.language?.toLowerCase() === "unknown"
-        );
-        if (unknownTrack) return unknownTrack.trackIndex;
-        return languagesInfo.audioTracks[0]?.trackIndex ?? 0;
-    })();
 
     // Find the default subtitle track by searching — not by array index
     const defaultSubtitleTrack = (() => {
@@ -129,6 +112,28 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
     videoSrcV1Url.searchParams.append("filePath", filePath);
     videoSrcV1Url.searchParams.append("apiKey", apiKey);
 
+    const videoSrcV2 = useMemo(() => {
+        let url = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}?fileType=${fileType}&parentDirectory=${encodeURIComponent(
+            parentDirectory
+        )}&fileName=${encodeURIComponent(
+            fileName
+        )}&apiKey=${encodeURIComponent(apiKey)}&audioIndex=${audioIndex}`;
+
+        if (start > 0) {
+            url += `&start=${start}`;
+        }
+
+        return url;
+    }, [
+        apiKey,
+        fileName,
+        fileType,
+        nasBaseUrl,
+        parentDirectory,
+        audioIndex,
+        start,
+    ]);
+
     if (version === "V1") {
         return <CastToTv videoSrc={videoSrcV1Url.toString()} />;
     }
@@ -163,8 +168,36 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
             ) : (
                 <CastToTv
                     videoSrc={videoSrcV2}
-                    subtitleSrc={subtitleSrc}
-                    metadata={metadata}
+                    subtitleSrc={
+                        (subtitleSrcUrl && subtitleSrcUrl(subtitleIndex)) ||
+                        undefined
+                    }
+                    metadata={
+                        subtitleIndex !== -1 &&
+                        languagesInfo?.subtitleTracks?.[subtitleIndex]
+                            ? (() => {
+                                  const track =
+                                      languagesInfo.subtitleTracks![
+                                          subtitleIndex
+                                      ];
+                                  const languageInfo = getLanguageInfo(
+                                      track.language,
+                                      {
+                                          code2: true,
+                                          nameSpanish: true,
+                                      }
+                                  );
+
+                                  return {
+                                      subsLabel:
+                                          languageInfo?.nameSpanish ||
+                                          track.language,
+                                      subsLanguage:
+                                          languageInfo?.code2 || track.language,
+                                  };
+                              })()
+                            : undefined
+                    }
                 />
             )}
         </Stack>
