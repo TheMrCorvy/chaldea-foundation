@@ -5,7 +5,8 @@ import { Box, Card, CardContent, CardOverflow } from "@mui/joy";
 import { FC, useMemo } from "react";
 import { getScreenSize } from "@/utils/screenSize";
 import PrevNextEpisode from "../PrevNextEpisode";
-// import CastToTv from "../CastToTv";
+import CastToTv from "../CastToTv";
+import { CardHeader } from "@mui/material";
 
 export interface SecureVideoPlayerProps {
     fileType: string;
@@ -71,6 +72,9 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                 boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12)",
             }}
         >
+            <CardHeader>
+                <CastToTv videoSrc={videoUrl} />
+            </CardHeader>
             <CardContent
                 sx={{
                     gap: 1,
@@ -131,7 +135,6 @@ const SecureVideoPlayer: FC<SecureVideoPlayerProps> = ({
                         },
                     }}
                 >
-                    {/* <CastToTv videoSrc={videoUrl} /> */}
                     <PrevNextEpisode parentId={parent} episodeId={documentId} />
                 </CardContent>
             </CardOverflow>

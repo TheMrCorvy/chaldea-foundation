@@ -2,7 +2,7 @@ import BottomNav from "@/components/BottomNavbar";
 import Script from "next/script";
 import SecureVideoPlayer from "@/components/SecureVideoPlayer";
 import VideoPlayerSelector from "@/components/VideoPlayerSelector";
-import CastToTvSelector from "@/components/CastToTv/CastToTvSelector";
+// import CastToTvSelector from "@/components/CastToTv/CastToTvSelector";
 import {
     CookiesList,
     deleteCookie,
@@ -241,7 +241,7 @@ const EpisodePage = async ({ params }: Page) => {
                         {episode.display_name}
                     </Typography>
 
-                    <Stack
+                    {/* <Stack
                         direction="row"
                         spacing={2}
                         justifyContent="start"
@@ -260,7 +260,7 @@ const EpisodePage = async ({ params }: Page) => {
                             }
                             nasBaseUrl={process.env.NAS_BASE_URL || ""}
                         />
-                    </Stack>
+                    </Stack> */}
 
                     {episode.version === "V1" ? (
                         <SecureVideoPlayer
