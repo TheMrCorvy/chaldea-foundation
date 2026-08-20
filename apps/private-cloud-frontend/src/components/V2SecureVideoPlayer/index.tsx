@@ -27,6 +27,8 @@ import { getLanguageInfo } from "@repo/shared-utils/language-utils";
 import useControls from "./useControls";
 import useStyles from "./useStyles";
 import parseVtt from "@/utils/parseVtt";
+import { CardHeader } from "@mui/material";
+import CastToTvSelector from "../CastToTv/CastToTvSelector";
 
 export interface V2SecureVideoPlayerProps {
     fileType: string;
@@ -79,6 +81,7 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
         handleTimelineMouseEnter,
         handleTimelineMouseLeave,
         handleKeyDown,
+        subtitleSrcUrl,
     } = useControls({
         fileType,
         display_name,
@@ -122,6 +125,21 @@ const V2SecureVideoPlayer: FC<V2SecureVideoPlayerProps> = ({
 
     return (
         <Card variant="soft" sx={root}>
+            <CardHeader>
+                <CastToTvSelector
+                    version="V2"
+                    fileName={display_name}
+                    fileType={fileType}
+                    parentDirectory={path}
+                    languagesInfo={languages_info}
+                    apiKey={apiKey}
+                    nasBaseUrl={nasBaseUrl}
+                    start={currentTime}
+                    audioIndex={audioIndex}
+                    subtitleIndex={subtitleIndex}
+                    subtitleSrcUrl={subtitleSrcUrl}
+                />
+            </CardHeader>
             <CardContent sx={cardContent}>
                 <Box
                     sx={mainBox}
