@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useState, useMemo } from "react";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import Stack from "@mui/joy/Stack";
@@ -9,6 +9,7 @@ import { getLanguageInfo } from "@repo/shared-utils/language-utils";
 import CastToTv from "./index";
 import CastMasterToTv from "./CastMasterToTv";
 import CastPlaylistToTv from "./CastPlaylistToTv";
+import { NasApiRoutes } from "@/utils/routes";
 
 export interface CastToTvSelectorProps {
     version: "V1" | "V2";
@@ -18,6 +19,8 @@ export interface CastToTvSelectorProps {
     languagesInfo: LanguagesInfo | null;
     apiKey: string;
     nasBaseUrl: string;
+    audioIndex: number; // Optional audio index for V2 streaming
+    subtitleIndex: number; // Optional subtitle index for V2 streaming
 }
 
 type CastMode = "playlist" | "master" | "legacy";
@@ -31,7 +34,17 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
     apiKey,
     nasBaseUrl,
 }) => {
-    const [mode, setMode] = useState<CastMode>("playlist");
+    const [mode, setMode] = useState<CastMode>("legacy");
+
+    const videoSrcV2 = useMemo(() => {
+        const url = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}?fileType=${fileType}&parentDirectory=${encodeURIComponent(
+            parentDirectory
+        )}&fileName=${encodeURIComponent(
+            fileName
+        )}&apiKey=${encodeURIComponent(apiKey)}&audioIndex=0`;
+
+        return url;
+    }, [apiKey, fileName, fileType, nasBaseUrl, parentDirectory]); // audioindex
 
     const audioIndex = (() => {
         if (!languagesInfo?.audioTracks) return 0;
@@ -72,7 +85,7 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
     })();
 
     const subtitleSrc = defaultSubtitleTrack
-        ? `${nasBaseUrl}/api/v2/serve-episode/subtitles?parentDirectory=${encodeURIComponent(
+        ? `${nasBaseUrl}${NasApiRoutes.V2_SERVE_SUBTITLES}?parentDirectory=${encodeURIComponent(
               parentDirectory
           )}&fileName=${encodeURIComponent(
               fileName
@@ -107,14 +120,17 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
 
     const videoSrcPlaylist = `${nasBaseUrl}/api/v3/serve-episode/playlist.m3u8?${baseParams}`;
     const videoSrcMaster = `${nasBaseUrl}/api/v3/serve-episode/master.m3u8?${baseParams}`;
-    const videoSrcV1 = `${nasBaseUrl}/api/v1/serve-episode?parentDirectory=${encodeURIComponent(
-        parentDirectory
-    )}&fileName=${encodeURIComponent(
-        fileName
-    )}&fileType=${fileType}&apiKey=${encodeURIComponent(apiKey)}`;
+
+    const filePath = parentDirectory + "/" + fileName + "." + fileType;
+    const realUrl = NasApiRoutes.STREAM_MEDIA;
+
+    const videoSrcV1Url: URL = new URL(realUrl, nasBaseUrl);
+
+    videoSrcV1Url.searchParams.append("filePath", filePath);
+    videoSrcV1Url.searchParams.append("apiKey", apiKey);
 
     if (version === "V1") {
-        return <CastToTv videoSrc={videoSrcV1} />;
+        return <CastToTv videoSrc={videoSrcV1Url.toString()} />;
     }
 
     return (
@@ -146,7 +162,7 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
                 />
             ) : (
                 <CastToTv
-                    videoSrc={videoSrcV1}
+                    videoSrc={videoSrcV2}
                     subtitleSrc={subtitleSrc}
                     metadata={metadata}
                 />
