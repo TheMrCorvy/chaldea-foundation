@@ -50,8 +50,9 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
         apiKey
     )}`;
 
-    const videoSrcPlaylist = `${nasBaseUrl}/api/v3/serve-episode/playlist.m3u8?${baseParams}`;
-    const videoSrcMaster = `${nasBaseUrl}/api/v3/serve-episode/master.m3u8?${baseParams}`;
+    const videoSrcPlaylist = `${nasBaseUrl}${NasApiRoutes.V3_PLAYLIST}?${baseParams}`;
+    const videoSrcMaster = `${nasBaseUrl}${NasApiRoutes.V3_MASTER}?${baseParams}`;
+    const videoSrcV2 = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}?${baseParams}&start=${start}`;
 
     const filePath = parentDirectory + "/" + fileName + "." + fileType;
     const realUrl = NasApiRoutes.STREAM_MEDIA;
@@ -60,28 +61,6 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
 
     videoSrcV1Url.searchParams.append("filePath", filePath);
     videoSrcV1Url.searchParams.append("apiKey", apiKey);
-
-    const videoSrcV2 = useMemo(() => {
-        let url = `${nasBaseUrl}${NasApiRoutes.V2_STREAM_MEDIA}?fileType=${fileType}&parentDirectory=${encodeURIComponent(
-            parentDirectory
-        )}&fileName=${encodeURIComponent(
-            fileName
-        )}&apiKey=${encodeURIComponent(apiKey)}&audioIndex=${audioIndex}`;
-
-        if (start > 0) {
-            url += `&start=${start}`;
-        }
-
-        return url;
-    }, [
-        apiKey,
-        fileName,
-        fileType,
-        nasBaseUrl,
-        parentDirectory,
-        audioIndex,
-        start,
-    ]);
 
     if (version === "V1") {
         return <CastToTv videoSrc={videoSrcV1Url.toString()} />;

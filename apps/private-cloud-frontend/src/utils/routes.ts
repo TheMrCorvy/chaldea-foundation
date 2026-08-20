@@ -19,4 +19,5 @@ export enum NasApiRoutes {
     V2_STREAM_MEDIA = "/api/v2/serve-episode",
     V2_SERVE_SUBTITLES = "/api/v2/serve-episode/subtitles",
     V3_PLAYLIST = "/api/v3/serve-episode/playlist.m3u8",
+    V3_MASTER = "/api/v3/serve-episode/master.m3u8",
 }
