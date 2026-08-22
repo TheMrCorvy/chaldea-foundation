@@ -13,14 +13,7 @@ import {
 import { Page } from "@/utils/pageTypes";
 import { WebRoutes } from "@/utils/routes";
 import { getScreenSize } from "@/utils/screenSize";
-import {
-    Breadcrumbs,
-    Card,
-    Container,
-    Link,
-    Typography,
-    Stack,
-} from "@mui/joy";
+import { Breadcrumbs, Card, Container, Link, Typography } from "@mui/joy";
 import PlatformService from "@repo/platform-service-sdk";
 import { FeatureFlagsAvailable } from "@repo/config/feature-flags";
 import { isFeatureFlagEnabled } from "@repo/shared-utils/feature-flags";

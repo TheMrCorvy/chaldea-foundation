@@ -1,3 +1,5 @@
+import { logData } from "@repo/shared-utils/log-data";
+
 interface ServeEpisodeParams {
     filePath: string;
     range: string | null;
@@ -94,7 +96,12 @@ export function NasService() {
                 stream,
             };
         } catch (error) {
-            console.error("Error in NasService.serveEpisode:", error);
+            logData({
+                title: "Error in NasService.serveEpisode",
+                data: { error },
+                layer: "*",
+                type: "error",
+            });
             return {
                 status: 500,
                 message: "Failed to connect to NAS service",

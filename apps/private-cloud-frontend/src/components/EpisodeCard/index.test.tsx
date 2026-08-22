@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { useRouter } from "next/navigation";
 import type { Episode } from "@repo/type-definitions";
 import type { CSSProperties, ReactNode } from "react";
 
@@ -89,8 +90,7 @@ describe("EpisodeCard", () => {
 
     it("calls unseen API and router refresh when mark unseen is clicked", async () => {
         const mockRefresh = jest.fn();
-        const { useRouter } = require("next/navigation");
-        useRouter.mockReturnValue({
+        (useRouter as jest.Mock).mockReturnValue({
             refresh: mockRefresh,
         });
 
@@ -106,8 +106,6 @@ describe("EpisodeCard", () => {
             json: jest.fn().mockResolvedValue({}),
         });
         global.fetch = fetchMock;
-
-        const { fireEvent, waitFor } = require("@testing-library/react");
 
         render(<EpisodeCard episode={episode} userId="user-1" />);
 

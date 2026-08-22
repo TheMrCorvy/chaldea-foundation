@@ -5,6 +5,8 @@ import { CardOverflow, CircularProgress, Box } from "@mui/joy";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/navigation";
 
+import { logData } from "@repo/shared-utils/log-data";
+
 interface MarkUnseenButtonProps {
     episodeId: string;
 }
@@ -30,7 +32,12 @@ const MarkUnseenButton: FC<MarkUnseenButtonProps> = ({ episodeId }) => {
                 router.refresh();
             }
         } catch (error) {
-            console.error("Failed to mark as unseen", error);
+            logData({
+                title: "Failed to mark as unseen",
+                data: { error },
+                layer: "*",
+                type: "error",
+            });
         } finally {
             setLoading(false);
         }

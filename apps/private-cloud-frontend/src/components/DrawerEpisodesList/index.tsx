@@ -10,10 +10,12 @@ import {
     Typography,
 } from "@mui/joy";
 import { Episode } from "@repo/type-definitions";
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import NotStartedIcon from "@mui/icons-material/NotStarted";
 import { LoadingState } from "../DrawerList";
 import useStyles from "./useStyles";
+
+import { logData } from "@repo/shared-utils/log-data";
 
 export interface DrawerEpisodesListProps {
     parentId: string;
@@ -21,31 +23,44 @@ export interface DrawerEpisodesListProps {
 
 const DrawerEpisodesList: FC<DrawerEpisodesListProps> = ({ parentId }) => {
     const [episodes, setEpisodes] = useState<Episode[]>([]);
-    const [loadingState, setLoadingState] = useState<LoadingState>("idle");
-
-    const fetchEpisodes = useCallback(async () => {
-        setLoadingState("loading");
-        try {
-            const response = await fetch(
-                `/api/episodes/${encodeURIComponent(parentId)}`
-            );
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            const data = await response.json();
-            setLoadingState("succeeded");
-            setEpisodes(data);
-        } catch (error) {
-            setLoadingState("failed");
-            console.error("Error fetching episodes:", error);
-        }
-    }, [parentId]);
+    const [loadingState, setLoadingState] = useState<LoadingState>(
+        parentId ? "loading" : "idle"
+    );
 
     useEffect(() => {
-        if (parentId) {
-            fetchEpisodes();
-        }
-    }, [parentId, fetchEpisodes]);
+        if (!parentId) return;
+
+        let isMounted = true;
+
+        fetch(`/api/episodes/${encodeURIComponent(parentId)}`)
+            .then(async (response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                if (isMounted) {
+                    setLoadingState("succeeded");
+                    setEpisodes(data);
+                }
+            })
+            .catch((error) => {
+                if (isMounted) {
+                    setLoadingState("failed");
+                    logData({
+                        title: "Error fetching episodes",
+                        data: { error },
+                        layer: "*",
+                        type: "error",
+                    });
+                }
+            });
+
+        return () => {
+            isMounted = false;
+        };
+    }, [parentId]);
 
     const { listItemButton, colorWhite, loader, errorLoading, emptyPage } =
         useStyles();

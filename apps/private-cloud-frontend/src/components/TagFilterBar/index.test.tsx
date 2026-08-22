@@ -1,7 +1,18 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen, fireEvent } from "@testing-library/react";
 import type { BlogPostCategory } from "@repo/type-definitions";
 import TagFilterBar from ".";
+
+const mockPush = jest.fn();
+let mockSearchParams = new URLSearchParams();
+
+jest.mock("next/navigation", () => ({
+    useRouter: () => ({
+        push: mockPush,
+        refresh: jest.fn(),
+    }),
+    usePathname: () => "/directory/test",
+    useSearchParams: () => mockSearchParams,
+}));
 
 const mockTags: BlogPostCategory[] = [
     {
@@ -25,15 +36,13 @@ const mockTags: BlogPostCategory[] = [
 ];
 
 describe("TagFilterBar", () => {
+    beforeEach(() => {
+        mockPush.mockClear();
+        mockSearchParams = new URLSearchParams();
+    });
+
     it("renders all tags", () => {
-        render(
-            <TagFilterBar
-                tags={mockTags}
-                selectedTagIds={[]}
-                onTagToggle={jest.fn()}
-                onClearAll={jest.fn()}
-            />
-        );
+        render(<TagFilterBar tags={mockTags} />);
 
         expect(screen.getByText("anime")).toBeInTheDocument();
         expect(screen.getByText("acción")).toBeInTheDocument();
@@ -41,76 +50,39 @@ describe("TagFilterBar", () => {
     });
 
     it("renders nothing when tags array is empty", () => {
-        const { container } = render(
-            <TagFilterBar
-                tags={[]}
-                selectedTagIds={[]}
-                onTagToggle={jest.fn()}
-                onClearAll={jest.fn()}
-            />
-        );
+        const { container } = render(<TagFilterBar tags={[]} />);
 
         expect(container.firstChild).toBeNull();
     });
 
-    it("calls onTagToggle with the correct tag id when a tag is clicked", async () => {
-        const onTagToggle = jest.fn();
+    it("navigates with updated search params when a tag is clicked", () => {
+        render(<TagFilterBar tags={mockTags} />);
 
-        render(
-            <TagFilterBar
-                tags={mockTags}
-                selectedTagIds={[]}
-                onTagToggle={onTagToggle}
-                onClearAll={jest.fn()}
-            />
+        fireEvent.click(screen.getByRole("button", { name: /anime/i }));
+
+        expect(mockPush).toHaveBeenCalledTimes(1);
+        expect(mockPush).toHaveBeenCalledWith(
+            expect.stringContaining("tags=anime")
         );
-
-        await userEvent.click(screen.getByRole("button", { name: /acción/i }));
-
-        expect(onTagToggle).toHaveBeenCalledTimes(1);
-        expect(onTagToggle).toHaveBeenCalledWith(2);
     });
 
     it("does not show the clear button when no tags are selected", () => {
-        render(
-            <TagFilterBar
-                tags={mockTags}
-                selectedTagIds={[]}
-                onTagToggle={jest.fn()}
-                onClearAll={jest.fn()}
-            />
-        );
+        render(<TagFilterBar tags={mockTags} />);
 
         expect(screen.queryByText("Limpiar")).not.toBeInTheDocument();
     });
 
-    it("shows the clear button when at least one tag is selected", () => {
-        render(
-            <TagFilterBar
-                tags={mockTags}
-                selectedTagIds={[1]}
-                onTagToggle={jest.fn()}
-                onClearAll={jest.fn()}
-            />
-        );
+    it("shows the clear button and handles click when tags are selected", () => {
+        mockSearchParams = new URLSearchParams("tags=anime");
 
-        expect(screen.getByText("Limpiar")).toBeInTheDocument();
-    });
+        render(<TagFilterBar tags={mockTags} />);
 
-    it("calls onClearAll when the clear button is clicked", async () => {
-        const onClearAll = jest.fn();
+        const clearBtn = screen.getByRole("button", { name: /limpiar/i });
+        expect(clearBtn).toBeInTheDocument();
 
-        render(
-            <TagFilterBar
-                tags={mockTags}
-                selectedTagIds={[1, 3]}
-                onTagToggle={jest.fn()}
-                onClearAll={onClearAll}
-            />
-        );
+        fireEvent.click(clearBtn);
 
-        await userEvent.click(screen.getByRole("button", { name: /limpiar/i }));
-
-        expect(onClearAll).toHaveBeenCalledTimes(1);
+        expect(mockPush).toHaveBeenCalledTimes(1);
+        expect(mockPush).toHaveBeenCalledWith("/directory/test?page=1");
     });
 });

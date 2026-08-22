@@ -3,6 +3,15 @@ import type { Directory } from "@repo/type-definitions";
 
 import SubDirectoriesList from ".";
 
+jest.mock("next/navigation", () => ({
+    useRouter: () => ({
+        push: jest.fn(),
+        refresh: jest.fn(),
+    }),
+    usePathname: () => "/directory/test",
+    useSearchParams: () => new URLSearchParams(),
+}));
+
 const createDirectory = (overrides: Partial<Directory> = {}): Directory => ({
     id: 1,
     display_name: "Aventura",

@@ -13,7 +13,7 @@ import Stack from "@mui/joy/Stack";
 import RadioGroup from "@mui/joy/RadioGroup";
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Directory } from "@repo/type-definitions";
 import { themeConfig } from "@/lib/theme";
 import { Radio } from "@mui/joy";
@@ -52,48 +52,54 @@ const DrawerList: FC<DrawerListProps> = ({
         setSelectedDocId(mainDirId);
     };
 
-    const fetchDirectories = useCallback(async () => {
-        try {
-            setLoadingState("loading");
-            const response = await fetch(
-                `/api/get-directories/${selectedDocId}`
-            );
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            const data = await response.json();
-            setDirectories(data);
-            setLoadingState("succeeded");
-
-            logData({
-                layer: "internal_http_requests",
-                title: "Fetched directories successfully",
-                type: "info",
-                data: data,
-                timeStamp: true,
-                addSeparatorAfter: true,
-            });
-        } catch (error) {
-            logData({
-                layer: "*",
-                title: "Error fetching directories",
-                type: "error",
-                data: error,
-                timeStamp: true,
-                addSeparatorAfter: true,
-                addSpaceAfter: true,
-                addSeparatorBefore: true,
-                addSpaceBefore: true,
-            });
-            setLoadingState("failed");
-        }
-    }, [selectedDocId]);
-
     useEffect(() => {
         if (!selectedDocId) return;
 
-        fetchDirectories();
-    }, [selectedDocId, fetchDirectories]);
+        let isMounted = true;
+
+        fetch(`/api/get-directories/${selectedDocId}`)
+            .then(async (response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                if (isMounted) {
+                    setDirectories(data);
+                    setLoadingState("succeeded");
+
+                    logData({
+                        layer: "internal_http_requests",
+                        title: "Fetched directories successfully",
+                        type: "info",
+                        data: data,
+                        timeStamp: true,
+                        addSeparatorAfter: true,
+                    });
+                }
+            })
+            .catch((error) => {
+                if (isMounted) {
+                    logData({
+                        layer: "*",
+                        title: "Error fetching directories",
+                        type: "error",
+                        data: error,
+                        timeStamp: true,
+                        addSeparatorAfter: true,
+                        addSpaceAfter: true,
+                        addSeparatorBefore: true,
+                        addSpaceBefore: true,
+                    });
+                    setLoadingState("failed");
+                }
+            });
+
+        return () => {
+            isMounted = false;
+        };
+    }, [selectedDocId]);
 
     const {
         root,
