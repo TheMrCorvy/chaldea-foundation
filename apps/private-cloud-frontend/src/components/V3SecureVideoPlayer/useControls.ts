@@ -296,24 +296,29 @@ const useControls = ({
 
     // Fetch subtitles automatically when the selected subtitle track changes.
     useEffect(() => {
-        if (subtitleIndex === -1) {
-            setVtt(null);
-            return;
-        }
+        if (subtitleIndex === -1) return;
 
         const subtitleSrc = subtitleSrcUrl(subtitleIndex);
-        if (subtitleSrc) {
-            setIsLoading(true);
-            fetch(subtitleSrc)
-                .then((res) => res.text())
-                .then((result) => {
+        if (!subtitleSrc) return;
+
+        let isMounted = true;
+        fetch(subtitleSrc)
+            .then((res) => res.text())
+            .then((result) => {
+                if (isMounted) {
                     setIsLoading(false);
                     setVtt(result);
-                })
-                .catch(() => {
+                }
+            })
+            .catch(() => {
+                if (isMounted) {
                     setIsLoading(false);
-                });
-        }
+                }
+            });
+
+        return () => {
+            isMounted = false;
+        };
     }, [subtitleIndex, subtitleSrcUrl]);
 
     // Subtitle changes don't require a video reload; only the VTT needs to change.
@@ -322,7 +327,11 @@ const useControls = ({
         newValue: string | number | null
     ) => {
         if (newValue !== null) {
-            setSubtitleIndex(Number(newValue) as number);
+            const nextIdx = Number(newValue);
+            if (nextIdx === -1) {
+                setVtt(null);
+            }
+            setSubtitleIndex(nextIdx);
         }
     };
 

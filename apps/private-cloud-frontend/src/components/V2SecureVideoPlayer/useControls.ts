@@ -292,24 +292,29 @@ const useControls = ({
 
     // Fetch subtitles automatically when selected subtitle track changes
     useEffect(() => {
-        if (subtitleIndex === -1) {
-            setVtt(null);
-            return;
-        }
+        if (subtitleIndex === -1) return;
 
         const subtitleSrc = subtitleSrcUrl(subtitleIndex);
-        if (subtitleSrc) {
-            setIsLoading(true);
-            fetch(subtitleSrc)
-                .then((res) => res.text())
-                .then((result) => {
+        if (!subtitleSrc) return;
+
+        let isMounted = true;
+        fetch(subtitleSrc)
+            .then((res) => res.text())
+            .then((result) => {
+                if (isMounted) {
                     setIsLoading(false);
                     setVtt(result);
-                })
-                .catch(() => {
+                }
+            })
+            .catch(() => {
+                if (isMounted) {
                     setIsLoading(false);
-                });
-        }
+                }
+            });
+
+        return () => {
+            isMounted = false;
+        };
     }, [subtitleIndex, subtitleSrcUrl]);
 
     // Handle subtitle selection change
@@ -318,8 +323,12 @@ const useControls = ({
         newValue: string | number | null
     ) => {
         if (newValue !== null) {
+            const nextIdx = Number(newValue);
             const wasPlaying = isPlaying;
-            setSubtitleIndex(Number(newValue) as number);
+            if (nextIdx === -1) {
+                setVtt(null);
+            }
+            setSubtitleIndex(nextIdx);
             setStart(currentTime);
             setIsLoading(true);
             seekShouldPlayRef.current = wasPlaying;
