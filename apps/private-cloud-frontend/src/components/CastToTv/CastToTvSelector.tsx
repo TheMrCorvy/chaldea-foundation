@@ -1,14 +1,12 @@
 "use client";
 
-import { FC, useState, useMemo } from "react";
+import { FC, useState } from "react";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import Stack from "@mui/joy/Stack";
 import { LanguagesInfo } from "@repo/type-definitions";
 import { getLanguageInfo } from "@repo/shared-utils/language-utils";
 import CastToTv from "./index";
-import CastMasterToTv from "./CastMasterToTv";
-import CastPlaylistToTv from "./CastPlaylistToTv";
 import { NasApiRoutes } from "@/utils/routes";
 
 export interface CastToTvSelectorProps {
@@ -85,6 +83,13 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
     const subtitleSrc =
         (subtitleSrcUrl && subtitleSrcUrl(subtitleIndex)) || undefined;
 
+    const activeVideoSrc =
+        mode === "playlist"
+            ? videoSrcPlaylist
+            : mode === "master"
+              ? videoSrcMaster
+              : videoSrcV2;
+
     return (
         <Stack direction="row" spacing={1} alignItems="center">
             <Select
@@ -95,30 +100,16 @@ const CastToTvSelector: FC<CastToTvSelectorProps> = ({
                 }
                 sx={{ minWidth: 180 }}
             >
-                <Option value="legacy">Direct MP4 (V1)</Option>
                 <Option value="playlist">HLS Playlist (V3)</Option>
                 <Option value="master">HLS Master (V3, legacy)</Option>
+                <Option value="legacy">Direct MP4 (V2)</Option>
             </Select>
 
-            {mode === "playlist" ? (
-                <CastPlaylistToTv
-                    videoSrc={videoSrcPlaylist}
-                    subtitleSrc={subtitleSrc}
-                    metadata={metadata}
-                />
-            ) : mode === "master" ? (
-                <CastMasterToTv
-                    videoSrc={videoSrcMaster}
-                    subtitleSrc={subtitleSrc}
-                    metadata={metadata}
-                />
-            ) : (
-                <CastToTv
-                    videoSrc={videoSrcV2}
-                    subtitleSrc={subtitleSrc}
-                    metadata={metadata}
-                />
-            )}
+            <CastToTv
+                videoSrc={activeVideoSrc}
+                subtitleSrc={subtitleSrc}
+                metadata={metadata}
+            />
         </Stack>
     );
 };
