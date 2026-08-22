@@ -3,7 +3,7 @@ import { spawn } from 'child_process';
 import verifyPaths from '../utils/verifyPaths';
 import { logData } from '@salvatore.hakase/log-data';
 
-const SEGMENT_DURATION = 10;
+const DEFAULT_SEGMENT_DURATION = 6;
 
 const v3EpisodeSegmentController = (req: Request, res: Response): void => {
     const parentDirectory = String(req.query.parentDirectory ?? '');
@@ -11,6 +11,8 @@ const v3EpisodeSegmentController = (req: Request, res: Response): void => {
     const fileType = String(req.query.fileType ?? 'mkv');
     const audioIndex = Number(req.query.audioIndex || 0);
     const segmentIndex = Number(req.query.segment ?? 0);
+    const startQuery = req.query.start !== undefined ? Number(req.query.start) : undefined;
+    const durationQuery = req.query.duration !== undefined ? Number(req.query.duration) : undefined;
     const ROOT = process.env.SECURE_BASE_PATH || '';
 
     if (!ROOT) {
@@ -41,17 +43,24 @@ const v3EpisodeSegmentController = (req: Request, res: Response): void => {
         return;
     }
 
-    const startTime = (segmentIndex * SEGMENT_DURATION).toString();
+    const startTime = (
+        startQuery !== undefined && !isNaN(startQuery) ? startQuery : segmentIndex * DEFAULT_SEGMENT_DURATION
+    ).toString();
+    const duration = (
+        durationQuery !== undefined && !isNaN(durationQuery) ? durationQuery : DEFAULT_SEGMENT_DURATION
+    ).toString();
 
     // HLS segments are static and should be cached to optimize performance and prevent repeated disk reads
     res.writeHead(200, {
         'Content-Type': 'video/mp2t',
         'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
         'Cache-Control': 'public, max-age=3600',
     });
 
     // FFmpeg setup: Input seeking (-ss before -i) for ultra-fast response (<100ms)
     // We stream copy (-c copy) the H.264 video and AAC audio into an MPEG-TS container
+    // applying h264_mp4toannexb to convert AVCC NAL units to Annex B format for MPEG-TS
     const ffmpeg = spawn(
         'ffmpeg',
         [
@@ -64,17 +73,21 @@ const v3EpisodeSegmentController = (req: Request, res: Response): void => {
             '-i',
             audioPath,
             '-t',
-            SEGMENT_DURATION.toString(), // Extract exactly 10s chunk
+            duration, // Extract specified chunk duration
             '-map',
             '0:v:0', // Map primary video track
             '-map',
             '1:a:0', // Map pre-extracted AAC audio
-            '-c',
-            'copy', // Stream copy: zero transcoding lag
+            '-c:v',
+            'copy', // Stream copy video
+            '-c:a',
+            'copy', // Stream copy audio
+            '-bsf:v',
+            'h264_mp4toannexb', // Ensure Annex-B start codes for MPEG-TS
             '-avoid_negative_ts',
             'make_zero',
-            '-output_ts_offset',
-            startTime,
+            '-muxdelay',
+            '0',
             '-f',
             'mpegts', // Output container format
             'pipe:1',
@@ -93,6 +106,7 @@ const v3EpisodeSegmentController = (req: Request, res: Response): void => {
             fileName,
             segmentIndex,
             startTime,
+            duration,
             videoPath,
             audioPath,
         },
