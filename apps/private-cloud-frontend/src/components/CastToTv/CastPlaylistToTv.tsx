@@ -4,10 +4,10 @@ import { FC } from "react";
 import IconButton from "@mui/joy/IconButton";
 import CastIcon from "@mui/icons-material/Cast";
 import Tooltip from "@mui/joy/Tooltip";
-import { useCast, UseCastProps } from "./useCast";
+import { useCastPlaylist, UseCastPlaylistProps } from "./useCastPlaylist";
 
-const CastPlaylistToTv: FC<UseCastProps> = (props) => {
-    const { castReady, casting, error, handleCast } = useCast(props);
+const CastPlaylistToTv: FC<UseCastPlaylistProps> = (props) => {
+    const { castReady, casting, error, handleCast } = useCastPlaylist(props);
 
     return (
         <>

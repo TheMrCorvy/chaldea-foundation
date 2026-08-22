@@ -133,6 +133,10 @@ const CastToTv: FC<CastToTvProps> = ({ videoSrc, subtitleSrc, metadata }) => {
     useEffect(() => {
         const win = window as unknown as CastWindow;
 
+        if (!win.cast) {
+            throw new Error("Chromecast Cast API not loaded");
+        }
+
         const initCast = () => {
             if (!win.cast || !win.chrome) return;
             const context = win.cast.framework.CastContext.getInstance();
